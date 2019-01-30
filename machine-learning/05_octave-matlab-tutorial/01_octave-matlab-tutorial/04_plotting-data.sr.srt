@@ -1,0 +1,1048 @@
+1
+00:00:00,180 --> 00:00:02,402
+Dok razvijate algoritme učenja,
+
+2
+00:00:02,402 --> 00:00:04,066
+veoma često par jednostavnih grafikona
+
+3
+00:00:04,066 --> 00:00:05,279
+mogu da vam daju bolju
+
+4
+00:00:05,279 --> 00:00:06,593
+sliku onoga što vaš algoritam
+
+5
+00:00:06,593 --> 00:00:08,423
+radi i proverava
+
+6
+00:00:08,423 --> 00:00:09,503
+da li sve ide kako treba
+
+7
+00:00:09,510 --> 00:00:12,405
+i da li algoritam radi ono čemu je namenjen.
+
+8
+00:00:12,410 --> 00:00:13,924
+Na primer, u nekom od ranijih
+
+9
+00:00:13,924 --> 00:00:15,244
+videa sam govorio o tome kako
+
+10
+00:00:15,244 --> 00:00:16,826
+crtanje funkcije greške J(teta)
+
+11
+00:00:16,826 --> 00:00:18,433
+može da vam pomogne
+
+12
+00:00:18,433 --> 00:00:21,383
+da se uverite u to da gradijent opadanja konvergira.
+
+13
+00:00:21,383 --> 00:00:23,084
+Često crtanje podataka
+
+14
+00:00:23,084 --> 00:00:24,795
+ili svih izlaza algoritma učenja
+
+15
+00:00:24,810 --> 00:00:26,422
+će takođe da vam da ideje
+
+16
+00:00:26,422 --> 00:00:29,391
+kako da poboljšate vaš algoritam učenja.
+
+17
+00:00:29,391 --> 00:00:31,312
+Srećom, Oktav poseduje veoma
+
+18
+00:00:31,330 --> 00:00:33,045
+jednostavne alate koji generišu mnoštvo
+
+19
+00:00:33,070 --> 00:00:34,534
+različitih grafikona i dok
+
+20
+00:00:34,534 --> 00:00:36,518
+koristim algoritme učenja, uviđam
+
+21
+00:00:36,518 --> 00:00:38,082
+da je crtanje podataka, crtanje
+
+22
+00:00:38,082 --> 00:00:40,175
+algoritma učenja i tako dalje,
+
+23
+00:00:40,175 --> 00:00:42,057
+često važan
+
+24
+00:00:42,060 --> 00:00:43,165
+deo u procesu
+
+25
+00:00:43,165 --> 00:00:45,937
+shvatanja kako da se algoritam
+
+26
+00:00:45,980 --> 00:00:47,199
+poboljša, a u ovome videu
+
+27
+00:00:47,199 --> 00:00:48,482
+bih želeo da vam pokažem neke
+
+28
+00:00:48,482 --> 00:00:52,773
+od tih Oktav alata za crtanje i vizualizaciju vaših podataka.
+
+29
+00:00:53,700 --> 00:00:55,301
+Ovo je moj Oktav prozor.
+
+30
+00:00:55,301 --> 00:00:57,471
+Napravićemo na brzinu neke podatke
+
+31
+00:00:57,471 --> 00:00:58,646
+za crtanje.
+
+32
+00:00:58,646 --> 00:00:59,724
+Dakle, postaviću t
+
+33
+00:00:59,740 --> 00:01:02,181
+da bude, znate, ovaj niz brojeva.
+
+34
+00:01:02,210 --> 00:01:03,828
+Ovo je t, skup
+
+35
+00:01:03,828 --> 00:01:06,685
+brojeva od 0 do 0.98.
+
+36
+00:01:06,700 --> 00:01:09,048
+Postavimo i y1 da je sinus
+
+37
+00:01:09,060 --> 00:01:11,340
+od 2 pi 4 t i
+
+38
+00:01:12,540 --> 00:01:16,102
+ako želim da iscrtam sinusnu funkciju, veoma je lako.
+
+39
+00:01:16,102 --> 00:01:17,918
+Samo ukucam plot(t, y1)
+
+40
+00:01:17,918 --> 00:01:20,304
+i ukucam enter.
+
+41
+00:01:20,320 --> 00:01:22,233
+I pojavljuje se ovaj grafikon
+
+42
+00:01:22,233 --> 00:01:24,270
+gde je vodoravna osa
+
+43
+00:01:24,270 --> 00:01:25,515
+promenjiva t a uspravna
+
+44
+00:01:25,515 --> 00:01:26,946
+je y1, a to
+
+45
+00:01:26,960 --> 00:01:30,577
+je sinus funkcija koju ste videli i koju smo proračunali.
+
+46
+00:01:30,990 --> 00:01:32,281
+Postavimo y2 da bude
+
+47
+00:01:32,281 --> 00:01:34,401
+jednako kosinus
+
+48
+00:01:34,410 --> 00:01:38,735
+od 2 pi 4 t, ovako.
+
+49
+00:01:38,750 --> 00:01:41,403
+I kada iscrtam
+
+50
+00:01:41,403 --> 00:01:43,835
+t, y2, ono što će Oktav
+
+51
+00:01:43,835 --> 00:01:45,045
+da uradi jeste da će da uzme
+
+52
+00:01:45,060 --> 00:01:46,988
+grafikon sinus funkcije i
+
+53
+00:01:46,988 --> 00:01:48,681
+zameniće je kosinus
+
+54
+00:01:48,690 --> 00:01:51,322
+funkcijom i sada imamo kosinus funkciju.
+
+55
+00:01:51,330 --> 00:01:53,006
+A sada, šta ako
+
+56
+00:01:53,010 --> 00:01:54,581
+hoću da imam obe funkcije,
+
+57
+00:01:54,610 --> 00:01:56,981
+sinus i kosinus grafikone zajedno iscrtane?
+
+58
+00:01:56,990 --> 00:01:59,702
+Ono što ću da uradim jeste
+
+59
+00:01:59,702 --> 00:02:01,164
+da ću da ukucam plot(t, y1).
+
+60
+00:02:01,164 --> 00:02:03,332
+Ovo je moja sinus funkcija, a onda
+
+61
+00:02:03,332 --> 00:02:06,958
+ću da koristim funkciju hold on.
+
+62
+00:02:06,958 --> 00:02:08,908
+A ono što hold on funkcija radi jeste
+
+63
+00:02:08,920 --> 00:02:10,247
+da kaže oktavu da
+
+64
+00:02:10,270 --> 00:02:11,490
+iscrta nove grafikone preko
+
+65
+00:02:11,490 --> 00:02:13,772
+staroga i sada ću da
+
+66
+00:02:13,772 --> 00:02:15,249
+ukucam plot(t, y2).
+
+67
+00:02:15,249 --> 00:02:19,812
+Iscrtaću kosinus funkciju drugačijom bojom.
+
+68
+00:02:19,850 --> 00:02:22,166
+Dakle, staviću r
+
+69
+00:02:22,180 --> 00:02:24,093
+tamo, unutar apostrofa,
+
+70
+00:02:24,093 --> 00:02:25,339
+i umesto izmene
+
+71
+00:02:25,339 --> 00:02:26,615
+trenutnog grafikona, iscrtaću
+
+72
+00:02:26,620 --> 00:02:28,499
+kosinus funkciju preko a
+
+73
+00:02:28,499 --> 00:02:32,915
+r označava da želim da koristim crvenu boju.
+
+74
+00:02:32,915 --> 00:02:35,166
+Evo dodatnih komandi,
+
+75
+00:02:35,166 --> 00:02:39,157
+xlabel('time,'), da bismo imenovali X ili vodoravnu osu.
+
+76
+00:02:39,160 --> 00:02:41,451
+A ylabel(value)
+
+77
+00:02:41,451 --> 00:02:44,688
+da bismo imenovali uspravnu osu kao vrednost.
+
+78
+00:02:44,688 --> 00:02:47,032
+A takođe mogu
+
+79
+00:02:54,532 --> 00:02:57,616
+da imenujem dve linije
+
+80
+00:02:57,620 --> 00:03:01,514
+ovom komandom: legend('sin', 'cosin')
+
+81
+00:03:01,514 --> 00:03:02,860
+a ovo će da stavi ovu
+
+82
+00:03:02,890 --> 00:03:04,125
+legendu u gornji
+
+83
+00:03:04,125 --> 00:03:05,122
+desni ćošak, prikazujući šta znače
+
+84
+00:03:05,122 --> 00:03:08,285
+ove dve linije, i konačno title('my_plots')
+
+85
+00:03:08,290 --> 00:03:12,753
+a to je naziv ovoga grafikona.
+
+86
+00:03:12,753 --> 00:03:13,835
+I poslednje, ako želite da sačuvate
+
+87
+00:03:13,835 --> 00:03:18,197
+ovaj grafikon, ukucajte print -dpng
+
+88
+00:03:18,197 --> 00:03:20,128
+'my_plot'
+
+89
+00:03:20,128 --> 00:03:21,505
+.png
+
+90
+00:03:21,505 --> 00:03:23,292
+Dakle, png jegrafički
+
+91
+00:03:23,292 --> 00:03:25,170
+format fajla, a ako ovo
+
+92
+00:03:25,170 --> 00:03:27,612
+uradite, omogućiće vam da ovo sačuvate kao fajl.
+
+93
+00:03:27,612 --> 00:03:28,902
+Ako to uradim,
+
+94
+00:03:28,920 --> 00:03:31,287
+u stvari ću da promenim direktorijum u,
+
+95
+00:03:31,320 --> 00:03:35,114
+da vidimo, ovako,
+
+96
+00:03:35,130 --> 00:03:39,180
+a onda ću ovo da odštampam.
+
+97
+00:03:39,230 --> 00:03:41,692
+Dakle, potrajaće malo,
+
+98
+00:03:41,700 --> 00:03:43,869
+u zavisnosti od toga kako
+
+99
+00:03:43,890 --> 00:03:46,193
+je postavljena konfiguracija Oktav programa,
+
+100
+00:03:46,230 --> 00:03:48,891
+može da potraje par sekundi, ali promena
+
+101
+00:03:48,900 --> 00:03:50,730
+direktorijuma na moj desktop i Oktav - u
+
+102
+00:03:50,730 --> 00:03:53,943
+sada treba par sekundi da ovo sačuva.
+
+103
+00:03:54,750 --> 00:03:57,635
+Ako odem na moj desktop, hajde da sklonim ove prozore.
+
+104
+00:03:57,670 --> 00:03:59,358
+Ovo je moj my_plot.png
+
+105
+00:03:59,370 --> 00:04:00,720
+koje je Oktav sačuvao, a
+
+106
+00:04:00,740 --> 00:04:03,481
+na njemu je grafikon sačuvan kao png fajl.
+
+107
+00:04:03,481 --> 00:04:05,530
+U Oktav programu fajlove možete da čuvate u hiljadu drugih formata.
+
+108
+00:04:05,530 --> 00:04:07,468
+Dakle, ukucate help plot
+
+109
+00:04:07,468 --> 00:04:09,497
+ako želite da vidite
+
+110
+00:04:09,510 --> 00:04:11,512
+ostale formate fajlova, osim
+
+111
+00:04:11,530 --> 00:04:13,377
+png u kom ste sačuvali
+
+112
+00:04:13,377 --> 00:04:15,149
+prethodne grafikone.
+
+113
+00:04:15,149 --> 00:04:16,471
+I na kraju, ako želite da
+
+114
+00:04:16,471 --> 00:04:18,507
+zatvorite grafikon,
+
+115
+00:04:18,540 --> 00:04:23,867
+komanda close će da ga zatvori.
+
+116
+00:04:23,867 --> 00:04:24,963
+Ovo je grafikon, ukucao sam
+
+117
+00:04:24,963 --> 00:04:26,628
+close i taj grafikon
+
+118
+00:04:26,628 --> 00:04:30,153
+je nestao sa desktopa.
+
+119
+00:04:30,640 --> 00:04:33,372
+Oktav vam takođe omogućava da označite grafikone i brojeve.
+
+120
+00:04:33,372 --> 00:04:36,935
+Kucate figure(1); plot(t, y1)
+
+121
+00:04:36,935 --> 00:04:39,582
+To će da pokrene
+
+122
+00:04:39,670 --> 00:04:41,959
+prvi grafikon i iscrtaće t, y1.
+
+123
+00:04:41,970 --> 00:04:45,075
+Nakon toga, ako želite još jedan grafikon, označite ga drugim brojem.
+
+124
+00:04:45,075 --> 00:04:47,765
+Dakle, figure(2); plot(t, y2),
+
+125
+00:04:47,780 --> 00:04:49,924
+ovako, i sada
+
+126
+00:04:49,924 --> 00:04:53,084
+na mom desktopu imam dva grafikona.
+
+127
+00:04:53,084 --> 00:04:54,625
+Dakle, figure1 i figure2
+
+128
+00:04:54,625 --> 00:04:55,874
+tako da jedan prikazuje sinus
+
+129
+00:04:55,874 --> 00:04:59,169
+funkciju, drugi kosinus funkciju.
+
+130
+00:04:59,170 --> 00:05:00,498
+Evo još jedne pogodne komande koju
+
+131
+00:05:00,498 --> 00:05:02,825
+često koristim, a to je subplot komanda.
+
+132
+00:05:02,825 --> 00:05:05,401
+Tako, ukucaćemo subplot(1, 2, 1).
+
+133
+00:05:05,401 --> 00:05:07,958
+Ono što radi je da podeli
+
+134
+00:05:07,958 --> 00:05:11,200
+grafikon u mrežu
+
+135
+00:05:11,780 --> 00:05:13,760
+sa 1 vrstom i 2 kolone a to označavaju
+
+136
+00:05:13,820 --> 00:05:16,010
+prva dva parametra, a
+
+137
+00:05:16,010 --> 00:05:17,607
+kreće od pristupa
+
+138
+00:05:17,620 --> 00:05:19,335
+prvom elementu. To označava
+
+139
+00:05:19,340 --> 00:05:21,714
+krajnji parametar 1, u redu?
+
+140
+00:05:21,714 --> 00:05:23,568
+Podeli moj grafikon u
+
+141
+00:05:23,568 --> 00:05:24,913
+dve kolone, a na početku
+
+142
+00:05:24,913 --> 00:05:26,585
+želim da pristupim
+
+143
+00:05:26,585 --> 00:05:27,948
+prvom elementu.
+
+144
+00:05:27,970 --> 00:05:30,435
+Pa tako, ako ovo ukucam
+
+145
+00:05:30,435 --> 00:05:32,722
+rezultat toga je grafikon na levoj strani.
+
+146
+00:05:32,760 --> 00:05:35,291
+A ako iscrtam t, y1,
+
+147
+00:05:35,350 --> 00:05:37,682
+to će da popuni
+
+148
+00:05:37,682 --> 00:05:40,462
+prvi element.
+
+149
+00:05:40,462 --> 00:05:42,565
+A ako sada ukucam subplot(1, 2, 2)
+
+150
+00:05:42,565 --> 00:05:44,456
+počeću da pristupam
+
+151
+00:05:44,456 --> 00:05:48,724
+drugom elementu i onda kucam plot(t, y2).
+
+152
+00:05:49,270 --> 00:05:51,323
+Pa, ovo će da iscrta y2 u
+
+153
+00:05:51,323 --> 00:05:54,875
+desni deo, odnosno, u drugi element.
+
+154
+00:05:54,910 --> 00:05:56,114
+I poslednja komanda, takođe
+
+155
+00:05:56,114 --> 00:05:58,165
+možete da promenite skalu osa,
+
+156
+00:05:58,165 --> 00:06:00,308
+menjamo osu na 1.51
+
+157
+00:06:00,330 --> 00:06:02,892
+-1 -1 a ovo nam
+
+158
+00:06:02,892 --> 00:06:05,071
+postavlja opseg x vrednosti
+
+159
+00:06:05,071 --> 00:06:07,448
+i opseg y vrednosti za grafikon
+
+160
+00:06:07,448 --> 00:06:09,874
+na desnoj strani.
+
+161
+00:06:09,890 --> 00:06:12,381
+Konkretno, postavlja vodoravne
+
+162
+00:06:12,381 --> 00:06:13,668
+vrednosti na grafikonu
+
+163
+00:06:13,670 --> 00:06:14,856
+na desnoj strani u opseg brojeva od 0.5
+
+164
+00:06:14,856 --> 00:06:16,334
+do 1, a uspravne vrednosti
+
+165
+00:06:16,340 --> 00:06:19,572
+postavlja u opseg vrednosti od -1 do 1.
+
+166
+00:06:19,572 --> 00:06:21,736
+Ne morate sve ove komande da pamtite.
+
+167
+00:06:21,736 --> 00:06:23,178
+Ako ikada budete trebali da
+
+168
+00:06:23,178 --> 00:06:24,773
+promenite ose ili da
+
+169
+00:06:24,780 --> 00:06:25,703
+znate šta je ovo, postoji
+
+170
+00:06:25,703 --> 00:06:26,628
+axis komanda pa tako
+
+171
+00:06:26,628 --> 00:06:28,364
+možete da dobijete detalje
+
+172
+00:06:28,364 --> 00:06:31,590
+koristeći Oktav help komandu.
+
+173
+00:06:31,600 --> 00:06:32,861
+Konačno, samo još par
+
+174
+00:06:32,861 --> 00:06:35,449
+komandi, CLF čisti
+
+175
+00:06:35,450 --> 00:06:38,362
+grafikon a evo još jednog korisnog trika.
+
+176
+00:06:38,362 --> 00:06:39,772
+Recimo da je A jednako
+
+177
+00:06:39,772 --> 00:06:42,076
+jednoj 5x5
+
+178
+00:06:42,076 --> 00:06:43,375
+magičnoj matrici. Dakle, A
+
+179
+00:06:43,380 --> 00:06:45,290
+je sada 5x5
+
+180
+00:06:45,310 --> 00:06:47,581
+matrica i postoji pogodan
+
+181
+00:06:47,581 --> 00:06:49,341
+trik koji ponekada koristim
+
+182
+00:06:49,350 --> 00:06:51,582
+da bih predstavio matricu, a to je,
+
+183
+00:06:51,582 --> 00:06:54,792
+mogu da koristim imagesc(A)
+
+184
+00:06:54,800 --> 00:06:56,362
+a ovo će da
+
+185
+00:06:56,370 --> 00:06:58,056
+iscrta jednu 5x5
+
+186
+00:06:58,056 --> 00:07:03,925
+matricu, 5x5 mrežu boja.
+
+187
+00:07:03,925 --> 00:07:05,739
+A različite boje odgovaraju
+
+188
+00:07:05,739 --> 00:07:09,011
+različitim vrednostima elemenata matrice A.
+
+189
+00:07:09,060 --> 00:07:13,262
+Konkretno, mogu da koristim colorbar.
+
+190
+00:07:13,630 --> 00:07:14,903
+Koristiću malo
+
+191
+00:07:14,903 --> 00:07:16,715
+komplikovaniju komandu, imagesc(A)
+
+192
+00:07:16,715 --> 00:07:19,608
+colorbar
+
+193
+00:07:19,608 --> 00:07:22,454
+colormap grey.
+
+194
+00:07:22,454 --> 00:07:24,757
+Ovo u stvari pokreće tri komande odjednom.
+
+195
+00:07:24,760 --> 00:07:26,286
+Pokrećem imagesc, onda pokrećem
+
+196
+00:07:26,286 --> 00:07:28,943
+colorbar i tada colormap grey.
+
+197
+00:07:28,943 --> 00:07:30,142
+Ono što dobijam jeste da se
+
+198
+00:07:30,160 --> 00:07:31,355
+postavlja karta boja, dakle
+
+199
+00:07:31,355 --> 00:07:32,749
+siva karta boja, a na desnoj strani
+
+200
+00:07:32,749 --> 00:07:35,333
+takođe postavlja paletu boja.
+
+201
+00:07:35,360 --> 00:07:37,525
+Dakle, ova paleta boja
+
+202
+00:07:37,550 --> 00:07:40,701
+pokazuje čemu odgovaraju različite nijanse boja.
+
+203
+00:07:40,720 --> 00:07:42,704
+Konkretno, gornji levo
+
+204
+00:07:42,704 --> 00:07:44,494
+element matrice A
+
+205
+00:07:44,494 --> 00:07:46,358
+je 17, a to odgovara
+
+206
+00:07:46,358 --> 00:07:49,297
+nekoj vrsti nijansi sive boje mente,
+
+207
+00:07:49,297 --> 00:07:52,012
+dok nasuprot tome, drugi
+
+208
+00:07:52,012 --> 00:07:53,210
+element matrice A, recimo
+
+209
+00:07:53,280 --> 00:07:55,640
+1 2 element matrice A je 24.
+
+210
+00:07:55,640 --> 00:07:57,716
+U redu, dakle A(1, 2) je 24.
+
+211
+00:07:57,716 --> 00:07:59,683
+Dakle, to odgovara
+
+212
+00:07:59,690 --> 00:08:01,343
+ovome kvadratu ovde, a to je
+
+213
+00:08:01,360 --> 00:08:03,677
+najbliže nijansi bele.
+
+214
+00:08:03,677 --> 00:08:05,640
+A male vrednosti,
+
+215
+00:08:05,690 --> 00:08:08,657
+recimo A, šta je to?
+
+216
+00:08:08,657 --> 00:08:12,260
+A(4, 5), znate, ima vrednost
+
+217
+00:08:12,300 --> 00:08:14,346
+ovo ovde 3, to odgovara,
+
+218
+00:08:14,360 --> 00:08:15,548
+možete videti na paleti boja
+
+219
+00:08:15,548 --> 00:08:16,618
+da to odgovara
+
+220
+00:08:16,618 --> 00:08:19,499
+mnogo tamnijoj nijansi u ovoj slici.
+
+221
+00:08:19,499 --> 00:08:21,141
+Dakle, evo još jednog primera,
+
+222
+00:08:21,141 --> 00:08:23,228
+mogu da iscrtam veći,
+
+223
+00:08:23,230 --> 00:08:24,768
+evo magične matrice od 15
+
+224
+00:08:24,770 --> 00:08:26,029
+koja vam daje 15x15
+
+225
+00:08:26,029 --> 00:08:27,675
+magični kvadrat a to mi
+
+226
+00:08:27,680 --> 00:08:29,504
+daje crtež moga
+
+227
+00:08:29,504 --> 00:08:33,675
+15x15 magičnog kvadrata.
+
+228
+00:08:33,700 --> 00:08:35,225
+I na kraju, da zaključimo
+
+229
+00:08:35,225 --> 00:08:37,075
+ovaj video, ono što ste
+
+230
+00:08:37,075 --> 00:08:38,318
+videli da sam ovde uradio jeste
+
+231
+00:08:38,318 --> 00:08:41,917
+da sam zarezom razdvojio pozive funkcija.
+
+232
+00:08:41,940 --> 00:08:43,195
+Evo kako sam to u stvari uradio.
+
+233
+00:08:43,210 --> 00:08:44,638
+Ako ukucam a = 1,
+
+234
+00:08:44,690 --> 00:08:46,613
+b = 2, c = 3,
+
+235
+00:08:46,613 --> 00:08:48,620
+i udarim enter, to
+
+236
+00:08:48,620 --> 00:08:50,628
+je u stvari pokretanje
+
+237
+00:08:50,628 --> 00:08:52,039
+tri komande u isto vreme.
+
+238
+00:08:52,040 --> 00:08:53,490
+Ili, u stvari, pokretanje tri
+
+239
+00:08:53,490 --> 00:08:55,849
+komande jedne za drugom,
+
+240
+00:08:55,849 --> 00:08:57,521
+a to će da odštampa sva tri rezultata.
+
+241
+00:08:57,521 --> 00:08:58,417
+Ovo mnogo liči na
+
+242
+00:08:58,417 --> 00:09:00,489
+a = 1; b = 2;
+
+243
+00:09:00,489 --> 00:09:01,755
+c = 3, sa razlikom
+
+244
+00:09:01,755 --> 00:09:03,532
+da, ako koristim tačku zarez umesto
+
+245
+00:09:03,540 --> 00:09:05,854
+zareza, neće da se odštampa ništa.
+
+246
+00:09:05,854 --> 00:09:07,195
+Dakle, ovo, znate,
+
+247
+00:09:07,210 --> 00:09:08,865
+ovo ovde zovemo povezivanje
+
+248
+00:09:08,870 --> 00:09:12,185
+komandi zarezom ili povezivanje 
+poziva funkcija zarezom.
+
+249
+00:09:12,240 --> 00:09:13,755
+A to je samo još jedan
+
+250
+00:09:13,755 --> 00:09:15,520
+pogodan način u Oktav programu
+
+251
+00:09:15,520 --> 00:09:17,778
+da stavite više komandi kao što su
+
+252
+00:09:17,778 --> 00:09:19,358
+imagesc, colorbar, colormap,
+
+253
+00:09:19,360 --> 00:09:22,919
+da stavite više komandi u istu liniju.
+
+254
+00:09:22,930 --> 00:09:24,104
+Dakle, to je to.
+
+255
+00:09:24,104 --> 00:09:25,281
+Sada znate kako da iscrtate
+
+256
+00:09:25,281 --> 00:09:27,504
+različite grafikone u Oktavu a
+
+257
+00:09:27,504 --> 00:09:29,270
+u sledećem videu
+
+258
+00:09:29,280 --> 00:09:30,430
+sledeći važan deo o čemu
+
+259
+00:09:30,460 --> 00:09:31,985
+bih želeo da vam pričam je
+
+260
+00:09:31,985 --> 00:09:33,622
+kako da kontrolišete iskaze kao što su if,
+
+261
+00:09:33,630 --> 00:09:35,294
+while i for iskazi u
+
+262
+00:09:35,294 --> 00:09:39,426
+oktavu i kako da definišete i koristite funkcije.

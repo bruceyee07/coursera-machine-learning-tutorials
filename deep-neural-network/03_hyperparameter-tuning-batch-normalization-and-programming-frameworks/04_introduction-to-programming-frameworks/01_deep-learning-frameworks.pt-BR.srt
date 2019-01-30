@@ -1,0 +1,329 @@
+1
+00:00:00,000 --> 00:00:03,180
+Você aprendeu a implementar algoritmos de aprendizagem profunda
+
+2
+00:00:03,180 --> 00:00:06,486
+mais ou menos a partir do zero, usando Python e NumPY.
+
+3
+00:00:06,486 --> 00:00:08,970
+E fico feliz por você ter feito isso, porque eu quero
+
+4
+00:00:08,970 --> 00:00:11,960
+que você entenda o que esses algoritmos
+de aprendizagem profunda realmente fazem.
+
+5
+00:00:11,960 --> 00:00:14,970
+Mas você percebe que quando 
+implementa modelos mais complexos,
+
+6
+00:00:14,970 --> 00:00:18,660
+como redes neurais convolucionais 
+ou redes neurais recorrentes,
+
+7
+00:00:18,660 --> 00:00:23,640
+ou que quando você começa a implementar
+modelos muito grandes, isso se torna cada vez menos prático,
+
+8
+00:00:23,640 --> 00:00:28,300
+pelo menos para a maioria das pessoas,
+não é prático implementar tudo você mesmo, do zero.
+
+9
+00:00:28,300 --> 00:00:29,535
+Felizmente, temos agora
+
+10
+00:00:29,535 --> 00:00:34,810
+muitas estruturas boas de programas de aprendizagem
+profunda que podem lhe ajudar a implementar estes modelos.
+
+11
+00:00:34,810 --> 00:00:36,510
+Para fazer uma analogia,
+
+12
+00:00:36,510 --> 00:00:38,970
+creio que você saiba como fazer
+
+13
+00:00:38,970 --> 00:00:43,157
+uma multiplicação de matrizes, 
+e você deve ser capaz de implementar códigos
+
+14
+00:00:43,157 --> 00:00:45,155
+para multiplicar duas matrizes, você mesmo.
+
+15
+00:00:45,155 --> 00:00:47,625
+Mas quando você constrói aplicativos muito grandes,
+
+16
+00:00:47,625 --> 00:00:51,930
+você provavelmente não vai querer
+implementar sua própria função de multiplicação de matriz,
+
+17
+00:00:51,930 --> 00:00:53,475
+mas ao invés disso, você vai querer recorrer
+
+18
+00:00:53,475 --> 00:00:57,610
+a uma biblioteca de álgebra linear numérica,
+a qual poderia fazê-lo mais eficientemente para você.
+
+19
+00:00:57,610 --> 00:01:01,755
+Mas ainda é importante que você saiba
+como a multiplicação de duas matrizes funciona.
+
+20
+00:01:01,755 --> 00:01:05,520
+Então, eu acho que a aprendizagem
+profunda amadureceu ao ponto de estar realmente mais
+
+21
+00:01:05,520 --> 00:01:07,590
+prática, você será mais eficiente
+
+22
+00:01:07,590 --> 00:01:10,250
+fazendo algumas coisas com algumas
+das estruturas da aprendizagem profunda.
+
+23
+00:01:10,250 --> 00:01:13,110
+Então, vamos dar uma olhada nisso.
+
+24
+00:01:13,110 --> 00:01:16,620
+Hoje, há muitas estruturas de aprendizagem profunda
+
+25
+00:01:16,620 --> 00:01:19,527
+que fazem com que seja 
+mais fácil implementar redes neurais,
+
+26
+00:01:19,527 --> 00:01:22,185
+e aqui estão algumas das principais.
+
+27
+00:01:22,185 --> 00:01:27,420
+Cada uma dessas estruturas tem
+uma comunidade dedicada de usuários e desenvolvedores
+
+28
+00:01:27,420 --> 00:01:29,520
+e eu acho que cada uma dessas estruturas
+
+29
+00:01:29,520 --> 00:01:33,715
+é uma escolha confiável 
+para alguns subconjuntos de aplicativos.
+
+30
+00:01:33,715 --> 00:01:36,310
+Há muitas pessoas escrevendo artigos, comparando
+
+31
+00:01:36,310 --> 00:01:41,374
+essas estruturas de aprendizagem profunda 
+e o quão bem elas variam.
+
+32
+00:01:41,374 --> 00:01:46,315
+E por conta dessas estruturas estarem
+frequentemente evoluindo e ficando melhores a cada mês,
+
+33
+00:01:46,315 --> 00:01:49,704
+vou deixar para vocês
+fazerem algumas pesquisas na internet,
+
+34
+00:01:49,704 --> 00:01:54,310
+se vocês quiserem ver os pros e contras 
+de algumas dessas estruturas.
+
+35
+00:01:54,310 --> 00:01:59,800
+Mas eu acho que muitas dessas estruturas têm
+evoluído e melhorado muito rápido.
+
+36
+00:01:59,800 --> 00:02:04,760
+Então, ao invés de recomendar
+qualquer uma dessas estruturas,
+
+37
+00:02:04,760 --> 00:02:10,150
+eu vou compartilhar com vocês o critério
+que eu aconselharia que vocês usassem para escolher estruturas.
+
+38
+00:02:10,150 --> 00:02:13,120
+Um critério importante é a facilidade de programar,
+
+39
+00:02:13,120 --> 00:02:15,640
+e isso significa tanto desenvolver a rede neural
+
+40
+00:02:15,640 --> 00:02:19,720
+e iterar nela (testar),
+quanto instalá-la para produção,
+
+41
+00:02:19,720 --> 00:02:25,435
+para uso real, por milhares ou milhões
+ou talvez, centenas de milhões de usuários,
+
+42
+00:02:25,435 --> 00:02:27,540
+dependendo do que você está tentando fazer.
+
+43
+00:02:27,540 --> 00:02:30,480
+Um segundo critério importante
+é a velocidade de execução,
+
+44
+00:02:30,480 --> 00:02:32,410
+especialmente, quando treinando
+conjuntos de dados grandes,
+
+45
+00:02:32,410 --> 00:02:35,210
+algumas estruturas vão lhe permitir 
+executar e treinar
+
+46
+00:02:35,210 --> 00:02:38,780
+sua rede neural 
+mais eficientemente que outras.
+
+47
+00:02:38,780 --> 00:02:42,640
+E então, um critério sobre o qual as pessoas 
+não falam muito, mas que eu acho
+
+48
+00:02:42,640 --> 00:02:46,690
+importante, é se a estrutura é 
+realmente aberta, ou não.
+
+49
+00:02:46,690 --> 00:02:49,395
+E para que uma estrutura
+seja realmente aberta,
+
+50
+00:02:49,395 --> 00:02:54,605
+ela precisa não apenas ter fonte aberto,
+mas acho que também precisa de uma boa administração.
+
+51
+00:02:54,605 --> 00:02:58,930
+Infelizmente, na indústria de programas de computadores,
+algumas empresas têm um histórico
+
+52
+00:02:58,930 --> 00:03:04,120
+de programas de fonte aberto,
+mas mantendo controle único da própria empresa sobre o produto.
+
+53
+00:03:04,120 --> 00:03:06,240
+Então, após alguns anos,
+
+54
+00:03:06,240 --> 00:03:08,343
+depois de as pessoas começaram a usar o programa,
+
+55
+00:03:08,343 --> 00:03:14,095
+algumas empresas têm um histórico
+de limitar gradualmente aquilo que era código aberto.
+
+56
+00:03:14,095 --> 00:03:19,300
+Ou talvez, movendo funcionalidades
+para os seus serviços de nuvem proprietários.
+
+57
+00:03:19,300 --> 00:03:22,120
+Então, uma coisa que enfatizo é o quanto
+
+58
+00:03:22,120 --> 00:03:25,480
+você confia 
+que a estrutura permanecerá
+
+59
+00:03:25,480 --> 00:03:31,960
+de fonte aberto por um longo tempo,
+ao invés de estar simplesmente sobre o controle de uma única empresa,
+
+60
+00:03:31,960 --> 00:03:35,080
+a qual por qualquer que seja a razão, pode decidir limitá-lo
+
+61
+00:03:35,080 --> 00:03:40,415
+no futuro, mesmo que o programa 
+esteja atualmente lançado sob código aberto.
+
+62
+00:03:40,415 --> 00:03:44,470
+Mas ao menos, a curto prazo, 
+dependendo das suas preferências de linguagem,
+
+63
+00:03:44,470 --> 00:03:49,005
+se você prefere Python ou Java ou C++ ou outra coisa,
+
+64
+00:03:49,005 --> 00:03:51,970
+e dependendo do aplicativo no 
+qual você está trabalhando,
+
+65
+00:03:51,970 --> 00:03:54,565
+se é de visão computacional ou 
+de processamento de linguagem natural,
+
+66
+00:03:54,565 --> 00:03:57,880
+ou de publicidade online ou outra coisa,
+
+67
+00:03:57,880 --> 00:04:01,940
+eu acho que muitas dessas 
+estruturas seriam uma boa alternativa.
+
+68
+00:04:01,940 --> 00:04:05,500
+Então, dito isso sobre estruturas de programação
+
+69
+00:04:05,500 --> 00:04:09,365
+fornecendo um nível alto de abstração,
+ao invés de apenas uma biblioteca de álgebra linear numérica,
+
+70
+00:04:09,365 --> 00:04:11,740
+qualquer uma dessas estruturas de programa pode fazer
+
+71
+00:04:11,740 --> 00:04:15,000
+com que você seja mais eficiente,
+quando você for desenvolver aplicativos de aprendizagem.
+[Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage]

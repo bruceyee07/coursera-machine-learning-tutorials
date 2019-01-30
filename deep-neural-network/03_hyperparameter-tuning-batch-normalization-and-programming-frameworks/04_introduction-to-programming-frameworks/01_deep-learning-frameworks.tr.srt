@@ -1,0 +1,283 @@
+1
+00:00:00,000 --> 00:00:03,180
+Derin öğrenme algoritmalarını sıfırdan uygulamayı öğrendiniz
+
+2
+00:00:03,180 --> 00:00:06,486
+çok ya da az Python ve NumPY kullanarak
+
+3
+00:00:06,486 --> 00:00:08,970
+Ve ben bunu yapmış olmanıza sevindim çünkü ben
+
+4
+00:00:08,970 --> 00:00:11,960
+derin öğrenme algoritmalarının gerçekte ne yaptığını anlamanızı istemiştim.
+
+5
+00:00:11,960 --> 00:00:14,970
+Fakat daha karmaşık modeller uygulamadığınız sürece,
+
+6
+00:00:14,970 --> 00:00:18,660
+evrişimli sinir ağları veya tekrarlayan sinir ağları gibi
+
+7
+00:00:18,660 --> 00:00:23,640
+ya da gittikçe pratik olmayan çok büyük modelleri uygulamaya başladıkça,
+
+8
+00:00:23,640 --> 00:00:28,300
+en azından çoğu insan için, her şeyi sıfırdan uygulamak pratik değildir.
+
+9
+00:00:28,300 --> 00:00:29,535
+Neyse ki şimdi,
+
+10
+00:00:29,535 --> 00:00:34,810
+Bu modelleri uygulayabilmeniz yardımcı olacak birçok iyi derin öğrenme çerçevesi var.
+
+11
+00:00:34,810 --> 00:00:36,510
+Bir benzetme yaparsak,
+
+12
+00:00:36,510 --> 00:00:38,970
+Umuyorum ki anlarsınız
+
+13
+00:00:38,970 --> 00:00:43,157
+Matris çarpının nasıl yapıldığını ve uygulanabilmesi için nasıl kodlanacağını
+
+14
+00:00:43,157 --> 00:00:45,155
+iki matrisin kendi kendine çarpılması için.
+
+15
+00:00:45,155 --> 00:00:47,625
+Ama çok büyük uygulamalar oluştururken
+
+16
+00:00:47,625 --> 00:00:51,930
+muhtemelen kendi matris çarpma fonksiyonunuzu uygulamak istemeyeceksiniz
+
+17
+00:00:51,930 --> 00:00:53,475
+bunun yerine
+
+18
+00:00:53,475 --> 00:00:57,610
+sizin için daha verimli bir şekilde yapabilecek bir sayısal lineer cebir kitaplığı çağırmak istersiniz.
+
+19
+00:00:57,610 --> 00:01:01,755
+Ama bu iki matrisin nasıl çarpıldığını anlamanıza yardımcı oluyor.
+
+20
+00:01:01,755 --> 00:01:05,520
+Bu yüzden, derin öğrenmenin artık daha pratik olduğu
+
+21
+00:01:05,520 --> 00:01:07,590
+ve uygulamada daha verimli olacağınız noktaya olgunlaştığını düşünüyorum
+
+22
+00:01:07,590 --> 00:01:10,250
+Bu sayede, derin öğrenme çerçevelerinden bazılarıyla daha verimli olursunuz.
+
+23
+00:01:10,250 --> 00:01:13,110
+O zaman, çerçevelere bir bakalım.
+
+24
+00:01:13,110 --> 00:01:16,620
+Bugün, birçok derin öğrenme çerçevesi mevcut
+
+25
+00:01:16,620 --> 00:01:19,527
+ki onlar sinir ağlarının uygulanmasını kolaylaştırırlar
+
+26
+00:01:19,527 --> 00:01:22,185
+ve işte önde gelenlerden bazıları
+
+27
+00:01:22,185 --> 00:01:27,420
+Bu çerçevelerin her birinin özel bir kullanıcı ve geliştirici topluluğu vardır
+
+28
+00:01:27,420 --> 00:01:29,520
+ve bu çerçevelerin
+
+29
+00:01:29,520 --> 00:01:33,715
+bazı uygulamalar için güvenilir bir seçim olduğunu düşünüyorum.
+
+30
+00:01:33,715 --> 00:01:36,310
+Birçok insan karşılaştırma makaleleri yazıyorlar
+
+31
+00:01:36,310 --> 00:01:41,374
+bu derin öğrenme çerçeveleri ve ne kadar iyi değiştikleri hakkında.
+
+32
+00:01:41,374 --> 00:01:46,315
+Bu çerçeveler genellikle gelişmekte olduğu ve aydan aya daha iyi hale geldiğinden dolayı
+
+33
+00:01:46,315 --> 00:01:49,704
+Sizi bu konuda kendi kendinize internet de arama yapmanız için yalnız bırakacağım
+
+34
+00:01:49,704 --> 00:01:54,310
+Eğer bu çerçevelerin bazıları artıları ve eksileri üzerine argümanları görmek istiyorsanız
+
+35
+00:01:54,310 --> 00:01:59,800
+Ama bence bu çerçevelerin çoğu gelişiyor ve çok hızlı bir şekilde iyileşiyor.
+
+36
+00:01:59,800 --> 00:02:04,760
+Bu çerçevelerden herhangi birini güçlü bir şekilde desteklemekten çok, sizinle
+
+37
+00:02:04,760 --> 00:02:10,150
+çerçeveleri seçmek için kullanmanızı tavsiye ettiğim kriterleri paylaşmak istiyorum.
+
+38
+00:02:10,150 --> 00:02:13,120
+İlk önemli kriter, programlama kolaylığıdır
+
+39
+00:02:13,120 --> 00:02:15,640
+ve bu hem sinir ağlarının geliştirmek
+
+40
+00:02:15,640 --> 00:02:19,720
+hem de üretim için kullanmanın yanı sıra üzerinde yineleme yapmak anlamına geliyor
+
+41
+00:02:19,720 --> 00:02:25,435
+gerçek kullanım için, binlerce veya milyonlarca veya belki yüz milyonlarca kullanıcı tarafından
+
+42
+00:02:25,435 --> 00:02:27,540
+ne yapmaya çalıştığına bağlı olarak.
+
+43
+00:02:27,540 --> 00:02:30,480
+İkinci önemli kriter ise çalışma hızlarıdır
+
+44
+00:02:30,480 --> 00:02:32,410
+özellikle büyük veri setleri üzerinde eğitimlerde,
+
+45
+00:02:32,410 --> 00:02:35,210
+bazı çerçeveler çalışmanıza ve eğitim yapmanıza izin verecek
+
+46
+00:02:35,210 --> 00:02:38,780
+diğer sinir ağlarından daha verimli olarak
+
+47
+00:02:38,780 --> 00:02:42,640
+Ve bir sonraki, ki bundan insanlar sıklıkla bahsetmez fakat ben
+
+48
+00:02:42,640 --> 00:02:46,690
+çerçevenin gerçekten açık olup olmadığının önemli olduğunu düşünüyorum.
+
+49
+00:02:46,690 --> 00:02:49,395
+Ve bir çerçevenin gerçekten açık olması için,
+
+50
+00:02:49,395 --> 00:02:54,605
+sadece açık kaynak olmak zorunda olmadığını aynı zamanda iyi yönetişime de ihtiyacı olduğunu düşünüyorum.
+
+51
+00:02:54,605 --> 00:02:58,930
+Ne yazık ki, yazılım sektöründe bazı şirketlerin açık kaynak kodlu yazılım geçmişi var ancak
+
+52
+00:02:58,930 --> 00:03:04,120
+yazılımı tek şirket kontrolünde sürdürdükleri.
+
+53
+00:03:04,120 --> 00:03:06,240
+Ve sonra birkaç yıl boyunca,
+
+54
+00:03:06,240 --> 00:03:08,343
+insanlar yazılımı kullanmaya başladığında
+
+55
+00:03:08,343 --> 00:03:14,095
+bazı şirketlerin açık kaynak kodunu yavaş yavaş kapatmaya yönelim geçmişi vardır.
+
+56
+00:03:14,095 --> 00:03:19,300
+ya da işlevselliği kendi özel bulut hizmetlerine taşıyor olabilmektedirler.
+
+57
+00:03:19,300 --> 00:03:22,120
+Dikkat ettiğim şey ise
+
+58
+00:03:22,120 --> 00:03:25,480
+çerçevenin, sadece tek bir şirketin kontrolü altında olmasından ziyade
+
+59
+00:03:25,480 --> 00:03:31,960
+uzun bir süre açık kaynak olarak kalacağına ne kadar güvendiğimizdir.
+
+60
+00:03:31,960 --> 00:03:35,080
+şirket herhangi bir sebepten dolayı çerçeveyi kapatmayı tercih edebilir
+
+61
+00:03:35,080 --> 00:03:40,415
+her ne kadar yazılım şu anda açık kaynak altında yayınlanmış olsa bile
+
+62
+00:03:40,415 --> 00:03:44,470
+Ama en azından kısa vadede dil tercihlerine bağlı olarak;
+
+63
+00:03:44,470 --> 00:03:49,005
+Python veya Java veya C ++ ya da başka bir şey tercih ederseniz,
+
+64
+00:03:49,005 --> 00:03:51,970
+ve üzerinde çalıştığınız uygulamaya bağlı olarak;
+
+65
+00:03:51,970 --> 00:03:54,565
+bu bölme veya doğal dil işleme olabilir
+
+66
+00:03:54,565 --> 00:03:57,880
+veya çevrimiçi reklam veya başka bir şey,
+
+67
+00:03:57,880 --> 00:04:01,940
+Bu çerçevelerin çoğunun iyi bir seçim olabileceğini düşünüyorum.
+
+68
+00:04:01,940 --> 00:04:05,500
+Dolayısıyla, programlama çerçevelerinde,
+
+69
+00:04:05,500 --> 00:04:09,365
+sayısal bir lineer cebir kitaplığından daha yüksek bir soyutlama seviyesi sağlanarak,
+
+70
+00:04:09,365 --> 00:04:11,740
+bu program çerçevelerinden herhangi biri,
+
+71
+00:04:11,740 --> 00:04:15,000
+makine öğrenimi uygulamalarını geliştirirken sizi daha verimli hale getirebilir.

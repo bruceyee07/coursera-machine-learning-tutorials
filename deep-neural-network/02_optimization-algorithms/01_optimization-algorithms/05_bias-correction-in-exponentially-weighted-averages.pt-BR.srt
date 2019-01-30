@@ -1,0 +1,284 @@
+1
+00:00:00,380 --> 00:00:03,660
+Você aprendeu como implementar
+médias móveis exponencialmente ponderadas.
+
+2
+00:00:03,660 --> 00:00:06,760
+Há um detalhe técnico chamado 
+correção de viés ("bias correction"),
+
+3
+00:00:06,760 --> 00:00:10,335
+que pode tornar mais preciso o
+cálculo destas médias.
+
+4
+00:00:10,335 --> 00:00:11,990
+Vamos ver como isto funciona.
+
+5
+00:00:11,990 --> 00:00:15,920
+Num vídeo anterior, você viu esta imagem para beta = 0,9.
+
+6
+00:00:15,920 --> 00:00:18,260
+Esta imagem para beta = 0,98.
+
+7
+00:00:18,260 --> 00:00:24,230
+Mas acontece que se você implementar 
+a fórmula, como expressa aqui,
+
+8
+00:00:24,230 --> 00:00:29,320
+você não conseguirá a curva verde 
+quando, digamos, beta = 0,98.
+
+9
+00:00:29,320 --> 00:00:32,430
+Na verdade, você conseguirá a curva roxa.
+
+10
+00:00:32,430 --> 00:00:36,410
+E você pode notar que a curva 
+roxa inicia bem embaixo.
+
+11
+00:00:36,410 --> 00:00:38,400
+Então, vamos ver como isso o afeta.
+
+12
+00:00:38,400 --> 00:00:45,844
+Quando você está implementando uma média móvel, 
+você inicia com V₀ = 0,
+
+13
+00:00:45,844 --> 00:00:50,524
+e então V₁ = 0,98 V₀ + 0,02 teta 1.
+
+14
+00:00:50,524 --> 00:00:54,150
+Mas V₀ é igual a 0, então 
+esse termo some.
+
+15
+00:00:54,150 --> 00:00:57,430
+E V₁ fica apenas 0,02 vezes teta 1.
+
+16
+00:00:57,430 --> 00:01:03,832
+E é por isso, que a temperatura do primeiro dia é,
+digamos que 40 graus Fahrenheit,
+
+17
+00:01:03,832 --> 00:01:07,837
+assim, V₁ será 0,02 vezes 40, o qual é 8.
+
+18
+00:01:07,837 --> 00:01:10,790
+Então, você obtém
+ um valor muito menor aqui.
+
+19
+00:01:10,790 --> 00:01:14,545
+Logo, não é uma boa estimativa da 
+temperatura do primeiro dia.
+
+20
+00:01:14,545 --> 00:01:20,831
+V₂ será 0,98 vezes V₁ + 0,2 vezes teta 2.
+
+21
+00:01:20,831 --> 00:01:26,893
+E se você ligar V₁, que ´é isto aqui 
+embaixo e multiplicá-lo,
+
+22
+00:01:26,893 --> 00:01:32,092
+você descobre que V₂ é 
+na verdade, igual a 0,98 vezes
+
+23
+00:01:32,092 --> 00:01:36,887
+0,02 vezes teta 1 + 0,02 vezes teta 2.
+
+24
+00:01:36,887 --> 00:01:45,102
+E que 0,0196 teta 1 + 0,02 teta 2.
+
+25
+00:01:45,102 --> 00:01:49,319
+Então novamente, assumindo que teta 1 e
+ teta 2 são números positivos,
+
+26
+00:01:49,319 --> 00:01:53,910
+quando você calcula este V₂, ele resultará muito menor que teta 1 ou teta 2.
+
+27
+00:01:53,910 --> 00:01:59,190
+Então, V₂ não é uma estimativa muito boa
+da temperatura dos dois primeiros dias do ano.
+
+28
+00:01:59,190 --> 00:02:02,800
+Mas acontece que há uma forma 
+de modificar esta estimativa que a torna
+
+29
+00:02:02,800 --> 00:02:04,330
+melhor, faz com que ela seja mais acurada,
+
+30
+00:02:04,330 --> 00:02:08,050
+especialmente durante esta 
+fase inicial da sua estimativa,
+
+31
+00:02:08,050 --> 00:02:13,460
+a qual é, ao invés de pegar Vt, 
+pegar Vt dividido por
+
+32
+00:02:13,460 --> 00:02:18,770
+(1 - beta elevado a t), 
+onde t é o dado atual no qual estamos.
+
+33
+00:02:18,770 --> 00:02:20,580
+Vamos ver um exemplo na prática.
+
+34
+00:02:20,580 --> 00:02:25,945
+Quando t = 2,
+ 1- (beta elevado a t)
+
+35
+00:02:25,945 --> 00:02:30,940
+é 1- (0,98 ao quadrado)
+
+36
+00:02:30,940 --> 00:02:37,049
+e isso é igual a 0,0396.
+
+37
+00:02:37,049 --> 00:02:41,746
+E então, sua 
+estimativa da temperatura do segundo dia
+
+38
+00:02:41,746 --> 00:02:45,949
+torna-se V₂ dividido por 0,0396 e
+
+39
+00:02:45,949 --> 00:02:53,560
+isto será 0,0196 vezes 
+teta 1 + 0,02 teta 2.
+
+40
+00:02:53,560 --> 00:02:59,470
+Você nota que estas duas coisas 
+somam-se ao denominador 0,0396.
+
+41
+00:02:59,470 --> 00:03:03,035
+E isso vira uma média ponderada 
+de teta 1 e teta 2 e
+
+42
+00:03:03,035 --> 00:03:05,190
+isto remove esse "viés".
+
+43
+00:03:05,190 --> 00:03:10,270
+Assim, você nota que quando 
+t se torna grande, beta elevado a t
+
+44
+00:03:11,730 --> 00:03:14,360
+se aproxima de 0, e é por isso 
+que quando t for grande o suficiente,
+
+45
+00:03:14,360 --> 00:03:16,860
+a correção de "viés" 
+quase não faz diferença.
+
+46
+00:03:16,860 --> 00:03:19,460
+Por isso, quando t é grande, 
+a linha roxa
+
+47
+00:03:19,460 --> 00:03:21,765
+e a linha verde praticamente se sobrepõem.
+
+48
+00:03:21,765 --> 00:03:25,866
+Mas durante, essa fase inicial de aprendizagem,
+quando você ainda está aquecendo
+
+49
+00:03:25,866 --> 00:03:30,031
+suas estimativas, quando a correção de viés pode ajudá-lo
+a obter uma estimativa melhor
+
+50
+00:03:30,031 --> 00:03:31,138
+desta temperatura.
+
+51
+00:03:31,138 --> 00:03:34,731
+E é essa correção de viés
+ que lhe ajuda a ir da linha roxa
+
+52
+00:03:34,731 --> 00:03:36,757
+à linha verde.
+
+53
+00:03:36,757 --> 00:03:40,117
+Então, em aprendizado de máquina,
+para a maioria das implementações de média
+
+54
+00:03:40,117 --> 00:03:45,157
+móvel exponencialmente ponderada, as pessoas muitas vezes
+não se incomodam em implementar correções de vieses.
+
+55
+00:03:45,157 --> 00:03:48,457
+Porque a maioria das pessoas prefere 
+apenas esperar esse período inicial
+
+56
+00:03:48,457 --> 00:03:50,597
+e ter uma estimativa ligeiramente mais tendenciosa 
+e partir de lá.
+
+57
+00:03:50,597 --> 00:03:54,170
+Porém, se você estiver preocupado com o viés
+ durante a fase inicial,
+
+58
+00:03:54,170 --> 00:03:57,880
+enquanto a sua média móvel
+exponencialmente ponderada ainda estiver se aquecendo,
+
+59
+00:03:57,880 --> 00:04:02,873
+então, a correção de viés pode lhe ajudar
+a conseguir uma estimativa melhor no início.
+
+60
+00:04:02,873 --> 00:04:06,800
+Agora você já sabe como implementar médias móveis
+exponencialmente ponderadas!
+
+61
+00:04:06,800 --> 00:04:11,050
+Vamos continuar e usá-las
+para construir alguns algoritmos de otimização melhores!
+[Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage]

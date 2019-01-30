@@ -1,0 +1,897 @@
+1
+00:00:00,740 --> 00:00:04,500
+Bem-vindo ao curso sobre os 
+aspectos práticos de aprendizagem profunda.
+
+2
+00:00:04,500 --> 00:00:07,650
+Provavelmente você já aprendeu 
+como implementar uma rede neural.
+
+3
+00:00:07,650 --> 00:00:10,620
+Nesta semana, você irá aprender sobre 
+os aspectos práticos de como fazer
+
+4
+00:00:10,620 --> 00:00:12,550
+sua rede neural funcionar bem.
+
+5
+00:00:12,550 --> 00:00:16,757
+Desde aspectos como otimização de 
+hiperparâmetros, como configurar seus dados,
+
+6
+00:00:16,757 --> 00:00:20,297
+a como ter certeza de que seu algoritmo 
+de otimização execute rapidamente,
+
+7
+00:00:20,297 --> 00:00:24,140
+de forma que seu algoritmo de 
+aprendizagem, aprenda em um tempo razoável.
+
+8
+00:00:24,140 --> 00:00:27,551
+Nesta primeira semana, iniciaremos falando como 
+configurar um problema de aprendizagem de máquina.
+
+9
+00:00:27,551 --> 00:00:29,216
+Então, falaremos sobre regularização.
+
+10
+00:00:29,216 --> 00:00:30,952
+E vamos falar sobre alguns truques,
+
+11
+00:00:30,952 --> 00:00:34,440
+para nos certificarmos que a implementação 
+de sua rede neural está correta.
+
+12
+00:00:34,440 --> 00:00:36,170
+Com isso, vamos começar.
+
+13
+00:00:36,170 --> 00:00:39,760
+Fazer boas escolhas em como configurar seus 
+conjuntos de treino, de desenvolvimento e
+
+14
+00:00:39,760 --> 00:00:43,160
+de teste, pode fazer uma grande 
+diferença em ajudá-lo a encontrar
+
+15
+00:00:43,160 --> 00:00:46,090
+rapidamente uma rede 
+neural de alta performance.
+
+16
+00:00:46,090 --> 00:00:49,230
+Ao treinar uma rede neural, você 
+tem que tomar muitas decisões
+
+17
+00:00:49,230 --> 00:00:52,310
+do tipo: quantas camadas terá a sua rede neural?
+
+18
+00:00:52,310 --> 00:00:55,400
+Quantas unidades ocultas terão cada camada?
+
+19
+00:00:55,400 --> 00:00:57,067
+Qual é a taxa de aprendizagem?
+
+20
+00:00:57,067 --> 00:01:01,150
+Qual função de ativação você quer 
+usar para as diferentes camadas?
+
+21
+00:01:01,150 --> 00:01:03,040
+Quando você está 
+começando uma nova aplicação,
+
+22
+00:01:03,040 --> 00:01:07,400
+é quase impossível adivinhar 
+corretamente, os valores
+
+23
+00:01:07,400 --> 00:01:12,250
+disso tudo e das escolhas dos 
+hiperparâmetros, na sua primeira tentativa.
+
+24
+00:01:12,250 --> 00:01:16,290
+Então, na prática, Aprendizagem de Máquina 
+Aplicada é um processo altamente empírico,
+
+25
+00:01:16,290 --> 00:01:18,450
+onde você normalmente 
+começa com uma ideia
+
+26
+00:01:18,450 --> 00:01:21,990
+do tipo: você quer construir uma rede 
+neural com um certo número de camadas,
+
+27
+00:01:21,990 --> 00:01:25,670
+certo número de unidades ocultas, com 
+certo conjunto de dados, e assim por diante.
+
+28
+00:01:25,670 --> 00:01:29,660
+E então, você simplesmente tem que programá-la 
+e testá-la, executando o seu código.
+
+29
+00:01:29,660 --> 00:01:33,950
+Você executa, testa e obtém 
+um resultado que lhe diz
+
+30
+00:01:33,950 --> 00:01:37,570
+quão bem funciona esta rede 
+ou suas configurações específicas.
+
+31
+00:01:37,570 --> 00:01:39,090
+E com base nos resultados,
+
+32
+00:01:39,090 --> 00:01:44,330
+você pode refinar suas ideias, 
+mudar suas escolhas e
+
+33
+00:01:44,330 --> 00:01:49,474
+continuar interagindo com o objetivo de 
+encontrar uma rede neural cada vez melhor.
+
+34
+00:01:50,890 --> 00:01:54,390
+Atualmente, aprendizagem profunda obteve 
+grande sucesso em diversas áreas.
+
+35
+00:01:54,390 --> 00:01:59,256
+Desde o processamento natural da linguagem - PNL, 
+ até a visão computacional,
+
+36
+00:01:59,256 --> 00:02:04,579
+e em reconhecimento de voz, até uma gama 
+de aplicações em dados estruturados.
+
+37
+00:02:04,579 --> 00:02:10,000
+Dados estruturados incluem tudo, desde 
+anúncios até pesquisa na web,
+
+38
+00:02:10,000 --> 00:02:16,840
+que não são apenas ferramentas de pesquisa na Internet, 
+mas também, por exemplo, portais de compras.
+
+39
+00:02:16,840 --> 00:02:19,340
+Na verdade, todos os portais querem
+
+40
+00:02:19,340 --> 00:02:23,800
+entregar bons resultados de pesquisa quando 
+você insere termos em um campo de pesquisa.
+
+41
+00:02:23,800 --> 00:02:29,436
+Também na segurança computacional, 
+ em logística, tais como descobrir aonde
+
+42
+00:02:29,436 --> 00:02:34,665
+enviar motoristas para coletar 
+e entregar coisas, e muito mais.
+
+43
+00:02:34,665 --> 00:02:39,530
+Então, o que eu vejo é que, às vezes, 
+um pesquisador com muita experiência
+
+44
+00:02:39,530 --> 00:02:43,170
+em PNL tentaria fazer algo 
+em visão computacional.
+
+45
+00:02:43,170 --> 00:02:48,120
+Ou um pesquisador com muita experiência 
+em reconhecimento de voz poderia
+
+46
+00:02:48,120 --> 00:02:50,190
+entrar na área de publicidade
+ e tentar fazer algo nela.
+
+47
+00:02:50,190 --> 00:02:54,670
+Ou alguém da área de segurança poderia 
+entrar e fazer algo no campo de logística.
+
+48
+00:02:54,670 --> 00:02:57,940
+E o que eu tenho visto é que 
+intuições de uma área de domínio,
+
+49
+00:02:57,940 --> 00:03:02,920
+ou de uma área de aplicação, muitas 
+vezes não se transferem para outras.
+
+50
+00:03:02,920 --> 00:03:06,471
+E as melhores escolhas dependerão 
+da quantidade de dados e
+
+51
+00:03:06,471 --> 00:03:10,983
+da quantidade de características de entrada que você tem 
+ combinados com as configurações do seu computador,
+
+52
+00:03:10,983 --> 00:03:13,464
+bem como se você está treinando em GPUs ou CPUs.
+
+53
+00:03:13,464 --> 00:03:18,280
+E desta forma, exatamente qual a configuração 
+das GPUs e CPUs, dentre muitas outras coisas.
+
+54
+00:03:18,280 --> 00:03:21,470
+Então, penso que para muitas 
+aplicações é quase impossível.
+
+55
+00:03:21,470 --> 00:03:26,430
+Mesmo pessoas experientes em aprendizagem 
+profunda, acham praticamente impossível adivinhar
+
+56
+00:03:26,430 --> 00:03:30,300
+a melhor escolha dos 
+hiperparâmetros, já na primeira vez.
+
+57
+00:03:30,300 --> 00:03:34,160
+E então, atualmente, aprendizagem 
+profunda aplicada é um processo muito
+
+58
+00:03:34,160 --> 00:03:39,150
+iterativo, onde você tem que 
+percorrer este ciclo muitas vezes
+
+59
+00:03:39,150 --> 00:03:43,790
+para que se encontre uma boa 
+opção de rede para sua aplicação.
+
+60
+00:03:43,790 --> 00:03:48,100
+Então, uma das coisas que determina quão rapidamente você pode progredir é
+
+61
+00:03:48,100 --> 00:03:51,510
+quão eficientemente você 
+consegue percorrer este ciclo.
+
+62
+00:03:51,510 --> 00:03:55,830
+E configurar bem os seus conjuntos de dados, 
+em termos de treino, de desenvolvimento e
+
+63
+00:03:55,830 --> 00:03:59,030
+de teste, o faz muito 
+mais eficiente nisto.
+
+64
+00:03:59,030 --> 00:04:06,430
+Então, se estes são os dados de treino, 
+vamos desenhá-los como esta caixa grande.
+
+65
+00:04:06,430 --> 00:04:11,140
+Tradicionalmente, você pega 
+todos os dados que você tem e
+
+66
+00:04:11,140 --> 00:04:15,520
+e tira uma parte deles para se 
+tornar o seu conjunto de treino.
+
+67
+00:04:15,520 --> 00:04:21,790
+Uma parte disso será o 
+conjunto de validação cruzada,
+
+68
+00:04:23,290 --> 00:04:30,398
+algumas vezes chamado de 
+conjunto de desenvolvimento.
+
+69
+00:04:30,398 --> 00:04:33,940
+E para ser breve, vou 
+chamá-lo de "dev set", mas
+
+70
+00:04:33,940 --> 00:04:36,810
+todos estes termos 
+significam basicamente a mesma coisa.
+
+71
+00:04:36,810 --> 00:04:41,940
+Então, você pega uma última parte 
+para ser o seu conjunto de teste.
+
+72
+00:04:41,940 --> 00:04:46,390
+Então, o fluxo do trabalho é que você se mantenha 
+ treinando algoritmos com seus conjuntos de treino.
+
+73
+00:04:46,390 --> 00:04:51,080
+E utilize seu "dev set" ou o seu conjunto 
+de validação cruzada para verificar qual,
+
+74
+00:04:51,080 --> 00:04:54,670
+dos diversos modelos, tem a 
+melhor performance neste seu "dev set".
+
+75
+00:04:54,670 --> 00:04:56,910
+E então, após ter feito 
+isso por tempo suficiente,
+
+76
+00:04:56,910 --> 00:05:00,030
+quando você chegar a um 
+modelo final, que você queira avaliar,
+
+77
+00:05:00,030 --> 00:05:03,420
+você pega o melhor modelo 
+encontrado e o avalia no seu conjunto de teste,
+
+78
+00:05:03,420 --> 00:05:08,040
+a fim de obter uma estimativa imparcial 
+de quão bem o seu algoritmo está indo.
+
+79
+00:05:08,040 --> 00:05:13,054
+Na era anterior da aprendizagem de 
+máquina, era uma prática comum
+
+80
+00:05:13,054 --> 00:05:18,246
+pegar todos os seus dados e 
+dividi-los em uma relação 70/30%,
+
+81
+00:05:18,246 --> 00:05:23,460
+as pessoas falavam normalmente sobre 
+a divisão de teste e de treino 70/30,
+
+82
+00:05:23,460 --> 00:05:28,845
+se você não tivesse um "dev set" 
+específico, ou talvez uma divisão
+
+83
+00:05:28,845 --> 00:05:33,680
+60/20/20%, sendo 60% treino,
+20% desenvolvimento e 20% teste.
+
+84
+00:05:33,680 --> 00:05:37,300
+E há alguns anos, isto era 
+considerado como melhor prática
+
+85
+00:05:37,300 --> 00:05:38,910
+em aprendizagem de máquina.
+
+86
+00:05:38,910 --> 00:05:41,470
+Se você tem, talvez, 
+100 exemplos no total,
+
+87
+00:05:41,470 --> 00:05:46,740
+talvez 1.000 exemplos no total, 
+talvez até 10.000 exemplos,
+
+88
+00:05:46,740 --> 00:05:50,743
+estas proporções eram 
+regras gerais perfeitamente razoáveis.
+
+89
+00:05:50,743 --> 00:05:55,920
+Mas na era moderna do 
+"Big Data", onde, por exemplo,
+
+90
+00:05:55,920 --> 00:06:03,600
+você pode ter um milhão de exemplos no total, 
+então a tendência é que o conjunto de
+
+91
+00:06:03,600 --> 00:06:09,390
+de desenvolvimento e de teste tenham se 
+tornado uma porcentagem muito menor do total.
+
+92
+00:06:09,390 --> 00:06:13,410
+Porque lembre-se, o objetivo do "dev set" 
+ou do conjunto de desenvolvimento é que você
+
+93
+00:06:13,410 --> 00:06:17,370
+teste diferentes algoritmos nele, 
+e veja quais algoritmos funcionam melhor.
+
+94
+00:06:17,370 --> 00:06:20,010
+Então, o "dev set" precisa só 
+ser grande suficiente para
+
+95
+00:06:20,010 --> 00:06:23,380
+que você avalie, digamos, duas 
+opções de algoritmos diferentes ou
+
+96
+00:06:23,380 --> 00:06:27,020
+dez opções de algoritmos, e rapidamente 
+decida qual deles está indo melhor.
+
+97
+00:06:27,020 --> 00:06:30,500
+E você pode não precisar 
+dos 20% totais para isso.
+
+98
+00:06:30,500 --> 00:06:34,200
+Então, por exemplo, se você tiver um milhão de 
+exemplos de treinamento, você pode decidir que
+
+99
+00:06:34,200 --> 00:06:39,250
+ter apenas 10.000 exemplos no seu 
+"dev set" é mais do que suficiente
+
+100
+00:06:39,250 --> 00:06:43,180
+para avaliar 1 ou 2 algoritmos 
+que estão indo melhor.
+
+101
+00:06:43,180 --> 00:06:47,220
+Em uma linha similar, o principal objetivo 
+do seu conjunto de teste, dado o classificador
+
+102
+00:06:47,220 --> 00:06:51,885
+final, é dar-lhe uma boa ideia 
+ de quão bem ele está indo.
+
+103
+00:06:51,885 --> 00:06:56,695
+E novamente, se você tem um milhão 
+de exemplos, você pode decidir que 10.000
+
+104
+00:06:56,695 --> 00:07:00,960
+exemplos é mais do que suficiente 
+para avaliar um único classificador e
+
+105
+00:07:00,960 --> 00:07:03,680
+dar-lhe uma boa ideia 
+de quão bem ele está indo.
+
+106
+00:07:03,680 --> 00:07:07,280
+Então, neste exemplo, onde 
+você tem um milhão de exemplos,
+
+107
+00:07:07,280 --> 00:07:11,550
+se você precisa somente de 10.000 
+para o seu "dev" e 10.000 para o seu teste,
+
+108
+00:07:11,550 --> 00:07:17,240
+sua proporção será: 
+10.000 é 1% de 1 milhão.
+
+109
+00:07:17,240 --> 00:07:23,330
+Então, você terá 98% para treino,
+ 1% para validação cruzada e 1% para teste.
+
+110
+00:07:23,330 --> 00:07:25,360
+E eu também vi aplicações onde,
+
+111
+00:07:25,360 --> 00:07:29,910
+se você tem mais de um milhão 
+de exemplos, você pode terminar
+
+112
+00:07:29,910 --> 00:07:35,050
+com 99,5% para treino, 
+0,25% para "dev", para 0,25% teste.
+
+113
+00:07:35,050 --> 00:07:42,060
+Ou talvez, 0,4% para "dev",
+ 0,1% para teste.
+
+114
+00:07:42,060 --> 00:07:45,920
+Só para recapitular, ao configurar 
+seu problema de aprendizagem de máquina,
+
+115
+00:07:45,920 --> 00:07:50,380
+eu normalmente o configurarei em conjuntos 
+de treino, de desenvolvimento e de teste, e
+
+116
+00:07:50,380 --> 00:07:55,740
+se você tem um conjunto de dados relativamente 
+pequeno, estas proporções podem ser ok.
+
+117
+00:07:55,740 --> 00:07:59,560
+Mas se você tem um conjunto de dados muito 
+maior, também é bom definir seus conjuntos de
+
+118
+00:07:59,560 --> 00:08:05,660
+desenvolvimento e de teste muito menores do 
+que 20%, ou mesmo 10%, dos seus dados.
+
+119
+00:08:05,660 --> 00:08:08,640
+Nós daremos orientações mais específicas 
+sobre os tamanhos dos conjuntos de "dev" e
+
+120
+00:08:08,640 --> 00:08:11,110
+de teste, mais tarde 
+nesta especialização.
+
+121
+00:08:11,110 --> 00:08:16,170
+Uma outra tendência que estamos vendo na 
+era moderna de aprendizagem profunda é que,
+
+122
+00:08:16,170 --> 00:08:20,080
+mais e mais pessoas treinam em distribuições 
+de teste e de treino incompatíveis.
+
+123
+00:08:20,080 --> 00:08:25,100
+Digamos que você está construindo um app que permite 
+que os usuários façam "upload" de diversas fotos e
+
+124
+00:08:25,100 --> 00:08:29,380
+e seu objetivo é encontrar fotos de 
+gatos para mostrar aos seus usuários.
+
+125
+00:08:29,380 --> 00:08:31,590
+Talvez, todos os seus 
+usuários gostem de gatos.
+
+126
+00:08:31,590 --> 00:08:37,180
+Talvez seu conjunto de treino vem 
+de fotos de gatos baixadas da internet, mas
+
+127
+00:08:37,180 --> 00:08:42,178
+seus conjuntos de "dev" e de teste são compostos por 
+imagens de gatos de usuários que usam o nosso app.
+
+128
+00:08:42,178 --> 00:08:46,250
+Talvez, seu conjunto de treino tem 
+um monte de imagens baixadas da internet, mas
+
+129
+00:08:46,250 --> 00:08:49,470
+os conjuntos de "dev" e teste são 
+imagens carregadas pelos usuários.
+
+130
+00:08:49,470 --> 00:08:53,370
+Resulta que muitas páginas web têm imagens de gatos
+com resolução muito alta, muito profissionais,
+
+131
+00:08:53,370 --> 00:08:55,610
+e com molduras legais.
+
+132
+00:08:55,610 --> 00:08:58,290
+Mas talvez, seus usuários estão 
+carregando imagens nebulosas,
+
+133
+00:08:58,290 --> 00:09:03,450
+com baixa resolução, tiradas de câmeras 
+de celular, em condições mais casuais.
+
+134
+00:09:03,450 --> 00:09:07,960
+Assim, estas duas distribuições 
+de dados podem ser diferentes.
+
+135
+00:09:07,960 --> 00:09:13,042
+A regra geral, que eu lhe 
+encorajaria a seguir neste caso é:
+
+136
+00:09:13,042 --> 00:09:18,737
+garantir que os conjuntos de "dev" e 
+de teste venham da mesma distribuição.
+
+137
+00:09:23,079 --> 00:09:26,199
+Falaremos mais sobre estas 
+orientações específicas, mas
+
+138
+00:09:26,199 --> 00:09:30,039
+pelo fato de você usar o conjunto de "dev" 
+para avaliar muitos modelos diferentes e
+
+139
+00:09:30,039 --> 00:09:33,380
+tentar otimizar a performance 
+no conjunto de "dev",
+
+140
+00:09:33,380 --> 00:09:38,380
+seria legal se o seu conjunto de validação cruzada - "dev" - viesse da 
+mesma distribuição que o seu conjunto de teste.
+
+141
+00:09:38,380 --> 00:09:43,440
+Mas, pelo fato de que os algoritmos de aprendizagem 
+profunda tenham um apetite enorme para dados de treino,
+
+142
+00:09:43,440 --> 00:09:47,660
+uma tendência que eu vejo é que você 
+utilize todos os tipos de táticas criativas,
+
+143
+00:09:47,660 --> 00:09:49,560
+tais como páginas web indexadas,
+
+144
+00:09:49,560 --> 00:09:53,650
+para obter um conjunto de treino muito 
+maior do que você obteria de outra forma.
+
+145
+00:09:53,650 --> 00:09:57,300
+Mesmo que o ônus disto, seja que 
+os dados do seu conjunto de treino,
+
+146
+00:09:57,300 --> 00:10:00,950
+não venham da mesma distribuição 
+que seus conjuntos de "dev" e de teste.
+
+147
+00:10:00,950 --> 00:10:03,980
+Mas, veja que, desde 
+que você siga esta regra geral,
+
+148
+00:10:03,980 --> 00:10:08,600
+o progresso no seu algoritmo de 
+aprendizagem de máquina será mais rápido.
+
+149
+00:10:08,600 --> 00:10:10,750
+E eu também darei uma 
+explicação mais detalhada para
+
+150
+00:10:10,750 --> 00:10:13,910
+esta regra específica mais 
+tarde nesta especialização.
+
+151
+00:10:13,910 --> 00:10:18,320
+Finalmente, pode ser ok 
+não ter um conjunto de teste.
+
+152
+00:10:18,320 --> 00:10:22,289
+Lembre-se que o objetivo do conjunto 
+de teste é dar-lhe uma ideia imparcial
+
+153
+00:10:22,289 --> 00:10:26,995
+da performance da sua rede 
+final, da rede que você selecionou.
+
+154
+00:10:26,995 --> 00:10:29,315
+Mas, se você não precisa 
+desta estimativa imparcial,
+
+155
+00:10:29,315 --> 00:10:32,090
+então pode ser ok não 
+ter um conjunto de teste.
+
+156
+00:10:32,090 --> 00:10:35,030
+Assim, o que você faz, se você tem um conjunto 
+de "dev", mas não um conjunto de teste
+
+157
+00:10:35,030 --> 00:10:40,210
+é: você treina no conjunto de treinamento e então,
+você tenta arquiteturas de modelos diferentes.
+
+158
+00:10:40,210 --> 00:10:44,450
+Avalie tais modelos no conjunto de "dev", 
+e então use isso para interagir e
+
+159
+00:10:44,450 --> 00:10:46,140
+e tentar obter um bom modelo.
+
+160
+00:10:46,140 --> 00:10:48,020
+Porque você colocou seus 
+dados no conjunto de "dev",
+
+161
+00:10:48,020 --> 00:10:50,657
+isto não lhe dá mais uma 
+ideia imparcial de performance.
+
+162
+00:10:50,657 --> 00:10:53,690
+Mas, se você não precisa de uma, 
+isso é perfeitamente normal.
+
+163
+00:10:53,690 --> 00:10:55,950
+No mundo de aprendizagem de máquina, 
+quando você tem um conjunto de treino
+
+164
+00:10:55,950 --> 00:10:58,500
+e um de "dev", mas nenhum 
+conjunto de teste a parte,
+
+165
+00:10:58,500 --> 00:11:01,260
+a maioria das pessoas chamarão 
+isso de conjunto de treinamento e
+
+166
+00:11:01,260 --> 00:11:04,640
+eles chamarão o conjunto de 
+"dev" como conjunto de teste.
+
+167
+00:11:04,640 --> 00:11:08,881
+Mas, o que eles acabam fazendo é usando 
+o conjunto de teste como um conjunto
+
+168
+00:11:08,881 --> 00:11:09,902
+de validação cruzada,
+
+169
+00:11:09,902 --> 00:11:13,460
+que talvez não seja o uso 
+mais apropriado da terminologia,
+
+170
+00:11:13,460 --> 00:11:17,320
+porque eles estão 
+sobre-ajustando o conjunto de teste.
+
+171
+00:11:17,320 --> 00:11:21,310
+Então, quando a equipe lhe diz que eles apenas 
+têm um conjunto de treino e um de teste,
+
+172
+00:11:21,310 --> 00:11:26,140
+Eu seria cauteloso e pensaria: eles têm 
+realmente um conjunto de "dev"?
+
+173
+00:11:26,140 --> 00:11:28,520
+Porque eles estão 
+sobre-ajustando o conjunto de teste.
+
+174
+00:11:28,520 --> 00:11:33,348
+Culturalmente, é difícil mudar 
+algumas destas terminologias da equipe
+
+175
+00:11:33,348 --> 00:11:38,410
+e fazê-los chamar de conjunto de validação cruzada 
+ao invés de um conjunto de teste.
+
+176
+00:11:38,410 --> 00:11:40,170
+Mesmo que eu acho que chamando-o 
+um conjunto de treino e
+
+177
+00:11:40,170 --> 00:11:43,250
+de desenvolvimento seria 
+uma terminologia mais correta.
+
+178
+00:11:43,250 --> 00:11:45,970
+Isto é, na verdade, uma prática 
+correta, se você não precisa ter uma
+
+179
+00:11:45,970 --> 00:11:48,665
+ideia completamente imparcial 
+da performance do seu algoritmo.
+
+180
+00:11:48,665 --> 00:11:53,575
+Então, configurar conjuntos de treino, de 
+"dev" e de teste, permitirá uma integração mais rápida.
+
+181
+00:11:53,575 --> 00:11:57,631
+Isso também permitirá que você meça mais 
+eficientemente o comportamento e a variância do seu
+
+182
+00:11:57,631 --> 00:12:02,215
+algoritmo, para que você selecione 
+mais eficientemente formas de otimizá-lo.
+
+183
+00:12:02,215 --> 00:12:04,225
+Vamos começar a falar sobre isso no próximo vídeo. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

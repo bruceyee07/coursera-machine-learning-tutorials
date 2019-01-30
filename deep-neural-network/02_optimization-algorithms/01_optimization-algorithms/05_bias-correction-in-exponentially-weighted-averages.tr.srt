@@ -1,0 +1,280 @@
+1
+00:00:00,380 --> 00:00:03,660
+Üstel ağırlıklı ortalamaları nasıl 
+uygulayacağınızı öğrendiniz.
+
+2
+00:00:03,660 --> 00:00:06,760
+Bu ortalamaları daha doğru bir 
+şekilde hesaplayabilmeniz için
+
+3
+00:00:06,760 --> 00:00:10,335
+yanlı düzeltme(biased correction) adı 
+verilen bir teknik ayrıntı vardır.
+
+4
+00:00:10,335 --> 00:00:11,990
+Hadi bunların nasıl çalıştığına bakalım.
+
+5
+00:00:11,990 --> 00:00:15,920
+Bir önceki videoda, beta=0.9 
+değeri için bu şekili görmüştük.
+
+6
+00:00:15,920 --> 00:00:18,260
+Bu beta=0.98 değeri 
+için oluşturulan şekildir.
+
+7
+00:00:18,260 --> 00:00:24,230
+Ancak, buradaki formülü burada yazıyorsanız,
+
+8
+00:00:24,230 --> 00:00:29,320
+yeşil eğriyi beta = 0.98 olarak almazsınız.
+
+9
+00:00:29,320 --> 00:00:32,430
+Aslında mor eğriyi elde ettiniz.
+
+10
+00:00:32,430 --> 00:00:36,410
+Ve mor eğrinin gerçekten çok 
+düşük başladığını fark ettiniz.
+
+11
+00:00:36,410 --> 00:00:38,400
+O zaman bunun nasıl etkilediğini görelim.
+
+12
+00:00:38,400 --> 00:00:45,844
+Hareketli bir ortalama uygularken, 
+onu v0 = 0 ve ardından
+
+13
+00:00:45,844 --> 00:00:50,524
+v1 = 0.98v0 + 0.02teta1 
+ile başlatabilirsiniz.
+
+14
+00:00:50,524 --> 00:00:54,150
+Ancak v0, 0'a eşittir,
+ bu yüzden terim gider.
+
+15
+00:00:54,150 --> 00:00:57,430
+Yani V1 sadece 0.02*teta1'dir.
+
+16
+00:00:57,430 --> 00:01:03,832
+Bu yüzden ilk günün sıcaklığı 40 Fahrenheit ise v1,
+
+17
+00:01:03,832 --> 00:01:07,837
+0.02 çarpı 40, yani 8'dir.
+
+18
+00:01:07,837 --> 00:01:10,790
+Yani burada çok daha düşük bir 
+değer elde edersiniz.
+
+19
+00:01:10,790 --> 00:01:14,545
+Yani, ilk günün sıcaklığının 
+çok iyi bir tahmini değil.
+
+20
+00:01:14,545 --> 00:01:20,831
+v2, 0.98*v1 + 0.02*teta2 
+olacaktır.
+
+21
+00:01:20,831 --> 00:01:26,893
+Ve v1'i eklersek(plug in),
+ burada düzenli olarak çarparsak;
+
+22
+00:01:26,893 --> 00:01:32,092
+o zaman v2'nin aslında 0.98*0.02 
+teta1 + 0.02*teta2'ye
+
+23
+00:01:32,092 --> 00:01:36,887
+eşit olduğunu görürsünüz.
+
+24
+00:01:36,887 --> 00:01:45,102
+Ve bu da 0,0196*teta1 + 0.02*teta2 olur.
+
+25
+00:01:45,102 --> 00:01:49,319
+Dolayısıyla, teta1 ve teta2'nin pozitif 
+sayılar olduğunu varsayarak,
+
+26
+00:01:49,319 --> 00:01:53,910
+bu v2'yi hesapladığınızda, teta1 veya 
+teta2'den çok daha az olacaktır.
+
+27
+00:01:53,910 --> 00:01:59,190
+Dolayısıyla v2 yılın ilk iki günü için 
+çok iyi bir tahmin değil.
+
+28
+00:01:59,190 --> 00:02:02,800
+Dolayısıyla, bu tahminin daha iyi olmasını 
+sağlayan bir yöntem olduğu ortaya çıkıyor,
+
+29
+00:02:02,800 --> 00:02:04,330
+bu da özellikle tahmininizin başlangıç aşamasında
+
+30
+00:02:04,330 --> 00:02:08,050
+bu işlemi daha doğru bir hale getiriyor.
+
+31
+00:02:08,050 --> 00:02:13,460
+Bu, Vt'yi almak yerine, 1-Beta
+ ile bölünen Vt'yi,
+
+32
+00:02:13,460 --> 00:02:18,770
+buradaki mevcut verilerin 
+olduğu t'nin gücüne alır.
+
+33
+00:02:18,770 --> 00:02:20,580
+Öyleyse somut bir örneği ele alalım.
+
+34
+00:02:20,580 --> 00:02:25,945
+T = 2 olduğunda, t'nin gücü
+
+35
+00:02:25,945 --> 00:02:30,940
+1- beta yani 1-0,98 karedir ve
+
+36
+00:02:30,940 --> 00:02:37,049
+bunun 0,0396 olduğu ortaya çıkar.
+
+37
+00:02:37,049 --> 00:02:41,746
+Ve böylece 2. günde sıcaklık tahmininiz
+
+38
+00:02:41,746 --> 00:02:45,949
+v2, 0.0396'ya bölünür ve bu,
+
+39
+00:02:45,949 --> 00:02:53,560
+0.0196*teta1 + 0.02*teta2 olacaktır.
+
+40
+00:02:53,560 --> 00:02:59,470
+Bu iki şeyin "0,03 ve 6" paydaya 
+eklendiğini fark ettiniz.
+
+41
+00:02:59,470 --> 00:03:03,035
+Ve böylece bu, teta1 ve teta2'nin 
+ağırlıklı ortalaması haline gelir ve
+
+42
+00:03:03,035 --> 00:03:05,190
+bu da bu yanlılığı ortadan kaldırır.
+
+43
+00:03:05,190 --> 00:03:10,270
+Yani, t genişledikçe, t'nin beta'ya 
+yaklaşacağını fark ediyorsunuz,
+
+44
+00:03:11,730 --> 00:03:14,360
+bu yüzden t yeterince büyük olduğunda,
+
+45
+00:03:14,360 --> 00:03:16,860
+yanlılık düzeltmesi(bias correction) 
+neredeyse hiçbir fark yaratmıyor.
+
+46
+00:03:16,860 --> 00:03:19,460
+Bu yüzden t büyük olduğunda, 
+mor çizgi
+
+47
+00:03:19,460 --> 00:03:21,765
+ve yeşil çizgi hemen hemen çakışmaktadır.
+
+48
+00:03:21,765 --> 00:03:25,866
+Ancak, yanlı düzeltmesi, bu sıcaklığın
+ daha iyi bir tahminini elde etmenize
+
+49
+00:03:25,866 --> 00:03:30,031
+yardımcı olabileceği zaman
+ tahminlerinizi hala hava
+
+50
+00:03:30,031 --> 00:03:31,138
+ısınırken öğrenmenin bu ilk aşamasındadır.
+
+51
+00:03:31,138 --> 00:03:34,731
+Ve mor çizgiden yeşil çizgiye gitmenize 
+yardımcı olan
+
+52
+00:03:34,731 --> 00:03:36,757
+bu yanlı düzeltmedir.
+
+53
+00:03:36,757 --> 00:03:40,117
+Bu nedenle, makine öğrenmesinde, 
+üstel ağırlıklı ortalamaların çoğu uygulaması
+
+54
+00:03:40,117 --> 00:03:45,157
+için, insanlar genellikle yanlı düzeltmelerini
+(bias corrections) uygulamakla uğraşmazlar.
+
+55
+00:03:45,157 --> 00:03:48,457
+Çünkü çoğu insan başlangıç 
+dönemini beklemeyi ve
+
+56
+00:03:48,457 --> 00:03:50,597
+ve biraz daha yanlı bir tahminde bulunarak
+ oradan gitmeyi tercih eder.
+
+57
+00:03:50,597 --> 00:03:54,170
+Fakat bu ilk aşamada yanlılıktan 
+endişe ediyorsanız,
+
+58
+00:03:54,170 --> 00:03:57,880
+üstel ağırlıklı hareketli 
+ortalamanız hala hazırlanıyor.
+
+59
+00:03:57,880 --> 00:04:02,873
+Daha sonra yanlı düzeltmesi, 
+daha iyi bir tahminde bulunmanıza yardımcı olabilir.
+
+60
+00:04:02,873 --> 00:04:06,800
+Artık üstel ağırlıklı hareketli 
+ağırlıkların nasıl uygulanacağını biliyorsunuz.
+
+61
+00:04:06,800 --> 00:04:11,050
+Hadi biraz daha iyi optimizasyon 
+algoritmaları oluşturmak için bunu kullanalım.

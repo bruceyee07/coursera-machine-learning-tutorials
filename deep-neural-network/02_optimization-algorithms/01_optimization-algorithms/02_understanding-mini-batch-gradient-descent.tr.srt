@@ -1,0 +1,595 @@
+1
+00:00:00,320 --> 00:00:04,590
+Önceki videoda,ilerlemek için ve eğim azalması(gradient descent) adımları hakkında konuşmak için,
+
+2
+00:00:04,590 --> 00:00:08,370
+ilk defa eğitim setiniz işlenirken aşamanın yarısında olsanız bile,
+
+3
+00:00:08,370 --> 00:00:11,960
+küçük yığın eğim azalmasını nasıl kullanacağınızı gördünüz.
+
+4
+00:00:11,960 --> 00:00:16,282
+Bu videoda, eğim azalmasının nasıl uygulanacağı hakkında daha fazla detay 
+
+5
+00:00:16,282 --> 00:00:19,896
+öğrenecek ve ne yaptığı ve nasıl çalıştığıyla ilgili daha fazla şey anlayacaksınız.
+
+6
+00:00:19,896 --> 00:00:24,481
+Toplu eğim azalması ile birlikte, her yinelemede bütün eğitim setinin üzerinde geçiyorsunuz 
+
+7
+00:00:24,481 --> 00:00:29,380
+ve bedel(cost)'in aşağı düşmesini her bir yinelemenin sonunda sağlıyorsunuz.
+
+8
+00:00:30,660 --> 00:00:33,390
+Dolayısıyla bedel fonksiyonu j'ye sahip olduğumuzu düşünürsek,
+
+9
+00:00:33,390 --> 00:00:37,500
+bu fonksiyonun her bir yinelemede azalma göstermesi gerekiyor.
+
+10
+00:00:37,500 --> 00:00:40,730
+ve eğer bir kez olsun yukarı yönlü hareket ederse bu bir şeyin ters gittiğini gösterir.
+
+11
+00:00:40,730 --> 00:00:43,250
+belki de öğrenme hızı çok fazladır
+
+12
+00:00:43,250 --> 00:00:48,090
+Küçük toplu eğim azalması(mini batch gradient descent)'nda ise, eğer bedel fonksiyonunuzun gelişimini çizerseniz,
+
+13
+00:00:48,090 --> 00:00:51,660
+bu durumda ise her yinelemede bedel fonksiyonunuz azalmayabilir,
+
+14
+00:00:51,660 --> 00:00:56,822
+Özellikle, her yinelemede,
+
+15
+00:00:56,822 --> 00:01:01,425
+X(t), Y(t) yi işlerken,
+
+16
+00:01:01,425 --> 00:01:05,888
+eğer bedel fonksiyonu J(t)'yi çizerseniz,
+
+17
+00:01:05,888 --> 00:01:11,490
+-ki bu da X(t) ve Y(t) kullanarak çiziliyor
+
+18
+00:01:11,490 --> 00:01:17,170
+Bu durumda her yinelemede farklı bir eğitim setinde ya da gerçekten farklı bir küçük yığında
+
+19
+00:01:17,170 --> 00:01:19,380
+eğitim sağlıyorsunuz gibi olacaktır.
+
+20
+00:01:19,380 --> 00:01:20,770
+Dolayısıyla bedel fonksiyonu j'yi çizerseniz,
+
+21
+00:01:20,770 --> 00:01:23,310
+buna benzer bir şekil görme ihtimaliniz yüksektir.
+
+22
+00:01:23,310 --> 00:01:27,479
+Aşağı yönlü bir trend olacaktır fakat yinede bir miktar parazitli(noise) olacaktır.
+
+23
+00:01:30,554 --> 00:01:35,692
+Eğer J(t)'yi birkaç dönem(epoch) boyunca, küçük yığın eğim azalması yönteminin uygulanması sırasında 
+
+24
+00:01:35,692 --> 00:01:40,670
+çizecek olursanız buna benzer şekilde bir eğri ile karşılaşırsınız.
+
+25
+00:01:40,670 --> 00:01:44,284
+Dolayısıyla her yinelemede aşağıya gitmemesinde sorun yoktur
+
+26
+00:01:44,284 --> 00:01:46,783
+fakat aşağı yönlü bir trend olmalıdır.
+
+27
+00:01:46,783 --> 00:01:51,281
+Bir miktar parazitli olmasının sebebi, belki X(1),
+
+28
+00:01:51,281 --> 00:01:56,527
+Y(1), göreceli olarak daha kolay bir küçük yığındır dolayısıyla bedel daha düşük olabilir,
+
+29
+00:01:56,527 --> 00:02:02,057
+fakat belki şansa bağlı olarak X(2), Y(2) daha zor bir küçük yığındır.
+
+30
+00:02:02,057 --> 00:02:04,356
+Belki içerisinde yanlış etiketlenmiş örnekler bile barındırıyor olabilir,
+
+31
+00:02:04,356 --> 00:02:06,780
+bu durumda bedel daha yüksek olacaktır vs.
+
+32
+00:02:06,780 --> 00:02:09,511
+Dolayısıyla küçük yığın eğim azalması uygularken 
+
+33
+00:02:09,511 --> 00:02:13,277
+bunların sebebiyle bu salınımlar gerçekleşmektedir.
+
+34
+00:02:13,277 --> 00:02:18,070
+Şimdi, seçmeniz gereken parametrelerden biri ise küçük yığınınızın büyüklüğü.
+
+35
+00:02:18,070 --> 00:02:22,894
+Diyelim ki m eğitim seti büyüklüğü olsun, bir uçta eğer küçük yığınınızın boyutunu
+
+36
+00:02:26,544 --> 00:02:31,056
+m olarak belirlerseniz elinizde olan şey toplu eğim azalaması olur,
+
+37
+00:02:36,056 --> 00:02:41,068
+bu uçta sadece bir küçük yığına sahip olmuş olursunuz X(1), 
+
+38
+00:02:41,068 --> 00:02:45,720
+Y(1) ve bu küçük yığın sizin bütün eğitim setinize eşit olmuş olur.
+
+39
+00:02:45,720 --> 00:02:49,830
+Dolayısıyla küçük yığın büyüklüğünü m olarak seçerseniz bu durumda direk toplu yığın azalması yöntemini uygulamış olursunuz.
+
+40
+00:02:49,830 --> 00:02:57,669
+Diğer uç ise küçük yığın büyüklüğünü 1 e eşitlediğiniz durumdur.
+
+41
+00:02:59,752 --> 00:03:03,238
+bu size rastgele(stochastic) eğim azalması denilen algoritmayı verir
+
+42
+00:03:07,385 --> 00:03:16,076
+ve burada her örnek kendi küçük yığınına sahiptir
+
+43
+00:03:18,429 --> 00:03:24,172
+dolayısıyla bu durumda yapacağınız şey ilk küçük yığına bakmaktır eğer küçük
+
+44
+00:03:24,172 --> 00:03:29,682
+yığın büyüklüğünü 1 olarak seçerseniz X(1), Y(1) eğitim setinizin ilk örneği olacaktır
+
+45
+00:03:29,682 --> 00:03:34,620
+ve eğim azalması adımınızı eğitim setinizin ilk örneğiyle atmış olursunuz.
+
+46
+00:03:34,620 --> 00:03:39,810
+ve daha sonra ikinci küçük yığına baktığınızda bu da eğitim setinizin ikinci örneği olmuş olur
+
+47
+00:03:39,810 --> 00:03:43,280
+ve diğer eğim azalması adımını bununla atmış olursunuz 
+
+48
+00:03:43,280 --> 00:03:45,170
+üçüncü eğim azalması adımında da aynısını uygularsınız 
+
+49
+00:03:45,170 --> 00:03:47,940
+ve bu şekilde her seferinde bir eğitim örneğine bakarak devam edersiniz.
+
+50
+00:03:50,100 --> 00:03:55,840
+Şimdi bu iki uç örneğin bedel fonksiyonumuzun iyilenmesinde(optimize edilmesinde) nasıl bir etkiye sahip olduğuna bakalım.
+
+51
+00:03:55,840 --> 00:03:59,795
+Eğer azaltmak istediğiniz bedel fonksiyonunuzun sınırları bu şekilde ise,
+
+52
+00:03:59,795 --> 00:04:01,067
+-dolayısıyla en düşük değeriniz burada
+
+53
+00:04:01,067 --> 00:04:05,825
+bu durumda toplu eğim azalması herhangi bir yerde başlayabilir ve
+
+54
+00:04:05,825 --> 00:04:12,320
+göreceli olarak düşük parazitle ve geniş adımlarla ilerleyebilir
+
+55
+00:04:12,320 --> 00:04:15,600
+-minimuma gidişi izleyin.
+
+56
+00:04:15,600 --> 00:04:19,290
+Tam tersi durumda yani rastgele(stochastic) eğim azalması durumunda,
+
+57
+00:04:19,290 --> 00:04:22,430
+eğer burada başlarsanız, (-başka bir tane başlangıç noktası seçelim)
+
+58
+00:04:22,430 --> 00:04:26,180
+her yinelemede eğim azalmasını sadece bir eğitim seti örneğiyle yapıyorsunuz
+
+59
+00:04:26,180 --> 00:04:30,080
+çoğunlukla doğru yönde ilerlersiniz fakat bazen
+
+60
+00:04:30,080 --> 00:04:33,865
+o eğitim örneği sizi yanlış yöne yönlenecek
+
+61
+00:04:33,865 --> 00:04:36,303
+şekilde denk gelebilir
+
+62
+00:04:36,303 --> 00:04:40,530
+dolayısıyla rastgele eğim azalması çok fazla miktarda parazitli olabilir
+
+63
+00:04:40,530 --> 00:04:45,070
+ve genelde sizi doğru yolda ilerletecektir fakat 
+
+64
+00:04:45,070 --> 00:04:47,116
+bazen sizi yanlış yolda da ilerletebilir
+
+65
+00:04:47,116 --> 00:04:50,190
+ve rastgele eğim azalması asla aynı noktada sabit kalmayacaktır
+
+66
+00:04:50,190 --> 00:04:54,760
+her zaman minimum bölgesinde salınım yapacak ve dolaşacaktır
+
+67
+00:04:54,760 --> 00:04:58,006
+fakat hiçbir zaman minimuma gidip orada sabit kalmayacaktır.
+
+68
+00:04:58,006 --> 00:05:03,320
+Pratikte, kullanacağınız küçük yığın büyüklüğü iki uç arasında bir yerde olacaktır
+
+69
+00:05:07,976 --> 00:05:15,100
+1 ile m arasında bir yerde,ve 1 ve m sırasıyla çok küçük ve çok büyük değerler olarak karşımıza çıkıyor.
+
+70
+00:05:15,100 --> 00:05:16,199
+Şimdi nedenine bakalım,
+
+71
+00:05:16,199 --> 00:05:23,844
+eğer toplu eğim azalmasını kullanırsanız,
+
+72
+00:05:23,844 --> 00:05:27,386
+dolayısıyla bu durumda büyüklüğü m'e eşitleyeceksiniz
+
+73
+00:05:30,878 --> 00:05:35,190
+bu durumda her bir yineleme(iteration)'de çok büyük miktarda eğitim setini işliyor olacaksınız
+
+74
+00:05:35,190 --> 00:05:40,101
+dolayısıyla uzun bir eğitim setine sahip olacağınızı varsayarsak
+
+75
+00:05:40,101 --> 00:05:43,860
+bunun en büyük dezavantajı her yinelemede çok fazla zaman alması olacaktır
+
+76
+00:05:43,860 --> 00:05:46,792
+eğer eğitim setiniz küçükse toplu eğim azalması uygun tercih olacaktır
+
+77
+00:05:46,792 --> 00:05:51,200
+eğer zıt tarafa bakacak olursak yani rastgele eğim azalması kullanırsanız,
+
+78
+00:05:54,076 --> 00:05:58,967
+bu durumda sadece bir eğitim örneğiyle ilerleme sağlayacaksınız 
+
+79
+00:05:58,967 --> 00:06:02,030
+bu çok büyük bir problem değil 
+
+80
+00:06:02,030 --> 00:06:04,290
+çünkü bu durumda oluşacak olan parazit(noise),
+
+81
+00:06:04,290 --> 00:06:07,378
+daha düşük bir öğrenme hızı kullanılarak düzeltilebilir veya azaltılabilir
+
+82
+00:06:07,378 --> 00:06:12,160
+fakat rastgele eğim azalması kullanmanın büyük dezavantajı ise 
+
+83
+00:06:12,160 --> 00:06:17,050
+yöneyleme(vectorization) ile kazandığınız hızın neredeyse tamanını kaybetmeniz olacaktır
+
+84
+00:06:18,370 --> 00:06:22,050
+çünkü burada tek seferde sadece bir eğitim örneği kullanıyorsunuz,
+
+85
+00:06:22,050 --> 00:06:26,130
+dolayısıyla her bir örneği işleme şekliniz yüksek miktarda verimsiz olacaktır
+
+86
+00:06:26,130 --> 00:06:32,380
+dolayısıyla uygulamada en iyi çalışan yöntem bu ikisinin arasında bir değerdir,
+
+87
+00:06:36,687 --> 00:06:40,360
+-küçük yığın büyüklüğünün çok fazla ya da çok az olmadığı bir değer
+
+88
+00:06:44,439 --> 00:06:48,630
+ve bu size uygulamada en hızlı öğrenmeyi verecektir
+
+89
+00:06:51,405 --> 00:06:54,860
+bu şekilde bir seçimin iki iyi özelliğe sahip olduğu farkedebilirsiniz
+
+90
+00:06:54,860 --> 00:06:58,174
+birincisi çok miktarda yöneyleme(vectorization)'ye sahip olacaksınız
+
+91
+00:06:58,174 --> 00:07:02,667
+dolayısıyla önceki videoda kullandığımız örnekte,eğer küçük yığın büyüklüğü 
+
+92
+00:07:02,667 --> 00:07:07,669
+1000 ise bu durumda 1000 örnek üzerinde yöneyleme(vectorize) yapabilirsiniz
+
+93
+00:07:07,669 --> 00:07:12,110
+ki bu örnekleri bir bir işlemekten çok daha hızlı olacaktır
+
+94
+00:07:13,670 --> 00:07:16,710
+ve ikinci olarak bütün eğitim setini 
+
+95
+00:07:22,210 --> 00:07:27,710
+bitirmeyi beklemeye gerek kalmadan ilerleme sağlayabilirsiniz
+
+96
+00:07:32,430 --> 00:07:36,719
+dolayısıyla tekrardan önceki videodadan örnek verecek olursak,
+
+97
+00:07:36,719 --> 00:07:40,640
+her dönem(epoch) içerisinde 5000 eğim azalması adımı atabileceksiniz
+
+98
+00:07:41,840 --> 00:07:46,370
+dolayısıyla uygulamada ikisi arasındaki bir küçük yığın büyüklüğü değeri en iyi değer olacaktır
+
+99
+00:07:46,370 --> 00:07:49,380
+ve örnek verecek olursak küçük yığın eğim azalması ile buradan başlarsak,
+
+100
+00:07:49,380 --> 00:07:53,670
+belki bir yinemele bunu iki bunu yapacaktır üç dört diye gidecektir.
+
+101
+00:07:53,670 --> 00:07:58,521
+ve yine burada da her zaman minimuma gideceğinin garantisi yoktur
+
+102
+00:07:58,521 --> 00:08:03,383
+fakat minimuma doğru daha kararlı bir şekilde yol alacaktır
+
+103
+00:08:03,383 --> 00:08:08,320
+ve yine aynı şekilde her zaman bir noktada toplanacağının veya salınım yapmayacağının garantisi yoktur
+
+104
+00:08:08,320 --> 00:08:11,550
+eğer bu bir sorun olursa öğrenme hınızı azaltarak bu problemi çözebilirsiniz
+
+105
+00:08:11,550 --> 00:08:13,410
+öğrenme hızı sönümü(learning rate decay) hakkında ya da
+
+106
+00:08:13,410 --> 00:08:15,960
+öğrenme hızını nasıl azaltacağımız konusunda daha sonraki videolarda konuşacağız.
+
+107
+00:08:15,960 --> 00:08:20,020
+Küçük yığın büyüklüğünün m veya 1 olmaması gerektiğini konuştuk ve
+
+108
+00:08:20,020 --> 00:08:23,410
+arada bir yerde olması gerekiyor dedik fakat bunu nasıl seçeceğiz?
+
+109
+00:08:23,410 --> 00:08:24,826
+birkaç prensip verelim;
+
+110
+00:08:24,826 --> 00:08:33,470
+birincisi, eğer küçük bir eğitim setiniz varsa toplu eğim azalması yöntemini kullanın
+
+111
+00:08:36,655 --> 00:08:41,023
+eğer küçük bir eğitim setiniz varsa küçük toplu öğrenme yöntemini kullanmanızın faydası yoktur
+
+112
+00:08:41,023 --> 00:08:43,670
+bütün eğitim setinizi hızlı bir şekilde işleyebilirsiniz
+
+113
+00:08:43,670 --> 00:08:45,619
+dolayısıyla bu durumda toplu eğim azalmasını kullanmalısınız
+
+114
+00:08:45,619 --> 00:08:50,281
+küçük bir eğitim setinden kastım, belki 2000'den daha az eğitim seti olabilir
+
+115
+00:08:50,281 --> 00:08:54,480
+bu durumda toplu eğim azalmasını kullanmak gayet yerinde olacaktır
+
+116
+00:08:54,480 --> 00:09:00,391
+eğer büyük bir eğitim setiniz varsa, kullanacağınız küçük toplu eğim azalmasında
+
+117
+00:09:03,336 --> 00:09:09,437
+büyüklük olarak 64'ten 512 ye olan değerler alışılageldiktir
+
+118
+00:09:09,437 --> 00:09:14,130
+ve bilgisayar belleklerinin düzenlenişi ve erişiminden dolayı bazen 
+
+119
+00:09:14,130 --> 00:09:19,460
+küçük toplu eğim azalmasında kullanacağınız büyüklüklerin 2'nin katları olması önemli kodunuzun daha hızlı çalışmasına sebebiyet verebilir
+
+120
+00:09:19,460 --> 00:09:24,108
+örneğin 64 2 üzeri 6 ya denk geliyor,bunun dışında 2 üzeri 8,2 üzeri 9 gibi değerler de kullanılabilir 
+
+121
+00:09:24,108 --> 00:09:30,080
+dolayısıyla büyüklükleri 2'nin katları şeklinde düzenliyorum
+
+122
+00:09:30,080 --> 00:09:33,900
+önceki videoda büyüklüğü 1000 yaptığımın farkındayım,
+
+123
+00:09:33,900 --> 00:09:37,990
+eğer gerçekten 1000 yapmak istiyorsanız size 1024 yapmanızı öneririm
+
+124
+00:09:37,990 --> 00:09:39,870
+-ki bu da 2 üzeri 10'a denk geliyor
+
+125
+00:09:39,870 --> 00:09:46,176
+ve 1024 büyüklüğünü biraz daha nadir göreceksiniz
+
+126
+00:09:46,176 --> 00:09:50,681
+yazdığım değerler biraz daha yaygın olarak kullanılmakta
+
+127
+00:09:50,681 --> 00:09:54,980
+son önerim ise küçük toplu eğim azalmasında kullanacağınız büyüklüklerin,
+
+128
+00:09:57,260 --> 00:10:05,309
+yani bütün X(t), Y(t)'lerin CPU/GPU belleğine uyduğundan emin olmaktır
+
+129
+00:10:08,563 --> 00:10:10,863
+ve bu uyum uygulamaya ve tek bir eğitim örneğinizin 
+
+130
+00:10:10,863 --> 00:10:12,800
+ne kadar büyük olduğuna bağlı olarak değişir
+
+131
+00:10:12,800 --> 00:10:17,430
+fakat eğer CPU/GPU belleğine uymayan bir büyüklük seçerseniz
+
+132
+00:10:17,430 --> 00:10:20,640
+bu durumda performansın aniden hızlı bir biçimde 
+
+133
+00:10:20,640 --> 00:10:24,336
+düştüğünü göreceksiniz ve aniden çok daha kötü 
+
+134
+00:10:24,336 --> 00:10:25,809
+hale geldiğini göreceksiniz.
+
+135
+00:10:25,809 --> 00:10:30,273
+Böylelikle, umarım bu size insanların küçük toplu eğim azalmasında kullandığı standart bir aralıkla ilgili
+
+136
+00:10:30,273 --> 00:10:31,790
+fikir vermiş olur.
+
+137
+00:10:31,790 --> 00:10:35,970
+Uygulamada bu büyüklük aslında üzerinde hızlı bir araştırma yapabileceğiniz 
+
+138
+00:10:35,970 --> 00:10:40,840
+ve hangi değerin bedel fonksiyonu j'yi düşürmede daha verimli
+
+139
+00:10:40,840 --> 00:10:43,960
+olduğuyla ilgili kullanılabilecek başka bir yüksek parametredir.
+
+140
+00:10:43,960 --> 00:10:47,065
+Böyle bir durumda benim yapacağım şey birkaç farklı değeri denemek olacaktır
+
+141
+00:10:47,065 --> 00:10:51,727
+2'nin katı birkaç farklı değeri deneyin ve eğim azalması iyileme algoritmasını
+
+142
+00:10:51,727 --> 00:10:56,470
+olabildiğince verimli hale getiren bir değer seçin.
+
+143
+00:10:56,470 --> 00:10:59,940
+Umut ediyorum ki bunlar size yüksek parametre 
+
+144
+00:10:59,940 --> 00:11:03,405
+aramaya başlamada ana prensipler olarak yardım eder.
+
+145
+00:11:03,405 --> 00:11:07,012
+Artık küçük toplu eğim azalmasını nasıl uygulayacağınızı ve özellikle büyük bir 
+
+146
+00:11:07,012 --> 00:11:10,378
+eğitim setinde eğitim yaparken algoritmanızı nasıl hızlı çalıştırabileceğinizi biliyorsunuz
+
+147
+00:11:10,378 --> 00:11:12,936
+fakat gerçekte olan şu ki eğim azalmasından veya 
+
+148
+00:11:12,936 --> 00:11:15,805
+küçük toplu eğim azalmasındaan daha verimli algoritmalar mevcut
+
+149
+00:11:15,805 --> 00:11:18,215
+Hadi onları da sıradaki videolarda konuşalım.

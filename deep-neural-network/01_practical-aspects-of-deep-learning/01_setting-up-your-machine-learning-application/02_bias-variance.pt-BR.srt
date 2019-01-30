@@ -1,0 +1,777 @@
+1
+00:00:00,000 --> 00:00:03,600
+Tenho notado que quase todos os bons praticantes
+de aprendizado de máquina
+
+2
+00:00:03,600 --> 00:00:07,890
+tendem a ser muito sofisticados no
+entendimento de "Viés" e "Variância".
+
+3
+00:00:07,890 --> 00:00:12,330
+Viés e Variância são conceitos fáceis de
+aprender, mas difíceis de dominar.
+
+4
+00:00:12,330 --> 00:00:16,155
+Mesmo que você ache que já viu os 
+conceitos básicos de Viés e Variância,
+
+5
+00:00:16,155 --> 00:00:18,805
+muitas vezes, existem mais conceitos novos
+do que você esperava.
+
+6
+00:00:18,805 --> 00:00:20,620
+Nos Erros em Aprendizagem Profunda,
+
+7
+00:00:20,620 --> 00:00:22,650
+outra tendência é a de que tem havido
+
+8
+00:00:22,650 --> 00:00:26,035
+menos discussão a respeito do
+chamado "trade-off" (escolha) entre Viés e Variância.
+
+9
+00:00:26,035 --> 00:00:28,657
+É possível que você tenha ouvido sobre
+esse "trade-off" entre Viés e Variância.
+
+10
+00:00:28,657 --> 00:00:31,330
+Mas nos Erros em Aprendizagem Profunda,
+há menos "trade-off",
+
+11
+00:00:31,330 --> 00:00:32,520
+então, temos solucionado o Viés,
+
+12
+00:00:32,520 --> 00:00:33,865
+e solucionado a Variância,
+
+13
+00:00:33,865 --> 00:00:37,295
+mas apenas falamos menos sobre o
+"trade-off" entre Viés e Variância.
+
+14
+00:00:37,295 --> 00:00:39,795
+Vejamos o que isso significa.
+
+15
+00:00:39,795 --> 00:00:42,750
+Vejamos um conjunto de dados
+parecido com este.
+
+16
+00:00:42,750 --> 00:00:44,800
+Se você encaixar uma linha reta
+nesses dados,
+
+17
+00:00:44,800 --> 00:00:48,130
+talvez consiga uma regressão logística
+ajustada a isso.
+
+18
+00:00:48,130 --> 00:00:50,415
+Isso não é um bom ajuste de dados.
+
+19
+00:00:50,415 --> 00:00:52,380
+Assim, isso é uma classe de alto Viés,
+
+20
+00:00:52,380 --> 00:00:56,400
+que chamamos como um caso de
+subajuste de dados.
+
+21
+00:00:56,400 --> 00:00:57,850
+De maneira contrária,
+
+22
+00:00:57,850 --> 00:01:00,645
+se você encaixar um classificador
+incrivelmente complexo,
+
+23
+00:01:00,645 --> 00:01:02,640
+talvez uma rede neural profunda
+
+24
+00:01:02,640 --> 00:01:05,995
+ou uma rede neural com todas as camadas
+intermediárias,
+
+25
+00:01:05,995 --> 00:01:10,255
+talvez você possa encaixar os dados
+de maneira perfeita,
+
+26
+00:01:10,255 --> 00:01:12,220
+mas isso também não parece um 
+bom ajuste.
+
+27
+00:01:12,220 --> 00:01:17,535
+Então, há um classificador de alta Variância
+num caso de sobre-ajuste dos dados.
+
+28
+00:01:17,535 --> 00:01:19,650
+E pode haver algum tipo de classificador
+intermediário entre eles,
+
+29
+00:01:19,650 --> 00:01:22,070
+com um nível médio de complexidade,
+
+30
+00:01:22,070 --> 00:01:24,585
+que talvez possa se encaixar
+corretamente assim.
+
+31
+00:01:24,585 --> 00:01:27,300
+Este parece ser um ajuste muito
+mais razoável de dados,
+
+32
+00:01:27,300 --> 00:01:31,705
+que dizemos ser a medida certa. Está
+em algum lugar no meio.
+
+33
+00:01:31,705 --> 00:01:34,260
+Então, num exemplo bidimensional como este,
+
+34
+00:01:34,260 --> 00:01:35,610
+com apenas duas características,
+
+35
+00:01:35,610 --> 00:01:39,700
+x₁ e x₂, você pode plotar os dados
+e visualizar o Viés e a Variância.
+
+36
+00:01:39,700 --> 00:01:41,250
+Em problemas com um número
+grande de dimensões,
+
+37
+00:01:41,250 --> 00:01:44,735
+você não pode plotar os dados e 
+visualizar os limites de divisão.
+
+38
+00:01:44,735 --> 00:01:46,830
+Em vez disso, existem outros tipos
+diferentes de métrica
+
+39
+00:01:46,830 --> 00:01:49,750
+que analisaremos para
+tentar entender o Viés e a Variância.
+
+40
+00:01:49,750 --> 00:01:51,960
+Então, seguindo nosso exemplo de
+classificação de fotos de gatos,
+
+41
+00:01:51,960 --> 00:01:57,600
+onde este é um exemplo positivo
+e este um exemplo negativo,
+
+42
+00:01:57,600 --> 00:02:01,455
+os dois números-chave a se observar para
+entender o Viés e a Variância serão
+
+43
+00:02:01,455 --> 00:02:06,415
+o erro do conjunto de treino e o erro 
+do conjunto de validação ou desenvolvimento.
+
+44
+00:02:06,415 --> 00:02:07,716
+Então, para fins ilustrativos,
+
+45
+00:02:07,716 --> 00:02:10,290
+digamos que você reconhece gatos
+nas fotos,
+
+46
+00:02:10,290 --> 00:02:13,860
+é algo que as pessoas conseguem fazer
+quase perfeitamente, certo?
+
+47
+00:02:13,860 --> 00:02:22,155
+Então, digamos que o seu erro do conjunto de treino
+é 1% e o seu erro de conjunto de validação é,
+
+48
+00:02:22,155 --> 00:02:23,580
+para fins ilustrativos,
+
+49
+00:02:23,580 --> 00:02:25,585
+digamos, 11%.
+
+50
+00:02:25,585 --> 00:02:26,730
+Neste exemplo,
+
+51
+00:02:26,730 --> 00:02:29,495
+você está indo muito bem no conjunto
+de treino,
+
+52
+00:02:29,495 --> 00:02:34,355
+mas relativamente mal no conjunto de
+desenvolvimento.
+
+53
+00:02:34,355 --> 00:02:38,215
+Então, parece que este é um caso de
+sobre-ajuste do seu conjunto de treino,
+
+54
+00:02:38,215 --> 00:02:40,620
+que, de alguma forma, você não está
+fazendo uma boa generalização,
+
+55
+00:02:40,620 --> 00:02:43,815
+para o conjunto de validação cruzada com
+o conjunto de desenvolvimento.
+
+56
+00:02:43,815 --> 00:02:46,440
+Assim, se você tem um exemplo como esse,
+
+57
+00:02:46,440 --> 00:02:50,785
+nós diríamos que ele tem alta Variância.
+
+58
+00:02:50,785 --> 00:02:54,240
+Então, por meio da observação dos erros no conjunto
+de treino e no conjunto de desenvolvimento,
+
+59
+00:02:54,240 --> 00:02:59,730
+você conseguiria fazer um diagnóstico do
+seu algoritmo como tendo alta Variância.
+
+60
+00:02:59,730 --> 00:03:04,435
+Agora, digamos que você meça os erros dos
+ seus conjuntos de treino e de validação,
+
+61
+00:03:04,435 --> 00:03:06,095
+e obtenha um resultado diferente.
+
+62
+00:03:06,095 --> 00:03:09,610
+Digamos que o erro do seu conjunto
+de treino é 15%.
+
+63
+00:03:09,610 --> 00:03:12,375
+Estou escrevendo o erro do seu conjunto
+de treino na linha superior,
+
+64
+00:03:12,375 --> 00:03:15,880
+e o erro do seu conjunto de
+desenvolvimento é 16%.
+
+65
+00:03:15,880 --> 00:03:22,870
+Nesse caso, assumindo a grosso modo 
+que humanos obtêm 0% de erro,
+
+66
+00:03:22,870 --> 00:03:27,451
+que humanos podem olhar para essas fotos
+e simplesmente dizer se é um gato ou não,
+
+67
+00:03:27,451 --> 00:03:31,600
+então, parece que o algoritmo não está indo
+ bem nem mesmo no conjunto de treinamento.
+
+68
+00:03:31,600 --> 00:03:35,380
+Então, se ele não está nem ajustando
+os dados de treino tão bem,
+
+69
+00:03:35,380 --> 00:03:38,220
+este é um caso de subajuste dos dados.
+
+70
+00:03:38,220 --> 00:03:40,895
+E então, esse algoritmo tem alto Viés.
+
+71
+00:03:40,895 --> 00:03:45,390
+Mas, por outro lado, isso está fazendo uma
+generalização razoável para o conjunto de validação,
+
+72
+00:03:45,390 --> 00:03:49,365
+ao passo que o desempenho no conjunto de validação
+é apenas 1% pior que o no conjunto de treino.
+
+73
+00:03:49,365 --> 00:03:52,355
+Então, esse algoritmo tem um problema de
+alto Viés
+
+74
+00:03:52,355 --> 00:03:56,325
+porque não estava nem mesmo
+adequado ao conjunto de treino.
+
+75
+00:03:56,325 --> 00:04:01,030
+Bem, isso se parece com os gráficos mais à
+esquerda do slide anterior.
+
+76
+00:04:01,030 --> 00:04:03,329
+Agora, vejamos outro exemplo.
+
+77
+00:04:03,329 --> 00:04:06,430
+Digamos que você tem 15% de erro
+no conjunto de treino,
+
+78
+00:04:06,430 --> 00:04:08,127
+então, temos um Viés bem alto,
+
+79
+00:04:08,127 --> 00:04:11,446
+mas, quando você avalia o conjunto de
+validação, o erro é pior ainda,
+
+80
+00:04:11,446 --> 00:04:13,450
+talvez em 30%.
+
+81
+00:04:13,450 --> 00:04:18,175
+Nesse caso, eu diagnosticaria o algoritmo
+ como tendo alto Viés,
+
+82
+00:04:18,175 --> 00:04:23,780
+porque não está indo bem no conjunto de
+treino, e alta Variância.
+
+83
+00:04:23,780 --> 00:04:27,950
+Então, este realmente tem o pior dos
+dois mundos.
+
+84
+00:04:27,950 --> 00:04:29,325
+E um último exemplo,
+
+85
+00:04:29,325 --> 00:04:32,605
+se você tem 0.5 de erro no conjunto
+de treino,
+
+86
+00:04:32,605 --> 00:04:35,145
+e 1% no conjunto de validação,
+
+87
+00:04:35,145 --> 00:04:37,130
+então, talvez nossos usuários fiquem 
+bastante felizes,
+
+88
+00:04:37,130 --> 00:04:39,850
+por você ter um classificador de gatos
+com apenas 1% de erro,
+
+89
+00:04:39,850 --> 00:04:44,340
+e nós temos baixo Viés e baixa Variância.
+
+90
+00:04:44,340 --> 00:04:47,610
+Uma sutileza, que mencionarei brevemente que
+
+91
+00:04:47,610 --> 00:04:50,955
+deixaremos para um próximo vídeo para
+ser discutido com maiores detalhes,
+
+92
+00:04:50,955 --> 00:04:54,188
+é que essa análise se baseia no pressuposto
+
+93
+00:04:54,188 --> 00:04:59,115
+de que o nível de desempenho humano
+tem aproximadamente 0% de erro ou,
+
+94
+00:04:59,115 --> 00:05:01,749
+de maneira mais geral, que o erro
+ideal,
+
+95
+00:05:01,749 --> 00:05:04,225
+por vezes chamado de erro de Bayes,
+
+96
+00:05:04,225 --> 00:05:10,355
+então, o erro na classificação ótima Bayesiana é
+praticamente 0%.
+
+97
+00:05:10,355 --> 00:05:13,565
+Não quero entrar em detalhes sobre
+isso neste vídeo em específico,
+
+98
+00:05:13,565 --> 00:05:18,070
+mas acontece que, se o erro ideal ou o erro 
+de Bayes são muito maiores, como
+
+99
+00:05:18,070 --> 00:05:22,360
+15%, então se você olhar para esse
+classificador,
+
+100
+00:05:22,360 --> 00:05:25,460
+15% é, na verdade, perfeitamente razoável 
+para o conjunto de treino e você
+
+101
+00:05:25,460 --> 00:05:30,120
+não o veria como tendo Viés alto 
+e também com uma Variância baixa.
+
+102
+00:05:30,120 --> 00:05:33,440
+Então, no caso de como analisar o
+Viés e a Variância,
+
+103
+00:05:33,440 --> 00:05:37,460
+quando nenhum classificador consegue
+ter um bom desempenho, por exemplo,
+
+104
+00:05:37,460 --> 00:05:40,833
+se você tiver imagens bastante embaçadas,
+
+105
+00:05:40,833 --> 00:05:46,081
+de maneira que nenhum humano ou
+qualquer sistema possa ir bem,
+
+106
+00:05:46,081 --> 00:05:49,237
+então, talvez o erro de Bayes seja muito
+mais alto,
+
+107
+00:05:49,237 --> 00:05:52,295
+e, assim, existem alguns detalhes
+sobre como essa análise mudará.
+
+108
+00:05:52,295 --> 00:05:54,725
+Mas, deixando essa sutileza de lado
+por enquanto,
+
+109
+00:05:54,725 --> 00:05:57,430
+o ponto-chave é que ao olhar para
+
+110
+00:05:57,430 --> 00:06:02,676
+o erro no seu conjunto de treino, você
+pode ter uma noção de como está sendo o ajuste,
+
+111
+00:06:02,676 --> 00:06:04,331
+pelo menos nos dados de treino,
+
+112
+00:06:04,331 --> 00:06:06,770
+e isso te mostra se você tem
+um problema relacionado ao Viés.
+
+113
+00:06:06,770 --> 00:06:10,190
+E, dependendo do quão alto é o erro
+
+114
+00:06:10,190 --> 00:06:12,965
+do seu conjunto de treino em
+relação ao conjunto de validação,
+
+115
+00:06:12,965 --> 00:06:17,055
+você tem uma noção do quão grave
+é o problema da Variância.
+
+116
+00:06:17,055 --> 00:06:20,857
+Então, você fará um bom trabalho na generalização 
+do conjunto de treino pro de validação
+
+117
+00:06:20,857 --> 00:06:22,645
+pois isso te dará uma noção da Variância.
+
+118
+00:06:22,645 --> 00:06:26,210
+Tudo isso se baseia no pressuposto
+de que o erro de Bayes é bem
+
+119
+00:06:26,210 --> 00:06:30,235
+pequeno e que os seus conjuntos de treino
+e validação foram construídos com a mesma distribuição.
+
+120
+00:06:30,235 --> 00:06:32,210
+Se esses pressupostos forem violados,
+
+121
+00:06:32,210 --> 00:06:34,323
+existe uma análise mais sofisticada
+que você pode fazer,
+
+122
+00:06:34,323 --> 00:06:36,510
+sobre a qual nós falaremos num próximo
+vídeo.
+
+123
+00:06:36,510 --> 00:06:38,780
+No slide anterior,
+
+124
+00:06:38,780 --> 00:06:40,849
+você observou como um Viés alto,
+
+125
+00:06:40,849 --> 00:06:42,185
+e uma Variância alta são,
+
+126
+00:06:42,185 --> 00:06:44,920
+e acho que você tem uma noção de como é
+uma classe boa.
+
+127
+00:06:44,920 --> 00:06:48,110
+Como um Viés alto e uma Variância alta
+parecem?
+
+128
+00:06:48,110 --> 00:06:50,535
+São praticamente o pior dos dois mundos.
+
+129
+00:06:50,535 --> 00:06:53,415
+Você deve se lembrar, dissemos que
+um classificador assim
+
+130
+00:06:53,415 --> 00:06:55,755
+é um classificador com alto Viés
+
+131
+00:06:55,755 --> 00:06:58,185
+porque é um caso de subajuste dos dados.
+
+132
+00:06:58,185 --> 00:07:04,030
+Então, esse seria um classificador praticamente
+linear e que, portanto, causa subajuste dos dados.
+
+133
+00:07:04,030 --> 00:07:05,570
+representaremos isso em roxo.
+
+134
+00:07:05,570 --> 00:07:09,546
+Mas se, de alguma forma, seu 
+classificador fizer coisas estranhas,
+
+135
+00:07:09,546 --> 00:07:14,460
+então, existe, na verdade, um sobre-ajuste
+de partes dos dados também.
+
+136
+00:07:14,460 --> 00:07:16,500
+Então, o classificador que eu desenhei
+em roxo
+
+137
+00:07:16,500 --> 00:07:19,455
+tem tanto Viés alto como Variância alta.
+
+138
+00:07:19,455 --> 00:07:21,300
+Ele tem Viés alto porque,
+
+139
+00:07:21,300 --> 00:07:23,325
+uma vez que é um classificador
+praticamente linear,
+
+140
+00:07:23,325 --> 00:07:24,875
+não há um bom ajuste.
+
+141
+00:07:24,875 --> 00:07:28,466
+Veja, essa linha quadrática se ajusta bem
+
+142
+00:07:28,466 --> 00:07:31,200
+mas, por ter muita flexibilidade no meio,
+
+143
+00:07:31,200 --> 00:07:32,995
+de alguma forma, ele tem esse exemplo
+
+144
+00:07:32,995 --> 00:07:36,720
+e esse exemplo têm sobre-ajuste desses dois
+exemplos também.
+
+145
+00:07:36,720 --> 00:07:40,515
+Então, esse classificador tem Viés alto porque
+era basicamente linear,
+
+146
+00:07:40,515 --> 00:07:43,620
+mas talvez você precise de uma função curvilínea
+ou quadrática.
+
+147
+00:07:43,620 --> 00:07:45,115
+E ele tem Variância alta,
+
+148
+00:07:45,115 --> 00:07:49,595
+porque existe muita flexibilidade para ajustar
+aqueles dois fora da área,
+
+149
+00:07:49,595 --> 00:07:52,475
+ou aqueles dois exemplos no meio também.
+
+150
+00:07:52,475 --> 00:07:54,300
+Nesse caso, parece um pouco forjado, bem,
+
+151
+00:07:54,300 --> 00:07:57,585
+esse exemplo é um pouco forjado em duas
+dimensões,
+
+152
+00:07:57,585 --> 00:07:59,883
+mas com duas entradas altamente dimensionais.
+
+153
+00:07:59,883 --> 00:08:01,795
+Na verdade, você consegue algo com
+
+154
+00:08:01,795 --> 00:08:04,800
+Viés alto em algumas regiões e Variância alta
+em algumas regiões,
+
+155
+00:08:04,800 --> 00:08:07,410
+então é possível conseguir classificadores assim
+
+156
+00:08:07,410 --> 00:08:11,415
+com entradas de altas dimensões que parecem
+menos artificiais.
+
+157
+00:08:11,415 --> 00:08:15,690
+Então, para resumir, você viu que por meio da
+observação do erro de algoritmo no
+
+158
+00:08:15,690 --> 00:08:20,550
+conjunto de treino e do erro no conjunto
+de validação, você pode tentar diagnosticar
+
+159
+00:08:20,550 --> 00:08:23,413
+se ele tem problemas com alto Viés ou
+alta Variância,
+
+160
+00:08:23,413 --> 00:08:25,420
+ou talvez ambos, ou nenhum dos dois.
+
+161
+00:08:25,420 --> 00:08:28,995
+E dependendo do seu algoritmo, se ele sofre
+com o Viés ou com a Variância,
+
+162
+00:08:28,995 --> 00:08:31,765
+Acontece que existem algumas coisas diferentes
+que você pode tentar.
+
+163
+00:08:31,765 --> 00:08:33,840
+Então, no próximo vídeo, quero te apresentar
+
+164
+00:08:33,840 --> 00:08:37,390
+o que eu chamo de uma receita básica para
+aprendizado de máquina,
+
+165
+00:08:37,390 --> 00:08:40,905
+que te permite tentar melhorar seu algoritmo
+de forma mais sistemática,
+
+166
+00:08:40,905 --> 00:08:44,370
+dependendo se ele tiver problemas com
+Viés alto ou Variância alta.
+
+167
+00:08:44,370 --> 00:08:46,110
+Então, vamos para o próximo vídeo.
+[Tradução: Gabriella Miya | Revisão: Carlos Lage]

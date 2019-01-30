@@ -1,0 +1,503 @@
+1
+00:00:00,000 --> 00:00:01,470
+Bir önceki videoda 
+
+2
+00:00:01,470 --> 00:00:04,778
+algoritmanın bir bias veya varyans problemi mi veya her ikisi de mi olduğunu teşhis ederek
+
+3
+00:00:04,778 --> 00:00:09,280
+eğitim hatası ve derinlik hatasına bakarak nasıl yardımcı olabileceğini gördünüz.
+
+4
+00:00:09,280 --> 00:00:11,880
+Bu bilgi makineleri öğrenmek için
+
+5
+00:00:11,880 --> 00:00:15,030
+basit bir tarif olarak adlandırılan şeyi daha sistematik kullanmana
+
+6
+00:00:15,030 --> 00:00:18,165
+izin vermesinin yanı sıra aynı zamanda 
+
+7
+00:00:18,165 --> 00:00:21,510
+algoritmanın performansını daha sistematik geliştirmene yardımcı oluyor. Şimdi bir bakalım
+
+8
+00:00:21,510 --> 00:00:22,900
+Bir sinir ağını eğitirken 
+
+9
+00:00:22,900 --> 00:00:24,975
+işte kullanacağım temel bir tarif.
+
+10
+00:00:24,975 --> 00:00:26,920
+Bir başlangıç modelin eğitimini aldıktan sonra,
+
+11
+00:00:26,920 --> 00:00:28,185
+ilk önce soracağım şey
+
+12
+00:00:28,185 --> 00:00:30,570
+algoritma aşırı bias içeriyor mu?
+
+13
+00:00:30,570 --> 00:00:33,709
+ve aşırı bias varsa denemek ve değerlendirmek için
+
+14
+00:00:33,709 --> 00:00:35,820
+eğitim seti veya eğitim verisinin performansına
+
+15
+00:00:35,820 --> 00:00:40,260
+gerçekten bakmalısın.
+
+16
+00:00:40,260 --> 00:00:43,260
+Doğru. Ve böylece aşırı bias varsa,
+
+17
+00:00:43,260 --> 00:00:45,735
+eğitim setine bile uymuyorsa
+
+18
+00:00:45,735 --> 00:00:49,695
+deneyebileceğiniz bazı şeyler ağ seçmeyi denemek olurdu.
+
+19
+00:00:49,695 --> 00:00:52,680
+Daha fazla gizli katman veya daha fazla gizli öğe gibi,
+
+20
+00:00:52,680 --> 00:00:54,825
+ya da daha uzun süre eğitebilirsin.
+
+21
+00:00:54,825 --> 00:00:58,953
+Belki eğitimler uzun sürer veya daha gelişmiş optimizasyon algoritmaları dener,
+
+22
+00:00:58,953 --> 00:01:00,795
+Bundan daha sonra bahsedeceğiz.
+
+23
+00:01:00,795 --> 00:01:03,030
+Ya da deneyebilirsiniz,
+
+24
+00:01:03,030 --> 00:01:06,285
+bu belki işe yarayabilir de yaramayabilir de.
+
+25
+00:01:06,285 --> 00:01:10,680
+Fakat daha sonra farklı ağ mimarileri olduğunu göreceğiz
+
+26
+00:01:10,680 --> 00:01:15,450
+ve belki de bu sorun için daha uygun yeni bir ağ mimarisi bulabilirsiniz.
+
+27
+00:01:15,450 --> 00:01:17,760
+Bunu parantez içinde yazıyorum çünkü bilmen gereken bir şey var ki 
+
+28
+00:01:17,760 --> 00:01:19,380
+denemelisin.
+
+29
+00:01:19,380 --> 00:01:20,925
+Belki çalıştırabilirsin, belki çalıştıramazsın.
+
+30
+00:01:20,925 --> 00:01:24,170
+Daha büyük bir iletişim ağı almak neredeyse her zaman yardımcı olur.
+
+31
+00:01:24,170 --> 00:01:26,761
+Bazen ise daha fazla çalışman bir işe yaramayabilir
+
+32
+00:01:26,761 --> 00:01:28,450
+ama kesinlikle zararı dokunmaz.
+
+33
+00:01:28,450 --> 00:01:29,793
+Yani bir derin öğrenme algoritmasını uygularken
+
+34
+00:01:29,793 --> 00:01:34,100
+ben en azından bias probleminden kurtulana kadar bunları denerdim.
+
+35
+00:01:34,100 --> 00:01:39,945
+Denedikten sonra geri gider ve uyana kadar aynısını yapmaya devam ederdim
+
+36
+00:01:39,945 --> 00:01:42,460
+en azından çalışma seti iyice uyana kadar.
+
+37
+00:01:42,460 --> 00:01:44,760
+Ve genellikle yeterince büyük bir iletişim ağınız varsa,
+
+38
+00:01:44,760 --> 00:01:49,470
+training datasını sanki birinin yapabileceği
+
+39
+00:01:49,470 --> 00:01:54,150
+bir problemmiş gibi uyumlu bir hale getirebilir olmalısınız. Tamam mı?
+
+40
+00:01:54,150 --> 00:01:55,787
+Görüntü çok bulanık ise, 
+
+41
+00:01:55,787 --> 00:01:57,300
+uygun olması imkansız olabilir.
+
+42
+00:01:57,300 --> 00:01:59,531
+Ama en azından bir insan bu sorunda başarı sağlayabiliyorsa ve
+
+43
+00:01:59,531 --> 00:02:01,540
+eğer base hatasının çok yüksek olmadığını düşünüyorsan 
+
+44
+00:02:01,540 --> 00:02:04,244
+o zaman yeterince büyük bir ağı çalıştırarak
+
+45
+00:02:04,244 --> 00:02:07,275
+en azından training setinde iyi bir sonu alabiliyor olmalısın.
+
+46
+00:02:07,275 --> 00:02:09,970
+En azından training sete uymalı ya da fazla gelmeli.
+
+47
+00:02:09,970 --> 00:02:14,743
+Bias miktarını kabul edilebilir oranlara indirdiğin zaman kendine sor,
+
+48
+00:02:14,743 --> 00:02:17,040
+varyans prolemin var mı?
+
+49
+00:02:17,040 --> 00:02:21,410
+Ve varsa eğer ben ölçmek için dev set performansa bakardım.
+
+50
+00:02:21,410 --> 00:02:24,310
+İyi çalışan bir training setten 
+
+51
+00:02:24,310 --> 00:02:28,595
+iyi çalışan bir bir dev set performansı çıkarabiliyor musun?
+
+52
+00:02:28,595 --> 00:02:30,915
+Ve yüksek varyansın varsa eğer
+
+53
+00:02:30,915 --> 00:02:34,015
+bunu çözmenin en iyi yolu daha fazla data toplamaktır.
+
+54
+00:02:34,015 --> 00:02:35,199
+Bunu yapabilirsen
+
+55
+00:02:35,199 --> 00:02:36,875
+data sana yardımcı olabilir.
+
+56
+00:02:36,875 --> 00:02:40,490
+Ama bazen daha fazla data toplayamazsın
+
+57
+00:02:40,490 --> 00:02:43,300
+ya da regüle etmeyi deneyebilirsin ki
+
+58
+00:02:43,300 --> 00:02:45,078
+bunun hakkında bir sonraki videoda konuşacağız.
+
+59
+00:02:45,078 --> 00:02:46,630
+Fazla gelmeyi azaltmaktan bahsederken
+
+60
+00:02:46,630 --> 00:02:50,930
+ve aynı zamanda yine bazen denemeniz gerekir.
+
+61
+00:02:50,930 --> 00:02:54,310
+Ama eğer daha uygun bir sinirsel ağ mimarisi bulabilirseniz
+
+62
+00:02:54,310 --> 00:02:57,335
+bu bias probleminizi azaltmanın yanı sıra 
+
+63
+00:02:57,335 --> 00:03:00,785
+varyans problemini de azaltabilir. Ama bunu nasıl yapacaksınız?
+
+64
+00:03:00,785 --> 00:03:04,045
+Nasıl yapacağınız konusunda tamamen sistematik olmak daha zordur.
+
+65
+00:03:04,045 --> 00:03:06,175
+Ama ben bunları deniyorum ve sürekli geri dönüyorum
+
+66
+00:03:06,175 --> 00:03:11,785
+taa ki hem biası hem de varyansı düşük bir şey bulana kadar,
+
+67
+00:03:11,785 --> 00:03:14,594
+ki zaten o zaman bitirmiş oluyorsunuz.
+
+68
+00:03:14,594 --> 00:03:16,390
+Bir kaç noktaya dikkat çekmekte fayda var.
+
+69
+00:03:16,390 --> 00:03:19,736
+Öncelikle yüksek bias mı yoksa yüksek varyans mı olduğuna bağlı olarak,
+
+70
+00:03:19,736 --> 00:03:24,405
+denemeniz gereken setler çok farklı olabilir.
+
+71
+00:03:24,405 --> 00:03:26,860
+Bu yüzden ben genellikle training dev set kullanırım
+
+72
+00:03:26,860 --> 00:03:29,920
+ve sonrasında onun sonucunu denenecek şeylerin 
+
+73
+00:03:29,920 --> 00:03:33,920
+alt kümesini bulmak için kullanırım.
+
+74
+00:03:33,920 --> 00:03:37,270
+Yani örneğin eğer gerçekten yüksek bias problemim varsa 
+
+75
+00:03:37,270 --> 00:03:40,300
+daha fazla bilgi toplamak hiç bir işime yaramayacak.
+
+76
+00:03:40,300 --> 00:03:44,140
+Ya da en azından yapılacak en etkili şey o değil.
+
+77
+00:03:44,140 --> 00:03:47,770
+Yani ne kadar bias ya da varyans ya da her ikisinden problemim olduğu konusunda net olmam
+
+78
+00:03:47,770 --> 00:03:52,563
+bana en faydalı olacak yöntemleri seçmem konusunda faydalı olabilir.
+
+79
+00:03:52,563 --> 00:03:56,725
+İkinci olarak makine eğitiminin ilk zamanlarında 
+
+80
+00:03:56,725 --> 00:04:02,465
+neyin bias, varyans, tradeoff olarak adlandırıldığı konusunda bir çok tartışma olmuştur.
+
+81
+00:04:02,465 --> 00:04:04,604
+Ve bunun sebebi,
+
+82
+00:04:04,604 --> 00:04:06,385
+deneyebileceğiniz bir çok şey için,
+
+83
+00:04:06,385 --> 00:04:09,340
+bias ı artırabilir, varyansı azaltabilirsiniz,
+
+84
+00:04:09,340 --> 00:04:11,920
+veya bias ı azaltabilir, varyansı artırabilirsinz.
+
+85
+00:04:11,920 --> 00:04:15,400
+Fakat ilk derin öğrenme çağında,
+
+86
+00:04:15,400 --> 00:04:17,165
+çok fazla aracımız yoktu,
+
+87
+00:04:17,165 --> 00:04:19,755
+azaltan bir çok araç yoktu
+
+88
+00:04:19,755 --> 00:04:24,380
+diğerini etkilemeden, bias ya da sadece varyans azaltılamazdı. 
+
+89
+00:04:24,380 --> 00:04:28,750
+Fakat modern derin öğrenmede(big data çağında)
+
+90
+00:04:28,750 --> 00:04:31,705
+daha büyük bir iletişim ağını eğitebildiğin sürece
+
+91
+00:04:31,705 --> 00:04:34,200
+ve daha fazla veriyi tuttuğun sürece,
+
+92
+00:04:34,200 --> 00:04:36,360
+bu her iki durum için de geçerli değildir
+
+93
+00:04:36,360 --> 00:04:37,950
+ama bu durumda,
+
+94
+00:04:37,950 --> 00:04:40,590
+hemen hemen her zaman daha büyük bir iletişim ağı almak,
+
+95
+00:04:40,590 --> 00:04:43,625
+uygun bir şekilde düzenlediğiniz sürece
+
+96
+00:04:43,625 --> 00:04:46,157
+varyansı etkilemeden bias ı azaltır.
+
+97
+00:04:46,157 --> 00:04:48,810
+Ve her zaman daha fazla veri almak
+
+98
+00:04:48,810 --> 00:04:52,370
+varyansı azaltır ve bias ı çok fazla etkilemez.
+
+99
+00:04:52,370 --> 00:04:54,195
+Yani gerçekte olan şey şu,
+
+100
+00:04:54,195 --> 00:04:55,845
+bu iki adımla,
+
+101
+00:04:55,845 --> 00:04:57,405
+eğitim yapabilme,bir iletişim ağı seçebilme
+
+102
+00:04:57,405 --> 00:04:58,560
+veya daha fazla veri seçebilme,
+
+103
+00:04:58,560 --> 00:05:03,375
+şimdi diğer şeyleri daha fazla etkilemeden 
+
+104
+00:05:03,375 --> 00:05:05,700
+bias ı azaltmak ve bunu sürdürmek için araçlarımız var
+
+105
+00:05:05,700 --> 00:05:09,655
+veya varyansı azaltmak ve bunu sürdürmek için.
+
+106
+00:05:09,655 --> 00:05:12,240
+Ve bence bu derin öğrenmenin gözetim altında öğrenmekte 
+
+107
+00:05:12,240 --> 00:05:16,348
+bu kadar iyi olmasındaki en büyük etkenlerden birisi
+
+108
+00:05:16,348 --> 00:05:18,840
+bias ve varyansı dikkatlice dengelemen gereken tradeoff dan daha az var 
+
+109
+00:05:18,840 --> 00:05:21,345
+ama bazen biası azaltmak için daha fazla seçeneklerin olabilir
+
+110
+00:05:21,345 --> 00:05:25,053
+ya da diğerini gereksiz yere artırmadan 
+
+111
+00:05:25,053 --> 00:05:30,315
+ya da diğerini gereksiz yere artırmadan varyansı azaltmak için.
+
+112
+00:05:30,315 --> 00:05:33,698
+Ve gerçekte iyi düzenlenmiş bir iletişim ağınız var.
+
+113
+00:05:33,698 --> 00:05:36,795
+Regülarizasyon hakkında konuşmaya bir sonraki video ile başlayacağız.
+
+114
+00:05:36,795 --> 00:05:40,110
+Daha büyük bir ağın eğitimi neredeyse hiç bir zaman etkilemez.
+
+115
+00:05:40,110 --> 00:05:44,634
+Ve düzenlediğin sürece çok büyük bir sinir ağını eğitmenin başlıca masrafı 
+
+116
+00:05:44,634 --> 00:05:46,490
+sadece bilişimsel zamandır.
+
+117
+00:05:46,490 --> 00:05:49,440
+Umarım bu makine öğrenme probleminizi organize etmenin, 
+
+118
+00:05:49,440 --> 00:05:53,255
+bias ve varyansı teşhis etmenin temel yapısı hakkında size bir fikir verir.
+
+119
+00:05:53,255 --> 00:05:57,325
+Ve sonrasında probleminizde ilerleme kaydetmeniz için doğru yöntemi seçmede size yardımcı olur.
+
+120
+00:05:57,325 --> 00:06:01,367
+Bu videoda bir kaç defa bahsettiğim şeylerden biri de regülarizasyon idi.
+
+121
+00:06:01,367 --> 00:06:03,825
+Bu varyansı azaltmak için çok kullanışlı bir tekniktir.
+
+122
+00:06:03,825 --> 00:06:07,130
+Regülarizasyonu kullandığınızda biraz bias, varyans, tradeoff var.
+
+123
+00:06:07,130 --> 00:06:09,045
+Bu biası biraz artırabilir.
+
+124
+00:06:09,045 --> 00:06:13,090
+Yeterince büyük bir iletişim ağınız varsa gerçi bu pek olmaz.
+
+125
+00:06:13,090 --> 00:06:16,735
+Ama detaylara bir sonraki videoda girelim ki 
+
+126
+00:06:16,735 --> 00:06:21,000
+regülarizasyonu sinirsel ağınıza uygulamayı daha iyi anlayabilin.

@@ -1,0 +1,533 @@
+1
+00:00:00,000 --> 00:00:01,710
+Merhaba, tekrar hoş geldiniz.
+
+2
+00:00:01,710 --> 00:00:04,140
+Gördüğünüz gibi yapay ağları değiştirmek
+
+3
+00:00:04,140 --> 00:00:07,415
+birçok farklı hiper parametreleri belirlemeyi içermektedir.
+
+4
+00:00:07,415 --> 00:00:11,155
+Bu hiper parametreler için iyi bir ayarı nasıl bulursunuz?
+
+5
+00:00:11,155 --> 00:00:13,710
+Bu videoda, sizinle bazı öneriler,
+
+6
+00:00:13,710 --> 00:00:18,235
+bazı ipuçları paylaşacağım, böylece sistemli bir şekilde
+ hiper parametre ayarlama sürecini organize ederek,
+
+7
+00:00:18,235 --> 00:00:20,640
+bu süreci verimli bir hale getirecek,
+
+8
+00:00:20,640 --> 00:00:23,760
+Ve iyi bir hiper parametreler ayarı bulacaksınız.
+
+9
+00:00:23,760 --> 00:00:25,929
+Derinliği eğitmenin zorlayıcı bir tarafı,
+
+10
+00:00:25,929 --> 00:00:29,250
+sayıca fazla hiper parametreler ile uğraşmak gerekmekte,
+
+11
+00:00:29,250 --> 00:00:35,935
+bunlar, öğrenme oranı alfadan, 
+momentum ifadesi olan betaya eğer kullanıyorsanız,
+
+12
+00:00:35,935 --> 00:00:41,370
+ya da Adam optimizasyonunun hiper parametreleri olan beta bir,
+
+13
+00:00:41,370 --> 00:00:44,185
+beta iki ve epsilon.
+
+14
+00:00:44,185 --> 00:00:47,270
+Belki gizli katman sayısını almanız gerekir,
+
+15
+00:00:47,270 --> 00:00:50,820
+belki farklı katmanlar için gizli birim 
+sayısını almanız gerekir,
+
+16
+00:00:50,820 --> 00:00:55,093
+ve belki öğrenme oranı sönümü (decay) kullanmak istersiniz.
+
+17
+00:00:55,093 --> 00:00:59,899
+Böylece, sadece öğrenme oranı alfayı kullanmazsınız.
+
+18
+00:00:59,899 --> 00:01:01,065
+Ve tabii ki,
+
+19
+00:01:01,065 --> 00:01:06,220
+'mini-batch size' kullanmanız gerekebilir.
+
+20
+00:01:06,220 --> 00:01:09,990
+Görünen o ki, bu hiper parametrelerden 
+bazıları diğerlerinden daha önemli
+
+21
+00:01:09,990 --> 00:01:12,235
+Eğitim algoritmalarının çoğu için şunu söyleyebilirim.
+
+22
+00:01:12,235 --> 00:01:16,015
+alfa, öğrenme oranı ayarlanması gereken 
+en önemli hiper parametredir.
+
+23
+00:01:16,015 --> 00:01:21,595
+Alfadan başka, ayarlama yapacağım
+ hiper parametreler belki...
+
+24
+00:01:21,595 --> 00:01:25,040
+belki momentum olabilir.
+
+25
+00:01:25,040 --> 00:01:27,795
+diyelim ki, 0.9 iyi bir varsayılan değer
+
+26
+00:01:27,795 --> 00:01:30,700
+Ayrıca algoritmanın verimli çalıştığından
+
+27
+00:01:30,700 --> 00:01:34,465
+emin olmak için mini-batch'i ayarlardım
+
+28
+00:01:34,465 --> 00:01:36,985
+Sık sık, gizli birimleri kurcalarım.
+
+29
+00:01:36,985 --> 00:01:39,250
+Turuncu olarak işaretlediklerimden,
+
+30
+00:01:39,250 --> 00:01:43,660
+gerçekten bu üçünü alfaya göre ikinci 
+derece önemli olarak dikkate alırım.
+
+31
+00:01:43,660 --> 00:01:46,060
+ve daha sonra üçüncü derece
+
+32
+00:01:46,060 --> 00:01:49,060
+önemli olarak diğerlerini kurcalarım,
+
+33
+00:01:49,060 --> 00:01:51,925
+katman sayısı bazen önemli fark yaratabilmekte,
+
+34
+00:01:51,925 --> 00:01:55,000
+Ve tabi öğrenme oranı sönümü'de yaratabilmekte.
+
+35
+00:01:55,000 --> 00:01:58,870
+Daha sonra, Adam algoritmasını kullandığımda,
+ aslında beta bir,
+
+36
+00:01:58,870 --> 00:02:00,434
+beta iki ve epsilonu hiç ayarlamadım.
+
+37
+00:02:00,434 --> 00:02:01,930
+Neredeyse her zaman sırasıyla 0.9,
+
+38
+00:02:01,930 --> 00:02:08,570
+0.999 ve on üzeri eksi sekiz kullanırım tabi isterseniz 
+siz bu parametreleri de ayarlayabilirsiniz.
+
+39
+00:02:08,570 --> 00:02:12,130
+Umarım, bu size hangi hiper parametrelerin
+ diğerlerinden daha önemli olduğu konusunda
+
+40
+00:02:12,130 --> 00:02:16,463
+kaba bir fikir verir, alfa,
+
+41
+00:02:16,463 --> 00:02:19,005
+elbette en önemlisi,
+
+42
+00:02:19,005 --> 00:02:22,270
+arkasından belki turuncu işaretliler,
+
+43
+00:02:22,270 --> 00:02:25,235
+onların arkasından mor işaretliler gelebilir.
+
+44
+00:02:25,235 --> 00:02:27,760
+Ama bu kesın doğru bir kural değildir,
+
+45
+00:02:27,760 --> 00:02:30,490
+diğer derin öğrenme geliştiricileri belki bu konuda
+
+46
+00:02:30,490 --> 00:02:33,670
+bana katılmayabilir ya da farklı yaklaşımları olabilir.
+
+47
+00:02:33,670 --> 00:02:37,240
+Şimdi, eğer bir hiper parametreler kümesini
+ ayarlamaya çalışıyorsanız.
+
+48
+00:02:37,240 --> 00:02:40,060
+Araştırılacak değerler kümesini nasıl seçersiniz?
+
+49
+00:02:40,060 --> 00:02:42,845
+Makina öğrenimi algoritmalarının 
+geçmiş jenerasyonlarında,
+
+50
+00:02:42,845 --> 00:02:44,660
+Eğer iki hiper parametreniz varsa,
+
+51
+00:02:44,660 --> 00:02:47,662
+buradaki hiper parametre bir ve hiper parametre iki gibi,
+
+52
+00:02:47,662 --> 00:02:53,380
+noktaları ızgara şeklinde örnekleyerek sistemli bir şekilde
+
+53
+00:02:53,380 --> 00:02:59,435
+bu değerleri araştırmak yaygın kullanılan yöntemdi.
+
+54
+00:02:59,435 --> 00:03:00,935
+Burada, 5'e 5 bir ızgara (grid) yerleştiriyorum.
+
+55
+00:03:00,935 --> 00:03:06,070
+Uygulamada, 5'e 5'ten az veya fazla olabilir 
+ama bu örnekte
+
+56
+00:03:06,070 --> 00:03:12,430
+tüm 25 noktayı deneyeceksiniz ve en iyi 
+sonucu veren hiper parametreyi seçeceksiniz.
+
+57
+00:03:12,430 --> 00:03:18,010
+Ve bu uygulama hiper parametre sayısı 
+küçük olduğunda iyi çalışır.
+
+58
+00:03:18,010 --> 00:03:19,840
+Derin Öğrenmede, yapmaya eğilimli olduğumuz,
+
+59
+00:03:19,840 --> 00:03:21,415
+ve size yapmanızı önerdiğim
+
+60
+00:03:21,415 --> 00:03:23,975
+noktaları rastgele seçin,
+
+61
+00:03:23,975 --> 00:03:27,970
+devam edin ve belki aynı sayıda nokta seçin, değil mi?
+
+62
+00:03:27,970 --> 00:03:34,590
+25 nokta ve daha sonra bu rastgele seçilmiş 
+noktalar kümesinde hiper parametreleri deneyin.
+
+63
+00:03:34,590 --> 00:03:38,350
+Ve bunu yapmamızın nedeni, hangi hiper parametrelerin
+
+64
+00:03:38,350 --> 00:03:43,040
+problemimiz icin en önemli olacağını önceden bilmek zordur.
+
+65
+00:03:43,040 --> 00:03:44,480
+Ve önceki slaytta gördüğümüz gibi,
+
+66
+00:03:44,480 --> 00:03:47,910
+bazı hiper parametreler diğerlerinden çok daha önemli.
+
+67
+00:03:47,910 --> 00:03:49,190
+Bu yüzden örnek olarak,
+
+68
+00:03:49,190 --> 00:03:53,505
+diyelim ki hiper parametre 1 öğrenme oranı alfa olsun.
+
+69
+00:03:53,505 --> 00:03:55,175
+Ve uçuk bir örnek olsun diye,
+
+70
+00:03:55,175 --> 00:03:58,180
+diyelim ki hiper parametre 2'de
+
+71
+00:03:58,180 --> 00:04:02,730
+Adam algoritmasının paydası olan epsilon değeri olsun.
+
+72
+00:04:02,730 --> 00:04:07,455
+Böylece, alfa seçiminiz önemli iken, 
+epsilon seçimi çok önemli değil.
+
+73
+00:04:07,455 --> 00:04:12,410
+Eğer ızgara içerisinde 5 alfa örneği
+
+74
+00:04:12,410 --> 00:04:16,300
+alıp denersek
+
+75
+00:04:16,300 --> 00:04:18,550
+şununla karşılaşabilirsiniz, tüm farklı epsilon
+
+76
+00:04:18,550 --> 00:04:21,190
+değerleri için birbirine yakın sonuçlar oluşacak.
+
+77
+00:04:21,190 --> 00:04:24,400
+Yani şuanda 25 model train ettiniz ve sadece
+
+78
+00:04:24,400 --> 00:04:27,925
+5 öğrenme oranı alfa değeri denemiş oldunuz.
+
+79
+00:04:27,925 --> 00:04:29,740
+ve gerçekten önemli bir hiper parametre.
+
+80
+00:04:29,740 --> 00:04:33,430
+Diğer tarafta, değerleri rastgele seçmiş olsaydık.
+
+81
+00:04:33,430 --> 00:04:37,960
+25 farklı öğrenme oranı alfa değeri deneyecektiniz
+
+82
+00:04:37,960 --> 00:04:40,390
+ve büyük olasılıkla gerçekten iyi
+
+83
+00:04:40,390 --> 00:04:43,690
+bir sonuç veren değer bulacaktınız.
+
+84
+00:04:43,690 --> 00:04:44,980
+Bu örneği açıklarken,
+
+85
+00:04:44,980 --> 00:04:47,160
+sadece iki hiper parametre kullandım.
+
+86
+00:04:47,160 --> 00:04:50,270
+Uygulamada, siz çok daha fazla hiper parametre 
+için arama yapabilirsiniz.
+
+87
+00:04:50,270 --> 00:04:52,000
+bu durumda diyelim ki,
+
+88
+00:04:52,000 --> 00:04:55,080
+3 hiper parametre için bir kare üzerinde aramak yerine,
+
+89
+00:04:55,080 --> 00:05:00,820
+bir küp üzerinde arama yapacaksınız ve üçüncü 
+boyut hiper parametre 3 olacak.
+
+90
+00:05:00,820 --> 00:05:03,010
+böylece bu küp içinde
+
+91
+00:05:03,010 --> 00:05:05,380
+örnek alarak bu 3 hiper parametre
+
+92
+00:05:05,380 --> 00:05:08,080
+için çok daha fazla değerler deneyeceksiniz.
+
+93
+00:05:08,080 --> 00:05:11,440
+Ve uygulamada üçten çok daha fazla
+
+94
+00:05:11,440 --> 00:05:14,980
+hiper parametre ile arama yapıyor olabilirsiniz ve bazen,
+
+95
+00:05:14,980 --> 00:05:17,160
+hangi hiper parametrelerin algoritmamız için
+
+96
+00:05:17,160 --> 00:05:22,120
+gerçekten önemli olduğunu önceden 
+bilmek çok zordur bu yüzden
+
+97
+00:05:22,120 --> 00:05:25,390
+ızgara yöntemiyle örnek almak yerine
+ rassal örnek seçmek
+
+98
+00:05:25,390 --> 00:05:28,085
+bize önemli en önemli hiper parametreler için
+
+99
+00:05:28,085 --> 00:05:31,045
+daha zengin bir olası değerler kümesi aramayı sunar.
+
+100
+00:05:31,045 --> 00:05:33,130
+Hiper parametreleri örneklediğimizde,
+
+101
+00:05:33,130 --> 00:05:37,875
+Bir başka yaygın kullanılan yöntem kabadan ayrıntıya
+ (coarse to fine) örnekleme şemasıdır.
+
+102
+00:05:37,875 --> 00:05:42,130
+Diyelim ki bu 2 boyutlu düzlemde 
+örnek olarak aldığımız noktalar bunlar,
+
+103
+00:05:42,130 --> 00:05:45,600
+ve belki bu noktanın en iyi sonucu verdiğini buldunuz ve
+
+104
+00:05:45,600 --> 00:05:49,210
+belki etrafında ki bazı noktalarda iyi sonuç verme eğiliminde,
+
+105
+00:05:49,210 --> 00:05:53,530
+Son şemanın gidişatına göre belki bu hiper parametrelerin
+
+106
+00:05:53,530 --> 00:06:00,820
+olduğu kısımda daha küçük bir alana yoğunlaşabilirsiniz 
+ve bu alanda daha fazla örneklem alabiliriz.
+
+107
+00:06:00,820 --> 00:06:02,795
+Belki tekrar rassal olarak,
+
+108
+00:06:02,795 --> 00:06:06,690
+Tabi bu mavi bölgede aramak yapmak 
+için daha fazla kaynak 
+
+109
+00:06:06,690 --> 00:06:11,265
+harcayacaksınız eğer hiper parametreler için en iyi ayarın
+
+110
+00:06:11,265 --> 00:06:13,600
+bu bölgede olabileceğini düşünüyorsanız.
+
+111
+00:06:13,600 --> 00:06:18,365
+Böylece, bu tüm bölgede kabaca bir tarama yaptıktan sonra,
+
+112
+00:06:18,365 --> 00:06:22,375
+bu bize odaklanmamız gereken küçük bir alanı gösterecek,
+
+113
+00:06:22,375 --> 00:06:26,105
+ve bu küçük bölgede daha yoğun örnekler alabiliriz.
+
+114
+00:06:26,105 --> 00:06:29,720
+Bu tip kabadan ayrıntıya (coarse to fine) 
+yöntemi sıklıkla kullanılmakta.
+
+115
+00:06:29,720 --> 00:06:33,565
+Ve hiper parametrelerin birbirinden
+ farklı bu değerlerini deneyerek
+
+116
+00:06:33,565 --> 00:06:37,740
+eğitim amacınız veya geliştirme amacınız veya
+
+117
+00:06:37,740 --> 00:06:41,230
+hiper parametre aramasında neyi en iyilemeye çalışıyorsanız
+
+118
+00:06:41,230 --> 00:06:46,660
+onun için en iyi sonucu elde etmenizi 
+sağlayan değerleri seçebilirsiniz.
+
+119
+00:06:46,660 --> 00:06:48,570
+Umuyorum ki bu size sistemli bir şekilde,
+
+120
+00:06:48,570 --> 00:06:51,670
+hiper parametre arama sürecinizi 
+organize etmenizde yol gösterir.
+
+121
+00:06:51,670 --> 00:06:53,200
+İki önemli çıkarım,
+
+122
+00:06:53,200 --> 00:06:55,930
+rassal örnekleme ve yeterli arama kullanın ve
+
+123
+00:06:55,930 --> 00:07:01,585
+opsiyonel olarak kabadan ayrıntıya (coarse to fine) 
+arama sürecini uygulamayı dikkate alın.
+
+124
+00:07:01,585 --> 00:07:04,750
+Ama, hiper parametre aramasında bundan daha fazlası var.
+
+125
+00:07:04,750 --> 00:07:07,300
+Sıradaki videoda örnekleyeceğiniz hiper parametreler için
+
+126
+00:07:07,300 --> 00:07:10,020
+doğru ölçeği nasıl seçeceğinizi konuşalım.

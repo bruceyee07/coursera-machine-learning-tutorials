@@ -1,0 +1,488 @@
+1
+00:00:00,280 --> 00:00:05,140
+Son videoda, hiper parametrelerin aralığı boyunca rastgele örneklemenin nasıl daha etkin bir şekilde
+
+2
+00:00:05,140 --> 00:00:09,330
+hiper parametreler uzayını araştırmaya izin verebileceğini gördünüz.
+
+3
+00:00:09,330 --> 00:00:14,980
+Ancak, rastgele örneklemenin, geçerli değerler aralığı boyunca
+
+4
+00:00:14,980 --> 00:00:16,990
+düzgün rastgele örnekleme anlamına gelmediği ortaya çıkıyor.
+
+5
+00:00:16,990 --> 00:00:20,320
+Bunun yerine, hiper parametreleri araştırmak için
+
+6
+00:00:20,320 --> 00:00:22,340
+uygun ölçeği seçmek önemlidir.
+
+7
+00:00:22,340 --> 00:00:25,700
+Bu videoda, bunu nasıl yapacağınızı göstermek istiyorum.
+
+8
+00:00:25,700 --> 00:00:30,230
+Belirli bir I katmanı için, gizli birimlerin sayısını,n[I],
+
+9
+00:00:30,230 --> 00:00:31,250
+seçmeye çalıştığınızı varsayalım.
+
+10
+00:00:31,250 --> 00:00:36,310
+Ve 50 ila 100 arasında bir yerin iyi bir aralık olduğunu düşündüğünüzü söyleyelim.
+
+11
+00:00:36,310 --> 00:00:41,110
+Bu durumda, sayı doğrusunda 50 ila 100 arasına bakarsanız,
+
+12
+00:00:41,110 --> 00:00:46,090
+belki bu sayı aralığında rastgele değer seçerek.
+
+13
+00:00:46,090 --> 00:00:50,500
+Bu özel hiper parametreyi araştırmanın oldukça göze çarpan bir yolu var.
+
+14
+00:00:50,500 --> 00:00:54,351
+Ya da eğer sinir ağınızdaki katman sayısına karar vermeye çalışıyorsanız,
+
+15
+00:00:54,351 --> 00:00:56,480
+bunu L (büyük harf) olarak anacağız
+
+16
+00:00:56,480 --> 00:01:02,245
+Belki de toplam katman sayısının 2 ila 4 arasında bir yerlerde olması gerektiğini düşünüyorsunuz.
+
+17
+00:01:02,245 --> 00:01:08,030
+O zaman 2, 3 ve 4 boyunca düzgün olarak rastgele örnekleme yapmak mantıklı olabilir.
+
+18
+00:01:08,030 --> 00:01:11,920
+Veya 2, 3 ve 4 değerlerini açık bir şekilde değerlendirdiğiniz bir ızgara aramayı
+
+19
+00:01:11,920 --> 00:01:15,340
+kullanmak bile mantıklı olabilir.
+
+20
+00:01:15,340 --> 00:01:19,091
+Yani bunlar örneklemeyi tasarladığınız aralıkta düzgün rastgele örnekleme
+
+21
+00:01:19,091 --> 00:01:23,480
+için yapılacak mantıklı bir şey olabilir.
+
+22
+00:01:23,480 --> 00:01:26,432
+Ancak bu tüm hiper parametreler için geçerli değildir.
+
+23
+00:01:26,432 --> 00:01:28,850
+Bir diğer örneğe birlikte bakalım.
+
+24
+00:01:28,850 --> 00:01:33,530
+Hiper parametre alfa, öğrenme oranı, için araştırma yapın
+
+25
+00:01:33,530 --> 00:01:38,000
+Ve diyelim ki 0.0001'in en düşük alt değer olabileceğinden şüpheleniyorsunuz,
+
+26
+00:01:38,000 --> 00:01:42,130
+ya da belki 1 kadar yüksek olabilir.
+
+27
+00:01:42,130 --> 00:01:48,451
+Şimdi, 0.0001'den 1'e kadar sayı doğrusu çizerseniz,
+
+28
+00:01:48,451 --> 00:01:55,456
+ve bu sayı doğrusunda düzgün olarak rastgele örnek değerler alırsanız
+
+29
+00:01:55,456 --> 00:02:02,219
+Örneklediğiniz değerlerin yaklaşık% 90'ı 0,1 ile 1 arasında olacaktır.
+
+30
+00:02:02,219 --> 00:02:07,274
+Yani, 0,1 ve 1 arasında araştırma yapmak için kaynaklarınızın % 90' ını kullanıyorsunuz,
+
+31
+00:02:07,274 --> 00:02:12,120
+ve 0.0001 ile 0.1 arasında araştırma yapmak için kaynaklarınızın sadece% 10'unu kullanıyorsunuz.
+
+32
+00:02:12,120 --> 00:02:14,330
+Yani bu doğru görünmüyor.
+
+33
+00:02:14,330 --> 00:02:19,175
+Bunun yerine, logaritmik ölçekte hiper parametreler araştırmak daha mantıklı görünmektedir.
+
+34
+00:02:19,175 --> 00:02:25,437
+Doğrusal bir ölçek kullanmak yerine, burada 0.0001, sonra 0.001, 0.01, 0.1
+
+35
+00:02:25,437 --> 00:02:30,377
+ve sonra 1 olacaktır.
+
+36
+00:02:30,377 --> 00:02:37,360
+Ve bunun yerine, bu tür bir logaritmik ölçekte, rastgele bir şekilde, düzgün olarak örnek alın.
+
+37
+00:02:37,360 --> 00:02:44,133
+Artık 0.0001 ile 0.001 arasında ve 0.001 ile 0.01 arasında...v.s. araştırma
+
+38
+00:02:44,133 --> 00:02:50,270
+yapmaya ayrılmış daha fazla kaynağa sahipsiniz.
+
+39
+00:02:50,270 --> 00:02:53,950
+Yani, Python'da, bunu gerçekleştirme
+
+40
+00:02:55,780 --> 00:03:00,877
+yolunuz şöyledir, r = -4 * np.random.rand ().
+
+41
+00:03:00,877 --> 00:03:07,260
+Ve sonra rastgele seçilen alfa değeri, alpha = 10 'un r'inci kuvveti.
+
+42
+00:03:08,350 --> 00:03:15,410
+Bu ilk satırdan sonra r, -4 ile 0 arasında rastgele bir sayı olacaktır.
+
+43
+00:03:15,410 --> 00:03:20,505
+Ve böylece alfa burada 10 üzeri -4 ve 10 üzeri 0 arasında olacaktır.
+
+44
+00:03:20,505 --> 00:03:25,710
+Yani 10 üzeri -4 olan bu soldaki şey, bu 10 üzeri -4
+
+45
+00:03:25,710 --> 00:03:28,320
+Ve 1, 10 üzeri 0 olacaktır.
+
+46
+00:03:28,320 --> 00:03:30,140
+Daha genel bir durumda,
+
+47
+00:03:30,140 --> 00:03:35,750
+logaritmik ölçekte 10 üzeri a ile 10 üzeri b arasında örneklemeye çalışıyorsanız.
+
+48
+00:03:35,750 --> 00:03:40,700
+Ve bu örnekte, bu 10 üzeri a’dır.
+
+49
+00:03:40,700 --> 00:03:45,358
+0.0001 değerinin 10 tabanında logaritmasını aldığınızda
+
+50
+00:03:45,358 --> 00:03:49,170
+a' nın değerini -4 olarak hesaplayabilirsiniz.
+
+51
+00:03:49,170 --> 00:03:51,430
+Ve sağdaki bu değer, 10 üzeri b’dir.
+
+52
+00:03:51,430 --> 00:03:52,800
+1’in 10 tabanında logaritmasını alarak
+
+53
+00:03:52,800 --> 00:03:56,655
+b’ nin 0’a eşit olduğunu hesaplayabilirsiniz.
+
+54
+00:03:58,200 --> 00:04:04,353
+Öyleyse yaptığınız şey, örnek r ,a ve b arasındaki düzgün rastgele örnektir.
+
+55
+00:04:04,353 --> 00:04:06,857
+Bu durumda, r -4 ve 0 arasında olacaktır.
+
+56
+00:04:06,857 --> 00:04:08,358
+Ve artık alfayı belirleyebilirsiniz,
+
+57
+00:04:08,358 --> 00:04:14,000
+Rastgele örneklenmiş hiper parametre değerinizde,10 üzeri gibi,tamam?
+
+58
+00:04:14,000 --> 00:04:18,210
+Yani özetlemek gerekirse, logaritmik ölçekte örneklemek için, düşük
+
+59
+00:04:18,210 --> 00:04:20,252
+değeri al, a’ nın değerini bulmak için logaritmalarını al.
+
+60
+00:04:20,252 --> 00:04:23,911
+Yüksek değeri al, b’yi bulmak için logaritmasını al.
+
+61
+00:04:23,911 --> 00:04:28,270
+Yani şimdi, 10 üzeri a’ dan, 10 üzeri b'ye logaritmik ölçekte örneklemeye çalışıyorsunuz.
+
+62
+00:04:28,270 --> 00:04:32,810
+Yani r’ yi düzgün olarak belirlersiniz, rastgele, a ve b arasında.
+
+63
+00:04:32,810 --> 00:04:35,850
+Ve sonra hiper parametreyi 10 üzeri r olarak ayarlayın.
+
+64
+00:04:35,850 --> 00:04:40,070
+Logaritmik ölçekte örnekleme yöntemini bu şekilde uygularsınız.
+
+65
+00:04:40,070 --> 00:04:46,010
+Son olarak, bir başka ince durum, üssel olarak ağırlıklı ortalamaları
+
+66
+00:04:46,010 --> 00:04:49,630
+hesaplamak için kullanılan hiper parametre beta örneklemesidir.
+
+67
+00:04:49,630 --> 00:04:55,800
+Öyleyse, beta'nın 0,9 ila 0,999 arasında bir yerde olması gerektiğinden şüphelendiğinizi söyleyelim.
+
+68
+00:04:55,800 --> 00:04:59,870
+Belki de bu, aramak istediğiniz değerlerin aralığıdır.
+
+69
+00:04:59,870 --> 00:05:03,440
+Unutmayın ki, Üstel ağırlıklı ortalamalar hesaplanırken,
+
+70
+00:05:03,440 --> 00:05:09,605
+0,9 kullanılarak son 10 değer üzerinden ortalama alınır.
+
+71
+00:05:09,605 --> 00:05:13,304
+10 günlük sıcaklığın ortalamasını almak gibi,
+
+72
+00:05:13,304 --> 00:05:18,403
+0,999 kullanarak son 1.000 değer üzerinden ortalama almak gibi.
+
+73
+00:05:18,403 --> 00:05:23,434
+Son slaytta gördüğümüze benzer şekilde, eğer 0.9 ve 0.999 arasında araştırma yapmak istiyorsanız,
+
+74
+00:05:23,434 --> 00:05:28,558
+lineer ölçekte örnek almak mantıklı değil, değil mi?
+
+75
+00:05:28,558 --> 00:05:31,140
+Düzgün ve rastgele, 0,9 ve 0,999 arasında olsun.
+
+76
+00:05:31,140 --> 00:05:33,970
+Bu konuda düşünmenin en iyi yolu,
+
+77
+00:05:33,970 --> 00:05:38,650
+1 eksi beta için değer aralığını araştırmak istiyoruz
+
+78
+00:05:38,650 --> 00:05:43,339
+ki bu da şimdi 0,1 ile 0,001 arasında olacaktır.
+
+79
+00:05:43,339 --> 00:05:47,060
+Ve bu yüzden, beta arasındaki değerleri,
+
+80
+00:05:47,060 --> 00:05:53,057
+0.1'den belki de 0.1'e, 0.001'e kadar alarak örnekleyeceğiz.
+
+81
+00:05:53,057 --> 00:05:57,739
+Yani, önceki slaytta belirlediğimiz yöntemi kullanarak,
+
+82
+00:05:57,739 --> 00:06:01,532
+bu 10 üzeri -1, bu da 10 üzeri -3'tür.
+
+83
+00:06:01,532 --> 00:06:05,163
+Bir önceki slayta dikkat edin, solda küçük ve sağda büyük değerimiz vardı, 
+
+84
+00:06:05,163 --> 00:06:08,182
+ama burada tersine döndük.
+
+85
+00:06:08,182 --> 00:06:12,290
+Solda büyük değere ve sağda küçük değere sahibiz.
+
+86
+00:06:12,290 --> 00:06:19,870
+Öyleyse, yaptığınız şey, r’yi -3 ile -1 arasında düzgün,rastgele örneklemektir.
+
+87
+00:06:19,870 --> 00:06:25,700
+ve 1-beta = 10 üzeri r olarak belirlersiniz ve buradan beta=1- (10 üzeri r) olacaktır.
+
+88
+00:06:25,700 --> 00:06:29,638
+Ve bu, uygun ölçekte seçilen hiper parametrenizin
+
+89
+00:06:29,638 --> 00:06:31,551
+rastgele örneklenmiş değeri olur.
+
+90
+00:06:31,551 --> 00:06:35,139
+Ve umarım bu mantıklıdır, bu şekilde
+
+91
+00:06:35,139 --> 00:06:39,979
+0.99-0.999 aralığında araştırma yaparken ,
+
+92
+00:06:39,979 --> 00:06:43,409
+0.9-0.99 aralığında araştırma yapar gibi kaynak harcıyorsunuz.
+
+93
+00:06:43,409 --> 00:06:47,699
+Yani, bunu neden yaptığımızı görmek için daha formal matematiksel gerekçelendirme çalışmak istiyorsanız,
+doğru,
+
+94
+00:06:47,699 --> 00:06:52,100
+neden lineer bir ölçekte örnekleme yapmak bu kadar kötü bir fikir?
+
+95
+00:06:52,100 --> 00:06:57,120
+Beta, 1'e yakın olduğunda, aldığınız sonuçların duyarlılığını,
+
+96
+00:06:57,120 --> 00:07:02,230
+beta'da çok küçük değişikliklerle bile olsa değiştirir.
+
+97
+00:07:02,230 --> 00:07:08,750
+Yani eğer beta 0,9'dan 0,9005'e giderse,
+
+98
+00:07:08,750 --> 00:07:15,730
+bu büyük bir sorun değil, sonuçlarınızda neredeyse hiç bir değişiklik olmaz.
+
+99
+00:07:15,730 --> 00:07:19,720
+Ancak beta, 0,999'dan 0,9995'e giderse,
+
+100
+00:07:19,720 --> 00:07:26,615
+bunun algoritmanızın tam olarak ne yaptığı üzerinde büyük bir etkisi olacaktır, değil mi?
+
+101
+00:07:26,615 --> 00:07:30,580
+Her iki durumda da, kabaca ortalama 10 değerden fazladır.
+
+102
+00:07:30,580 --> 00:07:35,359
+Ancak burada, son 1.000 örneğe göre üssel olarak ağırlıklı bir ortalamadan çıktı,şimdi,
+
+103
+00:07:35,359 --> 00:07:40,790
+son 2000 örneğe göre.
+
+104
+00:07:40,790 --> 00:07:44,460
+Ve elimizdeki 1/1-beta formülünden dolayı, beta 1'e yakın olduğunda,
+
+105
+00:07:44,460 --> 00:07:49,140
+beta'daki küçük değişikliklere çok duyarlıdır.
+
+106
+00:07:49,140 --> 00:07:52,059
+Yani bu tüm örnekleme süreci ne yaparsa,
+
+107
+00:07:52,059 --> 00:07:57,426
+beta 1'e yakın olduğunda daha yoğun örneklemenize neden olur.
+
+108
+00:07:59,186 --> 00:08:03,480
+Veya alternatif olarak, 1-beta 0'a yakın olduğunda.
+
+109
+00:08:03,480 --> 00:08:07,630
+Böylece, olası sonuçların uzayını daha verimli bir şekilde araştırmak için
+
+110
+00:08:07,630 --> 00:08:11,430
+örnekleri nasıl dağıttığınız konusunda daha verimli olabilirsiniz.
+
+111
+00:08:11,430 --> 00:08:14,250
+Yani, bunun, hiper parametrelerin örnekleneceği
+
+112
+00:08:14,250 --> 00:08:15,901
+doğru ölçeği seçmenize yardımcı olacağını umuyorum.
+
+113
+00:08:15,901 --> 00:08:20,900
+Bazı hiper parametrelerin seçiminde doğru ölçeklendirme kararı vermezseniz,
+
+114
+00:08:20,900 --> 00:08:23,232
+bunun için endişelenmeyin.
+
+115
+00:08:23,232 --> 00:08:26,720
+Ölçek toplamının daha üstün olduğu düzgün ölçekte örneklemeniz durumunda,
+
+116
+00:08:26,720 --> 00:08:30,050
+yine de iyi sonuçlar alabilirsiniz.
+
+117
+00:08:30,050 --> 00:08:33,830
+Özellikle ince bir arama yapmak için kaba ölçek kullanırsanız, sonraki iterasyonlarda ,
+
+118
+00:08:33,830 --> 00:08:38,190
+örneklemek için en kullanışlı hiper parametre değer aralığına odaklanırsınız.
+
+119
+00:08:38,190 --> 00:08:40,894
+Umarım bu, hiper parametre araştırmasında size yardımcı olur.
+
+120
+00:08:40,894 --> 00:08:44,731
+Bir sonraki videoda, hiper parametre araştırma sürecinizi nasıl organize edeceğiniz konusunda
+
+121
+00:08:44,731 --> 00:08:46,695
+bazı düşünceleri paylaşmak istiyorum.
+
+122
+00:08:46,695 --> 00:08:49,570
+Umarım iş akışınızı biraz daha verimli hale getirir.

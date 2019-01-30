@@ -1,0 +1,735 @@
+1
+00:00:00,000 --> 00:00:02,115
+Tek bir saklı katmana yığın normunu uygulamak için
+
+2
+00:00:02,115 --> 00:00:05,020
+kullanılabilecek denklemleri gördünüz.
+
+3
+00:00:05,020 --> 00:00:08,610
+Şimdiyse yığın normunun bir derin ağın eğitimine nasıl oturtulduğunu inceleyeceğiz.
+
+4
+00:00:08,610 --> 00:00:10,969
+Diyelim ki buna benzer bir sinirsel ağınız var.
+
+5
+00:00:10,969 --> 00:00:16,395
+Daha önce de belirttiğim gibi buradaki her birim iki şeyi hesaplar
+
+6
+00:00:16,395 --> 00:00:22,960
+Önce Z'yi, ardından da etkilenim işlevi üzerinden A'yı hesaplar.
+
+7
+00:00:22,960 --> 00:00:31,005
+Bu yüzden figürdeki her bir daireyi iki aşamalı hesaplayıcı olarak ele alabiliriz.
+
+8
+00:00:31,005 --> 00:00:33,130
+Aynı şeyi bir sonraki katman için,
+
+9
+00:00:33,130 --> 00:00:41,125
+(yani Z^[2]_1 ve A^[2]_1), ve diğerleri için de gözlemleyebiliriz
+
+10
+00:00:41,125 --> 00:00:45,250
+Yığın normunu uygulamıyor olsaydınız
+
+11
+00:00:45,250 --> 00:00:50,935
+önce bir X girdisini ilk saklı katmana oturtur,
+
+12
+00:00:50,935 --> 00:00:53,395
+ardından Z^[1]'i hesaplardınız,
+
+13
+00:00:53,395 --> 00:00:57,940
+ve bu hesaplama da W^[1] ve B^[1] paremetreleri üzerinden denetlenirdi.
+
+14
+00:00:57,940 --> 00:01:04,630
+Bu koşullar altında Z^[1]'i etkileşim işlevine oturtarak A^[1]'i hesaplardınız.
+
+15
+00:01:04,630 --> 00:01:09,165
+Fakat yığın normu yönteminde bu Z^[1] değerini alıp,
+
+16
+00:01:09,165 --> 00:01:12,975
+ona yığın normunu uygularsınız.
+
+17
+00:01:12,975 --> 00:01:16,935
+Bu uygulama bazen kısaca BN şeklinde belirtilir.
+
+18
+00:01:16,935 --> 00:01:19,685
+Bu işlev iki dağılım, yani
+
+19
+00:01:19,685 --> 00:01:23,465
+Beta^[1] ve Gamma^[1] tarafından yönlendirilir
+
+20
+00:01:23,465 --> 00:01:28,340
+ve bununla birlikte elinize yeni, normalleştirilmiş Z~[1] geçecektir.
+
+21
+00:01:28,340 --> 00:01:32,930
+Ardından, bu değeri etkileşim işlevine oturtarak A^[1]'i,
+
+22
+00:01:32,930 --> 00:01:38,355
+yani Z~[1]'e G^[1]'in uygulanmasının sonucunu elde edersiniz.
+
+23
+00:01:38,355 --> 00:01:41,770
+Böylelikle ilk katmanın hesaplamasını tamamlarsınız.
+
+24
+00:01:41,770 --> 00:01:47,520
+Bu katmanda yığın normu Z'den A'ya doğru yapılan hesaplamanın ortasında ortaya çıkıyor.
+
+25
+00:01:47,520 --> 00:01:53,785
+Sonra, bu A^[1] değerini alıp Z^[2]'yi hesaplamada kullanırsınız,
+
+26
+00:01:53,785 --> 00:01:58,115
+ki bu hesaplama da W^[2] ve B^[2] parametreleri tarafından yönlendirilir.
+
+27
+00:01:58,115 --> 00:02:01,125
+İlk katman için yaptığınıza benzer şekilde
+
+28
+00:02:01,125 --> 00:02:06,470
+Z^[2]'ye yığın normu işlevini uygularsınız (bu işlevi yine BN ile kısaltıyoruz)
+
+29
+00:02:06,470 --> 00:02:11,575
+Bu işlev, bir sonraki katmana has parametreler tarafından yönlendirilmektedir,
+
+30
+00:02:11,575 --> 00:02:14,580
+yani Beta^[2] ve Gamma^[2] ile.
+
+31
+00:02:14,580 --> 00:02:17,845
+Bu işlevin sonucunda elimize Z~[2] geçer.
+
+32
+00:02:17,845 --> 00:02:25,220
+Bu Z~[2]'ye etkileşim işlevini uygulayarak A^[2]'yi elde edersiniz. Bir sonraki katmanlarda da böyle devam eder.
+
+33
+00:02:25,220 --> 00:02:31,960
+Yani yığın normu uygulaması, Z'nin ve A'nın hesaplanması arasında gerçekleşti.
+
+34
+00:02:31,960 --> 00:02:33,260
+Dikkat ederseniz, artık,
+
+35
+00:02:33,260 --> 00:02:36,115
+birinci katmanda normalleştirilmemiş Z değeri (Z^[1]) yerine,
+
+36
+00:02:36,115 --> 00:02:40,360
+normalleştirilmiş Z değerini (Z~[1]) kullanabilirsiniz.
+
+37
+00:02:40,360 --> 00:02:41,480
+Aynısı ikinci katman için de geçerli.
+
+38
+00:02:41,480 --> 00:02:44,310
+normalleştirilmemiş Z_[2] değeri yerine,
+
+39
+00:02:44,310 --> 00:02:48,990
+ortalama ve değişinti değerleriyle normalleştirilmiş Z~[2]'yi kullanabilirsiniz.
+
+40
+00:02:48,990 --> 00:02:56,320
+Bu durumda ağınızın parametreleri W^[1] ve B^[1] oluyor.
+
+41
+00:02:56,320 --> 00:03:00,355
+Bir sonraki sürgüde nedenini göreceğiz ki aslında B parametresinden kurtulabiliriz;
+
+42
+00:03:00,355 --> 00:03:06,740
+ama şimdilik ağımızda yığın normunu uyguladığımız her katman için
+
+43
+00:03:06,740 --> 00:03:12,260
+parametrelerimizin W^[1], B^[1] ... W^[L],B^[L]'den, ve de
+
+44
+00:03:12,260 --> 00:03:14,420
+diğer eklediklerimizden (Beta^[1],
+
+45
+00:03:14,420 --> 00:03:18,290
+Gamma^[1], Beta^[2],Gamma^[2],
+
+46
+00:03:18,290 --> 00:03:24,283
+vb.) ibaret olduğunu varsayalım.
+
+47
+00:03:24,283 --> 00:03:26,630
+Dikkatinizi çekmek isterim ki, buradaki Beta ifadelerinin
+
+48
+00:03:26,630 --> 00:03:30,800
+hiper-parametre betalarla alakası yok.
+
+49
+00:03:30,800 --> 00:03:36,165
+Bahsettiğim, üstelce ağırlaştırılmış ortalamaların hesaplandığı momentumdaki hiper-parametre.
+
+50
+00:03:36,165 --> 00:03:42,620
+"Adam" makalesinin yazarları o hiper-parametreyi beta olarak ifade ediyorlar.
+
+51
+00:03:42,620 --> 00:03:47,405
+"Yığın Dağılım" makalesinin yazarları da kendi parametrelerini beta olarak adlandırmış.
+
+52
+00:03:47,405 --> 00:03:49,630
+ancak bu betaların birbirleriyle hiçbir alakası yok.
+
+53
+00:03:49,630 --> 00:03:53,300
+Ben her iki durumda da "beta" kullanmayı tercih ettim,
+
+54
+00:03:53,300 --> 00:03:55,114
+ki orijinal makaleleri okuduğunuzda daha kolay ilişki kurabilesiniz.
+
+55
+00:03:55,114 --> 00:03:57,230
+Sonuçta bu derste Beta^[1],
+
+56
+00:03:57,230 --> 00:03:58,535
+Beta^[2], vb. diye ifade ettiğimiz,
+
+57
+00:03:58,535 --> 00:04:02,650
+yığın normunun öğrenmeye çalıştığı parametrelerin
+
+58
+00:04:02,650 --> 00:04:10,055
+Momentum, Adam ve RMSprop algoritmalarındaki hiper-parametrelerle alakası yok.
+
+59
+00:04:10,055 --> 00:04:14,795
+Şimdi mademki bunlar algoritmanızın yeni parametreleri,
+
+60
+00:04:14,795 --> 00:04:18,065
+istediğiniz iyileme yöntemini kullanabilir
+
+61
+00:04:18,065 --> 00:04:21,710
+(mesela dereceli alçalma) ve böylelikle algoritmanızı inşa edebilirsiniz.
+
+62
+00:04:21,710 --> 00:04:26,885
+Örneğin, bir katman için dBeta^[l]'yi hesaplayabilir,
+
+63
+00:04:26,885 --> 00:04:28,720
+ardından Beta parametresini
+
+64
+00:04:28,720 --> 00:04:32,270
+"Beta eksi alpha(öğrenme oranı) çarpı
+
+65
+00:04:32,270 --> 00:04:37,415
+dBeta^[l]" şeklinde güncelleyebilirsiniz. Ayrıca,
+
+66
+00:04:37,415 --> 00:04:43,405
+Adam ya da RMSprop ya da momentumu kullanarak da beta ve gamayı güncelleyebilirsiniz.
+
+67
+00:04:43,405 --> 00:04:45,575
+Yani sadece dereceli alçalmayla sınırlı değilsiniz.
+
+68
+00:04:45,575 --> 00:04:48,065
+Bir önceki videoda
+
+69
+00:04:48,065 --> 00:04:51,570
+"Yığın Normu" işleminin ne yaptığını açıklamıştım
+
+70
+00:04:51,570 --> 00:04:55,590
+(ortalamaları ve değişintileri hesaplar, esas değerden ortalamayı çıkartır, kalanı değişintiye böler)
+
+71
+00:04:55,590 --> 00:05:00,625
+Fakat derin öğrenme programlaması için hali hazırda bir yapı iskelesi kullanıyorsanız
+
+72
+00:05:00,625 --> 00:05:06,485
+genellikle "yığın normu" adımını ya da katmanını kendiniz inşa etmek zorunda kalmazsınız.
+
+73
+00:05:06,485 --> 00:05:07,840
+Yapı iskelelerinde
+
+74
+00:05:07,840 --> 00:05:09,990
+bu tek satırlık kodla halledilebilir.
+
+75
+00:05:09,990 --> 00:05:13,140
+Örneğin, Tensorflow yapı iskelesinde
+
+76
+00:05:13,140 --> 00:05:17,490
+yığın normalleştirmesini yazdığım işlevle devreye sokabilirsiniz.
+
+77
+00:05:17,490 --> 00:05:19,530
+Programlama yapı iskeleleri hakkında daha sonra ayrıca konuşacağız;
+
+78
+00:05:19,530 --> 00:05:24,435
+ama pratikte tüm bu detayları büyük ihtimalle kendi başınıza inşa etmek zorunda kalmayacaksınız.
+
+79
+00:05:24,435 --> 00:05:27,480
+Yine de bunların nasıl işlediğini bilmek gerçekten önemli.
+
+80
+00:05:27,480 --> 00:05:30,930
+Böylece yazdığınız kodun ne yaptığını daha iyi anlayabilirsiniz.
+
+81
+00:05:30,930 --> 00:05:36,805
+Tekrar etmek gerekirse, yığın normu genellikle bu tür yapı iskeleleri sayesinde tek bir satırda kodlanabilir.
+
+82
+00:05:36,805 --> 00:05:40,560
+Şimdiye kadar, yığın normu hakkında konuşurken
+
+83
+00:05:40,560 --> 00:05:45,390
+tüm eğitim verisini tek seferde işlediğinizi, yığınsal dereceli alçalma kullandığınızı varsaydık.
+
+84
+00:05:45,390 --> 00:05:51,720
+Aslında bu yöntem çoğu zaman eğitim verisinin daha küçük yığınlara bölünmesiyle uygulanır.
+
+85
+00:05:51,720 --> 00:05:54,360
+Yani gerçekte yığın normunu uygularken
+
+86
+00:05:54,360 --> 00:05:59,830
+ilk mini-yığın (mini-batch)'inizi alıyorsunuz ve Z1'i hesaplıyorsunuz.
+
+87
+00:05:59,830 --> 00:06:03,460
+Tıpkı bir önceki sürgüde gördüğümüz gibi, W^[1] ve
+
+88
+00:06:03,460 --> 00:06:11,365
+B1 ve sonra sadece bu mini-yığını (mini-batch) ve Z1'in bilgisayar ortalaması ve varyansını alırsınız.
+
+89
+00:06:11,365 --> 00:06:14,695
+Z^[1]'in ortalamasını ve değişintisini hesaplayıp,
+
+90
+00:06:14,695 --> 00:06:21,580
+Z^[1]'den ortalamayı çıkartıp değişintiye bölüp, Beta^[1] ve
+
+91
+00:06:21,580 --> 00:06:24,490
+Gamma 1, size Z1'i vermek için
+
+92
+00:06:24,490 --> 00:06:27,375
+Bunların hepsi hala X{1} üzerinden yapılır.
+
+93
+00:06:27,375 --> 00:06:33,325
+Ardından etkileşim işlevini uygulayarak A^[1]'i elde edersiniz,
+
+94
+00:06:33,325 --> 00:06:38,110
+sonra Z^[2]'yi W^[2] ve
+
+95
+00:06:38,110 --> 00:06:41,190
+B^[2]'yi kullanarak hesaplarsınız, vesaire, vesaire.
+
+96
+00:06:41,190 --> 00:06:45,360
+Tüm bu işlemleri X{1}'in üzerinde dereceli alçalmanın
+
+97
+00:06:45,360 --> 00:06:50,660
+bir adımını atmak için kullanırsınız ve ardından ikinci küçük yığınınız, X{2} devreye girer.
+
+98
+00:06:50,660 --> 00:06:54,190
+benzer işlemleri tekrarlarsınız: Z^[1]'i hesaplarsınız,
+
+99
+00:06:54,190 --> 00:06:59,085
+ardından yığın normunu uygulayarak Z~[1]'i elde edersiniz.
+
+100
+00:06:59,085 --> 00:07:02,390
+İşte bu yığın normu adımında
+
+101
+00:07:02,390 --> 00:07:08,890
+Z~'yi sadece X{2}'deki veriyi kullanarak elde edersiniz
+
+102
+00:07:08,890 --> 00:07:10,640
+yani şuradaki BN ile.
+
+103
+00:07:10,640 --> 00:07:13,580
+X{2}'deki örnekleri irdeleyelim:
+
+104
+00:07:13,580 --> 00:07:18,320
+Z^[1]'in ortalamasını ve değişintisini sadece o küçük yığın üzerinden hesaplayıp,
+
+105
+00:07:18,320 --> 00:07:24,175
+Beta ve Gamma ile yeniden ölçeklendirip Z~'yi elde edersiniz, vesaire, vesaire.
+
+106
+00:07:24,175 --> 00:07:28,840
+Bunu üçüncü küçük yığınınızla yaparsınız ve eğitime devam edersiniz.
+
+107
+00:07:28,840 --> 00:07:34,415
+Şimdi, dağılımsallaştırmamıza dair bir ayrıntıyı netleştirmek istiyorum.
+
+108
+00:07:34,415 --> 00:07:38,990
+Size demiştim ki parametrelerimiz her katman için W^[l], B^[l],
+
+109
+00:07:38,990 --> 00:07:43,640
+Beta^[l], ve
+
+110
+00:07:43,640 --> 00:07:50,900
+Gamma^[l]. Dikkat ederseniz Z'yi şöyle hesaplamaktaydık:
+
+111
+00:07:50,900 --> 00:08:00,590
+Z^[l] = W^[l] x A[l-1] + B[l]. Fakat yığın normunun yaptığı,
+
+112
+00:08:00,590 --> 00:08:02,985
+eldeki küçük yığına bakıp Z^[l]'yi
+
+113
+00:08:02,985 --> 00:08:06,515
+0 ortalama ve standart değişinti ile normalleştirmedir.
+
+114
+00:08:06,515 --> 00:08:09,275
+Ve ardından Beta ve Gamma ile yeniden ölçeklendirmedir.
+
+115
+00:08:09,275 --> 00:08:10,745
+Ama bu ne demektir?
+
+116
+00:08:10,745 --> 00:08:15,125
+B'nin değeri ne olursa olsun çıkarılıp atılacaktır;
+
+117
+00:08:15,125 --> 00:08:17,735
+çünkü o yığın normalleştirilmesi adımında
+
+118
+00:08:17,735 --> 00:08:22,090
+Z^[l]'nin ortalamasını hesaplayıp onu çıkaracaksınız.
+
+119
+00:08:22,090 --> 00:08:27,675
+Yani bu küçük yığındaki tüm örneklere herhangi bir sabit eklemeniz
+
+120
+00:08:27,675 --> 00:08:28,865
+hiç bir şeyi değiştirmeyecektir.
+
+121
+00:08:28,865 --> 00:08:34,170
+Çünkü ekleyeceğiniz her sabit, ortalamaların çıkartılması sırasında sıfırlanacaktır.
+
+122
+00:08:34,170 --> 00:08:35,960
+Yani yığın normunu kullanıyorsanız,
+
+123
+00:08:35,960 --> 00:08:38,225
+o parametreyi aradan çıkartabilirsiniz.
+
+124
+00:08:38,225 --> 00:08:42,020
+Ya da, isterseniz, onu hep 0'a eşitlemek diye düşünebilirsiniz.
+
+125
+00:08:42,020 --> 00:08:49,235
+Böylece dağılımsallaştırmamız sadece Z^[l] = W^[l] x A^[l-1] olur.
+
+126
+00:08:49,235 --> 00:08:54,375
+Sonra Z^[l]'nin normalleşmesini hesaplarsınız,
+
+127
+00:08:54,375 --> 00:09:04,610
+yani Z~[l] = Gamma(Z^[l]) + Beta^[l]
+
+128
+00:09:04,610 --> 00:09:09,080
+Bu Beta^[l] parametresini kullanarak
+
+129
+00:09:09,080 --> 00:09:15,095
+Z~[l]'nin ortalamasının ne olduğuna karar verirsiniz, bu da bir sonraki katmana aktarılır.
+
+130
+00:09:15,095 --> 00:09:16,430
+Genel olarak toparlamak gerekirse,
+
+131
+00:09:16,430 --> 00:09:24,020
+yığın norm bu katmandaki Z^[l] değerlerinin ortalamasını sıfırladığı için
+
+132
+00:09:24,020 --> 00:09:27,445
+bu parametreyi burada tutmanın anlamı yok.
+
+133
+00:09:27,445 --> 00:09:29,400
+Bu yüzden elden çıkarmalısınız.
+
+134
+00:09:29,400 --> 00:09:32,330
+yerine Beta^[l]'yi koymalısınız.
+
+135
+00:09:32,330 --> 00:09:39,050
+Ki bu da yanlı terimlerin yer değişimini kontrol eden bir parametre olur.
+
+136
+00:09:39,050 --> 00:09:43,250
+Son olarak hatırlayınız ki Z^[l]'nin boyutu,
+
+137
+00:09:43,250 --> 00:09:45,255
+bunu tek bir örnek üzerinden yapacaksanız
+
+138
+00:09:45,255 --> 00:09:48,255
+(n^[l],1) olacaktır.
+
+139
+00:09:48,255 --> 00:09:53,270
+B^[l]'in boyutları da (n^[l],1) olacaktır;
+
+140
+00:09:53,270 --> 00:09:56,365
+tabii ki n^[l], l katmanındaki toplam saklı birim sayısını ifade edince.
+
+141
+00:09:56,365 --> 00:10:00,230
+Beta^[l] ve Gamma^[l]'in boyutları da
+
+142
+00:10:00,230 --> 00:10:07,575
+(n^[l],1); yine çünkü n^[l] saklı birim sayısını ifade etmektedir.
+
+143
+00:10:07,575 --> 00:10:12,555
+Beta^[l] ve Gamma^[l], her saklı birimin
+
+144
+00:10:12,555 --> 00:10:14,670
+ortalamasını ve değişintisini
+
+145
+00:10:14,670 --> 00:10:19,195
+ağın istediği değerlere yeniden ölçeklendirmek için kullanılır.
+
+146
+00:10:19,195 --> 00:10:21,990
+Şimdi bunların hepsini bir yerde toplayalım, ve
+
+147
+00:10:21,990 --> 00:10:25,195
+dereceli alçalmayı yığın normuyla nasıl inşa edebileceğinizi tasvir edelim.
+
+148
+00:10:25,195 --> 00:10:28,925
+Dereceli alçalmayı küçük yığınlara uyguladığınızı varsayarsak,
+
+149
+00:10:28,925 --> 00:10:34,245
+T = 1'den küçük yığın sayınıza kadar kendisini yineleyecektir.
+
+150
+00:10:34,245 --> 00:10:39,265
+İleri yayılımı
+
+151
+00:10:39,265 --> 00:10:44,635
+küçük yığılım X{T} üzerinde uygularsınız
+
+152
+00:10:44,635 --> 00:10:50,330
+ve yığın normunu kullanarak
+
+153
+00:10:50,330 --> 00:10:57,265
+Z^[l]'leri Z~[l] ile değiştirirseniz. Bu sayede, bu küçük yığılımda
+
+154
+00:10:57,265 --> 00:11:02,810
+Z normalleştirilmiş ortalama ve değişintiyle eşleşmesini garantileyeceksiniz
+
+155
+00:11:02,810 --> 00:11:09,200
+Bu Z'nin normalleştirilmiş hali Z~[l] olacak. Ve ardından
+
+156
+00:11:09,200 --> 00:11:17,025
+geri yayılımı kullanarak dW'yi,
+
+157
+00:11:17,025 --> 00:11:20,065
+dB'yi, tüm l değerleri için,
+
+158
+00:11:20,065 --> 00:11:23,530
+dBeta'yı, dGamma'yı hesaplarsınız.
+
+159
+00:11:23,530 --> 00:11:26,805
+Esasında, zaten B'den kurtulacağınız için
+
+160
+00:11:26,805 --> 00:11:28,494
+bu terim de ortadan kalkar.
+
+161
+00:11:28,494 --> 00:11:33,595
+Son olarak bu parametreleri güncellersiniz.
+
+162
+00:11:33,595 --> 00:11:40,085
+Bu durumda W her zamanki gibi W eksi öğrenme oranı ile güncellenir
+
+163
+00:11:40,085 --> 00:11:47,775
+Beta, Beta eksi öğrenme oranı çarpı dB ile güncellenir.
+
+164
+00:11:47,775 --> 00:11:49,595
+Gamma da benzer şekilde güncellenir.
+
+165
+00:11:49,595 --> 00:11:52,770
+Ve eğer dereceyi şu şekilde hesapladıysanız,
+
+166
+00:11:52,770 --> 00:11:54,805
+dereceli alçalma kullanabilirsiniz.
+
+167
+00:11:54,805 --> 00:11:56,910
+Ben de buraya aynen onu yazdım
+
+168
+00:11:56,910 --> 00:12:01,845
+ama bu momentumlu dereceli alçalmayla da çalışır.
+
+169
+00:12:01,845 --> 00:12:07,200
+Ya da RMSprop ya da Adam ile.
+
+170
+00:12:07,200 --> 00:12:08,890
+O durumda şuradaki dereceli alçalmanın
+
+171
+00:12:08,890 --> 00:12:11,220
+güncellemesini almak yerine, geçtiğimiz haftalardaki videolarda da bahsettiğimiz
+
+172
+00:12:11,220 --> 00:12:16,615
+diğer algoritmaların güncellemelerini kullanabilirsiniz.
+
+173
+00:12:16,615 --> 00:12:19,790
+Bu diğer iyileme algoritmaları aynı zamanda eklediğimiz
+
+174
+00:12:19,790 --> 00:12:25,730
+Beta ve Gamma parametrelerini iyilemek için de kullanılabilir.
+
+175
+00:12:25,730 --> 00:12:27,780
+Umarım size yığın normunu nasıl sil baştan tanımlayabileceğinize
+
+176
+00:12:27,780 --> 00:12:30,375
+dair bir hissiyat kazandırabilmişimdir.
+
+177
+00:12:30,375 --> 00:12:31,530
+Eğer ki siz
+
+178
+00:12:31,530 --> 00:12:34,455
+derin öğrenme yapı iskelelerinden birini kullanıyorsanız (ki onlar hakkında daha sonra konuşacağız),
+
+179
+00:12:34,455 --> 00:12:37,700
+sadece bir başkasının inşasını göz önünde bulundurabilirsiniz.
+
+180
+00:12:37,700 --> 00:12:41,720
+Bu da yığın normunu kullanmanızı epey kolaylaştıracaktır.
+
+181
+00:12:41,720 --> 00:12:45,515
+Eğer yığın normu sizin gözünüzde gizemini korumaya devam ediyorsa,
+
+182
+00:12:45,515 --> 00:12:49,375
+eğitimi neden çarpıcı bir şekilde hızlandırdığından emin değilseniz
+
+183
+00:12:49,375 --> 00:12:52,140
+gelin bir sonraki videoya geçelim ve
+
+184
+00:12:52,140 --> 00:12:55,210
+yığın normunun neden çalıştığını ve gerçekte neye yaradığını inceleyelim.

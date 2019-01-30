@@ -1,0 +1,42 @@
+U ovome videu ćemo da govorimo 
+o množenju matrice sa matricom odnosno o množenju matrica. Kada govorimo o metodu u 
+linearnoj regresiji za pronalaženje parametara teta0 i teta1 sve odjednom, bez potrebe za iterativnim algoritmom 
+kao što je gradijent opadanja, dakle, kada govorimo o algoritmu, videćete da je množenje matrice sa matricom jedan 
+od ključnih koraka koje treba da znate. Pa, da krenemo sa primerom, kao i obično. Recimo da imam dve matrice i želim da ih pomnožim. Hajde da opet samo pređem primer a tada ću da vam objasnim šta se desilo. Dakle, prvo ću da izvadim prvu kolonu ove matrice desno. A ovu matricu na levoj strani ću da pomnožim sa vektorom, što je samo prva kolona. I videćete da, ako to uradim, dobiću vektor 11, 9. Dakle, ovo je isto množenje matrice i vektora kao što smo videli u poslednjem videu. Ovo sam unapred već uradio tako 
+da znam da će da bude 11, 9. A druga stvar koju ću da uradim je da ću da izvadim drugu kolonu ove matrice desno i tada ću da uzmem ovu matricu levo, dakle ovu matricu, i pomnožim je drugom kolonom desno. I opet, ovo je množenje matrice i vektora što ste videli u prethodnom videu. I videćete da ako pomnožite ovu matricu 
+i ovaj vektor, dobićete 10, 14. Usput, ako želite da vežbate množenje matrice i vektora, slobodno zaustavite video i proverite sami proizvod. Sada ću samo da ove rezultate sastavim, i to će da bude moj odgovor. Videli sta da će rezultat množenja da bude 2x2 matrica. Način na koji ću da popunim 
+ovu matricu je da uzmem elemente 11 i 9 i uključim ih ovde. I uzmem 10 i 14 i uključim ih u drugu kolonu, u redu? Dakle to je mehanizam 
+množenja matrice drugom matricom. U osnovi gledate jednu kolonu druge matrice i spojite odgovore. Još jednom, 
+ubrzo ćemo da uđemo u postupak malo detaljnije. Ali, samo želim da napomenem, 
+ova prva matrica je dimenzija 2x3. Ako to pomnožimo sa 3x2 matricom, rezultat množenja će da bude 2x2 matrica. I opet, ubrzo ćemo da vidimo zašto je to tako. U redu, to je bio mehanizam računanja. Hajde da vidimo detaljnije šta se u stvari desilo. Ovo su detalji. Imam matricu A i želim da je pomnožim matricom B a rezultat će da bude neka nova matrica C. Videćete da možete da pomnožite samo 
+matrice čije dimenzije odgovaraju. Dakle, A je mxn matrica, dakle m redova, n kolona. A množimo je jednom nxo matricom. Videćete da ovo ovde n mora da odgovara ovome ovde n. Dakle, broj kolona prve matrice mora da bude jednak broju redova druge. A rezultat množenja će da bude mxo matrica, 
+kao ova matrica C. U prethodnom videu sve je 
+odgovaralo specijalnom slučaju da je o jednako 1. A to znači da je B vektor. A sada ćemo da radimo sa 
+slučajem gde su vrednosti veće od 1. Dakle, evo kako množite dve matrice. Ono što radim je da prvo uzmem prvu kolonu od B i računam je kao vektor i množim 
+matricu A prvom kolonom od B. Rezultat toga će da bude nx1 vektor 
+i to ću da stavim ovde. Tada ću da uzmem drugu kolonu od B, u redu? Dakle, ovo je još jedan nx1 vektor. Dakle, ova ovde kolona je nx1. To je n-dimenzionalni vektor. Ovu matricu ćemo da pomnožimo ovim nx1 vektorom. Rezultat će da bude m-dimenzionalni vektor, 
+što ćemo da stavimo ovde, i tako dalje. I onda ću da uzmem treću kolonu 
+i pomnožim je ovom matricom. Dobijam m-dimenzionalni vektor. I tako dalje dok ne dođete do poslednje kolone. Matrica puta poslednja kolona 
+daje poslednju kolonu matrice C. Samo da još jednom ponovim, i-ta kolona matrice C je dobijena tako što uzmemo matricu A i pomnožimo je sa i-tom kolonom matrice B za vrednosti i = 1, 2, sve do o. Dakle ovo je samo zaključak šta smo 
+tamo uradili da bismo izračunali matricu C. Hajde da pogledamo samo još jedan primer. Recimo da hoću da pomnožim ove dve matrice. Dakle, prvo što ću da uradim je da 
+izvadim prvu kolonu druge matrice. To je matrica B sa prethodnog slajda i treba da pomnožim ovu matricu sa ovim vektorom. I tako, o, hajde da na brzinu izračunamo. Ovo će da bude jednako 1, 3 puta 0, 3, dakle ovo daje 1 * 0 + 3 * 3. A drugi element će da bude 2, 5 puta 0, 3. Dakle, to će da bude 2 * 0 + 5 * 3. A to je 9, 15. O, u stvari to ću da napišem zelenom. Dakle to je 9, 15. Dalje, izvući ću drugu kolonu odavde i uraditi odgovarajući račun. Dakle to je ova matrica puta ovaj vektor 1, 2. Takođe i ovo ćemo da ubrzamo, dakle 1 * 1 + 3 * 2 i to je taj red. Hajde da uradimo i drugu. Dakle, da vidimo. To mi daje 2 * 1 + 5 * 2 a to će da bude jednako, da vidimo, 1 * 1 + 3 * 2 je 7 a 2 * 1 + 5 * 2 je 12. Dakle, imam ova dva a samim tim i rezultat, proizvod ove dve matrice će da bude, ovo ide ovde a ovo ovde, dakle, dobijam 9, 15 i 4, 12. Možda ste primetili da je rezultat množenja 2x2 matrice sa drugom 2x2 matricom, dimenzije rezultirajuće 
+matrice će da budu prvo 2 puta drugo 2. Dakle, rezultat je takođe 2x2 matrica. Na kraju, pokazaću vam jedan zgodan 
+trik koji možete da primenite kada množite matricu sa matricom. Recimo, kao pre, da imamo 
+4 kuće čije cene želimo da predvidimo. Samo što sada imamo 3 ponuđene 
+hipoteze prikazane desno. Ako želite da primenite sve tri ponuđene hipoteze na sve četiri kuće, videćete da to možete da uradite veoma efikasno 
+koristeći množenje matrice sa matricom. Dakle, levo je moja uobičajena matrica, 
+ista kao u prošlom videu gde su ove vrednosti cene mojih kuća 
+i staviću jedinice u levu kolonu. Ono što ću da uradim je da 
+napravim drugu matricu gde je prva kolona -40 i 0.25 a druga kolona je 200 i 0.1 i tako dalje. Videćete da ako pomnožite ove dve matrice, ono što ćete da vidite je da ova prva kolona, zaokružiću je plavom, dakle, kako dobijate ovu prvu kolonu? Procedura množenja matrice sa matricom je, 
+način na koji ste dobili ovu prvu kolonu je da uzmete ovu 
+matricu i pomnožite je prvom kolonom. A videli smo u prethodnom videu 
+da su to upravo predviđene cene kuća u prvoj hipotezi, u redu, ove prve hipoteze. Šta je sa drugom kolonom? Dakle, sa ovom drugom kolonom. Način na koji dobijate drugu kolonu je, dakle, uzmete ovu matricu i pomnožite je drugom kolonom. I tako druga kolona, videćete da su to predviđene cene drugom hipotezom, i slično tome za treću kolonu. Nisam ulazio u sve detalje, ali nadam se da ste slobodni da zaustavite 
+video i matematički proverite da je istina ono što upravo tvrdim. Videćete da pravljenjem ove dve matrice, šta ipak možete da uradite je da veoma brzo primenite 
+sve tri hipoteze na sve četiri veličine kuća i dobijete svih 12 predviđenih 
+cena od te tri hipoteze na četiri kuće. Dakle, sa samo jednim množenjem 
+matrica napravili ste dvanaest predviđanja. Još bolje, videćete da, 
+da biste uradili množenje matrica, postoji mnogo biblioteka linearne algebre da biste uradili ovaj korak množenja. I nije važno koji programski jezik koristite. Svakako da deset najpopularnijih programskih jezika ima sjajne biblioteke linearne algebre. I postoje dobre biblioteke linearne 
+algebre koje su veoma optimizovane da bi se uradilo množenje matrica veoma efikasno. Uključujući i prednosti paralelnog 
+računanja koje pružaju mogućnosti vašeg računara, možda vaš računar ima 
+više jezgara ili više procesora. Ili isto tako, u procesoru ponekad postoji paralelizam koji se zove SIMD paralelizam o kom računar brine. A postoje veoma dobre besplatne biblioteke koje možete da koristite veoma efikasno za množenje matrica, dakle veoma efikasno možete da napravite 
+mnogo predviđanja sa mnogo hipoteza.

@@ -1,0 +1,571 @@
+1
+00:00:00,000 --> 00:00:01,470
+No vídeo anterior,
+
+2
+00:00:01,470 --> 00:00:04,778
+você viu como observar os erros de treino 
+e de validação pode ajudá-lo a
+
+3
+00:00:04,778 --> 00:00:09,280
+diagnosticar se seu algoritmo tem um problema com
+o Viés ou com a Variância, ou talvez com ambos.
+
+4
+00:00:09,280 --> 00:00:11,880
+Acontece que essa informação permite 
+que você possa de maneira muito mais
+
+5
+00:00:11,880 --> 00:00:15,030
+sistemática, utilizando algo chamado receita
+
+6
+00:00:15,030 --> 00:00:18,165
+básica para aprendizado de máquina, que lhe permite
+de maneira muito mais sistemática
+
+7
+00:00:18,165 --> 00:00:21,510
+conseguir melhorar o desempenho do seu
+algoritmo. Vejamos...
+
+8
+00:00:21,510 --> 00:00:22,900
+Quando treinamos uma rede neural,
+
+9
+00:00:22,900 --> 00:00:24,975
+aqui está uma receita básica que vou usar.
+
+10
+00:00:24,975 --> 00:00:26,920
+Após ter treinado um modelo inicial,
+
+11
+00:00:26,920 --> 00:00:28,185
+minha primeira pergunta é,
+
+12
+00:00:28,185 --> 00:00:30,570
+o seu algoritmo tem alto Viés?
+
+13
+00:00:30,570 --> 00:00:33,709
+E então, a fim de avaliar se o Viés é alto,
+
+14
+00:00:33,709 --> 00:00:35,820
+você deve analisar, na verdade,
+
+15
+00:00:35,820 --> 00:00:40,260
+o conjunto de treino ou o desempenho dos dados
+de treino.
+
+16
+00:00:40,260 --> 00:00:43,260
+Certo. E então, se ele realmente tem um Viés alto,
+
+17
+00:00:43,260 --> 00:00:45,735
+se ele não está nem mesmo ajustando o conjunto
+de treino tão bem,
+
+18
+00:00:45,735 --> 00:00:49,695
+algumas coisas que você poderia fazer seriam
+tentar escolher uma rede maior,
+
+19
+00:00:49,695 --> 00:00:52,680
+como mais camadas intermediárias ou mais unidades ocultas,
+
+20
+00:00:52,680 --> 00:00:54,825
+ou você poderia treiná-lo por mais tempo.
+
+21
+00:00:54,825 --> 00:00:58,953
+Talvez treinos mais longos ou testar
+alguns algoritmos com otimização mais avançada,
+
+22
+00:00:58,953 --> 00:01:00,795
+sobre a qual ainda falaremos 
+neste curso.
+
+23
+00:01:00,795 --> 00:01:03,030
+Ou você também poderia tentar,
+
+24
+00:01:03,030 --> 00:01:06,285
+isso é um tipo de "talvez funcionará, talvez não".
+
+25
+00:01:06,285 --> 00:01:10,680
+Mas, nós veremos depois que existem várias
+arquiteturas diferentes de redes neurais
+
+26
+00:01:10,680 --> 00:01:15,450
+e talvez você possa encontrar uma nova arquitetura
+de rede que seja mais adequada a esse problema.
+
+27
+00:01:15,450 --> 00:01:17,760
+Estou colocando isso entre parênteses porque é uma 
+das coisas que
+
+28
+00:01:17,760 --> 00:01:19,380
+você tem que tentar.
+
+29
+00:01:19,380 --> 00:01:20,925
+Talvez você possa fazê-lo funcionar, talvez não.
+
+30
+00:01:20,925 --> 00:01:24,170
+Considerando que usar uma rede maior quase
+sempre ajuda,
+
+31
+00:01:24,170 --> 00:01:26,761
+e treinar por mais tempo nem
+sempre ajuda,
+
+32
+00:01:26,761 --> 00:01:28,450
+mas, certamente, não custa nada.
+
+33
+00:01:28,450 --> 00:01:29,793
+Então, quando treinamos um algoritmo de aprendizagem,
+
+34
+00:01:29,793 --> 00:01:34,100
+eu tentaria essas coisas até que eu pudesse, pelo
+menos, me livrar desses problemas com o Viés,
+
+35
+00:01:34,100 --> 00:01:39,945
+no caso, voltando depois de ter tentado isso e
+continuar tentando até conseguir um bom ajuste,
+
+36
+00:01:39,945 --> 00:01:42,460
+pelo menos, um bom ajuste para o conjunto de
+treino.
+
+37
+00:01:42,460 --> 00:01:44,760
+E geralmente, se você tiver uma rede grande o 
+suficiente,
+
+38
+00:01:44,760 --> 00:01:49,470
+você deveria conseguir ajustar bem os dados de 
+treino, desde que
+
+39
+00:01:49,470 --> 00:01:54,150
+seja um problema que é possível de ser resolvido, certo?
+
+40
+00:01:54,150 --> 00:01:55,787
+Se a imagem estiver muito borrada,
+
+41
+00:01:55,787 --> 00:01:57,300
+pode ser impossível de conseguir um bom ajuste.
+
+42
+00:01:57,300 --> 00:01:59,531
+Mas, se pelo menos um humano conseguir realizar
+bem a tarefa,
+
+43
+00:01:59,531 --> 00:02:01,540
+se você achar que o erro de Bayes não é tão alto,
+
+44
+00:02:01,540 --> 00:02:04,244
+então, por meio do treino de uma rede 
+suficientemente grande, você deveria conseguir,
+
+45
+00:02:04,244 --> 00:02:07,275
+assim espero, ter um bom resultado, pelo menos no
+conjunto de treino.
+
+46
+00:02:07,275 --> 00:02:09,970
+Para pelo menos ajustar ou sobre-ajustar o conjunto
+de treino.
+
+47
+00:02:09,970 --> 00:02:14,743
+Uma vez que você reduza o Viés para um valor
+aceitável, então, pergunte-se,
+
+48
+00:02:14,743 --> 00:02:17,040
+você tem um problema com a Variância?
+
+49
+00:02:17,040 --> 00:02:21,410
+E para avaliar isso, eu olharia para o desempenho
+do conjunto de validação.
+
+50
+00:02:21,410 --> 00:02:24,310
+Você consegue generalizar, a partir de um desempenho
+bom do
+
+51
+00:02:24,310 --> 00:02:28,595
+conjunto de treino, para ter um desempenho bom do
+conjunto de validação?
+
+52
+00:02:28,595 --> 00:02:30,915
+E se você tiver uma Variância alta,
+
+53
+00:02:30,915 --> 00:02:34,015
+a melhor maneira de se resolver um problema com a
+Variância alta é conseguir mais dados.
+
+54
+00:02:34,015 --> 00:02:35,199
+Se você consegui-los,
+
+55
+00:02:35,199 --> 00:02:36,875
+você só estará ajudando.
+
+56
+00:02:36,875 --> 00:02:40,490
+Mas, às vezes, você 
+não consegue reunir mais dados.
+
+57
+00:02:40,490 --> 00:02:43,300
+Ou você poderia tentar regularização,
+
+58
+00:02:43,300 --> 00:02:45,078
+sobre o qual falaremos no próximo vídeo,
+
+59
+00:02:45,078 --> 00:02:46,630
+para tentar reduzir o sobre-ajuste.
+
+60
+00:02:46,630 --> 00:02:50,930
+E também, novamente, 
+às vezes você simplesmente tem que tentar.
+
+61
+00:02:50,930 --> 00:02:54,310
+Mas, se você conseguir encontrar uma arquitetura
+de rede neural mais apropriada,
+
+62
+00:02:54,310 --> 00:02:57,335
+às vezes, isso pode reduzir o seu problema de 
+Variância também,
+
+63
+00:02:57,335 --> 00:03:00,785
+assim como reduzir o seu problema de Viés. Mas como
+fazer isso?
+
+64
+00:03:00,785 --> 00:03:04,045
+É mais difícil ser totalmente sistemático
+em relação a como fazer isso.
+
+65
+00:03:04,045 --> 00:03:06,175
+Mas, então, eu tento essas estratégias e meio que
+fico retornando à elas
+
+66
+00:03:06,175 --> 00:03:11,785
+até que, com sorte, eu consiga encontrar algo tanto
+com baixo Viés como com baixa Variância,
+
+67
+00:03:11,785 --> 00:03:14,594
+momento no qual o trabalho estará feito.
+
+68
+00:03:14,594 --> 00:03:16,390
+Então, alguns pontos a serem notados,
+
+69
+00:03:16,390 --> 00:03:19,736
+Primeiro, dependendo se você tiver Viés alto
+ou Variância alta,
+
+70
+00:03:19,736 --> 00:03:24,405
+o conjunto de coisas que você deveria tentar
+pode ser bem diferente.
+
+71
+00:03:24,405 --> 00:03:26,860
+Então, geralmente eu usaria o conjunto de validação
+de treino para tentar
+
+72
+00:03:26,860 --> 00:03:29,920
+diagnosticar se há um problema com o Viés ou
+com a Variância,
+
+73
+00:03:29,920 --> 00:03:33,920
+e, então, me basear nisso para selecionar o subconjunto
+apropriado de coisas para tentar.
+
+74
+00:03:33,920 --> 00:03:37,270
+Então, por exemplo, se você tiver um problema com
+Viés alto,
+
+75
+00:03:37,270 --> 00:03:40,300
+conseguir mais dados de treino não vai ajudar.
+
+76
+00:03:40,300 --> 00:03:44,140
+Ou, pelo menos, não é a coisa mais eficiente a se fazer.
+
+77
+00:03:44,140 --> 00:03:47,770
+Então, ser claro em relação a um problema
+com Viés ou Variância ou
+
+78
+00:03:47,770 --> 00:03:52,563
+ambos pode te ajudar a focar na seleção das coisas
+mais úteis a tentar.
+
+79
+00:03:52,563 --> 00:03:56,725
+Segundo, na era anterior do aprendizado de máquina,
+
+80
+00:03:56,725 --> 00:04:02,465
+havia muita discussão sobre o chamado
+"tradeoff" (escolha) entre Viés e Variância.
+
+81
+00:04:02,465 --> 00:04:04,604
+E a razão para isso era que,
+
+82
+00:04:04,604 --> 00:04:06,385
+para muitas das coisas que você podia tentar,
+
+83
+00:04:06,385 --> 00:04:09,340
+você poderia aumentar o Viés e reduzir a Variância,
+
+84
+00:04:09,340 --> 00:04:11,920
+ou reduzir o Viés e aumentar a Variância.
+
+85
+00:04:11,920 --> 00:04:15,400
+Mas, lá na era pré-aprendizagem profunda,
+
+86
+00:04:15,400 --> 00:04:17,165
+não tínhamos muitas ferramentas,
+
+87
+00:04:17,165 --> 00:04:19,755
+não tínhamos tantas ferramentas que só reduziriam
+
+88
+00:04:19,755 --> 00:04:24,380
+o Viés, ou só Variância, sem prejudicar o outro.
+
+89
+00:04:24,380 --> 00:04:28,750
+Mas na era moderna de aprendizagem profunda, na
+era de big data,
+
+90
+00:04:28,750 --> 00:04:31,705
+contanto que você consiga continuar treinando uma rede
+maior,
+
+91
+00:04:31,705 --> 00:04:34,200
+e contanto que você consiga adquirir mais dados,
+
+92
+00:04:34,200 --> 00:04:36,360
+o que não é sempre o caso para qualquer um desses,
+
+93
+00:04:36,360 --> 00:04:37,950
+mas, se for o caso,
+
+94
+00:04:37,950 --> 00:04:40,590
+então conseguir uma rede maior quase sempre só
+
+95
+00:04:40,590 --> 00:04:43,625
+diminui o seu Viés sem necessariamente prejudicar
+a sua Variância,
+
+96
+00:04:43,625 --> 00:04:46,157
+desde que você faça a regularização de maneira
+apropriada.
+
+97
+00:04:46,157 --> 00:04:48,810
+E conseguir mais dados quase sempre
+
+98
+00:04:48,810 --> 00:04:52,370
+reduz sua Variância e não prejudica muito seu Viés.
+
+99
+00:04:52,370 --> 00:04:54,195
+Então, o que realmente acontece é que,
+
+100
+00:04:54,195 --> 00:04:55,845
+com esses dois passos,
+
+101
+00:04:55,845 --> 00:04:57,405
+a habilidade de treinar, de escolher uma rede,
+
+102
+00:04:57,405 --> 00:04:58,560
+ou conseguir mais dados,
+
+103
+00:04:58,560 --> 00:05:03,375
+agora, nós temos ferramentas para reduzir o Viés e
+apenas o Viés
+
+104
+00:05:03,375 --> 00:05:05,700
+ou reduzir a Variância e apenas a Variância,
+
+105
+00:05:05,700 --> 00:05:09,655
+sem realmente prejudicar tanto o outro.
+
+106
+00:05:09,655 --> 00:05:12,240
+E eu acho que esse é um dos grandes motivos
+
+107
+00:05:12,240 --> 00:05:16,348
+para que a aprendizagem profunda tenha sido tão 
+útil para o aprendizado supervisionado,
+
+108
+00:05:16,348 --> 00:05:18,840
+para que exista muito menos tradeoff,
+menos escolhas, onde você
+
+109
+00:05:18,840 --> 00:05:21,345
+tenha que equilibrar com cuidado o Viés e a Variância,
+
+110
+00:05:21,345 --> 00:05:25,053
+mas, às vezes, você simplesmente tem mais opções
+para reduzir o Viés
+
+111
+00:05:25,053 --> 00:05:30,315
+ou reduzir a Variância, sem necessariamente 
+prejudicar o outro.
+
+112
+00:05:30,315 --> 00:05:33,698
+E, na verdade, desde que você tenha uma rede bem
+regularizada,
+
+113
+00:05:33,698 --> 00:05:36,795
+nós falaremos sobre regularização a partir do
+próximo vídeo,
+
+114
+00:05:36,795 --> 00:05:40,110
+treinar uma rede maior quase nunca decepciona.
+
+115
+00:05:40,110 --> 00:05:44,634
+E o custo principal de treinar uma rede neural que é
+muito grande é apenas tempo computacional,
+
+116
+00:05:44,634 --> 00:05:46,490
+contanto que você esteja regularizando.
+
+117
+00:05:46,490 --> 00:05:49,440
+Então, espero que isso te dê uma noção da estrutura
+básica de como
+
+118
+00:05:49,440 --> 00:05:53,255
+organizar seu problema de aprendizado de máquina para
+diagnosticar o Viés e a Variância,
+
+119
+00:05:53,255 --> 00:05:57,325
+e então tentar selecionar a operação certa para ter
+progresso no seu problema.
+
+120
+00:05:57,325 --> 00:06:01,367
+Uma das coisas que mencionei várias vezes nesse vídeo
+é a regularização,
+
+121
+00:06:01,367 --> 00:06:03,825
+que é uma técnica bastante útil para reduzir a 
+Variância.
+
+122
+00:06:03,825 --> 00:06:07,130
+Existe um pouco de tradeoff de Viés e Variância quando
+você usa regularização.
+
+123
+00:06:07,130 --> 00:06:09,045
+Pode ser que ela aumente o Viés um pouco,
+
+124
+00:06:09,045 --> 00:06:13,090
+apesar de, frequentemente, não muito, se você tiver
+uma rede suficientemente gigante.
+
+125
+00:06:13,090 --> 00:06:16,735
+Mas, entraremos mais em detalhas no próximo vídeo
+para que você possa
+
+126
+00:06:16,735 --> 00:06:21,000
+entender melhor como aplicar regularização
+ à sua rede neural.
+[Tradução: Gabriella Miya | Revisão: Carlos Lage]

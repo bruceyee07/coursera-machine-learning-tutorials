@@ -1,0 +1,15 @@
+U ovome videu želim da Vam pričam o tome kako koristiti neuronske mreže za višeklasnu klasifikaciju u kojoj imamo više od jedne kategorije koje želimo da razdvojimo. U poslednjem delu prošlog snimka, gde smo razmatrali problem rukom pisanih cifara, to je zapravo bio problem višeklasne klasifikacije jer smo imali 10 mogućih kategorija za prepoznavanje cifara od 0 do 9, tako da ćemo sada videti detalje rešavanja tog problema. Višeklasni klasifikator pravimo pomoću neuronskih mreža kao ekstenziju
+metode jedan-naspram-svih. Recimo da razmatramo primer kompjuterskog vida, gde umesto da pokušavamo da prepoznamo automobile,
+kao u ranijem primeru sa kojim sam započeo
+ovu priču recimo da sada pokušavamo da prepoznamo četiri kategorije objekata i da na osnovu slike hoćemo da odlučimo da li je prikazan
+pešak, automobil, motor ili kamion. U takvim slučajevima napravili bismo neuronsku mrežu sa četiri izlazne jedinice tako da naša neuronska mreža prikazuje
+vektor od 4 broja. Dakle, sada je izlaz vektor koji čine četiri broja. I ono što pokušavamo da napravimo je da prva izlazna jedinica klasifikuje da li je na slici pešak, da ili ne. Druga jedinica će klasifikovati
+da li je na slici automobil, da ili ne. Ova jedinica će klasifikovati da li je na slici motor, da ili ne. I ova će klasifikovati da li je na slici kamion, da ili ne. Stoga, kada imamo sliku pešaka želimo da, u idealnom slučaju, mreža prikaže vektor 1 0 0 0. Kada imamo sliku automobila želimo da prikaže 0 1 0 0. Kada je u pitanju motor želimo da prikaže 0 0 1 0, i tako dalje. Dakle, ovo je kao metoda jedan-naspram-svih o kojoj smo pričali kada smo opisivali logističku regresiju i ovde, suštinski, imamo 4 klasifikatora logističke regresije
+od kojih svaki pokušava da prepozna jednu od četiri klasa koje želimo da razaznajemo. Dakle, evo je sada naša neuronska mreža sa četiri izlazne jedinice i one predstavljaju naše h od x za različite slike. Način na koji želimo da predstavimo skup podataka za treniranje je na sledeći način. Imamo skup za treniranje sa
+raznim slikama pešaka, automobila,
+motora i kamiona i ono što ćemo uraditi u ovom primeru nije kao što smo radili ranije kada smo oznake pisali kao y koje je imalo vrednosti 1, 2, 3 ili 4. Umesto da y predstavljamo na taj način sada ćemo y predstaviti na sledeći način. y(i) će biti 1 0 0 0, ili
+ 0 1 0 0 ili 0 0 1 0 ili 0 0 0 1,
+u zavisnosti od toga šta se nalazi na slici x(i). Tako da je jedan primer za treniranje jedan par x(i) zarez y(i) gde je x(i) slika na kojoj je znate, jedan od četiri objekata, a y(i) je jedan od ovih vektora. I nadam se da ćemo naći način da napravimo neuronsku mrežu koja vraća neku vrednost takvu da h od x bude približno y. I h od x i y(i), oba će biti predstavljena u našem primeru četvorodimenzionim vektorima
+jer imamo četiri klase. Dakle, tako se dobijaju neuralne mreže za višeklasnu klasifikaciju. Ovim smo završili našu
+diskusiju o reprezentaciji neuronskih mreža odnosno o reprezentaciji hipoteza. U narednim video snimcima pričaćemo o tome kako krenuti od skupa za treniranje i doći do automatski naučenih
+parametara neuronske mreže.

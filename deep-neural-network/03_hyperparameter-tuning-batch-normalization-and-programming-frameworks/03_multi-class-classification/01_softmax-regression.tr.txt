@@ -1,0 +1,51 @@
+Şimdiye kadar bahsettiğimiz sınıflandırma örneklerinde ikili sınıflandırma üzerine konuştuk, 
+ ki burada da sadece 0 ya da 1 ihtimalleri vardı. Kedi mi ya da kedi değil mi? Peki ya muhtemel çoklu sınıflarımız (ikiden çok) olursa? Yapısal bağıntının (logistic regression) genellenmiş 
+ haline olarak eşiksiz en büyük bağıntı (Softmax regression) denir. C'lerden birini veya çok sınıflardan birini tanımaya çalıştıkça 
+(C burada Class-Sınıf kelimesinin baş harfi olarak kullanılıyor) iki sınıf tanımaya kıyasla daha az tahmin yapılır. Hadi inceleyelim. Diyelim ki sadece kediler tanımak yerine 
+ kedileri köpekleri ve civcivleri tanımak istiyoruz. Kedilere sınıf 1, köpeklere sınıf 2,
+ civcivlere ise sınıf 3 diyeceğim. Yukarıdaki sınıflardan hiç biri 
+ değilse de başka bir sınıftadır bu sınıfa da sınıf 0 diyeceğim. Burada resim örnekleri ve 
+ mensup oldukları sınıflar mevcut. Bu bir civciv resmi olduğundan sınıfı 3. Kedi sınıf 1, köpek ise sınıf 2
+ Tahminimce bu da bir koala ki koala üstteki sınıflardan değil 
+ bu yüzden sınıfı 0 şeklinde devam eder. Kullanacağımız notasyonda
+ büyük C ile girdilerinizin kategorize edildiği 
+ toplam sınıf sayısını göstereceğiz. Bu durumda dört olası sınıfınız var, diğer ya da hiç biri sınıfını da içeren. Dört sınıfınız olduğunda 
+ sınıfınızın indis numaraları sıfırdan C eksi bire kadardır. Diğer bir deyişle 
+ sıfır, bir, iki ya da üç. Bu durumda üst katmanı dörtlü 
+ yeni bir XY kuracağız ya da bu örnekte büyük C'yi 
+ üst simgede kullanacağız. Yani üst L katmanındaki N sayıdaki birim
+sayısı dörde ya da genel haliyle C'ye eşit olacaktır. Buradan gayemiz ise üst katmandaki 
+ birim sayısının bize söylenmesidir ki bu her 4 sınıfın olasılığıdır. Yani burada ilk düğümün çıktı vermesi beklenir veya biz olasılığı (kendisi diğer sınıf olan) çıktı olarak vermesini bekleriz, verilen x girdisi için bu
+ orada bir kedi olma olasılığıdır. x girdisi verildiğinde,
+ bu (işlem) köpek olma olasılığını çıktı olarak verecektir. x girdisi verildiğinde, o (işlem) çıktı olarak olasılık verecektir. Civcivi, bebek C olarak kısaltacağım, verilen x girdisi için. Yani burada, y şapka çıktı etiketi 4x1 boyutlu bir vektör olacaktır, çünkü bu 4 olasılığı veren 4 sayıyı çıktı olarak vermek zorundadır. Ve çünkü olasılıklar toplamı 1'e eşit olmalıdır, ki y şapka çıktısındaki sayıların toplamı da 1'e eşit olmalıdır. Sizin ağınızın bunu yapması için, standard model, eşiksiz en büyük (Softmax) katmanı kullanır, ve (tabi) çıktı katmanının da bu çıktıları üretmesi için. Sonra haritayı yazın,
+ ve sonra geri gelebilirsiniz ve eşiksiz en büyük (Softmax) işlevin ne iş yaptığı ile ilgili önsezi elde edin. Yapay sinir ağınızın son katmanında, her zaman olduğu gibi, katmanlarınızın doğrusal bölümlerini hesaplayacaksınız. Yani z, büyük L, ki o son katman için z değişkenidir. Yani bu katman büyük L'yi hatırlayın. Yani her zaman olduğu gibi, wL kere önceki katmanın etkilenimi artı, o son katmanın eğilimleri (biases:önsezi) olarak hesaplarsınız. Z hesaplaması için, eşiksiz en büyük (Softmax) etkilenim işlevini uygulamanız lazım. Yani o etkilenim işlevi 
+eşiksiz en büyük (Softmax) katman için
+ alışılmadık olsa da, yaptığı budur. Önce, geçici bir değişken hesaplayacağız, t = e üssü z [L] şeklinde (ekranda yazıldığı gibi) Bu matris elemanlarının tek tek işlem görmesinin bir parçasıdır. Yani burada zL, örneğimizde, 4x1 boyutundadır. Bu 4 boyutlu bir vektördür. Yani t (kendisi) = e üssü zL matrisli bir üssel işlemdir. t, 4x1 boyutlu bir vektördür. Sonra çıktı aL, toplamı 1'e eşit olan vektör t olacaktır. Böylece aL = e üssü zL / t'nin 1'den..4'e elemanlarının toplamı olur, çünkü t(i)'nin 4 sınıfı var. Yani diğer bir deyişle 
+aL'nin 4x1'lik bir vektör olduğunu , ve "i" elemanlı olduğunu söylüyoruz. a [L] i yazalım, bu eşittir (ti) / (ti'lerin toplamı), tamam mı? Bu durumda matematik yeterince açık değil, bir dakika içerisinde yapacağımız başka bir örnek bunu daha açık hale getirecek. Yani bu matematik yeterince açık olmadığı durumda, belli bir örneğe geçelim ki bunu daha açık hale getirsin. Diyelim ki senin zL hesaplaman ve zL 4 boyutlu bir vektördür, (bunlar) 5, 2, -1, 3 olsun. Bizim yapacağımız vektör t'yi hesaplamak için üslü matris işlem kullanmaktır. Bizim yapacağımız vektör t'yi hesaplamak için üslü matris işlem kullanmaktır. Yani, (ekranda görüldüğü gibi) 
+t = e üssü 5, e üssü 2, e üssü -1, e üssü 3 matrisi olacaktır. Ve bunu hesap makinesinde yaparsanız
+bu değerleri bulursunuz. (e üssü 5) 148,4, (e kare) yaklaşık 7,4, (e üssü -1) 0,4 ve (e küp) 20,1 yapar. Ve böylece, bizim vektör t'den vektör aL'ye gittiğimiz yöntem, bu girdilerin toplamını 1'e eşitleyecek şekilde
+ normalize etmek içindir. Yani t'nin elemanlarını toplarsanız, belirtilen 4 sayıyı toplarsanız 176,3 değerini elde edersiniz. Sonunda, aL bu vektör t olacaktır, bir vektör olarak, 176,3'e bölünür. Örneğin, buradaki ilk düğüm, bu (e üssü 5) / 176,3 sonucunu verecektir. Ve bu da 0,842 değerini verir. Yani şunu demek istiyorum, 
+bu resimde, z için elde ettiğiniz değer bu ise, sıfır olma olasılığı %84,2'dir. 
+(ilk eleman var mı yok mu, sıfır mı değil mi olduğunu gösterir) Ve sonraki düğüm (e kare) / 176,3 sonucunu verir, ki bu 0,042'dir ve % 4,2 olasılık değerini verir. Bir sonraki düğüm (e üssü -1) / odur (176,3), ki bu 0,002'dir Ve sonuncusu (e küp) / odur (176,3), ki bu 0,114'tür. Yani %11,4 olasılıkla bu üçüncü sınıftır, ki bu civciv C sınıfıdır, değil mi? Tabi bunun sınıf sıfır, sınıf 1, sınıf 2
+ ve sınıf 3 olma olasılığı mevcuttur. Böylece yapay sinir ağı aL'nin çıktısı,
+ y şapkadır. Bu 4x1'lik bir vektördür, 
+ki bu 4x1'lik vektörün elemanları, bu 4 sayıya geçiyor. Sonra biz sadece hesaplıyoruz. Bu algoritma vektör zL'i alır ve 
+4 olasılığın toplamı 1'dir. Ve eğer biz zL'den aL'yi hesaplamak için
+ ne yaptığımızı özetleyecek olursak, tüm bu üslü (matrix) hata (dizeyi) hesaplaması, bu geçici t değerini elde etmek ve normalleştirmek, bunu eşiksiz en büyük (Softmax) etkilenim işlevine özetleyebiliriz ve aL, etkilenim işlevi g'nin vektör zL'e uygulanmasına eşittir. Bu özel etkilenim işlevi hakkındaki olağandışı şey, bu etkilenim işlevi g'nin, 4x1'lik bir vektörü girdi olarak alması ve çıktı olarak 4x1'lik bir vektör vermesidir. Yani öncesinde, bizim etkilenim işlevimiz bu tek satırı girdi olarak alırdı. Örneğin, s işlevi (sigmoid) ve değer etkilenim işlevi girdi olarak da
+ çıktı olarak da gerçek bir sayı (real number) verirdi. Eşiksiz en büyük etkilenim işlevi hakkındaki olağandışı şey, çünkü o farklı olası çıktılar üzerinden normalleştirilmeli, ve bir vektörü girdi olarak almalı ve
+ vektörün çıktılarına yerleştirmelidir. Eşiksiz en büyük (Softmax) sınıflandırmanın
+ yapabileceği şeylerden biri de, Size x1 ve x2 girdilerine sahip olduğunuz bazı örnekler göstereceğim. Ve bu kaynağın doğrudan eşiksiz en büyük (Softmax) katmana (bağlı), üç veya dört veya daha fazla çıktı düğümü ve sonra da çıktı şapkalı y. Yani size, gizli katmanı olmayan yeni bir ağ göstereceğim, ve tüm yaptığı z1 eşittir w1 çarpı girdi x artı b'yi hesaplamak. Ve sonra çıktı a1 veya y şapka =, eşiksiz en büyük (Softmax)
+etkilenim işlevinin (g) z1'e uygulamasıdır. Yani bu saklı katmanı olmayan sinir ağında, (bir) eşiksiz en büyük (Softmax) işlevinin,
+ yapabileceği şeyler hakkında bir fikir vermesi gerekir. İşte, burada sadece işlenmemiş girdiler x1 ve x2 nin olduğu bir örnek var. C=3 çıktı sınıfına sahip olan (Bir) eşiksiz en büyük (Softmax) katman bu tip karar sınırlarında temsil edebilir. Dikkat edin ki bu tip bazı doğrusal karar sınırları, ama bu veriyi üç sınıfa ayırmaya imkan verir. Ve bu çizemde, yaptığımız şey alsında eğitim setini almak bu durum bu figürde bir miktar gösterilmiştir ve eşiksiz en büyük (Softmax) sınıflandırmayı çıktı etiketleriyle eğitebilir. Ve sonra, bu çizimdeki renk yeni gösteriyor eşiksiz en büyük sınıflandırmanın yukarısını taze tutar,
+ ve üç çıktıdan hangisinin en yüksek olasılığı olduğuna bağlı olarak. Yani, belki bunun bir çeşit doğrusal karar sınırları olan yapısal bağıntıya benzediğini bir miktar görebilirsiniz, ancak ikiden fazla sınıf ile [DUYULAMIYOR] sınıf 0,1, sınıf 0,1 veya 2 olabilir. Üç sınıfı olan üç normal veri setinin olduğu, 
+eşiksiz en büyük (Softmax) sınıflandırmanın 
+ karar sınırlarını gösterdiği başka bir örnek. üç normal veri seti 3 sınıf ile olduğu zaman temsil eder. Ve burada bir tane daha, evet, şimdi bu a, ama bir önsezi herhangi iki sınıf arasındaki karar sınırının daha doğrusal olacağını gösteriyor. İşte bu yüzden görüyorsunu ki, örneğin sarı ve çeşitli sınıflar arasındaki karar sınırı, bu mor ve kırmızının olduğu yerdeki doğrusal sınır mor ve sarı arasındaki doğrusal sınır ve diğer doğrusal karar sınırları. Ama bu değişik doğrusal fonksiyonları alanı üç sınıfa bölmek için kullanmak Haydi daha fazla sınıf olan bazı örneklere bakalım. Örneğin, bu örnekte C 4e eşit, yani yani yeşil sınıf ve eşiksiz en büyük (diğer 3) sınıflar, çoklu sınıflar arasındaki doğrusal karar sınırları. Burada C nin 5 sınıfa eşit olduğu bir örnek daha var, ve ve C nin 6ya eşit olduğu son bir örnek. Yani bu, eşiksiz en büyük sınıflandırmanın
+ herhangi bir gizli katman yokken
+ yapabileceği şeyleri gösteriyor, sınıfın saklı katmanı, x ile daha da derin bir sinir ağı ve sonra bazı saklı katmanlar, ve sonra daha fazla saklı katman ve benzeri. Sonra, birden fazla değişik sınıfır ayırmak için daha da karmaşık, doğrusal olmayan karar sınırları öğrenebilirsiniz. Böylece umuyorum, 
+bu, size eşiksiz en büyük (Softmax) (sınıflandırma) katmanın
+ veya eşiksiz en büyük etkilenim işlevinin 
+sinir ağında yapabilecekleri hakkında bir fikir verir. Böylece umuyorum, 
+bu, size eşiksiz en büyük (Softmax) (sınıflandırma) katmanın
+ veya eşiksiz en büyük etkilenim işlevinin 
+sinir ağında yapabilecekleri hakkında bir fikir verir. Bir sonraki videoda, (Şimdi de) eşiksiz en büyük katmanı kullanan yapay sinir ağını 
+nasıl eğitebileceğinize (şöyle) bir göz atalım.

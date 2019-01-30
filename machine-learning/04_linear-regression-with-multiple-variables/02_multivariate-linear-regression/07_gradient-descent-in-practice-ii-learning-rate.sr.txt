@@ -1,0 +1,87 @@
+U ovome videu želim da 
+vam dam praktične savete o tome kako da vam gradijent opadanja radi. Centralna ideja ovoga videa 
+biće stopa učenja alfa. Konkretno, ovo je pravilo 
+promene gradijenta opadanja. A ono što ću da uradim u 
+ovome videu je da vam kažem o tome šta ja mislim o uklanjanju grešaka, 
+i neke savete da se osigurate da će gradijent 
+opadanja da radi ispravno. I drugo, želim da vam kažem 
+kako da odaberete stopu učenja alfa ili barem kako da ga birate. Ovo je nešto što često radim da bih 
+bio siguran da će gradijent opadanja da radi ispravno. Posao gradijenta opadanja 
+je da nađe vrednost teta za vas koja će da, nadajmo se, 
+da minimizuje funkciju greške J(teta). Ono što često radim jeste da 
+iscrtavam funkciju greške J(teta) dok se gradijent opadanja izvršava. X osa je broj iteracija gradijenta opadanja a kako se gradijent opadanja izvršava, 
+nadam se da dobijate crtež kao što je ovaj. Zapamtite da je x osa broj iteracija. Prethodno smo videli da je 
+kod crtanja J(teta) x osa, horizontalna osa, bila vektor 
+parametara teta ali sada to nije slučaj. Konkretno, poenta je, pokrenuću gradijent opadanja za 100 iteracija. Koju god vrednost teta da 
+dobijem nakon 100 iteracija, dobiću neku vrednost teta nakon 100 iteracija, ja ću da procenim funkciju greške J(teta). Za vrednost teta koju 
+dobijem nakon 100 iteracija, a ova vertikalna visina je vrednost J(teta), za vrednost teta koju dobijem nakon 
+100 iteracija gradijenta opadanja. A ova tačka ovde odgovara vrednosti J(teta) za teta koje dobijem nakon 
+gradijenta opadanja za 200 iteracija. Ono što pokazuje crtež 
+je vrednost funkcije greške nakon svake iteracije gradijenta opadanja. A ako gradijent opadanja radi kako treba, J(teta) bi trebalo da se smanjuje nakon svake iteracije. Ovaj crtež vam takođe može da 
+pokaže još jednu korisnu stvar ako pogledate figuru koju sam nacrtao, 
+izgleda da vremenom, možda za 300 iteracija, 
+između 300 i 400 iteracija, u tom segmentu izgleda da se J(teta) više ne smanjuje. Dakle, za vreme 400 iteracija, izgleda da se ova kriva ispravila. Pa tako, za 400 iteracija, 
+izgleda da je gradijent opadanja više ili manje konvergirao jer se 
+vaša funkcija greške više ne smanjuje. Dakle, posmatranje ove krive može 
+da vam pomogne da prosudite da li je ili nije gradijent opadanja konvergirao. Usput, broj iteracija koji je potreban 
+gradijentu opadanja da konvergira za aplikaciju može mnogo da varira, pa za neku aplikaciju gradijent opadanja može 
+da konvergira nakon samo 30 iteracija. Za neku drugu aplikaciju gradijent 
+opadanja može da uzme 3000 iteracija, za neki drugi algoritam učenja 
+može da traje 3 miliona iteracija. Videćete da je veoma teško 
+reći unapred koliko je iteracija potrebno gradijentu opadanja da konvergira. I obično se crta ova vrsta crteža, 
+crtanje funkcije greške u odnosu na povećanje broja iteracija, 
+obično liči na ovaj crtež. Ali pokušavam da kažem da li 
+gradijent opadanja konvergira. Takođe je moguće da koristimo 
+automatski test konvergencije, koji ima algoritam koji će da vam 
+kaže ako gradijent opadanja konvergira. A ovo je tipičan primer 
+automatskog testa konvergencije. Takav test može da deklariše 
+konvergenciju ako se funkcija greške J(teta) smanjuje za manje od 
+neke male vrednosti epsilon, neke male vrednosti 10 na -3 u jednoj iteraciji. Ali shvatio sam da je nalaženje 
+tog praga prilično teško. Da bih proverio konvergenciju 
+gradijenta opadanja ja gledam grafikon kao što je ovaj, 
+kao ova figura na levoj strani, pre nego da se oslonim na 
+automatski test konvergencije. Posmatranje ove figure takođe 
+može da vas unapred upozori da možda gradijent opadanja ne radi ispravno. Konkretno, ako iscrtate J(teta) 
+kao funkciju broja iteracija, i ako vidite figuru kao što je 
+ova gde se J(teta) u stvari povećava, tada je to jasan znak da 
+gradijent opadanja ne radi. Figura kao što je ova obično znači da 
+biste trebali da koristite stopu učenja alfa. Ako se J(teta) povećava, najčešći uzrok je, ako pokušavate da minimizujete 
+funkciju koja izgleda možda ovako, ali ako je stopa učenja prevelika 
+i ako počnete ovde, gradijent opadanja može da 
+promaši minimum i pošalje vas ovde. A ako je stopa opadanja prevlika, opet možete da promašite, i tako dalje. Ono što biste stvarno želeli je da počnete ovde i da polako silazite, u redu? Ali ako je stopa učenja prevelika, gradijent opadanja može da maši minimum. I tako dobijate sve lošije i lošije vrednosti, i tako sve veće vrednosti funkcije greške J(teta). Dakle, dobijete graf kao što 
+je ovaj i ako ovo vidite obično je rešenje da 
+koristite manju vrednost alfa. I naravno, uverite se da 
+vaš kod nema neku grešku. Ali obično prevelika vrednost 
+alfa može da bude opšti problem. Slično, ponekad možete da vidite 
+da J(teta) radi nešto poput ovoga, neko vreme ide dole, a onda gore, 
+opet ide dole, pa gore, neko vreme dole, pa gore i tako dalje. A rešenje za ovo je isto tako 
+korištenje manje vrednosti alfa. Nećemo ovo ovde da dokazujemo, ali pod ostalim pretpostavkama o 
+funkciji greške J(teta), ovo je istina za linearnu regresiju, 
+matematičari su dokazali da za dovoljno male stope učenja alfa, J(teta) bi 
+trebalo da se smanjuje u svakoj iteraciji. A ako se to ne desi, verovatno je alfa preveliko, trebali biste da smanjite alfa. Ali, takođe ne želite da 
+stopa učenja bude premala jer ako to imate, 
+gradijent opadanja može da bude spor. Ako je alfa premalo, 
+možete da počnete recimo ovde, i ako pravite jako male korake, i ako imate mnogo iteracija pre 
+nego što dođete do minimuma, i ako je alfa premalo, 
+gradijent opadanja može da sporo napreduje i da sporo konvergira. Da zaključimo, ako je stopa učenja premalena, imate problem spore konvergencije, 
+a ako je prevelika, J(teta) se možda ne bude smanjivalo u 
+svakoj iteraciji i možda ne konvergira. U nekim slučajevima je moguće da stopa učenja 
+bude prevelika a da se desi spora konvergencija. Ali je uobičajeniji problem koji vidite da se J(teta) ne smanjuje u svakoj iteraciji. Da bismo otklonili greške u ovakvim 
+slučajevima, crtajte često J(teta) kao funkciju broja iteracija 
+da shvatite šta se dešava. Konkretno, ono što ja radim 
+kada pokrenem gradijent opadanja je da pokušam opsege vrednosti. Dakle, samo pokušajte da pokrenete 
+gradijent opadanja sa opsegom vrednosti za alfa, kao 0.001 i 0.01 Dakle, razlikuju se deset puta. Za ove različite vrednosti alfa 
+iscrtajte J(teta) kao funkciju broja iteracija, i tada uzmite vrednost alfa koja se 
+čini da deluje da J(teta) opada brzo. U stvari, ono što ja radim nisu 
+ovi koraci sa faktorom deset. Dakle, ovo je faktor povećanja 
+deset za svaki korak. Ono što ja radim je da 
+uzmem ovaj opseg vrednosti. I tako dalje gde je ovo 0.001. Tada povećavam stopu učenja 
+trostruko da dobijem 0.003. A onda ovaj korak, evo još jednoga približnog trostrukog 
+povećanja od 0.003 do 0.01. I tako, ovo su, približno, 
+pokušaji gradijenta opadanja sa svakom vrednošću otprilike 3 puta većom od prethodne. Dakle, ono što radim je da pokušavam 
+opseg vrednosti dok ne pronađem vrednost koja je premalena 
+i jednu koja je prevelika. A onda pokušam da uzmem 
+najveću moguću vrednost, ili nešto malo manje nego najveća 
+razumna vrednost koju sam našao. A kada to uradim, obično 
+mi da dobru stopu učenja za moj problem. Ako i vi to uradite, možda budete 
+mogli da odaberete dobru stopu učenja za implementaciju gradijenta opadanja.

@@ -1,0 +1,111 @@
+1
+00:00:00,370 --> 00:00:01,740
+Ce este machine learning?
+
+2
+00:00:01,740 --> 00:00:05,090
+Probabil îl folosești de zeci de ori pe zi<br />fără ca măcar sa știi asta. 
+
+3
+00:00:05,090 --> 00:00:08,790
+De fiecare data când faci o căutare pe Google sau Bing,<br />aceasta funcționează atât de bine
+
+4
+00:00:08,790 --> 00:00:12,340
+pentru ca programul lor de machine learning<br />si-a dat seama cum sa clasifice paginile web.
+
+5
+00:00:12,340 --> 00:00:17,230
+Când aplicația pentru fotografii a Facebook sau Apple<br />iți recunoaște prietenii in imaginile tale,
+
+6
+00:00:17,230 --> 00:00:18,850
+avem de asemenea machine learning. 
+
+7
+00:00:18,850 --> 00:00:20,370
+De fiecare data când citești un email si
+
+8
+00:00:20,370 --> 00:00:24,490
+si un filtru spam te ferește sa treci<br />prin tone de spam, din nou,
+
+9
+00:00:24,490 --> 00:00:29,390
+aceasta se întâmpla deoarece calculatorul tău a învățat<br />sa distingă emailurile spam de cele non-spam.
+
+10
+00:00:29,390 --> 00:00:31,240
+Așadar, aceasta este machine learning.
+
+11
+00:00:31,240 --> 00:00:35,260
+Este știința de a face calculatoarele sa învețe<br />fără a fi programate explicit.
+
+12
+00:00:35,260 --> 00:00:38,660
+Unul dintre proiectele de cercetare in care sunt implicat<br />este de a face roboții sa curețe
+
+13
+00:00:38,660 --> 00:00:39,780
+casa.
+
+14
+00:00:39,780 --> 00:00:41,010
+Cum poți sa faci asta?
+
+15
+00:00:41,010 --> 00:00:44,860
+Ei bine, ce poți sa faci este sa-i<br />arăți robotului cum se procedează, și
+
+16
+00:00:44,860 --> 00:00:46,000
+sa învețe din asta.
+
+17
+00:00:46,000 --> 00:00:49,690
+Apoi robotul poate sa vadă ce obiecte ridici<br />si unde le așezi,
+
+18
+00:00:49,690 --> 00:00:52,000
+iar apoi sa încerce sa facă același lucru<br />chiar si atunci când nu ești acolo.
+
+19
+00:00:52,000 --> 00:00:55,460
+Pentru mine, unul dintre motivele pentru care sunt<br />entuziasmat de asta este AI sau
+
+20
+00:00:55,460 --> 00:00:57,530
+problema inteligentei artificiale.
+
+21
+00:00:57,530 --> 00:00:59,209
+Construind cu adevărat mașini inteligente,
+
+22
+00:00:59,209 --> 00:01:01,680
+care pot sa facă aproape orice din ceea ce tu sau<br />eu pot sa fac.
+
+23
+00:01:01,680 --> 00:01:04,920
+Multi oameni de știință cred ca cea mai buna cale <br />de a progresa in acesta este prin algoritmi
+
+24
+00:01:04,920 --> 00:01:09,630
+de învățare numiți rețele neuronale<br />care mimează modul de funcționare al creierul uman, si
+
+25
+00:01:09,630 --> 00:01:11,030
+de asemenea, te voi învață si despre aceasta.
+
+26
+00:01:11,030 --> 00:01:13,170
+In acest curs înveți despre machine learning si
+
+27
+00:01:13,170 --> 00:01:14,390
+cum sa implementezi tu însuti.
+
+28
+00:01:14,390 --> 00:01:16,920
+Sper sa te înscrii pe websiteul nostru si<br />sa ni te alături.

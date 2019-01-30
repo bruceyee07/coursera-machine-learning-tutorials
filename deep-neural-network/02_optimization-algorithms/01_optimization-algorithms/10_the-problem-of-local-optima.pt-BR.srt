@@ -1,0 +1,435 @@
+1
+00:00:00,000 --> 00:00:01,710
+Nos primórdios da aprendizagem profunda,
+
+2
+00:00:01,710 --> 00:00:04,380
+as pessoas se preocupavam muito
+em relação ao algoritmo de optimização
+
+3
+00:00:04,380 --> 00:00:07,415
+ficar preso numa ótima local inadequada.
+
+4
+00:00:07,415 --> 00:00:09,660
+Mas assim como a teoria da 
+aprendizagem profunda tem avançado,
+
+5
+00:00:09,660 --> 00:00:13,285
+a nossa compreensão de 'ótima local' 
+também tem mudado.
+
+6
+00:00:13,285 --> 00:00:16,855
+Deixe-me mostrar-lhe o que 
+pensamos sobre ótima local agora,
+
+7
+00:00:16,855 --> 00:00:21,279
+e questões no problema de 
+optimização na aprendizagem profunda.
+
+8
+00:00:21,279 --> 00:00:25,695
+Esta era uma imagem que as pessoas costumavam ter em mente
+quando se preocupavam com ótimas locais.
+
+9
+00:00:25,695 --> 00:00:28,786
+Talvez, você esteja tentando optimizar 
+a atribuição de alguns parâmetros,
+
+10
+00:00:28,786 --> 00:00:30,580
+nós os chamamos de W₁ e W₂,
+
+11
+00:00:30,580 --> 00:00:33,913
+e a altura da superfície é a função de custo J.
+
+12
+00:00:33,913 --> 00:00:38,655
+Nesta figura, parece haver
+um monte de ótimas locais, em todos esses pontos.
+
+13
+00:00:38,655 --> 00:00:41,010
+E seria mais fácil o gradiente descendente,
+
+14
+00:00:41,010 --> 00:00:43,622
+ou um dos outros algoritmos, ficar 
+preso numa dessas ótimas locais
+
+15
+00:00:43,622 --> 00:00:47,226
+do que chegar a uma ótima global.
+
+16
+00:00:47,226 --> 00:00:51,945
+Acontece que se você estiver traçando uma figura
+como esta em duas dimensões,
+
+17
+00:00:51,945 --> 00:00:56,637
+fica fácil criar parcelas como esta
+com um monte de ótimas locais (mínimas locais) diferentes.
+
+18
+00:00:56,637 --> 00:01:00,285
+E estes gráficos de dimensão bem pequena
+eram o que geralmente guiava a intuição.
+
+19
+00:01:00,285 --> 00:01:02,730
+Mas esta intuição na verdade, não está correta.
+
+20
+00:01:02,730 --> 00:01:04,878
+Acontece que se você estiver treinando uma rede neural,
+
+21
+00:01:04,878 --> 00:01:09,965
+a maioria dos pontos com gradiente zero não são
+ótimas locais, assim como estes.
+
+22
+00:01:09,965 --> 00:01:15,330
+Ao invés disso, a maioria dos pontos com gradiente zero
+em uma função de custo são pontos de sela.
+
+23
+00:01:15,330 --> 00:01:17,845
+Então, esse é um ponto onde o gradiente zero,
+
+24
+00:01:17,845 --> 00:01:19,826
+novamente, talvez seja W₁,
+
+25
+00:01:19,826 --> 00:01:25,150
+W₂, e a altura é o valor da função de custo J.
+
+26
+00:01:25,150 --> 00:01:28,523
+Mas informalmente, uma função de espaço dimensional muito alto,
+
+27
+00:01:28,523 --> 00:01:30,075
+se o gradiente for zero,
+
+28
+00:01:30,075 --> 00:01:32,835
+pode ser, em cada direção,
+
+29
+00:01:32,835 --> 00:01:36,810
+uma função do tipo convexa,
+ ou uma função do tipo côncava.
+
+30
+00:01:36,810 --> 00:01:38,660
+E se você estiver em, digamos,
+
+31
+00:01:38,660 --> 00:01:40,785
+um espaço de 20 mil dimensões,
+
+32
+00:01:40,785 --> 00:01:42,510
+para que ele seja uma ótima local,
+
+33
+00:01:42,510 --> 00:01:45,795
+todas as 20 mil direções precisam parecer com isso.
+
+34
+00:01:45,795 --> 00:01:49,274
+Então, a chance disso acontecer é talvez, muito pequena,
+
+35
+00:01:49,274 --> 00:01:51,564
+talvez dois elevado a menos 20 mil.
+
+36
+00:01:51,564 --> 00:01:57,945
+Ao invés disso, é muito mais provável que você consiga
+algumas direções em que a curva dobre para cima assim,
+
+37
+00:01:57,945 --> 00:02:01,140
+da mesma formas que algumas direções
+em que a função de curva está dobrando
+
+38
+00:02:01,140 --> 00:02:04,720
+para baixo, ao invés de estarem todas curvadas para cima.
+
+39
+00:02:04,720 --> 00:02:07,430
+Logo, é por isso que em espaços dimensionais altos,
+
+40
+00:02:07,430 --> 00:02:10,270
+você na verdade, está muito mais propenso a ir
+para um ponto sobrecarregado como esse mostrado à direita,
+
+41
+00:02:10,270 --> 00:02:13,575
+e então para a mínima local.
+
+42
+00:02:13,575 --> 00:02:16,305
+Quanto ao porquê da superfície
+ ser chamada de ponto de sela,
+
+43
+00:02:16,305 --> 00:02:17,545
+se você usar a imaginação,
+
+44
+00:02:17,545 --> 00:02:21,060
+talvez, isto passe a ser com uma sela, certo?
+
+45
+00:02:21,060 --> 00:02:23,165
+E isto seja um cavalo.
+
+46
+00:02:23,165 --> 00:02:24,540
+Aqui temos a cabeça do cavalo,
+
+47
+00:02:24,540 --> 00:02:28,390
+este é o olho do cavalo.
+
+48
+00:02:28,390 --> 00:02:33,235
+Bom, não é o melhor desenho de um cavalo,
+mas creio que vocês tenham entendido.
+
+49
+00:02:33,235 --> 00:02:34,530
+Então, você, o cavaleiro,
+
+50
+00:02:34,530 --> 00:02:38,462
+vai se sentar aqui na sela.
+
+51
+00:02:38,462 --> 00:02:41,585
+Por isso, este ponto aqui,
+
+52
+00:02:41,585 --> 00:02:43,445
+onde a derivada é zero,
+
+53
+00:02:43,445 --> 00:02:47,480
+é chamado de ponto de sela.
+
+54
+00:02:47,480 --> 00:02:50,370
+Há realmente um ponto nessa sela,
+onde você se sentaria, eu acho,
+
+55
+00:02:50,370 --> 00:02:53,480
+e acontece de ele ter derivada zero.
+
+56
+00:02:53,480 --> 00:02:56,310
+Então, uma das lições que aprendemos na história
+
+57
+00:02:56,310 --> 00:02:59,790
+da aprendizagem profunda é que
+um monte de nossas ideias sobre espaços de baixa dimensão,
+
+58
+00:02:59,790 --> 00:03:01,235
+como o qual você pode traçar na esquerda,
+
+59
+00:03:01,235 --> 00:03:03,120
+na verdade, não se transferem
+
+60
+00:03:03,120 --> 00:03:07,695
+para os espaços de dimensão alta
+sobre os quais nossos algoritmos de aprendizagem operam.
+
+61
+00:03:07,695 --> 00:03:10,860
+Pois, se você tiver 20 mil parâmetros,
+
+62
+00:03:10,860 --> 00:03:14,399
+e J como sua função de vetor dimensional acima de 20 mil,
+
+63
+00:03:14,399 --> 00:03:17,964
+então, você provavelmente verá
+mais pontos de sela do que pontos de mínima local.
+
+64
+00:03:17,964 --> 00:03:20,265
+Se as ótimas locais não são o problema,
+
+65
+00:03:20,265 --> 00:03:22,002
+então qual é o problema?
+
+66
+00:03:22,002 --> 00:03:26,155
+Acontece que planaltos podem 
+realmente diminuir a aprendizagem
+
+67
+00:03:26,155 --> 00:03:31,635
+e um platô é uma região onde a derivada está 
+perto de zero durante um tempo considerável.
+
+68
+00:03:31,635 --> 00:03:33,915
+Logo, se você estiver aqui,
+
+69
+00:03:33,915 --> 00:03:38,230
+o gradiente descendente vai para baixo na superfície,
+
+70
+00:03:38,230 --> 00:03:41,250
+e dado que o gradiente é zero ou próximo de zero,
+
+71
+00:03:41,250 --> 00:03:42,829
+a superfície fica muito plana.
+
+72
+00:03:42,829 --> 00:03:45,300
+Você pode na verdade, levar muito tempo
+
+73
+00:03:45,300 --> 00:03:51,555
+para encontrar o caminho para talvez,
+este ponto na planície.
+
+74
+00:03:51,555 --> 00:03:53,820
+E então, por conta de uma perturbação
+aleatória de esquerda ou direita,
+
+75
+00:03:53,820 --> 00:03:57,870
+talvez eu finalmente vá
+usar canetas coloridas para esclarecer melhor.
+
+76
+00:03:57,870 --> 00:04:00,745
+Seu algoritmo pode então, rumar para fora do platô,
+
+77
+00:04:00,745 --> 00:04:04,620
+passando por essa inclinação bem longa,
+antes de tomar seu rumo aqui
+
+78
+00:04:04,620 --> 00:04:09,130
+a fim de que possa sair do platô.
+
+79
+00:04:09,130 --> 00:04:11,720
+Então, as lições deste vídeo são, primeiro:
+
+80
+00:04:11,720 --> 00:04:13,740
+é improvável que você fique preso
+
+81
+00:04:13,740 --> 00:04:17,150
+em mínimais locais (ótimas locais) ruins durante muito tempo,
+ treinando uma rede neural razoavelmente grande,
+
+82
+00:04:17,150 --> 00:04:18,555
+poupe um monte de parâmetros,
+
+83
+00:04:18,555 --> 00:04:23,185
+e a função de custo J fique definida
+sobre um espaço de dimensão relativamente alta.
+
+84
+00:04:23,185 --> 00:04:28,750
+Mas segundo: platôs são um problema e podem 
+diminuir muito a velocidade da aprendizagem.
+
+85
+00:04:28,750 --> 00:04:31,826
+E é aí que algoritmos como "momentum" ou "RmsProp"
+
+86
+00:04:31,826 --> 00:04:35,985
+ou "Adam" também podem
+realmente contribuir com seu algoritmo de aprendizagem.
+
+87
+00:04:35,985 --> 00:04:40,855
+E estes são cenários onde algoritmos de observação
+sofisticados como o "Adam",
+
+88
+00:04:40,855 --> 00:04:43,570
+podem acelerar a taxa na qual
+
+89
+00:04:43,570 --> 00:04:46,720
+você descende no platô e então, sai dele.
+
+90
+00:04:46,720 --> 00:04:49,270
+Assim, porque sua rede está resolvendo
+
+91
+00:04:49,270 --> 00:04:53,055
+problemas de otimização
+sobre espaços de dimensão alta, honestamente,
+
+92
+00:04:53,055 --> 00:04:57,445
+eu acho que ninguém faz ideia de como esses espaços se parecem,
+
+93
+00:04:57,445 --> 00:04:59,910
+e nossa compreensão deles ainda está evoluindo.
+
+94
+00:04:59,910 --> 00:05:02,785
+Mas eu espero que isso lhe dê alguma ideia
+
+95
+00:05:02,785 --> 00:05:06,660
+dos desafios que os algoritmos de otimização podem enfrentar.
+
+96
+00:05:06,660 --> 00:05:11,100
+Então, parabéns por concluir o conteúdo desta semana!
+
+97
+00:05:11,100 --> 00:05:15,275
+Por favor, dê uma olhada no quiz desta semana,
+assim como no exercício de programação.
+
+98
+00:05:15,275 --> 00:05:18,310
+Espero que você se divirta,
+praticando algumas das ideias do exercício de programação
+
+99
+00:05:18,310 --> 00:05:23,000
+desta semana, e estou ansioso
+para vê-los no início dos vídeos da próxima semana.
+[Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage]

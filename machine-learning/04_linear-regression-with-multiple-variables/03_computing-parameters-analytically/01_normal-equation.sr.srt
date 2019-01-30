@@ -1,0 +1,1816 @@
+1
+00:00:00,302 --> 00:00:01,883
+U ovom videu ćemo govoriti o
+
+2
+00:00:01,883 --> 00:00:03,948
+normalnoj jednačini koja za
+
+3
+00:00:03,948 --> 00:00:05,660
+neke probleme linearne regresije
+
+4
+00:00:05,660 --> 00:00:06,981
+daje mnogo bolji način
+
+5
+00:00:06,981 --> 00:00:09,115
+pronalaženja optimalne vrednosti
+
+6
+00:00:09,115 --> 00:00:10,879
+parametara teta.
+
+7
+00:00:10,879 --> 00:00:13,096
+Konkretno, ako za
+
+8
+00:00:13,096 --> 00:00:14,399
+linearnu regresiju koristimo
+
+9
+00:00:14,399 --> 00:00:16,042
+algoritam gradijenta opadanja
+
+10
+00:00:16,042 --> 00:00:17,823
+gde, da bismo dobili
+
+11
+00:00:17,823 --> 00:00:19,410
+minimalnu vrednost funkcije greške
+
+12
+00:00:19,410 --> 00:00:21,354
+J(teta), koristićemo ovaj
+
+13
+00:00:21,354 --> 00:00:23,792
+iterativni algoritam koji se sastoji
+
+14
+00:00:23,792 --> 00:00:26,410
+od mnogo koraka, mnogo iteracija
+
+15
+00:00:26,410 --> 00:00:28,259
+gradijenta opadanja da bi konvergirao
+
+16
+00:00:28,259 --> 00:00:30,396
+prema globalnom minimumu.
+
+17
+00:00:30,396 --> 00:00:32,563
+Suprotno tome, normalna jednačina
+
+18
+00:00:32,563 --> 00:00:34,413
+nam daje metod za
+
+19
+00:00:34,413 --> 00:00:36,986
+analitičko dobijanje teta, dakle
+
+20
+00:00:36,986 --> 00:00:38,761
+umesto da pokrećemo ovaj
+
+21
+00:00:38,761 --> 00:00:40,594
+iterativni algoritam, umesto toga
+
+22
+00:00:40,594 --> 00:00:41,365
+možemo da dobijemo
+
+23
+00:00:41,365 --> 00:00:42,791
+optimalnu vrednost teta
+
+24
+00:00:42,791 --> 00:00:44,403
+u samo jednom prolazu, tako da
+
+25
+00:00:44,403 --> 00:00:46,096
+u jednome koraku dobijete
+
+26
+00:00:46,096 --> 00:00:48,136
+optimalnu vrednost, pravo ovde.
+
+27
+00:00:49,136 --> 00:00:51,947
+Ispostavlja se da normalna jednačina
+
+28
+00:00:52,209 --> 00:00:54,442
+ima neke prednosti i
+
+29
+00:00:54,442 --> 00:00:56,024
+neke nedostatke, ali pre
+
+30
+00:00:56,024 --> 00:00:57,817
+nego što počnemo da govorimo
+
+31
+00:00:57,903 --> 00:00:59,426
+o tome kada biste trebali da je koristite,
+
+32
+00:00:59,426 --> 00:01:02,539
+hajde da prvo vidimo šta ovaj metod radi.
+
+33
+00:01:02,539 --> 00:01:04,633
+Za primer ove sedmice kursa,
+
+34
+00:01:04,633 --> 00:01:06,120
+zamislimo, uzmimo jednu
+
+35
+00:01:06,120 --> 00:01:07,505
+veoma pojednostavljenu funkciju
+
+36
+00:01:07,505 --> 00:01:09,291
+greške J(teta), to je
+
+37
+00:01:09,291 --> 00:01:11,958
+funkcija realnog broja teta.
+
+38
+00:01:11,958 --> 00:01:13,642
+Za sada zamislimo da je
+
+39
+00:01:13,842 --> 00:01:16,615
+teta skalarna vrednost ili da je teta realan broj.
+
+40
+00:01:16,769 --> 00:01:18,918
+To je samo broj, nije vektor.
+
+41
+00:01:19,171 --> 00:01:24,595
+Zamislimo da imamo funkciju greške koja 
+je kvadratna funkcija te realne vrednosti
+
+42
+00:01:25,028 --> 00:01:27,420
+teta, tako da J(teta) izgleda ovako.
+
+43
+00:01:27,851 --> 00:01:30,336
+Dakle, kako tražite minimum kvadratne funkcije?
+
+44
+00:01:30,720 --> 00:01:32,745
+Neki od vas koji poznaju račun
+
+45
+00:01:32,858 --> 00:01:34,965
+možda znaju da je način traženja
+
+46
+00:01:34,965 --> 00:01:36,628
+minimuma funkcije nalaženje
+
+47
+00:01:36,628 --> 00:01:38,991
+izvoda i izjednačavanje
+
+48
+00:01:38,991 --> 00:01:41,707
+tog izvoda sa nulom.
+
+49
+00:01:41,707 --> 00:01:44,721
+Dakle, tražite izvod od J u 
+odnosu na parametar teta.
+
+50
+00:01:44,797 --> 00:01:46,847
+Dobijate neku formulu koju neću da izvodim,
+
+51
+00:01:46,847 --> 00:01:49,161
+postavite taj izvod da je
+
+52
+00:01:49,161 --> 00:01:50,782
+jednak nuli a to vam
+
+53
+00:01:50,782 --> 00:01:53,503
+omogućava da dobijete
+
+54
+00:01:53,503 --> 00:01:57,866
+vrednost teta koja je minimum funkcije J(teta).
+
+55
+00:01:57,866 --> 00:01:59,096
+To je bio jednostavan slučaj
+
+56
+00:01:59,096 --> 00:02:01,716
+kada je teta realan broj.
+
+57
+00:02:01,716 --> 00:02:04,272
+Problem koji nas interesuje je da teta
+
+58
+00:02:04,929 --> 00:02:06,559
+nije više samo realan broj
+
+59
+00:02:06,559 --> 00:02:07,847
+već, umesto toga, je to ovaj
+
+60
+00:02:07,847 --> 00:02:11,986
+n + 1 dimenzionalni vektor parametara, a
+
+61
+00:02:11,986 --> 00:02:13,809
+funkcija greške J je
+
+62
+00:02:13,809 --> 00:02:15,742
+funkcija ovoga vektora
+
+63
+00:02:15,742 --> 00:02:17,501
+vrednosti od teta0 do
+
+64
+00:02:17,501 --> 00:02:18,924
+tetan. Funkcija greške
+
+65
+00:02:18,924 --> 00:02:21,957
+izgleda ovako, 
+neka kvadratna funkcija greške sa desne strane.
+
+66
+00:02:22,373 --> 00:02:25,712
+Kako tražimo minimum ove funkcije greške?
+
+67
+00:02:25,712 --> 00:02:27,163
+Račun nam u stvari govori
+
+68
+00:02:27,163 --> 00:02:29,377
+da je jedan
+
+69
+00:02:29,377 --> 00:02:30,709
+način da to uradite
+
+70
+00:02:30,709 --> 00:02:38,604
+da izračunate parcijalne izvode od funkcije J,
+ u odnosu na svaki parametar tetaj i stavite
+
+71
+00:02:38,604 --> 00:02:40,271
+da je svaki jednak nula.
+
+72
+00:02:40,271 --> 00:02:41,394
+Ako to uradite, i ako
+
+73
+00:02:41,394 --> 00:02:42,718
+rešite za sve vrednosti
+
+74
+00:02:42,718 --> 00:02:44,000
+teta0, teta1,
+
+75
+00:02:44,000 --> 00:02:45,973
+pa sve do tetan, tada
+
+76
+00:02:45,973 --> 00:02:47,217
+će ovo da vam da te vrednosti
+
+77
+00:02:47,217 --> 00:02:48,765
+teta koje su minimumi funkcije
+
+78
+00:02:48,765 --> 00:02:50,878
+greške J. Za vreme
+
+79
+00:02:50,878 --> 00:02:52,176
+dok radite na računanju
+
+80
+00:02:52,176 --> 00:02:53,597
+rešenja i prolazite kroz
+
+81
+00:02:53,597 --> 00:02:55,194
+rešavanje parametara
+
+82
+00:02:55,194 --> 00:02:57,316
+od teta0 do tetan,
+
+83
+00:02:57,316 --> 00:03:00,520
+biće potrebno da se računaju izvodi.
+
+84
+00:03:00,520 --> 00:03:01,625
+A ono što ću da
+
+85
+00:03:01,625 --> 00:03:03,113
+uradim u ovome videu
+
+86
+00:03:03,113 --> 00:03:04,852
+je u stvari da neću da
+
+87
+00:03:04,852 --> 00:03:06,297
+računam izvode, što je
+
+88
+00:03:06,297 --> 00:03:07,657
+dugačak proces i to je već uključeno,
+
+89
+00:03:07,657 --> 00:03:08,962
+već ću da vam kažem
+
+90
+00:03:08,962 --> 00:03:10,545
+samo ono što treba da znate
+
+91
+00:03:10,545 --> 00:03:12,619
+da biste implementirali ovaj proces
+
+92
+00:03:12,619 --> 00:03:14,138
+i tako izračunali
+
+93
+00:03:14,138 --> 00:03:15,511
+vrednosti teta koje
+
+94
+00:03:15,511 --> 00:03:16,892
+odgovaraju tačkama gde
+
+95
+00:03:16,892 --> 00:03:19,273
+su parcijalni izvodi jednaki nula.
+
+96
+00:03:19,273 --> 00:03:21,733
+Ili alternativno, ili ekvivalentno,
+
+97
+00:03:21,733 --> 00:03:23,357
+vrednosti teta za koje je
+
+98
+00:03:23,357 --> 00:03:25,901
+funkcija greške J(teta) minimalna.
+
+99
+00:03:25,901 --> 00:03:27,283
+Shvatam da neki od
+
+100
+00:03:27,283 --> 00:03:28,846
+komentara koje sam dao
+
+101
+00:03:28,846 --> 00:03:29,914
+imaju smisla samo za vas
+
+102
+00:03:29,914 --> 00:03:31,896
+koji ste upoznati sa računom.
+
+103
+00:03:31,896 --> 00:03:33,065
+Ali ako ne znate,
+
+104
+00:03:33,065 --> 00:03:34,487
+ako ne poznajete tako dobro
+
+105
+00:03:34,487 --> 00:03:36,354
+račun, ne brinite se zbog toga.
+
+106
+00:03:36,354 --> 00:03:37,404
+Ja ću da vam kažem šta
+
+107
+00:03:37,404 --> 00:03:38,374
+vam je potrebno da biste
+
+108
+00:03:38,374 --> 00:03:41,358
+implementirali ovaj algoritam i postigli da radi.
+
+109
+00:03:41,358 --> 00:03:42,585
+Za primer koji želim
+
+110
+00:03:42,585 --> 00:03:43,737
+da koristim kao radni
+
+111
+00:03:43,737 --> 00:03:46,339
+primer, recimo da
+
+112
+00:03:46,339 --> 00:03:49,056
+imam m = 4 trening primera.
+
+113
+00:03:50,409 --> 00:03:52,881
+Da bismo implementirali ovu normalnu
+
+114
+00:03:52,881 --> 00:03:56,515
+jednačinu, nameravam da uradim sledeće.
+
+115
+00:03:56,515 --> 00:03:57,640
+Uzeću moj skup
+
+116
+00:03:57,640 --> 00:04:00,375
+podataka, i evo mojih trening primera.
+
+117
+00:04:00,375 --> 00:04:01,844
+U ovome slučaju pretpostavimo da
+
+118
+00:04:01,844 --> 00:04:06,073
+su to svi podaci koje imam.
+
+119
+00:04:06,073 --> 00:04:07,890
+Ono što ću da uradim je da uzmem
+
+120
+00:04:07,890 --> 00:04:09,007
+moj skup podataka i da dodam
+
+121
+00:04:09,007 --> 00:04:11,289
+dodatnu kolonu koja odgovara
+
+122
+00:04:11,289 --> 00:04:14,579
+mojoj dodatnoj osobini, x0,
+
+123
+00:04:14,579 --> 00:04:15,967
+koja uvek uzima
+
+124
+00:04:15,967 --> 00:04:17,527
+ovu vrednost 1.
+
+125
+00:04:17,527 --> 00:04:18,681
+Sledeće šta ću da uradim je
+
+126
+00:04:18,681 --> 00:04:19,943
+da ću da napravim
+
+127
+00:04:19,943 --> 00:04:22,638
+matricu i nazovem je X
+
+128
+00:04:22,638 --> 00:04:24,632
+a ona u suštini sadrži sve
+
+129
+00:04:24,632 --> 00:04:26,100
+osobine iz moga
+
+130
+00:04:26,100 --> 00:04:28,140
+trening skupa, tako da
+
+131
+00:04:28,140 --> 00:04:31,528
+su ovo ovde sve
+
+132
+00:04:31,528 --> 00:04:33,743
+moje osobine i mi ćemo
+
+133
+00:04:33,743 --> 00:04:34,797
+da uzmemo sve te brojeve i
+
+134
+00:04:34,797 --> 00:04:37,777
+stavimo ih u ovu matricu X, u redu?
+
+135
+00:04:37,777 --> 00:04:39,179
+Tako da, znate, samo
+
+136
+00:04:39,179 --> 00:04:41,233
+kopirate podatke u svaku
+
+137
+00:04:41,233 --> 00:04:45,962
+kolonu pojedinačno a slično 
+ću da uradim za ipsilone (y).
+
+138
+00:04:45,962 --> 00:04:47,087
+Ja ću da uzmem
+
+139
+00:04:47,087 --> 00:04:47,952
+vrednosti koje pokušavam da
+
+140
+00:04:47,952 --> 00:04:49,360
+predvidim i napravim
+
+141
+00:04:49,360 --> 00:04:52,894
+vektor, kao što je ovaj
+
+142
+00:04:52,894 --> 00:04:55,440
+i nazovem ga vektor y.
+
+143
+00:04:55,440 --> 00:04:58,038
+Dakle, X će da bude jedna
+
+144
+00:04:59,653 --> 00:05:05,688
+mxn+1 dimenzionalna matrica,
+
+145
+00:05:05,688 --> 00:05:07,490
+a y će da bude
+
+146
+00:05:07,490 --> 00:05:14,421
+jedan m dimenzionalni vektor
+
+147
+00:05:14,421 --> 00:05:16,624
+gde je m broj trening primera
+
+148
+00:05:16,984 --> 00:05:18,688
+a n je, n je
+
+149
+00:05:18,688 --> 00:05:20,713
+broj osobina, n + 1, zbog
+
+150
+00:05:20,713 --> 00:05:24,825
+ove dodatne osobine x0 koju sam dodao.
+
+151
+00:05:24,825 --> 00:05:26,350
+Konačno, ako uzmete
+
+152
+00:05:26,350 --> 00:05:27,489
+vašu matricu X i vaš
+
+153
+00:05:27,489 --> 00:05:28,595
+vektor y i ako ovo
+
+154
+00:05:28,595 --> 00:05:31,065
+proračunate, i ako postavite
+
+155
+00:05:31,065 --> 00:05:32,419
+teta da bude jednako
+
+156
+00:05:32,419 --> 00:05:34,440
+X transponovano X, pa to invertujete, puta
+
+157
+00:05:34,440 --> 00:05:36,516
+X transponovano y, to će
+
+158
+00:05:36,516 --> 00:05:38,583
+da vam da vrednost teta
+
+159
+00:05:38,583 --> 00:05:42,559
+koje minimizuje vašu funkciju greške.
+
+160
+00:05:42,559 --> 00:05:43,436
+Mnogo toga se
+
+161
+00:05:43,436 --> 00:05:44,416
+desilo na slajdovima i
+
+162
+00:05:44,416 --> 00:05:47,514
+prošao sam kroz njih koristeći 
+jedan poseban skup podataka.
+
+163
+00:05:47,514 --> 00:05:49,241
+Sada ću da ovo ispišem
+
+164
+00:05:49,333 --> 00:05:50,770
+u jednoj malo opštijoj formi
+
+165
+00:05:50,955 --> 00:05:53,418
+a tada ću, malo kasnije
+
+166
+00:05:53,621 --> 00:05:56,531
+u ovome videu, 
+da objasnim ovu jednačinu detaljnije,
+
+167
+00:05:57,581 --> 00:06:00,687
+u slučaju da još nije jasno kako da uradite ovo.
+
+168
+00:06:00,687 --> 00:06:02,129
+U opštem slučaju, recimo
+
+169
+00:06:02,129 --> 00:06:04,124
+da imamo m trening primera,
+
+170
+00:06:04,124 --> 00:06:05,697
+dakle x1, y1 do
+
+171
+00:06:05,697 --> 00:06:09,319
+xn, yn i n osobina.
+
+172
+00:06:09,319 --> 00:06:10,811
+Dakle, svaki od trening primera
+
+173
+00:06:10,811 --> 00:06:12,926
+x(i) može da izgleda kao vektor
+
+174
+00:06:12,926 --> 00:06:16,297
+kao što je ovaj, 
+to je n + 1 dimenzionalni vektor osobina.
+
+175
+00:06:16,943 --> 00:06:18,350
+Način na koji ću da napravim
+
+176
+00:06:18,350 --> 00:06:20,674
+matricu X, ovo se
+
+177
+00:06:20,674 --> 00:06:24,827
+takođe zove dizajn matrica,
+
+178
+00:06:24,827 --> 00:06:26,712
+je kao što sledi.
+
+179
+00:06:26,712 --> 00:06:28,640
+Svaki trening primer mi daje
+
+180
+00:06:28,640 --> 00:06:30,549
+vektor osobina, kao što je ovaj,
+
+181
+00:06:30,549 --> 00:06:34,491
+neka vrsta n + 1 dimenzionalnog vektora.
+
+182
+00:06:34,491 --> 00:06:36,190
+Način na koji ću to da uradim je da ću da
+
+183
+00:06:36,359 --> 00:06:39,734
+napravim dizajn matricu X, to je ovakva matrica,
+
+184
+00:06:39,734 --> 00:06:40,834
+a ono što ću da uradim je
+
+185
+00:06:40,834 --> 00:06:42,109
+da uzmem prvi
+
+186
+00:06:42,109 --> 00:06:43,711
+trening primer, tako da je to
+
+187
+00:06:43,711 --> 00:06:46,350
+vektor, uzmem njegov transponovani vektor
+
+188
+00:06:46,350 --> 00:06:48,692
+tako da dobijem ovo,
+
+189
+00:06:48,692 --> 00:06:50,250
+znate, dugačka ravna stvar i
+
+190
+00:06:50,250 --> 00:06:55,153
+napravim da x1 transponovano 
+bude prvi red moje dizajn matrice.
+
+191
+00:06:55,153 --> 00:06:56,225
+Tada ću da uzmem moj
+
+192
+00:06:56,225 --> 00:06:58,682
+drugi trening primer, x2,
+
+193
+00:06:58,682 --> 00:07:00,437
+transponujem ga i
+
+194
+00:07:00,437 --> 00:07:01,838
+postavim kao drugi red
+
+195
+00:07:01,838 --> 00:07:04,068
+matrice X i tako dalje,
+
+196
+00:07:04,068 --> 00:07:07,206
+do poslednjeg trening primera.
+
+197
+00:07:07,206 --> 00:07:09,279
+Transponujmo ovo i
+
+198
+00:07:09,279 --> 00:07:10,850
+to je moj poslednji red
+
+199
+00:07:10,850 --> 00:07:12,665
+matrice X. I tako,
+
+200
+00:07:12,665 --> 00:07:14,418
+ovo čini moju matricu X,
+
+201
+00:07:14,418 --> 00:07:17,129
+mxn+1
+
+202
+00:07:17,129 --> 00:07:19,836
+dimenzionalnu matricu.
+
+203
+00:07:19,836 --> 00:07:21,953
+Kao konkretan primer, recimo
+
+204
+00:07:21,953 --> 00:07:23,505
+da imam samo jednu
+
+205
+00:07:23,505 --> 00:07:24,670
+osobinu, stvarno, samo jednu
+
+206
+00:07:24,670 --> 00:07:26,631
+osobinu pored x0,
+
+207
+00:07:26,631 --> 00:07:28,165
+koja je uvek jednaka 1.
+
+208
+00:07:28,165 --> 00:07:30,376
+Dakle, ako su moji vektori
+
+209
+00:07:30,376 --> 00:07:32,186
+x(i) jednaki ovome,
+
+210
+00:07:32,186 --> 00:07:33,878
+1,što je u stvari x0, pa
+
+211
+00:07:33,878 --> 00:07:35,912
+onda neka stvarna osobina, kao što je
+
+212
+00:07:35,912 --> 00:07:37,662
+veličina kuće, tada će moja
+
+213
+00:07:37,662 --> 00:07:40,947
+dizajn matrica X da bude jednaka ovome.
+
+214
+00:07:40,947 --> 00:07:42,589
+Za kreiranje prvog reda, u suštini
+
+215
+00:07:42,589 --> 00:07:46,071
+ću da uzmem ovo i transponujem ga.
+
+216
+00:07:46,071 --> 00:07:51,644
+Dakle, dobiću 1 i onda x1(1).
+
+217
+00:07:51,644 --> 00:07:53,309
+U drugome redu dobićemo
+
+218
+00:07:53,309 --> 00:07:56,077
+1 i nakon toga
+
+219
+00:07:56,077 --> 00:07:58,046
+x1(2) i tako
+
+220
+00:07:58,046 --> 00:07:59,046
+dalje skroz do 1 i
+
+221
+00:07:59,046 --> 00:08:01,420
+onda x1(m).
+
+222
+00:08:01,420 --> 00:08:03,084
+I tako, ovo je
+
+223
+00:08:03,084 --> 00:08:07,776
+jedna mx2 dimenzionalna matrica.
+
+224
+00:08:07,776 --> 00:08:08,821
+Dakle, ovako se kreira
+
+225
+00:08:08,821 --> 00:08:11,251
+matrica X. A vektor
+
+226
+00:08:11,251 --> 00:08:13,886
+y ponekad mogu da pišem
+
+227
+00:08:13,886 --> 00:08:15,487
+sa strelicom na vrhu da
+
+228
+00:08:15,487 --> 00:08:16,541
+bih označio da se radi o vektoru,
+
+229
+00:08:16,541 --> 00:08:19,871
+ali veoma često ću da samo napišem y, kako god.
+
+230
+00:08:19,871 --> 00:08:21,182
+Vektor y smo dobili
+
+231
+00:08:21,182 --> 00:08:23,275
+uzimanjem svih podataka,
+
+232
+00:08:23,275 --> 00:08:25,098
+svih tačnih cena
+
+233
+00:08:25,098 --> 00:08:27,076
+kuća iz moga trening skupa, i
+
+234
+00:08:27,076 --> 00:08:28,963
+i upisivanjem u jedan
+
+235
+00:08:28,963 --> 00:08:32,011
+m dimenzionalni vektor, a
+
+236
+00:08:32,011 --> 00:08:34,511
+to je upravo y. Konačno, kada imamo
+
+237
+00:08:34,511 --> 00:08:36,724
+napravljenu matricu X
+
+238
+00:08:36,724 --> 00:08:38,184
+i vektor y, tada treba
+
+239
+00:08:38,184 --> 00:08:40,887
+samo da izračunamo teta kao X transponovano X
+
+240
+00:08:40,887 --> 00:08:47,243
+na minus prvu puta X transponovano y.
+
+241
+00:08:47,243 --> 00:08:49,356
+Samo želim
+
+242
+00:08:49,356 --> 00:08:51,348
+da se uverim da vam ova jednačina ima smisla
+
+243
+00:08:51,348 --> 00:08:52,242
+i da znate kako da je primenite.
+
+244
+00:08:52,242 --> 00:08:55,221
+Dakle, konkretno, 
+šta je ovo X transponovano X na minus prvu?
+
+245
+00:08:55,221 --> 00:08:57,903
+Pa, X transponovano X na minus prvu je
+
+246
+00:08:57,903 --> 00:09:02,101
+inverzna matrica od X transponovano X.
+
+247
+00:09:02,101 --> 00:09:04,498
+Konkretno, ako
+
+248
+00:09:04,498 --> 00:09:08,055
+postavite A da je
+
+249
+00:09:08,055 --> 00:09:11,120
+jednako X transponovano puta
+
+250
+00:09:11,120 --> 00:09:12,542
+X, X transponovano je
+
+251
+00:09:12,542 --> 00:09:14,063
+matrica, X transponovano puta X
+
+252
+00:09:14,063 --> 00:09:15,305
+vam daje još jednu matricu koja
+
+253
+00:09:15,305 --> 00:09:17,560
+se zove matrica A. Tada, znate,
+
+254
+00:09:17,560 --> 00:09:19,968
+X transponovano puta X inverzno je
+
+255
+00:09:19,968 --> 00:09:22,352
+samo invertovana matrica A, u redu?
+
+256
+00:09:23,245 --> 00:09:24,417
+Dobijamo, recimo, A inverzno.
+
+257
+00:09:26,025 --> 00:09:28,919
+Tako se računa ovaj deo,
+
+258
+00:09:28,919 --> 00:09:31,451
+izračunate X transponovano 
+X i onda to invertujete.
+
+259
+00:09:31,451 --> 00:09:34,296
+Još uvek nismo govorili o Octave.
+
+260
+00:09:34,296 --> 00:09:35,941
+To ćemo da uradimo kasnije
+
+261
+00:09:35,941 --> 00:09:37,211
+u videima koji slede, ali u
+
+262
+00:09:37,211 --> 00:09:39,073
+Octave programskom jeziku ili u
+
+263
+00:09:39,073 --> 00:09:40,652
+sličnim, kao što je
+
+264
+00:09:40,652 --> 00:09:42,957
+Matlab programski jezik, komanda
+
+265
+00:09:42,957 --> 00:09:46,937
+kojom računate ovu vrednost,
+
+266
+00:09:47,384 --> 00:09:50,326
+X transponovano X, pa to invertujete, puta
+
+267
+00:09:50,326 --> 00:09:52,537
+X transponovano y je kako sledi.
+
+268
+00:09:52,537 --> 00:09:54,903
+U Octave X prim je
+
+269
+00:09:54,903 --> 00:09:58,354
+oznaka koju koristimo da bismo 
+obeležili X transponovano.
+
+270
+00:09:58,354 --> 00:10:00,737
+Tako ovaj izraz uokviren
+
+271
+00:10:00,737 --> 00:10:03,588
+crvenom bojom je izračunavanje
+
+272
+00:10:03,588 --> 00:10:06,633
+X transponovano puta X.
+
+273
+00:10:06,633 --> 00:10:08,551
+pinv je funkcija kojom
+
+274
+00:10:08,551 --> 00:10:09,701
+se računa inverzna
+
+275
+00:10:09,701 --> 00:10:11,818
+matrica, tako da ovo računa
+
+276
+00:10:11,818 --> 00:10:14,656
+X transponovano X inverzno,
+
+277
+00:10:14,656 --> 00:10:16,453
+i onda to množite sa
+
+278
+00:10:16,453 --> 00:10:18,267
+X transponovano, a onda to množite
+
+279
+00:10:18,267 --> 00:10:19,712
+sa y. Dakle,
+
+280
+00:10:19,712 --> 00:10:22,325
+računate ovom formulom
+
+281
+00:10:22,325 --> 00:10:24,369
+koju nisam dokazao,
+
+282
+00:10:24,369 --> 00:10:25,994
+ali je matematički moguće
+
+283
+00:10:25,994 --> 00:10:27,382
+pokazati iako neću to da
+
+284
+00:10:27,382 --> 00:10:28,537
+radim ovde,
+
+285
+00:10:28,537 --> 00:10:31,071
+ta formula vam daje
+
+286
+00:10:31,071 --> 00:10:32,316
+optimalnu vrednost teta
+
+287
+00:10:32,316 --> 00:10:34,865
+u smislu da ako stavite da je teta jednako
+
+288
+00:10:34,865 --> 00:10:36,512
+ovome, to je vrednost
+
+289
+00:10:36,512 --> 00:10:38,000
+teta koja minimizuje
+
+290
+00:10:38,000 --> 00:10:40,169
+funkciju greške J(teta)
+
+291
+00:10:40,169 --> 00:10:41,993
+za linearnu regresiju.
+
+292
+00:10:41,993 --> 00:10:44,530
+Još jedan detalj, u prethodnom videu
+
+293
+00:10:44,530 --> 00:10:46,131
+sam govorio o skaliranju
+
+294
+00:10:46,131 --> 00:10:47,061
+osobina i ideji
+
+295
+00:10:47,061 --> 00:10:48,878
+dobijanja osobina u
+
+296
+00:10:48,878 --> 00:10:50,726
+sličnom rangu,
+
+297
+00:10:50,726 --> 00:10:54,900
+da budu u međusobno sličnom rangu vrednosti.
+
+298
+00:10:54,900 --> 00:10:56,872
+Ako koristite ovaj metod
+
+299
+00:10:56,872 --> 00:10:59,843
+normalne jednačine tada skaliranje
+
+300
+00:10:59,843 --> 00:11:02,315
+osobina u stvari nije neophodno
+
+301
+00:11:02,315 --> 00:11:04,361
+i u stvari je u redu ako je,
+
+302
+00:11:04,361 --> 00:11:06,094
+recimo, neka osobina x1
+
+303
+00:11:06,094 --> 00:11:07,552
+između 0 i 1,
+
+304
+00:11:07,552 --> 00:11:08,846
+a neka druga osobina x2
+
+305
+00:11:08,846 --> 00:11:10,550
+između 0 i
+
+306
+00:11:10,550 --> 00:11:12,019
+1,000 a neka osobina
+
+307
+00:11:12,019 --> 00:11:14,159
+x3 u opsegu od 0
+
+308
+00:11:14,159 --> 00:11:15,822
+do 10 na
+
+309
+00:11:15,822 --> 00:11:17,263
+minus petu i ako
+
+310
+00:11:17,263 --> 00:11:18,321
+koristite metod normalne jednačine
+
+311
+00:11:18,321 --> 00:11:20,296
+ovo je u redu i nema
+
+312
+00:11:20,296 --> 00:11:21,550
+potrebe da radite skaliranje
+
+313
+00:11:21,550 --> 00:11:22,740
+osobina, a naravno,
+
+314
+00:11:22,740 --> 00:11:25,667
+ako koristite gradijent opadanja,
+
+315
+00:11:25,667 --> 00:11:27,814
+skaliranje osobina opet postaje važno.
+
+316
+00:11:28,030 --> 00:11:31,020
+Konačno, kada treba da 
+koristite gradijent opadanja
+
+317
+00:11:31,020 --> 00:11:33,273
+a kada metod normalne jednačine?
+
+318
+00:11:33,273 --> 00:11:35,800
+Evo nekih prednosti i nedostataka.
+
+319
+00:11:35,800 --> 00:11:38,305
+Recimo da imate m trening
+
+320
+00:11:38,305 --> 00:11:40,918
+primera i n osobina.
+
+321
+00:11:40,918 --> 00:11:42,854
+Jedan nedostatak gradijenta opadanja
+
+322
+00:11:42,854 --> 00:11:46,015
+je to što treba da odaberete stopu učenja alfa.
+
+323
+00:11:46,015 --> 00:11:47,374
+Često to znači da treba da pokrenete
+
+324
+00:11:47,374 --> 00:11:49,128
+proceduru nekoliko puta sa različitom stopom
+
+325
+00:11:49,128 --> 00:11:51,154
+učenja alfa i vidite koja stopa daje najbolje rezultate.
+
+326
+00:11:51,154 --> 00:11:54,274
+Dakle, to je više posla i više gnjavaže.
+
+327
+00:11:54,274 --> 00:11:55,976
+Još jedan nedostatak gradijenta opadanja
+
+328
+00:11:55,976 --> 00:11:57,841
+je što zahteva više iteracija.
+
+329
+00:11:57,841 --> 00:11:59,346
+Tako, u zavisnosti od detalja,
+
+330
+00:11:59,346 --> 00:12:00,839
+to bi moglo da uspori izračunavanje, iako se
+
+331
+00:12:00,839 --> 00:12:04,391
+ima još šta za reći, kao što ćemo da vidimo uskoro.
+
+332
+00:12:04,391 --> 00:12:07,544
+Za normalnu jednačinu ne treba da birate stopu učenja alfa.
+
+333
+00:12:07,821 --> 00:12:11,208
+To ga dakle čini veoma praktičnim 
+i jednostavnijim za implementiranje.
+
+334
+00:12:11,208 --> 00:12:13,888
+Samo ga pokrenete i obično radi.
+
+335
+00:12:13,888 --> 00:12:15,061
+Takođe ne treba da pravite
+
+336
+00:12:15,061 --> 00:12:16,129
+iteracije, dakle, ne treba da
+
+337
+00:12:16,129 --> 00:12:17,456
+iscrtavate J(teta) ili
+
+338
+00:12:17,456 --> 00:12:20,497
+da proveravate konvergenciju niti 
+da pravite sve te suvišne korake.
+
+339
+00:12:20,497 --> 00:12:21,931
+Za sada, prednost je na
+
+340
+00:12:21,931 --> 00:12:23,846
+strani normalne jednačine.
+
+341
+00:12:24,826 --> 00:12:27,085
+Ovo su neki od nedostataka
+
+342
+00:12:27,612 --> 00:12:29,435
+normalne jednačine, 
+a prednosti gradijenta opadanja.
+
+343
+00:12:29,681 --> 00:12:31,447
+Gradijent opadanja radi prilično dobro,
+
+344
+00:12:31,928 --> 00:12:34,698
+čak iako imate veoma veliki broj osobina.
+
+345
+00:12:34,698 --> 00:12:36,168
+Dakle, čak iako
+
+346
+00:12:36,168 --> 00:12:37,812
+imate milione osobina,
+
+347
+00:12:37,812 --> 00:12:40,865
+možete da pokrenete gradijent opadanja 
+a on će da bude razumno efikasan.
+
+348
+00:12:40,865 --> 00:12:43,381
+Uradiće nešto razumno.
+
+349
+00:12:43,381 --> 00:12:46,566
+Za razliku od normalne jednačine,
+
+350
+00:12:46,566 --> 00:12:48,014
+da bi se dobili parametri,
+
+351
+00:12:48,014 --> 00:12:50,394
+treba da se reši ovaj izraz.
+
+352
+00:12:50,394 --> 00:12:53,058
+Treba da izračunamo ovaj izraz, 
+X transponovano X, inverzno.
+
+353
+00:12:53,058 --> 00:12:56,328
+Ova matrica X transponovano X,
+
+354
+00:12:56,328 --> 00:13:00,206
+to je (n+1)x(n+1) matrica, ako imate n osobina.
+
+355
+00:13:00,770 --> 00:13:02,947
+Jer, ako pogledate
+
+356
+00:13:02,947 --> 00:13:03,917
+dimenzije
+
+357
+00:13:03,917 --> 00:13:05,529
+X transponovano i dimenzije
+
+358
+00:13:05,529 --> 00:13:07,024
+od X, ako pomnožite, shvatićete
+
+359
+00:13:07,024 --> 00:13:08,749
+koje su dimenzije proizvoda,
+
+360
+00:13:08,749 --> 00:13:10,983
+matrica X transponovano
+
+361
+00:13:10,983 --> 00:13:13,727
+X je (n+1)x(n+1) matrica gde
+
+362
+00:13:13,727 --> 00:13:15,853
+je n broj osobina, a
+
+363
+00:13:15,853 --> 00:13:18,641
+za većinu računarskih implementacija
+
+364
+00:13:18,641 --> 00:13:20,990
+cena invertovanja
+
+365
+00:13:20,990 --> 00:13:23,087
+matrica je otprilike kao
+
+366
+00:13:23,087 --> 00:13:25,707
+kub dimenzije matrice.
+
+367
+00:13:25,707 --> 00:13:28,180
+Dakle, računanje inverzne matrice
+
+368
+00:13:28,180 --> 00:13:29,964
+ima vremensko trajanje reda veličine kuba.
+
+369
+00:13:29,964 --> 00:13:31,213
+Ponekad je malo brže od
+
+370
+00:13:31,213 --> 00:13:35,050
+n na kub ali je, znate, za naše potrebe, veoma blizu.
+
+371
+00:13:35,489 --> 00:13:36,605
+Dakle, ako je n, broj osobina, veoma veliko,
+
+372
+00:13:37,643 --> 00:13:39,025
+tada računanje ove
+
+373
+00:13:39,025 --> 00:13:40,570
+količine može da bude sporo i
+
+374
+00:13:40,570 --> 00:13:44,289
+metod normalne jednačine 
+može da bude mnogo sporiji.
+
+375
+00:13:44,289 --> 00:13:45,491
+Dakle, ako je n
+
+376
+00:13:45,491 --> 00:13:47,622
+veliko, tada bih mogao
+
+377
+00:13:47,622 --> 00:13:49,490
+da koristim gradijent opadanja jer
+
+378
+00:13:49,490 --> 00:13:51,872
+ne želimo da platimo 
+kubnu vremensku kompleksnost.
+
+379
+00:13:51,872 --> 00:13:53,525
+Ali, ako je n relativno malo,
+
+380
+00:13:53,525 --> 00:13:57,395
+normalna jednačina bi mogla da 
+bude bolji način dobijanja parametara.
+
+381
+00:13:57,395 --> 00:13:59,080
+Šta znače pojmovi malen i velik?
+
+382
+00:13:59,080 --> 00:14:00,741
+Pa, ako je n
+
+383
+00:14:00,741 --> 00:14:02,130
+reda veličine 100, tada
+
+384
+00:14:02,130 --> 00:14:03,822
+inverzija 100x100 matrice nije
+
+385
+00:14:03,822 --> 00:14:06,539
+problem po savremenim 
+računarskim standardima.
+
+386
+00:14:06,539 --> 00:14:10,966
+Ako je n 1,000, 
+opet bih koristio metod normalne jednačine.
+
+387
+00:14:10,966 --> 00:14:12,583
+Invertovanje matrice 1,000x1,000 je
+
+388
+00:14:12,583 --> 00:14:15,408
+u stvari veoma brzo na 
+savremenim računarima.
+
+389
+00:14:15,408 --> 00:14:18,406
+Ako je n 10,000, tada bih se zapitao.
+
+390
+00:14:18,406 --> 00:14:20,618
+Invertovanje matrice 10,000x10,000
+
+391
+00:14:20,618 --> 00:14:22,208
+počinje da bude nekako sporo,
+
+392
+00:14:22,208 --> 00:14:23,471
+i tada bih počeo da
+
+393
+00:14:23,471 --> 00:14:25,007
+naginjem na
+
+394
+00:14:25,007 --> 00:14:27,007
+pravac gradijenta opadanja, ali ne skroz.
+
+395
+00:14:27,114 --> 00:14:28,672
+Ako je n jednako 10,000, možete
+
+396
+00:14:28,672 --> 00:14:31,148
+da invertujete matricu 10,000x10,000.
+
+397
+00:14:31,148 --> 00:14:34,345
+Ali ako n postaje mnogo veće od toga, 
+verovatno bih koristio gradijent opadanja.
+
+398
+00:14:34,345 --> 00:14:35,834
+Dakle, ako je n jednako 10
+
+399
+00:14:35,834 --> 00:14:36,920
+na šestu, znači milion
+
+400
+00:14:36,920 --> 00:14:38,963
+osobina, tada inverzija
+
+401
+00:14:38,963 --> 00:14:41,565
+matrice 1,000,000x1,000,000 će da
+
+402
+00:14:41,565 --> 00:14:42,631
+bude veoma skupa i
+
+403
+00:14:42,631 --> 00:14:46,163
+definitivno bih dao prednost gradijentu 
+opadanja ako imate toliko osobina.
+
+404
+00:14:46,163 --> 00:14:47,859
+Dakle, koliki tačno
+
+405
+00:14:47,859 --> 00:14:49,282
+treba da bude skup osobina
+
+406
+00:14:49,282 --> 00:14:52,655
+pre nego koristite gradijent opadanja, 
+teško je dati tačan broj.
+
+407
+00:14:52,655 --> 00:14:53,855
+Što se mene tiče, to je
+
+408
+00:14:53,855 --> 00:14:55,501
+obično oko 10,000, tada
+
+409
+00:14:55,501 --> 00:14:58,258
+počinjem da razmatram korištenje
+
+410
+00:14:58,335 --> 00:15:00,663
+gradijenta opadanja ili možda
+
+411
+00:15:00,663 --> 00:15:04,324
+nekog drugog algoritma, 
+o čemu ćemo da govorimo malo kasnije.
+
+412
+00:15:04,324 --> 00:15:05,765
+Da zaključimo, dok god
+
+413
+00:15:05,765 --> 00:15:06,999
+broj osobina nije
+
+414
+00:15:06,999 --> 00:15:08,475
+prevelik, normalna jednačina
+
+415
+00:15:08,475 --> 00:15:12,229
+nam daje sjajnu alternativu dobijanja parametara teta.
+
+416
+00:15:12,583 --> 00:15:13,983
+Konkretno, dok god
+
+417
+00:15:13,983 --> 00:15:15,749
+je broj osobina manji od
+
+418
+00:15:15,749 --> 00:15:17,472
+10,000, znate, koristio
+
+419
+00:15:17,472 --> 00:15:18,881
+bih, obično,
+
+420
+00:15:18,881 --> 00:15:21,955
+normalnu jednačinu pre nego gradijent opadanja.
+
+421
+00:15:21,955 --> 00:15:23,549
+Da najavim neke od ideja
+
+422
+00:15:23,549 --> 00:15:24,493
+o kojim ćemo da pričamo kasnije u
+
+423
+00:15:24,493 --> 00:15:26,235
+ovome kursu, što se
+
+424
+00:15:26,235 --> 00:15:27,912
+budemo približavali složenijim algoritmima učenja,
+
+425
+00:15:27,912 --> 00:15:29,617
+na primer, kada budemo govorili o
+
+426
+00:15:29,617 --> 00:15:32,188
+algoritmu klasifikacije, o algoritmu logističke regresije,
+
+427
+00:15:32,834 --> 00:15:34,319
+videćemo da ti algoritmi
+
+428
+00:15:34,319 --> 00:15:35,467
+u stvari,
+
+429
+00:15:35,467 --> 00:15:37,592
+metod normalne jednačine u stvari ne radi
+
+430
+00:15:37,592 --> 00:15:39,388
+za te sofisticiranije
+
+431
+00:15:39,388 --> 00:15:41,190
+algoritme učenja, pa ćemo
+
+432
+00:15:41,190 --> 00:15:43,916
+morati da pribegnemo gradijentu opadanja za te algoritme.
+
+433
+00:15:43,916 --> 00:15:46,682
+Dakle, gradijent opadanja je veoma koristan algoritam.
+
+434
+00:15:46,682 --> 00:15:48,859
+Algoritam linearne regresije će tada koristi
+
+435
+00:15:48,982 --> 00:15:50,017
+veliki broj osobina a
+
+436
+00:15:50,017 --> 00:15:52,373
+za neke druge algoritme
+
+437
+00:15:52,373 --> 00:15:53,893
+koje ćemo da vidimo u
+
+438
+00:15:53,893 --> 00:15:55,438
+ovome kursu, za njih metod
+
+439
+00:15:55,438 --> 00:15:58,747
+normalne jednačine jednostavno nije primenjiv,
+ jednostavno ne radi.
+
+440
+00:15:58,747 --> 00:16:00,537
+Ali za specifičan model
+
+441
+00:16:00,537 --> 00:16:02,904
+linearne regresije, normalna jednačina
+
+442
+00:16:02,904 --> 00:16:05,827
+može da vam da alternativu
+
+443
+00:16:07,219 --> 00:16:08,612
+koja može da bude mnogo brža od gradijenta opadanja.
+
+444
+00:16:09,604 --> 00:16:11,920
+Dakle, u zavisnosti od detalja vašeg algoritma,
+
+445
+00:16:12,007 --> 00:16:14,164
+u zavisnosti od detalja problema i
+
+446
+00:16:14,164 --> 00:16:15,550
+toga koliko imate osobina,
+
+447
+00:16:15,550 --> 00:16:19,550
+dobro je poznavati oba ova algoritma.

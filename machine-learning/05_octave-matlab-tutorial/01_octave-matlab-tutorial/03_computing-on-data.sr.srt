@@ -1,0 +1,781 @@
+1
+00:00:00,280 --> 00:00:02,820
+Sada znate kako da učitate i sačuvate podatke u Oktav programu,
+
+2
+00:00:02,820 --> 00:00:05,100
+kako da ih stavite u matrice i tako dalje.
+
+3
+00:00:05,100 --> 00:00:10,028
+U ovome videu bih želeo da vam pokažem 
+kako da vršite proračune nad podacima.
+
+4
+00:00:10,028 --> 00:00:14,880
+A kasnije ćemo da koristimo to znanje da bismo implementirali
+
+5
+00:00:14,880 --> 00:00:15,870
+naše algoritme učenja.
+
+6
+00:00:17,130 --> 00:00:17,810
+Hajde da počnemo.
+
+7
+00:00:19,650 --> 00:00:21,040
+Ovo je moj Oktav prozor.
+
+8
+00:00:21,040 --> 00:00:25,900
+Samo da inicijalizujem neke varijable 
+koje ću da koristim u primeru.
+
+9
+00:00:25,900 --> 00:00:33,470
+Dakle, A će da bude 3x2 matrica, i B će da bude 3x2 matrica,
+
+10
+00:00:33,470 --> 00:00:37,855
+a C neka bude 2x2 matrica, ovako.
+
+11
+00:00:39,195 --> 00:00:42,235
+Recimo da hoću da pomnožim dve matrice.
+
+12
+00:00:42,235 --> 00:00:47,195
+Recimo da želim da izračunam A * C, 
+samo kucam A*C, pa je to 3x2 matrica
+
+13
+00:00:47,195 --> 00:00:52,215
+puta 2x2 matrica, dobijamo ovu 3x2 matricu.
+
+14
+00:00:52,215 --> 00:00:57,145
+Takođe možete da uradite i operacije po elementima, 
+kao što je A.*B a to će da
+
+15
+00:00:57,145 --> 00:01:02,580
+uzme svaki element iz A i da pomnoži
+ odgovarajućim elementom iz B
+
+16
+00:01:02,580 --> 00:01:06,208
+tako da je A.*B, ovo je A.*B.
+
+17
+00:01:06,208 --> 00:01:11,230
+Na primer, kao prvi element dobijamo 1 puta 11 a to je 11.
+
+18
+00:01:11,230 --> 00:01:17,140
+Drugi element dobijamo kao 2 puta 12 i dobijamo 24, i tako dalje.
+
+19
+00:01:17,140 --> 00:01:20,840
+Dakle ovo je Hadamardov proizvod dve matrice.
+
+20
+00:01:20,840 --> 00:01:23,200
+Uopšteno, tačka služi da bi,
+
+21
+00:01:23,200 --> 00:01:27,440
+obično se koristi za obeležavanje operacija
+ po elementima u Oktav programu.
+
+22
+00:01:27,440 --> 00:01:31,494
+Dakle, ovo je matrica A a ako uradim A.^2,
+
+23
+00:01:31,494 --> 00:01:36,500
+ovo će da nam da A na kvadrat po elementima.
+
+24
+00:01:36,500 --> 00:01:39,440
+Pa tako, 1 na kvadrat je 1, 2 na kvadrat je 2 i tako dalje.
+
+25
+00:01:41,100 --> 00:01:42,560
+Hajde da napravimo vektor v.
+
+26
+00:01:42,560 --> 00:01:46,230
+Stavićemo v kao 1, 2, 3, to je vektor kolona.
+
+27
+00:01:46,230 --> 00:01:52,010
+Takođe možemo da ukucamo 1./v da bismo dobili
+ recipročnu vrednost vektora v po elementima,
+
+28
+00:01:52,010 --> 00:01:56,040
+dakle, dobijamo 1/1, 1/2, 1/3, ovo pravi inverziju
+
+29
+00:01:56,040 --> 00:02:00,610
+elemenata matrice, dakle 1./A mi daje
+ inverziju elemenata matrice A.
+
+30
+00:02:02,760 --> 00:02:08,173
+I još jednom, ova tačka ukazuje da 
+se radi o operaciji po elementima.
+
+31
+00:02:08,173 --> 00:02:15,080
+Takođe možemo da ukucamo log(v), 
+to je logaritam od V po elementima.
+
+32
+00:02:15,080 --> 00:02:20,300
+exp(v) je baza e eksponenta ovih elemenata.
+
+33
+00:02:20,300 --> 00:02:25,600
+Dakle, ovo je e, ovo je e na kvadrat, e na kub, jer je ovo v,
+
+34
+00:02:25,600 --> 00:02:31,040
+takođe mogu da ukucam abs(v) da bismo dobili
+ apsolutne vrednosti vektora v po elementima.
+
+35
+00:02:31,040 --> 00:02:36,660
+Dakle, v su pozitivne vrednosti, abs -1, 2, -3,
+
+36
+00:02:36,660 --> 00:02:42,973
+apsolutna vrednost po elementima 
+mi daje ove nenegativne vrednosti.
+
+37
+00:02:42,973 --> 00:02:45,930
+A negativno v mi daje minus v.
+
+38
+00:02:45,930 --> 00:02:48,720
+To je isto kao -1 * v ali
+
+39
+00:02:48,720 --> 00:02:54,024
+se ovo obično piše kao -v umesto -1 * v.
+
+40
+00:02:54,024 --> 00:02:56,050
+I šta još možete da uradite?
+
+41
+00:02:56,050 --> 00:02:57,240
+Evo još jednog zgodnog trika.
+
+42
+00:02:57,240 --> 00:02:58,360
+Dakle, da vidimo.
+
+43
+00:02:58,360 --> 00:03:01,700
+Recima da želim da uzmem v i da svaki element povećam za 1.
+
+44
+00:03:01,700 --> 00:03:06,590
+Jedan način je da napravite jedan
+
+45
+00:03:06,590 --> 00:03:11,430
+3x1 vektor jedinica i dodate ga vektoru v.
+
+46
+00:03:11,430 --> 00:03:14,590
+Ako ovo uradimo, inkrementiraćemo v pa od 123 dobijamo 234.
+
+47
+00:03:14,590 --> 00:03:21,520
+To sam uradio na sledeći način, length(v) je 3,
+
+48
+00:03:21,520 --> 00:03:27,260
+tako je ones(length(v), 1) 3x1, pa
+
+49
+00:03:27,260 --> 00:03:33,620
+je to ones(3, 1), u redu, a ja sam uradio v plus ones(3, 1),
+
+50
+00:03:33,620 --> 00:03:38,950
+a to je sabralo vektor jedinica i v, a to povećava v za 1.
+
+51
+00:03:40,000 --> 00:03:44,190
+A drugi jednostavan način da ovo uradite je da ukucate v + 1.
+
+52
+00:03:44,190 --> 00:03:45,450
+Dakle, ovo je v a
+
+53
+00:03:45,450 --> 00:03:50,840
+v + 1 takođe dodaje jedinicu svakome elementu vektora v.
+
+54
+00:03:52,470 --> 00:03:55,490
+Hajde da sada govorimo o još nekim operacijama.
+
+55
+00:03:55,490 --> 00:03:59,520
+Dakle, ovo je moja matrica A, ako želite da je transponujete, to radite tako
+
+56
+00:03:59,520 --> 00:04:03,720
+što napišete A', to je znak apostrofa, to je levi navodnik,
+
+57
+00:04:03,720 --> 00:04:08,350
+na vašoj tastaturi postoji levi navodnik i desni.
+
+58
+00:04:08,350 --> 00:04:11,260
+U stvari ovo je standardni znak za navodnike.
+
+59
+00:04:11,260 --> 00:04:18,330
+Samo unesite A', to nam daje A transponovano.
+
+60
+00:04:18,330 --> 00:04:19,700
+I, naravno, A',
+
+61
+00:04:19,700 --> 00:04:22,970
+ako je ponovo transponujemo, 
+trebali bismo da dobijemo nazad našu matricu A.
+
+62
+00:04:25,160 --> 00:04:27,570
+Još neke korisne funkcije.
+
+63
+00:04:27,570 --> 00:04:34,300
+Recimo malo a je 
+1 15 2 0.5, dakle 1x4 matrica.
+
+64
+00:04:34,300 --> 00:04:38,880
+Recimo da unesem max(a) i to mi vraća maksimalnu vrednost
+
+65
+00:04:38,880 --> 00:04:42,970
+od a što je u ovome slučaju 15 a mogu da ukucam val,
+
+66
+00:04:42,970 --> 00:04:48,430
+ind max(a) a ovo mi vraća vrednost i indeks
+
+67
+00:04:48,430 --> 00:04:52,940
+a to će da bude maksimalna vrednost u a, dakle 15, kao i indeks.
+
+68
+00:04:52,940 --> 00:04:58,790
+Dakle, to je element broj 2 matrice a, to je 15 dakle ind je indeks.
+
+69
+00:04:58,790 --> 00:05:03,230
+Jedno upozorenje, ako ukucate max(A), gde je A matrica,
+
+70
+00:05:03,230 --> 00:05:07,920
+ovo će u stvari da izračuna maksimum po kolonama.
+
+71
+00:05:07,920 --> 00:05:09,860
+Objasniću malo ovo na sekundu.
+
+72
+00:05:11,610 --> 00:05:14,760
+Još uvek koristimo primer za matricu a.
+
+73
+00:05:14,760 --> 00:05:19,630
+Ako ukucam a < 3, ovo pravi operaciju nad elementima.
+
+74
+00:05:19,630 --> 00:05:24,030
+Poređenje po elementima, dakle prvi element matrice a je manji od 3
+
+75
+00:05:24,030 --> 00:05:24,970
+pa je to 1.
+
+76
+00:05:24,970 --> 00:05:29,970
+Drugi element od a nije manji od 3 
+pa je ova vrednost 0 jer je netačno.
+
+77
+00:05:29,970 --> 00:05:36,590
+Treći i četvrti elementi matrice a su manji od 3, pa je to 1 1.
+
+78
+00:05:36,590 --> 00:05:42,970
+Dakle, ovo je poređenje po elementima sva 4 elementa varijable.
+
+79
+00:05:42,970 --> 00:05:47,440
+A vraća tačno ili netačno, 
+u zavisnosti od toga da li je ili nije element manji od 3.
+
+80
+00:05:47,440 --> 00:05:53,615
+Sada, ako uradim find(a < 3), ovo će da mi kaže koji elementi iz a,
+
+81
+00:05:53,615 --> 00:05:55,235
+varijable a, su manji od 3,
+
+82
+00:05:55,235 --> 00:05:59,545
+a u ovome slučaju, prvi, treći i četvrti elementi su manji od 3.
+
+83
+00:05:59,545 --> 00:06:05,205
+Za naš sledeći primer, postaviću A da bude jednak magic(3).
+
+84
+00:06:05,205 --> 00:06:08,985
+Funkcija magic vraća, ukucajmo help magic.
+
+85
+00:06:08,985 --> 00:06:15,370
+Funkcija magic vraća ove matrice koje se zovu magični kvadrati.
+
+86
+00:06:15,370 --> 00:06:20,830
+One imaju matematičku osobinu da je suma po svim njihovim
+
+87
+00:06:20,830 --> 00:06:23,690
+vrstama, kolonama i dijagonalama jednaka.
+
+88
+00:06:23,690 --> 00:06:28,830
+Dakle, znate, nije baš korisno za mašinsko učenje koliko ja znam,
+
+89
+00:06:28,830 --> 00:06:34,450
+ali to koristim kao pogodan način pravljenja 3x3 matrica.
+
+90
+00:06:34,450 --> 00:06:38,788
+A ovi magični kvadrati imaju osobinu da je zbir po svakoj
+
+91
+00:06:38,788 --> 00:06:41,751
+vrsti, koloni i dijagonali isti, dakle
+
+92
+00:06:41,751 --> 00:06:44,300
+to je neka vrsta matematičke konstrukcije.
+
+93
+00:06:44,300 --> 00:06:48,820
+Ja koristim magic funkciju samo kad pokazujem ili kada podučavam Oktav
+
+94
+00:06:48,820 --> 00:06:53,760
+kao ovo, ne koristim je za bilo kakvu aplikaciju mašinskog učenja.
+
+95
+00:06:53,760 --> 00:06:58,886
+Ali, da vidimo, ako ukucam RC = find(A >= 7), ovo traži
+
+96
+00:06:58,886 --> 00:07:04,231
+sve elemente matrice A koji su veći od 7,
+
+97
+00:07:04,231 --> 00:07:07,740
+a R C označavaju redove (rows) i kolone (columns).
+
+98
+00:07:07,740 --> 00:07:11,750
+Dakle, element 1, 1 je veći ili jednak 7, 
+element 3, 2 je veći ili jednak 7,
+
+99
+00:07:11,750 --> 00:07:13,270
+i element 2, 3 je veći ili jednak 7.
+
+100
+00:07:13,270 --> 00:07:14,360
+Pa da vidimo.
+
+101
+00:07:14,360 --> 00:07:17,740
+Element 2, 3, na primer, je A(2, 3),
+
+102
+00:07:17,740 --> 00:07:24,270
+to je 7 a on je stvarno veći ili jednak 7.
+
+103
+00:07:24,270 --> 00:07:28,820
+Usput, ja čak ni ne pamtim šta ove funkcije rade i
+
+104
+00:07:28,820 --> 00:07:30,220
+šta sve ove stvari rade.
+
+105
+00:07:30,220 --> 00:07:34,180
+A kada koristim find funkciju, ponekad zaboravim za šta tačno služi,
+
+106
+00:07:34,180 --> 00:07:38,020
+pa ukucam help find da bih pogledao dokumentaciju.
+
+107
+00:07:38,020 --> 00:07:40,130
+U redu, još dve stvari ću na brzinu da vam pokažem.
+
+108
+00:07:40,130 --> 00:07:44,270
+Jedna je funkcija sum, dakle, ovo je a i kucam sum(a).
+
+109
+00:07:44,270 --> 00:07:48,140
+Funkcija sabira sve elemente matrice a, 
+a ako želim da ih pomnožim,
+
+110
+00:07:48,140 --> 00:07:50,940
+kucam prod(a), prod šalje proizvod,
+
+111
+00:07:50,940 --> 00:07:54,225
+a ovo vraća proizvod ova 
+četiri elementa matrice a.
+
+112
+00:07:54,225 --> 00:08:01,630
+floor(a) zaokružuje elemente matrice a na donju vrednost, 
+pa će 0.5 da bude zaokruženo na 0.
+
+113
+00:08:01,630 --> 00:08:06,600
+A ceil, ili ceiling(a) zaokružuje na
+ najbližu višu celobrojnu vrednost,
+
+114
+00:08:06,600 --> 00:08:10,900
+pa će 0.5 da bude zaokruženo na 1.
+
+115
+00:08:10,900 --> 00:08:13,330
+Takođe možete, da vidimo,
+
+116
+00:08:13,330 --> 00:08:16,720
+ukucaću rand(3), ovo generiše 3x3 matricu.
+
+117
+00:08:16,720 --> 00:08:21,790
+Ako ukucam max(rand(3), rand(3)), ovo će da uzme
+
+118
+00:08:21,790 --> 00:08:27,000
+maksimum po elementima od dve 3x3 matrice.
+
+119
+00:08:27,000 --> 00:08:30,680
+Primetićete da svi ovi elementi teže da budu na većoj strani
+
+120
+00:08:30,680 --> 00:08:33,150
+jer je svaki od njih maksimum po elementima
+
+121
+00:08:34,490 --> 00:08:37,515
+dve matrice slučajnih brojeva.
+
+122
+00:08:37,515 --> 00:08:38,280
+Ovo je moj magični broj,
+
+123
+00:08:38,280 --> 00:08:43,050
+ovo je moja magična 3x3 kvadratna matrica.
+
+124
+00:08:43,050 --> 00:08:48,270
+Recimo da ukucam max(A), a ovo će da bude [],
+
+125
+00:08:48,270 --> 00:08:53,580
+1, ovo će da ispiše maksimum po kolonama.
+
+126
+00:08:53,580 --> 00:08:58,260
+Dakle, maksimum prve kolone je 8, druge je 9
+
+127
+00:08:58,260 --> 00:08:59,960
+a treće kolone je 7.
+
+128
+00:08:59,960 --> 00:09:04,194
+Ovo 1 znači da će da uzme maksimum 
+po prvoj dimenziji matrice A.
+
+129
+00:09:05,200 --> 00:09:08,780
+Nasuprot tome, da sam ukucao max(A), ova smešna oznaka,
+
+130
+00:09:08,780 --> 00:09:12,480
+2, tada bi se izračunao maksimum po redovima.
+
+131
+00:09:12,480 --> 00:09:17,210
+Pa tako maksimum prvog reda je 8, drugog je 7 a trećeg reda
+
+132
+00:09:17,210 --> 00:09:23,570
+je 9, pa ste u mogućnosti da računate 
+maksimume i po redovima i po kolonama.
+
+133
+00:09:24,760 --> 00:09:30,050
+A podrazumevani način je po kolonama.
+
+134
+00:09:30,050 --> 00:09:34,880
+Ako želite da nađete maksimum u celoj matrici A,
+
+135
+00:09:34,880 --> 00:09:39,660
+možete da kucate max(max(A)), ovako, a to je 9.
+
+136
+00:09:39,660 --> 00:09:45,130
+Ili možete da pretvorite matricu A 
+u vektor i ukucate max(A(:)), ovako,
+
+137
+00:09:45,130 --> 00:09:50,160
+ovo će da tretira matricu A kao vektor 
+i da nađe najveći element tog vektora.
+
+138
+00:09:52,130 --> 00:09:56,220
+Konačno, recimo da je A 9x9 kvadratna matrica.
+
+139
+00:09:56,220 --> 00:10:00,700
+Zapamtite da magična matrica ima osobinu da su
+
+140
+00:10:00,700 --> 00:10:03,650
+sume po svakoj koloni i vrsti iste, a takođe i po dijagonalama,
+
+141
+00:10:03,650 --> 00:10:06,280
+dakle, 9x9 kvadratna matrica.
+
+142
+00:10:06,280 --> 00:10:07,470
+Sada ću da ukucam sum(A, 1).
+
+143
+00:10:07,470 --> 00:10:12,050
+Ovo će da sumira po kolonama, uzeće svaku kolonu matrice A
+
+144
+00:10:12,050 --> 00:10:15,550
+i sabraće elemente tako da će da potvrdi da je stvarno
+
+145
+00:10:15,550 --> 00:10:20,150
+zbir svih elemenata svake kolone isti, 369.
+
+146
+00:10:20,150 --> 00:10:21,978
+Hajde da sumiramo po redovima.
+
+147
+00:10:21,978 --> 00:10:26,870
+Dakle, sum(A, 2) a
+
+148
+00:10:26,870 --> 00:10:32,950
+ovo će da sabere sve elemente po redovima i stvarno je takođe 369.
+
+149
+00:10:32,950 --> 00:10:36,110
+Hajde da sada saberemo elemente po dijagonalama da
+
+150
+00:10:36,110 --> 00:10:39,800
+bismo se uverili da su zbirovi isti.
+
+151
+00:10:39,800 --> 00:10:45,558
+Ono što ću da uradim je da na pravim 9x9 jediničnu matricu, to je eye(9).
+
+152
+00:10:45,558 --> 00:10:52,330
+Sada ću da uzmem matricu A i pomnožim je po elementima.
+
+153
+00:10:52,330 --> 00:10:56,290
+Uradiću A.*eye(9).
+
+154
+00:10:56,290 --> 00:11:00,970
+Ovo će da napravi proizvod po elementima ove dve matrice,
+
+155
+00:11:00,970 --> 00:11:05,820
+pa će to da odbaci sve u matrici A osim elemenata dijagonale.
+
+156
+00:11:05,820 --> 00:11:11,130
+I sada ću da uradim sabiranje elemenata matrice A
+
+157
+00:11:11,130 --> 00:11:17,830
+pa ću da dobijem zbir ovih elemenata dijagonale i stvarno je 369.
+
+158
+00:11:17,830 --> 00:11:20,260
+Takođe možete da saberete i elemente druge dijagonale.
+
+159
+00:11:20,260 --> 00:11:22,340
+Ova počinje od gornjeg levog ugla do donjeg desnog,
+
+160
+00:11:22,340 --> 00:11:27,410
+a možete da saberete suprotnu dijagonalu, 
+od donjeg levog do gornjeg desnog.
+
+161
+00:11:27,410 --> 00:11:29,791
+Komanda za ovo je više kriptovana,
+
+162
+00:11:29,791 --> 00:11:31,600
+ovo stvarno ne želite da znate.
+
+163
+00:11:31,600 --> 00:11:34,790
+Upravo vam to pokazujem, u slučaju da je neko od vas znatiželjan.
+
+164
+00:11:34,790 --> 00:11:38,390
+Ali, da vidimo.
+
+165
+00:11:38,390 --> 00:11:40,685
+flipud znači prevrni.
+
+166
+00:11:40,685 --> 00:11:45,760
+Ali ako to uradite, 
+ispostaviće se da ovo sabere elemente suprotne dijagonale.
+
+167
+00:11:45,760 --> 00:11:50,090
+Dakle, suma elemenata druge dijagonale je 369.
+
+168
+00:11:50,090 --> 00:11:52,020
+Evo, da vam pokažem.
+
+169
+00:11:52,020 --> 00:11:54,262
+S obzirom da je eye(9) ova matrica,
+
+170
+00:11:54,262 --> 00:11:59,470
+flipud(eye(9)) će da uzme jediničnu matricu
+
+171
+00:11:59,470 --> 00:12:02,890
+i prevrnuće je vertikalno, pa ćete da dobijete, oprostite,
+
+172
+00:12:02,890 --> 00:12:06,480
+flipud, dobićete jedinice na suprotnoj dijagonali.
+
+173
+00:12:08,780 --> 00:12:12,750
+Još jedna, poslednja, komanda i to je to u ovome videu.
+
+174
+00:12:12,750 --> 00:12:16,820
+Postavimo matricu A da bude 3x3 magična matrica.
+
+175
+00:12:16,820 --> 00:12:20,340
+Ako želite da nađete inverznu matricu, kucate pinv(A).
+
+176
+00:12:20,340 --> 00:12:23,120
+Ovo se zove pseudo-inverzna, ali nije bitno.
+
+177
+00:12:23,120 --> 00:12:27,830
+Ovo možete da smatrate inverznom matricom matrice A.
+
+178
+00:12:27,830 --> 00:12:34,130
+Pa tako mogu da kucam temp = pinv(A) i temp * A,
+
+179
+00:12:34,130 --> 00:12:38,110
+ovo je stvarno jedinična matrica, sa jedinicama na dijagonali
+
+180
+00:12:38,110 --> 00:12:41,650
+i nulama izvan dijagonale, zaokruženo.
+
+181
+00:12:44,210 --> 00:12:45,596
+Dakle, to je sve o
+
+182
+00:12:45,596 --> 00:12:50,630
+tome kako da pravimo razne operacije nad podacima i matricama.
+
+183
+00:12:50,630 --> 00:12:55,548
+Nakon pokretanja algoritma učenja, 
+često je jedna od najkorisnijih stvari
+
+184
+00:12:55,548 --> 00:12:59,760
+da možete da vidite svoje rezultate, 
+da ih iscrtate ili učinite vidljivim.
+
+185
+00:12:59,760 --> 00:13:04,342
+U sledećem videu ću vam na brzinu pokazati kako
+
+186
+00:13:04,342 --> 00:13:06,260
+u jednoj ili dve linije koda u Oktav programu
+
+187
+00:13:06,260 --> 00:13:09,255
+možete da podatke učinite vidljivim, da ih iscrtate
+
+188
+00:13:09,255 --> 00:13:13,340
+i da to iskoristite da biste bolje 
+razumeli šta vaš algoritam učenja radi.

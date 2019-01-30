@@ -1,0 +1,500 @@
+1
+00:00:00,380 --> 00:00:03,140
+Uma das coisas que podem ajudar
+a acelerar seu algorítimo de aprendizagem,
+
+2
+00:00:03,140 --> 00:00:06,240
+é reduzir lentamente sua
+taxa de aprendizagem ao longo do tempo.
+
+3
+00:00:06,240 --> 00:00:08,520
+Nós chamamos isso de decaimento da taxa de aprendizagem.
+
+4
+00:00:08,520 --> 00:00:10,650
+Vamos ver como você pode implementar isso.
+
+5
+00:00:10,650 --> 00:00:13,710
+Vamos começar com um exemplo de
+porquê talvez você queira implementar
+
+6
+00:00:13,710 --> 00:00:15,150
+o decaimento da taxa de aprendizagem.
+
+7
+00:00:15,150 --> 00:00:18,260
+Suponha que você esteja implementando
+um gradiente descendente em mini-lote,
+
+8
+00:00:18,260 --> 00:00:20,070
+com um mini-lote razoavelmente pequeno.
+
+9
+00:00:20,070 --> 00:00:24,210
+Talvez um mini-lote tenha apenas 64,
+128 exemplos.
+
+10
+00:00:24,210 --> 00:00:28,210
+Então, enquanto você realiza a iteração,
+seus passos ficarão um pouco mais ruidosos.
+
+11
+00:00:28,210 --> 00:00:33,940
+Então ele tenderá a este mínimo
+aqui, mas ele não irá convergir de forma exata.
+
+12
+00:00:33,940 --> 00:00:38,040
+Mas seu algorítimo pode acabar
+apenas vagando, e
+
+13
+00:00:38,040 --> 00:00:43,390
+nunca realmente convergir, porque você está
+usando algum valor fixo para alfa.
+
+14
+00:00:43,390 --> 00:00:46,660
+E há apenas alguns ruídos em
+seu seus mini-lotes diferentes.
+
+15
+00:00:46,660 --> 00:00:52,650
+Mas se você quer reduzir vagarosamente
+sua taxa de aprendizagem alfa,
+
+16
+00:00:52,650 --> 00:00:56,410
+então, durante as fases iniciais, enquanto
+sua taxa de aprendizagem alfa ainda é grande,
+
+17
+00:00:56,410 --> 00:00:59,270
+você ainda pode ter
+um aprendizado relativamente rápido.
+
+18
+00:00:59,270 --> 00:01:05,940
+Mas à medida em que alfa fica menor, os passos
+que você dá ficarão mais lentos e menores.
+
+19
+00:01:05,940 --> 00:01:11,160
+Então você acaba oscilando em
+uma região estreita ao redor deste mínimo,
+
+20
+00:01:11,160 --> 00:01:15,398
+ao invés de vaguear,
+mesmo que o treinamento continue.
+
+21
+00:01:15,398 --> 00:01:20,200
+Então a intuição por trás da redução
+lenta de alfa, é que talvez
+
+22
+00:01:20,200 --> 00:01:25,170
+durante os passos iniciais da aprendizagem, você
+poderia dar passos muito maiores.
+
+23
+00:01:25,170 --> 00:01:29,060
+Mas à medida que as abordagens de aprendizagem convergem,
+
+24
+00:01:29,060 --> 00:01:33,070
+ter uma taxa de aprendizagem mais lenta
+lhe permite dar passos menores.
+
+25
+00:01:33,070 --> 00:01:36,650
+Então, eis o modo de
+implementar o decaimento da taxa de aprendizagem.
+
+26
+00:01:36,650 --> 00:01:40,640
+Lembre-se de que uma época é uma passagem,
+
+27
+00:01:42,512 --> 00:01:45,430
+através dos dados, certo?
+
+28
+00:01:45,430 --> 00:01:49,053
+Então se você tem um conjunto de treino como a seguir,
+
+29
+00:01:49,053 --> 00:01:53,866
+talvez você o divida em
+diferentes mini-lotes.
+
+30
+00:01:53,866 --> 00:02:00,446
+Então a primeira passagem através do conjunto
+de treino é denominada a primeira época,
+
+31
+00:02:00,446 --> 00:02:05,613
+e então a segunda passagem é
+a segunda época, e assim por diante.
+
+32
+00:02:05,613 --> 00:02:10,628
+Então, uma coisa que você pode fazer,
+é estabelecer sua taxa de aprendizagem alfa = 1
+
+33
+00:02:10,628 --> 00:02:15,464
+sobre 1 + um parâmetro,
+que chamarei de taxa de decaimento,
+
+34
+00:02:18,112 --> 00:02:22,490
+vezes o número da época,
+
+35
+00:02:22,490 --> 00:02:26,890
+multiplicado por uma taxa de aprendizagem inicial, alfa 0:
+ alfa = [1 / (1 + tx_decaimento * num_época)] * α₀
+
+36
+00:02:26,890 --> 00:02:30,730
+Note que a taxa de decaimento aqui
+se torna outro hiperparâmetro,
+
+37
+00:02:30,730 --> 00:02:32,340
+que talvez você precise ajustar.
+
+38
+00:02:32,340 --> 00:02:33,910
+Então aqui vai um exemplo concreto.
+
+39
+00:02:35,070 --> 00:02:39,659
+Se você pegar várias épocas, então
+várias passagens através dos seus dados.
+
+40
+00:02:39,659 --> 00:02:46,211
+Se α₀ = - 0,2, 
+e a taxa de decaimento = 1,
+
+41
+00:02:46,211 --> 00:02:50,267
+então, durante sua primeira época,
+
+42
+00:02:50,267 --> 00:02:55,268
+alfa será [1/ (1 +1)] * 0,2.
+
+43
+00:02:55,268 --> 00:02:59,785
+Então sua taxa de aprendizagem será 0,1.
+
+44
+00:02:59,785 --> 00:03:04,289
+Isso é apenas uma avaliação dessa fórmula,
+quando a taxa de decaimento é igual a 1, e
+
+45
+00:03:04,289 --> 00:03:05,755
+o número da época é 1.
+
+46
+00:03:05,755 --> 00:03:10,613
+Na segunda época,
+sua taxa de aprendizagem decai para 0,67.
+
+47
+00:03:10,613 --> 00:03:15,924
+Na terceira, 0,5,
+na quarta 0,4, e assim por diante.
+
+48
+00:03:15,924 --> 00:03:18,150
+E sinta-se livre para analisar mais
+valores por conta própria.
+
+49
+00:03:18,150 --> 00:03:23,200
+E tenha a noção de que, em função do
+número de sua época, sua taxa de aprendizagem
+
+50
+00:03:23,200 --> 00:03:29,930
+decai gradualmente, correto,
+de acordo com essa fórmula no topo.
+
+51
+00:03:29,930 --> 00:03:33,860
+Então, se você quer usar o decaimento da taxa de aprendizagem,
+o que você pode fazer,
+
+52
+00:03:33,860 --> 00:03:38,830
+é tentar uma variedade de valores para
+ambos: hiperparâmetro alfa zero,
+
+53
+00:03:38,830 --> 00:03:41,550
+bem como para o hiperparâmetro 
+taxa de decaimento,
+
+54
+00:03:41,550 --> 00:03:44,710
+e então tentar achar
+o valor que funciona bem.
+
+55
+00:03:44,710 --> 00:03:47,188
+Além dessa fórmula para
+o decaimento da taxa de aprendizagem,
+
+56
+00:03:47,188 --> 00:03:49,314
+há algumas outros
+caminhos que as pessoas usam.
+
+57
+00:03:49,314 --> 00:03:52,097
+Por exemplo,
+isso é chamado de decaimento exponencial.
+
+58
+00:03:52,097 --> 00:03:58,009
+Onde alfa é igual a
+algum número menor que 1,
+
+59
+00:03:58,009 --> 00:04:04,513
+como 0,95 elevado ao número da época,
+vezes α₀.
+
+60
+00:04:04,513 --> 00:04:10,500
+Então isso irá rapidamente
+decair, exponencialmente, sua taxa de aprendizagem .
+
+61
+00:04:10,500 --> 00:04:15,788
+Outras fórmulas que as pessoas
+usam são coisas como alfa
+
+62
+00:04:15,788 --> 00:04:21,805
+= [(alguma constante) / raiz quadrada
+do número da época] vezes α₀.
+
+63
+00:04:21,805 --> 00:04:26,627
+Ou alguma constante k,
+outro hiperparâmetro,
+
+64
+00:04:26,627 --> 00:04:32,956
+sobre a raiz quadrada
+do mini-lote número t, vezes α₀.
+
+65
+00:04:32,956 --> 00:04:37,627
+E algumas vezes você também vê pessoas usando
+uma taxa de aprendizagem que decai em
+
+66
+00:04:37,627 --> 00:04:38,821
+passos discretos.
+
+67
+00:04:38,821 --> 00:04:42,798
+Portanto, em um dado números de passos,
+você tem certa taxa de aprendizagem,
+
+68
+00:04:42,798 --> 00:04:45,960
+e então, após um tempo, você
+a decrementa pela metade.
+
+69
+00:04:45,960 --> 00:04:47,320
+Após outro tempo, pela metade.
+
+70
+00:04:47,320 --> 00:04:48,970
+E após outro tempo, pela metade.
+
+71
+00:04:48,970 --> 00:04:52,793
+E então essa é uma escada discreta.
+
+72
+00:04:55,954 --> 00:05:01,395
+Então, até agora, nós falamos sobre usar
+algumas formas para determinar como alfa,
+
+73
+00:05:01,395 --> 00:05:05,210
+a taxa de aprendizagem, muda ao longo do tempo.
+
+74
+00:05:05,210 --> 00:05:08,900
+Uma outra coisa que as pessoas fazem às vezes,
+é o decaimento manual.
+
+75
+00:05:08,900 --> 00:05:11,980
+E então, se você está treinando
+apenas um modelo por vez, e
+
+76
+00:05:11,980 --> 00:05:16,070
+se o seu modelo demora várias horas,
+ou até mesmo vários dias para ser treinado.
+
+77
+00:05:16,070 --> 00:05:17,090
+O que algumas pessoas fazem,
+
+78
+00:05:17,090 --> 00:05:21,638
+é apenas observar seu modelo: como 
+ ele vem treinando ao longo de um grande número de dias.
+
+79
+00:05:21,638 --> 00:05:25,180
+E então manualmente dizer, parece
+que a taxa de aprendizagem desacelerou,
+
+80
+00:05:25,180 --> 00:05:27,180
+diminuirei alfa um pouco.
+
+81
+00:05:27,180 --> 00:05:30,242
+É claro que isso funciona,
+esse controle manual de alfa,
+
+82
+00:05:30,242 --> 00:05:33,710
+realmente ajustando alfa manualmente,
+hora a hora, ou dia a dia.
+
+83
+00:05:33,710 --> 00:05:37,140
+Isso funciona somente se você está treinando
+apenas um pequeno número de modelos, mas
+
+84
+00:05:37,140 --> 00:05:39,100
+às vezes algumas pessoas fazem isso também.
+
+85
+00:05:39,100 --> 00:05:43,580
+Então agora você tem algumas opções a mais para
+controlar a taxa de aprendizagem alfa.
+
+86
+00:05:43,580 --> 00:05:46,630
+Agora, caso você esteja pensando, uau,
+isso é um monte de hiperparâmetros.
+
+87
+00:05:46,630 --> 00:05:49,320
+Como eu seleciono dentre todas
+essas opções diferentes?
+
+88
+00:05:49,320 --> 00:05:51,190
+Eu diria, não se preocupe com isso agora.
+
+89
+00:05:51,190 --> 00:05:56,550
+Na próxima semana, nós falaremos mais sobre como
+escolher hiperparâmetros sistematicamente.
+
+90
+00:05:56,550 --> 00:06:00,500
+Para mim, eu diria que o decaimento
+da taxa de aprendizagem é uma das últimas da
+
+91
+00:06:00,500 --> 00:06:02,080
+lista de coisas que eu tento.
+
+92
+00:06:02,080 --> 00:06:05,670
+Definindo alfa, apenas fixando o valor de
+alfa, e fazendo com que seja bem ajustado,
+
+93
+00:06:05,670 --> 00:06:07,080
+tem um grande impacto.
+
+94
+00:06:07,080 --> 00:06:09,050
+O decaimento da taxa de aprendizagem de fato ajuda.
+
+95
+00:06:09,050 --> 00:06:11,050
+Algumas vezes, ele pode realmente
+ajudar a acelerar o treinamento, mas
+
+96
+00:06:11,050 --> 00:06:15,720
+ele está um pouco abaixo na minha lista
+em termos das coisas que eu tentaria.
+
+97
+00:06:15,720 --> 00:06:18,543
+Mas na próxima semana,
+quando falarmos sobre ajuste de hiperparâmetros,
+
+98
+00:06:18,543 --> 00:06:21,978
+você verá modos mais sistemáticos de
+organizar todos esses hiperparâmetros.
+
+99
+00:06:21,978 --> 00:06:24,422
+E como procurar
+eficientemente entre eles.
+
+100
+00:06:24,422 --> 00:06:27,790
+Então isso é tudo para o decaimento da taxa de aprendizagem.
+
+101
+00:06:27,790 --> 00:06:31,420
+Finalmente, eu também falaria
+um pouco sobre local optima, e
+
+102
+00:06:31,420 --> 00:06:33,390
+pontos de descanso, em redes neurais.
+
+103
+00:06:33,390 --> 00:06:36,210
+Assim, você pode ter uma intuição
+um pouco melhor sobre os tipos de
+
+104
+00:06:36,210 --> 00:06:39,970
+problemas de otimização que seu algorítimo
+de otimização está tentando resolver,
+
+105
+00:06:39,970 --> 00:06:41,840
+quando você está tentando treinar
+essas redes neurais.
+
+106
+00:06:41,840 --> 00:06:43,570
+Vamos para o próximo vídeo para ver isso.
+[Tradução: Sylvia Amaral | Revisão: Carlos Lage]

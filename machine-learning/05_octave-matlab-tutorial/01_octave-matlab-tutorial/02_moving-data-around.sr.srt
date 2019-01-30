@@ -1,0 +1,1721 @@
+1
+00:00:00,111 --> 00:00:02,628
+U ovome drugome videu kursa
+
+2
+00:00:02,630 --> 00:00:03,904
+vezanog za Oktav, voleo bih da pričamo
+
+3
+00:00:03,930 --> 00:00:07,322
+o tome kako da manipulišemo 
+podacima u Oktav programu.
+
+4
+00:00:07,340 --> 00:00:08,783
+Dakle, ako imate podatke
+
+5
+00:00:08,783 --> 00:00:12,125
+koje ćete da koristite za mašinsko učenje, 
+kako te podatke učitavate u Oktav?
+
+6
+00:00:12,125 --> 00:00:13,693
+Kako ih smeštate u matricu?
+
+7
+00:00:13,693 --> 00:00:15,284
+Kako radite sa tim matricama?
+
+8
+00:00:15,290 --> 00:00:16,982
+Kako čuvate rezultate?
+
+9
+00:00:17,000 --> 00:00:22,185
+Kako premeštate podatke i 
+kako vršite operacije nad njima?
+
+10
+00:00:22,900 --> 00:00:25,044
+Ovo je moj Oktav prozor od pre,
+
+11
+00:00:25,044 --> 00:00:29,256
+ovde smo stali u prošlom videu.
+
+12
+00:00:29,290 --> 00:00:31,132
+Ako ukucam A, to je
+
+13
+00:00:31,140 --> 00:00:32,258
+matrica koju smo napravili, u redu,
+
+14
+00:00:32,258 --> 00:00:35,197
+ovom komandom jednako je 1, 2
+
+15
+00:00:35,197 --> 00:00:38,152
+3, 4, 5, 6 i
+
+16
+00:00:38,190 --> 00:00:40,696
+ovo je 3x2 matrica.
+
+17
+00:00:40,710 --> 00:00:42,415
+Komanda size u Oktav
+
+18
+00:00:42,430 --> 00:00:46,361
+vam omogućuje, 
+prikazuje vam veličinu matrice.
+
+19
+00:00:46,361 --> 00:00:48,207
+Tako size(A) vraća rezultat 3, 2.
+
+20
+00:00:48,207 --> 00:00:50,160
+Ispostavlja se da
+
+21
+00:00:50,180 --> 00:00:52,155
+komanda size u stvari
+
+22
+00:00:52,155 --> 00:00:54,591
+vraća kao rezultat 1x2 matricu.
+
+23
+00:00:54,591 --> 00:00:56,598
+Pa tako možete da postavite sz je jednako
+
+24
+00:00:56,598 --> 00:00:58,370
+size(A) i sz
+
+25
+00:00:58,380 --> 00:00:59,597
+je sada 1x2
+
+26
+00:00:59,597 --> 00:01:01,627
+matrica gde je prvi element
+
+27
+00:01:01,640 --> 00:01:04,689
+ovo 3, a drugi element je 2.
+
+28
+00:01:04,700 --> 00:01:07,494
+Pa, ako samo ukucate size(sz), ovo sz
+
+29
+00:01:07,494 --> 00:01:08,898
+je 1x2
+
+30
+00:01:08,898 --> 00:01:10,862
+matrica čija dva elementa
+
+31
+00:01:10,862 --> 00:01:13,721
+sadrže dimenzije
+
+32
+00:01:13,721 --> 00:01:15,279
+matrice A. Takođe
+
+33
+00:01:15,279 --> 00:01:17,787
+možete da ukucate size(A, 1)
+
+34
+00:01:17,787 --> 00:01:19,505
+da biste dobili prvu
+
+35
+00:01:19,510 --> 00:01:21,542
+dimenziju matrice A, veličinu
+
+36
+00:01:21,542 --> 00:01:22,662
+prve dimenzije matrice A.
+
+37
+00:01:22,680 --> 00:01:24,108
+Dakle, to je broj
+
+38
+00:01:24,110 --> 00:01:26,307
+redova a size(A, 2)
+
+39
+00:01:26,320 --> 00:01:28,361
+da biste dobili 2, a to
+
+40
+00:01:28,361 --> 00:01:29,598
+je broj kolona u
+
+41
+00:01:29,598 --> 00:01:31,942
+matrici A. Ako
+
+42
+00:01:31,950 --> 00:01:34,034
+imate vektor v, recimo
+
+43
+00:01:34,034 --> 00:01:36,016
+v je jednako 1, 2,
+
+44
+00:01:36,030 --> 00:01:38,089
+3, 4 i ukucate
+
+45
+00:01:38,089 --> 00:01:40,830
+length(v). Ono
+
+46
+00:01:40,830 --> 00:01:42,097
+što ćete da dobijete je
+
+47
+00:01:42,097 --> 00:01:44,123
+veličina duže dimenzije.
+
+48
+00:01:44,170 --> 00:01:45,609
+Dakle, možete takođe da
+
+49
+00:01:45,609 --> 00:01:48,487
+ukucate length(A) jer
+
+50
+00:01:48,500 --> 00:01:49,856
+je A jedna 3x2
+
+51
+00:01:49,860 --> 00:01:52,305
+matrica, duža
+
+52
+00:01:52,330 --> 00:01:53,825
+dimenzija je 3,
+
+53
+00:01:53,825 --> 00:01:56,145
+pa bi ovo trebalo da prikaže 3.
+
+54
+00:01:56,145 --> 00:01:58,805
+Ali praksa je da se length 
+obično primenjuje na vektore.
+
+55
+00:01:58,810 --> 00:02:00,194
+Tako, znate, length(1, 2,
+
+56
+00:02:00,200 --> 00:02:02,222
+3, 4, 5) se češće primenjuje
+
+57
+00:02:02,230 --> 00:02:04,010
+nego na matrice
+
+58
+00:02:04,010 --> 00:02:07,205
+jer je to zbunjujuće.
+
+59
+00:02:07,620 --> 00:02:10,122
+Sada ćemo da pogledamo
+
+60
+00:02:10,122 --> 00:02:11,843
+kako da učitamo podatke i
+
+61
+00:02:11,860 --> 00:02:13,732
+da ih pronađemo u fajl sistemu.
+
+62
+00:02:13,732 --> 00:02:15,254
+Kada pokrenemo Oktav
+
+63
+00:02:15,254 --> 00:02:16,882
+obično se nalazimo na
+
+64
+00:02:16,920 --> 00:02:19,098
+putanji koja je,
+
+65
+00:02:19,098 --> 00:02:21,738
+znate, lokacija gde je Oktav instaliran.
+
+66
+00:02:21,750 --> 00:02:24,042
+Dakle, pwd komanda vam pokazuje
+
+67
+00:02:24,060 --> 00:02:25,619
+direktorijum gde se nalazite, ili
+
+68
+00:02:25,640 --> 00:02:28,738
+trenutnu putanju na kojoj je Oktav.
+
+69
+00:02:28,738 --> 00:02:31,932
+Trenutno smo u nekom 
+školskom direktorijumu kursa.
+
+70
+00:02:31,932 --> 00:02:33,999
+cd komanda znači
+
+71
+00:02:34,000 --> 00:02:35,322
+promeni direktorijum (Change Directory), tako
+
+72
+00:02:35,330 --> 00:02:40,681
+da mogu da odem na C:/Users/Ang/Desktop i
+
+73
+00:02:40,681 --> 00:02:43,657
+sada sam u Desktop direktorijumu
+
+74
+00:02:43,657 --> 00:02:45,925
+a ako ukucam ls,
+
+75
+00:02:45,925 --> 00:02:49,447
+ls je juniks ili linuks komanda,
+
+76
+00:02:49,447 --> 00:02:50,648
+ls će da izlista
+
+77
+00:02:50,648 --> 00:02:52,435
+direktorijume koji se nalaze 
+u Desktop direktorijumu,
+
+78
+00:02:52,435 --> 00:02:54,137
+tako da su to ovi fajlovi
+
+79
+00:02:54,140 --> 00:02:58,184
+koji su upravo na mom desktopu.
+
+80
+00:03:15,850 --> 00:03:17,838
+U stvari, u mom desktopu su
+
+81
+00:03:17,838 --> 00:03:19,920
+dva fajla, featuresX i
+
+82
+00:03:19,920 --> 00:03:21,689
+priceY koji su tu zbog
+
+83
+00:03:21,689 --> 00:03:23,596
+problema mašinskog učenja koji hoću da rešim.
+
+84
+00:03:23,620 --> 00:03:25,830
+Dakle, ovo je moj desktop.
+
+85
+00:03:25,830 --> 00:03:29,144
+Ovo je featuresX a
+
+86
+00:03:29,144 --> 00:03:31,598
+to je ovaj prozor,
+
+87
+00:03:31,630 --> 00:03:34,492
+oprostite, to je ovaj fajl sa dve kolone podataka.
+
+88
+00:03:34,492 --> 00:03:36,702
+To su u stvari podaci cena nekretnina.
+
+89
+00:03:36,750 --> 00:03:38,374
+Dakle, mislim da
+
+90
+00:03:38,374 --> 00:03:40,652
+imam 47 redova 
+u ovome skupu podataka.
+
+91
+00:03:40,652 --> 00:03:42,344
+Pa tako prva kuća
+
+92
+00:03:42,350 --> 00:03:43,966
+ima veličinu 2004
+
+93
+00:03:43,970 --> 00:03:46,172
+kvadratna fita, 3 spavaće sobe,
+
+94
+00:03:46,190 --> 00:03:47,367
+druga kuća ima 1600 kvadratnih
+
+95
+00:03:47,367 --> 00:03:49,862
+fita, 3 spavaće sobe, i tako dalje.
+
+96
+00:03:49,880 --> 00:03:52,302
+A priceY je ovaj
+
+97
+00:03:52,302 --> 00:03:55,020
+fajl koji sadrži
+
+98
+00:03:55,040 --> 00:03:57,575
+podatke o cenama u mome trening skupu.
+
+99
+00:03:57,575 --> 00:03:59,735
+Dakle, featuresX i
+
+100
+00:03:59,735 --> 00:04:03,061
+priceY su samo tekstualni fajlovi sa podacima.
+
+101
+00:04:03,061 --> 00:04:04,770
+Kako da ove podatke učitam u Oktav?
+
+102
+00:04:04,770 --> 00:04:06,050
+Pa, samo kucam
+
+103
+00:04:06,090 --> 00:04:08,163
+komandu load featuresX.dat
+
+104
+00:04:08,163 --> 00:04:10,069
+i ako to
+
+105
+00:04:10,069 --> 00:04:11,991
+uradim, učitaću featuresX
+
+106
+00:04:11,991 --> 00:04:15,772
+i mogu da učitam i priceY.dat.
+
+107
+00:04:15,772 --> 00:04:17,323
+Usput, postoji više načina da se ovo uradi.
+
+108
+00:04:17,323 --> 00:04:19,245
+Ova komanda, ako ukucate
+
+109
+00:04:19,245 --> 00:04:20,916
+featuresX.dat u ovaj
+
+110
+00:04:20,916 --> 00:04:22,533
+string, isto tako ćete učitati ovaj fajl.
+
+111
+00:04:22,550 --> 00:04:25,477
+Ovo ovde je greška u kucanju.
+
+112
+00:04:25,490 --> 00:04:27,317
+Ova komanda ima isti efekat.
+
+113
+00:04:27,317 --> 00:04:29,334
+Dakle možete, na ovaj
+
+114
+00:04:29,360 --> 00:04:31,985
+način stavljam ime fajla kao string,
+
+115
+00:04:32,000 --> 00:04:34,148
+ime fajla u
+
+116
+00:04:34,148 --> 00:04:35,716
+string a u
+
+117
+00:04:35,716 --> 00:04:38,902
+Oktav programu se koristite apostrofi
+
+118
+00:04:38,930 --> 00:04:41,876
+da bismo nešto označili kao string, ovako.
+
+119
+00:04:41,910 --> 00:04:42,837
+Dakle, to je string i
+
+120
+00:04:42,860 --> 00:04:45,517
+možemo da učitamo fajl
+
+121
+00:04:45,517 --> 00:04:48,324
+čije ime označava taj string.
+
+122
+00:04:48,324 --> 00:04:50,919
+A sada, who komanda
+
+123
+00:04:50,960 --> 00:04:52,538
+nam govori koje promenjive
+
+124
+00:04:52,538 --> 00:04:54,605
+imamo u Oktav radnom prostoru.
+
+125
+00:04:54,605 --> 00:04:56,310
+Dakle, who nam pokazuje da li
+
+126
+00:04:56,330 --> 00:04:59,952
+u memoriji Oktav programa postoji neka promenjiva.
+
+127
+00:04:59,952 --> 00:05:01,367
+featuresX i priceY
+
+128
+00:05:01,370 --> 00:05:02,991
+su među njima, kao i
+
+129
+00:05:02,991 --> 00:05:04,120
+promenjive koje smo, znate,
+
+130
+00:05:04,170 --> 00:05:06,311
+napravili nešto ranije u ovoj sesiji.
+
+131
+00:05:06,311 --> 00:05:09,198
+Tako mogu da ukucam featuresX
+
+132
+00:05:09,198 --> 00:05:11,062
+da bih prikazao featuresX.
+
+133
+00:05:11,062 --> 00:05:14,164
+A ovo su moji podaci.
+
+134
+00:05:14,200 --> 00:05:16,419
+A mogu da ukucam i size(featuresX)
+
+135
+00:05:16,419 --> 00:05:18,022
+a to je moja
+
+136
+00:05:18,022 --> 00:05:20,519
+47x2 matrica.
+
+137
+00:05:20,519 --> 00:05:22,307
+A size(priceY)
+
+138
+00:05:22,320 --> 00:05:23,729
+će da mi da
+
+139
+00:05:23,729 --> 00:05:26,753
+47x1 vektor.
+
+140
+00:05:26,753 --> 00:05:30,125
+Ovo je 47 dimenzionalni vektor.
+
+141
+00:05:30,125 --> 00:05:32,080
+Ovo je vektor kolona koja
+
+142
+00:05:32,080 --> 00:05:35,231
+sadrži sve cene trening skupa.
+
+143
+00:05:35,240 --> 00:05:37,584
+who funkcija vam prikazuje
+
+144
+00:05:37,600 --> 00:05:40,086
+promenjive koje se trenutno 
+nalaze u radnom prostoru.
+
+145
+00:05:40,086 --> 00:05:42,195
+Takođe postoji i whos
+
+146
+00:05:42,195 --> 00:05:45,369
+funkcija koja vam daje malo detaljniji pregled.
+
+147
+00:05:45,369 --> 00:05:47,252
+A to vam takođe, sa
+
+148
+00:05:47,270 --> 00:05:48,574
+s dodatim na kraju,
+
+149
+00:05:48,574 --> 00:05:49,979
+prikazuje promenjive sa razlikom
+
+150
+00:05:49,979 --> 00:05:51,782
+što je sada prikazana i veličina.
+
+151
+00:05:51,790 --> 00:05:52,759
+Dakle, A je 3x2
+
+152
+00:05:52,759 --> 00:05:54,764
+matrica a featuresX
+
+153
+00:05:54,764 --> 00:05:56,545
+je 47x2 matrica.
+
+154
+00:05:56,545 --> 00:05:59,327
+priceY je 47x2 matrica,
+
+155
+00:05:59,327 --> 00:06:01,098
+što znači da je to vektor,
+
+156
+00:06:01,130 --> 00:06:03,438
+a to vam pokazuje koliko 
+bajtova memorije sve ovo zauzima.
+
+157
+00:06:03,438 --> 00:06:06,020
+Kao i koji je tip podatka.
+
+158
+00:06:06,020 --> 00:06:07,765
+Dabl znači dupla preciznost pokretnog
+
+159
+00:06:07,765 --> 00:06:08,915
+zareza tako da je to
+
+160
+00:06:08,915 --> 00:06:13,148
+realna vrednost, brojevi u pokretnom zarezu.
+
+161
+00:06:13,148 --> 00:06:14,190
+Sada, ako želite da se
+
+162
+00:06:14,190 --> 00:06:17,316
+rešite varijabli, možete da koristite clear komandu.
+
+163
+00:06:17,340 --> 00:06:21,124
+Dakle, clear(featuresX) i ukucajte whos ponovo.
+
+164
+00:06:21,130 --> 00:06:23,448
+Primećujete da je featuresX
+
+165
+00:06:23,448 --> 00:06:26,465
+promenjiva sada nestala.
+
+166
+00:06:27,270 --> 00:06:28,567
+A kako čuvamo podatke?
+
+167
+00:06:28,567 --> 00:06:29,221
+Da vidimo.
+
+168
+00:06:29,221 --> 00:06:30,411
+Uzmimo promenjivu v i
+
+169
+00:06:30,411 --> 00:06:33,075
+recimo da je priceY kolona 10.
+
+170
+00:06:33,075 --> 00:06:34,826
+To postavlja v na
+
+171
+00:06:34,826 --> 00:06:38,574
+vrednost od prvih 10 elemenata
+
+172
+00:06:38,860 --> 00:06:43,215
+vektora Y. Dakle, ukucajmo who ili whos.
+
+173
+00:06:43,220 --> 00:06:46,612
+priceY je 47x1 vektor,
+
+174
+00:06:46,612 --> 00:06:48,474
+dok je 10x1 vektor.
+
+175
+00:06:48,474 --> 00:06:50,809
+v = priceY(1:10)
+
+176
+00:06:50,809 --> 00:06:52,451
+ovo postavlja v na
+
+177
+00:06:52,451 --> 00:06:53,520
+prvih 10 elemenata
+
+178
+00:06:53,520 --> 00:06:55,705
+vektora priceY. Recimo da
+
+179
+00:06:55,705 --> 00:06:57,398
+želim da sačuvam ove podatke na disk,
+
+180
+00:06:57,398 --> 00:07:00,129
+komanda save hello.mat v;
+
+181
+00:07:00,129 --> 00:07:02,302
+Ovo će da
+
+182
+00:07:02,310 --> 00:07:04,357
+sačuva promenjivu v u
+
+183
+00:07:04,370 --> 00:07:05,690
+fajlu koji se zove hello.mat.
+
+184
+00:07:05,720 --> 00:07:08,490
+Tako da, hajde da uradimo to.
+
+185
+00:07:08,640 --> 00:07:10,965
+A fajl se sada
+
+186
+00:07:11,030 --> 00:07:13,181
+pojavio na mome desktopu,
+
+187
+00:07:13,181 --> 00:07:15,066
+znate, pod imenom hello.mat.
+
+188
+00:07:15,066 --> 00:07:16,509
+Slučajno imam matlab instaliran
+
+189
+00:07:16,530 --> 00:07:17,962
+na ovome vindousu, i zbog toga
+
+190
+00:07:17,962 --> 00:07:19,711
+ova ikonica izgleda
+
+191
+00:07:19,711 --> 00:07:21,621
+ovako jer je vindous prepoznao
+
+192
+00:07:21,621 --> 00:07:23,559
+ovaj fajl kao matlab fajl, ali
+
+193
+00:07:23,559 --> 00:07:24,882
+ne brinite zbog toga ako ovaj
+
+194
+00:07:24,890 --> 00:07:26,051
+fajl izgleda kao da ima drugačiju
+
+195
+00:07:26,051 --> 00:07:28,778
+ikonicu na vašem računaru i
+
+196
+00:07:28,778 --> 00:07:31,017
+recimo da očistim sve moje promenjive.
+
+197
+00:07:31,020 --> 00:07:32,602
+Dakle, ako ukucate samo clear, bez
+
+198
+00:07:32,602 --> 00:07:36,061
+ičega više, to će da obriše sve 
+promenjive u vašem radnom prostoru.
+
+199
+00:07:36,080 --> 00:07:39,078
+Dakle, ništa nije ostalo u radnome prostoru.
+
+200
+00:07:39,078 --> 00:07:41,856
+A ako učitam hello.mat,
+
+201
+00:07:41,856 --> 00:07:44,388
+sada mogu da vratim nazad moju
+
+202
+00:07:44,388 --> 00:07:46,054
+promenjivu v, a to su
+
+203
+00:07:46,054 --> 00:07:47,830
+podaci koje sam
+
+204
+00:07:47,830 --> 00:07:51,035
+prethodno sačuvao u hello.mat fajlu.
+
+205
+00:07:51,035 --> 00:07:54,636
+Dakle, hello.mat, upravo smo uradili save hello.mat v,
+
+206
+00:07:54,636 --> 00:07:55,877
+to je sačuvalo
+
+207
+00:07:55,877 --> 00:07:57,811
+podatke u binarnom formatu,
+
+208
+00:07:57,850 --> 00:07:59,702
+nešto više kompresovan binarni format.
+
+209
+00:07:59,702 --> 00:08:01,077
+Pa ako u v ima mnogo
+
+210
+00:08:01,077 --> 00:08:03,899
+podataka, biće malo više kompresovani.
+
+211
+00:08:03,899 --> 00:08:05,645
+Zauzeće malo manje prostora.
+
+212
+00:08:05,650 --> 00:08:06,784
+Ako želite da sačuvate vaše
+
+213
+00:08:06,784 --> 00:08:08,959
+podatke u formatu čitljivom
+
+214
+00:08:08,959 --> 00:08:11,870
+ljudima tada treba da ukucate save hello.txt
+
+215
+00:08:11,870 --> 00:08:14,055
+promenjivu v a onda -ascii.
+
+216
+00:08:14,110 --> 00:08:16,083
+Dakle, ovo će da sačuva
+
+217
+00:08:16,083 --> 00:08:18,787
+podatke kao tekst
+
+218
+00:08:18,840 --> 00:08:21,352
+ili ascii format teksta.
+
+219
+00:08:21,352 --> 00:08:22,802
+I sada kada sam
+
+220
+00:08:22,802 --> 00:08:24,973
+završio ovo, imam ovaj fajl.
+
+221
+00:08:24,973 --> 00:08:26,115
+hello.txt se upravo
+
+222
+00:08:26,130 --> 00:08:28,463
+pojavio na mom desktopu i
+
+223
+00:08:28,463 --> 00:08:29,951
+ako ga otvorim,
+
+224
+00:08:29,951 --> 00:08:31,016
+vidimo da je to tekstualni
+
+225
+00:08:31,016 --> 00:08:33,958
+fajl sa sačuvanim podacima.
+
+226
+00:08:33,958 --> 00:08:36,698
+Dakle, ovako učitavamo i čuvamo podatke.
+
+227
+00:08:36,698 --> 00:08:38,832
+Sada ćemo da govorimo malo o tome 
+kako da radimo sa podacima.
+
+228
+00:08:38,832 --> 00:08:40,526
+Hajde da postavimo a = ovoj
+
+229
+00:08:40,526 --> 00:08:44,910
+matrici, dakle, to je 3x2 matrica.
+
+230
+00:08:45,710 --> 00:08:46,778
+Evo malo indeksiranja.
+
+231
+00:08:46,778 --> 00:08:48,493
+Kucam A 3, 2.
+
+232
+00:08:48,493 --> 00:08:51,219
+Ovo indeksira
+
+233
+00:08:51,219 --> 00:08:52,917
+3, 2 elemenat
+
+234
+00:08:52,917 --> 00:08:54,308
+matrice A. Dakle, ovo
+
+235
+00:08:54,370 --> 00:08:56,320
+je, znate,
+
+236
+00:08:56,400 --> 00:08:57,488
+obično bismo pisali ovo
+
+237
+00:08:57,510 --> 00:09:00,421
+kao sabskript 3, 2
+
+238
+00:09:00,430 --> 00:09:02,280
+ili A sabskript,
+
+239
+00:09:03,570 --> 00:09:05,320
+znate, 3, 2
+
+240
+00:09:05,380 --> 00:09:07,028
+a to je element
+
+241
+00:09:07,028 --> 00:09:08,664
+trećeg reda druge kolone
+
+242
+00:09:08,664 --> 00:09:11,539
+matrice A a to je element 6.
+
+243
+00:09:11,590 --> 00:09:13,820
+Takođe mogu da kucam A
+
+244
+00:09:14,550 --> 00:09:16,770
+2, : da bih dobio
+
+245
+00:09:16,770 --> 00:09:18,851
+sve elemente drugog reda.
+
+246
+00:09:18,851 --> 00:09:22,806
+Dakle, dvotačka znači svaki
+
+247
+00:09:22,810 --> 00:09:27,381
+element u tom redu ili koloni.
+
+248
+00:09:27,420 --> 00:09:29,274
+Dakle, 2, :
+
+249
+00:09:29,274 --> 00:09:32,425
+je drugi red matrice A. U redu?
+
+250
+00:09:32,470 --> 00:09:35,662
+I slično tome, ako stavim :, 2
+
+251
+00:09:35,680 --> 00:09:38,262
+tada ovo znači sve elemente
+
+252
+00:09:38,262 --> 00:09:41,328
+druge kolone matrice A. Dakle, to mi daje 2 4 6.
+
+253
+00:09:41,328 --> 00:09:42,921
+U redu? Ovo znači
+
+254
+00:09:42,930 --> 00:09:45,467
+A, sve, druga kolona.
+
+255
+00:09:45,500 --> 00:09:46,967
+Dakle, to je druga
+
+256
+00:09:46,970 --> 00:09:49,636
+kolona matrice A, a to su elementi 2 4 6.
+
+257
+00:09:49,650 --> 00:09:51,267
+Sada, takođe možete da
+
+258
+00:09:51,280 --> 00:09:54,148
+koristite najsloženije indekse u operacijama.
+
+259
+00:09:54,148 --> 00:09:56,575
+Pokazaćemo na brzinu jedan primer.
+
+260
+00:09:56,575 --> 00:09:58,537
+Možda ste ovo često radili,
+
+261
+00:09:58,550 --> 00:10:02,231
+ali hajde da ovo uradim, A [1 3], :.
+
+262
+00:10:02,231 --> 00:10:03,471
+Ovo znači svi
+
+263
+00:10:03,500 --> 00:10:07,444
+elementi matrice A čiji je prvi indeks 1 ili 3.
+
+264
+00:10:07,450 --> 00:10:08,765
+To znači da dobijam sve elemente
+
+265
+00:10:08,765 --> 00:10:10,588
+prvog i trećeg reda matrice A
+
+266
+00:10:10,603 --> 00:10:12,780
+iz svih
+
+267
+00:10:13,240 --> 00:10:13,240
+kolona.
+
+268
+00:10:14,163 --> 00:10:16,430
+Dakle, ovo je bila
+
+269
+00:10:16,800 --> 00:10:18,260
+matrica A a A
+
+270
+00:10:18,440 --> 00:10:21,872
+[1 3], : znači daj mi
+
+271
+00:10:21,900 --> 00:10:23,222
+sve elemente iz prvog reda
+
+272
+00:10:23,250 --> 00:10:25,023
+i iz drugog reda i,
+
+273
+00:10:25,023 --> 00:10:27,172
+oprostite, i iz trećeg reda a
+
+274
+00:10:27,172 --> 00:10:28,313
+dvotačka znači, znate, sve
+
+275
+00:10:28,313 --> 00:10:29,585
+elemente iz oba reda
+
+276
+00:10:29,585 --> 00:10:31,045
+a to mi daje
+
+277
+00:10:31,045 --> 00:10:32,842
+ove elemente, 1 2 5 6.
+
+278
+00:10:32,842 --> 00:10:34,353
+Ipak, koristićete izvor
+
+279
+00:10:34,353 --> 00:10:37,182
+više sabskript indeks
+
+280
+00:10:37,182 --> 00:10:39,819
+operacija, neke možda ne tako često.
+
+281
+00:10:40,210 --> 00:10:41,453
+Evo da pokažem šta još možemo da uradimo.
+
+282
+00:10:41,453 --> 00:10:43,617
+Ovo je matrica A a ovo
+
+283
+00:10:43,617 --> 00:10:47,276
+je A dvotačka, da bih dobio drugu kolonu.
+
+284
+00:10:47,276 --> 00:10:49,773
+Ovo takođe možete da koristite prilikom dodele vrednosti.
+
+285
+00:10:49,773 --> 00:10:51,178
+Mogu da uzmem drugu kolonu
+
+286
+00:10:51,190 --> 00:10:52,949
+matrice A i to dodelim vrednostima
+
+287
+00:10:52,950 --> 00:10:55,605
+10, 11, 12 a
+
+288
+00:10:55,670 --> 00:10:58,084
+ako to uradim, znate,
+
+289
+00:10:58,120 --> 00:10:59,220
+uzimam drugu kolonu matrice
+
+290
+00:10:59,290 --> 00:11:02,768
+A i dodeljujem joj ovu vektor kolonu 10, 11, 12.
+
+291
+00:11:02,768 --> 00:11:05,440
+Dakle, sada ova matrica izgleda ovako, 1 3 5
+
+292
+00:11:05,480 --> 00:11:08,760
+a druga kolona je zamenjena sa 10 11 12.
+
+293
+00:11:08,760 --> 00:11:14,513
+A evo još jedne operacije.
+
+294
+00:11:14,680 --> 00:11:15,917
+Recimo da je A jednako
+
+295
+00:11:15,917 --> 00:11:17,738
+A, 100, 101, 102
+
+296
+00:11:17,750 --> 00:11:21,605
+ovako a ono što
+
+297
+00:11:21,605 --> 00:11:24,109
+ćemo da dobijemo je
+
+298
+00:11:24,120 --> 00:11:28,025
+dodana jedna vektor kolona
+
+299
+00:11:28,047 --> 00:11:29,855
+sa desne strane.
+
+300
+00:11:29,890 --> 00:11:33,230
+Dakle, sada, ups.
+
+301
+00:11:33,260 --> 00:11:36,798
+Mislim da sam napravio malu grešku ovde.
+
+302
+00:11:36,800 --> 00:11:41,065
+Trebao sam ovde da stavim tačku zarez,
+
+303
+00:11:41,700 --> 00:11:43,910
+a A je sada jednako ovome.
+
+304
+00:11:43,910 --> 00:11:44,564
+U redu?
+
+305
+00:11:44,564 --> 00:11:45,479
+Nadam se da ovo ima smisla.
+
+306
+00:11:45,479 --> 00:11:46,480
+Dakle ovo 100, 101, 102,
+
+307
+00:11:46,480 --> 00:11:48,804
+to je vektor kolona
+
+308
+00:11:48,820 --> 00:11:51,668
+a ono šta smo uradili je
+
+309
+00:11:51,668 --> 00:11:53,386
+da smo postavili A, uzeli
+
+310
+00:11:53,386 --> 00:11:56,156
+A i postavili na originalnu definiciju,
+
+311
+00:11:56,156 --> 00:11:57,368
+a onda dodali ovu vektor kolonu
+
+312
+00:11:57,380 --> 00:11:59,192
+sa desne strane
+
+313
+00:11:59,192 --> 00:12:00,217
+i tako, dobili smo, uzeli
+
+314
+00:12:00,217 --> 00:12:04,288
+smo matricu A, a to su
+
+315
+00:12:04,288 --> 00:12:05,405
+ovih 6 elemenata sa leve strane,
+
+316
+00:12:05,405 --> 00:12:06,785
+dakle, uzeli smo matricu
+
+317
+00:12:06,810 --> 00:12:08,564
+A i dodali još jednu
+
+318
+00:12:08,564 --> 00:12:09,793
+vektor kolonu sa desne strane,
+
+319
+00:12:09,793 --> 00:12:11,814
+i zbog toga je sada matrica A
+
+320
+00:12:11,814 --> 00:12:16,083
+3x3 matrica koja izgleda ovako.
+
+321
+00:12:16,200 --> 00:12:18,005
+I konačno, jedan pogodan
+
+322
+00:12:18,010 --> 00:12:19,802
+trik koji koristim ponekad.
+
+323
+00:12:19,810 --> 00:12:22,022
+Ako ukucate samo A i samo dvotačku, ovako,
+
+324
+00:12:22,022 --> 00:12:25,585
+ovo je jedna vrsta specijalnog slučaja.
+
+325
+00:12:25,590 --> 00:12:28,695
+Ovo znači: stavi sve elemente matrice A
+
+326
+00:12:28,695 --> 00:12:30,751
+u jednu vektor kolonu
+
+327
+00:12:30,850 --> 00:12:34,513
+a to mi daje 3x1 vektor.
+
+328
+00:12:34,513 --> 00:12:38,584
+Ovo kombinuje sve elemente u jednu kolonu.
+
+329
+00:12:39,700 --> 00:12:45,258
+Još nekoliko primera. Da vidimo,
+
+330
+00:12:45,300 --> 00:12:52,073
+recimo A je jednako 12;34;56, u redu?
+
+331
+00:12:52,181 --> 00:12:54,035
+I recimo da
+
+332
+00:12:54,060 --> 00:12:55,674
+postavim B da je
+
+333
+00:12:55,680 --> 00:12:58,984
+jednako 11, 12; 13, 14; 15, 16.
+
+334
+00:12:58,984 --> 00:13:00,346
+Mogu da napravim novu
+
+335
+00:13:00,346 --> 00:13:03,161
+matricu C kao A B.
+
+336
+00:13:03,200 --> 00:13:05,010
+Ovo jednostavno znači,
+
+337
+00:13:05,080 --> 00:13:06,666
+ovo je matrica A, a ovo matrica
+
+338
+00:13:06,666 --> 00:13:08,426
+B i stavio sam C
+
+339
+00:13:08,426 --> 00:13:11,053
+da je jednako A B.
+
+340
+00:13:11,070 --> 00:13:12,225
+Ono što radim je da uzimam
+
+341
+00:13:12,225 --> 00:13:15,438
+ove dve matrice i spajam ih jednu uz drugu.
+
+342
+00:13:15,438 --> 00:13:18,408
+Dakle, matrica A na levoj strani
+
+343
+00:13:18,420 --> 00:13:20,786
+i imam matricu B na desnoj strani.
+
+344
+00:13:20,800 --> 00:13:23,738
+Tako se formira ova
+
+345
+00:13:23,830 --> 00:13:27,145
+matrica C, spajanjem dve matrice.
+
+346
+00:13:27,145 --> 00:13:28,927
+Takođe mogu da stavim C
+
+347
+00:13:28,927 --> 00:13:31,975
+da je jednako A; B. Oznaka
+
+348
+00:13:32,000 --> 00:13:35,552
+tačka zarez znači da
+
+349
+00:13:35,552 --> 00:13:38,881
+sledeći član stavljam na dno.
+
+350
+00:13:38,881 --> 00:13:39,880
+Dakle, uradiću C je
+
+351
+00:13:39,910 --> 00:13:41,169
+A; B. Ovo takođe
+
+352
+00:13:41,170 --> 00:13:42,408
+spaja matrice A i B
+
+353
+00:13:42,460 --> 00:13:44,048
+sa razlikom što ih
+
+354
+00:13:44,048 --> 00:13:46,408
+sada stavlja jednu iznad druge.
+
+355
+00:13:46,408 --> 00:13:49,675
+Daklem sada imamo A iznad B i ovo C je
+
+356
+00:13:49,675 --> 00:13:52,038
+sada 6x2 matrica.
+
+357
+00:13:52,038 --> 00:13:54,263
+Dakle, samo da ponovim, tačka zarez
+
+358
+00:13:54,270 --> 00:13:56,705
+obično znači stavljanje u novi red.
+
+359
+00:13:56,705 --> 00:13:58,463
+Dakle C je sastavljeno od A
+
+360
+00:13:58,463 --> 00:13:59,598
+i onda idemo na dno
+
+361
+00:13:59,598 --> 00:14:00,610
+i onda stavljamo B
+
+362
+00:14:00,690 --> 00:14:02,320
+na dno a usput,
+
+363
+00:14:02,390 --> 00:14:04,225
+ovo A B je
+
+364
+00:14:04,225 --> 00:14:05,734
+isto kao i A, B i
+
+365
+00:14:05,750 --> 00:14:09,106
+tako, bilo koji način će da da isti rezultat.
+
+366
+00:14:10,310 --> 00:14:11,916
+Zaključno sa ovim, nadam se da sada
+
+367
+00:14:11,916 --> 00:14:14,256
+znate kako da napravite
+
+368
+00:14:14,260 --> 00:14:17,207
+matrice i nadam se da
+
+369
+00:14:17,207 --> 00:14:18,223
+ću sada moći da vam pokažem neke
+
+370
+00:14:18,223 --> 00:14:19,822
+komande koje možete da koristite
+
+371
+00:14:19,850 --> 00:14:21,913
+da biste na brzinu mogli da spojite matrice
+
+372
+00:14:21,940 --> 00:14:23,390
+i da ih uzmete i, znate,
+
+373
+00:14:23,390 --> 00:14:24,984
+kombinujete da biste napravili
+
+374
+00:14:25,000 --> 00:14:27,009
+veće matrice, i sa
+
+375
+00:14:27,009 --> 00:14:28,962
+samo par linija koda, Oktav
+
+376
+00:14:28,962 --> 00:14:30,770
+je veoma pogodan u smislu
+
+377
+00:14:30,770 --> 00:14:32,683
+da brzo možete da spojite
+
+378
+00:14:32,683 --> 00:14:36,033
+kompleksne matrice i manipulišete podacima.
+
+379
+00:14:36,050 --> 00:14:38,027
+Dakle, to je to što se tiče manipulacije podacima.
+
+380
+00:14:38,027 --> 00:14:39,347
+U sledećem videu ćemo početi
+
+381
+00:14:39,347 --> 00:14:40,783
+da govorimo kako da u stvari
+
+382
+00:14:40,860 --> 00:14:46,232
+vršimo složene proračune nad našim podacima.
+
+383
+00:14:46,830 --> 00:14:48,256
+Dakle, nadam se da ste dobili
+
+384
+00:14:48,256 --> 00:14:49,961
+osećaj kako da, sa
+
+385
+00:14:49,961 --> 00:14:51,049
+samo par komandi, možete
+
+386
+00:14:51,049 --> 00:14:54,573
+da veoma brzo manipulišete 
+podacima u Oktav programu.
+
+387
+00:14:54,590 --> 00:14:56,164
+Kako da učitavate i čuvate vektore
+
+388
+00:14:56,180 --> 00:14:58,059
+i matrice, učitavate i čuvate podatke,
+
+389
+00:14:58,090 --> 00:15:00,201
+spajate matrice da biste dobili
+
+390
+00:15:00,201 --> 00:15:02,990
+veće matrice, indeksirate ili pristupate
+
+391
+00:15:02,990 --> 00:15:05,021
+određenim elementima matrica.
+
+392
+00:15:05,021 --> 00:15:06,015
+Znam da sam spomenuo mnogo
+
+393
+00:15:06,015 --> 00:15:06,944
+komandi, zato mislim
+
+394
+00:15:06,980 --> 00:15:08,244
+da je najbolje da,
+
+395
+00:15:08,244 --> 00:15:09,741
+nakon što završite sa videom,
+
+396
+00:15:09,741 --> 00:15:12,248
+pogledate prepis onoga o čemu smo pričali.
+
+397
+00:15:12,248 --> 00:15:13,286
+Znate, pogledajte to.
+
+398
+00:15:13,286 --> 00:15:14,661
+Pogledajte sajt kursa i skinite
+
+399
+00:15:14,661 --> 00:15:15,927
+prepis ove lekcije
+
+400
+00:15:15,950 --> 00:15:17,479
+i prođite kroz
+
+401
+00:15:17,479 --> 00:15:18,820
+prepis i ukucajte sami
+
+402
+00:15:18,820 --> 00:15:21,942
+neke od ovih komandi u Oktav prozor
+
+403
+00:15:21,942 --> 00:15:24,752
+pa ih pokrenite i vidite kako rade.
+
+404
+00:15:24,752 --> 00:15:28,113
+I naravno, nema svrhe pamtiti sve ove komande.
+
+405
+00:15:28,113 --> 00:15:30,030
+Ono što biste trebali
+
+406
+00:15:30,030 --> 00:15:31,852
+da uradite, nadam se, je da
+
+407
+00:15:31,852 --> 00:15:32,910
+iz ovoga videa dobijete
+
+408
+00:15:32,910 --> 00:15:35,065
+osećaj o stvarima koje možete da uradite.
+
+409
+00:15:35,100 --> 00:15:36,519
+Dakle, malo kasnije, kada
+
+410
+00:15:36,520 --> 00:15:37,902
+budete pokušavali da samostalno
+
+411
+00:15:37,902 --> 00:15:39,630
+programirate algoritme učenja, ako budete
+
+412
+00:15:39,630 --> 00:15:40,921
+pokušali da nađete određenu
+
+413
+00:15:40,930 --> 00:15:42,455
+komandu za koju mislite da
+
+414
+00:15:42,455 --> 00:15:43,878
+Oktav može da izvrši jer mislite
+
+415
+00:15:43,878 --> 00:15:45,325
+da ste je možda videli ovde,
+
+416
+00:15:45,325 --> 00:15:47,300
+treba da se vratite na prepis
+
+417
+00:15:47,300 --> 00:15:48,545
+ove lekcije i prođete kroz
+
+418
+00:15:48,560 --> 00:15:51,693
+njih da biste našli one koje želite da koristite.
+
+419
+00:15:51,693 --> 00:15:53,069
+Dakle, to je sve `što se tiče
+
+420
+00:15:53,069 --> 00:15:54,841
+manipulacije podacima, a u
+
+421
+00:15:54,841 --> 00:15:56,060
+sledećem videu bih želeo
+
+422
+00:15:56,120 --> 00:15:57,699
+da počnemo da govorimo o
+
+423
+00:15:57,740 --> 00:15:59,257
+tome kako se u stvari prave
+
+424
+00:15:59,257 --> 00:16:01,404
+složeniji proračuni nad našim
+
+425
+00:16:01,410 --> 00:16:03,548
+podacima, i kako da
+
+426
+00:16:03,550 --> 00:16:04,866
+računate sa podacima, i
+
+427
+00:16:04,866 --> 00:16:06,560
+u stvari da počnete da 
+implementirate algoritme učenja.

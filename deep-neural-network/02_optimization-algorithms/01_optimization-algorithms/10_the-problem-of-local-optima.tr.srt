@@ -1,0 +1,417 @@
+1
+00:00:00,000 --> 00:00:01,710
+Derin öğrenmenin ilk günlerinde
+
+2
+00:00:01,710 --> 00:00:04,380
+insanlar optimizasyon algoritması
+ hakkında oldukça endişeliydi.
+
+3
+00:00:04,380 --> 00:00:07,415
+Kötü yerel optimum
+ değerinde kalmaktan endişeliydiler
+
+4
+00:00:07,415 --> 00:00:09,660
+Fakat bu derin öğrenme teorisi ilerledikçe
+
+5
+00:00:09,660 --> 00:00:13,285
+bizim yerel optimum anlayışımız da değişiyor.
+
+6
+00:00:13,285 --> 00:00:16,855
+İzin verin size yerel optimumu
+ şimdilerde nasıl ele aldığımız göstereyim.
+
+7
+00:00:16,855 --> 00:00:21,279
+Ve derin öğrenmedeki optimizasyon problemlerini
+
+8
+00:00:21,279 --> 00:00:25,695
+İnsanların yerel optimumu düşünürken
+ canlandırdığı fotoğraf buydu.
+
+9
+00:00:25,695 --> 00:00:28,786
+Diyelim ki bazı parametreleri
+ optimize etmeye çalışıyorsunuz,
+
+10
+00:00:28,786 --> 00:00:30,580
+W1 ve W2 isimlerini verelim onlara
+
+11
+00:00:30,580 --> 00:00:33,913
+ve yüzeydeki yükseklik de maliyet fonksiyonu oluyor.
+
+12
+00:00:33,913 --> 00:00:38,655
+Bu fotoğrafta bir sürü yerel optimum 
+değeri olduğu görülüyor.
+
+13
+00:00:38,655 --> 00:00:41,010
+Bu gibi durumlarda gradyan düşümü ya da
+
+14
+00:00:41,010 --> 00:00:43,622
+herhangi bir diğer algoritma global optimumu bulamadan
+
+15
+00:00:43,622 --> 00:00:47,226
+yerel optimumlardan birinde sıkışır.
+
+16
+00:00:47,226 --> 00:00:51,945
+Görünen o ki, eğer iki boyutta
+ böyle bir figür çizmek isterseniz
+
+17
+00:00:51,945 --> 00:00:56,637
+bir sürü yerel optimumu olan
+ böyle bir grafik yaratmak kolay olur.
+
+18
+00:00:56,637 --> 00:01:00,285
+Böyle az boyutlu grafikler 
+onların sezgilerini yönlendirmişti.
+
+19
+00:01:00,285 --> 00:01:02,730
+Fakat bu sezgi aslında doğru değil.
+
+20
+00:01:02,730 --> 00:01:04,878
+Bir sinir ağını eğittiğinizde görüyorsunuz ki
+
+21
+00:01:04,878 --> 00:01:09,965
+sıfır gradyanlarının çoğu noktası
+ burdaki gibi yerel optimum değil.
+
+22
+00:01:09,965 --> 00:01:15,330
+Aksine, maliyet fonksiyonundaki
+ sıfır gradyanın çoğu noktası eyer noktalarıdır.
+
+23
+00:01:15,330 --> 00:01:17,845
+Yani, bu sıfır gradyanın yine
+
+24
+00:01:17,845 --> 00:01:19,826
+..(?) W1, W2 olduğu nokta.
+
+25
+00:01:19,826 --> 00:01:25,150
+Ve yükseklik de maliyet fonksiyonu J'nin değeri.
+
+26
+00:01:25,150 --> 00:01:28,523
+İnformal olarak,
+ çok boyutlu uzayın bir fonksiyonu,
+
+27
+00:01:28,523 --> 00:01:30,075
+eğer gradyan sıfır ise,
+
+28
+00:01:30,075 --> 00:01:32,835
+o zaman her iki yönde de
+
+29
+00:01:32,835 --> 00:01:36,810
+dışbükeyimsi ya da içbükeyimsi bir fonksiyon olabilir.
+
+30
+00:01:36,810 --> 00:01:38,660
+Ve diyelim ki siz
+
+31
+00:01:38,660 --> 00:01:40,785
+20.000 boyutlu uzayda çalışıyorsunuz,
+
+32
+00:01:40,785 --> 00:01:42,510
+o zaman onun yerel optimum olması için
+
+33
+00:01:42,510 --> 00:01:45,795
+20.000 yönün hepsinin bu şekilde görünmesi lazım.
+
+34
+00:01:45,795 --> 00:01:49,274
+Ve böyle bir şeyin olma ihtimalı bayağı düşük.
+
+35
+00:01:49,274 --> 00:01:51,564
+belki 2^(-20.000) kadar küçük bir olasılık.
+
+36
+00:01:51,564 --> 00:01:57,945
+Eğrinin yukarı doğru bükülü olduğu yönler ve aynı zamanda
+
+37
+00:01:57,945 --> 00:02:01,140
+bazı yönlerde ise aşağı doğru bükülü örneklerle karşılaşma
+
+38
+00:02:01,140 --> 00:02:04,720
+ihtimaliniz çok daha yüksek.
+
+39
+00:02:04,720 --> 00:02:07,430
+Yani çok yüksek boyutlu uzaylarda yerel optimum yerine
+
+40
+00:02:07,430 --> 00:02:10,270
+sağdaki gibi eyer noktasıyla karşılaşma
+
+41
+00:02:10,270 --> 00:02:13,575
+ihtimalinin yüksek olma nedeni bu
+
+42
+00:02:13,575 --> 00:02:16,305
+Bu yüzeye niye eyer noktası deniyor
+ diye soracak olursanız
+
+43
+00:02:16,305 --> 00:02:17,545
+Gözünüzde canlandırırsanız,
+
+44
+00:02:17,545 --> 00:02:21,060
+atların üstüne koyulan
+ eyere benziyor, değil mi?
+
+45
+00:02:21,060 --> 00:02:23,165
+Mesela bu bir at olsun
+
+46
+00:02:23,165 --> 00:02:24,540
+bu atın kafası,
+
+47
+00:02:24,540 --> 00:02:28,390
+bu da gözü olsun.
+
+48
+00:02:28,390 --> 00:02:33,235
+Bu kötü bir at oldu tabi ama fikiri anladınız.
+
+49
+00:02:33,235 --> 00:02:34,530
+Siz de tabi sürücü olarak
+
+50
+00:02:34,530 --> 00:02:38,462
+burada eyerde oturacaksınız. 
+
+51
+00:02:38,462 --> 00:02:41,585
+Yani buradaki türevin sıfır
+
+52
+00:02:41,585 --> 00:02:43,445
+olduğu bu noktanın eyer
+
+53
+00:02:43,445 --> 00:02:47,480
+olarak adlandırılma sebebi bu.
+
+54
+00:02:47,480 --> 00:02:50,370
+Sanırım burada eyerin üzerine oturacağınız bir nokta var.
+
+55
+00:02:50,370 --> 00:02:53,480
+Orası da türevin sıfır olduğu nokta oluyor.
+
+56
+00:02:53,480 --> 00:02:56,310
+Evet, derin öğrenme tarihinden
+ çıkardığımız bir ders şu;
+
+57
+00:02:56,310 --> 00:02:59,790
+düşük boyutlu uzaylar hakkındaki sezgilerimiz,
+
+58
+00:02:59,790 --> 00:03:01,235
+mesela soldaki grafik gibi,
+
+59
+00:03:01,235 --> 00:03:03,120
+öğrenme algoritmalarımızın da çalıştığı
+
+60
+00:03:03,120 --> 00:03:07,695
+çok boyutlu uzaylarda pek işe yaramıyor.
+
+61
+00:03:07,695 --> 00:03:10,860
+Çünkü 20.000 parametreniz varsa
+
+62
+00:03:10,860 --> 00:03:14,399
+J 20.000 boyutlu vektör üzerinde bir fonksiyon oluyor.
+
+63
+00:03:14,399 --> 00:03:17,964
+O zaman da yerel optimum yerine
+ eyer noktasıyla karşılaşma ihtimaliniz çok yüksek.
+
+64
+00:03:17,964 --> 00:03:20,265
+Peki eğer yerel optimum problem teşkil etmiyorsa,
+
+65
+00:03:20,265 --> 00:03:22,002
+o zaman problem nedir?
+
+66
+00:03:22,002 --> 00:03:26,155
+Görünen o ki platolar gerçekten öğrenmeyi yavaşlatıyor.
+
+67
+00:03:26,155 --> 00:03:31,635
+Plato türevin çok uzun süre sıfıra yakın olduğu bir bölgedir.
+
+68
+00:03:31,635 --> 00:03:33,915
+Eğer şuradaysanız,
+
+69
+00:03:33,915 --> 00:03:38,230
+o zaman gradyan düşümü aşağı doğru inecek.
+
+70
+00:03:38,230 --> 00:03:41,250
+Ve gradyan sıfır ya da sıfıra çok yakın olduğu için
+
+71
+00:03:41,250 --> 00:03:42,829
+bu oldukça düz bir yüzey
+
+72
+00:03:42,829 --> 00:03:45,300
+Plato üzerine bu noktaya yavaş yavaş gelmek için
+
+73
+00:03:45,300 --> 00:03:51,555
+çok fazla zaman harcayabilirsiniz.
+
+74
+00:03:51,555 --> 00:03:53,820
+Ve rastgele sağa ya da sola sapmalardan dolayı
+
+75
+00:03:53,820 --> 00:03:57,870
+-daha açık olsun diye kalemin rengini değiştireceğim-
+
+76
+00:03:57,870 --> 00:04:00,745
+algoritmanız nihayet plato dışına çıkabilir.
+
+77
+00:04:00,745 --> 00:04:04,620
+Aşağıya inene kadar bu uzun eğimi geçiyor ve ancak
+
+78
+00:04:04,620 --> 00:04:09,130
+bu noktaya gelip platodan çıkıyor.
+
+79
+00:04:09,130 --> 00:04:11,720
+Bu videodan aklınızda şunlar kalsın;
+
+80
+00:04:11,720 --> 00:04:13,740
+ilk olarak, eğer büyük bir sinir ağı eğitiyorsanız,
+
+81
+00:04:13,740 --> 00:04:17,150
+bir sürü parametreyi kaydediyorsanız
+
+82
+00:04:17,150 --> 00:04:18,555
+ve maliyet fonksiyonunuz J görece
+ çok boyutlu bir uzayda tanımlıysa,
+
+83
+00:04:18,555 --> 00:04:23,185
+kötü bir yerel optimumda sıkışma ihtimaliniz düşük.
+
+84
+00:04:23,185 --> 00:04:28,750
+İkinci olarak, platolar problem teşkil ediyor 
+ve öğrenmeyi oldukça yavaşlatabiliyor.
+
+85
+00:04:28,750 --> 00:04:31,826
+Bu noktada da momentum, RmsProp ya da Adam gibi algoritmalar
+
+86
+00:04:31,826 --> 00:04:35,985
+öğrenme algoritmanıza yardımcı oluyorlar.
+
+87
+00:04:35,985 --> 00:04:40,855
+Bu tarz senaryolarda Adam gibi sofistike gözlem algoritmaları
+
+88
+00:04:40,855 --> 00:04:43,570
+platodan aşağıya inme ve en sonunda onu terk etme
+
+89
+00:04:43,570 --> 00:04:46,720
+sürenizi hızlandırabilir.
+
+90
+00:04:46,720 --> 00:04:49,270
+Şimdi, sinir ağınız çok yüksek boyutlu uzayda 
+
+91
+00:04:49,270 --> 00:04:53,055
+optimizasyon problemlerini çözüyor. 
+Dürüst olmak gerekirse,
+
+92
+00:04:53,055 --> 00:04:57,445
+Ben kimsenin bu uzaylar hakkında
+ derin sezgileri olduğunu düşünmüyorum.
+
+93
+00:04:57,445 --> 00:04:59,910
+Bu konudaki bilgimiz halen evriliyor.
+
+94
+00:04:59,910 --> 00:05:02,785
+Yine de bu video size
+ optimizasyon algoritmalarının karşılaştığı problemler
+
+95
+00:05:02,785 --> 00:05:06,660
+hakkında daha iyi bir sezgi sunar diye umuyorum.
+
+96
+00:05:06,660 --> 00:05:11,100
+Bu haftadaki içeriklerin sonuna geldiniz, tebrikler!
+
+97
+00:05:11,100 --> 00:05:15,275
+Lütfen bu haftanın testine ve programlama ödevine bi bakın.
+
+98
+00:05:15,275 --> 00:05:18,310
+Umarım bu haftanın programlama ödevleri ile 
+bu fikirler üzerinde pratik kazanırsınız.
+
+99
+00:05:18,310 --> 00:05:23,000
+Ve tabiki önümüzdeki haftanın videolarında görüşmek üzere!

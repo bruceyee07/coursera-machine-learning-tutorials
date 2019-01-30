@@ -1,0 +1,1289 @@
+1
+00:00:00,310 --> 00:00:01,540
+U ovome videu želim da
+
+2
+00:00:01,590 --> 00:00:02,885
+vam kažem nešto o par specijalnih
+
+3
+00:00:02,885 --> 00:00:04,848
+operacija nad matricama, a to su
+
+4
+00:00:04,848 --> 00:00:07,430
+inverzija matrica i transponovanje matrica.
+
+5
+00:00:08,740 --> 00:00:10,312
+Hajde da počnemo sa inverzijom
+
+6
+00:00:10,312 --> 00:00:12,928
+matrica. Kao i
+
+7
+00:00:12,940 --> 00:00:14,516
+obično počećemo sa razmatranjem
+
+8
+00:00:14,516 --> 00:00:17,248
+veze sa realnim brojevima.
+
+9
+00:00:17,280 --> 00:00:18,803
+U poslednjem videu, rekao
+
+10
+00:00:18,803 --> 00:00:20,625
+sam da broj jedan igra
+
+11
+00:00:20,625 --> 00:00:24,570
+ulogu jediničnog broja u
+
+12
+00:00:24,590 --> 00:00:26,059
+prostoru realnih brojeva jer
+
+13
+00:00:26,070 --> 00:00:28,851
+jedan puta bilo šta je to isto.
+
+14
+00:00:28,860 --> 00:00:30,270
+Videćete da realni brojevi
+
+15
+00:00:30,270 --> 00:00:31,642
+imaju ovu osobinu da svaki
+
+16
+00:00:31,642 --> 00:00:33,093
+broj ima, da
+
+17
+00:00:33,120 --> 00:00:34,635
+svaki broj ima inverzan,
+
+18
+00:00:34,635 --> 00:00:36,637
+na primer, za dati broj
+
+19
+00:00:36,660 --> 00:00:38,552
+tri, postoji neki
+
+20
+00:00:38,552 --> 00:00:40,132
+broj, koji se dobije
+
+21
+00:00:40,132 --> 00:00:41,544
+kao tri inverzno tako da
+
+22
+00:00:41,544 --> 00:00:43,798
+taj broj puta tri daje
+
+23
+00:00:43,798 --> 00:00:46,458
+jedinični element jedan.
+
+24
+00:00:46,480 --> 00:00:50,727
+I tako, tri inverzno, naravno, to je jedna trećina.
+
+25
+00:00:50,727 --> 00:00:53,236
+Za dati neki drugi broj,
+
+26
+00:00:53,236 --> 00:00:55,360
+možda dvanaest, postoji
+
+27
+00:00:55,360 --> 00:00:57,312
+neki broj koji je
+
+28
+00:00:57,340 --> 00:00:59,464
+inverzan od dvanaest i piše se
+
+29
+00:00:59,464 --> 00:01:01,600
+dvanaest na minus jedan,
+
+30
+00:01:01,600 --> 00:01:03,582
+ili, ovo je jedna dvanaestina.
+
+31
+00:01:03,582 --> 00:01:07,092
+Tako da, ako pomnožite ta dva broja,
+
+32
+00:01:07,092 --> 00:01:09,292
+proizvod je opet jednak
+
+33
+00:01:09,292 --> 00:01:12,367
+jediničnom elementu jedan.
+
+34
+00:01:12,370 --> 00:01:13,838
+Videćete da u
+
+35
+00:01:13,860 --> 00:01:17,154
+prostoru realnih brojeva, 
+nema svaki broj svoj inverzan.
+
+36
+00:01:17,154 --> 00:01:19,148
+Na primer broj nula
+
+37
+00:01:19,160 --> 00:01:20,981
+nema svoj inverzan, u redu?
+
+38
+00:01:20,981 --> 00:01:25,410
+Jer inverzan broj broja nula nije definisan.
+
+39
+00:01:25,460 --> 00:01:29,862
+Jedan kroz nula nije definisano.
+
+40
+00:01:30,100 --> 00:01:31,419
+Ono što želimo da
+
+41
+00:01:31,450 --> 00:01:32,453
+uradimo do kraja ovoga
+
+42
+00:01:32,453 --> 00:01:33,835
+slajda je da shvatimo šta ovo
+
+43
+00:01:33,835 --> 00:01:38,341
+znači za računanje inverzne matrice.
+
+44
+00:01:39,253 --> 00:01:41,718
+Ovo je ideja: ako
+
+45
+00:01:41,750 --> 00:01:43,198
+je A nxn
+
+46
+00:01:43,200 --> 00:01:45,078
+matrica, i ako
+
+47
+00:01:45,078 --> 00:01:46,320
+postoji inverzna, o tome
+
+48
+00:01:46,350 --> 00:01:48,487
+ću kasnije da kažem malo više, tada
+
+49
+00:01:48,487 --> 00:01:49,927
+će inverzna matrica da se
+
+50
+00:01:49,927 --> 00:01:51,668
+piše A na
+
+51
+00:01:51,668 --> 00:01:54,186
+minus jedan i A
+
+52
+00:01:54,186 --> 00:01:55,798
+puta ova inverzna, A na
+
+53
+00:01:55,798 --> 00:01:57,045
+minus jedan, će da
+
+54
+00:01:57,050 --> 00:01:59,395
+bude jednako A inverzno puta
+
+55
+00:01:59,395 --> 00:02:00,741
+A, će da
+
+56
+00:02:00,741 --> 00:02:04,088
+nam da ponovo jediničnu matricu.
+
+57
+00:02:04,088 --> 00:02:04,958
+U redu?
+
+58
+00:02:04,960 --> 00:02:07,037
+Samo matrice koje su
+
+59
+00:02:07,060 --> 00:02:09,848
+mxm za neku vrednost m imaju inverzne.
+
+60
+00:02:09,870 --> 00:02:11,692
+Dakle, matrica je
+
+61
+00:02:11,692 --> 00:02:13,010
+mxm, takođe se
+
+62
+00:02:13,040 --> 00:02:16,055
+zove kvadratna matrica a
+
+63
+00:02:16,055 --> 00:02:18,222
+zove se kvadratna jer
+
+64
+00:02:18,222 --> 00:02:24,852
+je broj redova isti kao i broj kolona.
+
+65
+00:02:24,852 --> 00:02:26,516
+U redu, a videćete da
+
+66
+00:02:26,530 --> 00:02:29,518
+jedino kvadratne matrice imaju inverzne,
+
+67
+00:02:29,520 --> 00:02:31,148
+pa je A kvadratna
+
+68
+00:02:31,148 --> 00:02:32,973
+matrica, mxm,
+
+69
+00:02:33,020 --> 00:02:37,198
+i ako ima inverznu, 
+zadovoljava ovu ovde jednačinu.
+
+70
+00:02:37,340 --> 00:02:39,568
+Hajde da vidimo konkretan primer.
+
+71
+00:02:39,568 --> 00:02:41,530
+Recimo da imamo
+
+72
+00:02:41,580 --> 00:02:45,090
+matricu, tri, četiri,
+
+73
+00:02:45,120 --> 00:02:48,080
+dva, šesnaest.
+
+74
+00:02:48,080 --> 00:02:49,535
+Dakle, ovo je 2x2
+
+75
+00:02:49,535 --> 00:02:51,788
+matrica, pa je to
+
+76
+00:02:51,810 --> 00:02:53,159
+kvadratna matrica i tako
+
+77
+00:02:53,160 --> 00:02:55,442
+bi mogla da ima inverznu
+
+78
+00:02:55,480 --> 00:02:57,733
+i videćete da
+
+79
+00:02:57,750 --> 00:02:59,308
+sam već znao da je inverzna
+
+80
+00:02:59,310 --> 00:03:00,810
+matrica ove matrice nula tačka
+
+81
+00:03:00,840 --> 00:03:02,675
+četiri, minus nula tačka
+
+82
+00:03:02,675 --> 00:03:04,485
+jedan, minus nula tačka
+
+83
+00:03:04,520 --> 00:03:08,687
+nula pet, nula nula sedam pet.
+
+84
+00:03:08,750 --> 00:03:10,267
+I ako uzmem ovu matricu
+
+85
+00:03:10,267 --> 00:03:12,273
+i pomnožim ih, videćete
+
+86
+00:03:12,273 --> 00:03:13,598
+da ono što dobijem
+
+87
+00:03:13,620 --> 00:03:15,595
+je 2x2
+
+88
+00:03:15,595 --> 00:03:18,324
+jedinična matrica, I,
+
+89
+00:03:18,350 --> 00:03:20,542
+to je I2x2.
+
+90
+00:03:20,558 --> 00:03:21,365
+U redu?
+
+91
+00:03:21,365 --> 00:03:22,308
+A na ovome slajdu,
+
+92
+00:03:22,308 --> 00:03:24,416
+znate, ova matrica je
+
+93
+00:03:24,416 --> 00:03:27,199
+matrica A, a ova je matrica A inverzna.
+
+94
+00:03:27,199 --> 00:03:28,622
+I videćete da
+
+95
+00:03:28,622 --> 00:03:29,835
+ako izračunate A
+
+96
+00:03:29,835 --> 00:03:31,385
+puta A inverzno, videćete da
+
+97
+00:03:31,410 --> 00:03:32,742
+ako izračunate A inverzno puta
+
+98
+00:03:32,750 --> 00:03:36,821
+A isto dobijate jediničnu matricu.
+
+99
+00:03:36,852 --> 00:03:38,640
+Pa, kako sam
+
+100
+00:03:38,640 --> 00:03:39,760
+našao ovu inverznu ili kako
+
+101
+00:03:39,920 --> 00:03:42,698
+sam našao ovu ovde inverznu?
+
+102
+00:03:42,730 --> 00:03:45,048
+Videćete da ponekad
+
+103
+00:03:45,060 --> 00:03:46,731
+možete da izračunate inverznu matricu
+
+104
+00:03:46,760 --> 00:03:48,745
+ručno ali danas to skoro niko ne radi.
+
+105
+00:03:48,780 --> 00:03:49,888
+Videćete da postoji
+
+106
+00:03:49,888 --> 00:03:52,198
+veoma dobar numerički program za
+
+107
+00:03:52,240 --> 00:03:55,447
+izračunavanje inverznih matrica.
+
+108
+00:03:55,447 --> 00:03:56,369
+I opet, ovo je jedna od
+
+109
+00:03:56,369 --> 00:03:57,310
+stvari za koju postoji mnogo
+
+110
+00:03:57,310 --> 00:03:59,450
+besplatnih biblioteka koje
+
+111
+00:03:59,450 --> 00:04:00,748
+možete da uključite iz bilo
+
+112
+00:04:00,748 --> 00:04:04,973
+kog od modernih programskih jezika 
+da biste računali inverziju matrica.
+
+113
+00:04:04,990 --> 00:04:06,892
+Pokazaću vam na brzinu jedan primer.
+
+114
+00:04:06,900 --> 00:04:08,935
+Kako sam u stvari izračunao ovu inverznu,
+
+115
+00:04:08,940 --> 00:04:13,132
+a ono šta sam uradio jeste da 
+sam koristio program Octave.
+
+116
+00:04:13,170 --> 00:04:14,437
+Dakle, hajde da je uključim.
+
+117
+00:04:14,437 --> 00:04:17,186
+Kasnije ćemo da vidimo malo više o Octave.
+
+118
+00:04:17,186 --> 00:04:18,903
+Hajde da vam na brzinu pokažem primer.
+
+119
+00:04:18,910 --> 00:04:21,078
+Postavljam matricu A da
+
+120
+00:04:21,078 --> 00:04:22,274
+bude jednaka ovoj matrici
+
+121
+00:04:22,274 --> 00:04:24,456
+levo, kucam tri četiri
+
+122
+00:04:24,456 --> 00:04:28,080
+dva šesnaest, dakle to je moja matrica A
+
+123
+00:04:28,080 --> 00:04:29,882
+Ovo je matrica 3 4,
+
+124
+00:04:29,882 --> 00:04:31,141
+2 16 koju imam dole
+
+125
+00:04:31,160 --> 00:04:32,773
+na levoj strani.
+
+126
+00:04:32,773 --> 00:04:34,543
+A program će da izračuna
+
+127
+00:04:34,543 --> 00:04:36,243
+inverznu matricu od A veoma lako.
+
+128
+00:04:36,250 --> 00:04:39,110
+To je kao pinv od A jednako je ovome.
+
+129
+00:04:39,170 --> 00:04:40,765
+I tako, ovo je,
+
+130
+00:04:40,765 --> 00:04:41,935
+ova matrica ovde od četiri
+
+131
+00:04:41,935 --> 00:04:43,715
+minus nula jedan, minus nula nula pet itd.
+
+132
+00:04:43,715 --> 00:04:45,308
+Dobili smo numeričko
+
+133
+00:04:45,350 --> 00:04:46,794
+rešenje onoga što je
+
+134
+00:04:46,794 --> 00:04:48,350
+inverzna matrica od A. Hajde da
+
+135
+00:04:48,350 --> 00:04:50,538
+napišemo, inverzno od A
+
+136
+00:04:50,540 --> 00:04:52,558
+jednako je pinv(A)
+
+137
+00:04:52,580 --> 00:04:55,232
+dakle inverseOfA, tako da
+
+138
+00:04:55,232 --> 00:04:57,200
+mogu da proverim da je A
+
+139
+00:04:57,200 --> 00:04:58,597
+puta A inverzno jednako jediničnoj matrici,
+
+140
+00:04:58,597 --> 00:05:00,644
+kucam A puta
+
+141
+00:05:00,644 --> 00:05:03,390
+inverzno A i
+
+142
+00:05:03,420 --> 00:05:04,740
+rezultat toga je
+
+143
+00:05:04,750 --> 00:05:06,513
+matrica ovo je
+
+144
+00:05:06,513 --> 00:05:08,708
+jedan jedan po dijagonali
+
+145
+00:05:08,740 --> 00:05:10,453
+a u suštini deset na
+
+146
+00:05:10,453 --> 00:05:11,582
+minus sedamnaest, deset na
+
+147
+00:05:11,582 --> 00:05:13,324
+minus šesnaest, zbog
+
+148
+00:05:13,324 --> 00:05:14,961
+numeričke preciznosti, zbog
+
+149
+00:05:14,961 --> 00:05:16,012
+malo zaokruživanja
+
+150
+00:05:16,012 --> 00:05:17,562
+greške koje moj računar
+
+151
+00:05:17,562 --> 00:05:21,123
+pravi dok pronalazi optimalne matrice
+
+152
+00:05:21,123 --> 00:05:22,623
+i ovi brojevi izvan
+
+153
+00:05:22,623 --> 00:05:24,948
+dijagonale su u suštini nule.
+
+154
+00:05:24,970 --> 00:05:29,078
+Dakle, A puta inverzna je 
+u suštini jedinična matrica.
+
+155
+00:05:29,100 --> 00:05:30,907
+Mogu da proverim da je inverzna
+
+156
+00:05:30,907 --> 00:05:33,215
+puta A takođe
+
+157
+00:05:33,215 --> 00:05:35,795
+jednaka jediničnoj,
+
+158
+00:05:35,795 --> 00:05:38,183
+jedinice na dijagonali a vrednosti
+
+159
+00:05:38,183 --> 00:05:39,938
+koje su u suštini nule izuzev
+
+160
+00:05:39,938 --> 00:05:40,856
+malo zaokruživanja
+
+161
+00:05:40,856 --> 00:05:44,752
+greške van dijagonala.
+
+162
+00:05:45,780 --> 00:05:47,428
+U definiciji inverzne
+
+163
+00:05:47,428 --> 00:05:48,636
+matrice, imamo
+
+164
+00:05:48,636 --> 00:05:50,333
+ovo ograničenje da matrica uvek
+
+165
+00:05:50,333 --> 00:05:52,367
+mora da bude kvadratna matrica,
+
+166
+00:05:52,410 --> 00:05:54,219
+postoji ograničenje da ako
+
+167
+00:05:54,219 --> 00:05:57,237
+A ima inverznu, koje tačno
+
+168
+00:05:57,237 --> 00:05:58,855
+matrice imaju inverzne
+
+169
+00:05:58,855 --> 00:06:00,176
+je izvan dometa ovoga
+
+170
+00:06:00,200 --> 00:06:02,056
+pregleda linearne algebre ali
+
+171
+00:06:02,056 --> 00:06:03,942
+intuitivno biste mogli da pogodite
+
+172
+00:06:03,942 --> 00:06:05,245
+da kao što
+
+173
+00:06:05,260 --> 00:06:06,588
+broj nula nema
+
+174
+00:06:06,588 --> 00:06:08,429
+inverzan element, videćete da
+
+175
+00:06:08,440 --> 00:06:10,188
+ako je A recimo
+
+176
+00:06:10,188 --> 00:06:13,457
+matrica sa svim nulama, tada
+
+177
+00:06:13,457 --> 00:06:14,791
+ova matrica takođe
+
+178
+00:06:14,791 --> 00:06:16,432
+nema inverznu matricu jer ne
+
+179
+00:06:16,432 --> 00:06:18,033
+postoji matrica, ne postoji
+
+180
+00:06:18,040 --> 00:06:19,821
+A inverzno tako da ova
+
+181
+00:06:19,821 --> 00:06:21,174
+matrica puta neka druga
+
+182
+00:06:21,174 --> 00:06:22,225
+matrica bude jednako
+
+183
+00:06:22,225 --> 00:06:23,778
+jediničnoj matrici a tako i ova matrica
+
+184
+00:06:23,778 --> 00:06:25,322
+sa svim nulama, a postoji
+
+185
+00:06:25,322 --> 00:06:27,660
+i nekoliko drugih matrica 
+sa sličnim osobinama.
+
+186
+00:06:27,660 --> 00:06:30,843
+Takođe nemaju inverznu matricu.
+
+187
+00:06:30,843 --> 00:06:32,492
+Ali, videćete da
+
+188
+00:06:32,492 --> 00:06:33,600
+u ovome pregledu
+
+189
+00:06:33,600 --> 00:06:35,436
+ne želim da idem dublje u to
+
+190
+00:06:35,436 --> 00:06:37,108
+koje matrice imaju
+
+191
+00:06:37,108 --> 00:06:38,765
+inverzne ali videćete
+
+192
+00:06:38,765 --> 00:06:40,006
+da za aplikacije mašinskog
+
+193
+00:06:40,006 --> 00:06:41,807
+učenja ovo ne bi trebalo
+
+194
+00:06:41,830 --> 00:06:44,260
+da bude problem ili preciznije
+
+195
+00:06:44,280 --> 00:06:46,389
+za algoritme učenja gde
+
+196
+00:06:46,389 --> 00:06:47,943
+bi ovo mogao biti problem,
+
+197
+00:06:47,970 --> 00:06:49,252
+da li ili ne postoji inverzna matrica,
+
+198
+00:06:49,252 --> 00:06:50,968
+reći ću vam kad
+
+199
+00:06:50,968 --> 00:06:51,952
+dođemo do tih algoritama učenja
+
+200
+00:06:51,952 --> 00:06:53,690
+šta tačno znači da
+
+201
+00:06:53,760 --> 00:06:54,850
+algoritam ima ili nema
+
+202
+00:06:55,150 --> 00:06:56,572
+inverznu ili kako da to popravite u slučaju
+
+203
+00:06:56,572 --> 00:06:59,200
+da radite sa matricama koje
+
+204
+00:06:59,200 --> 00:07:00,458
+nemaju inverznu.
+
+205
+00:07:00,458 --> 00:07:02,680
+Ali intuitivno, ako
+
+206
+00:07:02,711 --> 00:07:04,275
+želite, možete da
+
+207
+00:07:04,275 --> 00:07:05,808
+o matricama koje nemaju
+
+208
+00:07:05,808 --> 00:07:07,242
+inverznu mislite da su na neki
+
+209
+00:07:07,242 --> 00:07:10,331
+način previše blizu nuli.
+
+210
+00:07:10,353 --> 00:07:12,602
+Čisto da zaokružimo
+
+211
+00:07:12,670 --> 00:07:14,900
+terminologiju, matrica koja
+
+212
+00:07:14,900 --> 00:07:16,938
+nema inverznu matricu ponekad se zove
+
+213
+00:07:16,940 --> 00:07:18,835
+singularna matrica ili degenerativna
+
+214
+00:07:18,835 --> 00:07:20,960
+matrica i tako ova
+
+215
+00:07:20,970 --> 00:07:22,560
+matrica ovde je jedan
+
+216
+00:07:22,630 --> 00:07:24,701
+primer nula, nula, nula matrice,
+
+217
+00:07:24,701 --> 00:07:29,491
+to je primer singularne matrice 
+ili degenerativne matrice.
+
+218
+00:07:29,537 --> 00:07:31,348
+I na kraju, poslednja specijalna
+
+219
+00:07:31,370 --> 00:07:32,652
+operacija nad matricama o kojoj želim
+
+220
+00:07:32,652 --> 00:07:34,520
+da vam nešto kažem je 
+transponovanje matrica.
+
+221
+00:07:34,530 --> 00:07:36,369
+Recimo da imam
+
+222
+00:07:36,400 --> 00:07:38,160
+matricu A, ako računam
+
+223
+00:07:38,210 --> 00:07:41,220
+transponovanu od A, 
+dobijem ovo na desnoj strani.
+
+224
+00:07:41,232 --> 00:07:43,156
+Ovo je transponovana, a to
+
+225
+00:07:43,156 --> 00:07:46,275
+se piše A superskript T,
+
+226
+00:07:46,278 --> 00:07:47,363
+a način na koji računate
+
+227
+00:07:47,410 --> 00:07:49,531
+transponovanu matricu je sledeći.
+
+228
+00:07:49,531 --> 00:07:50,628
+Da bih dobio transponovanu, ja ću da
+
+229
+00:07:50,628 --> 00:07:52,276
+prvo uzmem prvi
+
+230
+00:07:52,300 --> 00:07:55,079
+red matrice A, od jedan do nula.
+
+231
+00:07:55,080 --> 00:07:58,791
+To postaje prva kolona transponovane.
+
+232
+00:07:58,840 --> 00:07:59,762
+A onda ću da uzmem
+
+233
+00:07:59,762 --> 00:08:01,050
+drugi red matrice A,
+
+234
+00:08:01,050 --> 00:08:04,610
+3 5 9, i to postaje druga kolona
+
+235
+00:08:04,610 --> 00:08:06,838
+transponovane matrice.
+
+236
+00:08:06,850 --> 00:08:08,131
+Drugi način
+
+237
+00:08:08,131 --> 00:08:10,296
+računanja transponovane matrice
+
+238
+00:08:10,296 --> 00:08:11,569
+je da uzmete ovu
+
+239
+00:08:11,570 --> 00:08:14,671
+osu pod 45 stepeni
+
+240
+00:08:14,671 --> 00:08:16,349
+i preslikate kao u ogledalu ili
+
+241
+00:08:16,349 --> 00:08:21,698
+okrenete matricu duž te ose.
+
+242
+00:08:21,698 --> 00:08:23,488
+Ovo je formalnija
+
+243
+00:08:23,500 --> 00:08:26,522
+definicija transponovane matrice.
+
+244
+00:08:26,522 --> 00:08:30,688
+Recimo da je A mxn matrica.
+
+245
+00:08:31,300 --> 00:08:32,727
+I recimo da je B jednako A
+
+246
+00:08:32,727 --> 00:08:36,371
+transponovano, B A transponovano, ovako.
+
+247
+00:08:36,386 --> 00:08:37,563
+Tada će B da
+
+248
+00:08:37,563 --> 00:08:39,637
+bude nxm matrica
+
+249
+00:08:39,637 --> 00:08:42,752
+sa obrnutim dimenzijama pa
+
+250
+00:08:42,830 --> 00:08:46,308
+ovde imamo 2x3 matricu.
+
+251
+00:08:46,370 --> 00:08:48,050
+Tako transponovana postaje
+
+252
+00:08:48,190 --> 00:08:51,196
+3x2 matrica, šta više,
+
+253
+00:08:51,210 --> 00:08:54,585
+Bij je jednako Aji.
+
+254
+00:08:54,610 --> 00:08:56,030
+Dakle, ij element ove
+
+255
+00:08:56,220 --> 00:08:57,390
+matrice B će da bude
+
+256
+00:08:57,530 --> 00:08:59,913
+ji element te
+
+257
+00:08:59,913 --> 00:09:02,310
+početne matrice A. Na
+
+258
+00:09:02,310 --> 00:09:04,212
+primer, B12
+
+259
+00:09:04,212 --> 00:09:06,997
+će da bude jednako
+
+260
+00:09:06,997 --> 00:09:08,756
+vidite ovu
+
+261
+00:09:08,756 --> 00:09:10,537
+matricu B, B12 će da bude jednako
+
+262
+00:09:10,537 --> 00:09:13,775
+ovome elementu 3, prvi red druga kolona.
+
+263
+00:09:13,800 --> 00:09:16,008
+A to je jednako ovome, a
+
+264
+00:09:16,010 --> 00:09:18,199
+to je dva jedan, drugi
+
+265
+00:09:18,220 --> 00:09:21,412
+red prva kolona, u redu, a
+
+266
+00:09:21,420 --> 00:09:23,421
+to je jednako tri i još
+
+267
+00:09:23,440 --> 00:09:25,860
+neki primer, B32
+
+268
+00:09:25,860 --> 00:09:28,561
+u redu, to je
+
+269
+00:09:28,561 --> 00:09:30,922
+B32 je ovaj element 9,
+
+270
+00:09:30,930 --> 00:09:33,282
+a to je jednako
+
+271
+00:09:33,282 --> 00:09:35,525
+A23 što je
+
+272
+00:09:35,525 --> 00:09:38,963
+ovaj element ovde, devet.
+
+273
+00:09:38,963 --> 00:09:40,433
+Dakle, ovo upotpunjuje
+
+274
+00:09:40,433 --> 00:09:41,893
+definiciju šta znači
+
+275
+00:09:41,893 --> 00:09:43,468
+dobiti transponovanu matricu
+
+276
+00:09:43,510 --> 00:09:44,991
+neke matrice a to
+
+277
+00:09:44,991 --> 00:09:49,323
+u stvari zaključuje pregled linearne algebre.
+
+278
+00:09:49,323 --> 00:09:50,754
+Nadam se da ste do sada naučili
+
+279
+00:09:50,754 --> 00:09:52,205
+kako da saberete i oduzmete
+
+280
+00:09:52,205 --> 00:09:53,701
+matrice, kao i da
+
+281
+00:09:53,701 --> 00:09:55,325
+ih pomnožite i takođe
+
+282
+00:09:55,325 --> 00:09:57,185
+znate kako, koje su
+
+283
+00:09:57,185 --> 00:09:58,942
+definicije inverzne
+
+284
+00:09:58,942 --> 00:10:01,457
+i transponovane matrice
+
+285
+00:10:01,457 --> 00:10:02,934
+a to su glavne operacije koje trebate
+
+286
+00:10:02,934 --> 00:10:05,152
+u linearnoj algebri
+
+287
+00:10:05,152 --> 00:10:06,172
+za ovaj kurs.
+
+288
+00:10:06,172 --> 00:10:09,043
+U slučaju da prvi put vidite ovaj materijal,
+
+289
+00:10:09,043 --> 00:10:10,798
+znam da je ovo mnogo
+
+290
+00:10:10,798 --> 00:10:13,032
+materijala o linearnoj algebri predstavljeno
+
+291
+00:10:13,032 --> 00:10:14,512
+veoma brzo i to je mnogo da
+
+292
+00:10:14,520 --> 00:10:16,581
+bi se zapamtilo ali
+
+293
+00:10:16,581 --> 00:10:18,102
+nema potrebe da
+
+294
+00:10:18,102 --> 00:10:20,045
+pamtite sve definicije
+
+295
+00:10:20,045 --> 00:10:21,718
+kroz koje smo upravo prošli ako
+
+296
+00:10:21,718 --> 00:10:23,451
+skinete kopije ili ovih
+
+297
+00:10:23,451 --> 00:10:24,520
+slajdova ili zabeleške
+
+298
+00:10:24,540 --> 00:10:28,353
+sa lekcija sa veb sajta ovoga kursa
+
+299
+00:10:28,370 --> 00:10:29,645
+i koristite ili slajdove ili
+
+300
+00:10:29,645 --> 00:10:31,478
+zabeleške iz lekcija kao reference
+
+301
+00:10:31,490 --> 00:10:32,886
+tada se uvek možete vratiti
+
+302
+00:10:32,900 --> 00:10:34,178
+na definicije i shvatiti
+
+303
+00:10:34,178 --> 00:10:35,615
+šta je množenje
+
+304
+00:10:35,615 --> 00:10:39,111
+matrica, transponovanje i ostale definicije.
+
+305
+00:10:39,140 --> 00:10:40,697
+A zabeleške iz lekcija na sajtu kursa takođe
+
+306
+00:10:40,697 --> 00:10:42,421
+sadrže linkove na dodatnu
+
+307
+00:10:42,450 --> 00:10:44,675
+literaturu linearne algebre koju
+
+308
+00:10:44,675 --> 00:10:47,445
+možete da koristite da biste 
+naučili više o linearnoj algebri.
+
+309
+00:10:48,861 --> 00:10:53,445
+A sledeće sa novim alatima.
+
+310
+00:10:53,540 --> 00:10:55,153
+U sledećih par videa
+
+311
+00:10:55,153 --> 00:10:57,035
+moći ćemo da razvijemo moćnije
+
+312
+00:10:57,035 --> 00:10:58,758
+forme linearne regresije koje
+
+313
+00:10:58,758 --> 00:10:59,854
+mogu da vide mnogo
+
+314
+00:10:59,854 --> 00:11:00,809
+više podataka, mnogo više
+
+315
+00:11:00,809 --> 00:11:02,226
+osobina, mnogo više trening
+
+316
+00:11:02,226 --> 00:11:04,367
+primera a kasnije,
+
+317
+00:11:04,400 --> 00:11:06,114
+posle linearne regresije,
+
+318
+00:11:06,114 --> 00:11:07,832
+nastavićemo da koristimo ove alate
+
+319
+00:11:07,832 --> 00:11:10,016
+linearne algebre da bismo isto tako
+
+320
+00:11:10,016 --> 00:11:13,242
+izveli moćnije algoritme učenja.

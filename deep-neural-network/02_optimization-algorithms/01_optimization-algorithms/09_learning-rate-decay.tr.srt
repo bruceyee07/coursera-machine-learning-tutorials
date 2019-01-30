@@ -1,0 +1,423 @@
+1
+00:00:00,380 --> 00:00:03,140
+Öğrenme algoritmanızı hızlandırmaya yardımcı olabilecek şeylerden biri,
+
+2
+00:00:03,140 --> 00:00:06,240
+zamanla öğrenme oranınızı yavaşça azaltmaktır.
+
+3
+00:00:06,240 --> 00:00:08,520
+Buna, öğrenme oranı azalması diyoruz.
+
+4
+00:00:08,520 --> 00:00:10,650
+Bunu nasıl uygulayabileceğinizi görelim.
+
+5
+00:00:10,650 --> 00:00:13,710
+Bir örnekle başlayalım: neden uygulamak isteyebilirsiniz?
+
+6
+00:00:13,710 --> 00:00:15,150
+öğrenme oranı azalması.
+
+7
+00:00:15,150 --> 00:00:18,260
+-Mini toplu eğim inişini uyguladığınızı varsayalım
+
+8
+00:00:18,260 --> 00:00:20,070
+makul küçük bir mini-toptan ile.
+
+9
+00:00:20,070 --> 00:00:24,210
+Belki bir mini-toptan sadece 64, 128 örnekleri vardır.
+
+10
+00:00:24,210 --> 00:00:28,210
+Ardından yinelediğiniz gibi, adımlarınız biraz gürültülü olacaktır.
+
+11
+00:00:28,210 --> 00:00:33,940
+Ve buradaki en düşük eğilime sahip olacak, ama tam olarak birleşmeyecek.
+
+12
+00:00:33,940 --> 00:00:38,040
+Ama senin algoritmanın sadece etrafta dolaşıyor olabilir ve
+
+13
+00:00:38,040 --> 00:00:43,390
+asla gerçekten yakınsama, çünkü alfa için bazı sabit değerler kullanıyorsunuz.
+
+14
+00:00:43,390 --> 00:00:46,660
+Ve farklı mini partilerinde sadece bir miktar gürültü var.
+
+15
+00:00:46,660 --> 00:00:52,650
+Ancak, öğrenme oranınızı yavaşça alçalırsanız
+
+16
+00:00:52,650 --> 00:00:56,410
+daha sonra başlangıç aşamalarında, öğrenme oranınız alfa hala büyük iken,
+
+17
+00:00:56,410 --> 00:00:59,270
+hala nispeten hızlı öğrenmeye sahip olabilirsiniz.
+
+18
+00:00:59,270 --> 00:01:05,940
+Ancak alfa küçüldükçe, aldığınız adımlar daha yavaş ve daha küçük olacaktır.
+
+19
+00:01:05,940 --> 00:01:11,160
+Ve böylece bu minimum etrafında daha sıkı bir bölgede sallanıyorsunuz.
+
+20
+00:01:11,160 --> 00:01:15,398
+Eğitim devam ederken bile, uzaklara gezmek yerine.
+
+21
+00:01:15,398 --> 00:01:20,200
+Yani, yavaşça alfa azaltma sezgileri, belki de
+
+22
+00:01:20,200 --> 00:01:25,170
+Öğrenmenin ilk adımları sırasında çok daha büyük adımlar atabilirsiniz.
+
+23
+00:01:25,170 --> 00:01:29,060
+Ama sonra öğrenme yaklaşımları birleşince,
+
+24
+00:01:29,060 --> 00:01:33,070
+Daha yavaş bir öğrenme oranına sahip olmak, daha küçük adımlar atmanıza olanak tanır.
+
+25
+00:01:33,070 --> 00:01:36,650
+Öyleyse öğrenme oranı azalmasını nasıl uygulayabilirsiniz.
+
+26
+00:01:36,650 --> 00:01:40,640
+Bir çağın tek geçiş olduğunu hatırlayın,
+
+27
+00:01:42,512 --> 00:01:45,430
+Veriler doğru mu?
+
+28
+00:01:45,430 --> 00:01:49,053
+Yani aşağıdaki gibi bir eğitim setiniz varsa,
+
+29
+00:01:49,053 --> 00:01:53,866
+belki de farklı mini partilere ayırırsınız.
+
+30
+00:01:53,866 --> 00:02:00,446
+Daha sonra antrenman setindeki ilk geçişe ilk dönem denir.
+
+31
+00:02:00,446 --> 00:02:05,613
+ve sonra ikinci geçiş ikinci çağ, vb.
+
+32
+00:02:05,613 --> 00:02:10,628
+Yani yapabileceğiniz bir şey, öğrenme oranınızı belirler alpha = 1
+
+33
+00:02:10,628 --> 00:02:15,464
+Bozulma oranını çağıracağım / 1 + bir parametre,
+
+34
+00:02:18,112 --> 00:02:22,490
+Zamanlar çağın anı.
+
+35
+00:02:22,490 --> 00:02:26,890
+Ve bu, bazı başlangıç öğrenme oranı alfa 0 olacak.
+
+36
+00:02:26,890 --> 00:02:30,730
+Buradaki bozulma oranının başka bir hiper parametresi olduğunu unutmayın.
+
+37
+00:02:30,730 --> 00:02:32,340
+hangi ayarlamanız gerekebilir.
+
+38
+00:02:32,340 --> 00:02:33,910
+İşte burada somut bir örnek.
+
+39
+00:02:35,070 --> 00:02:39,659
+Birkaç dönem alırsanız, verilerinizden birkaç tanesi geçer.
+
+40
+00:02:39,659 --> 00:02:46,211
+Alfa 0 = 0.2 ise ve bozunma oranı = 1 ise,
+
+41
+00:02:46,211 --> 00:02:50,267
+o zaman ilk çağında,
+
+42
+00:02:50,267 --> 00:02:55,268
+alfa 1/1 + 1 * alfa 0 olacaktır.
+
+43
+00:02:55,268 --> 00:02:59,785
+Yani öğrenme oranınız 0.1 olacaktır.
+
+44
+00:02:59,785 --> 00:03:04,289
+Bozulma oranı 1'e eşit olduğunda bu formülü değerlendirmek, ve
+
+45
+00:03:04,289 --> 00:03:05,755
+dönem-sayısı 1'dir.
+
+46
+00:03:05,755 --> 00:03:10,613
+İkinci dönemde, öğrenme oranınız 0,67'ye düşer.
+
+47
+00:03:10,613 --> 00:03:15,924
+Üçüncü, 0.5, dördüncü, 0.4, vb.
+
+48
+00:03:15,924 --> 00:03:18,150
+Ve bu değerlerin daha fazlasını kendiniz değerlendirmek için çekinmeyin.
+
+49
+00:03:18,150 --> 00:03:23,200
+Ve çağınızdaki sayının bir fonksiyonu olarak öğrenme oranınız olsun.
+
+50
+00:03:23,200 --> 00:03:29,930
+Üstte bu formüle göre, yavaş yavaş azalır.
+
+51
+00:03:29,930 --> 00:03:33,860
+Öyleyse, öğrenme oranı bozulmasını kullanmak isterseniz, ne yapabilirsiniz?
+
+52
+00:03:33,860 --> 00:03:38,830
+hiper-parametre alfa 0 hem de çeşitli değerlerini deneyin.
+
+53
+00:03:38,830 --> 00:03:41,550
+Bu çürüme oranı hiperparametre(üst-değişken)sinin yanı sıra,
+
+54
+00:03:41,550 --> 00:03:44,710
+ve sonra iyi çalışan değeri bulmaya çalışın.
+
+55
+00:03:44,710 --> 00:03:47,188
+Öğrenme hızı azalması için bu formülden başka,
+
+56
+00:03:47,188 --> 00:03:49,314
+İnsanların kullandığı birkaç başka yol var.
+
+57
+00:03:49,314 --> 00:03:52,097
+Örneğin, buna üstel bozulma denir.
+
+58
+00:03:52,097 --> 00:03:58,009
+Alfa, 1'den küçük bir sayıya eşit olduğunda,
+
+59
+00:03:58,009 --> 00:04:04,513
+0,95 kat dönem sayısı, alfa 0 zamanı gibi.
+
+60
+00:04:04,513 --> 00:04:10,500
+Yani bu, öğrenme oranınızı hızla artıracak.
+
+61
+00:04:10,500 --> 00:04:15,788
+İnsanların kullandığı diğer formüller, alfa gibi şeylerdir
+
+62
+00:04:15,788 --> 00:04:21,805
+= bazı sabit / dönem sayısı kare kök süreleri alfa 0.
+
+63
+00:04:21,805 --> 00:04:26,627
+Ya da bazı sabit k, başka bir hiper parametresi,
+
+64
+00:04:26,627 --> 00:04:32,956
+mini-parti numarası t üzerinde, kare köklü, alfa 0 zamanı.
+
+65
+00:04:32,956 --> 00:04:37,627
+Ve bazen insanların da içinde azalan bir öğrenme oranı kullandığını görürsünüz.
+
+66
+00:04:37,627 --> 00:04:38,821
+ayrık adımlar.
+
+67
+00:04:38,821 --> 00:04:42,798
+Bazı adımların ön plana çıktığı yerlerde, bazı öğrenme oranlarınız var.
+
+68
+00:04:42,798 --> 00:04:45,960
+ve bir süre sonra onu bir buçuk azaltın.
+
+69
+00:04:45,960 --> 00:04:47,320
+Bir buçuk sonra bir buçuk.
+
+70
+00:04:47,320 --> 00:04:48,970
+Bir buçuk sonra bir buçuk.
+
+71
+00:04:48,970 --> 00:04:52,793
+Ve böylece bu ayrı bir merdiven.
+
+72
+00:04:55,954 --> 00:05:01,395
+Şimdiye kadar, alfa'nın nasıl yönetileceğine dair bazı formüllerden bahsetmiştik,
+
+73
+00:05:01,395 --> 00:05:05,210
+öğrenme oranı, zamanla değişir.
+
+74
+00:05:05,210 --> 00:05:08,900
+İnsanların bazen yapabilecekleri bir başka şey de manuel bozulmadır.
+
+75
+00:05:08,900 --> 00:05:11,980
+Ve böylece bir seferde sadece bir model eğitimi alıyorsanız ve
+
+76
+00:05:11,980 --> 00:05:16,070
+eğer modeliniz saatlerce sürüyorsa, hatta tren için çok fazla gün geçiriyorsa.
+
+77
+00:05:16,070 --> 00:05:17,090
+Bazı insanlar ne yapacak?
+
+78
+00:05:17,090 --> 00:05:21,638
+sadece modelinizi çok sayıda gün boyunca eğitirken izleyin.
+
+79
+00:05:21,638 --> 00:05:25,180
+Ve sonra manuel olarak söyle, öğrenme hızı yavaşlatılmış gibi görünüyor,
+
+80
+00:05:25,180 --> 00:05:27,180
+Alfa'yı biraz azaltacağım.
+
+81
+00:05:27,180 --> 00:05:30,242
+Tabi ki bu, bu el ile kontrol eden alfa,
+
+82
+00:05:30,242 --> 00:05:33,710
+alfa, el ile saatten saate ya da günden güne gerçekten ayarlama.
+
+83
+00:05:33,710 --> 00:05:37,140
+Bu, yalnızca az sayıda model eğitimi alıyorsanız çalışır, ancak
+
+84
+00:05:37,140 --> 00:05:39,100
+bazen insanlar bunu da yaparlar.
+
+85
+00:05:39,100 --> 00:05:43,580
+Şimdi alfa öğrenme oranını kontrol etmek için birkaç seçeneğiniz var.
+
+86
+00:05:43,580 --> 00:05:46,630
+Şimdi, düşündüğün zaman, vay, bu bir çok hiper parametresi.
+
+87
+00:05:46,630 --> 00:05:49,320
+Bütün bu farklı seçenekler arasında nasıl seçim yaparım?
+
+88
+00:05:49,320 --> 00:05:51,190
+Şunu söyleyebilirim, şimdilik bunun için endişelenme.
+
+89
+00:05:51,190 --> 00:05:56,550
+Gelecek hafta, hiper parametrelerini sistematik olarak nasıl seçeceğimiz hakkında daha fazla konuşacağız.
+
+90
+00:05:56,550 --> 00:06:00,500
+Benim için öğrenme hızının azalmasının genellikle aşağıya doğru olduğunu söyleyebilirim.
+
+91
+00:06:00,500 --> 00:06:02,080
+denediğim şeylerin listesi.
+
+92
+00:06:02,080 --> 00:06:05,670
+Alfa'nın ayarlanması, sadece sabit bir alfa değeri ve bunun iyi ayarlanması,
+
+93
+00:06:05,670 --> 00:06:07,080
+büyük bir etkisi var.
+
+94
+00:06:07,080 --> 00:06:09,050
+Öğrenme hızı çürüme yardımcı olur.
+
+95
+00:06:09,050 --> 00:06:11,050
+Bazen eğitim hızlandırmaya gerçekten yardımcı olabilir, ancak
+
+96
+00:06:11,050 --> 00:06:15,720
+Listemi, denemek istediğim şeyler açısından biraz alçaltıyor.
+
+97
+00:06:15,720 --> 00:06:18,543
+Ama gelecek hafta, hiper parametreli ayar hakkında konuştuğumuzda,
+
+98
+00:06:18,543 --> 00:06:21,978
+Bu hiper parametrelerin tümünü düzenlemek için daha sistematik yollar görüyorsunuz.
+
+99
+00:06:21,978 --> 00:06:24,422
+Ve bunlar arasında verimli bir şekilde nasıl arama yapılır.
+
+100
+00:06:24,422 --> 00:06:27,790
+Yani bu oran öğrenme çürüme için.
+
+101
+00:06:27,790 --> 00:06:31,420
+Son olarak, yerel optima hakkında da biraz konuşacağım ve
+
+102
+00:06:31,420 --> 00:06:33,390
+nöral ağlarda eyer noktaları.
+
+103
+00:06:33,390 --> 00:06:36,210
+Böylece, türler hakkında biraz daha iyi sezgileriniz olabilir.
+
+104
+00:06:36,210 --> 00:06:39,970
+Optimizasyon algoritmanız optimizasyon problemlerini çözmeye çalışıyor,
+
+105
+00:06:39,970 --> 00:06:41,840
+Bu sinir ağlarını eğitmeye çalışırken.
+
+106
+00:06:41,840 --> 00:06:43,570
+Bunu görmek için bir sonraki videoya gidelim.

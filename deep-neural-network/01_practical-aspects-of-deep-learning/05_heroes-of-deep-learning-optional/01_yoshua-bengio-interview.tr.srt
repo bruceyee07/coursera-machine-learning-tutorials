@@ -1,0 +1,1739 @@
+1
+00:00:03,182 --> 00:00:05,735
+Selam Joshua, bugün aramıza 
+katılabildiğin için çok memnunum.
+
+2
+00:00:05,735 --> 00:00:06,602
+Ben de çok memnunum.
+
+3
+00:00:06,602 --> 00:00:11,892
+Bugün derin öğrenmede sadece bir 
+araştırmacı veya mühendis değilsin.
+
+4
+00:00:11,892 --> 00:00:16,458
+Derin öğrenme kurumlarından,
+ ikonlarından biri oldun.
+
+5
+00:00:16,458 --> 00:00:19,660
+Bunun başlama hikayesini
+ duymak istiyorum.
+
+6
+00:00:19,660 --> 00:00:26,242
+Peki derin öğrenmeye nasıl 
+başladın ve bu kadar ilerledin?
+
+7
+00:00:26,242 --> 00:00:31,289
+Aslında çoğumuz gibi 
+gençlik zamanlarımda
+
+8
+00:00:31,289 --> 00:00:35,912
+çok fazla bilim kurgu 
+romanı okuyarak başladı.
+
+9
+00:00:35,912 --> 00:00:42,374
+1985 yılında linans eğitimime başladığımda,
+ sinir ağları ile ilgili makaleler okumaya başladım
+
+10
+00:00:42,374 --> 00:00:48,040
+ve burası heyecanlandığım, benim için 
+gerçek bir tutku olmaya başladığı yerdi.
+
+11
+00:00:48,040 --> 00:00:52,230
+Ve 80'lerin ortalarında, 1985'te
+ bu makaleleri okumak nasıldı?
+
+12
+00:00:52,230 --> 00:00:54,492
+Hatırlıyor musun?
+
+13
+00:00:54,492 --> 00:00:55,545
+Evet.
+
+14
+00:00:59,565 --> 00:01:05,277
+İleri sistemlerle aldığım klasik yapay
+ zeka kurslarından yola çıkarak,
+
+15
+00:01:05,277 --> 00:01:09,981
+insanların nasıl öğrenebildiği ve insan 
+zekası ile ilgili 
+
+16
+00:01:09,981 --> 00:01:14,445
+tüm bu düşünce dünyasını ve bunlarla,
+
+17
+00:01:14,445 --> 00:01:19,347
+yapay zeka ve bilgisayarlar arasındaki 
+bağlantıları nasıl oluşturabileceğimizi
+
+18
+00:01:19,347 --> 00:01:21,100
+keşfettim.
+
+19
+00:01:21,100 --> 00:01:25,230
+Bu literatürü keşfetmek benim
+ için çok heyecan vericiydi ve
+
+20
+00:01:25,230 --> 00:01:27,730
+Elbette bağlantıcıları okumaya başladım.
+
+21
+00:01:27,730 --> 00:01:31,682
+Geoff Hinton, Rumelhart
+ ve diğerlerinin makalelerini...
+
+22
+00:01:31,682 --> 00:01:38,462
+Ve özyineli ağlar,
+ konuşma tanıma üzerine çalıştım.
+
+23
+00:01:38,462 --> 00:01:42,666
+HMN ve grafiksel modeller üzerine çalıştım.
+
+24
+00:01:42,666 --> 00:01:50,295
+Sonra hızlıca doktora sonrası araştırma yaptığım
+ AT&T Bell Laboratuvarları’na ve MIT’ye taşındım.
+
+25
+00:01:50,295 --> 00:01:54,629
+Ve burada sinir ağlarının uzun süreli 
+bağımlılıklarla olan
+
+26
+00:01:54,629 --> 00:01:57,335
+bazı sorunlarını keşfettim.
+
+27
+00:01:57,335 --> 00:02:02,505
+Kısa bir süre sonra gençlik yıllarımın 
+büyük bir kısmını geçirdiğim Montreal’deki
+
+28
+00:02:02,505 --> 00:02:06,475
+UdeM’de işe geri alındım.
+
+29
+00:02:08,260 --> 00:02:12,948
+Son birkaç on yıldır orada olan
+ ve her şeyi gören biri olarak,
+
+30
+00:02:12,948 --> 00:02:17,049
+derin öğrenme ve sinir ağlarının bu zaman zarfında 
+
+31
+00:02:17,049 --> 00:02:21,610
+evrimi hakkında ne düşündüğünüzü 
+biraz anlatır mısınız?
+
+32
+00:02:22,740 --> 00:02:25,590
+Deneylerle başlarız, daha da sonra sezgiler
+
+33
+00:02:25,590 --> 00:02:27,030
+ve teori bir nevi sonra gelir.
+
+34
+00:02:27,030 --> 00:02:30,540
+Şimdi Backdrop'ın neden bu kadar iyi çalıştığını,
+
+35
+00:02:30,540 --> 00:02:35,132
+derinliğin neden bu kadar önemli 
+olduğunu daha iyi anlıyoruz.
+
+36
+00:02:35,132 --> 00:02:41,904
+Ve o günlerde, bu görüşler ile ilgili
+ sağlam bir kanıt yoktu.
+
+37
+00:02:41,904 --> 00:02:46,488
+2000'li yılların başlarında derin ağlarda
+ çalışmaya başladığımızda, daha derin bir ağın 
+
+38
+00:02:46,488 --> 00:02:50,680
+daha güçlü olması gerektiğine dair 
+bir çok sezgimiz vardı.
+
+39
+00:02:50,680 --> 00:02:54,450
+Ama bunu nasıl yapacağımızı ve kanıtlayacağımızı
+
+40
+00:02:54,450 --> 00:02:57,680
+bilmiyorduk ve elbette deneylerimiz
+ başlangıçta işe yaramadı.
+
+41
+00:02:59,260 --> 00:02:59,910
+Aslında,
+
+42
+00:02:59,910 --> 00:03:04,580
+doğru çıktığını düşündüğünüz en önemli şeyler nelerdi? 
+
+43
+00:03:04,580 --> 00:03:08,120
+Ve 30 sene önceki bildiklerimizle 
+kıyasladığımızda yanlış çıkan
+
+44
+00:03:08,120 --> 00:03:09,680
+en büyük süprizler nelerdi?
+
+45
+00:03:11,070 --> 00:03:15,880
+Tabii ki, yaptığım en büyük hatalardan biri,
+
+46
+00:03:15,880 --> 00:03:18,686
+90'lardaki herkes gibi,
+
+47
+00:03:18,686 --> 00:03:24,980
+Backdrop'un çalışması için doğrusal olmayanları 
+düzleştirmemiz gerektiğini düşünmek oldu.
+
+48
+00:03:24,980 --> 00:03:31,330
+Çünkü eğer doğrusal olmayanları
+ düzeltirsek, düz bir bölüme 
+
+49
+00:03:31,330 --> 00:03:35,010
+sahip olduğunda çalıştırmanın 
+daha zor olacağını düşündüm.
+
+50
+00:03:35,010 --> 00:03:38,090
+Çünkü türevi bir çok yerde sıfır olurdu.
+
+51
+00:03:38,090 --> 00:03:41,981
+Ve 2010'da ReLU'yla ve derin ağlarla 
+deneyler yapmaya başladığımızda,
+
+52
+00:03:41,981 --> 00:03:48,065
+nötronların sıfır bölümünde çok fazla doymaması
+
+53
+00:03:48,065 --> 00:03:55,270
+konusunda dikkatli olmaya kafayı takmıştım.
+
+54
+00:03:55,270 --> 00:03:59,679
+Ama sonunda gerçekten ReLU'nun
+ sigmoidlerden daha iyi çalıştığı
+
+55
+00:03:59,679 --> 00:04:03,751
+ve bağlandığı ortaya çıktı, bu çok şaşırtıcıydı.
+
+56
+00:04:03,751 --> 00:04:07,969
+Aslında bunu biyolojik
+ bağlantılar sayesinde keşfettik,
+
+57
+00:04:07,969 --> 00:04:11,105
+sadece iyileştirmenin daha kolay
+ olacağını düşündüğümüzden değil,
+
+58
+00:04:11,105 --> 00:04:16,300
+Ama eğitilmesinin daha zor olacağını düşünmeme
+ rağmen daha iyi çalıştığı ortaya çıktı.
+
+59
+00:04:16,300 --> 00:04:17,490
+O zaman size sormama izin verin,
+
+60
+00:04:17,490 --> 00:04:20,890
+Derin öğrenme ve beyin arasındaki ilişki nedir?
+
+61
+00:04:20,890 --> 00:04:25,491
+Açık bir cevabı var, ancak sizin buna 
+cevabınızı merak ediyorum.
+
+62
+00:04:25,491 --> 00:04:31,093
+Sinir ağları ile ilgili beni gerçekten
+
+63
+00:04:31,093 --> 00:04:37,839
+heyecanlandıran içgörü,
+ bağlantıcılardan gelen bilginin birçok nöronun
+
+64
+00:04:37,839 --> 00:04:43,003
+aktivasyonu boyunca dağıtıldığı fikriydi.
+
+65
+00:04:43,003 --> 00:04:47,431
+Büyükanne hücresine göre temsil edilmekten ziyade,
+
+66
+00:04:47,431 --> 00:04:51,209
+sembolik bir temsil olarak adlandırılıyordu.
+
+67
+00:04:51,209 --> 00:04:54,972
+Bu klasik yapay zekadaki geleneksel bakış açısıydı.
+
+68
+00:04:54,972 --> 00:04:58,860
+Ve hala bunun gerçekten önemli 
+bir şey olduğuna inanıyorum
+
+69
+00:04:58,860 --> 00:05:03,573
+ve insanların son zamanlarda bile bunun 
+önemini yeniden keşfettiklerini görüyorum.
+
+70
+00:05:03,573 --> 00:05:06,850
+Yani bu gerçekten bir temeldi.
+
+71
+00:05:06,850 --> 00:05:12,919
+Derinlik, daha sonra 2000'lerin
+ başında gelen bir şeydi.
+
+72
+00:05:12,919 --> 00:05:16,563
+Örneğin 90'larda düşündüğüm bir şey değildi.
+
+73
+00:05:16,563 --> 00:05:21,318
+Doğru, doğru, ve pek çok göreceli sığlık 
+inşa ettiğinizi hatırlıyorum
+
+74
+00:05:21,318 --> 00:05:26,859
+fakat kelimeleri gömmek
+ için fazla dağıtılmış temsillerdi.
+
+75
+00:05:26,859 --> 00:05:28,897
+Evet, bu doğru.
+
+76
+00:05:28,897 --> 00:05:33,661
+90'ların sonunda gerçekten heyecanlandığım 
+şeylerden biri buydu. 
+
+77
+00:05:33,661 --> 00:05:38,351
+Aslında, kardeşim Samy ve ben, 
+istatistiksel öğrenmeyle yüzlerce meseleden
+
+78
+00:05:38,351 --> 00:05:42,171
+biri olduğuna inanılan
+ boyutsallık laneti ile baş etmek için
+
+79
+00:05:42,171 --> 00:05:45,980
+sinir ağlarını kullanabileceğimiz fikrini kullandık.
+
+80
+00:05:45,980 --> 00:05:51,440
+Ve bu dağıtılmış sunumlara
+ sahip olabildiğimiz gerçeği,
+
+81
+00:05:51,440 --> 00:05:57,150
+birçok rastgele değişken üzerinde ortak dağılımları çok verimli bir şekilde temsil etmek için kullanılabilir.
+
+82
+00:05:57,150 --> 00:06:01,250
+Ve gayet iyi işe yaradı, 
+ve sonra bunları sözcük dizileri üzerindeki
+
+83
+00:06:01,250 --> 00:06:04,920
+ortak dağılımlara genişlettim ve 
+kelime gömmeleri bu şekilde doğdu.
+
+84
+00:06:04,920 --> 00:06:10,525
+Çünkü bunun benzer anlamsal bir anlamı olan
+
+85
+00:06:10,525 --> 00:06:16,373
+sözcükler arasında genellemeye 
+izin vereceğini düşündüm.
+
+86
+00:06:16,373 --> 00:06:20,974
+Son birkaç yılda, araştırma grubunuz
+ herkesin birkaç dakika içinde
+
+87
+00:06:20,974 --> 00:06:24,030
+özetleyebileceğinden daha fazla fikir icat etti.
+
+88
+00:06:24,030 --> 00:06:26,879
+Grubunuzdan çıkan, en çok hangi fikirlerle
+
+89
+00:06:26,879 --> 00:06:29,810
+veya icatlarla gurur 
+duyduğunuzu merak ediyorum.
+
+90
+00:06:29,810 --> 00:06:35,640
+Sanırım uzun dönem bağımlılıklar ve 
+bunlarla ilgili çalışmalardan bahsetmiştim.
+
+91
+00:06:35,640 --> 00:06:40,770
+Bence insanlar bunu hala 
+yeteri kadar anlayamıyor.
+
+92
+00:06:40,770 --> 00:06:45,214
+Ayrıca boyutsallık laneti ve sinir ağları ile
+ ortak dağılımlar ile ilgili
+
+93
+00:06:45,214 --> 00:06:49,887
+yakın zamanlarda Hugo Larochelle'nin
+ yaptığı bir şeyden
+
+94
+00:06:49,887 --> 00:06:52,435
+bahsettiğim bir hikaye var.
+
+95
+00:06:52,435 --> 00:06:55,255
+Ve sonra söylediğim gibi, 
+bu sözcüklerde ortak dağılımlar için
+
+96
+00:06:55,255 --> 00:06:59,660
+kelime gömmelerini öğrenme üzerine her türlü çalışmaya yol açmıştır.
+
+97
+00:06:59,660 --> 00:07:04,410
+Muhtemelen derin öğrenme ile ilgili
+ yaptığımız çalışmalardan en bilineni,
+
+98
+00:07:04,410 --> 00:07:07,639
+otomatik gizyazarlar ve RBM yığınları ile ilgiliydi.
+
+99
+00:07:09,580 --> 00:07:15,500
+O zamanlarda, başlangıç fikirleri ile
+ derin ağları eğitmenin zorluklarını
+
+100
+00:07:15,500 --> 00:07:20,530
+ve aynı zamanda derin ağlardaki
+ ufuk çizgisini
+
+101
+00:07:20,530 --> 00:07:24,840
+daha iyi anlamaya çalışmaktı.
+
+102
+00:07:24,840 --> 00:07:29,440
+Ve bu çalışma, gerçekten parçalı 
+doğrusal etkilenim fonksiyonlarının
+
+103
+00:07:29,440 --> 00:07:34,986
+önemini gösteren deneylere 
+yol açan çalışma oldu.
+
+104
+00:07:34,986 --> 00:07:38,804
+Daha sonra, denetimsiz öğrenmeyle 
+ilgili yaptığımız çalışmaların
+
+105
+00:07:38,804 --> 00:07:43,706
+en önemlisi, otokodlayıcılar ve 
+günümüzde çok popüler olan
+
+106
+00:07:43,706 --> 00:07:48,340
+üretici rekabet ağlarıyla ilgili
+ yaptığımız çalışmalar diyebilirim.
+
+107
+00:07:48,340 --> 00:07:54,563
+Dikkati kullanarak, sinirsel makine
+ çevirisi için yaptığımız çalışmaların,
+
+108
+00:07:54,563 --> 00:08:01,132
+çevirinin çalışması için çok önemli
+ olduğu ortaya çıktı.
+
+109
+00:08:01,132 --> 00:08:05,540
+Ve şuan Google Çeviri gibi 
+endüstri sistemlerinde de kullanılıyor.
+
+110
+00:08:05,540 --> 00:08:09,800
+Ama dikkat konusu sinir ağları ile ilgili
+ düşüncelerimi gerçekten değiştirdi.
+
+111
+00:08:09,800 --> 00:08:14,860
+Eskiden, sinir ağlarını<br /> vektörler arasında eşleme
+ yapan makineler olarak görürdük.
+
+112
+00:08:14,860 --> 00:08:19,300
+Ama, artık dikkat düzenekleri ile,
+ her türlü veri yapısını halledebilirsiniz.
+
+113
+00:08:19,300 --> 00:08:24,565
+Ve bu gerçekten
+ çok ilginç yollar açıyor.
+
+114
+00:08:24,565 --> 00:08:27,415
+Aslında biyolojiye bağlanma yönü,
+
+115
+00:08:27,415 --> 00:08:31,403
+son birkaç yıldır üzerinde 
+çalıştığım bir şey,
+
+116
+00:08:31,403 --> 00:08:36,970
+beyinin sağlayabileceği backprop gibi şeyleri
+ nasıl ortaya çıkarabileceğimizdi.
+
+117
+00:08:36,970 --> 00:08:41,500
+Ve bu doğrultuda sinirbilim 
+insanlarının dikkatini çeken 
+
+118
+00:08:41,500 --> 00:08:43,930
+makalelerimiz var.
+
+119
+00:08:43,930 --> 00:08:46,240
+Tabiki de bu doğrultuda
+ devam ediyoruz.
+
+120
+00:08:47,890 --> 00:08:50,785
+Hakkında çok düşündüğünüzü bildiğim konulardan biri de,
+
+121
+00:08:50,785 --> 00:08:52,990
+derin öğrenme ve beyin arasındaki ilişki,
+
+122
+00:08:52,990 --> 00:08:56,720
+bunun hakkında biraz
+ daha bilgi verebilir misiniz?
+
+123
+00:08:56,720 --> 00:09:03,030
+Aslında biyoloji konusu, bir süredir 
+düşündüğüm bir şey.
+
+124
+00:09:03,030 --> 00:09:08,110
+Ve hakkında çok fazla düşündüğümü, 
+hayal kurduğumu söyleyebilirim.
+
+125
+00:09:08,110 --> 00:09:12,897
+Sanırım puzzle'a benzediği için.
+
+126
+00:09:12,897 --> 00:09:16,957
+Beyinden bildiğimiz ve beyinden öğrendiğimiz başak zamanlaması bağımlı plastisite gibi kanıtlara sahibiz.
+
+127
+00:09:16,957 --> 00:09:21,042
+başak zamanlaması bağımlı plastisite
+ gibi kanıtlara sahibiz.
+
+128
+00:09:21,042 --> 00:09:27,490
+Ve diğer yandan, bu kavramların hepsi makine öğrenmesinden var.
+
+129
+00:09:27,490 --> 00:09:31,822
+Bütün sistemi, nesnel bir işleve ve 
+backprop düşüncesine göre
+
+130
+00:09:31,822 --> 00:09:35,440
+küresel olarak geliştirme fikri.
+
+131
+00:09:35,440 --> 00:09:37,370
+Ve ''backprop'' ne anlama geliyor?
+
+132
+00:09:37,370 --> 00:09:42,710
+Yani sorumluluk atama gerçekten 
+ne anlama geliyor?
+
+133
+00:09:42,710 --> 00:09:47,515
+Beyinlerin backprop gibi bir şeyi nasıl 
+yapabileceğini düşünmeye başladığımda,
+
+134
+00:09:47,515 --> 00:09:53,070
+backprop'un arkasında, backprop'la
+ daha verimli olmamızı sağlayan,
+
+135
+00:09:53,070 --> 00:09:58,271
+daha genel bazı kavramların 
+olabileceğini düşünmemi sağladı.
+
+136
+00:09:58,271 --> 00:10:02,217
+Belki de, sorumluluk ataması
+ yapmak için daha fazla yol vardır,
+
+137
+00:10:02,217 --> 00:10:06,973
+ve bunlar, pekiştirme öğrenmesinde
+ bulunan kişilerin sorduğu soruları bağlar.
+
+138
+00:10:06,973 --> 00:10:12,161
+Bazen basit bir soru sormanın sizi
+ birçok farklı şey hakkında
+ düşünmeye yönlendirmesi ve
+
+139
+00:10:12,161 --> 00:10:18,366
+büyük bir bulmaca gibi bir araya getir-
+mek isteyeceğiniz birçok öğe hakkında
+
+140
+00:10:18,366 --> 00:10:23,387
+düşünmeye zorluyor
+ olması gerçekten ilginç.
+
+141
+00:10:23,387 --> 00:10:26,510
+Yani bu birkaç yıl boyunca<br /> böyle devam etti.
+
+142
+00:10:26,510 --> 00:10:30,538
+Ve şunu söylemeliyim ki, tüm bu 
+çalışmalar, takip ettiklerimin çoğu gibi,
+
+143
+00:10:30,538 --> 00:10:34,714
+büyük ölçüde Jeff Hinton'un
+ düşüncelerinden etkilendi.
+
+144
+00:10:34,714 --> 00:10:41,171
+Bu nedenle özellikle, 2007'de
+
+145
+00:10:41,171 --> 00:10:46,013
+ilk derin öğrenme atölyesinde 
+bu konuşmayı verdiğinde,
+
+146
+00:10:46,013 --> 00:10:51,270
+düşündüğü şey beynin çalışma şekliydi.
+
+147
+00:10:52,840 --> 00:10:56,515
+Backprop'un yaptığı işin bir kısmını
+
+148
+00:10:56,515 --> 00:11:00,719
+yapabilmek için nasıl bir zamansal kod kullanılabilir.
+
+149
+00:11:00,719 --> 00:11:06,700
+Ve bu, son yıllarda keşfettiğim 
+pek çok fikre yol açtı.
+
+150
+00:11:07,850 --> 00:11:12,700
+Evet, yani aslında bu
+ on yıldan beri
+
+151
+00:11:13,830 --> 00:11:16,090
+çalışan ilginç bir hikaye.
+
+152
+00:11:17,100 --> 00:11:21,030
+Birden fazla kez konuştuğunuzu
+ duyduğum konulardan biri de
+
+153
+00:11:21,030 --> 00:11:23,090
+gözetimsiz öğrenmedir.
+
+154
+00:11:23,090 --> 00:11:25,000
+Bu konudaki görüşünüzü<br /> paylaşabilir misiniz?
+
+155
+00:11:26,010 --> 00:11:29,880
+Evet, gözetimsiz öğrenme
+ gerçekten önemli.
+
+156
+00:11:29,880 --> 00:11:34,744
+Şuan, endüstriyel sistemlerimiz
+esas olarak insanların,<br /> problemler için önemli
+
+157
+00:11:34,744 --> 00:11:40,259
+kavramların ne olduğunu<br /> tanımlamaları ve bu kavramları
+ verilerde etiketlemelerini
+
+158
+00:11:40,259 --> 00:11:43,845
+gerektiren gözetimsiz
+ öğrenmeye dayanıyor.
+
+159
+00:11:43,845 --> 00:11:49,740
+Tüm bu inanılmaz oyuncakları,<br />servisleri ve sistemleri
+ bunu kullanarak inşa ediyoruz.
+
+160
+00:11:49,740 --> 00:11:52,397
+Ama insanlar daha <br />fazlasını yapabilir.
+
+161
+00:11:52,397 --> 00:11:57,869
+Dünya ile gözlem ve etkileşim 
+ile yeni kavramları keşfedip,
+
+162
+00:11:57,869 --> 00:12:00,360
+icat edebilirler.
+
+163
+00:12:00,360 --> 00:12:05,362
+2 yaşındaki bir çocuk
+ sezgisel fiziği anlayabilir.
+
+164
+00:12:05,362 --> 00:12:08,490
+Başka bir deyişle,
+ yer çekimini, basıncı,
+
+165
+00:12:08,490 --> 00:12:11,990
+eylemsizliği anlar.
+
+166
+00:12:11,990 --> 00:12:14,480
+Sıvıları, katıları anlar.
+
+167
+00:12:14,480 --> 00:12:18,140
+Ve elbette ailesi bu konular
+ hakkında hiçbir şey<br /> anlatmamıştır.
+
+168
+00:12:18,140 --> 00:12:21,110
+Peki, nasıl anladı?
+
+169
+00:12:21,110 --> 00:12:26,160
+Bu, gözetimsiz öğrenmenin 
+cevap vermeye çalıştığı sorudur.
+
+170
+00:12:26,160 --> 00:12:30,460
+Bu sadece etiketlerimiz var 
+veya etiketlere ihtiyacımız yok 
+demek değildir.
+
+171
+00:12:30,460 --> 00:12:33,790
+Aslında bu,<br /> dünyanın gözlemle nasıl
+
+172
+00:12:33,790 --> 00:12:38,630
+çalıştığını açıklayan zihinsel 
+bir yapı inşa etmekle ilgilidir.
+
+173
+00:12:38,630 --> 00:12:42,430
+Ve daha yakın zamanda,
+
+174
+00:12:42,430 --> 00:12:45,810
+gözetimsiz öğrenmedeki fikirleri pekiştirme
+ öğrenimindeki fikirler ile birleştirdim.
+
+175
+00:12:45,810 --> 00:12:50,430
+Çünkü çözmeye çalıştığımız temel kavramlar
+
+176
+00:12:50,430 --> 00:12:54,899
+temel kavramlar hakkında çok güçlü
+ bir gösterge olduğuna inanıyorum
+
+177
+00:12:54,899 --> 00:12:57,020
+ve bunları birbirinden ayırmaya çalışıyoruz.
+
+178
+00:12:58,150 --> 00:13:03,166
+Bir insanın ya da makinenin
+ dünyayı etkileyerek, keşfederek,
+
+179
+00:13:03,166 --> 00:13:08,969
+yeni şeyler deneyerek ve bir şeyleri kontrol
+ etmeye çalışarak elde edebileceği şeyler.
+
+180
+00:13:08,969 --> 00:13:13,598
+Yani bunların, gözetimsiz öğrenmenin 
+orijinal fikirleri ile sıkı sıkıya bağlı olduğunu
+
+181
+00:13:13,598 --> 00:13:14,354
+aldığını düşünüyorum.
+
+182
+00:13:14,354 --> 00:13:17,082
+Dolayısıyla benim gözetimsiz öğrenme<br /> hakkında düşüncem;
+
+183
+00:13:17,082 --> 00:13:22,027
+15 yıl önce RBM'leri ve otokodlayıcıları
+ yapmaya başladığımızda,
+
+184
+00:13:22,027 --> 00:13:26,819
+iyi gösterimleri öğrenme
+ fikrine yoğunlaşmaktı.
+
+185
+00:13:26,819 --> 00:13:29,350
+Ve hala bunun önemli bir soru 
+olduğunu düşünüyorum.
+
+186
+00:13:29,350 --> 00:13:34,370
+Ama bilmediğimiz şey, iyi gösterimin
+ ne ve nasıl olduğuydu.
+
+187
+00:13:34,370 --> 00:13:39,569
+Mesela, amaç fonksiyonunu 
+nasıl anlarız?
+
+188
+00:13:39,569 --> 00:13:41,945
+Bu yüzden yıllar boyunca <br />pek çok şey denedik.
+
+189
+00:13:41,945 --> 00:13:46,262
+Ve aslında gözetimsiz öğrenme 
+araştırmasıyla ilgili güzel şeylerden biri,
+
+190
+00:13:46,262 --> 00:13:48,449
+pek çok farklı fikrin olması,
+
+191
+00:13:48,449 --> 00:13:51,079
+sorunun çözülmesi için 
+farklı yolların olması.
+
+192
+00:13:51,079 --> 00:13:56,482
+Ve belki de gelecek yıl keşfedeceğimiz
+ tamamen farklı bir şey var ve
+
+193
+00:13:56,482 --> 00:14:01,066
+belki de beynimiz tamamen
+ farklı bir şey kullanıyor.
+
+194
+00:14:01,066 --> 00:14:03,197
+Yani bu artımlı bir araştırma değil,
+
+195
+00:14:03,197 --> 00:14:06,300
+kendi içinde keşifler yapan bir şey.
+
+196
+00:14:07,500 --> 00:14:11,150
+Sistemin, gözetimsiz öğrenmede
+ iyi bir iş çıkardığını ölçmek için
+
+197
+00:14:11,150 --> 00:14:14,446
+bile doğru amaç fonksiyonunun
+ ne olduğunun bir tanımına sahip değiliz.
+
+198
+00:14:14,446 --> 00:14:19,710
+Elbette bu zorlayıcı ama aynı zamanda,
+
+199
+00:14:19,710 --> 00:14:23,140
+araştırmacıların gerçekten sevdiği,
+
+200
+00:14:23,140 --> 00:14:26,980
+en azından bana öyle gelen,
+ geniş bir olasılık alanı bırakıyor.
+
+201
+00:14:28,600 --> 00:14:31,536
+Bugünlerde, derin öğrenmede
+ çok fazla değişiklikler oluyor.
+
+202
+00:14:31,536 --> 00:14:34,175
+Ve sanırım, herhangi bir
+ insanin yayınlanmış olan<br /> her bir derin öğrenme
+
+203
+00:14:34,175 --> 00:14:37,410
+makalesini okumasının 
+mümkün olduğu noktayı geçtik.
+
+204
+00:14:38,590 --> 00:14:44,397
+Merak ediyorum, derin öğrenmeyle
+ ilgili sizi en çok<br /> heyecanlandıran şey ne?
+
+205
+00:14:44,397 --> 00:14:49,059
+Çok hırslıyım ve derin öğrenme
+ biliminin şu anki durumunun
+
+206
+00:14:49,059 --> 00:14:54,780
+görmek istediğim yerden çok 
+uzakta olduğunu hissediyorum.
+
+207
+00:14:54,780 --> 00:15:01,060
+Ve sistemlerimizin şu anda 
+dünya hakkında çok<br /> yüzeysel bir anlayışa
+
+208
+00:15:01,060 --> 00:15:05,480
+sahip olduklarını gösteren
+ hatalar yaptığını düşünüyorum.
+
+209
+00:15:06,510 --> 00:15:11,504
+Şimdi beni en çok heyecanlan-
+dıran şey, araştırmaların yararlı
+
+210
+00:15:11,504 --> 00:15:15,527
+bir şeyler yapacak sistemleri
+ inşa etmeye çalışmadığı yönü.
+
+211
+00:15:15,527 --> 00:15:21,494
+Sadece bir bilgisayarın 
+dünyayı nasıl gözlemlediği, <br />etkileşime girdiği ve
+
+212
+00:15:21,494 --> 00:15:26,030
+dünyanın nasıl işlediğini 
+keşfettiği ile ilgili ilkelere<br /> geri dönüyoruz.
+
+213
+00:15:26,030 --> 00:15:30,348
+Dünya bu kadar basit, 
+video oyunu gibi <br />programlayabileceğimiz bir şey
+
+214
+00:15:30,348 --> 00:15:32,718
+olsaydı bile, bunu iyi bir şekilde <br />nasıl yapacağımızı bilmiyoruz.
+
+215
+00:15:32,718 --> 00:15:36,655
+Ve bu harika, çünkü Google, 
+Facebook, Baidu ve diğerleri ile 
+rekabet etmek zorunda değilim.
+
+216
+00:15:36,655 --> 00:15:38,400
+Öyle değil mi?
+
+217
+00:15:38,400 --> 00:15:41,300
+Çünkü bu bir bakıma <br />herhangi birinin
+
+218
+00:15:41,300 --> 00:15:45,640
+garajında yapabileceği ve dünyayı 
+değiştirebilecek temel bir araştırma.
+
+219
+00:15:45,640 --> 00:15:50,130
+Elbette buna saldıracak 
+pek çok yön var.
+
+220
+00:15:50,130 --> 00:15:54,509
+Fakat derin öğrenme ve pekiştirme 
+öğrenimindeki fikirler arasındaki
+ yararlı etkileşimlerin
+
+221
+00:15:54,509 --> 00:15:59,311
+çok önemli olduğunu görüyorum.
+
+222
+00:15:59,311 --> 00:16:03,076
+Ve bu yönde gelişmenin 
+aslında pratik uygulamalar
+
+223
+00:16:03,076 --> 00:16:06,940
+üzerinde büyük bir etkisi olabileceği 
+için gerçekten çok heyecanlıyım.
+
+224
+00:16:06,940 --> 00:16:11,774
+Çünkü uygulamalarda olan bazı
+ büyük zorluklara bakarsanız,
+
+225
+00:16:11,774 --> 00:16:14,044
+yeni alanlarla nasıl<br /> baş ettiğimiz veya
+
+226
+00:16:14,044 --> 00:16:16,921
+çok az örneğimiz olan <br />kategoriler gibi.
+
+227
+00:16:16,921 --> 00:16:21,100
+Ve aslında insanların bu problemleri
+ çözmede çok iyi olduğu durumlarda.
+
+228
+00:16:21,100 --> 00:16:25,336
+Eğer dünyanın nasıl işlediğini
+ daha iyi anlayan
+
+229
+00:16:25,336 --> 00:16:30,201
+sistemlerimiz olsaydı, transfer öğrenme 
+ve dramatizasyon sorunları
+
+230
+00:16:30,201 --> 00:16:33,821
+ile başa çıkmak daha kolay olurdu.
+
+231
+00:16:33,821 --> 00:16:35,280
+Daha derin bir anlayış, değil mi?
+
+232
+00:16:35,280 --> 00:16:36,215
+Aslında ne oluyor?
+
+233
+00:16:36,215 --> 00:16:40,218
+Gördüklerimin sebepleri neler?
+
+234
+00:16:40,218 --> 00:16:44,170
+Ve eylemlerimle, gördüklerimi
+ nasıl etkileyebilirim?
+
+235
+00:16:44,170 --> 00:16:50,542
+Bunlar, bu günlerde gerçekten
+ heyecanlı olduğum sorular.
+
+236
+00:16:50,542 --> 00:16:56,029
+Bence bu bağlantı ayrıca, yapay zekadaki eski sorularla
+
+237
+00:16:56,029 --> 00:17:01,060
+derin öğrenme araştırmaları yıllar içinde gelişti.
+
+238
+00:17:01,060 --> 00:17:07,760
+Çünkü derin öğrenmede bir çok başarı 
+algı ile olmuştur.
+
+239
+00:17:07,760 --> 00:17:08,917
+Ne kaldı, değil mi?
+
+240
+00:17:08,917 --> 00:17:11,305
+Geriye kalanlar, bir şeyin nasıl işlediğini
+
+241
+00:17:11,305 --> 00:17:14,890
+soyut bir seviyede anlamakla ilgili
+ olan yüksek düzeyli bir durumdur.
+
+242
+00:17:14,890 --> 00:17:19,093
+Şuan yüksek seviyelere ulaşmadığını düşündüğüm,
+
+243
+00:17:19,093 --> 00:17:23,109
+bu yüzden o seviyelere ulaşmalıyız.
+
+244
+00:17:23,109 --> 00:17:28,796
+Bilginin sırayla işlenmesi hakkında, 
+akıl yürütme hakkında düşünmeliyiz.
+
+245
+00:17:28,796 --> 00:17:31,087
+Nedenselliğin nasıl çalıştığını
+ ve makinelerin tüm bunların
+
+246
+00:17:31,087 --> 00:17:34,540
+kendi başlarına nasıl keşfedebileceğini
+ düşünmek zorundayız.
+
+247
+00:17:34,540 --> 00:17:39,555
+Potansiyel olarak insanlar tarafından 
+yönlendirilir, ancak mümkün olduğu 
+kadar otonom bir şekilde çalışırlar.
+
+248
+00:17:39,555 --> 00:17:42,395
+Söylediklerinizden deneyler yaptığınız
+
+249
+00:17:42,395 --> 00:17:46,160
+araştırma yaklaşımlarının hayranı 
+olduğunuz anlaşılıyor.
+
+250
+00:17:46,160 --> 00:17:49,730
+Toy problemleri terimini kullanacağım,
+ elbette küçümseyici anlamda değil.
+
+251
+00:17:49,730 --> 00:17:51,354
+Evet, ama küçük problemler.
+
+252
+00:17:51,354 --> 00:17:55,670
+Ve bunun daha sonra büyük sorunlara
+ aktarıldığına dair iyimsersiniz.
+
+253
+00:17:55,670 --> 00:18:00,634
+Evet, meta şekilde aktarıyor.
+
+254
+00:18:00,634 --> 00:18:05,223
+Tabi ki bu problemleri büyütmek
+ ve ele almak için bazı
+
+255
+00:18:05,223 --> 00:18:08,170
+çalışmalar yapmamız gerekecek.
+
+256
+00:18:08,170 --> 00:18:11,295
+Ama bu toy problemleri <br /> giderme konusundaki
+
+257
+00:18:11,295 --> 00:18:17,233
+asıl motivasyonum,
+ başarısızlıklarımızı daha iyi anlayabilmek
+
+258
+00:18:17,233 --> 00:18:22,233
+ve sorunu sezgisel olarak
+ daha kolay manipüle edip,
+
+259
+00:18:22,233 --> 00:18:26,528
+daha kolay anlayabileceğimiz
+ bir şeye indirgemek.
+
+260
+00:18:26,528 --> 00:18:31,031
+Yani bir çeşit klasik böl ve
+ fethet bilim anlayışı.
+
+261
+00:18:31,031 --> 00:18:35,591
+Ve ayrıca, bence, insanların 
+yeterince düşünmediği bir şey,
+
+262
+00:18:35,591 --> 00:18:38,750
+araştırma döngüsünün çok daha
+ hızlı olabileceğidir.
+
+263
+00:18:38,750 --> 00:18:44,225
+Eğer bir deneyi birkaç saatte yapabiliyorsam,
+ daha hızlı bir şekilde ilerleyebilirim.
+
+264
+00:18:44,225 --> 00:18:49,448
+Tüm sağduyuları ve genel kültürdeki
+ her şeyi yakalayan büyük bir
+
+265
+00:18:49,448 --> 00:18:55,511
+modeli denemem gerekirse,
+ ki sonunda yapacağız.
+
+266
+00:18:55,511 --> 00:18:59,010
+Sadece her bir deney, 
+mevcut donanım ile çok zaman alıyor.
+
+267
+00:18:59,010 --> 00:19:02,984
+Bu yüzden, donanımdaki arkadaşlarımız
+ bin ya da milyon kat daha hızlı olacak
+
+268
+00:19:02,984 --> 00:19:06,050
+makineler üretirken, 
+ben bu toy deneyleri yapıyorum.
+
+269
+00:19:06,050 --> 00:19:11,094
+Biliyorsunuz, sadece bir mühendislik
+ disiplini olarak değil,
+
+270
+00:19:11,094 --> 00:19:15,904
+derin öğrenme bilimi hakkında 
+konuştuğunuzu duydum,
+
+271
+00:19:15,904 --> 00:19:19,610
+ayrıca gerçekten neler olduğunu anlamak
+için daha fazla çalışma yapıyorsunuz.
+
+272
+00:19:19,610 --> 00:19:22,185
+Bu konudaki düşüncelerinizi
+ paylaşmak ister misiniz?
+
+273
+00:19:22,185 --> 00:19:24,287
+>> Evet, kesinlikle.
+
+274
+00:19:24,287 --> 00:19:29,105
+Yaptığımız çalışmaların çoğunun,
+ bir bakıma kör insanların yollarını
+ bulmaya çalışmasına
+
+275
+00:19:29,105 --> 00:19:30,278
+benzemesinden korkuyorum.
+
+276
+00:19:30,278 --> 00:19:37,247
+Ve bilirsiniz, şanslı olursanız
+ bu yolda ilgi çekici şeyler bulabilirsiniz.
+
+277
+00:19:37,247 --> 00:19:40,487
+Gerçekten, biraz durursak ve
+
+278
+00:19:40,487 --> 00:19:45,619
+ne yaptığımızı aktarılabilir 
+bir şekilde anlamaya çalışırsak,
+
+279
+00:19:45,619 --> 00:19:49,220
+çünkü, prensiplerden 
+teorilere geçmeye çalışıyoruz, ama
+
+280
+00:19:49,220 --> 00:19:53,378
+teori, her zaman matematik demek değildir.
+
+281
+00:19:53,378 --> 00:19:57,733
+Tabi ki matematiği seviyorum, ancak
+ ihtiyacımız olan, her şeyin matematiksel
+
+282
+00:19:57,733 --> 00:20:01,221
+olarak formüle edilmesi değil,
+mantıksal olarak formüle edilmesidir.
+
+283
+00:20:01,221 --> 00:20:05,567
+Bir bakıma, birisini mantıklı
+ olsa da olmasa da,
+
+284
+00:20:05,567 --> 00:20:07,348
+bunun çalışacağına ikna edebilirim
+
+285
+00:20:07,348 --> 00:20:09,550
+Bu, en önemli bakış açısıdır.
+
+286
+00:20:09,550 --> 00:20:14,650
+Ve sonra matematik, güçlendirir ve sağlamlaştırır.
+
+287
+00:20:14,650 --> 00:20:17,330
+Ama bu daha çok anlama ile ilgili.
+
+288
+00:20:17,330 --> 00:20:21,145
+Bu sonraki başlangıç çizgisinde olmakla,
+
+289
+00:20:21,145 --> 00:20:25,396
+kıyaslamakla, karşı
+ laboratuvarlardakileri veya
+
+290
+00:20:25,396 --> 00:20:30,850
+diğer şirketleri geçmekle ilgili değil, 
+araştırmalarımızı yapmakla ilgili.
+
+291
+00:20:30,850 --> 00:20:35,148
+Bu daha çok merak olgularını
+ anlamamızı sağlaması için
+
+292
+00:20:35,148 --> 00:20:38,200
+ne tarz sorular sormamız gerektiği ile ilgili.
+
+293
+00:20:38,200 --> 00:20:40,330
+Örneğin, derin ağlarda
+
+294
+00:20:40,330 --> 00:20:45,247
+veya mevcut ağlarda 
+çalışmayı ne zorlaştırıyor?
+
+295
+00:20:45,247 --> 00:20:48,110
+Bazı fikirlerimiz var ama
+ çoğu şeyi hala anlayamıyoruz.
+
+296
+00:20:49,310 --> 00:20:54,624
+Belki de amacı daha iyi bir algoritma kurmak olmayan sadece 
+
+297
+00:20:54,624 --> 00:20:58,987
+şuan sahip olduğumuz algoritmaları veya
+ hangi durumların belirli algoritmaları
+
+298
+00:20:58,987 --> 00:21:03,857
+daha iyi çalıştırdığını ve nedenlerini
+ anlamak olan deneyler tasarlayabiliriz.
+
+299
+00:21:03,857 --> 00:21:05,346
+Bu yüzden bu gerçekten önemli.
+
+300
+00:21:05,346 --> 00:21:06,595
+İşte bilim budur.
+
+301
+00:21:06,595 --> 00:21:07,669
+Nedeni bu.
+
+302
+00:21:07,669 --> 00:21:09,826
+Doğru. Bugün
+ bu alana girmek isteyen
+
+303
+00:21:09,826 --> 00:21:10,764
+çok fazla insan var.
+
+304
+00:21:10,764 --> 00:21:14,496
+Eminim ki bu soruyu birebir 
+ortamlarda çok fazla yanıtladınız
+
+305
+00:21:14,496 --> 00:21:18,288
+ama bu videoyu izleyen, 
+yapay zeka ve derin öğrenmeye 
+
+306
+00:21:18,288 --> 00:21:21,238
+girmek isteyen insanlara 
+ne tavsiye edersiniz?
+
+307
+00:21:21,238 --> 00:21:26,160
+Doğru, ilk olarak yapılabilecek motivasyon kaynakları ve
+
+308
+00:21:26,160 --> 00:21:28,537
+farklı şeyler var.
+
+309
+00:21:28,537 --> 00:21:33,064
+Derin bir öğrenme araştırmacısı
+ olmak için ihtiyacınız olan şeyler,
+
+310
+00:21:33,064 --> 00:21:37,333
+ürünler üretmek için derin öğrenmeyi kullanmak 
+isteyen bir mühendisinkiyle aynı olmayabilir.
+
+311
+00:21:37,333 --> 00:21:40,844
+Her iki durumda da farklı anlayış 
+seviyelerine ihtiyaç duyulur.
+
+312
+00:21:40,844 --> 00:21:46,090
+Ama her durumda pratik yapmak gerekir.
+
+313
+00:21:46,090 --> 00:21:51,004
+Derin öğrenme gibi bir konuya 
+gerçekten hakim olma için
+
+314
+00:21:51,004 --> 00:21:54,166
+elbette çok fazla okumanız gerekiyor.
+
+315
+00:21:54,166 --> 00:21:56,899
+İşlerinizi kendiniz programlamak zorundasınız.
+
+316
+00:21:58,450 --> 00:22:02,516
+Sıklıkla, yazılım kullanmış olan
+ öğrencilerle görüşürüm.
+
+317
+00:22:02,516 --> 00:22:06,788
+Ve bu günlerde, sadece çalıştırıp oynatabileceğiniz
+ ve yaptıklarınızın hiçbirini
+
+318
+00:22:06,788 --> 00:22:09,690
+anlamanıza gerek olmayan pek çok iyi yazılım var.
+
+319
+00:22:09,690 --> 00:22:12,890
+Bu kadar yüzeysel bir seviyede olunca,
+
+320
+00:22:12,890 --> 00:22:16,027
+ne zaman çalışmadığını ve 
+neyin yanlış gittiğini anlamak zorlaşıyor.
+
+321
+00:22:16,027 --> 00:22:19,880
+Yani, aslında verimsiz olsa da 
+bir şeyleri kendiniz uygulamaya çalışın,
+
+322
+00:22:19,880 --> 00:22:24,366
+Bir şeyleri kendinizin denemesi,
+ aslında neler olduğunu
+
+323
+00:22:24,366 --> 00:22:26,972
+anlamak için çok faydalı bir yol.
+
+324
+00:22:26,972 --> 00:22:29,886
+Bu yüzden, sadece birkaç satır kodla her şeyi yapabileceğiniz programlama çatılarından
+
+325
+00:22:29,886 --> 00:22:33,432
+birini kullanmayın, gerçekte 
+ne olduğunu bilmiyorsunuz.
+
+326
+00:22:33,432 --> 00:22:37,480
+Tam anlamıyla öyle, ve 
+bundan daha fazlasını bile söyleyebilirim.
+
+327
+00:22:37,480 --> 00:22:42,911
+Yapabiliyorsan, bir şeyleri
+ ilk yöntemlerinden elde etmeye çalışmak,
+
+328
+00:22:42,911 --> 00:22:44,597
+gerçekten yardımcı olur.
+
+329
+00:22:44,597 --> 00:22:48,275
+Genel olarak okumanız,
+ başka insanların kodlarına bakmanız,
+
+330
+00:22:48,275 --> 00:22:52,110
+kendi kodlarınızı yazmanız,
+ bol bol deney yapmanız
+
+331
+00:22:52,110 --> 00:22:57,066
+ve yaptığınız her şeyi anladığınızdan 
+emin olmanız gerekir.
+
+332
+00:22:57,066 --> 00:23:00,621
+Özellikle bilim bölümü için,<br /> neden bunu yaptığınızı,
+
+333
+00:23:00,621 --> 00:23:05,810
+diğer insanların neden 
+bunu yaptığını sorgulamanız gerekir.
+
+334
+00:23:05,810 --> 00:23:10,470
+Belki de cevap kitabın bir yerinde ve
+ daha çok okumanız gerekiyor.
+
+335
+00:23:11,490 --> 00:23:14,340
+Ama kendi başınıza anlayabilirseniz daha bile iyi.
+
+336
+00:23:15,580 --> 00:23:16,992
+Evet, öyle.
+
+337
+00:23:16,992 --> 00:23:21,547
+Ve aslında okuduklarımdan, siz ve Ian Goodfellow
+
+338
+00:23:21,547 --> 00:23:25,207
+gerçekten saygın kitaplar yazdınız.
+
+339
+00:23:25,207 --> 00:23:27,240
+Çok teşekkürler
+
+340
+00:23:27,240 --> 00:23:28,607
+Evet, çok satıyor.
+
+341
+00:23:28,607 --> 00:23:30,206
+Biraz çılgınca.
+
+342
+00:23:30,206 --> 00:23:35,027
+Şuan okuyabilecekten daha çok kişinin bu kitabı
+
+343
+00:23:35,027 --> 00:23:36,816
+okuduğunu düşünüyorum.
+
+344
+00:23:36,816 --> 00:23:40,188
+Fakat elbette, <br />Uluslararası Öğrenme Konferansları(ICLR)’nın
+
+345
+00:23:40,188 --> 00:23:44,968
+raporları, muhtemelen iyi makalelerin
+ en çok yoğunlaştığı yer.
+
+346
+00:23:44,968 --> 00:23:49,145
+Elbette NIPS, ICML ve diğer konferanslarda da
+ çok iyi makaleler var.
+
+347
+00:23:49,145 --> 00:23:54,345
+Ama gerçekten iyi makaleler okumak istiyorsanız,
+ ICLR'nın son birkaç raporunu okuyun.
+
+348
+00:23:54,345 --> 00:23:59,648
+Bu size gerçekten iyi bir
+ bakış açısı kazandıracaktır.
+
+349
+00:23:59,648 --> 00:24:01,454
+Evet.
+
+350
+00:24:01,454 --> 00:24:02,940
+Başka düşünceleriniz var mı?
+
+351
+00:24:02,940 --> 00:24:09,337
+İnsanlara derin öğrenmede 
+iyi olmaları için ne önerirsiniz?
+
+352
+00:24:09,337 --> 00:24:14,949
+Aslında bu başladığınız noktaya göre değişir.
+
+353
+00:24:14,949 --> 00:24:17,590
+Matematikten korkmayın.
+
+354
+00:24:17,590 --> 00:24:22,557
+Sadece sezgilerinizi geliştirin. 
+Bir kere sezgisel seviyeyi kavrarsanız
+
+355
+00:24:22,557 --> 00:24:27,870
+daha sonra matematiği anlamak
+ daha kolay gelecektir.
+
+356
+00:24:27,870 --> 00:24:32,218
+İyi haber şu ki: derin öğrenmede 
+donanımlı olmak için 5 yıllık
+
+357
+00:24:32,218 --> 00:24:34,300
+bir doktoraya ihtiyacınız yok.
+
+358
+00:24:34,300 --> 00:24:35,637
+Gerçekten kolay bir şekilde öğrenebilirsiniz.
+
+359
+00:24:35,637 --> 00:24:40,040
+Eğer bilgisayar biliminde ve matematikte
+ iyi bir altyapınız varsa,
+
+360
+00:24:40,040 --> 00:24:44,742
+birkaç ayda kullanacak,
+ bir şeyler yaratacak ve
+
+361
+00:24:44,742 --> 00:24:48,962
+yeni araştırma deneyleri başlatacak
+ kadar öğrenebilirsiniz.
+
+362
+00:24:48,962 --> 00:24:53,312
+Doğru çalışmayla, yaklaşık 6 aylık bir süreçte,
+
+363
+00:24:53,312 --> 00:24:56,224
+makine öğrenmesiyle ilgili bir şey 
+bilmeseler de, matematikte ve
+
+364
+00:24:56,224 --> 00:24:59,427
+bilgisayar biliminde iyilerse gerçekten hızlı öğrenebilirler.
+
+365
+00:24:59,427 --> 00:25:02,722
+Ve elbette bu, matematikte ve bilgisayar biliminde 
+doğru eğitime sahip olmanız gerektiği
+
+366
+00:25:02,722 --> 00:25:03,640
+anlamına geliyor.
+
+367
+00:25:03,640 --> 00:25:08,920
+Bazen sadece bilgisayar bilimi derslerinde
+ öğrendikleriniz yeterli olmuyor.
+
+368
+00:25:08,920 --> 00:25:13,928
+Özellikle sürekli bir matematiğe ihtiyacınız var.
+
+369
+00:25:13,928 --> 00:25:20,309
+Örneğin; olasılık, cebir ve iyileme...
+
+370
+00:25:20,309 --> 00:25:22,313
+Anlıyorum, ve kalkülüs?
+
+371
+00:25:22,313 --> 00:25:24,037
+Evet kalkülüs de.
+
+372
+00:25:24,037 --> 00:25:28,809
+Tüm yorum, fikir ve tavsiyelerini paylaştığın 
+için çok teşekkür ederim Joshua.
+
+373
+00:25:28,809 --> 00:25:32,561
+Seni uzun zamandır tanıyor olsam da, şimdiye
+ kadar bilmediğim erken tarihinin
+
+374
+00:25:32,561 --> 00:25:35,084
+birçok detayı var, bu yüzden teşekkür ederim.
+
+375
+00:25:35,084 --> 00:25:39,880
+Andrew, bu özel kaydı yaptığın için
+
+376
+00:25:39,880 --> 00:25:44,819
+ve yaptığın şeyler için teşekkürler.
+
+377
+00:25:44,819 --> 00:25:47,150
+Umarım, bir sürü insana yardımcı olur.

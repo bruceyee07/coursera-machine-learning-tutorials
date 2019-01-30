@@ -1,0 +1,907 @@
+1
+00:00:00,000 --> 00:00:02,190
+Bu videoda,
+
+2
+00:00:02,190 --> 00:00:04,900
+muhtemelen en yaygın Makine Öğrenme problemi türü olan
+
+3
+00:00:04,900 --> 00:00:06,655
+Denetlenmiş Öğrenmeyi tanımlayacağım.
+
+4
+00:00:06,655 --> 00:00:09,685
+Denetlenmiş Öğrenmeyi daha sonra resmi olarak tanımlayacağım,
+
+5
+00:00:09,685 --> 00:00:14,010
+ama muhtemelen açıklamak veya ne olduğu ile ilgili bir örnekle başlamak en iyisidir,
+
+6
+00:00:14,010 --> 00:00:16,705
+ve daha sonra resmi tanımını yapacağız
+
+7
+00:00:16,705 --> 00:00:19,915
+Konut fiyatlarını tahmin etmek istediğinizi varsayalım.
+
+8
+00:00:19,915 --> 00:00:24,755
+Bir süre önce bir öğrenci Portland şehrinden veri kümesi topladı,
+
+9
+00:00:24,755 --> 00:00:29,060
+ve veri kümesini çizdiğini söyleyelim ve veri kümesi bunun gibi görünür.
+
+10
+00:00:29,060 --> 00:00:31,000
+Burada yatay eksende,
+
+11
+00:00:31,000 --> 00:00:33,240
+farklı evlerin metre cinsinden boyutu,
+
+12
+00:00:33,240 --> 00:00:34,920
+ve dikey eksende,
+
+13
+00:00:34,920 --> 00:00:38,825
+farklı evlerin binlerce dolarlık fiyatı.
+
+14
+00:00:38,825 --> 00:00:41,515
+Bu verilere göre
+
+15
+00:00:41,515 --> 00:00:47,760
+750 metre kare evi olan bir arkadaşın olduğunu söyleyelim,
+
+16
+00:00:47,760 --> 00:00:49,535
+ve evi satmayı umuyorlar,
+
+17
+00:00:49,535 --> 00:00:52,080
+ve ev için ne kadar alabileceklerini bilmek istiyorlar.
+
+18
+00:00:52,080 --> 00:00:54,680
+Öyleyse, öğrenme algoritması size nasıl yardımcı olabilir?
+
+19
+00:00:54,680 --> 00:00:57,080
+Öğrenme algoritmasının yapmak isteyeceği bir şey
+
+20
+00:00:57,080 --> 00:00:59,500
+veriler üzerine düz bir çizgi koymak,
+
+21
+00:00:59,500 --> 00:01:02,185
+aynı zamanda verilere doğru bir çizgiyi de uydurmaktır.
+
+22
+00:01:02,185 --> 00:01:10,740
+Buna bağlı olarak belki evlerini yaklaşık 150,000 dolara satabilecekler gibi gözüküyor.
+
+23
+00:01:10,740 --> 00:01:13,890
+Ama belki bu kullanabileceğiniz tek öğrenme algoritması değildir,
+
+24
+00:01:13,890 --> 00:01:15,530
+ve belki daha iyi bir öğrenme algoritması vardır.
+
+25
+00:01:15,530 --> 00:01:19,000
+Örneğin, veriye bir düz çizgi uydurmak yerine,
+
+26
+00:01:19,000 --> 00:01:22,030
+belki ikinci dereceden bir fonksiyonu
+
+27
+00:01:22,030 --> 00:01:25,300
+ya da bu verilere ikinci dereceden bir polonim uydurmanın daha iyi olacağına karar veririz.
+
+28
+00:01:25,300 --> 00:01:28,290
+Eğer bunu yaparsan ve bir tahmin yürütürsen,
+
+29
+00:01:28,290 --> 00:01:30,530
+o zaman iyi görünüyor,
+
+30
+00:01:30,530 --> 00:01:35,030
+belki onlar evi 200,000 dolara yakın bir fiyata satabilirler.
+
+31
+00:01:35,030 --> 00:01:38,250
+Daha sonra konuşacağımız şeylerden biri nasıl seçeceğimiz,
+
+32
+00:01:38,250 --> 00:01:41,700
+ve nasıl karar vereceğimizdir , verilere düz bir çizgi uydurmak ister misiniz?
+
+33
+00:01:41,700 --> 00:01:44,360
+ya da verilere ikinci dereceden bir fonksiyon uydurmak ister misiniz?
+
+34
+00:01:44,360 --> 00:01:48,755
+Arkadaşınıza daha iyi bir fiyata ev satma hakkı veren adil bir seçim yoktur.
+
+35
+00:01:48,755 --> 00:01:52,520
+Ama bunlardan her biri Öğrenme Algoritmasının iyi birer örneği olabilirdi.
+
+36
+00:01:52,520 --> 00:01:57,560
+Yani, bu Denetimli Öğrenme Algoritmasının bir örneğidir.
+
+37
+00:01:57,560 --> 00:02:00,890
+Denetimli Öğrenme terimi,
+
+38
+00:02:00,890 --> 00:02:04,920
+algoritmayı verdiğimiz bir veri seti,
+
+39
+00:02:04,920 --> 00:02:06,960
+çağrılan "doğru cevapların" verildiği bir veri seti verdiğimiz gerçeğini ifade eder.
+
+40
+00:02:06,960 --> 00:02:13,830
+Bu veri kümesindeki her örnek için evlerin bir veri kümesini verdik,
+
+41
+00:02:13,830 --> 00:02:16,240
+doğru fiyatın ne olduğunu söyledik.
+
+42
+00:02:16,240 --> 00:02:19,905
+Yani, bu evin satıldığı gerçek fiyat neydi,
+
+43
+00:02:19,905 --> 00:02:23,630
+ve algoritmanın görevi
+
+44
+00:02:23,630 --> 00:02:28,975
+arkadaşınızın satmaya çalıştığı bu yeni ev gibi bu doğru cevapların daha fazlasını üretmek oldu.
+
+45
+00:02:28,975 --> 00:02:31,390
+biraz daha terminoloji tanımlamak için,
+
+46
+00:02:31,390 --> 00:02:34,670
+buna ayrıca gerileme (regresyon) problemi denir.
+
+47
+00:02:34,670 --> 00:02:39,410
+Gerileme problemi ile, sürekli değeri olan bir çıktıyı tahmin etmeye çalışıyoruz.
+
+48
+00:02:39,410 --> 00:02:41,900
+Yani fiyat. Teknik olarak,
+
+49
+00:02:41,900 --> 00:02:44,470
+Sanırım, fiyatlar en yakın sente(1$⁄100) yuvarlanabilir.
+
+50
+00:02:44,470 --> 00:02:47,260
+Yani, belki fiyatlar aslında ayrık değerdir.
+
+51
+00:02:47,260 --> 00:02:51,020
+Ama genellikle, bir evin fiyatını bir gerçek sayı, bir skaler değer gibi düşünürüz,
+
+52
+00:02:51,020 --> 00:02:52,945
+bir sürekli değer sayısı olarak,
+
+53
+00:02:52,945 --> 00:02:55,670
+gerileme terimi,
+
+54
+00:02:55,670 --> 00:02:59,000
+sürekli değerlerin niteliğini tahmin etmeye çalıştığımız gerçeğini ifade eder.
+
+55
+00:02:59,000 --> 00:03:01,770
+İşte başka Denetimli Öğrenme örnekleri.
+
+56
+00:03:01,770 --> 00:03:04,030
+Ben ve bazı arkadaşlar daha önce bunun üzerinde çalışıyorduk.
+
+57
+00:03:04,030 --> 00:03:06,800
+Sağlık kayıtlarına bakmak istediğinizi varsayalım ve
+
+58
+00:03:06,800 --> 00:03:09,980
+bir göğüs kanserinin kötü veya iyi huylu olduğunu tahmin etmeye çalışıyorsun.
+
+59
+00:03:09,980 --> 00:03:12,475
+Eğer birileri bir göğüs kanseri keşfederse,
+
+60
+00:03:12,475 --> 00:03:13,825
+göğüslerinde bir yumru,
+
+61
+00:03:13,825 --> 00:03:18,320
+kötü huylu zararlı ve tehlikeli bir tümördür,
+
+62
+00:03:18,320 --> 00:03:21,830
+ve iyi huylu tümör de zararsızdır.
+
+63
+00:03:21,830 --> 00:03:24,405
+Açıkça, insanlar bunu çok önemsiyorlar.
+
+64
+00:03:24,405 --> 00:03:26,510
+Hadi toplanmış veri kümesine bir bakalım.
+
+65
+00:03:26,510 --> 00:03:28,430
+Veri kümenizde olduğunuzu varsayalım,
+
+66
+00:03:28,430 --> 00:03:33,170
+tümörün boyutunun olduğu bir yatay ekseniniz var
+
+67
+00:03:33,170 --> 00:03:34,640
+ve dikey eksende,
+
+68
+00:03:34,640 --> 00:03:37,320
+1 ya da 0, evet veya hayır
+
+69
+00:03:37,320 --> 00:03:41,720
+bunların daha önce gördüğümüz kötü huylu tümörlerin bir örneği olup olamadığını,
+
+70
+00:03:41,720 --> 00:03:45,980
+1 ya da 0 veya kötü huylu ya da iyi huylu olmadığını işaretleyeceğim.
+
+71
+00:03:45,980 --> 00:03:48,470
+Yani, veri kümenizin böyle göründüğünü varsayalım,
+
+72
+00:03:48,470 --> 00:03:51,645
+görüğümüz bu büyüklükte bir tümör iyi huylu çıktı,
+
+73
+00:03:51,645 --> 00:03:52,880
+biri bu boyuttan,
+
+74
+00:03:52,880 --> 00:03:57,000
+biri bu boyuttan, vb.
+
+75
+00:03:57,000 --> 00:03:59,730
+Ne yazık ki birkaç kötü huylu tümör hücresi gördük,
+
+76
+00:03:59,730 --> 00:04:00,750
+biri bu boyuttan,
+
+77
+00:04:00,750 --> 00:04:02,230
+biri bu boyuttan,
+
+78
+00:04:02,230 --> 00:04:05,540
+biri bu boyuttan, vb.
+
+79
+00:04:05,540 --> 00:04:11,680
+Yani bu örnekte,burada gösterilen 5 iyi huylu tümör örneğim var,
+
+80
+00:04:11,680 --> 00:04:17,850
+ve bir tane dikey eksen değeriyle gösterilen 5 kötü huylu tümör örneğim var.
+
+81
+00:04:17,850 --> 00:04:21,730
+Varsayalım, göğüs kanseri olan bir arkadaş var,
+
+82
+00:04:21,730 --> 00:04:27,725
+ve onun göğüs tümörü boyutunun belki de bu değerin etrafında bir yerlerde olduğunu söyleyelim,
+
+83
+00:04:27,725 --> 00:04:29,530
+Makina Öğrenmesi sorusu,
+
+84
+00:04:29,530 --> 00:04:31,690
+"olasılığın ne olduğunu tahmin edebilir misin,
+
+85
+00:04:31,690 --> 00:04:35,605
+bu tümörü iyi ya da kötü huylu olma olasılığı nedir?"
+
+86
+00:04:35,605 --> 00:04:38,035
+Biraz daha terminolojiye girersek,
+
+87
+00:04:38,035 --> 00:04:41,720
+bu bir Sınıflandırma Problemidir.
+
+88
+00:04:41,720 --> 00:04:45,200
+Sınıflandırma terimi şu anlama gelir,
+
+89
+00:04:45,200 --> 00:04:51,820
+bir ayrık değer çıktısının 0 ya da 1, kötü ya da iyi huylu olarak tahmin etmeye çalışıyoruz.
+
+90
+00:04:51,820 --> 00:04:54,920
+Sınıflandırma problemlerinde ,
+
+91
+00:04:54,920 --> 00:05:00,665
+bazen çıktı için iki olası değerden daha fazlasına sahip olabileceğiniz ortaya çıkıyor.
+
+92
+00:05:00,665 --> 00:05:02,430
+Somut bir örnek olarak,
+
+93
+00:05:02,430 --> 00:05:05,590
+belki göğüs kanserinin 3 tipi vardır.
+
+94
+00:05:05,590 --> 00:05:09,725
+Yani, belki ayrık değer çıktısını 0,1,2 olarak,
+
+95
+00:05:09,725 --> 00:05:12,720
+veya 3, 0 iyi huylu anlamına gelebilir,
+
+96
+00:05:12,720 --> 00:05:14,815
+iyi huylu tümör, yani kanser yok,
+
+97
+00:05:14,815 --> 00:05:18,110
+1 belki tip 1 kanser anlamına gelebilir,
+
+98
+00:05:18,110 --> 00:05:19,515
+belki kanserin 3 tipi,
+
+99
+00:05:19,515 --> 00:05:23,000
+ne olursa olsun 1 türü ifade eder ve 2 kanserin ikinci tipi anlamına gelebilir,
+
+100
+00:05:23,000 --> 00:05:25,490
+ve 3 belki kanserin üçüncü tipi anlamına gelebilir.
+
+101
+00:05:25,490 --> 00:05:28,730
+Ama bu ayrıca bir sınıflandırma problemi olacaktır
+
+102
+00:05:28,730 --> 00:05:33,525
+çünkü bu sizin kanser olmadığınıza,
+
+103
+00:05:33,525 --> 00:05:35,220
+tip 1 kanser, tip 2 kanser veya
+
+104
+00:05:35,220 --> 00:05:36,470
+3 tip kansere karşılık gelen kesikli bir çıkış kümesidir
+
+105
+00:05:36,470 --> 00:05:41,255
+Sınıflandırma problemlerinde, bu verileri çizmenin başka bir yolu vardır.
+
+106
+00:05:41,255 --> 00:05:43,040
+Ne demek istediğimi göstereyim
+
+107
+00:05:43,040 --> 00:05:46,440
+Bu veriyi çizmek için biraz farklı semboller kullanacağım
+
+108
+00:05:46,440 --> 00:05:49,640
+Yani eğer tümörün boyutu 
+
+109
+00:05:49,640 --> 00:05:52,700
+kötü huyluyu (malignant) veya iyi huyluyu (benign) <br /> tahmin etmek için kullanacağım özellik olursa,
+
+110
+00:05:52,700 --> 00:05:54,500
+Verimi böyle çizebilirim
+
+111
+00:05:54,500 --> 00:05:58,220
+iyi huylu ve kötü huyluları belirtmek için farklı semboller kullanacağım
+
+112
+00:05:58,220 --> 00:06:00,170
+veya pozitif ve negatif örneklerimi belirtmek için.
+
+113
+00:06:00,170 --> 00:06:02,205
+Yani kabaca çizmek yerine,
+
+114
+00:06:02,205 --> 00:06:06,880
+İyi niyetli(benign) tümörler için O'lar çizeceğim
+
+115
+00:06:07,370 --> 00:06:16,755
+Ve kötü niyetli(malignant) tümörleri belirtmek için de X'ler kullanmaya devam edeceğim.
+
+116
+00:06:16,755 --> 00:06:22,050
+Umarım bu şekil anlamlıdır. Tek yaptığım veri setimi üste aldım,
+
+117
+00:06:22,050 --> 00:06:28,490
+ve bu çizdiğim gerçek çizgiye taşıdım
+
+118
+00:06:28,490 --> 00:06:30,500
+ve farklı semboller kullanmaya başladım
+
+119
+00:06:30,500 --> 00:06:35,705
+yuvarlaklar ve çarpıları malignant ya da benign örneklerini belirtmek için kullandım
+
+120
+00:06:35,705 --> 00:06:37,780
+Şimdi, bu örnekte
+
+121
+00:06:37,780 --> 00:06:40,610
+Sadece bir özellik veya bir nitelik kullanırız
+
+122
+00:06:40,610 --> 00:06:46,475
+yani tümör boyutunu, bir tümörün<br /> iyi huylu veya kötü huylu olduğunu tahmin etmek için kullanırız.
+
+123
+00:06:46,475 --> 00:06:48,200
+Diğer makina öğrenmesi problemlerinde,
+
+124
+00:06:48,200 --> 00:06:51,250
+Birden fazla özelliğe veya birden fazla niteliğe sahip olabiliriz.
+
+125
+00:06:51,250 --> 00:06:55,610
+Buradaki örneğimizde, sadece tümör boyutunu bilmek yerine ,
+
+126
+00:06:55,610 --> 00:06:58,870
+hem hastaların yaşını hem de tümör boyutunu biliyoruz.
+
+127
+00:06:58,870 --> 00:07:02,365
+Bu durumda belki veri kümeniz şöyle görünürdü
+
+128
+00:07:02,365 --> 00:07:06,940
+bir grup hasta bu yaşlarda,
+
+129
+00:07:06,940 --> 00:07:08,060
+ve bu tümör boyutu,
+
+130
+00:07:08,060 --> 00:07:09,770
+ve böyle görünen,
+
+131
+00:07:09,770 --> 00:07:15,130
+ve biraz farklı görünen farklı hasta grupları,
+
+132
+00:07:15,460 --> 00:07:22,100
+çarpılarla belirtildiği gibi tümörleri kötü huyluya dönüşenler.
+
+133
+00:07:22,100 --> 00:07:27,740
+Böylece, diyelim ki trajik br şekilde tümörü olan bir arkadaşa sahipsin
+
+134
+00:07:27,740 --> 00:07:33,910
+ve belki de tümör büyüklükleri ve yaşları buralara düşer.
+
+135
+00:07:33,910 --> 00:07:36,160
+Yani, böyle bir veri seti verildiğinde,
+
+136
+00:07:36,160 --> 00:07:40,700
+öğrenme algoritmasının yapabileceği şey, kötü huylu tümörleri
+
+137
+00:07:40,700 --> 00:07:45,380
+iyi huylu tümörlerden ayırmaya çalışmak için verilere doğru düz bir çizgidir
+
+138
+00:07:45,380 --> 00:07:48,800
+ve böylece öğrenme algoritması tümörlerin iki nedenini de ayırmak için 
+
+139
+00:07:48,800 --> 00:07:52,920
+böyle bir düz çizgi koymaya karar verebilir.
+
+140
+00:07:52,920 --> 00:07:58,280
+Bununla, arkadaşının tümörünün daha çok
+
+141
+00:07:58,280 --> 00:07:59,960
+Eğer orada bittiyse
+
+142
+00:07:59,960 --> 00:08:02,795
+umuyoruz ki öğrenme algoritman arkadaşının tümörünün
+
+143
+00:08:02,795 --> 00:08:08,635
+iyi huylu tarafa düştüğünü ve bu yüzden muhtemelen kötü huyludansa <br /> daha çok iyi huylu olduğunu söyleyecektir.
+
+144
+00:08:08,635 --> 00:08:11,345
+Bu örnekte, iki özelliğe sahiptik
+
+145
+00:08:11,345 --> 00:08:14,335
+hastanın yaşı ve tümörün büyüklüğü.
+
+146
+00:08:14,335 --> 00:08:16,730
+Diğer Makina Öğrenmesi problemlerinde,
+
+147
+00:08:16,730 --> 00:08:19,100
+genellikle daha fazla özelliğe sahip olacağız.
+
+148
+00:08:19,100 --> 00:08:22,320
+Bu problem üzerinde çalışan arkadaşlarım aslında, <br />bu gibi diğer özellikleri kullandılar;
+
+149
+00:08:22,320 --> 00:08:24,145
+kütle kalınlığı,
+
+150
+00:08:24,145 --> 00:08:25,975
+meme tümörünün kütle kalınlığı,
+
+151
+00:08:25,975 --> 00:08:28,280
+tümörün hücre boyutunun değişmezliği,
+
+152
+00:08:28,280 --> 00:08:30,325
+tümörün hücre şeklinin değişmezliği,
+
+153
+00:08:30,325 --> 00:08:33,195
+ve benzeri ve diğer özellikler de.
+
+154
+00:08:33,195 --> 00:08:36,830
+Bu derste göreceğimiz öğrenme algoritmalarından
+
+155
+00:08:36,830 --> 00:08:37,960
+en ilginç ortaya çıkan,
+
+156
+00:08:37,960 --> 00:08:41,700
+öğrenme algoritmaları sadece iki değil, 
+
+157
+00:08:41,700 --> 00:08:43,540
+üç veya beş özellikle değil,
+
+158
+00:08:43,540 --> 00:08:45,745
+sonsuz sayıda özellikle başa çıkabilir.
+
+159
+00:08:45,745 --> 00:08:50,145
+Bu slaytta, toplam 5 farklı özellik listeledim
+
+160
+00:08:50,145 --> 00:08:52,605
+İkisi eksende ve üç tane daha.
+
+161
+00:08:52,605 --> 00:08:55,250
+Fakat bazı öğrenme problemleri için 
+
+162
+00:08:55,250 --> 00:08:57,930
+gerçekten üç ya da beş özellik kullanmak istemediğin
+
+163
+00:08:57,930 --> 00:09:00,950
+ama bunun yerine sonsuz sayıda özellik,
+
+164
+00:09:00,950 --> 00:09:02,675
+sonsuz sayıda nitelik kullanmak istediğin ortaya çıkıyor
+
+165
+00:09:02,675 --> 00:09:05,610
+Şöyle ki öğrenme algoritman çok sayıda
+
+166
+00:09:05,610 --> 00:09:08,990
+bu tahminleri yapacak niteliğe, özelliğe veya ipucuna sahip olabilir.
+
+167
+00:09:08,990 --> 00:09:12,755
+Öyleyse, bu kadar sonsuz sayıda özellikle nasıl başa çıkarsın?
+
+168
+00:09:12,755 --> 00:09:15,500
+Hatta nasıl bilgisayardaki sonsuz sayıdaki şeyi saklarsın,
+
+169
+00:09:15,500 --> 00:09:18,380
+bilgisayarının hafızası tükenmek üzereyken?
+
+170
+00:09:18,380 --> 00:09:22,290
+Support Vector Machine (Destek Vektör Makineleri) olarak adlandırılan <br />algoritmadan bahsettiğimizde ortaya çıkıyor ki
+
+171
+00:09:22,290 --> 00:09:25,040
+bilgisayarın sonsuz sayıda özellik ile başa çıkmasına izin veren
+
+172
+00:09:25,040 --> 00:09:28,620
+zeki bir matematiksel hile olacak.
+
+173
+00:09:28,620 --> 00:09:33,590
+Hayal et ki buraya iki özelliği sağdaki üç özelliği yazmadım,
+
+174
+00:09:33,590 --> 00:09:36,440
+ama sonsuz uzunlukta bir liste yazdığımı düşün.
+
+175
+00:09:36,440 --> 00:09:38,540
+Daha fazla özellik yazmaya devam ettim,
+
+176
+00:09:38,540 --> 00:09:40,340
+tıpkı son derece uzun ve sonsuz bir özellik listesi gibi.
+
+177
+00:09:40,340 --> 00:09:44,695
+Bununla başa çıkabilecek bir algoritma ile ortaya çıkacağız
+
+178
+00:09:44,695 --> 00:09:48,290
+Yani sadece tekrar için,
+
+179
+00:09:48,290 --> 00:09:50,115
+bu derste Denetimli Öğrenme'den(Supervised Learning) <br />bahsedeceğiz
+
+180
+00:09:50,115 --> 00:09:52,750
+ve Denetimli Öğrenme(Supervised Learning) fikrinden,
+
+181
+00:09:52,750 --> 00:09:54,830
+veri setimizdeki her örnekte,
+
+182
+00:09:54,830 --> 00:09:57,800
+algoritmaların neredeyse bu örnekte tahmin edildiği gibi,
+
+183
+00:09:57,800 --> 00:10:01,115
+doğru cevabın ne olduğu söylendi.
+
+184
+00:10:01,115 --> 00:10:02,930
+Tıpkı ev fiyatları gibi,
+
+185
+00:10:02,930 --> 00:10:06,185
+veya tümörün iyi huylu veya kötü huylu olup olmadığı gibi.
+
+186
+00:10:06,185 --> 00:10:09,230
+Ayrıca regresyon probleminden bahsettik,
+
+187
+00:10:09,230 --> 00:10:13,840
+ve regresyon ile yani amacımızın sürekli(continuous) değerli bir çıktıyı tahmin etmek olduğundan bahsettik.
+
+188
+00:10:13,840 --> 00:10:16,640
+Amacımızın kesikli(discrete) değerli bir çıktıyı tahmin etmek olan
+
+189
+00:10:16,640 --> 00:10:19,555
+sınıflandırma probleminden bahsettik.
+
+190
+00:10:19,555 --> 00:10:21,950
+Sadece bir soruyla hızlıca özetleyecek olursak;
+
+191
+00:10:22,020 --> 00:10:25,520
+Diyelim ki bir şirketi yönetiyorsunuz
+
+192
+00:10:25,520 --> 00:10:29,160
+ve iki problemi de çözmek için öğrenme algoritmaları geliştirmek istiyorsunuz.
+
+193
+00:10:29,160 --> 00:10:30,605
+İlk problemde,
+
+194
+00:10:30,605 --> 00:10:34,200
+aynı ürünlerden oluşan büyük bir stoka sahipsiniz.
+
+195
+00:10:34,200 --> 00:10:39,860
+Yani, satmak için bazı aynı ürünlerin binlerce kopyasına sahip olduğunuzu hayal edin,
+
+196
+00:10:39,860 --> 00:10:44,025
+ve önümüzdeki üç ay boyunca bu ürünlerden kaç adet satacağınızı tahmin etmek istiyorsunuz.
+
+197
+00:10:44,025 --> 00:10:46,470
+İkinci problemde, yani problem 2'de,
+
+198
+00:10:46,470 --> 00:10:49,390
+bir çok kullanıcıya sahipsiniz
+
+199
+00:10:49,390 --> 00:10:55,220
+ve müşterilerinizin her birinin bireysel hesaplarını incelemek için yazılım yazmak istiyorsunuz
+
+200
+00:10:55,220 --> 00:10:57,075
+yani müşterilerinizin hesaplarının her biri için.
+
+201
+00:10:57,075 --> 00:11:02,485
+Her hesap için, hesabın hacklenmiş olup olmadığına <br /> veya ele geçirilip geçirilmediğine karar ver.
+
+202
+00:11:02,485 --> 00:11:04,615
+Dolayısıyla, her iki problem,
+
+203
+00:11:04,615 --> 00:11:09,445
+Sınıflandırma problemi olarak mı <br /> yoksa regresyon problemi olarak mı ele alınmalı?
+
+204
+00:11:09,445 --> 00:11:10,960
+Video durduğunda,
+
+205
+00:11:10,960 --> 00:11:13,820
+lütfen bu dört cevaptan hangisinin doğru cevap olduğunu düşünüyorsanız,
+
+206
+00:11:13,820 --> 00:11:18,780
+mouse'unuzu bunu seçmek için kullanın.
+
+207
+00:11:19,880 --> 00:11:22,870
+Umuyorum ki bunu anladınız.
+
+208
+00:11:22,870 --> 00:11:24,235
+İşte cevap.
+
+209
+00:11:24,235 --> 00:11:26,480
+Birinci problem için,
+
+210
+00:11:26,480 --> 00:11:30,450
+Bunu bir regresyon problemi olarak ele alırdım,<br /> çünkü eğer ürünün binlercesine sahipsem,
+
+211
+00:11:30,450 --> 00:11:33,220
+muhtemelen bunu sadece gerçek bir değer olarak veya 
+
+212
+00:11:33,220 --> 00:11:35,730
+sürekli bir değer olarak ele alırdım.
+
+213
+00:11:35,830 --> 00:11:41,340
+Bu yüzden, sattığım ürünlerin sayısı sürekli bir değer gibi düşünülebilir.
+
+214
+00:11:41,340 --> 00:11:43,035
+İkinci problem için,
+
+215
+00:11:43,035 --> 00:11:45,655
+Bunu bir sınıflandırma problemi olarak ele alırdım,
+
+216
+00:11:45,655 --> 00:11:49,550
+çünkü hesabın hacklenmediğini belirtmek için
+
+217
+00:11:49,550 --> 00:11:54,015
+tahmin etmek istediğim değeri 0 ile ayarlayabilirim,
+
+218
+00:11:54,015 --> 00:11:59,310
+ve hesabın hacklendiğini belirtmek için de değeri 1 ile ayarlayabilirim.
+
+219
+00:11:59,310 --> 00:12:02,930
+Yani tıpkı meme kanserinde iyi huylunun 0, kötü huylunun 1 olduğu gibi.
+
+220
+00:12:02,930 --> 00:12:06,230
+Yani hacklenip hacklenmediğine göre 0 ve 1 değerlerini ayarlayabilirim
+
+221
+00:12:06,230 --> 00:12:12,340
+ve bu iki kesikli değerin her birini tahmin etmeye çalışan bir algoritmaya sahip olabilirim.
+
+222
+00:12:12,340 --> 00:12:14,820
+Çünkü az sayıda kesikli değer var,
+
+223
+00:12:14,820 --> 00:12:18,000
+bu yüzden onu bir sınıflandırma problemi olarak ele alacağım.
+
+224
+00:12:18,000 --> 00:12:21,620
+İşte Denetimli Öğrenme bu kadar.
+
+225
+00:12:21,620 --> 00:12:23,035
+Bir sonraki videoda,
+
+226
+00:12:23,035 --> 00:12:25,200
+öğrenme algoritmalarının bir diğer ana kategorisi olan
+
+227
+00:12:25,200 --> 00:12:29,320
+Denetimsiz Öğrenme'den (Unsupervised Learning) bahsedeceğim.

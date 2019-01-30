@@ -1,0 +1,457 @@
+1
+00:00:00,000 --> 00:00:02,760
+Eu quero mostrar para vocês alguns algoritmos de otimização.
+
+2
+00:00:02,760 --> 00:00:04,795
+Eles são mais rápidos que o gradiente descendente.
+
+3
+00:00:04,795 --> 00:00:06,807
+Para que possamos entender esses algoritmos,
+
+4
+00:00:06,807 --> 00:00:11,850
+você precisa ser capaz de utilizar
+ médias exponencialmente ponderadas.
+
+5
+00:00:11,850 --> 00:00:15,840
+Também chamadas, em Estatística, de
+'médias móveis exponencialmente ponderadas' .
+
+6
+00:00:15,840 --> 00:00:17,030
+Primeiramente, falaremos sobre isso,
+
+7
+00:00:17,030 --> 00:00:21,420
+e então, o usaremos para construir algoritmos de otimização mais sofisticados.
+
+8
+00:00:21,420 --> 00:00:23,820
+Apesar de morar nos Estados Unidos atualmente,
+
+9
+00:00:23,820 --> 00:00:25,463
+eu nasci em Londres.
+
+10
+00:00:25,463 --> 00:00:31,120
+Logo, para este exemplo,
+usei a temperatura diária de Londres do ano passado.
+
+11
+00:00:31,120 --> 00:00:32,511
+No dia 1° de Janeiro,
+
+12
+00:00:32,511 --> 00:00:35,175
+a temperatura era de 40 graus Fahrenheit.
+
+13
+00:00:35,175 --> 00:00:37,795
+Eu sei que a maioria do mundo usa o sistema Celsius,
+
+14
+00:00:37,795 --> 00:00:41,065
+mas eu moro nos Estados Unidos, e aqui se usa Fahrenheit.
+
+15
+00:00:41,065 --> 00:00:43,550
+Isso corresponde a 4 graus Celsius.
+
+16
+00:00:43,550 --> 00:00:46,150
+No dia 2 de janeiro,
+
+17
+00:00:46,150 --> 00:00:48,630
+9 graus Celsius e assim por diante.
+
+18
+00:00:48,630 --> 00:00:50,250
+E então, lá pela metade do ano,
+
+19
+00:00:50,250 --> 00:00:52,373
+um ano tem 365 dias, logo isso seria,
+
+20
+00:00:52,373 --> 00:00:56,530
+algo em torno de 180 dias, talvez no fim de maio, eu acho,
+
+21
+00:00:56,530 --> 00:01:00,795
+fez 60 graus Fahrenheit, que equivale a 
+15 graus Celsius, e assim por diante.
+
+22
+00:01:00,795 --> 00:01:05,575
+Então, começa a ficar mais quente perto do verão
+e mais frio, em janeiro.
+
+23
+00:01:05,575 --> 00:01:08,435
+Se você delinear os dados, vai conseguir isso.
+
+24
+00:01:08,435 --> 00:01:12,290
+Onde o primeiro dia está em algum lugar em janeiro,
+
+25
+00:01:12,290 --> 00:01:13,775
+e este outro no início do verão,
+
+26
+00:01:13,775 --> 00:01:15,070
+e esse está ao final do ano,
+
+27
+00:01:15,070 --> 00:01:17,380
+mais ou menos, no fim de dezembro.
+
+28
+00:01:17,380 --> 00:01:20,194
+Então, isso seria janeiro, dia primeiro,
+
+29
+00:01:20,194 --> 00:01:21,885
+esse é o meio do ano, perto do verão, 
+[NT: no hemisfério norte]
+
+30
+00:01:21,885 --> 00:01:24,710
+e esses seriam os dados do fim do ano.
+
+31
+00:01:24,710 --> 00:01:29,885
+Esses dados parecem um pouco ruidosos,
+e se você quiser calcular as tendências,
+
+32
+00:01:29,885 --> 00:01:35,547
+a média local, ou a média móvel da temperatura,
+
+33
+00:01:35,547 --> 00:01:37,885
+eis o que você pode fazer.
+
+34
+00:01:37,885 --> 00:01:41,530
+Iniciaremos com V₀=0.
+
+35
+00:01:41,530 --> 00:01:43,640
+E então, todos os dias,
+
+36
+00:01:43,640 --> 00:01:49,340
+nós o regularemos com um peso de 0.9
+vezes qualquer valor que apareça,
+
+37
+00:01:49,340 --> 00:01:53,600
+mais 0.1 vezes a temperatura do dia.
+
+38
+00:01:53,600 --> 00:01:57,155
+Então, Teta um aqui seria a temperatura do primeiro dia.
+
+39
+00:01:57,155 --> 00:02:01,180
+E no segundo dia, nós usaremos
+novamente uma média ponderada.
+
+40
+00:02:01,180 --> 00:02:08,210
+0.9 vezes o valor anterior mais 0.1
+vezes a temperatura do dia e assim por diante.
+
+41
+00:02:08,210 --> 00:02:12,930
+Segundo dia mais 0.1 vezes Teta três e assim por diante.
+
+42
+00:02:12,930 --> 00:02:20,470
+E a fórmula mais geral é V em um determinado dia
+sendo 0.9 vezes V do dia anterior
+
+43
+00:02:20,470 --> 00:02:25,460
+mais 0.1 vezes a temperatura desse dia.
+
+44
+00:02:25,460 --> 00:02:28,035
+Então, se você calcular isso e delinear em vermelho,
+
+45
+00:02:28,035 --> 00:02:29,527
+esse é o resultado.
+
+46
+00:02:29,527 --> 00:02:32,660
+Você adquire uma média móvel,
+
+47
+00:02:32,660 --> 00:02:36,510
+ou uma média exponencialmente moderada
+da temperatura diária.
+
+48
+00:02:36,510 --> 00:02:39,560
+Vamos ver a equação do slide passado,
+
+49
+00:02:39,560 --> 00:02:42,225
+era Vₜ =
+
+50
+00:02:42,225 --> 00:02:44,210
+antes nós tínhamos 0.9,
+
+51
+00:02:44,210 --> 00:02:46,790
+vou por aqui um Beta,
+
+52
+00:02:46,790 --> 00:02:51,190
+ß vezes Vₜ ₋ ₁ mais,
+
+53
+00:02:51,190 --> 00:02:56,715
+e antes era 0.1, vou mudar para:  (1 - ß) Θₜ
+
+54
+00:02:56,715 --> 00:03:00,175
+Então, antes, você tinha ß =0.9.
+
+55
+00:03:00,175 --> 00:03:03,230
+Acontece que por razões que veremos mais tarde,
+
+56
+00:03:03,230 --> 00:03:13,860
+quando você calcula isso, você pode considerar que Vₜ mede,
+
+57
+00:03:13,860 --> 00:03:21,400
+algo em torno de 1 / (1 - ß), a temperatura do dia.
+
+58
+00:03:21,400 --> 00:03:26,895
+Então, por exemplo, quando Beta é 0.9,
+
+59
+00:03:26,895 --> 00:03:32,430
+isto está medindo a temperatura dos últimos dez dias.
+
+60
+00:03:32,430 --> 00:03:36,050
+E essa foi a linha vermelha.
+
+61
+00:03:36,050 --> 00:03:37,215
+Agora, tentaremos algo diferente.
+
+62
+00:03:37,215 --> 00:03:39,200
+Definiremos Beta como bem próximo de um,
+
+63
+00:03:39,200 --> 00:03:41,660
+digamos que seja 0.98,
+
+64
+00:03:41,660 --> 00:03:46,640
+Então, se você analisar 1/(1 -0.98),
+
+65
+00:03:46,640 --> 00:03:48,040
+isso é igual a 50.
+
+66
+00:03:48,040 --> 00:03:51,340
+Então, considere que isto está medindo
+
+67
+00:03:51,340 --> 00:03:54,085
+a temperatura dos últimos 50 dias.
+
+68
+00:03:54,085 --> 00:03:58,360
+E se você delinear isso, você consegue essa linha verde.
+
+69
+00:03:58,360 --> 00:04:01,870
+Então, note algumas coisas com este valor alto de Beta.
+
+70
+00:04:01,870 --> 00:04:04,565
+O delineamento que você possui é mais suave, porque agora,
+
+71
+00:04:04,565 --> 00:04:07,635
+você está medindo a temperatura de mais dias.
+
+72
+00:04:07,635 --> 00:04:08,795
+Logo, a curva está
+
+73
+00:04:08,795 --> 00:04:10,800
+menos ondulada e agora, suave,
+
+74
+00:04:10,800 --> 00:04:14,300
+mas por outro lado, a curva foi
+
+75
+00:04:14,300 --> 00:04:18,840
+mais para a direita, porque agora,
+você está medindo uma quantidade maior de temperaturas.
+
+76
+00:04:18,840 --> 00:04:21,030
+E medindo um número maior,
+
+77
+00:04:21,030 --> 00:04:24,275
+esta fórmula, da média móvel exponencialmente ponderada,
+
+78
+00:04:24,275 --> 00:04:25,850
+ela se adapta mais devagar,
+
+79
+00:04:25,850 --> 00:04:27,920
+quando a temperatura muda.
+
+80
+00:04:27,920 --> 00:04:29,755
+Então, há apenas um pouco mais de latência.
+
+81
+00:04:29,755 --> 00:04:33,860
+E a razão para isso é que quando Beta é 0.98,
+
+82
+00:04:33,860 --> 00:04:38,240
+ele pesa mais no valor anterior, e pesa menos, só 0.02,
+
+83
+00:04:38,240 --> 00:04:40,700
+no que for que você está vendo agora.
+
+84
+00:04:40,700 --> 00:04:42,080
+Então, quando a temperatura muda,
+
+85
+00:04:42,080 --> 00:04:43,560
+quando ela sobe ou desce,
+
+86
+00:04:43,560 --> 00:04:45,845
+há uma média móvel exponencialmente ponderada.
+
+87
+00:04:45,845 --> 00:04:48,990
+Só que se adapta mais devagar quando Beta é possui um valor maior.
+
+88
+00:04:48,990 --> 00:04:51,160
+Agora, vamos tentar outro valor.
+
+89
+00:04:51,160 --> 00:04:53,045
+Se você mudar o valor de Beta,
+
+90
+00:04:53,045 --> 00:04:54,980
+digamos que para 0.5,
+
+91
+00:04:54,980 --> 00:04:58,755
+ele, segundo a fórmula da direita,
+
+92
+00:04:58,755 --> 00:05:03,690
+estará medindo a temperatura de dois dias,
+
+93
+00:05:03,690 --> 00:05:06,420
+e se você delinear isso, você conseguirá essa linha amarela.
+
+94
+00:05:06,420 --> 00:05:09,290
+E por estar medindo a temperatura de apenas dois dias,
+
+95
+00:05:09,290 --> 00:05:12,240
+você conseguirá uma linha embaçada, 
+visto que estará medindo um intervalo mais curto.
+
+96
+00:05:12,240 --> 00:05:13,415
+Então, será muito mais ruidosa,
+
+97
+00:05:13,415 --> 00:05:15,515
+muito mais suscetível a valores atípicos.
+
+98
+00:05:15,515 --> 00:05:19,490
+Mas se adaptará muito mais rápido às mudanças de temperatura.
+
+99
+00:05:19,490 --> 00:05:24,390
+Então, a fórmula da média móvel
+exponencialmente ponderada é altamente implementada.
+
+100
+00:05:24,390 --> 00:05:26,090
+De novo, é chamada de "exponencialmente ponderada",
+
+101
+00:05:26,090 --> 00:05:28,760
+"média móvel", na literatura da Estatística.
+
+102
+00:05:28,760 --> 00:05:32,210
+Nós a chamaremos de média exponencialmente ponderada,
+
+103
+00:05:32,210 --> 00:05:36,000
+e variando este parâmetro, ou mais tarde veremos
+
+104
+00:05:36,000 --> 00:05:39,350
+um hiperparâmetro, se você estiver aprendendo algoritmo,
+
+105
+00:05:39,350 --> 00:05:41,315
+você pode conseguir efeitos levemente diversos,
+
+106
+00:05:41,315 --> 00:05:44,075
+e sempre haverá um valor aqui ou ali que funcionará melhor.
+
+107
+00:05:44,075 --> 00:05:46,893
+Isso lhe dá uma curva vermelha, que você sabe que parece
+
+108
+00:05:46,893 --> 00:05:50,450
+a melhor média da temperatura,
+do que as curvas verde ou amarela.
+
+109
+00:05:50,450 --> 00:05:54,160
+Agora, você sabe o básico sobre
+como calcular médias exponencialmente ponderadas.
+
+110
+00:05:54,160 --> 00:05:58,010
+No próximo vídeo, aprenderemos melhor sobre suas funções.
+[Tradução: Diogo dos Santos farias | Revisão: Carlos Lage]

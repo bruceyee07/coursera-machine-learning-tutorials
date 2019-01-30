@@ -1,0 +1,457 @@
+1
+00:00:00,320 --> 00:00:01,410
+U ovome videu želim da
+
+2
+00:00:01,490 --> 00:00:02,710
+Vam pričam o tome kako koristiti
+
+3
+00:00:02,900 --> 00:00:04,390
+neuronske mreže za
+
+4
+00:00:04,830 --> 00:00:06,690
+višeklasnu klasifikaciju
+
+5
+00:00:06,820 --> 00:00:07,840
+u kojoj imamo više od jedne
+
+6
+00:00:07,930 --> 00:00:09,600
+kategorije koje želimo da razdvojimo.
+
+7
+00:00:10,470 --> 00:00:12,280
+U poslednjem delu
+
+8
+00:00:12,600 --> 00:00:13,920
+prošlog snimka, gde smo
+
+9
+00:00:14,400 --> 00:00:15,320
+razmatrali problem rukom pisanih
+
+10
+00:00:15,830 --> 00:00:17,030
+cifara, to je zapravo bio
+
+11
+00:00:17,700 --> 00:00:19,000
+problem višeklasne klasifikacije
+
+12
+00:00:19,440 --> 00:00:20,730
+jer smo imali 10 mogućih
+
+13
+00:00:21,550 --> 00:00:22,820
+kategorija za prepoznavanje cifara
+
+14
+00:00:23,040 --> 00:00:23,980
+od 0 do 9, tako da
+
+15
+00:00:24,060 --> 00:00:25,430
+ćemo sada videti
+
+16
+00:00:25,830 --> 00:00:27,840
+detalje rešavanja tog problema.
+
+17
+00:00:30,410 --> 00:00:31,870
+Višeklasni klasifikator pravimo
+
+18
+00:00:32,990 --> 00:00:34,380
+pomoću neuronskih mreža
+
+19
+00:00:35,060 --> 00:00:37,600
+kao ekstenziju
+metode jedan-naspram-svih.
+
+20
+00:00:38,610 --> 00:00:39,650
+Recimo da razmatramo
+
+21
+00:00:39,790 --> 00:00:41,660
+primer kompjuterskog vida,
+
+22
+00:00:42,630 --> 00:00:43,810
+gde umesto da pokušavamo da
+
+23
+00:00:44,010 --> 00:00:46,170
+prepoznamo automobile,
+kao u ranijem
+
+24
+00:00:46,310 --> 00:00:47,290
+primeru sa kojim sam započeo
+ovu priču
+
+25
+00:00:47,470 --> 00:00:48,670
+recimo da sada
+
+26
+00:00:49,060 --> 00:00:51,380
+pokušavamo da prepoznamo četiri
+
+27
+00:00:51,510 --> 00:00:52,820
+kategorije objekata i da
+
+28
+00:00:53,030 --> 00:00:53,900
+na osnovu slike hoćemo da
+
+29
+00:00:54,100 --> 00:00:56,360
+odlučimo da li je prikazan
+pešak, automobil, motor ili kamion.
+
+30
+00:00:57,200 --> 00:00:58,750
+U takvim slučajevima
+
+31
+00:00:58,920 --> 00:01:00,480
+napravili bismo
+
+32
+00:01:00,970 --> 00:01:02,820
+neuronsku mrežu sa četiri
+
+33
+00:01:03,160 --> 00:01:04,500
+izlazne jedinice tako da
+
+34
+00:01:04,710 --> 00:01:08,110
+naša neuronska mreža prikazuje
+vektor od 4 broja.
+
+35
+00:01:09,110 --> 00:01:10,450
+Dakle, sada je izlaz
+
+36
+00:01:11,170 --> 00:01:11,840
+vektor koji čine četiri broja.
+
+37
+00:01:12,070 --> 00:01:13,300
+I ono što pokušavamo
+
+38
+00:01:13,540 --> 00:01:14,400
+da napravimo je
+
+39
+00:01:14,780 --> 00:01:16,680
+da prva izlazna jedinica
+
+40
+00:01:17,180 --> 00:01:18,840
+klasifikuje da li je
+
+41
+00:01:19,160 --> 00:01:20,650
+na slici pešak, da ili ne.
+
+42
+00:01:21,200 --> 00:01:24,530
+Druga jedinica će klasifikovati
+da li je na slici automobil, da ili ne.
+
+43
+00:01:25,110 --> 00:01:26,880
+Ova jedinica će klasifikovati da li
+
+44
+00:01:27,130 --> 00:01:29,150
+je na slici motor, da ili ne.
+
+45
+00:01:29,230 --> 00:01:30,460
+I ova će klasifikovati
+
+46
+00:01:30,930 --> 00:01:32,930
+da li je na slici kamion, da ili ne.
+
+47
+00:01:33,720 --> 00:01:35,730
+Stoga, kada imamo sliku
+
+48
+00:01:36,390 --> 00:01:37,630
+pešaka želimo da,
+
+49
+00:01:37,820 --> 00:01:38,930
+u idealnom slučaju, mreža
+
+50
+00:01:39,410 --> 00:01:40,140
+prikaže vektor 1 0 0 0.
+
+51
+00:01:40,250 --> 00:01:41,260
+Kada imamo sliku
+
+52
+00:01:41,520 --> 00:01:42,310
+automobila želimo da
+
+53
+00:01:42,750 --> 00:01:43,530
+prikaže 0 1 0 0.
+
+54
+00:01:43,840 --> 00:01:45,960
+Kada je u pitanju motor
+
+55
+00:01:46,390 --> 00:01:47,460
+želimo da prikaže
+
+56
+00:01:47,580 --> 00:01:48,970
+0 0 1 0, i tako dalje.
+
+57
+00:01:50,750 --> 00:01:51,880
+Dakle, ovo je kao
+
+58
+00:01:52,270 --> 00:01:53,690
+metoda jedan-naspram-svih
+
+59
+00:01:54,190 --> 00:01:55,520
+o kojoj smo pričali kada smo
+
+60
+00:01:55,680 --> 00:01:58,120
+opisivali logističku regresiju i
+
+61
+00:01:58,320 --> 00:02:00,480
+ovde, suštinski, imamo 4 klasifikatora
+
+62
+00:02:01,290 --> 00:02:03,100
+logističke regresije
+od kojih svaki
+
+63
+00:02:03,260 --> 00:02:04,800
+pokušava da prepozna jednu
+
+64
+00:02:05,000 --> 00:02:06,780
+od četiri klasa
+
+65
+00:02:06,940 --> 00:02:08,830
+koje želimo da razaznajemo.
+
+66
+00:02:09,540 --> 00:02:10,780
+Dakle, evo je sada
+
+67
+00:02:10,860 --> 00:02:12,130
+naša neuronska mreža
+
+68
+00:02:12,540 --> 00:02:14,070
+sa četiri izlazne jedinice
+
+69
+00:02:14,330 --> 00:02:15,510
+i one predstavljaju
+
+70
+00:02:15,670 --> 00:02:16,790
+naše h od x za
+
+71
+00:02:16,990 --> 00:02:18,930
+različite slike.
+
+72
+00:02:19,580 --> 00:02:20,860
+Način na koji želimo da predstavimo
+
+73
+00:02:21,110 --> 00:02:22,690
+skup podataka za treniranje
+
+74
+00:02:23,260 --> 00:02:24,670
+je na sledeći način.
+
+75
+00:02:24,890 --> 00:02:26,170
+Imamo skup za treniranje sa
+raznim slikama
+
+76
+00:02:27,350 --> 00:02:28,990
+pešaka, automobila,
+motora i kamiona
+
+77
+00:02:29,260 --> 00:02:30,450
+i ono što ćemo uraditi
+
+78
+00:02:30,510 --> 00:02:31,940
+u ovom primeru nije kao
+
+79
+00:02:32,190 --> 00:02:34,580
+što smo radili ranije
+
+80
+00:02:34,990 --> 00:02:36,780
+kada smo oznake pisali
+
+81
+00:02:37,040 --> 00:02:38,320
+kao y koje je imalo vrednosti
+
+82
+00:02:38,710 --> 00:02:42,180
+1, 2, 3 ili 4. Umesto da
+
+83
+00:02:42,280 --> 00:02:44,210
+y predstavljamo na taj način
+
+84
+00:02:44,890 --> 00:02:46,340
+sada ćemo y predstaviti
+
+85
+00:02:47,050 --> 00:02:49,400
+na sledeći način. 
+
+86
+00:02:54,850 --> 00:02:55,230
+y(i) će biti 1 0 0 0, ili
+ 0 1 0 0
+
+87
+00:02:55,230 --> 00:02:57,040
+ili 0 0 1 0 ili 0 0 0 1,
+u zavisnosti od toga
+
+88
+00:02:57,490 --> 00:02:59,100
+šta se nalazi na slici x(i).
+
+89
+00:02:59,410 --> 00:03:00,700
+Tako da je jedan primer za treniranje
+
+90
+00:03:01,230 --> 00:03:03,090
+jedan par x(i) zarez y(i)
+
+91
+00:03:04,530 --> 00:03:06,340
+gde je x(i) slika na kojoj je
+
+92
+00:03:06,440 --> 00:03:08,000
+znate, jedan od četiri objekata,
+
+93
+00:03:08,170 --> 00:03:09,640
+a y(i) je jedan od ovih vektora.
+
+94
+00:03:10,970 --> 00:03:12,020
+I nadam se da ćemo
+
+95
+00:03:12,420 --> 00:03:13,670
+naći način da napravimo
+
+96
+00:03:14,020 --> 00:03:15,100
+neuronsku mrežu koja
+
+97
+00:03:15,290 --> 00:03:16,480
+vraća neku vrednost takvu da
+
+98
+00:03:17,310 --> 00:03:20,360
+h od x bude približno y.
+
+99
+00:03:20,550 --> 00:03:22,000
+I h od x i y(i),
+
+100
+00:03:22,600 --> 00:03:23,770
+oba će biti predstavljena
+
+101
+00:03:24,020 --> 00:03:25,170
+u našem primeru
+
+102
+00:03:26,060 --> 00:03:28,700
+četvorodimenzionim vektorima
+jer imamo četiri klase.
+
+103
+00:03:31,810 --> 00:03:33,020
+Dakle, tako se dobijaju
+
+104
+00:03:33,170 --> 00:03:34,830
+neuralne mreže za višeklasnu klasifikaciju.
+
+105
+00:03:36,290 --> 00:03:37,780
+Ovim smo završili našu
+diskusiju
+
+106
+00:03:38,050 --> 00:03:39,620
+o reprezentaciji neuronskih mreža
+
+107
+00:03:40,120 --> 00:03:41,620
+odnosno o reprezentaciji hipoteza.
+
+108
+00:03:42,780 --> 00:03:44,180
+U narednim video snimcima
+
+109
+00:03:44,690 --> 00:03:45,830
+pričaćemo o tome kako
+
+110
+00:03:45,990 --> 00:03:47,360
+krenuti od skupa za treniranje
+
+111
+00:03:47,570 --> 00:03:49,970
+i doći do automatski naučenih
+parametara neuronske mreže.

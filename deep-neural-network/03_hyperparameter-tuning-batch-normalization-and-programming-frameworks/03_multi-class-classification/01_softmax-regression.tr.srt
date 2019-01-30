@@ -1,0 +1,717 @@
+1
+00:00:00,990 --> 00:00:04,140
+Şimdiye kadar bahsettiğimiz sınıflandırma örneklerinde
+
+2
+00:00:04,140 --> 00:00:08,410
+ikili sınıflandırma üzerine konuştuk, 
+ ki burada da sadece 0 ya da 1 ihtimalleri vardı.
+
+3
+00:00:08,410 --> 00:00:10,520
+Kedi mi ya da kedi değil mi?
+
+4
+00:00:10,520 --> 00:00:13,050
+Peki ya muhtemel çoklu sınıflarımız (ikiden çok) olursa?
+
+5
+00:00:13,050 --> 00:00:17,140
+Yapısal bağıntının (logistic regression) genellenmiş 
+ haline olarak eşiksiz en büyük bağıntı (Softmax regression) denir. 
+
+6
+00:00:17,140 --> 00:00:21,130
+C'lerden birini veya çok sınıflardan birini tanımaya çalıştıkça 
+(C burada Class-Sınıf kelimesinin baş harfi olarak kullanılıyor)
+
+7
+00:00:21,130 --> 00:00:26,280
+ iki sınıf tanımaya kıyasla daha az tahmin yapılır.
+
+8
+00:00:26,280 --> 00:00:26,915
+Hadi inceleyelim.
+
+9
+00:00:26,915 --> 00:00:31,264
+Diyelim ki sadece kediler tanımak yerine 
+ kedileri köpekleri ve
+
+10
+00:00:31,264 --> 00:00:31,984
+civcivleri tanımak istiyoruz.
+
+11
+00:00:31,984 --> 00:00:38,050
+Kedilere sınıf 1, köpeklere sınıf 2,
+ civcivlere ise sınıf 3 diyeceğim.
+
+12
+00:00:38,050 --> 00:00:40,914
+Yukarıdaki sınıflardan hiç biri 
+ değilse de başka
+
+13
+00:00:40,914 --> 00:00:44,406
+bir sınıftadır bu sınıfa da sınıf 0 diyeceğim.
+
+14
+00:00:44,406 --> 00:00:49,900
+Burada resim örnekleri ve 
+ mensup oldukları sınıflar mevcut.
+
+15
+00:00:49,900 --> 00:00:52,680
+Bu bir civciv resmi olduğundan sınıfı 3.
+
+16
+00:00:52,680 --> 00:00:57,395
+Kedi sınıf 1, köpek ise sınıf 2
+ Tahminimce bu da bir koala 
+
+17
+00:00:57,395 --> 00:01:02,498
+ki koala üstteki sınıflardan değil 
+ bu yüzden sınıfı 0 şeklinde devam eder.
+
+18
+00:01:02,498 --> 00:01:07,554
+Kullanacağımız notasyonda
+ büyük C ile 
+
+19
+00:01:07,554 --> 00:01:13,340
+girdilerinizin kategorize edildiği 
+ toplam sınıf sayısını göstereceğiz.
+
+20
+00:01:13,340 --> 00:01:17,628
+Bu durumda dört olası sınıfınız var, diğer ya da
+
+21
+00:01:17,628 --> 00:01:19,298
+hiç biri sınıfını da içeren.
+
+22
+00:01:19,298 --> 00:01:23,921
+Dört sınıfınız olduğunda 
+ sınıfınızın indis numaraları
+
+23
+00:01:23,921 --> 00:01:28,660
+sıfırdan C eksi bire kadardır.
+
+24
+00:01:28,660 --> 00:01:31,550
+Diğer bir deyişle 
+ sıfır, bir, iki ya da üç.
+
+25
+00:01:31,550 --> 00:01:36,653
+Bu durumda üst katmanı dörtlü 
+ yeni bir XY kuracağız
+
+26
+00:01:36,653 --> 00:01:40,870
+ya da bu örnekte büyük C'yi 
+ üst simgede kullanacağız.
+
+27
+00:01:43,140 --> 00:01:48,908
+Yani üst L katmanındaki N sayıdaki birim
+sayısı dörde ya da 
+
+28
+00:01:48,908 --> 00:01:51,807
+genel haliyle C'ye eşit olacaktır.
+
+29
+00:01:51,807 --> 00:01:56,619
+Buradan gayemiz ise üst katmandaki 
+ birim sayısının bize söylenmesidir
+
+30
+00:01:56,619 --> 00:02:00,860
+ki bu her 4 sınıfın olasılığıdır.
+
+31
+00:02:00,860 --> 00:02:04,320
+Yani burada ilk düğümün çıktı vermesi beklenir veya
+
+32
+00:02:04,320 --> 00:02:08,110
+biz olasılığı (kendisi diğer sınıf olan) çıktı olarak vermesini bekleriz,
+
+33
+00:02:08,110 --> 00:02:12,840
+verilen x girdisi için bu
+ orada bir kedi olma olasılığıdır.
+
+34
+00:02:12,840 --> 00:02:16,980
+x girdisi verildiğinde,
+ bu (işlem) köpek olma olasılığını çıktı olarak verecektir.
+
+35
+00:02:16,980 --> 00:02:20,170
+x girdisi verildiğinde, o (işlem) çıktı olarak olasılık verecektir.
+
+36
+00:02:20,170 --> 00:02:27,910
+Civcivi, bebek C olarak kısaltacağım, verilen x girdisi için. 
+
+37
+00:02:29,160 --> 00:02:36,600
+Yani burada, y şapka çıktı etiketi 4x1 boyutlu bir vektör olacaktır,
+
+38
+00:02:36,600 --> 00:02:41,760
+çünkü bu 4 olasılığı veren 4 sayıyı çıktı olarak vermek zorundadır.
+
+39
+00:02:42,850 --> 00:02:48,070
+Ve çünkü olasılıklar toplamı 1'e eşit olmalıdır, ki y şapka çıktısındaki sayıların
+
+40
+00:02:48,070 --> 00:02:48,980
+toplamı da 1'e eşit olmalıdır.
+
+41
+00:02:50,630 --> 00:02:55,390
+Sizin ağınızın bunu yapması için, standard model, eşiksiz en büyük (Softmax) katmanı kullanır,
+
+42
+00:02:55,390 --> 00:03:00,170
+ve (tabi) çıktı katmanının da bu çıktıları üretmesi için.
+
+43
+00:03:00,170 --> 00:03:02,040
+Sonra haritayı yazın,
+ ve sonra geri gelebilirsiniz ve
+
+44
+00:03:02,040 --> 00:03:04,680
+eşiksiz en büyük (Softmax) işlevin ne iş yaptığı ile ilgili önsezi elde edin.
+
+45
+00:03:06,610 --> 00:03:08,940
+Yapay sinir ağınızın son katmanında,
+
+46
+00:03:08,940 --> 00:03:13,360
+her zaman olduğu gibi, katmanlarınızın doğrusal bölümlerini hesaplayacaksınız.
+
+47
+00:03:13,360 --> 00:03:17,800
+Yani z, büyük L, ki o son katman için z değişkenidir.
+
+48
+00:03:17,800 --> 00:03:21,980
+Yani bu katman büyük L'yi hatırlayın.
+
+49
+00:03:21,980 --> 00:03:26,619
+Yani her zaman olduğu gibi, wL kere önceki katmanın etkilenimi
+
+50
+00:03:26,619 --> 00:03:32,170
+artı, o son katmanın eğilimleri (biases:önsezi) olarak hesaplarsınız.
+
+51
+00:03:32,170 --> 00:03:33,180
+Z hesaplaması için,
+
+52
+00:03:33,180 --> 00:03:37,690
+eşiksiz en büyük (Softmax) etkilenim işlevini uygulamanız lazım.
+
+53
+00:03:38,880 --> 00:03:43,340
+Yani o etkilenim işlevi 
+eşiksiz en büyük (Softmax) katman için
+ alışılmadık olsa da,
+
+54
+00:03:43,340 --> 00:03:44,150
+yaptığı budur.
+
+55
+00:03:45,380 --> 00:03:50,081
+Önce, geçici bir değişken hesaplayacağız,
+
+56
+00:03:50,081 --> 00:03:54,180
+t = e üssü z [L] şeklinde (ekranda yazıldığı gibi)
+
+57
+00:03:54,180 --> 00:03:56,119
+Bu matris elemanlarının tek tek işlem görmesinin bir parçasıdır.
+
+58
+00:03:56,119 --> 00:04:00,824
+Yani burada zL, örneğimizde, 4x1 boyutundadır.
+
+59
+00:04:00,824 --> 00:04:03,470
+Bu 4 boyutlu bir vektördür.
+
+60
+00:04:03,470 --> 00:04:08,720
+Yani t (kendisi) = e üssü zL matrisli bir üssel işlemdir.
+
+61
+00:04:08,720 --> 00:04:13,100
+t, 4x1 boyutlu bir vektördür.
+
+62
+00:04:13,100 --> 00:04:14,825
+Sonra çıktı aL,
+
+63
+00:04:14,825 --> 00:04:20,415
+toplamı 1'e eşit olan vektör t olacaktır.
+
+64
+00:04:20,415 --> 00:04:28,673
+Böylece aL = e üssü zL / t'nin 1'den..4'e elemanlarının toplamı olur,
+
+65
+00:04:28,673 --> 00:04:33,994
+çünkü t(i)'nin 4 sınıfı var.
+
+66
+00:04:33,994 --> 00:04:40,082
+Yani diğer bir deyişle 
+aL'nin 4x1'lik bir vektör olduğunu ,
+
+67
+00:04:40,082 --> 00:04:44,780
+ve "i" elemanlı olduğunu söylüyoruz.
+
+68
+00:04:44,780 --> 00:04:50,885
+a [L] i yazalım,
+
+69
+00:04:50,885 --> 00:04:56,660
+bu eşittir (ti) / (ti'lerin toplamı), tamam mı?
+
+70
+00:04:56,660 --> 00:04:58,690
+Bu durumda matematik yeterince açık değil,
+
+71
+00:04:58,690 --> 00:05:02,320
+bir dakika içerisinde yapacağımız başka bir örnek bunu daha açık hale getirecek.
+
+72
+00:05:02,320 --> 00:05:03,835
+Yani bu matematik yeterince açık olmadığı durumda,
+
+73
+00:05:03,835 --> 00:05:06,775
+belli bir örneğe geçelim ki bunu daha açık hale getirsin.
+
+74
+00:05:06,775 --> 00:05:10,905
+Diyelim ki senin zL hesaplaman ve
+
+75
+00:05:10,905 --> 00:05:18,277
+zL 4 boyutlu bir vektördür, (bunlar) 5, 2, -1, 3 olsun.
+
+76
+00:05:18,277 --> 00:05:22,256
+Bizim yapacağımız vektör t'yi hesaplamak için üslü matris işlem kullanmaktır.
+
+77
+00:05:22,256 --> 00:05:23,665
+Bizim yapacağımız vektör t'yi hesaplamak için üslü matris işlem kullanmaktır.
+
+78
+00:05:23,665 --> 00:05:29,465
+Yani, (ekranda görüldüğü gibi) 
+t = e üssü 5, e üssü 2, e üssü -1, e üssü 3 matrisi olacaktır.
+
+79
+00:05:29,465 --> 00:05:32,529
+Ve bunu hesap makinesinde yaparsanız
+bu değerleri bulursunuz.
+
+80
+00:05:32,529 --> 00:05:38,750
+(e üssü 5) 148,4, (e kare) yaklaşık 7,4,
+
+81
+00:05:38,750 --> 00:05:44,697
+(e üssü -1) 0,4 ve (e küp) 20,1 yapar.
+
+82
+00:05:44,697 --> 00:05:49,519
+Ve böylece, bizim vektör t'den vektör aL'ye gittiğimiz yöntem,
+
+83
+00:05:49,519 --> 00:05:52,910
+bu girdilerin toplamını 1'e eşitleyecek şekilde
+ normalize etmek içindir.
+
+84
+00:05:52,910 --> 00:05:56,808
+Yani t'nin elemanlarını toplarsanız,
+
+85
+00:05:56,808 --> 00:06:03,232
+belirtilen 4 sayıyı toplarsanız 176,3 değerini elde edersiniz.
+
+86
+00:06:03,232 --> 00:06:09,565
+Sonunda, aL bu vektör t olacaktır,
+
+87
+00:06:09,565 --> 00:06:14,515
+bir vektör olarak, 176,3'e bölünür.
+
+88
+00:06:14,515 --> 00:06:18,580
+Örneğin, buradaki ilk düğüm,
+
+89
+00:06:18,580 --> 00:06:23,885
+bu (e üssü 5) / 176,3 sonucunu verecektir.
+
+90
+00:06:23,885 --> 00:06:27,777
+Ve bu da 0,842 değerini verir.
+
+91
+00:06:27,777 --> 00:06:32,675
+Yani şunu demek istiyorum, 
+bu resimde, z için elde ettiğiniz değer bu ise,
+
+92
+00:06:32,675 --> 00:06:36,434
+sıfır olma olasılığı %84,2'dir. 
+(ilk eleman var mı yok mu, sıfır mı değil mi olduğunu gösterir)
+
+93
+00:06:36,434 --> 00:06:42,192
+Ve sonraki düğüm (e kare) / 176,3 sonucunu verir,
+
+94
+00:06:42,192 --> 00:06:48,200
+ki bu 0,042'dir ve % 4,2 olasılık değerini verir.
+
+95
+00:06:48,200 --> 00:06:53,449
+Bir sonraki düğüm (e üssü -1) / odur (176,3),
+
+96
+00:06:53,449 --> 00:06:56,891
+ki bu 0,002'dir
+
+97
+00:06:56,891 --> 00:07:04,235
+Ve sonuncusu (e küp) / odur (176,3), ki bu 0,114'tür.
+
+98
+00:07:04,235 --> 00:07:08,312
+Yani %11,4 olasılıkla bu üçüncü sınıftır,
+
+99
+00:07:08,312 --> 00:07:10,683
+ki bu civciv C sınıfıdır, değil mi?
+
+100
+00:07:10,683 --> 00:07:15,568
+Tabi bunun sınıf sıfır, sınıf 1, sınıf 2
+ ve sınıf 3 olma olasılığı mevcuttur.
+
+101
+00:07:15,568 --> 00:07:21,930
+Böylece yapay sinir ağı aL'nin çıktısı,
+ y şapkadır.
+
+102
+00:07:21,930 --> 00:07:25,170
+Bu 4x1'lik bir vektördür, 
+ki bu 4x1'lik vektörün elemanları,
+
+103
+00:07:25,170 --> 00:07:29,800
+bu 4 sayıya geçiyor.
+
+104
+00:07:29,800 --> 00:07:31,060
+Sonra biz sadece hesaplıyoruz.
+
+105
+00:07:31,060 --> 00:07:38,077
+Bu algoritma vektör zL'i alır ve 
+4 olasılığın toplamı 1'dir.
+
+106
+00:07:38,077 --> 00:07:43,013
+Ve eğer biz zL'den aL'yi hesaplamak için
+ ne yaptığımızı özetleyecek olursak,
+
+107
+00:07:43,013 --> 00:07:47,741
+tüm bu üslü (matrix) hata (dizeyi) hesaplaması,
+
+108
+00:07:47,741 --> 00:07:52,469
+bu geçici t değerini elde etmek ve normalleştirmek,
+
+109
+00:07:52,469 --> 00:07:57,827
+bunu eşiksiz en büyük (Softmax) etkilenim işlevine özetleyebiliriz ve
+
+110
+00:07:57,827 --> 00:08:03,625
+aL, etkilenim işlevi g'nin vektör zL'e uygulanmasına eşittir.
+
+111
+00:08:03,625 --> 00:08:08,379
+Bu özel etkilenim işlevi hakkındaki olağandışı şey, 
+
+112
+00:08:08,379 --> 00:08:12,654
+bu etkilenim işlevi g'nin, 4x1'lik bir vektörü girdi olarak alması ve
+
+113
+00:08:12,654 --> 00:08:15,060
+çıktı olarak 4x1'lik bir vektör vermesidir.
+
+114
+00:08:15,060 --> 00:08:19,280
+Yani öncesinde, bizim etkilenim işlevimiz bu tek satırı girdi olarak alırdı.
+
+115
+00:08:19,280 --> 00:08:20,875
+Örneğin, s işlevi (sigmoid) ve
+
+116
+00:08:20,875 --> 00:08:24,840
+değer etkilenim işlevi girdi olarak da
+ çıktı olarak da gerçek bir sayı (real number) verirdi.
+
+117
+00:08:24,840 --> 00:08:28,255
+Eşiksiz en büyük etkilenim işlevi hakkındaki olağandışı şey, 
+
+118
+00:08:28,255 --> 00:08:32,262
+çünkü o farklı olası çıktılar üzerinden normalleştirilmeli,
+
+119
+00:08:32,262 --> 00:08:35,365
+ve bir vektörü girdi olarak almalı ve
+ vektörün çıktılarına yerleştirmelidir.
+
+120
+00:08:35,365 --> 00:08:39,219
+Eşiksiz en büyük (Softmax) sınıflandırmanın
+ yapabileceği şeylerden biri de,
+
+121
+00:08:39,219 --> 00:08:43,383
+Size x1 ve x2 girdilerine sahip olduğunuz bazı örnekler göstereceğim.
+
+122
+00:08:43,383 --> 00:08:48,435
+Ve bu kaynağın doğrudan eşiksiz en büyük (Softmax) katmana (bağlı),
+
+123
+00:08:48,435 --> 00:08:53,500
+üç veya dört veya daha fazla çıktı düğümü ve sonra da çıktı şapkalı y.
+
+124
+00:08:53,500 --> 00:08:58,801
+Yani size, gizli katmanı olmayan yeni bir ağ göstereceğim,
+
+125
+00:08:58,801 --> 00:09:04,777
+ve tüm yaptığı z1 eşittir w1 çarpı girdi x artı b'yi hesaplamak.
+
+126
+00:09:04,777 --> 00:09:07,359
+Ve sonra çıktı a1 veya
+
+127
+00:09:07,359 --> 00:09:13,210
+y şapka =, eşiksiz en büyük (Softmax)
+etkilenim işlevinin (g) z1'e uygulamasıdır.
+
+128
+00:09:13,210 --> 00:09:15,615
+Yani bu saklı katmanı olmayan sinir ağında,
+
+129
+00:09:15,615 --> 00:09:20,260
+(bir) eşiksiz en büyük (Softmax) işlevinin,
+ yapabileceği şeyler hakkında bir fikir vermesi gerekir.
+
+130
+00:09:20,260 --> 00:09:23,677
+İşte, burada sadece işlenmemiş girdiler x1 ve x2 nin olduğu bir örnek var.
+
+131
+00:09:23,677 --> 00:09:28,662
+C=3 çıktı sınıfına sahip olan (Bir) eşiksiz en büyük (Softmax) katman
+
+132
+00:09:28,662 --> 00:09:31,661
+bu tip karar sınırlarında temsil edebilir.
+
+133
+00:09:31,661 --> 00:09:35,289
+Dikkat edin ki bu tip bazı doğrusal karar sınırları,
+
+134
+00:09:35,289 --> 00:09:39,223
+ama bu veriyi üç sınıfa ayırmaya imkan verir.
+
+135
+00:09:39,223 --> 00:09:44,126
+Ve bu çizemde, yaptığımız şey alsında eğitim setini almak
+
+136
+00:09:44,126 --> 00:09:47,335
+bu durum bu figürde bir miktar gösterilmiştir ve
+
+137
+00:09:47,335 --> 00:09:52,079
+eşiksiz en büyük (Softmax) sınıflandırmayı çıktı etiketleriyle eğitebilir.
+
+138
+00:09:52,079 --> 00:09:54,750
+Ve sonra, bu çizimdeki renk yeni gösteriyor
+
+139
+00:09:54,750 --> 00:09:59,330
+eşiksiz en büyük sınıflandırmanın yukarısını taze tutar,
+ ve 
+
+140
+00:09:59,330 --> 00:10:03,790
+üç çıktıdan hangisinin en yüksek olasılığı olduğuna bağlı olarak.
+
+141
+00:10:03,790 --> 00:10:07,917
+Yani, belki bunun bir çeşit doğrusal karar sınırları olan yapısal 
+
+142
+00:10:07,917 --> 00:10:11,182
+bağıntıya benzediğini bir miktar görebilirsiniz, ancak
+
+143
+00:10:11,182 --> 00:10:16,065
+ikiden fazla sınıf ile [DUYULAMIYOR] sınıf 0,1, sınıf 0,1 veya 2 olabilir.
+
+144
+00:10:16,065 --> 00:10:20,238
+Üç sınıfı olan üç normal veri setinin olduğu, 
+eşiksiz en büyük (Softmax) sınıflandırmanın 
+ karar sınırlarını gösterdiği başka bir örnek.
+
+145
+00:10:20,238 --> 00:10:23,625
+üç normal veri seti 3 sınıf ile olduğu zaman temsil eder.
+
+146
+00:10:23,625 --> 00:10:28,731
+Ve burada bir tane daha, evet, şimdi bu a, ama bir önsezi
+
+147
+00:10:28,731 --> 00:10:34,211
+herhangi iki sınıf arasındaki karar sınırının daha doğrusal olacağını gösteriyor.
+
+148
+00:10:34,211 --> 00:10:38,325
+İşte bu yüzden görüyorsunu ki, örneğin sarı ve çeşitli sınıflar arasındaki karar
+
+149
+00:10:38,325 --> 00:10:42,312
+sınırı, bu mor ve kırmızının olduğu yerdeki doğrusal sınır
+
+150
+00:10:42,312 --> 00:10:46,949
+mor ve sarı arasındaki doğrusal sınır ve diğer doğrusal karar sınırları.
+
+151
+00:10:46,949 --> 00:10:49,729
+Ama bu değişik doğrusal fonksiyonları alanı üç sınıfa
+
+152
+00:10:49,729 --> 00:10:52,660
+bölmek için kullanmak
+
+153
+00:10:52,660 --> 00:10:55,460
+Haydi daha fazla sınıf olan bazı örneklere bakalım.
+
+154
+00:10:55,460 --> 00:10:58,199
+Örneğin, bu örnekte C 4e eşit, yani
+
+155
+00:10:58,199 --> 00:11:03,096
+yani yeşil sınıf ve eşiksiz en büyük (diğer 3) sınıflar,
+
+156
+00:11:03,096 --> 00:11:07,280
+çoklu sınıflar arasındaki doğrusal karar sınırları.
+
+157
+00:11:07,280 --> 00:11:11,796
+Burada C nin 5 sınıfa eşit olduğu bir örnek daha var, ve
+
+158
+00:11:11,796 --> 00:11:15,190
+ve C nin 6ya eşit olduğu son bir örnek.
+
+159
+00:11:15,190 --> 00:11:20,184
+Yani bu, eşiksiz en büyük sınıflandırmanın
+ herhangi bir gizli katman yokken
+ yapabileceği şeyleri gösteriyor,
+
+160
+00:11:20,184 --> 00:11:24,545
+sınıfın saklı katmanı, x ile daha da derin bir sinir ağı ve
+
+161
+00:11:24,545 --> 00:11:28,860
+sonra bazı saklı katmanlar, ve sonra daha fazla saklı katman ve benzeri.
+
+162
+00:11:28,860 --> 00:11:32,850
+Sonra, birden fazla değişik sınıfır ayırmak için daha da karmaşık, doğrusal olmayan 
+
+163
+00:11:32,850 --> 00:11:34,065
+karar sınırları öğrenebilirsiniz.
+
+164
+00:11:35,240 --> 00:11:37,990
+Böylece umuyorum, 
+bu, size eşiksiz en büyük (Softmax) (sınıflandırma) katmanın
+ veya eşiksiz en büyük etkilenim işlevinin 
+sinir ağında yapabilecekleri hakkında bir fikir verir.
+
+165
+00:11:37,990 --> 00:11:41,820
+Böylece umuyorum, 
+bu, size eşiksiz en büyük (Softmax) (sınıflandırma) katmanın
+ veya eşiksiz en büyük etkilenim işlevinin 
+sinir ağında yapabilecekleri hakkında bir fikir verir.
+
+166
+00:11:41,820 --> 00:11:42,650
+Bir sonraki videoda,
+
+167
+00:11:42,650 --> 00:11:46,940
+(Şimdi de) eşiksiz en büyük katmanı kullanan yapay sinir ağını 
+nasıl eğitebileceğinize (şöyle) bir göz atalım.

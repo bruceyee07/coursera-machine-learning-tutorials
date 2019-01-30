@@ -1,0 +1,439 @@
+1
+00:00:00,000 --> 00:00:02,760
+Size bazı algoritmalar göstermek istiyorum.
+
+2
+00:00:02,760 --> 00:00:04,795
+Bu algoritmalar eğimli inişten daha hızlılar.
+
+3
+00:00:04,795 --> 00:00:06,807
+Bu algoritmaları anlayabilmek için
+
+4
+00:00:06,807 --> 00:00:11,850
+üstel ağırlıklı ortalama adı verilen bir aracı kullanmayı bilmeniz gerekiyor.
+
+5
+00:00:11,850 --> 00:00:15,840
+Bu aynı zamanda istatistikte üstel ağırlıklı kayan ortalama olarak da adlandırılır.
+
+6
+00:00:15,840 --> 00:00:17,030
+Önce bunun hakkında biraz konuşalım,
+
+7
+00:00:17,030 --> 00:00:21,420
+Sonrasında bunu daha karmaşık iyileme algoritmaları oluşturmak için kullanacağız.
+
+8
+00:00:21,420 --> 00:00:23,820
+Her ne kadar şu an Birleşik Devletler'de yaşıyor olsam da
+
+9
+00:00:23,820 --> 00:00:25,463
+Londra'da doğdum.
+
+10
+00:00:25,463 --> 00:00:31,120
+Dolayısıyla bu örnek için Londra'nın geçen yıla ait günlük ısı istatistiklerini topladım.
+
+11
+00:00:31,120 --> 00:00:32,511
+1 Ocak'ta
+
+12
+00:00:32,511 --> 00:00:35,175
+ısı 40 Fahrenhayt dereceydi.
+
+13
+00:00:35,175 --> 00:00:37,795
+Şimdi, dünyanın birçok yerinde santigrat sistemi kullanıldığını biliyorum,
+
+14
+00:00:37,795 --> 00:00:41,065
+ama tahmin ediyorum ki fahrenhayt sistemini kullanan Birleşik Devletler'de yaşıyorum.
+
+15
+00:00:41,065 --> 00:00:43,550
+Yani ısı 4 santigrat dereceydi.
+
+16
+00:00:43,550 --> 00:00:46,150
+2 Ocak'ta gelirsek,
+
+17
+00:00:46,150 --> 00:00:48,630
+ısı 9 santigrat dereceydi ve böyle sürüp gidiyor.
+
+18
+00:00:48,630 --> 00:00:50,250
+Yılın yaklaşık olarak yarısında,
+
+19
+00:00:50,250 --> 00:00:52,373
+bir yılda 365 gün olduğunu göre, bu da yaklaşık olarak,
+
+20
+00:00:52,373 --> 00:00:56,530
+180. günü, yani Mayıs sonralarında bir gün olduğunu düşünüyorum;
+
+21
+00:00:56,530 --> 00:01:00,795
+sıcaklık 60 fahrenhayt derece o da 15 santigrat dereceydi.
+
+22
+00:01:00,795 --> 00:01:05,575
+Ocak ayının soğuk kış günlerinden yaza doğru yavaşça devam ettiğimizde hava ısınmaya başlıyor.
+
+23
+00:01:05,575 --> 00:01:08,435
+Sonuç olarak verimizi çizge üzerine aktardığımızda şöyle bir şey ile karşılaşıyoruz.
+
+24
+00:01:08,435 --> 00:01:12,290
+Şimdi bildiğiniz gibi Ocak ayında bir yerlerdeyiz,
+
+25
+00:01:12,290 --> 00:01:13,775
+şimdi de yazın başlangıcında bir yerlerde,
+
+26
+00:01:13,775 --> 00:01:15,070
+ve burası yılın sonu,
+
+27
+00:01:15,070 --> 00:01:17,380
+Aralık ayının sonlarındayız.
+
+28
+00:01:17,380 --> 00:01:20,194
+Evet bu 1 Ocak olmalı,
+
+29
+00:01:20,194 --> 00:01:21,885
+yılın ortalarına doğru yaz yaklaşıyor,
+
+30
+00:01:21,885 --> 00:01:24,710
+burası yılın son verisi olabilir.
+
+31
+00:01:24,710 --> 00:01:29,885
+Sonuçta bu çizgeye bakınca veri biraz gürültülü olduğundan ısının yerel ortalaması yada kayan ortalaması gibi
+
+32
+00:01:29,885 --> 00:01:35,547
+gittiği yönü bulmak biraz zorlu olabilir,
+
+33
+00:01:35,547 --> 00:01:37,885
+şimdi ne yapabileceğinize gelelim.
+
+34
+00:01:37,885 --> 00:01:41,530
+V'nin başlangıç değeri 0 olsun.
+
+35
+00:01:41,530 --> 00:01:43,640
+Takip eden her gün,
+
+36
+00:01:43,640 --> 00:01:49,340
+değerini 0.9 ile ağırlıklandırarak ortalamasını alarak
+
+37
+00:01:49,340 --> 00:01:53,600
+ve günün ısısını 0.1 ile çarparak yukarıda bulduğunuz değere ekleyeceksiniz.
+
+38
+00:01:53,600 --> 00:01:57,155
+Burada Teta-1 ilk günün ısı olursa,
+
+39
+00:01:57,155 --> 00:02:01,180
+ikinci günde de ağırlıklı ortalama almaya devam edeceğiz.
+
+40
+00:02:01,180 --> 00:02:08,210
+0.9 çarpı önceki değer artı 0.1 çarpı günün ısısı olacak şekilde devam edeceğiz.
+
+41
+00:02:08,210 --> 00:02:12,930
+İkinci günün değeri artı 0.1 çarpı teta-3 ve devam ediyor.
+
+42
+00:02:12,930 --> 00:02:20,470
+Daha genel olarak istenen günün V değeri önceki günün V değeri çarpı 0.9,
+
+43
+00:02:20,470 --> 00:02:25,460
+0.1 çarpı istenen günün ısısı olarak formülleyebiliriz.
+
+44
+00:02:25,460 --> 00:02:28,035
+Sonuçta bu değerleri hesaplayıp kırmızı ile çizgeye eklersek
+
+45
+00:02:28,035 --> 00:02:29,527
+bunu elde ederiz.
+
+46
+00:02:29,527 --> 00:02:32,660
+Günlük ısının üssel ağırlıklı ortalaması olarak adlandırılan
+
+47
+00:02:32,660 --> 00:02:36,510
+kayan ortalamasını elde edersiniz.
+
+48
+00:02:36,510 --> 00:02:39,560
+Bir önceki slaytta elde ettiğimiz denkleme bakacak olursak,
+
+49
+00:02:39,560 --> 00:02:42,225
+t zamanına ait V eşittir,
+
+50
+00:02:42,225 --> 00:02:44,210
+0.9 olarak önceden kullanmıştık.
+
+51
+00:02:44,210 --> 00:02:46,790
+Burada öncekini beta olarak adlandıracağız,
+
+52
+00:02:46,790 --> 00:02:51,190
+beta çarpı t-1 anının V değerinin artı, daha önce
+
+53
+00:02:51,190 --> 00:02:56,715
+0.1 olarak bulmuştuk, 1 eksi beta çarpı teta,
+
+54
+00:02:56,715 --> 00:03:00,175
+beta'yı 0.9 olarak bulmuştuk.
+
+55
+00:03:00,175 --> 00:03:03,230
+Daha sonra döndürdüğü sonuçlara değineceğiz,
+
+56
+00:03:03,230 --> 00:03:13,860
+bunu hesapladığınızda t anına ait V'yi günün ısısının yaklaşık olarak
+
+57
+00:03:13,860 --> 00:03:21,400
+1 üzeri 1 eksi beta günün ısısı olarak düşünebiliriz.
+
+58
+00:03:21,400 --> 00:03:26,895
+Örneğin beta 0.9'a yaklaşırken, bu ortalamanın
+
+59
+00:03:26,895 --> 00:03:32,430
+son 10 günün ısısının ortalaması gibi düşünebilirsiniz.
+
+60
+00:03:32,430 --> 00:03:36,050
+Bu da çizgede kırmızı olarak görüdüğünüz çizgidir.
+
+61
+00:03:36,050 --> 00:03:37,215
+Şimdi de başka birşey deneyelim.
+
+62
+00:03:37,215 --> 00:03:39,200
+Beta'yı 1'e çok yakın olarak seçelim,
+
+63
+00:03:39,200 --> 00:03:41,660
+mesela 0.98.
+
+64
+00:03:41,660 --> 00:03:46,640
+1 bölü 1 eksi 0.98,
+
+65
+00:03:46,640 --> 00:03:48,040
+50'ye eşit olur.
+
+66
+00:03:48,040 --> 00:03:51,340
+yani bu ortalama yaklaşık olarak,
+
+67
+00:03:51,340 --> 00:03:54,085
+son 50 günün ısısının ortalaması olduğunu biliyorsunuz.
+
+68
+00:03:54,085 --> 00:03:58,360
+Ve eğer bunu çizgeye aktarırsanız yeşil çizgiyi elde edersiniz.
+
+69
+00:03:58,360 --> 00:04:01,870
+Beta'nın bu çok büyük değerleri ile ilgili birkaç not verelim:
+
+70
+00:04:01,870 --> 00:04:04,565
+Bunu çizerseniz daha yumuşak hatlara sahip çizge elde edersiniz.
+
+71
+00:04:04,565 --> 00:04:07,635
+Çünkü ısının artık daha fazla gün için ortalamasını alıyorsunuz.
+
+72
+00:04:07,635 --> 00:04:08,795
+Kırıklı çizgi bildiğiniz gibi,
+
+73
+00:04:08,795 --> 00:04:10,800
+daha az dalgalı ve yumuşak,
+
+74
+00:04:10,800 --> 00:04:14,300
+diğer taraftan artık eğri bir miktar
+
+75
+00:04:14,300 --> 00:04:18,840
+sağa doğru kaydı. Çünkü artık daha geniş bir pencereden ısıları ortalıyorsunuz.
+
+76
+00:04:18,840 --> 00:04:21,030
+Daha geniş bir pencereden ortalamak,
+
+77
+00:04:21,030 --> 00:04:24,275
+bu formülde, üssel ağırlıklı ortalama formülünde,
+
+78
+00:04:24,275 --> 00:04:25,850
+Isı değişimlerine karşı
+
+79
+00:04:25,850 --> 00:04:27,920
+daha az duyarlı hale gelir.
+
+80
+00:04:27,920 --> 00:04:29,755
+Yani bu sadece bir miktar gecikme
+
+81
+00:04:29,755 --> 00:04:33,860
+ve bunun nedeni ise beta 0.98 iken
+
+82
+00:04:33,860 --> 00:04:38,240
+önceki değere ağırlık olarak çok büyük bir değer verirken
+
+83
+00:04:38,240 --> 00:04:40,700
+anlık veriye 0.02 gibi küçük bir değer atıyor.
+
+84
+00:04:40,700 --> 00:04:42,080
+Isı değiştiğinde,
+
+85
+00:04:42,080 --> 00:04:43,560
+yukarı yada aşağı yönde,
+
+86
+00:04:43,560 --> 00:04:45,845
+üssel ağılıklı ortalama oluşur.
+
+87
+00:04:45,845 --> 00:04:48,990
+Ama beta büyük olduğunda çok yavaş bir şekilde uyum sağlar.
+
+88
+00:04:48,990 --> 00:04:51,160
+Şimdi başka bir değer deneyelim.
+
+89
+00:04:51,160 --> 00:04:53,045
+Beta'yı başka çok uç bir değer verirsek,
+
+90
+00:04:53,045 --> 00:04:54,980
+mesela 0.5 gibi,
+
+91
+00:04:54,980 --> 00:04:58,755
+sağdaki formülde yerine koyunca,
+
+92
+00:04:58,755 --> 00:05:03,690
+bu sadece iki günün ortalaması olarak ortaya çıkar
+
+93
+00:05:03,690 --> 00:05:06,420
+ve bunu sarı olarak çizgeye çizince
+
+94
+00:05:06,420 --> 00:05:09,290
+sadece iki günün ısısının ortalaması alındığından,
+
+95
+00:05:09,290 --> 00:05:12,240
+elinizde daha küçük pencereden ortalamalar toplandığından daha fazla veri toplamış oluyoruz.
+
+96
+00:05:12,240 --> 00:05:13,415
+Yani artık daha gürültülü,
+
+97
+00:05:13,415 --> 00:05:15,515
+daha fazla uçdeğer olma ihtimali olan veriye sahipsiniz.
+
+98
+00:05:15,515 --> 00:05:19,490
+Ama bu ısı değişimlerine daha çabuk tepki verir.
+
+99
+00:05:19,490 --> 00:05:24,390
+Sonuç olarak bu formül üstel ağırlıklı ortalamadır.
+
+100
+00:05:24,390 --> 00:05:26,090
+Tekraren istatistikte bu formül üstel ağırlıklı,
+
+101
+00:05:26,090 --> 00:05:28,760
+kayan ortalama olarak adlandırılır.
+
+102
+00:05:28,760 --> 00:05:32,210
+Biz ise kısaca üstel ağırlıklı ortalama olarak adlandıracağız ve
+
+103
+00:05:32,210 --> 00:05:36,000
+bu parametrenin farklı kullanımı ile , ayrıntılarını daha sonra göreceğimiz gibi,
+
+104
+00:05:36,000 --> 00:05:39,350
+eğitim algoritmasında en iyi çalışan parametreden
+
+105
+00:05:39,350 --> 00:05:41,315
+biraz farklı değerler ortaya çıkaracağından
+
+106
+00:05:41,315 --> 00:05:44,075
+bazı küçük farklılıklar da meydana getirecektir.
+
+107
+00:05:44,075 --> 00:05:46,893
+Bu da size kırmızı eğriyi verir ve bu eğri
+
+108
+00:05:46,893 --> 00:05:50,450
+yeşil veya sarı eğrilerin beta ısı ortalamasıdır.
+
+109
+00:05:50,450 --> 00:05:54,160
+Üstel ağırlıklı ortalamanın nasıl hesaplandığını artık biliyorsunuz.
+
+110
+00:05:54,160 --> 00:05:58,010
+Sonraki video da bununla neler yapabileceğimiz hakkında daha fazla öngörü sahibi olacağız.

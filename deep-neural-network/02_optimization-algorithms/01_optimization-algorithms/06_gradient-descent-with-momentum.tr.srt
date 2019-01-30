@@ -1,0 +1,535 @@
+1
+00:00:00,390 --> 00:00:04,770
+Momentum veya Momentumlu dereceli alçalma adında standart dereceli
+
+2
+00:00:04,770 --> 00:00:09,600
+alçalma algoritmasından daha hızlı çalışan bir algoritma vardır.
+
+3
+00:00:09,600 --> 00:00:14,100
+Bunu tek cümleyle, buradaki temel fikir derecelerinizin üstel ağırlıklı ortalamasını
+
+4
+00:00:14,100 --> 00:00:18,850
+hesaplamak ve bu dereceyi ağırlıklarınızı güncelleştirmenin yerine kullanmak olarak açıklayabiliriz.
+
+5
+00:00:18,850 --> 00:00:22,010
+Bu videoda, bu cümleyi açalım ve
+
+6
+00:00:22,010 --> 00:00:23,848
+bunu nasıl uygulayacağımızı görelim.
+
+7
+00:00:23,848 --> 00:00:28,619
+Örneğin bu şekilde hatlara sahip bir maliyet fonksiyonunu
+
+8
+00:00:28,619 --> 00:00:30,510
+optimize etmeye çalıştığımızı farz edelim.
+
+9
+00:00:30,510 --> 00:00:34,350
+Buradaki kırmızı nokta minimumun konumunu belirtir.
+
+10
+00:00:34,350 --> 00:00:39,307
+Belki burada bir dereceli alçalma başlatırsın ve dereceli alçalmanın
+
+11
+00:00:39,307 --> 00:00:44,670
+ya da oraya giden bir alçalmanın bir yinelemesini alırsınız.
+
+12
+00:00:44,670 --> 00:00:47,370
+Ama şimdi elipsin diğer tarafındasınız ve
+
+13
+00:00:47,370 --> 00:00:51,810
+eğer bir adım daha atarsanız bunu bitirebilirsiniz.
+
+14
+00:00:51,810 --> 00:00:55,590
+Ve ardından bir adım daha, bir adım daha ve
+
+15
+00:00:55,590 --> 00:01:00,460
+dereceli alçalmanın birçok adım attığını göreceksiniz, değil mi?
+
+16
+00:01:00,460 --> 00:01:07,190
+Yavaşça minimuma doğru salınım yapar.
+
+17
+00:01:07,190 --> 00:01:11,206
+Bu yukarı aşağı salınımlar dereceli alçalmayı yavaşlatır ve
+
+18
+00:01:11,206 --> 00:01:14,500
+sizin daha yüksek öğrenme oranı kullanmanızı önler.
+
+19
+00:01:14,500 --> 00:01:19,226
+Özellikle, eğer daha yüksek bir öğrenme oranı kullanacak olsaydınız çekimi bitirir
+
+20
+00:01:19,226 --> 00:01:21,533
+ve bu şekilde sapardınız.
+
+21
+00:01:21,533 --> 00:01:25,826
+Böylece salınımın büyümesini önleme ihtiyacı sizi çok büyük
+
+22
+00:01:25,826 --> 00:01:29,650
+olmayan bir öğrenme oranı kullanmanıza zorlar.
+
+23
+00:01:29,650 --> 00:01:34,120
+Bu probleme başka bir açıdan bakarsak, dikey eksende öğrenmenin
+
+24
+00:01:34,120 --> 00:01:38,990
+biraz daha yavaş olmasını istersiniz, çünkü bu salınımları istemezsiniz.
+
+25
+00:01:38,990 --> 00:01:43,701
+Ama yatay eksende öğrenmenin daha hızlı olmasını istersiniz.
+
+26
+00:01:45,552 --> 00:01:48,831
+Doğru çünkü öğrenmenin soldan sağa, minimuma doğru
+
+27
+00:01:48,831 --> 00:01:51,910
+yani kırmızı noktaya doğru hareket etmesini istersiniz.
+
+28
+00:01:51,910 --> 00:01:55,621
+İşte momentumlu dereceli alçalmayı uygularsanız yapabilecekleriniz.
+
+29
+00:01:58,542 --> 00:02:03,611
+Her yinelemede veya özellikle yineleme
+
+30
+00:02:03,611 --> 00:02:11,562
+sırasında dw,db gibi klasik türevleri hesaplarsınız.
+
+31
+00:02:11,562 --> 00:02:15,834
+Ben bendeki üssü köşeli parantezi atlayacağım ama
+
+32
+00:02:15,834 --> 00:02:19,940
+siz şu anki mini-batch'da dw ve db yi hesaplayacaksınız.
+
+33
+00:02:19,940 --> 00:02:21,550
+Ve eğer dereceli alçalma kullanıyorsanız
+
+34
+00:02:21,550 --> 00:02:24,200
+şu anki mini-batch sizin toplu yığınınız olacaktır.
+
+35
+00:02:24,200 --> 00:02:26,670
+Ve bu dereceli alçalmayla gayet iyi çalışır.
+
+36
+00:02:26,670 --> 00:02:29,580
+Böylece eğer şu anki mini-batch'ınız sizin tüm eğitim setiniz ise
+
+37
+00:02:29,580 --> 00:02:31,560
+bu gayet iyi çalışacaktır.
+
+38
+00:02:31,560 --> 00:02:36,453
+Daha sonra yapmanız gereken
+
+39
+00:02:36,453 --> 00:02:41,346
+Vdw=ßVdw + (1 - ß)dw
+
+40
+00:02:41,346 --> 00:02:45,779
+işlemini hesaplamaktır.
+
+41
+00:02:45,779 --> 00:02:50,808
+Bu işlem daha önce hesapladığımız
+
+42
+00:02:50,808 --> 00:02:55,960
+θ=ßVθ+1-ßθt işlemine benzemektedir.
+
+43
+00:02:57,130 --> 00:03:02,453
+Evet bu aldığınız w'nun türevinin ortalama hareketini hesaplamaktır.
+
+44
+00:03:02,453 --> 00:03:07,754
+Ve daha sonra aynı şekilde
+
+45
+00:03:07,754 --> 00:03:13,980
+vdb=ßVdb+(1-ß)db işlemini hesaplarsınız.
+
+46
+00:03:13,980 --> 00:03:18,810
+Daha sonra, dW'yi güncellemek yerine (W-öğrenme oranları çarpımı)
+
+47
+00:03:18,810 --> 00:03:23,850
+olarak güncellenmiş W'yu kullanarak ağırlıklarınızı güncellersiniz.
+
+48
+00:03:23,850 --> 00:03:28,240
+Türevle beraber, vdW ile güncellersiniz.
+
+49
+00:03:28,240 --> 00:03:35,630
+Buna benzer olarak b de (b-α.vdb) olarak güncellenir.
+
+50
+00:03:35,630 --> 00:03:39,570
+Yani bu dereceli alçalma basamaklarını yumuşatır.
+
+51
+00:03:41,230 --> 00:03:45,760
+Örneğin, hesapladığınız türevlerden birkaçının bu, bu
+
+52
+00:03:45,760 --> 00:03:47,298
+bu ve bu olduğunu farz edelim.
+
+53
+00:03:48,330 --> 00:03:52,354
+Eğer bu gradyanların ortalamasını alırsanız, salınımların ortalama
+
+54
+00:03:52,354 --> 00:03:55,472
+olarak sıfıra yakın yerlere yöneldiğini görürsünüz.
+
+55
+00:03:55,472 --> 00:04:00,301
+İşte dikey eksende, öğrenmenin yavaşlamasını istediğiniz eksende,
+
+56
+00:04:00,301 --> 00:04:05,390
+bu ortalama pozitif ve negatif sayılar çıkacaktır, böylece ortalama sıfıra yakın olacaktır.
+
+57
+00:04:05,390 --> 00:04:07,740
+Buna karşılık yatay eksende,
+
+58
+00:04:07,740 --> 00:04:11,160
+tüm türevler doğrudan yatay ekseni gösterir, böylece
+
+59
+00:04:11,160 --> 00:04:14,340
+yatay eksendeki ortalama hala daha büyük kalır.
+
+60
+00:04:14,340 --> 00:04:18,200
+İşte neden bu algoritmayı kullandığımızı birkaç yineleme ile
+
+61
+00:04:18,200 --> 00:04:22,930
+en sonunda momentumlu dereceli alçalmayı dikey eksende
+
+62
+00:04:22,930 --> 00:04:28,100
+daha küçük salınım adımları atarken buluyorsunuz.
+
+63
+00:04:28,100 --> 00:04:33,700
+Ama bu yatay eksende hızlı hareket etmeye daha yatkın.
+
+64
+00:04:33,700 --> 00:04:37,480
+Bu da algoritmanızın daha fazla kolay yol almasını
+
+65
+00:04:37,480 --> 00:04:42,990
+veya minimum yolundaki salınımları en aza indirmesine izin verir.
+
+66
+00:04:42,990 --> 00:04:47,304
+Bazı insanlarda çalışan bu momentum için sezgi, eğer kase şeklindeki
+
+67
+00:04:47,304 --> 00:04:53,040
+fonksiyonunuzu minimize etmeye çalışıyorsanız bazı insanlarda çalışmayacaktır, değil mi?
+
+68
+00:04:53,040 --> 00:04:55,440
+Bunlar gerçekten kasenin çizgileri.
+
+69
+00:04:55,440 --> 00:04:57,840
+Sanırım çizim işinde pek iyi değilim.
+
+70
+00:04:57,840 --> 00:05:02,470
+Onlar kase şeklindeki bu fonksiyonu minimize etmeye çalışır sonra
+
+71
+00:05:02,470 --> 00:05:06,625
+şu türev terimlerinin aşağıya doğru yuvarlanan bir
+
+72
+00:05:06,625 --> 00:05:11,071
+topun hız kazanmasını sağladığını düşünebilirsiniz.
+
+73
+00:05:11,071 --> 00:05:19,151
+Ve bu momentum terimlerinin sürati temsil ettiğini düşünebilirsiniz.
+
+74
+00:05:20,812 --> 00:05:24,749
+Şimdi bir kaseye sahip olduğunuzu düşünün, bir top alıyorsunuz
+
+75
+00:05:24,749 --> 00:05:28,854
+ve türev bu küçük topa sanki aşağıya yuvarlanıyormuş gibi
+
+76
+00:05:28,854 --> 00:05:32,440
+bir ivme kazandırıyor, değil mi?
+
+77
+00:05:32,440 --> 00:05:36,980
+Böylece ivmeden dolayı top daha daha hızlı yuvarlanıyor.
+
+78
+00:05:36,980 --> 00:05:42,390
+Ve veri -çünkü bu sayı birden çok ufak küçük- bir dizi sürtünme oluşturur
+
+79
+00:05:42,390 --> 00:05:46,690
+ve bu da topunuzun sınırsız olarak hızlanmasını engeller.
+
+80
+00:05:46,690 --> 00:05:50,380
+Ancak dereceli alçalmadan ziyade
+
+81
+00:05:50,380 --> 00:05:54,120
+her bir adımı önceki adımlardan bağımsız olarak almak yeterlidir.
+
+82
+00:05:54,120 --> 00:05:56,460
+Şimdi, küçük topunuz aşağıya yuvarlanıp
+
+83
+00:05:56,460 --> 00:06:01,610
+momentum kazanabilir, ama bu kaseyi hızlandırabilir bu nedenle de momentum kazanabilir.
+
+84
+00:06:01,610 --> 00:06:05,640
+Bunu kase içinde yuvarlanan bir topa benzetiyorum,bu fizik yasalarından
+
+85
+00:06:05,640 --> 00:06:07,770
+hoşlanan bazı insanlar için çalışıyormuş gibi görünüyor.
+
+86
+00:06:07,770 --> 00:06:12,160
+Ancak herkes için çalışmaz, işte eğer bu kasede aşağı yuvarlanan top
+
+87
+00:06:12,160 --> 00:06:15,000
+benzetmesi sizde çalışmazsa, bunun için endişelenmeyin.
+
+88
+00:06:15,000 --> 00:06:18,280
+Son olarak, bunu nasıl uygulayacağımız hakkında detayları konuşalım.
+
+89
+00:06:18,280 --> 00:06:21,300
+İşte algoritma ve bu yüzden şimdi öğrenme oranının
+
+90
+00:06:22,300 --> 00:06:27,100
+ağırlıklı ortalamanızı kontrol eden alfa ile birlikte
+
+91
+00:06:27,100 --> 00:06:30,080
+beta adında iki hiper parametresine sahipsiniz.
+
+92
+00:06:30,080 --> 00:06:33,073
+Beta'nın en yaygın değeri 0.9 dur.
+
+93
+00:06:33,073 --> 00:06:35,730
+Son on günün sıcaklık ortalamasını hesaplıyoruz.
+
+94
+00:06:35,730 --> 00:06:39,930
+Yani bu son on yinelemenin derecelerinin ortalamasıdır.
+
+95
+00:06:39,930 --> 00:06:42,768
+Ve pratikte Beta'nın 0.9 değerine eşit olması gayet iyi çalışır.
+
+96
+00:06:42,768 --> 00:06:45,420
+Diğer değerleri denemekte ve başka hiper parametreleri
+
+97
+00:06:45,420 --> 00:06:50,120
+aramakta serbestsiniz, ama 0.9 biraz güçlü bir değer gibi görünüyor.
+
+98
+00:06:50,120 --> 00:06:51,932
+Peki ya ön yargıları düzeltmeye ne dersiniz?
+
+99
+00:06:51,932 --> 00:06:58,170
+Yani vdW ve vdb yi almak ve (1-B^t) ye bölmek istiyorsunuz.
+
+100
+00:06:58,170 --> 00:07:02,380
+Pratikte insanlar bunu genelde kullanmaz çünkü 10 yinelemeden sonra
+
+101
+00:07:02,380 --> 00:07:06,530
+hareketli ortalamanız ısınacak ve artık ön yargı tahmini olmayacaktır.
+
+102
+00:07:06,530 --> 00:07:11,357
+Bu yüzden gerçekten insanların momentumlu dereceli alçalma uygularken
+
+103
+00:07:11,357 --> 00:07:14,663
+ön yargı düzeltmesi ile bir sorununun olduğunu görmüyorum.
+
+104
+00:07:14,663 --> 00:07:18,785
+Ve tabii ki bu işlem vdW=0 işlemini başlatacaktır.
+
+105
+00:07:18,785 --> 00:07:23,546
+Bunun dW ile aynı boyutta ve aynı zamanda W ile de aynı boyutlarda olan
+
+106
+00:07:23,546 --> 00:07:26,810
+bir sıfırlar matrisi olduğunu unutmayın.
+
+107
+00:07:26,810 --> 00:07:30,620
+Ve Vdb de bir sıfırlar vektörüne başlatılmıştır.
+
+108
+00:07:30,620 --> 00:07:35,400
+Yani, db ile aynı boyutlarda, aynı zamanda b ile de aynı boyuta sahiptir.
+
+109
+00:07:35,400 --> 00:07:40,050
+Son olarak, eğer momentumlu dereceli alçalma ile ilgili şeyler okumuşsanız,
+
+110
+00:07:40,050 --> 00:07:45,590
+genellikle bu terimin atlandığını, aynı zamanda (1-ß) nın da atlandığını
+
+111
+00:07:45,590 --> 00:07:48,854
+görmüş olduğunuzdan bahsetmek istiyorum.
+
+112
+00:07:48,854 --> 00:07:57,080
+Yani vdW, (ßvdW+dW)'ya eşittir.
+
+113
+00:07:57,080 --> 00:08:02,127
+Ve şu morla gösterilen sürümü kullanmanın net etkisi, vdW'nin 1-ß katsayısı
+
+114
+00:08:02,127 --> 00:08:07,300
+ya da gerçekten (1-ß)'dan 1 kat daha fazla ölçeklenmesiyle sonuçlanmasıdır.
+
+115
+00:08:07,300 --> 00:08:11,230
+Ve böylece şu dereceli alçalma güncellemelerini yaptığınız zaman, alfa sadece
+
+116
+00:08:11,230 --> 00:08:16,220
+(1-ß) üzeri 1'e karşılık gelen bir değerle değiştir.
+
+117
+00:08:16,220 --> 00:08:18,800
+Uygulamada, ikisi de gayet iyi çalışacaktır,
+
+118
+00:08:18,800 --> 00:08:23,740
+bu sadece alfa'nın en iyi öğrenme değerini etkileyecektir.
+
+119
+00:08:23,740 --> 00:08:28,350
+Ama bu özel formülasyonun daha az sezgisel olduğunu düşünüyorum.
+
+120
+00:08:28,350 --> 00:08:33,610
+Çünkü bunun bir etkisi de şudur, eğer Beta hiper parametresinin ayarını sonlandırırsanız,
+
+121
+00:08:33,610 --> 00:08:37,770
+bu da vdW ve vdb'nin ölçeklenmesini etkiler.
+
+122
+00:08:37,770 --> 00:08:42,710
+Ve böylece öğrenme oranını, belki de alfayı yeniden hesaplama ihtiyacınız biter.
+
+123
+00:08:42,710 --> 00:08:46,970
+Şahsen ben (1-ß) terimini çıkarmak yerine solda yazdığım
+
+124
+00:08:46,970 --> 00:08:49,600
+formülasyonu kullanmayı tercih ederim.
+
+125
+00:08:49,600 --> 00:08:52,450
+Ama, bu yüzden soldaki basılı formülü (1-ß)
+
+126
+00:08:52,450 --> 00:08:55,140
+terimiyle kullanmayı tercih ediyorum.
+
+127
+00:08:55,140 --> 00:09:00,280
+Fakat Beta eşittir 0.9 kullanan iki versiyon da yaygın bir hiper parametre seçimidir.
+
+128
+00:09:00,280 --> 00:09:03,500
+Sadece alfa'da öğrenme oranının bu iki farklı versiyon için farklı
+
+129
+00:09:03,500 --> 00:09:04,880
+şekilde ayarlanması gerekecektir.
+
+130
+00:09:04,880 --> 00:09:07,500
+İşte momentumlu dereceli alçalma bunun içindir.
+
+131
+00:09:07,500 --> 00:09:11,120
+Bu hemen hemen her zaman anlaşılması kolay olan
+
+132
+00:09:11,120 --> 00:09:13,740
+momentumsuz dereceli alçalma algoritmasından daha hızlı çalışacaktır.
+
+133
+00:09:13,740 --> 00:09:17,020
+Ama hala daha öğrenme algoritmalarını hızlandırmak için yapmamız gereken başka şeyler vardır.
+
+134
+00:09:17,020 --> 00:09:19,920
+Bunun hakkında sonraki videolarda konuşmaya devam edelim.

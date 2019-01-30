@@ -1,0 +1,427 @@
+1
+00:00:00,000 --> 00:00:02,352
+Um dos problemas de treinar Redes Neurais,
+
+2
+00:00:02,352 --> 00:00:04,585
+especialmente Redes Neurais muito profundas,
+
+3
+00:00:04,585 --> 00:00:07,395
+é o desaparecimento e a explosão dos gradientes.
+
+4
+00:00:07,395 --> 00:00:09,180
+Isso significa que quando você estiver treinando
+
+5
+00:00:09,180 --> 00:00:13,650
+uma Rede Neural muito profunda, suas derivadas (gradientes) 
+ou suas inclinações podem, às vezes, ser muito
+
+6
+00:00:13,650 --> 00:00:15,825
+muito grandes ou muito, muito pequenas,
+
+7
+00:00:15,825 --> 00:00:17,420
+talvez até exponencialmente pequenas,
+
+8
+00:00:17,420 --> 00:00:19,450
+e isso pode dificultar seu treinamento.
+
+9
+00:00:19,450 --> 00:00:21,690
+Neste vídeo você verá o que este problema de
+
+10
+00:00:21,690 --> 00:00:25,185
+explosão ou desaparecimento de
+gradientes realmente significa,
+
+11
+00:00:25,185 --> 00:00:28,630
+e também como você pode usar 
+ escolhas cuidadosas de
+
+12
+00:00:28,630 --> 00:00:32,780
+pesos na inicialização aleatória para
+ reduzir significativamente este problema.
+
+13
+00:00:32,780 --> 00:00:36,015
+Digamos que você esteja treinando uma 
+Rede Neural tão profunda como esta
+
+14
+00:00:36,015 --> 00:00:37,210
+para economizar espaço neste "slide",
+
+15
+00:00:37,210 --> 00:00:40,508
+eu desenhei como se houvesse apenas 
+duas unidades ocultas por camada,
+
+16
+00:00:40,508 --> 00:00:42,575
+porém, poderiam haver mais, como de costume.
+
+17
+00:00:42,575 --> 00:00:45,625
+Esta Rede Neural terá parâmetros W'¹'
+
+18
+00:00:45,625 --> 00:00:51,585
+W'²', W'³' e assim por diante até W'ᴸ'.
+
+19
+00:00:51,585 --> 00:00:53,025
+Por questões de simplificação,
+
+20
+00:00:53,025 --> 00:00:56,960
+vamos dizer que estamos usando
+ uma função de ativação "g(z) = z",
+
+21
+00:00:56,960 --> 00:00:58,725
+uma função de ativação linear.
+
+22
+00:00:58,725 --> 00:01:02,985
+E vamos ignorar b, vamos dizer que
+ "b'ˡ' = 0".
+
+23
+00:01:02,985 --> 00:01:07,755
+Então, nesse caso você pode mostrar 
+que a saída "y" será
+
+24
+00:01:07,755 --> 00:01:13,700
+W'ᴸ' W'ᴸ⁻¹' W'ᴸ⁻²'
+
+25
+00:01:13,700 --> 00:01:18,193
+e assim por diante, até o 
+W'³'W'²' W'¹' x
+
+26
+00:01:18,193 --> 00:01:21,445
+W'³'W'²' W'¹' x
+
+27
+00:01:21,445 --> 00:01:23,830
+Se você quiser verificar os cálculos,
+
+28
+00:01:23,830 --> 00:01:27,915
+veja que W'¹' x = z'¹'.
+
+29
+00:01:27,915 --> 00:01:30,225
+pois "b" é igual a 0.
+
+30
+00:01:30,225 --> 00:01:33,540
+Então, z'¹' é igual a
+
+31
+00:01:33,540 --> 00:01:37,960
+"W'¹' x" mais "b" que é igual zero.
+
+32
+00:01:37,960 --> 00:01:42,440
+Assim, a'¹' = g(z'¹').
+
+33
+00:01:42,440 --> 00:01:45,150
+Como nós usamos uma Função de Ativação linear,
+
+34
+00:01:45,150 --> 00:01:47,755
+g(z'¹') é simplesmente igual a z'¹'
+
+35
+00:01:47,755 --> 00:01:50,360
+Então este primeiro termo W'¹' x = a'¹'.
+
+36
+00:01:50,360 --> 00:01:57,950
+Analogamente, perceba que W'²' W'¹' x = a'²'
+
+37
+00:01:57,950 --> 00:02:00,118
+pois g(z'²')
+
+38
+00:02:00,118 --> 00:02:03,565
+é igual a g(W'²' a'¹')
+
+39
+00:02:03,565 --> 00:02:12,570
+e substitui-se: a'¹' = z'¹' = W'¹' x.
+
+40
+00:02:12,570 --> 00:02:16,690
+Então W'²' W'¹' x = a'²',
+
+41
+00:02:16,690 --> 00:02:21,505
+este termo W'³' W'²' W'¹' x = a'³',
+
+42
+00:02:21,505 --> 00:02:29,065
+e assim por diante até que o 
+produto de todas essas matrizes seja ŷ.
+
+43
+00:02:29,065 --> 00:02:33,080
+Agora, digamos que cada uma dessas matrizes de peso
+
+44
+00:02:33,080 --> 00:02:39,677
+W'ˡ' seja apenas um pouco maior do que a matriz identidade.
+
+45
+00:02:39,677 --> 00:02:43,825
+Seja 1,5 vezes a matriz identidade.
+
+46
+00:02:43,825 --> 00:02:46,000
+Tecnicamente, a última matriz não é quadrada
+
+47
+00:02:46,000 --> 00:02:49,220
+assim isso só vale para as outras matrizes de pesos.
+
+48
+00:02:49,220 --> 00:02:51,508
+Dessa forma, ŷ será,
+
+49
+00:02:51,508 --> 00:02:54,903
+ignorando a última matriz não quadrada,
+
+50
+00:02:54,903 --> 00:03:01,770
+a matriz identidade vezes 1,5 elevado a (L-1) vezes x,
+
+51
+00:03:01,770 --> 00:03:08,050
+pois nós consideramos que cada W fosse igual a
+
+52
+00:03:08,050 --> 00:03:12,945
+1,5 vezes a matriz identidade, resultando nesse produto.
+
+53
+00:03:12,945 --> 00:03:19,150
+Assim ŷ é igual a 1,5 elevado a L-1
+
+54
+00:03:19,150 --> 00:03:21,715
+vezes a matriz "x".
+
+55
+00:03:21,715 --> 00:03:24,505
+Se "L" fosse grande, para uma Rede Profunda,
+
+56
+00:03:24,505 --> 00:03:26,640
+ŷ seria muito grande.
+
+57
+00:03:26,640 --> 00:03:28,375
+Na verdade, ele cresce exponencialmente,
+
+58
+00:03:28,375 --> 00:03:32,145
+isto é, 1,5 elevado ao número de camadas.
+
+59
+00:03:32,145 --> 00:03:34,290
+Assim, com uma Rede Neural Profunda,
+
+60
+00:03:34,290 --> 00:03:36,850
+o valor de ŷ irá explodir.
+
+61
+00:03:36,850 --> 00:03:40,832
+Por outro lado, se substituirmos 1,5 por 0,5,
+
+62
+00:03:40,832 --> 00:03:42,268
+um termo menor que 1,
+
+63
+00:03:42,268 --> 00:03:45,860
+o resultado é 0,5 elevado a L.
+
+64
+00:03:45,860 --> 00:03:51,515
+Esta matriz seria 0,5 elevado a L vezes x, ignorando W'ᴸ'.
+
+65
+00:03:51,515 --> 00:03:57,220
+Cada uma dessas matrizes é menor que 1,
+
+66
+00:03:57,220 --> 00:04:00,415
+então, supondo que x₁ e x₂ fossem um,
+
+67
+00:04:00,415 --> 00:04:02,778
+suas ativações seriam um meio, um meio
+
+68
+00:04:02,778 --> 00:04:04,450
+um quarto, um quarto,
+
+69
+00:04:04,450 --> 00:04:07,227
+um oitavo, um oitavo,
+
+70
+00:04:07,227 --> 00:04:11,470
+e assim por diante até 1/2 elevado a L.
+
+71
+00:04:11,470 --> 00:04:16,710
+Os valores de ativação decairão exponencialmente
+
+72
+00:04:16,710 --> 00:04:19,945
+em função do número de camadas L (profundidade) da rede.
+
+73
+00:04:19,945 --> 00:04:26,150
+Portanto, em uma rede muito profunda, as ativações decaem exponencialmente.
+
+74
+00:04:26,150 --> 00:04:30,940
+Então, a noção que você pode aprender aqui é que
+
+75
+00:04:30,940 --> 00:04:33,760
+se os pesos W forem todos um pouco maiores que um,
+
+76
+00:04:33,760 --> 00:04:36,805
+ou um pouco maiores que a matriz identidade,
+
+77
+00:04:36,805 --> 00:04:41,290
+então, com uma rede muito profunda, as ativações podem explodir.
+
+78
+00:04:41,290 --> 00:04:45,525
+Porém, se W for um pouco menor que a identidade,
+
+79
+00:04:45,525 --> 00:04:49,020
+0,9 vezes a matriz identidade, então,
+
+80
+00:04:49,020 --> 00:04:50,062
+em uma rede muito profunda,
+
+81
+00:04:50,062 --> 00:04:53,235
+os valores de ativação decairão exponencialmente.
+
+82
+00:04:53,235 --> 00:04:56,175
+Mesmo que esta explicação tenha sido em termos de
+
+83
+00:04:56,175 --> 00:05:00,795
+ativação aumentando ou diminuindo exponencialmente em função de L,
+
+84
+00:05:00,795 --> 00:05:03,180
+há uma explicação análoga para mostrar que
+
+85
+00:05:03,180 --> 00:05:05,515
+as derivadas (ou gradientes) calculadas no Gradiente Descendente
+
+86
+00:05:05,515 --> 00:05:08,485
+também aumentação exponencialmente
+
+87
+00:05:08,485 --> 00:05:11,720
+ou decairão exponencialmente em função da quantidade de camadas.
+
+88
+00:05:11,720 --> 00:05:16,210
+Nas Redes Neurais mais atuais, tem-se L igual a 150.
+
+89
+00:05:16,210 --> 00:05:19,018
+A Microsoft teve bons resultados com 152 camadas.
+
+90
+00:05:19,018 --> 00:05:22,900
+Porém, com uma rede tão profunda,
+
+91
+00:05:22,900 --> 00:05:27,760
+se as ativações ou gradientes aumentarem ou diminuírem exponencialmente em função de L,
+
+92
+00:05:27,760 --> 00:05:31,435
+então esses valores poderiam se tornar muito grandes ou pequenos.
+
+93
+00:05:31,435 --> 00:05:33,777
+Isso torna o treino mais difícil,
+
+94
+00:05:33,777 --> 00:05:36,970
+especialmente se os gradientes forem exponencialmente menores que L,
+
+95
+00:05:36,970 --> 00:05:40,540
+então o Gradiente Descendente tomará passos muito pequenos.
+
+96
+00:05:40,540 --> 00:05:44,580
+Levará um bom tempo para que o Gradiente Descendente aprenda algo.
+
+97
+00:05:44,580 --> 00:05:47,380
+Em resumo, você viu como Redes Profundas sofrem de
+
+98
+00:05:47,380 --> 00:05:50,945
+problemas de desaparecimento ou explosão de gradientes.
+
+99
+00:05:50,945 --> 00:05:52,750
+Por um bom tempo, esse problema foi
+
+100
+00:05:52,750 --> 00:05:56,040
+uma grande obstáculo no treinamento de Redes Profundas.
+
+101
+00:05:56,040 --> 00:05:59,620
+Ainda, há uma solução parcial que não resolve todo este problema
+
+102
+00:05:59,620 --> 00:06:01,670
+mas que ajuda bastante, o que é
+
+103
+00:06:01,670 --> 00:06:04,455
+a inicialização cuidadosa dos pesos.
+
+104
+00:06:04,455 --> 00:06:07,090
+Para isso, vamos para o próximo vídeo.
+[Tradução: Gabriel Adriano Melo | Revisão: Carlos Lage]

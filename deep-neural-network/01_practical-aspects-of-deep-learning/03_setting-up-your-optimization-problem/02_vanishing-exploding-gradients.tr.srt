@@ -1,0 +1,415 @@
+1
+00:00:00,000 --> 00:00:02,352
+Sinir ağının eğitim problemlerinden biri,
+
+2
+00:00:02,352 --> 00:00:04,585
+özellikle çok derin sinir ağlarının,
+
+3
+00:00:04,585 --> 00:00:07,395
+verilerin yok olması ve eğimlerin patlamasıdır.
+
+4
+00:00:07,395 --> 00:00:09,180
+Bunun anlamı, çok derin bir ağı eğitirken,
+
+5
+00:00:09,180 --> 00:00:13,650
+türevleriniz ya da eğimleriniz bazen çok,
+
+6
+00:00:13,650 --> 00:00:15,825
+çok büyük ya da çok, çok küçük,
+
+7
+00:00:15,825 --> 00:00:17,420
+hatta belki üstel küçük olabilir.
+
+8
+00:00:17,420 --> 00:00:19,450
+Bu da eğitimi zorlaştırır.
+
+9
+00:00:19,450 --> 00:00:21,690
+Bu videoda, patlayan ve yok olan eğim probleminin
+
+10
+00:00:21,690 --> 00:00:25,185
+gerçekte ne olduğunu anlayacaksınız,
+
+11
+00:00:25,185 --> 00:00:28,630
+ayrıca, bu problemi önemli ölçüde azaltmak için
+
+12
+00:00:28,630 --> 00:00:32,780
+rastgele ağırlık ilklendirmenin seçimlerini nasıl yapacağınızı göreceksiniz.
+
+13
+00:00:32,780 --> 00:00:36,015
+Derin öğrenme ağlarını bu şekilde eğitmezseniz,
+
+14
+00:00:36,015 --> 00:00:37,210
+slaytta yer kazanmak adına,
+
+15
+00:00:37,210 --> 00:00:40,508
+her katmanda sadece 2 gizli birim varmış gibi çizdim,
+
+16
+00:00:40,508 --> 00:00:42,575
+ama daha fazla olabilirdi.
+
+17
+00:00:42,575 --> 00:00:45,625
+Ama bu sinir ağının W(1), W(2), W(3)
+
+18
+00:00:45,625 --> 00:00:51,585
+ve W(L)'ye kadar devam eden parametreleri var.
+
+19
+00:00:51,585 --> 00:00:53,025
+Sadelik adına,
+
+20
+00:00:53,025 --> 00:00:56,960
+Z'nin g(Z) aktivasyon fonksiyonunu kullandığımızı varsayalım,
+
+21
+00:00:56,960 --> 00:00:58,725
+bu yüzden doğrusal aktivasyon fonksiyonu.
+
+22
+00:00:58,725 --> 00:01:02,985
+Ve B'yi görmezden gelelim, B(L) sıfıra eşittir diyelim.
+
+23
+00:01:02,985 --> 00:01:07,755
+Bu durumda, output olan Y'yi şöyle gösterebilirsiniz:
+
+24
+00:01:07,755 --> 00:01:13,700
+W(L) çarpı W(L eksi bir) çarpı W(L eksi iki),
+
+25
+00:01:13,700 --> 00:01:18,193
+W(3)'e kadar nokta, nokta, nokta,
+
+26
+00:01:18,193 --> 00:01:21,445
+W(2) çarpı W(1) çarpı X.
+
+27
+00:01:21,445 --> 00:01:23,830
+Matematiğimi kontrol etmek isterseniz,
+
+28
+00:01:23,830 --> 00:01:27,915
+W(1) çarpı X, Z(1) olacaktır,
+
+29
+00:01:27,915 --> 00:01:30,225
+Çünkü, B sıfıra eşittir.
+
+30
+00:01:30,225 --> 00:01:33,540
+Bu sebeple, Z(1) de sanırım,
+
+31
+00:01:33,540 --> 00:01:37,960
+W(1) çarpı X ve sonra artı B (sıfır)'ye eşit olacaktır.
+
+32
+00:01:37,960 --> 00:01:42,440
+Fakat öte yandan, A(1), g(Z(1))'e eşit.
+
+33
+00:01:42,440 --> 00:01:45,150
+doğrusal aktivasyonunu kullandığımız için,
+
+34
+00:01:45,150 --> 00:01:47,755
+bu sadece Z(1)'e eşit.
+
+35
+00:01:47,755 --> 00:01:50,360
+Yani ilk terimimiz; W(1) çarpı X, A(1)'e eşittir.
+
+36
+00:01:50,360 --> 00:01:57,950
+Ve sonra mantıksal olarak, W(2) çarpı W(1) çarpı X'in A(2)'ye eşit olduğunu anlayabilirsiniz,
+
+37
+00:01:57,950 --> 00:02:00,118
+çünkü bu g(Z(2)) olacak,
+
+38
+00:02:00,118 --> 00:02:03,565
+g(W(2) çarpı A(1) olacak ki
+
+39
+00:02:03,565 --> 00:02:12,570
+bunu da buraya ekleyebilirsiniz.
+
+40
+00:02:12,570 --> 00:02:16,690
+Yani bu A(2)'ye eşit olacak,
+
+41
+00:02:16,690 --> 00:02:21,505
+ve sonra bu da A(3)'e eşit olacak
+
+42
+00:02:21,505 --> 00:02:29,065
+ve bu şekilde devam edecektir, ta ki bu matrislerin ürünü şapkalı Y'yi verene kadar, Y'yi değil.
+
+43
+00:02:29,065 --> 00:02:33,080
+Şimdi, her bir ağırlık matrisi W(L)'nin,
+
+44
+00:02:33,080 --> 00:02:39,677
+özdeşlikten birden biraz daha büyük olduğunu söyleyelim.
+
+45
+00:02:39,677 --> 00:02:43,825
+Yani, 1.5_1.5_0_0.
+
+46
+00:02:43,825 --> 00:02:46,000
+Teknik olarak, sonuncusu farklı boyutlara sahiptir,
+
+47
+00:02:46,000 --> 00:02:49,220
+bu yüzden bu sadece bu ağırlık matrislerinin geri kalanıdır.
+
+48
+00:02:49,220 --> 00:02:51,508
+Sonra, şapkalı Y,
+
+49
+00:02:51,508 --> 00:02:54,903
+bu sonuncusunu farklı bir boyutla göz ardı ederek,
+
+50
+00:02:54,903 --> 00:03:01,770
+bu 1.5_0_0_1.5 matrisin (L eksi 1) kuvveti çarpı X olacaktır.
+
+51
+00:03:01,770 --> 00:03:08,050
+çünkü bu matrislerin her birinin buna eşit olduğunu varsayıyoruz.
+
+52
+00:03:08,050 --> 00:03:12,945
+Bu gerçekten özdeşlik matrisinin 1.5 katı, sonra bu hesaplama ile sonuçlandırırsınız.
+
+53
+00:03:12,945 --> 00:03:19,150
+Ve şapkalı Y temelde 1.5'in (L) kuvvetine,
+
+54
+00:03:19,150 --> 00:03:21,715
+(L-1) kuvveti çarpı X olacaktır,
+
+55
+00:03:21,715 --> 00:03:24,505
+ve eğer L çok derin sinir ağları için büyükse,
+
+56
+00:03:24,505 --> 00:03:26,640
+şapkalı Y çok büyük olacaktır.
+
+57
+00:03:26,640 --> 00:03:28,375
+Aslında, sadece üssel olarak büyür,
+
+58
+00:03:28,375 --> 00:03:32,145
+1.5'in katman sayısı kuvvetine göre büyür.
+
+59
+00:03:32,145 --> 00:03:34,290
+Eğer çok derin bir sinir ağınız varsa,
+
+60
+00:03:34,290 --> 00:03:36,850
+Y'nin değeri patlayacaktır.
+
+61
+00:03:36,850 --> 00:03:40,832
+Tersine, eğer bunu 0.5 ile değiştirirsek,
+
+62
+00:03:40,832 --> 00:03:42,268
+yani 1'den az bir şey ile,
+
+63
+00:03:42,268 --> 00:03:45,860
+sonra bu, 0,5'in L kuvvetine eşit olur.
+
+64
+00:03:45,860 --> 00:03:51,515
+Bu matris, yine W(L)'yi göz ardı ederek, 0,5'in (L eksi bir) kuvveti çarpı X'e eşit olur.
+
+65
+00:03:51,515 --> 00:03:57,220
+Ve böylece matrislerin her biri 1'den az,
+
+66
+00:03:57,220 --> 00:04:00,415
+sonra X(1)'ye bir, X(2)'ye bir diyelim,
+
+67
+00:04:00,415 --> 00:04:02,778
+sonra aktivasyonlar bir bölü 2,
+
+68
+00:04:02,778 --> 00:04:04,450
+bir bölü 2, bir bölü dört,
+
+69
+00:04:04,450 --> 00:04:07,227
+bir bölü dört, bir bölü sekiz, bir bölü sekiz,
+
+70
+00:04:07,227 --> 00:04:11,470
+olarak devam edecek, ta ki 1 bölü 2'nin (L) kuvveti olana kadar.
+
+71
+00:04:11,470 --> 00:04:16,710
+Bu yüzden, aktivasyon değerleri def'in bir fonksiyonu olarak değişimine göre,
+
+72
+00:04:16,710 --> 00:04:19,945
+ağdaki L katman sayısındaki fonksiyonu olarak değişimine göre katlanarak azalacaktır.
+
+73
+00:04:19,945 --> 00:04:26,150
+Yani çok derin bir ağda, aktivasyonlar katlanarak azalmaktadır.
+
+74
+00:04:26,150 --> 00:04:30,940
+Yani sezgilerden kurtulabileceğinizi umarak, W (L),
+
+75
+00:04:30,940 --> 00:04:33,760
+eğer hepsi sadece birden biraz daha büyükse,
+
+76
+00:04:33,760 --> 00:04:36,805
+ya da özdeşlik matrisinden biraz daha büyükse,
+
+77
+00:04:36,805 --> 00:04:41,290
+daha sonra çok derin bir ağ ile aktivasyonlar patlayabilir.
+
+78
+00:04:41,290 --> 00:04:45,525
+Ve eğer W(L), özdeşlik matrisinden birazcık daha azsa,
+
+79
+00:04:45,525 --> 00:04:49,020
+yani bu belki burada 0.9, 0.9,
+
+80
+00:04:49,020 --> 00:04:50,062
+o zaman çok derin bir ağınız vardır,
+
+81
+00:04:50,062 --> 00:04:53,235
+aktivasyonlar katlanarak azalacaktır.
+
+82
+00:04:53,235 --> 00:04:56,175
+Ve bu argümanı, L'nin bir fonksiyonu olarak
+
+83
+00:04:56,175 --> 00:05:00,795
+katlanarak artan veya azalan aktivasyonlar açısından incelememe rağmen,
+
+84
+00:05:00,795 --> 00:05:03,180
+benzer bir argüman, şunu göstermek için kullanılabilir:
+
+85
+00:05:03,180 --> 00:05:05,515
+bilgisayarın göndereceği türevlerin veya eğimlerin de
+
+86
+00:05:05,515 --> 00:05:08,485
+katlanarak arttığını
+
+87
+00:05:08,485 --> 00:05:11,720
+veya katman sayısı sayısının bir fonksiyonu olarak üssel olarak azalacağını göstermek için kullanılabilir.
+
+88
+00:05:11,720 --> 00:05:16,210
+Bazı modern sinir ağları ile, L 150'ye eşittir.
+
+89
+00:05:16,210 --> 00:05:19,018
+Microsoft yakın zamanda 152 katmanlı sinir ağı ile mükemmel sonuçlar elde etti.
+
+90
+00:05:19,018 --> 00:05:22,900
+Fakat böyle derin bir sinir ağıyla,
+
+91
+00:05:22,900 --> 00:05:27,760
+eğer aktivasyonlarınız veya eğimleriniz L'nin bir fonksiyonu olarak katlanarak artar veya azalırsa,
+
+92
+00:05:27,760 --> 00:05:31,435
+o zaman bu değerler gerçekten büyük ya da çok küçük olabilir.
+
+93
+00:05:31,435 --> 00:05:33,777
+Ve bu eğitimi zorlaştırır,
+
+94
+00:05:33,777 --> 00:05:36,970
+özellikle eğer eğimleriniz katlanarak L'den küçükse,
+
+95
+00:05:36,970 --> 00:05:40,540
+Dereceli azalma küçük adımlar halinde olacaktır.
+
+96
+00:05:40,540 --> 00:05:44,580
+Dereceli Azalmanın bir şey öğrenmesi uzun zaman alacaktır.
+
+97
+00:05:44,580 --> 00:05:47,380
+Özetlemek gerekirse, eğimlerin patlaması ya da yok olması problemlerinden
+
+98
+00:05:47,380 --> 00:05:50,945
+derin ağların ne kadar muzdarip olduğunu gördünüz.
+
+99
+00:05:50,945 --> 00:05:52,750
+Aslında, uzun bir süre boyunca bu problem
+
+100
+00:05:52,750 --> 00:05:56,040
+derin sinir ağlarını eğitmek için büyük bir engeldi.
+
+101
+00:05:56,040 --> 00:05:59,620
+Bu sorunu tam olarak çözmeyen kısmi bir çözüm ortaya çıkıyor,
+
+102
+00:05:59,620 --> 00:06:01,670
+ancak ağırlıkları nasıl başlattığınıza dair
+
+103
+00:06:01,670 --> 00:06:04,455
+dikkatli bir seçim yapmanıza yardımcı oluyor.
+
+104
+00:06:04,455 --> 00:06:07,090
+Bunu görmek için bir sonraki videoya gidelim.

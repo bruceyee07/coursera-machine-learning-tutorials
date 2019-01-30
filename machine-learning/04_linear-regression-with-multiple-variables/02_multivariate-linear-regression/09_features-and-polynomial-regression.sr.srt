@@ -1,0 +1,939 @@
+1
+00:00:00,200 --> 00:00:03,878
+Sada znate za linearnu regresiju sa više varijabli.
+
+2
+00:00:03,910 --> 00:00:05,185
+U ovome videu bih želeo da vam
+
+3
+00:00:05,185 --> 00:00:06,369
+kažem nešto o izboru
+
+4
+00:00:06,380 --> 00:00:07,830
+osobina koje imate i
+
+5
+00:00:07,830 --> 00:00:09,742
+kako možete da dobijete različite algoritme
+
+6
+00:00:09,750 --> 00:00:11,477
+učenja, ponekad veoma moćne,
+
+7
+00:00:11,477 --> 00:00:13,803
+birajući odgovarajuće osobine.
+
+8
+00:00:13,810 --> 00:00:15,229
+Posebno želim da vam
+
+9
+00:00:15,229 --> 00:00:17,826
+kažem o tome da vam polinomska regresija
+
+10
+00:00:17,826 --> 00:00:19,535
+dozvoljava korištenje mašinerije
+
+11
+00:00:19,535 --> 00:00:21,247
+linearne regresije da se primeni na veoma
+
+12
+00:00:21,247 --> 00:00:25,060
+komplikovanim, čak i na nelinearnim funkcijama.
+
+13
+00:00:25,690 --> 00:00:28,827
+Uzmimo primer predviđanja cene kuće.
+
+14
+00:00:29,300 --> 00:00:31,147
+Recimo da imate dve osobine,
+
+15
+00:00:31,147 --> 00:00:33,805
+širina kuće i dubina kuće.
+
+16
+00:00:33,805 --> 00:00:35,428
+Dakle, ovo je slika kuće koju prodajemo.
+
+17
+00:00:35,428 --> 00:00:37,264
+Širina je
+
+18
+00:00:37,264 --> 00:00:40,103
+definisana kao ovo rastojanje,
+
+19
+00:00:40,103 --> 00:00:43,009
+u osnovi to je širina
+
+20
+00:00:43,009 --> 00:00:44,949
+ili dužina koliko
+
+21
+00:00:44,960 --> 00:00:46,652
+je široka vaša parcela,
+
+22
+00:00:46,652 --> 00:00:47,994
+plac koji posedujete,
+
+23
+00:00:48,020 --> 00:00:49,468
+a dubina kuće
+
+24
+00:00:49,500 --> 00:00:53,120
+je koliko je dubok
+
+25
+00:00:53,130 --> 00:00:54,758
+vaš posed, dakle,
+
+26
+00:00:54,770 --> 00:00:57,992
+ovo je širina, ovo je dubina.
+
+27
+00:00:57,992 --> 00:00:59,858
+Imate dve osobine zvane širina i dubina.
+
+28
+00:00:59,858 --> 00:01:01,355
+Mogli biste da napravite model linearne
+
+29
+00:01:01,360 --> 00:01:04,163
+regresije kao što je ovaj, gde je
+
+30
+00:01:04,180 --> 00:01:06,062
+širina vaša prva osobina x1
+
+31
+00:01:06,062 --> 00:01:07,535
+a dubina je vaša druga
+
+32
+00:01:07,535 --> 00:01:10,169
+osobina x2. Međutim, dok
+
+33
+00:01:10,169 --> 00:01:11,772
+primenjujete linearnu regresiju, ne morate
+
+34
+00:01:11,772 --> 00:01:13,342
+obavezno da koristite
+
+35
+00:01:13,342 --> 00:01:16,607
+samo x1 i x2 osobine koje ste dobili.
+
+36
+00:01:16,610 --> 00:01:20,531
+Ono što možete da uradite 
+je da napravite nove osobine.
+
+37
+00:01:20,531 --> 00:01:21,709
+Pa, ako želim da predvidim
+
+38
+00:01:21,710 --> 00:01:22,895
+cenu kuće, ono što
+
+39
+00:01:22,895 --> 00:01:24,840
+bih mogao da uradim je da izaberem
+
+40
+00:01:24,850 --> 00:01:27,468
+šta stvarno određuje
+
+41
+00:01:27,490 --> 00:01:29,133
+veličinu kuće, to je
+
+42
+00:01:29,133 --> 00:01:32,164
+površina zemlje koju posedujem.
+
+43
+00:01:32,190 --> 00:01:33,365
+Tako, mogu da napravim novu osobinu.
+
+44
+00:01:33,380 --> 00:01:34,609
+Tu osobinu ću da nazovem
+
+45
+00:01:34,609 --> 00:01:40,409
+x što je širina puta dubina.
+
+46
+00:01:40,440 --> 00:01:42,404
+Ovo je znak množenja.
+
+47
+00:01:42,404 --> 00:01:44,334
+To je širina puta dubina jer
+
+48
+00:01:44,334 --> 00:01:46,040
+je to površina
+
+49
+00:01:46,090 --> 00:01:48,035
+koju posedujem i tada bih
+
+50
+00:01:48,035 --> 00:01:50,651
+mogao da odaberem moju hipotezu
+
+51
+00:01:50,710 --> 00:01:53,327
+ovako, koristeći samo
+
+52
+00:01:53,350 --> 00:01:54,785
+jednu osobinu a to je
+
+53
+00:01:54,785 --> 00:01:57,430
+površina moga placa, u redu?
+
+54
+00:01:57,580 --> 00:01:58,939
+Jer je površina
+
+55
+00:01:58,940 --> 00:02:00,345
+pravougaonika, znate već,
+
+56
+00:02:00,345 --> 00:02:01,432
+proizvod dužine
+
+57
+00:02:01,460 --> 00:02:03,822
+i širine. Dakle, u zavisnosti
+
+58
+00:02:03,822 --> 00:02:05,253
+od toga kakav uvid imate
+
+59
+00:02:05,280 --> 00:02:07,481
+u određeni problem, pre nego da
+
+60
+00:02:07,490 --> 00:02:09,604
+samo uzmete osobine sa
+
+61
+00:02:09,620 --> 00:02:11,103
+kojima ćemo da počnemo,
+
+62
+00:02:11,130 --> 00:02:13,489
+ponekad će definisanje
+
+63
+00:02:13,489 --> 00:02:16,771
+novih osobina da poboljša model.
+
+64
+00:02:16,790 --> 00:02:18,163
+Slično ideji
+
+65
+00:02:18,163 --> 00:02:19,745
+odabira vaših osobina
+
+66
+00:02:19,745 --> 00:02:22,973
+je ova ideja zvana polinomska regresija.
+
+67
+00:02:23,010 --> 00:02:26,868
+Recimo da imate skup podataka o 
+cenama nekretnina, kao što je ovaj.
+
+68
+00:02:26,880 --> 00:02:29,646
+Postoji par različitih modela na 
+kojima možete da primenite ovo.
+
+69
+00:02:29,660 --> 00:02:32,587
+Jedna stvar koju možete da uradite je 
+da pridružite kvadratni model kao ovaj.
+
+70
+00:02:32,600 --> 00:02:35,598
+Izgleda da prava linija 
+ne odgovara baš najbolje.
+
+71
+00:02:35,598 --> 00:02:36,788
+Možda želite da pridružite
+
+72
+00:02:36,788 --> 00:02:38,408
+kvadratni model kao što je ovaj
+
+73
+00:02:38,420 --> 00:02:40,248
+gde veličinu, gde
+
+74
+00:02:40,248 --> 00:02:42,017
+cenu smatrate kvadratnom
+
+75
+00:02:42,020 --> 00:02:43,956
+funkcijom i možda vam to
+
+76
+00:02:43,970 --> 00:02:45,018
+da, znate, odgovara
+
+77
+00:02:45,020 --> 00:02:47,070
+podacima koji izgledaju tako.
+
+78
+00:02:47,280 --> 00:02:48,560
+Ali možda odlučite da vaš
+
+79
+00:02:48,570 --> 00:02:50,013
+kvadratni model nema smisla
+
+80
+00:02:50,013 --> 00:02:52,582
+jer kvadratna funkcija eventualno,
+
+81
+00:02:52,582 --> 00:02:53,858
+ova funkcija se vraća dole
+
+82
+00:02:53,858 --> 00:02:55,591
+i, dakle, ne mislimo da cene
+
+83
+00:02:55,600 --> 00:02:58,899
+nekretnina treba da 
+opadaju sa porastom veličine.
+
+84
+00:02:58,970 --> 00:03:00,649
+Pa možda bismo mogli
+
+85
+00:03:00,650 --> 00:03:02,700
+da odaberemo drugačiji polinomski model
+
+86
+00:03:02,700 --> 00:03:04,274
+i umesto toga odaberemo
+
+87
+00:03:04,290 --> 00:03:07,480
+kubnu funkciju, gde
+
+88
+00:03:07,480 --> 00:03:09,225
+sada imamo član trećeg stepena
+
+89
+00:03:09,225 --> 00:03:10,764
+i to uklapamo, možda
+
+90
+00:03:10,800 --> 00:03:12,367
+dobijemo ovakav
+
+91
+00:03:12,390 --> 00:03:13,907
+model, i možda
+
+92
+00:03:13,910 --> 00:03:15,278
+zelena linija nekako više odgovara
+
+93
+00:03:15,278 --> 00:03:18,052
+podacima jer eventualno, ne opada.
+
+94
+00:03:18,052 --> 00:03:21,992
+Pa kako onda uklapamo model 
+kao ovaj sa našim podacima?
+
+95
+00:03:22,020 --> 00:03:23,868
+Koristeći mehanizam viševarijantne
+
+96
+00:03:23,868 --> 00:03:27,059
+linearne regresije možemo da
+
+97
+00:03:27,059 --> 00:03:30,692
+uradimo ovo sa veoma 
+jednostavnim izmenama algoritma.
+
+98
+00:03:30,692 --> 00:03:32,632
+Oblik hipoteze,
+
+99
+00:03:32,632 --> 00:03:34,217
+znamo kako da podesimo,
+
+100
+00:03:34,217 --> 00:03:35,782
+izgleda ovako, gde kažemo
+
+101
+00:03:35,782 --> 00:03:37,612
+h(x) je teta0
+
+102
+00:03:37,612 --> 00:03:41,608
+plus teta1 x1 plus 
+teta2 x2 plus teta3 x3.
+
+103
+00:03:41,608 --> 00:03:42,775
+A ako želimo da
+
+104
+00:03:42,775 --> 00:03:45,220
+uklopimo kubni model koji
+
+105
+00:03:45,250 --> 00:03:47,239
+je uokviren zelenom,
+
+106
+00:03:47,239 --> 00:03:48,940
+ono što imamo je,
+
+107
+00:03:48,940 --> 00:03:49,825
+da bismo predvideli cenu
+
+108
+00:03:49,825 --> 00:03:51,364
+kuće, to je teta0 plus
+
+109
+00:03:51,364 --> 00:03:53,056
+teta1 puta veličina kuće
+
+110
+00:03:53,056 --> 00:03:55,905
+plus teta2 puta kvadrat veličine kuće,
+
+111
+00:03:55,910 --> 00:03:58,974
+pa je ovaj član jednak ovome,
+
+112
+00:03:58,974 --> 00:04:00,885
+a onda plus teta3
+
+113
+00:04:00,890 --> 00:04:02,343
+puta kub veličine
+
+114
+00:04:02,350 --> 00:04:05,302
+kuće, to daje ovaj treći član.
+
+115
+00:04:05,470 --> 00:04:06,967
+Da biste uskladili
+
+116
+00:04:06,990 --> 00:04:08,668
+ove dve definicije,
+
+117
+00:04:08,668 --> 00:04:10,339
+pa, prirodan način
+
+118
+00:04:10,339 --> 00:04:12,128
+da to uradite je da
+
+119
+00:04:12,150 --> 00:04:13,568
+postavite prvu osobinu x1
+
+120
+00:04:13,568 --> 00:04:15,320
+da bude veličina kuće,
+
+121
+00:04:15,320 --> 00:04:16,721
+postavite drugu osobinu x2
+
+122
+00:04:16,721 --> 00:04:17,766
+da bude kvadrat veličine
+
+123
+00:04:17,766 --> 00:04:20,400
+kuće i postaviti treću osobinu x3
+
+124
+00:04:20,400 --> 00:04:22,780
+da bude kub veličine kuće.
+
+125
+00:04:22,800 --> 00:04:24,292
+Birajući te moje tri
+
+126
+00:04:24,292 --> 00:04:26,311
+osobine na ovaj način i
+
+127
+00:04:26,311 --> 00:04:27,720
+primenjujući mehanizam linearne
+
+128
+00:04:27,720 --> 00:04:30,540
+regresije, mogu da podesim ovaj
+
+129
+00:04:30,540 --> 00:04:31,901
+model i dobijem da kubni
+
+130
+00:04:31,901 --> 00:04:34,374
+model odgovara mojim podacima.
+
+131
+00:04:34,374 --> 00:04:35,523
+Želim da vam ukažem na još
+
+132
+00:04:35,523 --> 00:04:36,799
+jednu stvar, a to je da,
+
+133
+00:04:36,800 --> 00:04:38,610
+ako odaberete osobine
+
+134
+00:04:38,610 --> 00:04:40,925
+kao što su ove, njihovo skaliranje
+
+135
+00:04:40,925 --> 00:04:43,688
+postaje veoma važno.
+
+136
+00:04:44,130 --> 00:04:45,254
+dakle, ako je opseg
+
+137
+00:04:45,254 --> 00:04:46,794
+veličina kuća od jedan do
+
+138
+00:04:46,800 --> 00:04:47,992
+hiljadu, znate, od
+
+139
+00:04:47,992 --> 00:04:49,300
+jedan do hiljadu kvadratnih
+
+140
+00:04:49,310 --> 00:04:50,918
+fita, recimo, tada će
+
+141
+00:04:50,930 --> 00:04:52,175
+kvadrat veličine kuće da
+
+142
+00:04:52,175 --> 00:04:54,519
+bude u opsegu od jedan
+
+143
+00:04:54,520 --> 00:04:55,953
+do milion, kvadrat od
+
+144
+00:04:55,953 --> 00:04:58,468
+hiljadu, a vaša treća
+
+145
+00:04:58,490 --> 00:05:01,335
+osobina x na kub, oprostite,
+
+146
+00:05:01,360 --> 00:05:03,106
+vaša treća osobina x3,
+
+147
+00:05:03,120 --> 00:05:04,732
+a to je veličina kuće
+
+148
+00:05:04,732 --> 00:05:05,941
+na kub, će da bude u opsegu
+
+149
+00:05:05,950 --> 00:05:07,478
+od jedan do deset na
+
+150
+00:05:07,478 --> 00:05:09,311
+devetu, i tako se te
+
+151
+00:05:09,330 --> 00:05:10,955
+tri osobine nalaze u veoma
+
+152
+00:05:10,955 --> 00:05:13,459
+različitim opsezima vrednosti,
+
+153
+00:05:13,490 --> 00:05:15,105
+a tu je važno da se primeni
+
+154
+00:05:15,110 --> 00:05:16,509
+skaliranje osobina, ako koristite
+
+155
+00:05:16,509 --> 00:05:18,554
+gradijent opadanja, da bi bile
+
+156
+00:05:18,554 --> 00:05:21,139
+u uporedljivim opsezima vrednosti.
+
+157
+00:05:21,140 --> 00:05:23,243
+Konačno, evo poslednjeg primera
+
+158
+00:05:23,250 --> 00:05:25,138
+kako imate širok
+
+159
+00:05:25,150 --> 00:05:29,056
+opseg izbora osobina koje ćete da koristite.
+
+160
+00:05:29,090 --> 00:05:30,446
+Ranije smo govorili o tome
+
+161
+00:05:30,446 --> 00:05:31,559
+zašto kvadratni model kao ovaj
+
+162
+00:05:31,559 --> 00:05:33,122
+ne bi mogao da bude savršen jer
+
+163
+00:05:33,122 --> 00:05:34,408
+kvadratni model može da odgovara
+
+164
+00:05:34,408 --> 00:05:35,952
+podacima ali kvadratna
+
+165
+00:05:35,952 --> 00:05:37,514
+funkcija opada a
+
+166
+00:05:37,514 --> 00:05:39,065
+nama to ne treba, u redu,
+
+167
+00:05:39,070 --> 00:05:40,352
+cene kuća koje opadaju,
+
+168
+00:05:40,352 --> 00:05:43,567
+da se to predvidi, sa porastom veličina kuća.
+
+169
+00:05:43,567 --> 00:05:45,388
+Ali pre nego što idemo sa
+
+170
+00:05:45,388 --> 00:05:46,938
+kubnim modelom, postoje
+
+171
+00:05:46,938 --> 00:05:48,389
+možda i neki drugačiji izbori
+
+172
+00:05:48,389 --> 00:05:50,798
+osobina a postoji mnogo mogućih izbora.
+
+173
+00:05:50,800 --> 00:05:52,313
+Da bih vam dao drugačiji
+
+174
+00:05:52,313 --> 00:05:53,691
+primer nekog razumnog
+
+175
+00:05:53,691 --> 00:05:55,620
+izbora, drugi razuman izbor
+
+176
+00:05:55,620 --> 00:05:57,263
+bi mogao da bude, ako kažemo
+
+177
+00:05:57,263 --> 00:05:58,832
+da cena jedne kuće ke
+
+178
+00:05:58,850 --> 00:05:59,992
+teta0 plus teta1 puta
+
+179
+00:05:59,992 --> 00:06:01,264
+veličina i onda plus teta2
+
+180
+00:06:01,320 --> 00:06:03,625
+puta kvadratni koren veličine, u redu?
+
+181
+00:06:03,630 --> 00:06:05,364
+Dakle, funkcija kvadratnog korena
+
+182
+00:06:05,364 --> 00:06:08,110
+je ova vrsta funkcije i možda
+
+183
+00:06:08,110 --> 00:06:09,318
+postoje neke vrednosti teta1,
+
+184
+00:06:09,318 --> 00:06:11,355
+teta2 i teta3 koje
+
+185
+00:06:11,355 --> 00:06:14,049
+će vam omogućiti da za ovaj
+
+186
+00:06:14,080 --> 00:06:15,445
+model, za krivu koja izgleda
+
+187
+00:06:15,445 --> 00:06:16,952
+ovako i, znate,
+
+188
+00:06:16,952 --> 00:06:19,500
+ide gore, nekako se izravna
+
+189
+00:06:19,520 --> 00:06:21,529
+malo ali nikada se
+
+190
+00:06:21,540 --> 00:06:23,877
+ne vraća dole.
+
+191
+00:06:24,154 --> 00:06:26,584
+I tako, imajući uvid u, u
+
+192
+00:06:26,584 --> 00:06:27,630
+ovome slučaju, oblik
+
+193
+00:06:27,630 --> 00:06:30,952
+funkcije kvadratnog korena, u
+
+194
+00:06:30,990 --> 00:06:32,555
+oblik podataka, birajući
+
+195
+00:06:32,555 --> 00:06:36,469
+različite osobine, 
+ponekad možete da dobijete bolje modele.
+
+196
+00:06:36,469 --> 00:06:39,026
+U ovome videu smo 
+govorili o polinomskoj regresiji.
+
+197
+00:06:39,026 --> 00:06:40,672
+A to je, kako da uklopimo
+
+198
+00:06:40,672 --> 00:06:42,298
+polinom, kao što je kvadratna funkcija
+
+199
+00:06:42,298 --> 00:06:43,868
+ili kubna funkcija, sa vašim podacima.
+
+200
+00:06:43,868 --> 00:06:45,112
+Zbog čega je još značajna ova ideja,
+
+201
+00:06:45,112 --> 00:06:46,640
+sada imate izbor toga koje
+
+202
+00:06:46,640 --> 00:06:47,732
+osobine da koristite, kao što
+
+203
+00:06:47,748 --> 00:06:48,804
+su, umesto da koristite
+
+204
+00:06:48,804 --> 00:06:50,078
+širinu i dubinu
+
+205
+00:06:50,078 --> 00:06:51,092
+kuće, možda biste mogli
+
+206
+00:06:51,092 --> 00:06:53,133
+da ih pomnožite i da dobijete
+
+207
+00:06:53,133 --> 00:06:55,317
+osobinu koja oslikava površinu kuće.
+
+208
+00:06:55,317 --> 00:06:57,551
+U slučaju da vam se ovo
+
+209
+00:06:57,551 --> 00:06:58,895
+učini da je pomalo zbunjujuće, svi
+
+210
+00:06:58,896 --> 00:07:03,265
+ti različiti izbori osobina, 
+kako da odlučite koje osobine da koristite.
+
+211
+00:07:03,265 --> 00:07:04,594
+Kasnije na ovome kursu ćemo da
+
+212
+00:07:04,594 --> 00:07:06,622
+govorimo o nekim algoritmima koji automatski
+
+213
+00:07:06,622 --> 00:07:08,083
+biraju koje osobine da koristite
+
+214
+00:07:08,083 --> 00:07:09,466
+tako da možete da imate
+
+215
+00:07:09,466 --> 00:07:10,611
+algoritam koji prođe kroz podatke
+
+216
+00:07:10,611 --> 00:07:12,040
+i automatski vam izabere
+
+217
+00:07:12,040 --> 00:07:13,357
+da li da odaberete kvadratnu
+
+218
+00:07:13,357 --> 00:07:15,528
+funkciju ili kubnu funkciju ili nešto drugo.
+
+219
+00:07:15,528 --> 00:07:17,164
+Ali dok ne dođemo do
+
+220
+00:07:17,164 --> 00:07:18,764
+tih algoritama, samo želim
+
+221
+00:07:18,764 --> 00:07:20,295
+da budete svesni da
+
+222
+00:07:20,295 --> 00:07:21,582
+imate izbor toga
+
+223
+00:07:21,582 --> 00:07:23,094
+koje osobine da koristite a
+
+224
+00:07:23,094 --> 00:07:25,256
+izborom različitih osobina
+
+225
+00:07:25,256 --> 00:07:26,888
+možete da uklopite složenije funkcije
+
+226
+00:07:26,888 --> 00:07:28,156
+sa vašim podacima, od samo
+
+227
+00:07:28,156 --> 00:07:30,471
+prave linije sa vašim podacima i
+
+228
+00:07:30,471 --> 00:07:32,092
+posebno, možete da primenite polinomske
+
+229
+00:07:32,092 --> 00:07:35,065
+funkcije a takođe, ponekad
+
+230
+00:07:35,065 --> 00:07:36,072
+pogodan uvid u to kakve su
+
+231
+00:07:36,072 --> 00:07:37,564
+osobine, daje mnogo
+
+232
+00:07:37,564 --> 00:07:40,020
+bolji model vašim podacima.

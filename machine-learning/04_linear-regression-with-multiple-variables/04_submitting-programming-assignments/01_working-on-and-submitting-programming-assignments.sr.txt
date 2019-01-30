@@ -1,0 +1,35 @@
+U ovome videu bih želeo samo da vas
+ nabrzinu provedem kroz logistiku kako da ovaj kurs radite od kuće i kako da koristite 
+sistem za dostavljanje rešenja koji će da vam omogući da proverite da li ste dali 
+pravi odgovor na vežbi mašinskog učenja. Ovo je moj Octave prozor i
+ hajdemo prvo na desktop. Neke od fajlova iz prvog primera
+ sam sačuvao na desktopu, u ovome direktorijumu ml-class-ex1. Obezbedili smo brojne fajlove 
+i tražimo da editujete neke. Prvi fajl sadrži detalje u 
+pdf fajlu za ovu vežbu. Ali fajl koji tražimo da editujete je onaj sa nazivom warmUpExercise.m a vežba služi zato da biste 
+uvežbali sistem dostavljanja. Sve što treba da uradite je da 
+vratite 5x5 jediničnu matricu. Dakle, rešenje ove vežbe 
+je da napišete А = еye(5). To kaže našoj funkciji da 
+napravi 5x5 jediničnu matricu. A ova funkcija warmUpExercise() 
+sada vraća 5x5 jediničnu matricu. I to ću upravo da sačuvam. Dakle, rešio sam prvi deo ovoga zadatka. 
+Vratimo se nazad u Octave, hajdemo u direktorijum 
+C:\Users\ang\Desktop\ml-class-ex1. Ako želim da budem siguran da sam 
+ovo implementirao, ukucaću warmUpExercise(). I da, vraća 5x5 jediničnu matricu koju
+ smo upravo kodirali da bude napravljena. A sada mogu da dostavim kod na sledeći način. Ukucaću submit() u ovome direktorijumu i spreman sam da dostavim 
+prvi deo tako da ću da unesem izbor 1. Pita me za moju imejl adresu, 
+tako da ću da odem na stranicu kursa. Ovo je interni sajt za testiranje pa vaša 
+verzija sajta može da izgleda malo drugačije. Ali ovo je moja imejl adresa i ovo je 
+moja lozinka pa ću da ih unesem ovde. Imam ang@cs.stanford.edu a 
+moja lozinka za dostavu je 9yC75USsGf. Udariću enter, 
+povezuje se na server i dostavlja, i odmah posle vam kaže "Čestitamo! 
+Uspešno ste završili Zadatak 1 Deo 1". Dobijate potvrdu da ste 
+prošli ovaj deo kako treba. A ako ne dostavite pravi odgovor, 
+dobićete poruku koja ukazuje na to da još uvek niste dali pravi odgovor. Možete da koristite ovu lozinku za dostavljanje 
+a možete da napravite novu, kako god. Ali možete takođe da koristite i lozinku sa
+ važećeg veb sajta, ali, pošto je ova lozinka ovde kucana u nekodiranom tekstu, 
+dajemo vam dodatnu lozinku za dostavljanje u slučaju da ne želite da kucate 
+lozinku sa sajta u taj prozor koji, u zavisnosti od operativnog sistema, 
+može da a ne mora da bude kao tekst dok kucate u skriptu za dostavu u Octave. Dakle, tako dostavljate rešenja 
+zadataka nakon što ih završite. Srećno i, kad budete radili zadatke, 
+nadam se da ćete da ih uradite ispravno. I konačno, u sledećem i poslednjem 
+videu iz Octave, želim da vam kažem o vektorizaciji, načinu na koji 
+pokrećete vaš Octave kod mnogo efikasnije.

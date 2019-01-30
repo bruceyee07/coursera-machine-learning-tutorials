@@ -1,0 +1,583 @@
+1
+00:00:00,570 --> 00:00:02,937
+En son videoda , soft master ve
+
+2
+00:00:02,937 --> 00:00:04,900
+softmax etkilenim fonksiyonunu öğrendiniz.
+
+3
+00:00:04,900 --> 00:00:08,760
+Bu videoda, softmax sınıflandırmasını daha derinleştireceksiniz
+
+4
+00:00:08,760 --> 00:00:13,230
+ve ayrıca softmax katmanını kullanan eğitim modelinin nasıl olduğunu öğreneceksiniz.
+
+5
+00:00:13,230 --> 00:00:18,434
+Geçen örnekteki,burdaki gibi çıktı katmanının hesapladığı z[L] i hatırlayalım.
+
+6
+00:00:18,434 --> 00:00:19,915
+4 tane sınıfımız var,
+
+7
+00:00:19,915 --> 00:00:24,573
+c eşittir 4 ve z[L] 4 e 1(4,1) bir vektör ve y'nin üssünü alan
+
+8
+00:00:24,573 --> 00:00:30,160
+geçici değişkeni hesaplayan t yi hesapladığımızı söyledik.
+
+9
+00:00:30,160 --> 00:00:34,778
+Sonuç olarak, eğer çıktı katmanı için etkilenim fonksiyonu
+
+10
+00:00:34,778 --> 00:00:40,320
+g[L] softmax etkilenim fonksiyonuysa,çıktı bu olacak.
+
+11
+00:00:40,320 --> 00:00:45,570
+Basitçe geçici bir t değişkeni alıyoruz ve 1'in toplamına normalleştiriyoruz.
+
+12
+00:00:45,570 --> 00:00:49,328
+Bu a(L) oluyor.
+
+13
+00:00:49,328 --> 00:00:53,304
+z vektöründe, en büyük eleman 5 ve
+
+14
+00:00:53,304 --> 00:00:57,650
+en büyük olasılık bu ilk olasılık olarak sonuçlandığına dikkat edin.
+
+15
+00:00:57,650 --> 00:01:02,653
+softmax adı z vektörünü alan ve onu bu vektörle eşleştiren
+
+16
+00:01:02,653 --> 00:01:07,848
+hard max le zıtlığından gelmektedir.
+
+17
+00:01:07,848 --> 00:01:12,869
+Hard max fonksiyonu Z nin elemanına bakar ve z nin en büyük elemanının
+
+18
+00:01:12,869 --> 00:01:18,182
+yerine 1 koyar diğer yerlere sıfır koyar.
+
+19
+00:01:18,182 --> 00:01:23,259
+ve böylece bu bir en büyük eleman 1 çıktısı diğer elemanların
+
+20
+00:01:23,259 --> 00:01:25,850
+0 çıktısı alan çok hard max dır.
+
+21
+00:01:25,850 --> 00:01:27,626
+Aksine,
+
+22
+00:01:27,626 --> 00:01:33,500
+softmax z den bu olasılıklara daha yumuşak bir haritalamadır
+
+23
+00:01:33,500 --> 00:01:37,980
+Bunun iyi bir ad olduğundan emin değilim fakat en azından,hard max a kıyasla
+
+24
+00:01:37,980 --> 00:01:42,040
+neden buna softmax dediğimizin arkasındaki seziydi.
+
+25
+00:01:43,060 --> 00:01:47,930
+ve benim göstermediğim fakat ima ettiğim şey softmax regresyonu ya da
+
+26
+00:01:47,930 --> 00:01:52,450
+softmax teşhis fonksiyonu lojistik etkilenim fonksiyonunu
+
+27
+00:01:52,450 --> 00:01:56,330
+sadece iki sınıf yerine C sınıflarına genelleştirir.
+
+28
+00:01:56,330 --> 00:02:01,586
+Şöyle bir anlam çıkıyor eğer c ikiye eşitse, c nin ikiye eşit olmasıyla
+
+29
+00:02:01,586 --> 00:02:07,940
+softmax lojistik regresyona dönüşür.
+
+30
+00:02:07,940 --> 00:02:13,680
+bu videoda bunu kanıtlamıyacağım ama kaba taslak bir kanıt için
+
+31
+00:02:13,680 --> 00:02:18,087
+eğer c ikiye eşitse ve softmax ı uygularsak
+
+32
+00:02:18,087 --> 00:02:23,929
+çıktı katmanı a[L] 2 çıktı olacak eğer c ikiye eşitse
+
+33
+00:02:23,929 --> 00:02:28,872
+belki çıktı 0.842 ve 0.158 olacak.
+
+34
+00:02:28,872 --> 00:02:31,056
+ve bu sayıların toplamı daima 1 e eşittir.
+
+35
+00:02:31,056 --> 00:02:34,221
+bu iki sayının toplamı 1 olduğu için, bular gereksizdir.
+
+36
+00:02:34,221 --> 00:02:37,077
+ikisini de hesaplamaya gerek yok belkide
+
+37
+00:02:37,077 --> 00:02:39,193
+bunların birini hesaplamak yeterlidir.
+
+38
+00:02:39,193 --> 00:02:43,999
+Böylece,senin lojistik regresyona azalttığın hesaplamanın
+
+39
+00:02:43,999 --> 00:02:48,895
+sonuçlandığı yol bunun tek çıktısını hesaplıyor.
+
+40
+00:02:48,895 --> 00:02:53,835
+bu çok fazla kanıt değildi ama ikiden fazla sınıfa lojistik regresyonun
+
+41
+00:02:53,835 --> 00:02:58,468
+softmax fonksiyonunun bir anafikriydi.
+
+42
+00:02:58,468 --> 00:03:02,187
+Şimdi bir softmax çıktı katmanıyla nasıl yapay sinir aği
+
+43
+00:03:02,187 --> 00:03:04,157
+eğitileceğini görelim.
+
+44
+00:03:04,157 --> 00:03:04,966
+Özellikle,
+
+45
+00:03:04,966 --> 00:03:08,437
+senin sinir ağını eğitirken kullandığın kayıp fonksiyonunu tannımlayalım.
+
+46
+00:03:08,437 --> 00:03:09,427
+Hadi bir örnek alalım.
+
+47
+00:03:09,427 --> 00:03:15,018
+hedef çıktının 0 1 0 0 olduğu 
+
+48
+00:03:15,018 --> 00:03:17,881
+eğitim setindeki bir örneğe bakalım.
+
+49
+00:03:17,881 --> 00:03:20,661
+Önceki videodaki örnek,
+
+50
+00:03:20,661 --> 00:03:25,500
+bunun anlamı bu bir kedi fotoğrafı çünkü sınıf 1 de yer alıyor.
+
+51
+00:03:25,500 --> 00:03:31,096
+Ve şimdi sinir ağı çıktı olarak y şapka veriyor,
+
+52
+00:03:31,096 --> 00:03:35,083
+y şapka toplamları 1 olan bir olasılık vektörü olabilir.
+
+53
+00:03:35,083 --> 00:03:42,870
+01.,0.4 toplamlarının bir olduğunu kontrol edebilirsiniz ve bu a[L] olacak.
+
+54
+00:03:42,870 --> 00:03:46,320
+bu örnekte sinir ağı çok iyi yapamıyor çünkü
+
+55
+00:03:46,320 --> 00:03:49,670
+bu gerçekten bir kedi ve kedi olma şansı %20 olarak belirlenmiş.
+
+56
+00:03:49,670 --> 00:03:51,180
+bu örnekte çok iyi iş çıkaramadı.
+
+57
+00:03:52,290 --> 00:03:56,700
+bu sinir ağını eğitmek için kayıp fonksiyonu neydi?
+
+58
+00:03:56,700 --> 00:03:58,762
+Softmax sınıflandırmasında
+
+59
+00:03:58,762 --> 00:04:03,310
+en son kullandığımız eksi j yi 1 den 4 e kadar toplamı.
+
+60
+00:04:03,310 --> 00:04:07,269
+genelde bu 1 den c ye kadardır.
+
+61
+00:04:07,269 --> 00:04:14,620
+burada 4 kulanacağız, yj logy şapka j
+
+62
+00:04:14,620 --> 00:04:20,040
+neler olduğunu daha iyi anlamak için yukarıdaki örneğe bakalım.
+
+63
+00:04:20,040 --> 00:04:24,209
+bu örnekte dikkat edin,
+
+64
+00:04:24,209 --> 00:04:32,730
+y1 y3 y4 0 a eşit çünkü bunlar 0 ve sadece y2 1 e eşit.
+
+65
+00:04:32,730 --> 00:04:35,447
+eğer bu toplama bakarsak,
+
+66
+00:04:35,447 --> 00:04:39,726
+bütün terimler yj nin 0 olmasıyla 0 a eşit.
+
+67
+00:04:39,726 --> 00:04:44,412
+tek kalan terim -y2 log y şapka2,
+
+68
+00:04:44,412 --> 00:04:47,802
+çünkü j nin indeks toplamlarını kullanıyoruz
+
+69
+00:04:47,802 --> 00:04:52,622
+j nin ikiye eşit olma durumu dışında bütün terimler 0 a eşit.
+
+70
+00:04:52,622 --> 00:04:58,440
+y2 1 e eşit olduğu için, bu -log yşapka2.
+
+71
+00:04:58,440 --> 00:05:00,190
+Bunun anlamı,
+
+72
+00:05:00,190 --> 00:05:04,510
+eğer senin öğrenme algoritman bunu küçük yapmaya çalışıyorsa,
+
+73
+00:05:04,510 --> 00:05:09,040
+çünkü eğitim setinde kaybı azaltmak için dereceli alçalma kullanıyorsun.
+
+74
+00:05:09,040 --> 00:05:12,550
+Bunu küçültmenin tek yolu bunu küçültmektir.
+
+75
+00:05:12,550 --> 00:05:17,390
+Bunun tek yolu y şapka 2 yi mümkün olduğunca büyük yapmak.
+
+76
+00:05:18,430 --> 00:05:20,846
+bunlar asla birden büyük olamayan olasılıklar.
+
+77
+00:05:20,846 --> 00:05:26,286
+bu anlamlı bu örnekte x bir kedi resmi
+
+78
+00:05:26,286 --> 00:05:31,170
+ve mümkün olduğunca büyük bir olasılık çıktısı istiyorsunuz.
+
+79
+00:05:31,170 --> 00:05:35,590
+Daha genel olarak, kayıp fonksiyonunun yaptığı,eğitim setinde
+
+80
+00:05:35,590 --> 00:05:39,640
+gerçek sınıfında ne varsa, ve mümkün olduğunca yüksek
+
+81
+00:05:39,640 --> 00:05:42,640
+bir olasılıkla cevap vermeye çalışıyor.
+
+82
+00:05:42,640 --> 00:05:46,126
+Eğer maksimum olasılık tahmini istatistiğine aşnaysanız,
+
+83
+00:05:46,126 --> 00:05:49,153
+bu bir maksimum olasılık tahmini formuna dönüşür.
+
+84
+00:05:49,153 --> 00:05:51,790
+Eğer bunun anlamını bilmiyorsanız,endişelenmeyin.
+
+85
+00:05:51,790 --> 00:05:53,770
+Bu konuştuğumuz sezgiler yeterlidir.
+
+86
+00:05:54,970 --> 00:05:57,460
+Bu bir eğitim örneğindeki kayıp.
+
+87
+00:05:57,460 --> 00:06:00,857
+Bütün eğitim setindeki maliyet J nasıldır.
+
+88
+00:06:00,857 --> 00:06:05,717
+maliyetin bildiğiniz parametre ayarları buna benzer.
+
+89
+00:06:05,717 --> 00:06:09,767
+tannımladığınız daha çok tahmin ettiğiniz bütün yollar ve önyargılar (bias)
+
+90
+00:06:09,767 --> 00:06:12,926
+bütün eğitim setinin kaybının toplamı
+
+91
+00:06:12,926 --> 00:06:18,374
+senin öğrenme algoritmanın tahminleri eğitim örneklerin toplamıdır.
+
+92
+00:06:18,374 --> 00:06:18,924
+Her neyse...
+
+93
+00:06:18,924 --> 00:06:23,830
+Yapacağımız şey dereceli alçalma kullanarak bu sınıfı küçültmeye çalışmak.
+
+94
+00:06:23,830 --> 00:06:26,370
+Sonunda,Bir tane daha uygulama detayı.
+
+95
+00:06:26,370 --> 00:06:30,949
+Dikkat edin c 4 e eşit ve y 4 e 1 vektör
+
+96
+00:06:30,949 --> 00:06:33,160
+ve y şapka da 4 e 1 vektör.
+
+97
+00:06:34,450 --> 00:06:39,565
+Eğer vektörleştirme kullanıyorsanız, Y matrisi
+
+98
+00:06:39,565 --> 00:06:45,711
+y(1),y(2) ... y(m) e kadar yatay olarak kümelenecek.
+
+99
+00:06:45,711 --> 00:06:50,903
+Örnek olarak ,eğer bu örnek ilk eğitim örneği olsaydı
+
+100
+00:06:50,903 --> 00:06:56,428
+Y nin ilk kolonu 0 1 00 olacak ve ikinci örnek
+
+101
+00:06:56,428 --> 00:07:01,730
+köpek belki üçüncü örnek yukarıdakilerin hiçbiri olmayacaktı.
+
+102
+00:07:01,730 --> 00:07:08,580
+Ve Y matrisi 4 e m boyulu bir matris olacaktı.
+
+103
+00:07:08,580 --> 00:07:13,838
+Benzer şekilde,Y şapka y hat 1 yatay olarak t şapka m e kadar
+
+104
+00:07:13,838 --> 00:07:18,284
+kümeleştirilecek, bu aslında y şapka 1.
+
+105
+00:07:19,590 --> 00:07:25,403
+İlk eğitim örneğinin bütün çıktısı y şapka 0.3
+
+106
+00:07:25,403 --> 00:07:29,120
+0.2 0.1 ve 0.4 ve böyle gidecek.
+
+107
+00:07:29,120 --> 00:07:33,290
+ve y şapka 4 e m boyult bir matris olacak.
+
+108
+00:07:33,290 --> 00:07:37,382
+Sonuç olarak, nasıl dereceli alçalmayı
+
+109
+00:07:37,382 --> 00:07:38,942
+softmax çıktı katmanı olduğunda uygulayacağımızı görelim.
+
+110
+00:07:38,942 --> 00:07:46,161
+bu çıktı katmanı c ye 1 yani 4 e 1 olan z[L] matrisini hesaplayacak
+
+111
+00:07:46,161 --> 00:07:52,670
+sonra softmax etkilenim fonksiyonunu a[L] ya da y şapkayı bulmak için uygulayacağız.
+
+112
+00:07:53,740 --> 00:07:58,310
+sonrasında kaybı hesaplayabileceğiz.
+
+113
+00:07:58,310 --> 00:08:02,168
+Bir sinir ağında ileri yayılım adımlarını
+
+114
+00:08:02,168 --> 00:08:07,070
+Böylece bu çıktıları almak ve kaybı hesaplamak için nasıl uygulayacağımızı konuştuk.
+
+115
+00:08:07,070 --> 00:08:10,650
+Geri yayılım adımları ve dereceli alçaltma nasıldır.
+
+116
+00:08:10,650 --> 00:08:11,990
+Anahtar adım ya da
+
+117
+00:08:11,990 --> 00:08:16,240
+geri yayılımı başlatmak için gereken anahtar formül
+
+118
+00:08:16,240 --> 00:08:20,460
+son katmanda z ye göre türevi olan bu ifadedir.
+
+119
+00:08:20,460 --> 00:08:26,160
+4 e 1 vektör olan y şapka - ay 4 e 1 vektörün hesabını yapabiliriz.
+
+120
+00:08:26,160 --> 00:08:30,150
+Dikkat edin bütün bunlar 4 e 1 vektör olacak
+
+121
+00:08:30,150 --> 00:08:33,220
+4 sınıfımız olduğunda ve genel kullanım c e 1dir.
+
+122
+00:08:34,250 --> 00:08:37,180
+bu bizim dz nin ne olduğunun klasik tanımına gidiyor,
+
+123
+00:08:37,180 --> 00:08:42,660
+bu sınıf fonksiyonunun z[L] e göre parçalı türevidir.
+
+124
+00:08:42,660 --> 00:08:47,570
+Eğer yüksek matematikte(calculus) uzmansanız kendiniz türevini alabilirsiniz.
+
+125
+00:08:47,570 --> 00:08:50,690
+Eğer yüksek matematikte(calculus) uzmansanız, kendiniz türevi almayı deneyebilirsiniz,
+
+126
+00:08:50,690 --> 00:08:52,514
+Fakat bu formülü kullanmakta sorun yok.
+
+127
+00:08:52,514 --> 00:08:54,548
+Eğer bunu sıfırdan uygulamaya ihtiyacınız varsa.
+
+128
+00:08:54,548 --> 00:08:59,405
+Bununla,dz[L] i hesaplayabilirsin ve sinir ağının baştan sona
+
+129
+00:08:59,405 --> 00:09:05,310
+bütün türevleri hesaplamak için geri yayılım işlemini başlatabiliriz.
+
+130
+00:09:05,310 --> 00:09:09,286
+Bu haftanın temel alıştırması, derin öğrenme program sistemlerini(framework)
+
+131
+00:09:09,286 --> 00:09:13,143
+kullanmaya başlayacağız ve bu temel sistemler için
+
+132
+00:09:13,143 --> 00:09:17,830
+genellikle sadece senin ileri yayılıma odaklanman gerekir.
+
+133
+00:09:17,830 --> 00:09:21,803
+temel sistemi(framework) belirttiğiniz sürece, ileri yayılım geçişi,
+
+134
+00:09:21,803 --> 00:09:24,845
+temel sistem(framework) geri yayılımın nasıl yapılacağını
+
+135
+00:09:24,845 --> 00:09:26,730
+geriye doğru nasıl gidileceğini senin için bulacak.
+
+136
+00:09:27,890 --> 00:09:32,700
+Bu ifadeyi aklında tutman iyi olur eğer
+
+137
+00:09:32,700 --> 00:09:35,524
+softmax regresyonunu ya da softmax sınıflandırmasını 0 dan uygulaman gerekirse.
+
+138
+00:09:35,524 --> 00:09:39,579
+Bu haftadaki temel alışırmada buna ihtiyacın olmayacak çünkü
+
+139
+00:09:39,579 --> 00:09:42,739
+Senin kullandığın temel sistem(framework) bu türevleri
+
+140
+00:09:42,739 --> 00:09:43,888
+senin için hesaplayacak.
+
+141
+00:09:43,888 --> 00:09:46,783
+Softmax sınıflandırması bu kadar
+
+142
+00:09:46,783 --> 00:09:51,715
+Bununla sen girdileri karakterize etmek için öğretme algoritmalarını uygulayabilirsin
+
+143
+00:09:51,715 --> 00:09:56,920
+sadece 2 sınıftan birine değil c farklı sınıftan birine de yapabilirsin.
+
+144
+00:09:56,920 --> 00:10:01,410
+Sonrasında,derin ögrenme algoritmalarını uygulama açısından sizi daha etkili yapan
+
+145
+00:10:01,410 --> 00:10:05,570
+bazi derin öğrenme programlama sistemlerini(framework) göstermek istiyorum.
+
+146
+00:10:05,570 --> 00:10:07,550
+Bunu tartışmak için hadi sonraki videoya geçelim.

@@ -1,0 +1,53 @@
+U prethodnom videu smo govorili 
+o obliku hipoteze za linearnu regresiju sa višestrukim 
+osobinama ili sa više varijabli. Hajde da u ovome videu govorimo kako 
+da podesimo parametre takve hipoteze. Posebno ćemo da govorimo o tome 
+kako da koristimo gradijent opadanja za linearnu regresiju sa višestrukim osobinama. Da sumiramo obeležavanje, 
+ovo je naša formalna hipoteza u multivarijabilnoj linearnoj regresiji 
+gde smo usvojili pravilo da je x0 = 1. Parametri ovoga modela su od teta0 do tetan, 
+ali umesto da o njima mislimo kao o n odvojenih parametara, 
+što je ispravno, smatraćemo ih kao teta gde je teta n + 1 dimenzionalni vektor. Znači, parametre ovoga 
+modela ćemo da smatramo kao zasebnim vektorom. Naša funkcija greške je J od 
+teta0 do tetan što je predstavljeno sumom kvadrata greške. Ali još jednom, 
+umesto da J smatram funkcijom od n + 1 broja, uopšteno ću da pišem J kao funkciju od vektora parametara 
+teta pa je ovo teta vektor. Evo kako gradijent opadanja izgleda. 
+Ponavljajući ćemo da menjamo svaki parametar tetaj u skladu sa 
+tetaj minus alfa puta ovaj izvod. I još jednom ovo ćemo da pišemo J od teta, 
+tako da se tetaj menja kao tetaj minus stopa učenja alfa puta izvod, 
+parcijalni izvod funkcije greške u 
+odnosu na parametar tetaj. Da vidimo kako ovo izgleda kada 
+primenimo gradijent opadanja i hajde da vidimo kako 
+taj parcijalni izvod izgleda. Evo šta imamo za gradijent opadanja 
+za slučaj da imamo n = 1 osobinu. Imamo dva odvojena pravila promene za parametre teta0 i teta1 i nadam se da vam izgleda poznato. 
+A ovaj član ovde je naravno parcijalni izvod funkcije greške 
+u odnosu na parametar teta0, i slično imamo drugačije pravilo 
+promene za parametar teta1. Postoji jedna mala razlika a to je 
+da smo prethodno imali samo jednu osobinu, tu osobinu bismo zvali x(i) ali 
+sada po našem novom načinu obeležavanja ovo ćemo da zovemo x(i) sabskript 
+<u>1 da bismo obeležili novu osobinu.</u> Dakle, to je bilo za samo jednu osobinu. Hajde da vidimo novi algoritam kada 
+imamo više od jedne osobine, kada je broj osobina n mnogo veći od 1. Dobijamo ovo pravilo promene za 
+gradijent opadanja, za vas koji poznajete račun, 
+ako uzmete definiciju funkcije greške i parcijalni izvod funkcije greške 
+J u odnosu na parametar tetaj, shvatićete da je taj 
+parcijalni izvod upravo taj član koji sam upravo uokvirio plavom. A ako ovo primenite, 
+dobićete radnu implementaciju gradijenta opadanja za linearnu 
+regresiju sa višestrukim parametrima. Poslednja stvar koju bih želeo da uradim 
+na ovome slajdu je da vam dam osećaj toga zašto su ovaj novi i stari 
+algoritam ista stvar ili zašto su slični algoritmi ili zašto su oba 
+algoritmi gradijenta opadanja. Hajde da razmotrimo slučaj 
+kada imamo dve osobine ili možda više od dve, 
+dakle imamo tri pravila promene za parametre teta0, teta1 i teta2 
+i možda druge vrednosti teta. Ako pogledate pravilo promene za teta0, 
+videćete da je ovo pravilo ovde je isto kao prethodno pravilo promene za slučaj kada je n = 1. Razlog zbog kog su jednaka je, naravno, što smo se dogovorili da je <u>x0(i) = 1,</u> zbog toga su ova dva člana 
+uokvirena magenta bojom jednaka. Slično, ako pogledate pravilo za teta1, 
+videćete da je ovaj član ovde isti kao 
+član koji smo prethodno imali, jednakost pravila promene koju 
+smo prethodno imali za teta1, gde naravno koristimo nova 
+obeležja x(i) <u>1 da bismo označili</u> našu prvu osobinu, a sada kada imamo 
+više od jedne osobine, možemo da imamo slična pravila promene za ostale parametre, 
+teta2, i tako dalje. Mnogo smo stvari prešli na 
+ovome slajdu tako da vas podstičem da, ako treba, stopirate video i 
+pogledate svu matematiku na slajdu polako da biste bili sigurni da 
+razumete sve o čemu smo pričali. Ali ako primenite algoritam 
+napisan ovde, imate radnu implementaciju linearne 
+regresije sa višestrukim osobinama.

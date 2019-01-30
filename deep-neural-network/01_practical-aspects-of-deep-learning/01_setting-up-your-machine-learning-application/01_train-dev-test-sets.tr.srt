@@ -1,0 +1,763 @@
+1
+00:00:00,740 --> 00:00:04,500
+Derin öğrenmenin pratik yönleri 
+üzerine olan bu derse hoş geldiniz.
+
+2
+00:00:04,500 --> 00:00:07,650
+Belki bir sinir ağının nasıl uygulanacağını öğrendiniz.
+
+3
+00:00:07,650 --> 00:00:10,620
+Bu hafta sinir ağınızı nasıl iyi çalıştıracağınızın 
+
+4
+00:00:10,620 --> 00:00:12,550
+pratik yönlerini öğreneceksiniz.
+
+5
+00:00:12,550 --> 00:00:16,757
+Hiperparametre ayarı gibi şeylerden,
+ verilerinizi nasıl ayarlayacağınıza, 
+
+6
+00:00:16,757 --> 00:00:20,297
+optimizasyon algoritmasının hızlı bir şekilde 
+çalıştığından nasıl emin olduğunuza kadar uzanır.
+
+7
+00:00:20,297 --> 00:00:24,140
+öyle ki makul bir zamanda öğrenmek 
+için öğrenme algoritmanızı alırsınız.
+
+8
+00:00:24,140 --> 00:00:27,551
+Bu ilk hafta hücresel makine öğrenme
+ probleminden bahsedeceğiz, 
+
+9
+00:00:27,551 --> 00:00:29,216
+daha sonra rasgele sıralama hakkında konuşacağız.
+
+10
+00:00:29,216 --> 00:00:30,952
+Sinir ağı uygulamanızın doğru 
+olduğundan emin olmak için
+
+11
+00:00:30,952 --> 00:00:34,440
+ bazı püf noktalar hakkında konuşacağız.
+
+12
+00:00:34,440 --> 00:00:36,170
+Öyleyse, başlayalım.
+
+13
+00:00:36,170 --> 00:00:39,760
+Eğitiminizi, geliştirme ve test setlerinizi 
+nasıl kurduğunuz konusunda
+
+14
+00:00:39,760 --> 00:00:43,160
+iyi seçimler yapmak, iyi bir yüksek performanslı sinir ağı
+
+15
+00:00:43,160 --> 00:00:46,090
+bulmanıza yardımcı olarak 
+büyük bir fark yaratabilir.
+
+16
+00:00:46,090 --> 00:00:49,230
+Bir sinir ağını eğitirken, sinir ağınızın kaç katmanı 
+
+17
+00:00:49,230 --> 00:00:52,310
+olacağı gibi birçok karar vermeniz gerekir.
+
+18
+00:00:52,310 --> 00:00:55,400
+Ve her bir katmanın kaç tane gizli birime 
+sahip olmasını istersiniz?
+
+19
+00:00:55,400 --> 00:00:57,067
+Peki öğrenme oranları nedir?
+
+20
+00:00:57,067 --> 00:01:01,150
+Ve farklı katmanlar için kullanmak istediğiniz
+ aktivasyon fonksiyonları nelerdir?
+
+21
+00:01:01,150 --> 00:01:03,040
+Yeni bir uygulamaya başladığınızda,
+
+22
+00:01:03,040 --> 00:01:07,400
+ilk denemenizde bunların tümü ve diğer
+ hiperparametre seçenekleri için 
+
+23
+00:01:07,400 --> 00:01:12,250
+doğru değerleri doğru bir şekilde tahmin
+ etmeniz neredeyse imkansızdır.
+
+24
+00:01:12,250 --> 00:01:16,290
+Yani pratikte uygulanan makine öğrenmesi 
+
+25
+00:01:16,290 --> 00:01:18,450
+genelde bir fikirle başlayan 
+büyük ölçüde yinelemeli bir süreçtir,
+
+26
+00:01:18,450 --> 00:01:21,990
+mesela belirli sayıda katmana,
+ belirli sayıda gizli birime, 
+
+27
+00:01:21,990 --> 00:01:25,670
+belki belirli veri setlerine vb. 
+sinir ağları kurmak istediğinizde.
+
+28
+00:01:25,670 --> 00:01:29,660
+Ardından sadece kodlamanız ve
+ çalıştırarak denemeniz gerekir.
+
+29
+00:01:29,660 --> 00:01:33,950
+Çalıştırırsınız, denersiniz ve 
+size bu ağın veya
+
+30
+00:01:33,950 --> 00:01:37,570
+bu konfigürasyonun ne kadar
+ iyi çalıştığını söyleyen bir sonuç alırsınız.
+
+31
+00:01:37,570 --> 00:01:39,090
+Ve bu sonucu temel alarak
+
+32
+00:01:39,090 --> 00:01:44,330
+fikirlerinizi rafine edebilir ve 
+seçimlerinizi değiştirebilirsiniz,
+
+33
+00:01:44,330 --> 00:01:49,474
+hatta belki de daha iyi bir sinir ağı bulmak için 
+denemeye devam edersiniz.
+
+34
+00:01:50,890 --> 00:01:54,390
+Günümüzde derin öğrenme 
+pek çok alanda başarılı olmuştur.
+
+35
+00:01:54,390 --> 00:01:59,256
+Doğal dil işlemeden bilgisayar görüsüne, 
+konuşma tanımadan
+
+36
+00:01:59,256 --> 00:02:04,579
+yapılandırılmış veriye kadar pek çok alan..
+
+37
+00:02:04,579 --> 00:02:10,000
+Ve yapılandırılmış veri reklamlardan
+ web aramasına kadar her şeyi içerir,
+
+38
+00:02:10,000 --> 00:02:16,840
+Ki bu sadece Internet arama motorları değil, 
+örneğin alışveriş sitelerini de içerir.
+
+39
+00:02:16,840 --> 00:02:19,340
+Hali hazırda arama kutusuna bir şey yazdığınızda
+
+40
+00:02:19,340 --> 00:02:23,800
+kaliteli sonuç sunmak isteyen
+ herhangi bir web sitesi de buna dahil.
+
+41
+00:02:23,800 --> 00:02:29,436
+Bilişim güvenliği, 
+paketleri almada ve teslim etmede sürücüleri nereye
+
+42
+00:02:29,436 --> 00:02:34,665
+göndereceğine karar vermek için kullanan kargo şirketleri....
+
+43
+00:02:34,665 --> 00:02:39,530
+Bazen NLP'de çok tecrübeli bir araştırmacının 
+bilgisayar görüsüyle
+
+44
+00:02:39,530 --> 00:02:43,170
+bir şeyler yapmaya çalıştığını görüyorum.
+
+45
+00:02:43,170 --> 00:02:48,120
+Yada konuşma tanımada çok yetkin bir araştırmacının
+
+46
+00:02:48,120 --> 00:02:50,190
+reklamcılıkta bir şeyler yaptığını.
+
+47
+00:02:50,190 --> 00:02:54,670
+Veya güvenlikçi birinin lojistikte bir şey yaptığını.
+
+48
+00:02:54,670 --> 00:02:57,940
+Ve görüyorum ki bir uzmanlık alanından veya
+
+49
+00:02:57,940 --> 00:03:02,920
+bir uygulama alanından tecrübeler
+diğer uygulama alanlarına çok sık aktarılmaz.
+
+50
+00:03:02,920 --> 00:03:06,471
+Ve en iyi seçenekler elinizdeki veri miktarına,
+
+51
+00:03:06,471 --> 00:03:10,983
+bilgisayar konfigürasyonunuzda bulunan giriş özelliklerine,
+
+52
+00:03:10,983 --> 00:03:13,464
+CPU ya da GPU üzerinde çalışmanıza bağlı olabilir..
+
+53
+00:03:13,464 --> 00:03:18,280
+Ve eğer öyleyse, GPU ve CPU'nun tam olarak hangi
+konfigürasyonda olduğuna ve diğer pek çok şeye..
+
+54
+00:03:18,280 --> 00:03:21,470
+Bu yüzden pek çok durumda bence neredeyse imkansız.
+
+55
+00:03:21,470 --> 00:03:26,430
+Çok tecrübeli derin öğrenme uzmanları bile,
+ilk seferde en iyi hiperparametre seçimini
+
+56
+00:03:26,430 --> 00:03:30,300
+doğru olarak tahmin etmeyi neredeyse imkansız bulmaktadır.
+
+57
+00:03:30,300 --> 00:03:34,160
+Günümüzde uygulamalı derin öğrenme, uygulamanıza
+
+58
+00:03:34,160 --> 00:03:39,150
+iyi bir ağ seçeneği bulabilmeniz için bir çok kez
+
+59
+00:03:39,150 --> 00:03:43,790
+döngüye girmeniz gereken çok yinelemeli bir süreçtir.
+
+60
+00:03:43,790 --> 00:03:48,100
+Ne kadar çabuk ilerleyebileceğinizi
+belirleyen etmenlerden biri
+
+61
+00:03:48,100 --> 00:03:51,510
+bu döngünün etrafında ne kadar verimli dolaşacağınızdır.
+
+62
+00:03:51,510 --> 00:03:55,830
+Veri kümelerinizi eğitme, geliştirme ve test açısına göre ayarlamak
+
+63
+00:03:55,830 --> 00:03:59,030
+sizi bu konuda çok daha verimli hale getirebilir.
+
+64
+00:03:59,030 --> 00:04:06,430
+Yani, eğer bu sizin eğitim veriniz ise,
+bunu büyük bir kutu olarak çizelim.
+
+65
+00:04:06,430 --> 00:04:11,140
+Sonra, genelde sahip olduğunuz tüm veriyi alırsınız ve
+
+66
+00:04:11,140 --> 00:04:15,520
+bunun bir kısmını eğitim kümeniz olarak kesersiniz.
+
+67
+00:04:15,520 --> 00:04:21,790
+Bunun bir kısmı sizin önerilen çapraz geçerleme kümeniz olacak,
+
+68
+00:04:23,290 --> 00:04:30,398
+ve bu bazen gelişme kümesi olarak da adlandırılır.
+
+69
+00:04:30,398 --> 00:04:33,940
+Kısaltmak için buna basitçe "dev kümesi" adını vereceğim, ancak
+
+70
+00:04:33,940 --> 00:04:36,810
+tüm bu terimler kabaca aynı anlama gelmektedir.
+
+71
+00:04:36,810 --> 00:04:41,940
+Ve sonra son bir kısmını test kümeniz olarak kesebilirsiniz.
+
+72
+00:04:41,940 --> 00:04:46,390
+Ve sonra işakışı olarak eğitim kümenizde algoritmaları eğitmeye devam edersiniz.
+
+73
+00:04:46,390 --> 00:04:51,080
+Ve "dev" kümenizi veya önerilen çapraz geçerleme kümenizi kullanarak
+
+74
+00:04:51,080 --> 00:04:54,670
+birçok değişik modelden hangisinin "dev" kümenizde daha başarılı olduğunu görmek için kullanırsınız.
+
+75
+00:04:54,670 --> 00:04:56,910
+Ve sonra bunu yeterince uzun süre yaptıktan sonra,
+
+76
+00:04:56,910 --> 00:05:00,030
+değerlendirmek istediğiniz kesin modelinizi elde ettiğinizde,
+
+77
+00:05:00,030 --> 00:05:03,420
+bulduğunuz en iyi modeli alabilir ve test kümenizde değerlendirebilirsiniz.
+
+78
+00:05:03,420 --> 00:05:08,040
+Algoritmanızın ne kadar iyi çalıştığına dair yansız bir tahmin elde etmek için.
+
+79
+00:05:08,040 --> 00:05:13,054
+Bu yüzden makine öğrenmesinin önceki dönemlerinde, verinizin tamamını alıp
+
+80
+00:05:13,054 --> 00:05:18,246
+insanların sıklıkla bahsettiği 70/30 eğitim test bölmesine göre belki de
+
+81
+00:05:18,246 --> 00:05:23,460
+70/30% ye göre bölmeniz genel bir uygulama idi.
+
+82
+00:05:23,460 --> 00:05:28,845
+Eğer belirgin bir "dev" kümeniz yoksa veya belki %60 eğitim %20 dev ve
+
+83
+00:05:28,845 --> 00:05:33,680
+%20 test şekilinde bir %60/20/20 bölmeniz varsa.
+
+84
+00:05:33,680 --> 00:05:37,300
+Ve yıllar önce bu makine öğrenmesinde yaygın olarak
+
+85
+00:05:37,300 --> 00:05:38,910
+en iyi uygulama olarak kabul ediliyordu.
+
+86
+00:05:38,910 --> 00:05:41,470
+Eğer belki toplamda 100 örneğiniz varsa,
+
+87
+00:05:41,470 --> 00:05:46,740
+belki toplamda 1.000 örnek, belki 10.000 örnekten sonra.
+
+88
+00:05:46,740 --> 00:05:50,743
+Bu tip oranlar oldukça mantıklı temel kurallardı.
+
+89
+00:05:50,743 --> 00:05:55,920
+Ancak örneğin toplamda bir milyon örneğinizin olabildiği
+
+90
+00:05:55,920 --> 00:06:03,600
+modern büyük veri devrinde, o zaman eğilim "dev" ve test kümelerinizin
+
+91
+00:06:03,600 --> 00:06:09,390
+toplamın çok daha küçük bir yüzdesi olmaya başlamasıdır.
+
+92
+00:06:09,390 --> 00:06:13,410
+Çünkü hatırlayın, "dev" kümesinin ya da gelişme kümesinin amacı üzerinde
+
+93
+00:06:13,410 --> 00:06:17,370
+farklı algoritmalar test edip hangi algoritmanın daha iyi çalıştığını görmektir.
+
+94
+00:06:17,370 --> 00:06:20,010
+Yani "dev" kümesi sadece, örneğin iki farklı algoritma seçeneğini veya
+
+95
+00:06:20,010 --> 00:06:23,380
+10 farklı algoritma seçeneğini test edip hızlıca hangisinin daha iyi olduğuna
+
+96
+00:06:23,380 --> 00:06:27,020
+karar vermeniz için gerektiği kadar büyük olmalıdır.
+
+97
+00:06:27,020 --> 00:06:30,500
+Ve bunun için verinizin %20sinin tamamına ihtiyacınız olmayabilir.
+
+98
+00:06:30,500 --> 00:06:34,200
+Yani, örneğin, eğer bir milyon eğitim örneğiniz varsa, "dev" kümenizde sadece
+
+99
+00:06:34,200 --> 00:06:39,250
+10.000 örnek olmasının hangi bir veya iki algoritmanın daha iyi olduğunu
+
+100
+00:06:39,250 --> 00:06:43,180
+değerlendirmek konusunda gereğinden fazla olduğuna karar verebilirsiniz.
+
+101
+00:06:43,180 --> 00:06:47,220
+Ve benzer şekilde, test kümenizin esas amacı, nihai sınıflandırıcı dikkate
+
+102
+00:06:47,220 --> 00:06:51,885
+alındığında, ne kadar iyi gittiğini göstermek için oldukça güvenilir bir tahmin vermektir.
+
+103
+00:06:51,885 --> 00:06:56,695
+Ve yine, eğer bir milyon örneğiniz varsa, 10.000 örneğin tek bir sınıflandırıcıyı değerlendirmek
+
+104
+00:06:56,695 --> 00:07:00,960
+ve ne kadar iyi gittiği konusunda iyi bir tahmin vermek için
+
+105
+00:07:00,960 --> 00:07:03,680
+yeterli olduğuna karar verebilirsiniz.
+
+106
+00:07:03,680 --> 00:07:07,280
+Yani bir milyon örneğinizin olduğu bu örnekte,
+
+107
+00:07:07,280 --> 00:07:11,550
+eğer "dev"iniz için ve testiniz için sadece 10.000 e ihtiyaç duyuyorsanız,
+
+108
+00:07:11,550 --> 00:07:17,240
+oranınız daha çok buna benzeyecektir. 10.000 1 milyonun %1idir yani,
+
+109
+00:07:17,240 --> 00:07:23,330
+%98 eğitim, %1 dev, %1 testiniz olacaktır.
+
+110
+00:07:23,330 --> 00:07:25,360
+Ve ayrıca eğer bir milyondan daha fazla örneğiniz varsa
+
+111
+00:07:25,360 --> 00:07:29,910
+%99,5 eğitim ve %0,25 "dev", %0,25 test ile sonuçlandığı
+
+112
+00:07:29,910 --> 00:07:35,050
+örnekler de gördüm.
+
+113
+00:07:35,050 --> 00:07:42,060
+Veya belki %0,4 "dev", %0,1 test.
+
+114
+00:07:42,060 --> 00:07:45,920
+Yani toparlamak için, makine öğrenmesi probleminizi kurarken,
+
+115
+00:07:45,920 --> 00:07:50,380
+genelde yaptığım eğitim, "dev" ve test kümelerine kurup, ve
+
+116
+00:07:50,380 --> 00:07:55,740
+eğer göreceli olarak küçük bir veri setiniz varsa, bu geleneksel oranlar tamam olabilir.
+
+117
+00:07:55,740 --> 00:07:59,560
+Ama eğer çok daha büyük bir veri setiniz varsa, "dev" ve test kümelerinizi
+
+118
+00:07:59,560 --> 00:08:05,660
+verinizin %20si hatta %10undan çok daha küçük olacak şekilde belirlemekde uygundur.
+
+119
+00:08:05,660 --> 00:08:08,640
+Bu uzmanlığın sonraki kısımlarında "dev" ve test kümelerinin boyutlarını belirlemek
+
+120
+00:08:08,640 --> 00:08:11,110
+için daha açık standart kurallar vereceğiz.
+
+121
+00:08:11,110 --> 00:08:16,170
+Modern derin öğrenme devrinde gördüğümüz bir diğer eğilim gittikçe daha fazla
+
+122
+00:08:16,170 --> 00:08:20,080
+insanın uyumsuz eğitim ve test dağılımlarında eğitmesidir.
+
+123
+00:08:20,080 --> 00:08:25,100
+Diyelim ki kullanıcıların birçok resim yüklediği bir uygulama geliştiriyorsunuz ve
+
+124
+00:08:25,100 --> 00:08:29,380
+amacınız kullanıcılara göstermek için kedi resimlerini bulmak.
+
+125
+00:08:29,380 --> 00:08:31,590
+Belki de tüm kullanıcılarınız kedi severdir.
+
+126
+00:08:31,590 --> 00:08:37,180
+Belki eğitim kümeniz İnternetten indirilmiş kedi resimlerinden geliyordur, ama
+
+127
+00:08:37,180 --> 00:08:42,178
+"dev" ve test kümeleriniz uygulamamızdaki kullanıcıların kedi resimlerini içeriyordur.
+
+128
+00:08:42,178 --> 00:08:46,250
+Yani belki eğitim kümenizde Internetten gelen bir sürü resim vardır ama
+
+129
+00:08:46,250 --> 00:08:49,470
+"dev" ve test kümeleriniz kullanıcıların yüklediği resimlerdir.
+
+130
+00:08:49,470 --> 00:08:53,370
+Görünen o ki bir çok web sayfasının çok yüksek çözünürlükte, çok profesyonel
+
+131
+00:08:53,370 --> 00:08:55,610
+güzelce çerçevelenmiş kedi resimleri var.
+
+132
+00:08:55,610 --> 00:08:58,290
+Ancak belki kullanıcılar daha bulanık, günlük koşullarda sadece bir cep telefonu
+
+133
+00:08:58,290 --> 00:09:03,450
+ile çekilmiş düşük çözünürlükteki resimler yüklüyorlardır.
+
+134
+00:09:03,450 --> 00:09:07,960
+Ve böylece bu iki veri dağılımı farklı olabilir.
+
+135
+00:09:07,960 --> 00:09:13,042
+Böyle bir durumda takip etmenizi teşvik edeceğim temel kural
+
+136
+00:09:13,042 --> 00:09:18,737
+"dev" ve test kümelerinin aynı dağılımdan geldiğinden emin olmanızdır.
+
+137
+00:09:23,079 --> 00:09:26,199
+Bu dikkate değer ilke üzerinde daha fazla şey söyleyeceğiz ama
+
+138
+00:09:26,199 --> 00:09:30,039
+"dev" kümesini birçok değişik modeli değerlendirmek için kullanacağınızdan ve
+
+139
+00:09:30,039 --> 00:09:33,380
+"dev" kümesi üzerinde performansı iyileştirmek için gerçekten çok çalışacağınızdan.
+
+140
+00:09:33,380 --> 00:09:38,380
+Eğer "dev" kümeniz test kümeniz ile aynı dağılımdan geliyorsa iyi olur.
+
+141
+00:09:38,380 --> 00:09:43,440
+Ancak derin öğrenme algoritmalarının eğitim verisi için oldukça büyük bir açlığı olduğundan
+
+142
+00:09:43,440 --> 00:09:47,660
+gördüğüm kullanabileceğiniz bir eğilim, normalde sahip olacağınız eğitim
+
+143
+00:09:47,660 --> 00:09:49,560
+setinden çok daha büyük bir eğitim setini elde etmek için web sayfalarını
+
+144
+00:09:49,560 --> 00:09:53,650
+taramak gibi her türlü yaratıcı taktiği kullanmaktır.
+
+145
+00:09:53,650 --> 00:09:57,300
+Bunun bedeli eğitim veri kümenizin "dev" ve test kümeleriniz ile aynı
+
+146
+00:09:57,300 --> 00:10:00,950
+dağılımdan gelmiyor olması olsa bile.
+
+147
+00:10:00,950 --> 00:10:03,980
+Bu temel kuralı takip ettiğiniz sürece göreceksiniz ki
+
+148
+00:10:03,980 --> 00:10:08,600
+makine öğrenmesi algoritmanızdaki gelişme çok daha hızlı olacak.
+
+149
+00:10:08,600 --> 00:10:10,750
+Ve size bu temel kural hakkında daha detaylı açıklamayı
+
+150
+00:10:10,750 --> 00:10:13,910
+bu uzmanlığın ilerideki kısımlarında vereceğim.
+
+151
+00:10:13,910 --> 00:10:18,320
+Son olarak, test kümenizin olmaması sorun olmayabilir.
+
+152
+00:10:18,320 --> 00:10:22,289
+Unutmayın ki test kümesinin amacı size son ağınızın, semiş olduğunuz ağın
+
+153
+00:10:22,289 --> 00:10:26,995
+performansı hakkında yansız bir tahmin vermektir.
+
+154
+00:10:26,995 --> 00:10:29,315
+Ama eğer bu yansız tahmine ihtiyacınız yoksa,
+
+155
+00:10:29,315 --> 00:10:32,090
+o zaman bir test kümeniz olmaması sorun olmayacaktır.
+
+156
+00:10:32,090 --> 00:10:35,030
+Şimdi, eğer sadece bir "dev" kümeniz varsa ama test kümeniz yoksa ne yapacağınız şey
+
+157
+00:10:35,030 --> 00:10:40,210
+eğitim setinde eğitmek ve sonra değişik model mimarilerini denemektir.
+
+158
+00:10:40,210 --> 00:10:44,450
+Bunları "dev" kümesinde değerlendirip bunu yinelemek için kullanım
+
+159
+00:10:44,450 --> 00:10:46,140
+iyi bir model elde etmeye çalışın.
+
+160
+00:10:46,140 --> 00:10:48,020
+Verinizi "dev" kümesine uydurduğunuz için,
+
+161
+00:10:48,020 --> 00:10:50,657
+bu size artık başarım konusunda yansız bir tahmin vermeyecektir.
+
+162
+00:10:50,657 --> 00:10:53,690
+Ama eğer ihtiyacınız yok bu son derece yolunda olacaktır.
+
+163
+00:10:53,690 --> 00:10:55,950
+Makine öğrenmesi dünyasında, sadece eğitim ve "dev" kümeleriniz olduğunda
+
+164
+00:10:55,950 --> 00:10:58,500
+ama ayrı bir test kümeniz olmadığında.
+
+165
+00:10:58,500 --> 00:11:01,260
+Birçık insan bunu eğitim kümesi olarak adlandırır ve
+
+166
+00:11:01,260 --> 00:11:04,640
+"dev" kümesini test kümesi olarak adlandırırlar.
+
+167
+00:11:04,640 --> 00:11:08,881
+Ancak aslında nihayetinde yaptıları test kümesini bir önerilen çapraz
+
+168
+00:11:08,881 --> 00:11:09,902
+geçerleme kümesi olarak kullanmaktır.
+
+169
+00:11:09,902 --> 00:11:13,460
+Ki bu belki de terminolojinin iyi bir kullanımı değil,
+
+170
+00:11:13,460 --> 00:11:17,320
+çünkü o zaman onlar test kümesinde aşırı öğrenme yapıyorlar.
+
+171
+00:11:17,320 --> 00:11:21,310
+Yani, takım size sadece bir eğitim ve test kümesine sahip olduklarını söylediğinde,
+
+172
+00:11:21,310 --> 00:11:26,140
+sadece dikkatli olur ve acaba gerçekten bir eğitim "dev" kümesi var mı diye düşünürdüm.
+
+173
+00:11:26,140 --> 00:11:28,520
+Çünkü test kümesinde aşırı öğrenme yapıyorlar.
+
+174
+00:11:28,520 --> 00:11:33,348
+Kültürel olarak, bu takımların bazı terminolojilerini değiştirmek ve
+
+175
+00:11:33,348 --> 00:11:38,410
+bunu eğitilmiş test kümesi yerine eğitilmiş "dev" kümesi olarak adlandırmalarını sağlamak zor olabilir.
+
+176
+00:11:38,410 --> 00:11:40,170
+Her ne kadar ben bunu bir eğitim ve geliştirme
+
+177
+00:11:40,170 --> 00:11:43,250
+kümesi olarak adlandırmanın daha doğru bir terminoloji olduğunu düşünsem de.
+
+178
+00:11:43,250 --> 00:11:45,970
+Ve aslında algoritmanızın performansı ile ilgili tamamen yansız
+
+179
+00:11:45,970 --> 00:11:48,665
+bir tahmine ihtiyacınız yoksa bu uygun bir uygulamadır.
+
+180
+00:11:48,665 --> 00:11:53,575
+İşte, bir eğitim "dev" kümesi ve test kümesi oluşturmuş olmak daha hızlı entegre olmanıza imkan tanıyacaktır.
+
+181
+00:11:53,575 --> 00:11:57,631
+Aynı zamanda algoritmanızı daha etkili bir şekilde geliştirme yolları seçmeniz için
+
+182
+00:11:57,631 --> 00:12:02,215
+algoritmanızdaki yanlılık ve değişintiyi daha etkin bir şekilde ölçmenize imkan verecektir.
+
+183
+00:12:02,215 --> 00:12:04,225
+Onu da sıradaki videoda konuşalım

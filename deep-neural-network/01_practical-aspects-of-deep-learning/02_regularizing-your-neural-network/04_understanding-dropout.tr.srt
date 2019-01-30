@@ -1,0 +1,507 @@
+1
+00:00:00,000 --> 00:00:06,015
+Seyreltme(Drop out), ağınızdaki birimleri rastgele saf dışı bırakmak gibi görünen karmaşık şeyi yapar.
+
+2
+00:00:06,015 --> 00:00:08,240
+Neden bir düzenleyici ile bu kadar iyi çalışıyor?
+
+3
+00:00:08,240 --> 00:00:10,665
+Hadi daha iyi bir bakış açısı kazanalım.
+
+4
+00:00:10,665 --> 00:00:11,970
+Bir önceki videoda 
+
+5
+00:00:11,970 --> 00:00:16,705
+ağınızdaki birimleri rastgele ayırarak dışlama, bakış açısını verdim.
+
+6
+00:00:16,705 --> 00:00:20,860
+Yani her tekrarlamada daha küçük bir sinir ağı ile çalışıyormuşsunuz gibi,
+
+7
+00:00:20,860 --> 00:00:26,360
+ve böylece daha küçük bir sinir ağını kullanmak, düzenleyici bir etkiye sahip olması gerektiği gibi görünüyor.
+
+8
+00:00:26,360 --> 00:00:28,255
+İşte ikinci bir bakış açısı,
+
+9
+00:00:28,255 --> 00:00:34,795
+Hadi tek birim perspektifinden bakalım. Diyelim ki bu olsun.
+
+10
+00:00:34,795 --> 00:00:37,530
+Şimdi, bu birim için işini girdi olarak yapması ve
+
+11
+00:00:37,530 --> 00:00:41,370
+bazı anlamlı çıktılar üretmesi gerekiyor.
+
+12
+00:00:41,370 --> 00:00:42,595
+Şimdi seyreltme(drop-out) ile,
+
+13
+00:00:42,595 --> 00:00:45,555
+girdiler rastgele elenebilir.
+
+14
+00:00:45,555 --> 00:00:47,965
+Bazen bu iki birim elenir,
+
+15
+00:00:47,965 --> 00:00:50,530
+bazen farklı bir birimi eleriz.
+
+16
+00:00:50,530 --> 00:00:52,635
+Yani bunun anlamı bu birim,
+
+17
+00:00:52,635 --> 00:00:54,005
+mor daire ile işaretlediğim bu birimin
+
+18
+00:00:54,005 --> 00:00:58,560
+herhangi bir özelliğe bağlı kalamaz çünkü özellik rastgele kaybedilebilir
+
+19
+00:00:58,560 --> 00:01:03,715
+veya kendi girdilerinin herhangi biri rastgele gidebilir.
+
+20
+00:01:03,715 --> 00:01:08,070
+Bazıları tüm ihtimalleri kabul etmekte isteksiz olur,
+
+21
+00:01:08,070 --> 00:01:10,475
+diyelim, sadece bu girdi, doğru mu?
+
+22
+00:01:10,475 --> 00:01:12,990
+Ağırlıklar, herhangi bir girdiye çok ağırlık
+
+23
+00:01:12,990 --> 00:01:16,035
+yüklemek istemeyiz çünkü o çıkarılabilir.
+
+24
+00:01:16,035 --> 00:01:20,820
+Yani bu birim, bu şekilde yayılmaya ve bu birimin 4 girdisine de biraz
+
+25
+00:01:20,820 --> 00:01:26,250
+ağırlık kazandırmaya daha fazla motive olacak.
+
+26
+00:01:26,250 --> 00:01:27,765
+Ve tüm ağırlıkları yayarak,
+
+27
+00:01:27,765 --> 00:01:34,815
+ağırlıklar kare normunda küçülme etkisine sahip olacaktır.
+
+28
+00:01:34,815 --> 00:01:38,730
+Ve bu yüzden, L2 düzenlemesinde gördüğümüze benzer olarak
+
+29
+00:01:38,730 --> 00:01:41,650
+Seyreltme işleminin etkisi ağırlıkları küçültmek ve
+
+30
+00:01:41,650 --> 00:01:46,195
+bazı bu aşırı öğrenmeyi önlemeye yardımcı olan harici düzenlemeyi yapmaktır.
+
+31
+00:01:46,195 --> 00:01:48,750
+Fakat seyreltme düzenleme kullanmadan
+
+32
+00:01:48,750 --> 00:01:52,035
+uyumlu bir form olduğu resmen gösterilebilir.
+
+33
+00:01:52,035 --> 00:01:55,305
+Fakat çeşitli ağırlıklardaki L2 cezası farklıdır,
+
+34
+00:01:55,305 --> 00:01:58,830
+bu şekilde çarpılan aktivasyonların boyutuna bağlıdır.
+
+35
+00:01:58,830 --> 00:02:02,580
+Özetlemek gerekirse, şunu göstermek mümkün ki seyreltme
+
+36
+00:02:02,580 --> 00:02:06,705
+L2 düzenlemesine benzer bir etkiye sahip.
+
+37
+00:02:06,705 --> 00:02:09,990
+Sadece, farklı yollarla uygulanan L2 düzenlemesi 
+
+38
+00:02:09,990 --> 00:02:13,540
+biraz farklı olabilir ve hatta çeşitli ölçekli girdiler için daha uyumlu olabilir.
+
+39
+00:02:13,540 --> 00:02:15,930
+seyreltme uyguladığınızda için bir ayrıntı daha var.
+
+40
+00:02:15,930 --> 00:02:19,510
+Burada üç girdi özelliğine sahip bir ağ var.
+
+41
+00:02:19,510 --> 00:02:21,795
+Burada 7 gizli birim var,
+
+42
+00:02:21,795 --> 00:02:24,625
+yedi, üç, iki, bir.
+
+43
+00:02:24,625 --> 00:02:26,915
+Seçmemiz gereken parametrelerden biri
+
+44
+00:02:26,915 --> 00:02:31,395
+her katmanda bir birim tutma şansına sahip ucuz bir dayanak bulmaktır.
+
+45
+00:02:31,395 --> 00:02:36,550
+Dahası, seviyelere göre anahtar dayanaklar değiştirilmeye de uygundur.
+
+46
+00:02:36,550 --> 00:02:38,490
+Bu yüzden ilk seviye için,
+
+47
+00:02:38,490 --> 00:02:42,460
+W1 matrisiniz 3'e 7 olacaktır.
+
+48
+00:02:42,460 --> 00:02:46,120
+İkinci ağırlık matrisimiz 7'ye 7 olacak...
+
+49
+00:02:46,120 --> 00:02:49,680
+W3 ise 7'ye 3 olacak ve bunun gibi.
+
+50
+00:02:49,680 --> 00:02:53,205
+Tabi ki aslında W2 en büyük ağırlığa sahip matris,
+
+51
+00:02:53,205 --> 00:02:55,500
+çünkü en büyük parametre kümesi
+
+52
+00:02:55,500 --> 00:02:58,195
+7'ye 7 olan W2 de olacaktır.
+
+53
+00:02:58,195 --> 00:03:01,605
+Yani önlemek için, bu matriste ki aşırı öğrenmeyi azaltmak için,
+
+54
+00:03:01,605 --> 00:03:03,600
+belki bu katman için,
+
+55
+00:03:03,600 --> 00:03:05,205
+İkinci katman olduğunu tahmin ediyorum,
+
+56
+00:03:05,205 --> 00:03:08,490
+nispeten daha düşük bir anahtar dayanağı olmalı,
+
+57
+00:03:08,490 --> 00:03:10,435
+diyelim 0.5,
+
+58
+00:03:10,435 --> 00:03:13,825
+buna karşılık, aşırı öğrenme konusunda daha az endişelendirici farklı katmanlar için,
+
+59
+00:03:13,825 --> 00:03:15,080
+daha yüksek bir anahtar dayanağa sahip olabilirsiniz,
+
+60
+00:03:15,080 --> 00:03:18,255
+belki sadece 0.7.
+
+61
+00:03:18,255 --> 00:03:22,715
+Ve eğer aşırı öğrenme konusunda hiç problem olmayan bir katmansa,
+
+62
+00:03:22,715 --> 00:03:25,240
+anahtar değerinizi 1.0 olarak alabilirsiniz.
+
+63
+00:03:25,240 --> 00:03:30,725
+Daha açık olması açısından, numaraları mor kutucuklarla işaretliyorum.
+
+64
+00:03:30,725 --> 00:03:34,635
+Bunlar farklı katmanlar için farklı değerler alabilir.
+
+65
+00:03:34,635 --> 00:03:39,100
+Dikkat edin, 1.0 anahtar değeri tüm birimleri tutacağınız anlamına geliyor ve bu yüzden,
+
+66
+00:03:39,100 --> 00:03:41,855
+bu katmanlarda seyreltme kullanmıyorsunuz.
+
+67
+00:03:41,855 --> 00:03:44,730
+Ancak katmanlarınızın aşırı öğrenme endişesini taşıdığınız zaman
+
+68
+00:03:44,730 --> 00:03:46,660
+katmanlar ile birlikte gelen bir çok parametre ile birlikte
+
+69
+00:03:46,660 --> 00:03:51,600
+daha güçlü bir seyreltme uygulayabilmek için destekleyici küçük bir anahtar atayabilirsiniz.
+
+70
+00:03:51,600 --> 00:03:53,070
+Bazı katmanları diğerlerinden daha fazla düzenli hale getirmeye çalıştığınızda
+
+71
+00:03:53,070 --> 00:03:54,910
+L2 düzenlileştirme parametresinin
+
+72
+00:03:54,910 --> 00:03:57,960
+lamnda parametresini harekete geçirmiş olursunuz.
+
+73
+00:03:57,960 --> 00:04:02,715
+Teknik olarak, giriş katmanına da seyreltme uygulayabilirsiniz,
+
+74
+00:04:02,715 --> 00:04:07,295
+girdi özelliklerinden bir veya daha fazlasını maksimuma çıkarabilme şansınız olabilir.
+
+75
+00:04:07,295 --> 00:04:11,580
+Her ne kadar pratikte olsa bunu sık sık yapmayın.
+
+76
+00:04:11,580 --> 00:04:15,270
+Buradaki girdi için 1.0 değerinin destekleyici bir anahtar olması yaygındır.
+
+77
+00:04:15,270 --> 00:04:17,985
+Ayrıca çok yüksek bir değerde kullanabilirsiniz, belki 0.9
+
+78
+00:04:17,985 --> 00:04:22,740
+ama girdi özelliklerinin yarısını ortadan kaldırmak istediğinizden çok daha az olasıdır.
+
+79
+00:04:22,740 --> 00:04:25,665
+Yani destekleyici anahtarı kullanıp kuralı uygularsanız,
+
+80
+00:04:25,665 --> 00:04:32,030
+buradaki girdiye hiç seyreltme uygulamazsanız bile bire yakın bir sayı olacaktır.
+
+81
+00:04:32,030 --> 00:04:33,450
+Yani özetlemek gerekirse,
+
+82
+00:04:33,450 --> 00:04:36,330
+Eğer diğerlerinden daha fazla aşırı öğrenme problemi olan katmanlar ile ilgili endişeleniyorsanız,
+
+83
+00:04:36,330 --> 00:04:40,320
+diğerlerinden daha düşük destekleyici anahtar değeri atayabilirsiniz.
+
+84
+00:04:40,320 --> 00:04:41,430
+Kötü tarafı, bu size
+
+85
+00:04:41,430 --> 00:04:44,955
+çapraz doğrulama kullanmak için arama yapma amacıyla daha fazla hiper parametre verir.
+
+86
+00:04:44,955 --> 00:04:48,525
+Bir diğer alternatif seyreltme uyguladığınız bazı katmanlarınız olabilir
+
+87
+00:04:48,525 --> 00:04:50,460
+ve bazı katmanlara da uygulamamış olabilirsiniz
+
+88
+00:04:50,460 --> 00:04:52,630
+bu hiper bir parametreye sahip olduğunuzu gösterir,
+
+89
+00:04:52,630 --> 00:04:55,910
+katmanlar için bu destekleyici anahtarlarla seyreltme yapabilirsiniz.
+
+90
+00:04:55,910 --> 00:04:59,070
+Özetleyecek olursak uygulamaların iki tiplemesi vardır.
+
+91
+00:04:59,070 --> 00:05:03,850
+Seyreltmenin ilk başarılı uygulamalarının çoğu bilgisayar vizyonuydu.
+
+92
+00:05:03,850 --> 00:05:05,075
+Bilgisayar vizyonunda,
+
+93
+00:05:05,075 --> 00:05:06,890
+girdi boyutu çok büyük,
+
+94
+00:05:06,890 --> 00:05:11,275
+tüm bu pikselleri girerek neredeyse hiç yeterli veriye sahip olamuyorsunuz.
+
+95
+00:05:11,275 --> 00:05:14,710
+Bu yüzden, bilgisayar vizyonu tarafından seyreltme sıkça kullanılır.
+
+96
+00:05:14,710 --> 00:05:18,035
+Ve bunu kullanan çok fazla birçok bilgisayar vizyonu araştırmacısı var,
+
+97
+00:05:18,035 --> 00:05:19,750
+neredeyse varsayılan olarak kabul edilecek.
+
+98
+00:05:19,750 --> 00:05:24,866
+Fakat gerçekten unutulmaması gereken şey şudur ki seyreltme bir düzenlileştirme tekniğidir.
+
+99
+00:05:24,866 --> 00:05:27,010
+bu aşırı öğrenmeyi engellemeye yardım eder.
+
+100
+00:05:27,010 --> 00:05:30,880
+Ve bu yüzden, algoritmam aşırı öğrenme olmadan,
+
+101
+00:05:30,880 --> 00:05:33,250
+Seyreltme, gerçekten çok can sıkıcı olduğundan kullanmak istemem.
+
+102
+00:05:33,250 --> 00:05:36,557
+Yani diğer uygulama alanlarından biraz daha sık kullanılır.
+
+103
+00:05:36,557 --> 00:05:38,320
+Bunlardan sadece bilgisayar vizyonunda,
+
+104
+00:05:38,320 --> 00:05:40,600
+genellikle yeterli veriye sahip olmazsınız,
+
+105
+00:05:40,600 --> 00:05:42,090
+neredeyse her zaman aşırı öğrenirsiniz,
+
+106
+00:05:42,090 --> 00:05:46,425
+bazı bilgisayar vizyon araştırmacıları seyreltme tekniğine yeminli gibi eğilimlidirler.
+
+107
+00:05:46,425 --> 00:05:52,498
+Fakat diğer disiplinleri düşünecek olursam onların bakış açıları her zaman genelleştirilmez.
+
+108
+00:05:52,498 --> 00:06:00,490
+Seyreltmenin büyük bir dezavantajı, maliyet fonksiyonunun J'nin artık iyi tanımlanmamış olmasıdır.
+
+109
+00:06:00,490 --> 00:06:06,635
+Her tekrarda bir grup düğümden rastgele birini ortadan kaldırıyorsunuz.
+
+110
+00:06:06,635 --> 00:06:10,855
+Ve böylece, derecenin ve karşıtlığın performansını iki kez kontrol ediyorsanız,
+
+111
+00:06:10,855 --> 00:06:14,590
+her yinelemede yokuş aşağı giden, iyi tanımlanmış bir maliyet fonksiyonuna
+
+112
+00:06:14,590 --> 00:06:20,365
+yani J'ye sahip olduğunuzu kontrol etmek gerçekten daha zordur.
+
+113
+00:06:20,365 --> 00:06:24,625
+Çünkü optimize ettiğiniz maliyet fonksiyonu J aslında daha azdır.
+
+114
+00:06:24,625 --> 00:06:27,395
+Daha az iyi tanımlanmış veya hesaplanması kesinlikle zor.
+
+115
+00:06:27,395 --> 00:06:30,160
+kaybettiğiniz şeyi hata ayıklama aracı ile çizmek isterseniz
+
+116
+00:06:30,160 --> 00:06:32,010
+böyle bir grafik olacak.
+
+117
+00:06:32,010 --> 00:06:34,805
+Yani yaptığım şey seyreltmeyi kapatıp
+
+118
+00:06:34,805 --> 00:06:37,060
+destekleyici anahtarı bire eşitleyip
+
+119
+00:06:37,060 --> 00:06:40,885
+kodumu çalıştırmak, monoton olarak J'yi düşürdüğünden emin olun
+
+120
+00:06:40,885 --> 00:06:43,960
+ve seyreltme özelliğini açın, umuyorum ki
+
+121
+00:06:43,960 --> 00:06:47,035
+seyreltme sırasında kodumda bir hata ile karşılaşmam.
+
+122
+00:06:47,035 --> 00:06:49,195
+Çünkü başka yollara ihtiyacınız var, Sanırım
+
+123
+00:06:49,195 --> 00:06:52,060
+bu rakamlar kodunuzun bu kadar büyüklükte çalıştığından emin olmak için değil,
+
+124
+00:06:52,060 --> 00:06:55,900
+seyreltme ile bile çalışıyor olduğundan emin olmak için.
+
+125
+00:06:55,900 --> 00:06:58,130
+Bu tarz, hala bilmeye değer
+
+126
+00:06:58,130 --> 00:07:01,830
+birkaç tane daha düzenlileştirme tekniği var.
+
+127
+00:07:01,830 --> 00:07:04,480
+Bir sonraki videoda bu gibi tekniklerin bir kaçı hakkında konuşalım.

@@ -1,0 +1,555 @@
+1
+00:00:00,410 --> 00:00:04,180
+L2 regülarizasyon ve drop out regülarizasyona  ek olarak
+
+2
+00:00:04,180 --> 00:00:08,050
+aşırı uyumu(overfitting ) nöron ağlarında düşürmek için yöntemler bulunmaktadır.
+
+3
+00:00:08,050 --> 00:00:09,200
+Hadi inceleyelim.
+
+4
+00:00:09,200 --> 00:00:10,955
+diyelim ki kedi sınıflandırması yapıyoruz
+
+5
+00:00:10,955 --> 00:00:15,590
+eğer aşırı uyuma(over fitting) varsa daha fazla eğitim seti yardımcı olabilir ama eğer 
+
+6
+00:00:15,590 --> 00:00:20,970
+eğitim verisi pahalı olabilir ve bazen daha fazla elde edemezsiniz.
+
+7
+00:00:20,970 --> 00:00:24,670
+ama siz eğitim setini coğaltmak (augment) yaparak ve görüntüyü şu şekilde 
+
+8
+00:00:24,670 --> 00:00:27,440
+ve örnek olarak yatay olarak çevirerek 
+
+9
+00:00:27,440 --> 00:00:29,570
+ve bu görüntüyü eğitim setine ekleyerek
+
+10
+00:00:29,570 --> 00:00:32,950
+şimdi sadece bu örnek yerine sizin veri setinizde 
+
+11
+00:00:32,950 --> 00:00:35,320
+siz bunu kendi eğitim setinize ekleyebilirsiniz
+
+12
+00:00:35,320 --> 00:00:38,040
+görüntüleri yatay olarak çevirerek 
+
+13
+00:00:38,040 --> 00:00:40,670
+eğitim setini iki katına çıkarabilirsiniz
+
+14
+00:00:40,670 --> 00:00:44,530
+çünkü sizin eğitim setiniz işinizi yapmayan dır ve bu
+
+15
+00:00:44,530 --> 00:00:50,200
+eğer ek olarak yeni bağımsız örnekler toplanmışsa o kadar iyi olmayacak ama 
+
+16
+00:00:50,200 --> 00:00:55,290
+ama bu işi dışarya çıkmaya ihityaç duymayıp ve zaman harcamadan 
+
+17
+00:00:55,290 --> 00:00:57,100
+fazla kedi fotosu elede edilebilir.
+
+18
+00:00:57,100 --> 00:00:59,710
+ve yapay çevirmekten başka  
+
+19
+00:00:59,710 --> 00:01:02,170
+rastgele bir şekilde görüntüleri kırpabilirsin.
+
+20
+00:01:02,170 --> 00:01:06,220
+burada görüntüye rastgele bir şekilde zumlayarak ve döndürerek ve
+
+21
+00:01:06,220 --> 00:01:07,720
+bu hala bir kediye benzemektedir.
+
+22
+00:01:07,720 --> 00:01:11,830
+görüntü üzerinde rastgele bükülme ve tebdil yaparak
+
+23
+00:01:11,830 --> 00:01:16,490
+veri setini çoğaltma yapılabilir ve ek bir yapay eğitim öğrenği oluşturulabilir
+
+24
+00:01:16,490 --> 00:01:20,780
+tekrar,extra sahte öğrenme seti bilgi eklemesi konusunda 
+
+25
+00:01:20,780 --> 00:01:25,900
+yeni ve bağımsız kedi örneklerinden aldığımız kadar bilgi eklemez.
+
+26
+00:01:25,900 --> 00:01:28,982
+ama cünkü bu işi yaklaşık olarak bedavaya yapıldığı için ve diğerinden ki
+
+27
+00:01:28,982 --> 00:01:30,562
+bazı uyuşumsal maliyeti olduğu için bunu yapabilirsiniz
+
+28
+00:01:30,562 --> 00:01:37,007
+bu pahalı olmayan bir yol olarak fazladan data algoritmanıza verebilirsiniz.
+
+29
+00:01:37,007 --> 00:01:42,762
+onun için bir çeşit regülarizasyondur ve aşırı uymu (overfittingi ) azaltır.
+
+30
+00:01:42,762 --> 00:01:47,299
+ve örnekleri buna benzer sentezleyerek siz algoritmanıza şunu demektesiniz ki
+
+31
+00:01:47,299 --> 00:01:51,570
+eğer bir şey kedi ise yatay çevirerek de hala bir kedidir.
+
+32
+00:01:51,570 --> 00:01:53,100
+dikkat ediniz ben dikey olarak çevirmedim.
+
+33
+00:01:53,100 --> 00:01:55,820
+çünkü belki istemiyoruz kedinin yukarı kısmını aşağıya getirelim. doğru?
+
+34
+00:01:55,820 --> 00:01:58,940
+ve sonra belki rastgele görüntünün bazı kısımlarına zum ederek bir oğlasılıkla 
+
+35
+00:01:58,940 --> 00:02:00,270
+hala bir kedidir.
+
+36
+00:02:00,270 --> 00:02:04,750
+Optik karakter tanıma için data veri setinizi rakamlar alarak
+
+37
+00:02:04,750 --> 00:02:08,510
+ve rastgele dönmeler ve deformasyonlar yaparak da getirebilirsiniz
+
+38
+00:02:08,510 --> 00:02:11,620
+ve eğer bunların eğitim setine eklerseniz
+
+39
+00:02:11,620 --> 00:02:13,490
+bunlar hala bir rakamlardır.
+
+40
+00:02:14,740 --> 00:02:18,320
+gösterim için ben güçlü bir bükülme(distorsiyon) uyguladım.
+
+41
+00:02:18,320 --> 00:02:23,215
+ve bu çok dalgalı bir dörde bezemeke.Pratikte dördü bu kadar agresif şekilde distorsyion
+
+42
+00:02:23,215 --> 00:02:27,095
+uğratmaya gerek yok. sadece hafif bir distorsiyon ki 
+
+43
+00:02:27,095 --> 00:02:29,255
+bu öğreniğe sizlere daha açıklıyor olması için şimdi gösteriyorum..doğru mu?
+
+44
+00:02:29,255 --> 00:02:32,945
+ama pratikte çok daha hafif distorsiyon olmaktadır.
+
+45
+00:02:32,945 --> 00:02:35,490
+çünkü bu gerçekten bürünmüş bir dörde benzemektedir.
+
+46
+00:02:35,490 --> 00:02:40,410
+o zaman data Çoğaltmak (augmentation ) bir regülarizasyon tekniği olarak kullanılabilir.
+
+47
+00:02:40,410 --> 00:02:43,020
+aslında regülarizasyona benzemektedir.
+
+48
+00:02:43,020 --> 00:02:46,970
+bir başka teknik ki çoğu zaman kullanılmaktadadır erken durdurma denilmektedir.
+
+49
+00:02:46,970 --> 00:02:52,010
+o zaman sen ne yapmalısın gradient düşümünü uygularken
+
+50
+00:02:52,010 --> 00:02:54,010
+senin ya eğitim hatanı
+
+51
+00:02:54,010 --> 00:02:57,860
+0 1 sınıflandırma hatası eğitim seti üzerinde kullanarak
+
+52
+00:02:57,860 --> 00:03:00,860
+yada J maliyet fonksiyonun çizerek ve
+
+53
+00:03:00,860 --> 00:03:04,200
+monotonik azalmalı ve buna benzer,doğru değil mi
+
+54
+00:03:04,200 --> 00:03:05,610
+çünkü eğitime yapıyorsunuz ,umarım
+
+55
+00:03:05,610 --> 00:03:09,120
+maliyet fonksiyonu J azaltma etrafında eğitme yapıyorsunuz.
+
+56
+00:03:09,120 --> 00:03:11,870
+erken durdurma ile ne yapıyorsun bunu çizerek
+
+57
+00:03:11,870 --> 00:03:15,970
+sen aynı zamanda geliştirme seti hatasını çiziyorsun.
+
+58
+00:03:17,020 --> 00:03:20,920
+ve tekrar,bu bir sınıflandırma hatasi geliştirme setinde olabilir.ya bazen
+
+59
+00:03:20,920 --> 00:03:25,979
+maliyet fonkisyonuna benzer,lojistik kaybına benzer ya log kaybı geliştirme setinde olabilir.
+
+60
+00:03:25,979 --> 00:03:29,770
+şimdi ne ile karşılaşırsınız budur ki geliştirme seti hatasi genelde düşer 
+
+61
+00:03:29,770 --> 00:03:32,950
+bir süre için ve sonra artar.
+
+62
+00:03:32,950 --> 00:03:35,876
+şunu söylebilirsiniz ki erken durdurma ne yapıyor buna benzemektedir ki 
+
+63
+00:03:35,876 --> 00:03:40,167
+nöron ağları en iyi sonucunu iterasyon içerisinde yapmaktadır.
+
+64
+00:03:40,167 --> 00:03:43,640
+biz sadece isteğimiz eğitim yarı yolda durdurmakdır ve 
+
+65
+00:03:43,640 --> 00:03:47,310
+geliştirme seti hatasi hangi değere ulaşırsa onu alın.
+
+66
+00:03:47,310 --> 00:03:48,260
+peki niçin bu çalışmaktadır?
+
+67
+00:03:48,260 --> 00:03:51,490
+çok iterasyon çalıştırmadığınız zaman
+
+68
+00:03:51,490 --> 00:03:55,185
+sizin nöron ağlarınız henüz ve parametreleriniz w sıfıra yakın olucaktır.
+
+69
+00:03:55,185 --> 00:03:59,720
+rastgele bir başlangıç olduğu belki w küçük rastgele değerler ile başladınız
+
+70
+00:03:59,720 --> 00:04:04,190
+uzun süre eğitmeden önce,w bir küçük değerdir.
+
+71
+00:04:04,190 --> 00:04:08,060
+ve iterasyon yapıldığında,eğitim yapıldığında, w büyüyecektir ve büyüyecektir ta 
+
+72
+00:04:08,060 --> 00:04:14,120
+burada belki siz nöron ağlarının w parametresinin çok büyük bir değeri sizde var.
+
+73
+00:04:14,120 --> 00:04:18,560
+o zaman erken durdurma ne yapıyor budur ki yarı yolda durdurarak
+
+74
+00:04:18,560 --> 00:04:23,286
+w'nin orta büyüklükte elde ediliyor.
+
+75
+00:04:23,286 --> 00:04:28,920
+ve L2 regülarizasyona benzer nöron ağlarında küçük norm değerlerini
+
+76
+00:04:28,920 --> 00:04:34,630
+w parametresine alarak,nöron ağlarında daha az aşırı uymu(over fitting) umuluyor.
+
+77
+00:04:34,630 --> 00:04:37,270
+ve erken durdurma değimi şu gereçeğe geri dönmektedir ki
+
+78
+00:04:37,270 --> 00:04:40,760
+eğitiminizin ereken bir zaman da durdurmaktadır.
+
+79
+00:04:40,760 --> 00:04:43,760
+ben bazen erken durdurmayı nöron ağlarını eğitmde kullanıyorum.
+
+80
+00:04:43,760 --> 00:04:46,650
+ama o bir tane dezavantajı vardır izin verin anlatıyım.
+
+81
+00:04:46,650 --> 00:04:50,870
+düşünüyorum ki makine öğrenme prosesinde farklı adımları karşılaştırarak
+
+82
+00:04:50,870 --> 00:04:55,960
+bir, algoritimden bunu istiyorsunuz maliyet fonkisyonunu j optimize etsin.
+
+83
+00:04:55,960 --> 00:04:59,660
+ve farklı yollar var ki maliyet foknisyonun kontrol etsin mesla gradient descent
+
+84
+00:04:59,660 --> 00:05:04,350
+ve bundan sonra biz başka algoritmalardan bahsedeceğiz,mesela momentum ve
+
+85
+00:05:04,350 --> 00:05:08,070
+RMS prop ve adam ve..
+
+86
+00:05:08,070 --> 00:05:15,100
+ama maliyet fonksiyonu j optimize ettikten sonra siz aşırı uyum (overfitting )olmasını istemezsiniz.
+
+87
+00:05:15,100 --> 00:05:20,018
+ve başka araçlar da bu regülarizasyona benzer yapmaktadır,
+
+88
+00:05:20,018 --> 00:05:22,300
+çok data olmak ve buna benzer.
+
+89
+00:05:22,300 --> 00:05:26,110
+şimdi makine öğrenmesinde bir çok hyperparameter bulunmaktadır.
+
+90
+00:05:26,110 --> 00:05:31,160
+Olası algoritmaların alanı arasında seçim yapmak zaten çok karmaşıktır.
+
+91
+00:05:31,160 --> 00:05:34,340
+ve ben makine öğrenilmesi üzerinde düşünmesini kolay buldum.
+
+92
+00:05:34,340 --> 00:05:37,800
+Maliyet fonksiyonunu J optimize etmek için bir takım araçlarınız varsa,
+
+93
+00:05:37,800 --> 00:05:41,120
+ve sen maliyet fonksiyonu J üzerinde odaklanarak yetkisini denerken
+
+94
+00:05:41,120 --> 00:05:46,770
+Tek dikkat ettiğim şey, w ve b'yi bulmaktır, böylece J (w, b) mümkün olduğunca küçüktür.
+
+95
+00:05:46,770 --> 00:05:50,020
+Sadece bir şey düşünmüyorsun - bunu azaltmaktan başka.
+
+96
+00:05:50,020 --> 00:05:55,346
+ve sonra tamamen başka bir görevdir ki aşırı uyum olmasın 
+
+97
+00:05:55,346 --> 00:05:57,560
+başka bir değişle,varyansı düşürmek.
+
+98
+00:05:57,560 --> 00:06:01,670
+Bunu yaptığınızda, bunu yapmak için ayrı bir araç setine sahipsiniz.
+
+99
+00:06:01,670 --> 00:06:06,570
+Ve bu prensip bazen ortogonalizasyon denir.
+
+100
+00:06:06,570 --> 00:06:10,220
+Ve bu fikir, her seferinde bir görev hakkında düşünmek isteyebileceğiniz bir fikir var.
+
+101
+00:06:10,220 --> 00:06:14,640
+Daha sonra bir videoda ortoganizasyon hakkında daha çok şey söyleyeceğim,o zaman 
+
+102
+00:06:14,640 --> 00:06:17,600
+Henüz kavramı tam olarak kavramadıysanız, endişelenmeyin.
+
+103
+00:06:17,600 --> 00:06:21,015
+ama bana göre erken durdurmanın ana dezavantajı budur ki
+
+104
+00:06:21,015 --> 00:06:23,945
+Bu iki görevi birleştirir.
+
+105
+00:06:23,945 --> 00:06:28,165
+Yani artık bu iki problem üzerinde bağımsız olarak çalışamazsınız,
+
+106
+00:06:28,165 --> 00:06:30,625
+çünkü erken gradyan inişini durdurarak,
+
+107
+00:06:30,625 --> 00:06:34,330
+Maliyet fonksiyonunu J optimize etmek için ne yapıyorsanız onu bölüyorsunuz ,
+
+108
+00:06:34,330 --> 00:06:37,300
+çünkü şimdi maliyet fonksiyonunu azaltarak harika bir iş yapmıyorsunuz.
+
+109
+00:06:37,300 --> 00:06:39,250
+O kadar iyi yapmadın
+
+110
+00:06:39,250 --> 00:06:43,510
+Ve aynı zamanda eşzamanlı olarak uyum sağlamaya da çalışıyorsunuz.
+
+111
+00:06:43,510 --> 00:06:46,430
+Yani, iki problemi çözmek için farklı araçlar kullanmak yerine
+
+112
+00:06:46,430 --> 00:06:48,600
+Bu türden iki tane kullanıyorsunuz.
+
+113
+00:06:48,600 --> 00:06:51,250
+Ve bu sadece deneyebileceğiniz şeylerin setini 
+
+114
+00:06:52,370 --> 00:06:56,690
+düşünmek için daha karmaşık hale getirir.
+
+115
+00:06:56,690 --> 00:07:01,840
+Erken durdurmayı kullanmak yerine, bir alternatif sadece L2 regülasyonu kullanmaktır
+
+116
+00:07:01,840 --> 00:07:05,030
+o zaman nöron ağını olabildiğince uzun süre eğitebilirsin.
+
+117
+00:07:05,030 --> 00:07:09,000
+Bunun, hiper parametrelerin arama alanını ayrıştırmayı kolaylaştırdığını
+
+118
+00:07:09,000 --> 00:07:10,720
+ve daha kolay arama yapabildiğini buldum.
+
+119
+00:07:10,720 --> 00:07:14,200
+Ancak bunun olumsuz yanı, çok fazla değeri denemeniz gerekebileceğidir.
+
+120
+00:07:14,200 --> 00:07:16,420
+lambda regülarizasyons parametresi.
+
+121
+00:07:16,420 --> 00:07:21,040
+Ve bu, lambda'nın birçok lamda değeri üzerinde arama yapaması hesaplamalı
+
+122
+00:07:21,040 --> 00:07:22,060
+pahalı
+
+123
+00:07:22,060 --> 00:07:26,500
+Ve erken durdurmanın avantajı, gradyan iniş sürecini yürütmesidir.
+
+124
+00:07:26,500 --> 00:07:30,910
+sadece bir kez, küçük w, orta boy w değerleri denemek ve
+
+125
+00:07:30,910 --> 00:07:35,960
+büyük w, L2 regülarizsayonun bir çok değerini denemeye gerek kalmadan
+
+126
+00:07:35,960 --> 00:07:40,300
+hiperparametre lambda.
+
+127
+00:07:40,300 --> 00:07:43,910
+Bu konsept henüz sizin için bir anlam ifade etmiyorsa, endişelenmeyin.
+
+128
+00:07:43,910 --> 00:07:46,608
+Ortogonalizasyon hakkında daha fazla konuşacağız
+
+129
+00:07:46,608 --> 00:07:49,784
+bir sonraki video da,Ben bu biraz daha mantıklı olacağını düşünüyorum.
+
+130
+00:07:49,784 --> 00:07:52,860
+Dezavantajlarına rağmen, birçok insan bunu kullanıyor.
+
+131
+00:07:52,860 --> 00:07:55,728
+Ben şahsen L2 regülasyonunu kullanmayı tercih ediyorum ve
+
+132
+00:07:55,728 --> 00:07:57,484
+Farklı lambda değerlerini deneyerek.
+
+133
+00:07:57,484 --> 00:08:00,530
+Bunu yapmak için hesaplamayı karşılayabileceğinizi varsayarız.
+
+134
+00:08:00,530 --> 00:08:03,350
+Fakat erken durdurma, benzer bir etkiye sahip olmanıza izin veriyor ama
+
+135
+00:08:03,350 --> 00:08:06,910
+açıkça lambda çok farklı değerleri denemeğe gerek kalmadan.
+
+136
+00:08:06,910 --> 00:08:12,480
+Bu nedenle, veri büyütmeyi nasıl kullanacağınızı ve ayrıca,erken durdurmayı isterseniz,
+
+137
+00:08:12,480 --> 00:08:17,550
+varyansı azaltmak veya nöron ağınızı aşırı uyumdan kaçınmak için.
+
+138
+00:08:17,550 --> 00:08:19,830
+Sonraki için bazı teknikler hakkında konuşalım
+
+139
+00:08:19,830 --> 00:08:23,320
+Eğitiminizin hızlıca ilerlemesini sağlamak için optimizasyon probleminizi ayarlıyor.

@@ -1,0 +1,480 @@
+1
+00:00:00,470 --> 00:00:03,955
+Você viu como usar o impulso (momentum)
+pode acelerar o gradiente descendente.
+
+2
+00:00:03,955 --> 00:00:06,230
+Há um outro algoritmo chamado "RMSprop",
+
+3
+00:00:06,230 --> 00:00:10,490
+que significa propagação da raiz quadrada média,
+que também pode acelerar o gradiente descendente.
+
+4
+00:00:10,490 --> 00:00:11,800
+Vejamos como funciona.
+
+5
+00:00:11,800 --> 00:00:16,313
+Lembre-se do nosso exemplo anterior,
+que se você implementar o gradiente descendente,
+
+6
+00:00:16,313 --> 00:00:20,252
+você pode acabar com oscilações enormes
+na direção vertical,
+
+7
+00:00:20,252 --> 00:00:24,569
+mesmo enquanto ele estiver tentando progredir na direção horizontal.
+
+8
+00:00:24,569 --> 00:00:29,214
+Para esclarecer este exemplo, digamos que
+
+9
+00:00:29,214 --> 00:00:34,733
+o eixo vertical é o parâmetro b, e o eixo horizontal é o parâmetro w.
+
+10
+00:00:34,733 --> 00:00:39,614
+Poderia ser w1 e w2, onde alguns
+dos parâmetros centrais foram nomeados 'b' e
+
+11
+00:00:39,614 --> 00:00:42,090
+'w' por uma questão da intuição.
+
+12
+00:00:42,090 --> 00:00:46,690
+Assim, você quer desacelerar o aprendizado na direção b,
+
+13
+00:00:46,690 --> 00:00:48,400
+ou seja, na direção vertical.
+
+14
+00:00:48,400 --> 00:00:54,830
+E acelerar o aprendizado, ou ao menos não desacelerá-lo na direção horizontal.
+
+15
+00:00:54,830 --> 00:00:59,411
+E isso é o que o algoritmo RMSprop faz para realizar isto.
+
+16
+00:00:59,411 --> 00:01:07,237
+Na iteração t, ele vai calcular,
+como de costume, as derivadas dW e
+
+17
+00:01:07,237 --> 00:01:11,387
+db no "mini-batch" atual.
+
+18
+00:01:15,464 --> 00:01:19,400
+Eu ia manter esta média móvel exponencialmente ponderada.
+
+19
+00:01:19,400 --> 00:01:22,890
+Ao invés de VdW, eu vou usar a notação nova SdW.
+
+20
+00:01:22,890 --> 00:01:28,954
+Então SdW é igual a beta vezes seu valor
+
+21
+00:01:28,954 --> 00:01:34,181
+anterior + (1- beta) vezes dW ao quadrado.
+
+22
+00:01:34,181 --> 00:01:41,130
+Às vezes, uso dW**2 para denotar a exponenciação,
+ mas agora, escreverei apenas dW².
+
+23
+00:01:41,130 --> 00:01:48,530
+Então, para esclarecer, esta operação ao quadrado
+é uma operação ao quadrado do produto de Hadamard.
+
+24
+00:01:48,530 --> 00:01:52,170
+E o que ela está fazendo é realmente mantendo
+uma média móvel exponencialmente
+
+25
+00:01:52,170 --> 00:01:56,230
+ponderada dos quadrados das derivadas.
+
+26
+00:01:56,230 --> 00:02:04,368
+E similarmente, também temos Sdb igual a beta (Sdb) +
+(1-beta) db².
+
+27
+00:02:04,368 --> 00:02:08,031
+E novamente, a quadratura é uma 
+operação do produto de Hadamard.
+
+28
+00:02:08,031 --> 00:02:13,330
+Em seguida, o RMSprop atualiza os parâmetros da seguinte forma.
+
+29
+00:02:13,330 --> 00:02:17,875
+W se atualiza para W menos a taxa de aprendizagem,
+
+30
+00:02:17,875 --> 00:02:22,580
+e enquanto anteriormente, nós tínhamos alfa vezes dW,
+
+31
+00:02:22,580 --> 00:02:27,596
+agora fica dW dividido pela raíz quadrada de SdW.
+
+32
+00:02:27,596 --> 00:02:33,322
+E b se atualiza para b menos a taxa de aprendizagem vezes db,
+
+33
+00:02:33,322 --> 00:02:38,080
+ao invés de apenas o gradiente, e fica também divido por Sdb.
+
+34
+00:02:39,600 --> 00:02:42,970
+Então, vamos ver como isto funciona.
+
+35
+00:02:42,970 --> 00:02:45,750
+Lembre-se de que na direção horizontal
+
+36
+00:02:45,750 --> 00:02:50,380
+ou neste exemplo, na direção W,
+nós queremos que o aprendizado vá rápido.
+
+37
+00:02:50,380 --> 00:02:54,819
+Enquanto que na direção vertical,
+ou neste exemplo na direção b,
+
+38
+00:02:54,819 --> 00:02:59,137
+nós queremos desacelerar todas as oscilações na direção vertical.
+
+39
+00:02:59,137 --> 00:03:01,737
+Então, com estes termos Sdw e Sdb,
+
+40
+00:03:01,737 --> 00:03:06,729
+o que esperamos é que SdW fique relativamente pequeno,
+
+41
+00:03:06,729 --> 00:03:11,836
+para que aqui, dividamos por um número relativamente pequeno.
+
+42
+00:03:11,836 --> 00:03:16,851
+Enquanto Sdb ficará relativamente grande,
+para que aqui, possamos dividir por um número
+
+43
+00:03:16,851 --> 00:03:21,226
+relativamente grande, para desacelerar
+as atualizações na dimensão vertical.
+
+44
+00:03:21,226 --> 00:03:25,518
+E de fato, se você der uma olhada nas derivadas,
+
+45
+00:03:25,518 --> 00:03:30,340
+elas são muito maiores na direção vertical do que na horizontal.
+
+46
+00:03:30,340 --> 00:03:33,720
+Então, a inclinação é bem grande na direção b, certo?
+
+47
+00:03:33,720 --> 00:03:40,790
+E com derivadas como esta,
+isso acaba se tornando um db bem grande e um dw bem pequeno.
+
+48
+00:03:40,790 --> 00:03:45,350
+Porque a função está inclinada
+muito mais acentuadamente na direção vertical
+
+49
+00:03:45,350 --> 00:03:50,870
+do que como na direção b,
+do que na direção w, do que na direção horizontal.
+
+50
+00:03:50,870 --> 00:03:53,008
+E então, db ao quadrado ficará comparativamente grande.
+
+51
+00:03:53,008 --> 00:03:58,010
+Assim, Sdb ficará relativamente grande,
+e em comparação com isso, dW ficará menor,
+
+52
+00:03:58,010 --> 00:04:02,080
+ou dW ao quadrado ficará menor, e então SdW ficará menor.
+
+53
+00:04:02,080 --> 00:04:06,600
+Logo, o efeito líquido disto é que
+as suas atualizações na direção vertical
+
+54
+00:04:06,600 --> 00:04:11,230
+ficam divididas por um número muito maior,
+e isso ajuda a reduzir as oscilações.
+
+55
+00:04:11,230 --> 00:04:15,440
+Enquanto as atualizações na direção horizontal
+ficam divididas por um número menor.
+
+56
+00:04:15,440 --> 00:04:19,470
+Assim, o impacto líquido de se usar RMSprop
+é que as suas atualizações terminarão
+
+57
+00:04:19,470 --> 00:04:20,750
+parecendo mais com isto.
+
+58
+00:04:22,750 --> 00:04:27,587
+Que suas atualizações na direção vertical
+
+59
+00:04:27,587 --> 00:04:32,370
+oscilarão para cima e para baixo,
+mas na direção horizontal, seguirão contínuas.
+
+60
+00:04:32,370 --> 00:04:36,890
+E um efeito disto é que, portanto,
+você também pode usar uma taxa de aprendizagem alfa maior,
+
+61
+00:04:36,890 --> 00:04:41,540
+e obter um aprendizado mais rápido
+sem divergir na direção vertical.
+
+62
+00:04:41,540 --> 00:04:45,223
+Agora, para esclarecer, eu chamei as direções vertical
+
+63
+00:04:45,223 --> 00:04:48,348
+e horizontal de b e w, apenas para ilustrar isso.
+
+64
+00:04:48,348 --> 00:04:53,188
+Na prática, você terá um espaço dimensional de parâmetros muito grande,
+
+65
+00:04:53,188 --> 00:04:57,383
+então talvez, as dimensões verticais,
+onde você estará tentando reduzir
+
+66
+00:04:57,383 --> 00:05:01,757
+as oscilações é um conjunto de soma de parâmetros, w1, w2, w17.
+
+67
+00:05:01,757 --> 00:05:07,223
+E as dimensões horizontais
+poderão ser w3, w4 e assim por diante, certo?
+
+68
+00:05:07,223 --> 00:05:11,150
+E assim, a separação 
+em 'W' e 'b' é apenas um exemplo.
+
+69
+00:05:11,150 --> 00:05:15,330
+Na prática, dW é um vetor de parâmetro de alta dimensão.
+
+70
+00:05:15,330 --> 00:05:18,620
+Db também é um vetor de parâmetro de alta dimensão,
+
+71
+00:05:18,620 --> 00:05:22,830
+mas a ideia é que em dimensões, onde você tem essas oscilações,
+
+72
+00:05:22,830 --> 00:05:26,570
+você acaba calculando uma soma maior.
+
+73
+00:05:26,570 --> 00:05:29,406
+Uma média ponderada para estes quadrados e derivadas,
+
+74
+00:05:29,406 --> 00:05:33,080
+e você acaba reduzindo as direções,
+onde há essas oscilações.
+
+75
+00:05:33,080 --> 00:05:39,680
+Assim, esse é o RMSprop, que significa propagação da raiz quadrada média,
+
+76
+00:05:39,680 --> 00:05:44,110
+porque aqui, você estará elevando as derivadas ao quadrado,
+e então, você tirará a raiz quadrada aqui no final.
+
+77
+00:05:44,110 --> 00:05:48,560
+Então, finalmente, só mais alguns detalhes sobre este algoritmo,
+antes de prosseguirmos.
+
+78
+00:05:49,870 --> 00:05:55,420
+No próximo vídeo, na verdade,
+combinaremos o RMSprop com o impulso (momentum).
+
+79
+00:05:55,420 --> 00:06:00,540
+Assim, ao invés de usar o hiperparâmetro beta,
+o qual nós tínhamos usado para impulso,
+
+80
+00:06:00,540 --> 00:06:05,188
+vou chamar esse hiperparâmetro de beta 2, só para não confundir.
+
+81
+00:06:05,188 --> 00:06:09,350
+O mesmo hiperparâmetro para ambos o impulso e para o RMSprop.
+
+82
+00:06:09,350 --> 00:06:13,540
+E também para assegurar
+que seu algoritmo não possa ser dividido por zero.
+
+83
+00:06:13,540 --> 00:06:17,910
+E se a raiz quadrada de SdW for bem próxima de zero, certo?
+
+84
+00:06:17,910 --> 00:06:19,730
+Então, seria um desastre.
+
+85
+00:06:19,730 --> 00:06:24,320
+E para assegurar estabilidade numérica,
+quando você implementar isto,
+
+86
+00:06:24,320 --> 00:06:28,200
+na prática, você adiciona um épsilon bem pequeno ao denominador.
+
+87
+00:06:28,200 --> 00:06:30,760
+Não importa muito qual épsilon é usado.
+
+88
+00:06:30,760 --> 00:06:34,948
+10 elevado a -8 seria um padrão razoável, 
+mas isto apenas
+
+89
+00:06:34,948 --> 00:06:39,202
+assegura uma leve estabilidade numérica,
+ para arredondamento numérico ou qualquer outro motivo,
+
+90
+00:06:39,202 --> 00:06:43,030
+para que você não acabe dividindo por um número muito pequeno.
+
+91
+00:06:43,030 --> 00:06:47,870
+Então, esse é o RMSprop,
+e parecido com o impulso (momentum), tem os esfeitos de
+
+92
+00:06:47,870 --> 00:06:52,910
+reduzir as oscilações no gradiente descendente,
+no gradiente descendente do mini-batch.
+
+93
+00:06:52,910 --> 00:06:56,510
+E permitindo com que você talvez,
+use uma taxa de aprendizagem alfa maior.
+
+94
+00:06:56,510 --> 00:07:01,920
+E certamente acelerando a velocidade
+de aprendizado do seu algoritmo.
+
+95
+00:07:01,920 --> 00:07:05,350
+Então, agora você sabe como implementar RMSprop,
+e esta será outra forma
+
+96
+00:07:05,350 --> 00:07:07,920
+de você acelerar o seu algoritmo de aprendizado.
+
+97
+00:07:07,920 --> 00:07:09,554
+Uma curiosidade sobre RMSprop,
+
+98
+00:07:09,554 --> 00:07:13,572
+na verdade, ele não foi proposto em um artigo científico,
+
+99
+00:07:13,572 --> 00:07:17,947
+mas em um curso da Coursera,
+que o Jeff Hinton ensinou na Coursera anos atrás.
+
+100
+00:07:17,947 --> 00:07:22,108
+Eu acho que a Coursera não foi criada
+para ser uma plataforma para disseminação
+
+101
+00:07:22,108 --> 00:07:26,214
+de pesquisas acadêmicas inovadoras,
+porém isso funcionou muito bem nesse caso.
+
+102
+00:07:26,214 --> 00:07:30,126
+E foi realmente através do curso na Coursera,
+que o RMSprop começou a ser
+
+103
+00:07:30,126 --> 00:07:31,790
+amplamente conhecido e realmente decolou.
+
+104
+00:07:31,790 --> 00:07:32,970
+Nós falamos sobre o impulso (momentum).
+
+105
+00:07:32,970 --> 00:07:34,330
+Falamos sobre o RMSprop.
+
+106
+00:07:34,330 --> 00:07:37,970
+Acontece que se você colocá-los juntos,
+você pode conseguir um algoritmo
+
+107
+00:07:37,970 --> 00:07:39,530
+de otimização ainda melhor.
+
+108
+00:07:39,530 --> 00:07:41,040
+Falaremos sobre isso no próximo vídeo.
+[Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage]

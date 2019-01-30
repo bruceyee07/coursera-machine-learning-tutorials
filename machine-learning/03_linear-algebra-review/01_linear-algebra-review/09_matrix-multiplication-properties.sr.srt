@@ -1,0 +1,579 @@
+1
+00:00:00,100 --> 00:00:04,850
+Množenje matrica je veoma korisno jer 
+možete da upakujete mnogo računanja
+
+2
+00:00:04,850 --> 00:00:08,160
+u samo jednu operaciju množenja matrica.
+
+3
+00:00:08,160 --> 00:00:10,880
+Ali treba da budete oprezni
+ oko toga kako ih koristite.
+
+4
+00:00:10,880 --> 00:00:15,046
+U ovome videu želim da vam govorim 
+o nekim osobinama množenja matrica.
+
+5
+00:00:18,286 --> 00:00:21,157
+Kada radite sa samo realnim brojevima ili
+
+6
+00:00:21,157 --> 00:00:26,100
+kada radite sa skalarima,
+ množenje je komutativno.
+
+7
+00:00:26,100 --> 00:00:29,990
+Ono što mislim time reći je da ako množite 3 * 5,
+
+8
+00:00:29,990 --> 00:00:31,690
+to je jednako 5 * 3.
+
+9
+00:00:31,690 --> 00:00:35,390
+Redosled u množenju nije bitan.
+
+10
+00:00:35,390 --> 00:00:38,790
+Ova osobina se zove komutativnost
+
+11
+00:00:40,010 --> 00:00:42,260
+množenja realnih brojeva.
+
+12
+00:00:42,260 --> 00:00:44,050
+Kako se pokazalo, ova osobina
+
+13
+00:00:44,050 --> 00:00:47,410
+da se može promeniti redosled stvari koje množite,
+
+14
+00:00:47,410 --> 00:00:50,410
+to ne važi za množenje matrica.
+
+15
+00:00:50,410 --> 00:00:53,160
+Konkretno, ako su A i B matrice,
+
+16
+00:00:53,160 --> 00:00:57,040
+tada uopšteno, A * B nije jednako B * A.
+
+17
+00:00:57,040 --> 00:00:58,240
+Dakle, obratite pažnju na to.
+
+18
+00:00:58,240 --> 00:01:03,490
+Nije ispravno da svojevoljno 
+obrnete redosled množenja matrica.
+
+19
+00:01:03,490 --> 00:01:08,090
+Množenje matrica nije komutativno,
+to je elegantan način da to kažemo.
+
+20
+00:01:08,090 --> 00:01:10,996
+Kao konkretan primer,
+ evo dve matrice.
+
+21
+00:01:10,996 --> 00:01:13,740
+Ova matrica 1100 puta 0020 i
+
+22
+00:01:13,740 --> 00:01:17,130
+ako pomnožite ove dve matrice 
+dobijate ovaj rezultat desno.
+
+23
+00:01:17,130 --> 00:01:20,510
+Sada ćemo da zamenimo mesta
+ ovim dvema matricama.
+
+24
+00:01:20,510 --> 00:01:24,320
+Dakle, uzeću ove dve matrice i obrnuću ih.
+
+25
+00:01:24,320 --> 00:01:26,970
+Videćete da ako pomnožite ove dve matrice,
+
+26
+00:01:26,970 --> 00:01:30,290
+dobićete drugi rezultat desno.
+
+27
+00:01:30,290 --> 00:01:35,500
+Veoma je jasno, ove dve matrice nisu jednake.
+
+28
+00:01:36,750 --> 00:01:42,578
+Dakle, uopšteno, 
+ako imate operaciju nad matricama kao što je A * B,
+
+29
+00:01:42,578 --> 00:01:47,540
+ako je A mxn matrica,
+
+30
+00:01:47,540 --> 00:01:52,490
+a B je nxm matrica, na primer,
+
+31
+00:01:52,490 --> 00:01:56,440
+tada ispada da će matrica A * B,
+
+32
+00:01:58,000 --> 00:02:03,270
+da bude mxm matrica,
+
+33
+00:02:03,270 --> 00:02:09,641
+dok će matrica B * A da bude nxn matrica.
+
+34
+00:02:09,641 --> 00:02:11,302
+Dakle, čak ni dimenzije
+ ne odgovaraju, je l' tako?
+
+35
+00:02:11,302 --> 00:02:16,750
+Dakle A * B i B * A mogu da 
+ne budu čak ni istih dimenzija.
+
+36
+00:02:16,750 --> 00:02:19,040
+U primeru levo imam sve 2x2 matrice,
+
+37
+00:02:19,040 --> 00:02:23,870
+pa su dimenzije iste ali generalno, menjanje redosleda
+
+38
+00:02:23,870 --> 00:02:29,340
+matricama može čak da promeni dimenzije rezultata.
+
+39
+00:02:29,340 --> 00:02:32,200
+Dakle, množenje matrica nije komutativno.
+
+40
+00:02:34,360 --> 00:02:36,280
+Evo sledeće osobine o kojoj bih želeo da govorim.
+
+41
+00:02:36,280 --> 00:02:43,450
+Dakle, kada govorimo o realnim brojevima,
+ ili skalarima, recimo da imam 3 * 5 * 2.
+
+42
+00:02:43,450 --> 00:02:46,800
+Mogu da množim prvo 5 * 2.
+
+43
+00:02:46,800 --> 00:02:50,360
+Onda mogu da računam 3 * 10.
+
+44
+00:02:50,360 --> 00:02:57,660
+Ili mogu da prvo množim 3 * 5 
+a onda da računam 15 * 2.
+
+45
+00:02:57,660 --> 00:03:00,140
+Oba načina daju isti odgovor, u redu?
+
+46
+00:03:00,140 --> 00:03:01,630
+Oba su jednaka 30.
+
+47
+00:03:01,630 --> 00:03:07,775
+Dakle, nije važno da li prvo množim 5 * 2 ili
+
+48
+00:03:07,775 --> 00:03:13,519
+prvo množim 3 * 5 jer je,
+
+49
+00:03:13,519 --> 00:03:18,080
+dakle, 3 * (5 * 2) = (3 * 5) * 2.
+
+50
+00:03:18,080 --> 00:03:27,110
+Ova osobina se zove asocijativnost 
+množenja realnih brojeva.
+
+51
+00:03:27,110 --> 00:03:30,580
+Videćete da je množenje matrica asocijativno.
+
+52
+00:03:30,580 --> 00:03:34,760
+Konkretno, recimo da imam 
+proizvod tri matrice A * B * C.
+
+53
+00:03:34,760 --> 00:03:39,577
+Onda, mogu da računam ili A * (B * C) ili
+
+54
+00:03:39,577 --> 00:03:43,069
+mogu isto da računam (A * B) * C,
+
+55
+00:03:43,069 --> 00:03:48,180
+a to će da mi da isti odgovor.
+
+56
+00:03:48,180 --> 00:03:51,220
+Ovo neću da dokazujem ali možete da me držite za reč.
+
+57
+00:03:51,220 --> 00:03:54,000
+Da bude jasno, šta sam mislio ovim dvama slučajevima?
+
+58
+00:03:54,000 --> 00:03:55,550
+Hajde da vidimo onaj prvi, u redu?
+
+59
+00:03:55,550 --> 00:03:56,360
+Ovaj prvi slučaj.
+
+60
+00:03:56,360 --> 00:03:59,800
+Ono što sam mislio ovim je da 
+ako želite da računate A * B * C,
+
+61
+00:03:59,800 --> 00:04:03,170
+ono što možete da uradite je da 
+prvo možete da računate B * C
+
+62
+00:04:03,170 --> 00:04:05,940
+tako da je D = B * C a onda računate A * D.
+
+63
+00:04:05,940 --> 00:04:11,460
+I stvarno ovo je računanje A * B * C.
+
+64
+00:04:11,460 --> 00:04:15,980
+Ili, u ovome drugom slučaju, 
+ovo možete da računate kao,
+
+65
+00:04:15,980 --> 00:04:20,460
+možete da postavite E = A * B, i onda E * C.
+
+66
+00:04:20,460 --> 00:04:27,130
+I ovo je isto kao A * B * C, i ispada da
+
+67
+00:04:27,130 --> 00:04:33,750
+će obe opcije garantovano da daju isti odgovor.
+
+68
+00:04:33,750 --> 00:04:39,670
+I možemo da kažemo da je 
+množenje matrica asocijativno.
+
+69
+00:04:39,670 --> 00:04:41,150
+U redu?
+
+70
+00:04:41,150 --> 00:04:44,210
+Ne brinite oko pojmova asocijativno i komutativno.
+
+71
+00:04:44,210 --> 00:04:47,100
+Tako se oni zovu ali kasnije 
+uopšte neću da koristim te pojmove,
+
+72
+00:04:47,100 --> 00:04:50,900
+zato ne brinite oko pamćenja tih pojmova.
+
+73
+00:04:50,900 --> 00:04:54,750
+Konačno, želim da kažem nešto o jediničnoj matrici,
+
+74
+00:04:54,750 --> 00:04:56,690
+a to je specijalna matrica.
+
+75
+00:04:56,690 --> 00:05:00,750
+Hajde da još jednom napravimo 
+poređenje sa realnim brojevima.
+
+76
+00:05:00,750 --> 00:05:04,410
+Kada radimo sa realnim brojevima
+ ili skalarima, broj 1,
+
+77
+00:05:04,410 --> 00:05:09,910
+možete ga smatrati
+ neutralnim elementom množenja.
+
+78
+00:05:09,910 --> 00:05:14,479
+Ono što mislim time je da za
+
+79
+00:05:14,479 --> 00:05:18,550
+svaki broj z,
+ 1 * z = z * 1.
+
+80
+00:05:18,550 --> 00:05:24,730
+I to je jednako broju z
+ za bilo koji realan broj z.
+
+81
+00:05:25,890 --> 00:05:29,230
+Dakle, 1 je neutralan element 
+i zadovoljava ovu jednačinu.
+
+82
+00:05:29,230 --> 00:05:33,640
+Videćete da u prostoru matrica postoji
+
+83
+00:05:33,640 --> 00:05:38,610
+jedinična matrica i obično se obeležava sa I ili
+
+84
+00:05:38,610 --> 00:05:43,110
+ponekad pišemo kao Inxn ako 
+želimo da eksplicitno izrazimo dimenzije.
+
+85
+00:05:43,110 --> 00:05:47,820
+Dakle, Inxn je nxn jedinična matrica.
+
+86
+00:05:47,820 --> 00:05:51,850
+To je još jedna jedinična matrica za svaku dimenziju n.
+
+87
+00:05:51,850 --> 00:05:53,470
+Evo nekoliko primera.
+
+88
+00:05:53,470 --> 00:05:57,776
+Ovo je 2x2 jedinična matrica, 
+ovo je 3x3 jedinična matrica,
+
+89
+00:05:57,776 --> 00:05:59,880
+ovo je 4x4 jedinična matrica.
+
+90
+00:05:59,880 --> 00:06:05,600
+Dakle, jedinična matrica ima osobinu 
+da ima 1 duž dijagonale.
+
+91
+00:06:07,660 --> 00:06:09,807
+U redu, i tako dalje.
+
+92
+00:06:09,807 --> 00:06:12,810
+A 0 na svim ostalim pozicijama.
+
+93
+00:06:12,810 --> 00:06:17,170
+Usput, 1x1 jedinična matrica je samo broj 1,
+
+94
+00:06:17,170 --> 00:06:18,850
+znači 1x1 matrica sa samo jedinicom unutra.
+
+95
+00:06:18,850 --> 00:06:21,910
+Nije baš interesantna jedinična matrica.
+
+96
+00:06:21,910 --> 00:06:25,120
+Neformalno, da sam ja ili bilo ko drugi nemaran,
+
+97
+00:06:25,120 --> 00:06:28,940
+vema često bismo pisali jediničnu 
+matricu u konačnom obliku.
+
+98
+00:06:28,940 --> 00:06:33,900
+Pisali bismo uglaste zagrade, 
+jedan, jedan, jedan, tri tačke jedan,
+
+99
+00:06:33,900 --> 00:06:37,775
+i onda bismo ovde otprilike napisali hrpu nula.
+
+100
+00:06:37,775 --> 00:06:42,520
+A ove nule, ova velika nula i ova velika nula,
+
+101
+00:06:42,520 --> 00:06:46,710
+to znači da ova matrica ima 
+nule svuda osim na dijagonali.
+
+102
+00:06:46,710 --> 00:06:51,640
+To je način na koji mogu još da napišem jediničnu matricu.
+
+103
+00:06:51,640 --> 00:06:55,180
+Videćete da jedinična matrica ima osobinu da za
+
+104
+00:06:55,180 --> 00:07:00,180
+bilo koju matricu A, A puta jedinična matrica 
+je jednako jedinična puta A jednako A,
+
+105
+00:07:00,180 --> 00:07:03,720
+a to mnogo liči na ovu jednačinu koju smo gore videli.
+
+106
+00:07:03,720 --> 00:07:04,650
+Shvatate?
+
+107
+00:07:04,650 --> 00:07:07,840
+Dakle, 1 * z = z * 1 = z.
+
+108
+00:07:07,840 --> 00:07:11,290
+Isto tako, A * I = I * A = A.
+
+109
+00:07:12,370 --> 00:07:13,940
+Da se uverimo da su dimenzije u redu.
+
+110
+00:07:13,940 --> 00:07:17,420
+Ako je A mxn matrica,
+
+111
+00:07:17,420 --> 00:07:22,160
+tada ova jedinična matrica ovde, 
+ona je nxn jedinična matrica.
+
+112
+00:07:23,360 --> 00:07:27,840
+Ako je A mxn, tada je ova jedinična matrica, u redu,
+
+113
+00:07:27,840 --> 00:07:32,560
+da bi množenje matrica imalo smisla, 
+to mora da bude mxm matrica.
+
+114
+00:07:32,560 --> 00:07:37,900
+Ovo m odgovara ovome m, u bilo kom slučaju,
+
+115
+00:07:37,900 --> 00:07:42,860
+rezultat ovoga procesa je da 
+dobijate natrag matricu A koja je mxn.
+
+116
+00:07:44,550 --> 00:07:47,890
+Kada god pišemo jediničnu matricu I, znate,
+
+117
+00:07:47,890 --> 00:07:52,355
+veoma često će dimenzija da bude 
+implicitno prikazana iz konteksta.
+
+118
+00:07:52,355 --> 00:07:55,535
+Dakle, ove dve I matrice su u 
+stvari matrice različitih dimenzija.
+
+119
+00:07:55,535 --> 00:07:58,425
+Jedna može biti nxn a druga mxm.
+
+120
+00:07:58,425 --> 00:08:02,465
+Ali, kada želimo da eksplicitno 
+prikažemo dimenzije matrica,
+
+121
+00:08:02,465 --> 00:08:06,605
+ponekad pišemo Inxn, nešto kao ovde gore.
+
+122
+00:08:06,605 --> 00:08:08,655
+Ali veoma često, 
+dimenzije će da budu implicitno prikazane.
+
+123
+00:08:10,100 --> 00:08:15,858
+I na kraju, želim da pojasnim ono što
+
+124
+00:08:15,858 --> 00:08:21,928
+sam ranije rekao da AB u osnovi nije jednako BA.
+
+125
+00:08:21,928 --> 00:08:23,280
+Shvatate?
+
+126
+00:08:23,280 --> 00:08:25,830
+Za mnoge matrice ovo nije tačno.
+
+127
+00:08:25,830 --> 00:08:29,640
+Ali, kada je B jedinična matrica, ovo je tačno,
+
+128
+00:08:29,640 --> 00:08:33,830
+da je A puta jedinična matrica stvarno jednako
+
+129
+00:08:33,830 --> 00:08:38,280
+jedinična matrica puta A, ali u osnovi ovo nije tačno.
+
+130
+00:08:39,910 --> 00:08:44,260
+Dakle, ovo je sve o osobinama množenja matrica i
+
+131
+00:08:44,260 --> 00:08:47,630
+o specijalnim matricama kao što su jedinične 
+matrice o kojim sam hteo da vam nešto kažem.
+
+132
+00:08:47,630 --> 00:08:51,820
+U sledećem i poslednjem videu pregleda algebre,
+
+133
+00:08:51,820 --> 00:08:57,750
+na brzinu ću da vam kažem nešto o par 
+specijalnih operacija nad matricama a
+
+134
+00:08:57,750 --> 00:09:02,389
+posle toga znaćete sve što treba da 
+znate o linearnoj algebri za ovaj kurs.

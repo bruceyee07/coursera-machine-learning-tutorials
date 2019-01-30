@@ -1,0 +1,672 @@
+1
+00:00:00,290 --> 00:00:03,747
+U ovome videu ćemo da govorimo 
+o množenju matrice sa matricom
+
+2
+00:00:03,747 --> 00:00:06,630
+odnosno o množenju matrica.
+
+3
+00:00:06,630 --> 00:00:10,170
+Kada govorimo o metodu u 
+linearnoj regresiji za pronalaženje
+
+4
+00:00:10,170 --> 00:00:13,123
+parametara teta0 i teta1 sve odjednom,
+
+5
+00:00:13,123 --> 00:00:16,270
+bez potrebe za iterativnim algoritmom 
+kao što je gradijent opadanja,
+
+6
+00:00:16,270 --> 00:00:18,810
+dakle, kada govorimo o algoritmu, videćete da je
+
+7
+00:00:18,810 --> 00:00:22,840
+množenje matrice sa matricom jedan 
+od ključnih koraka koje treba da znate.
+
+8
+00:00:24,090 --> 00:00:27,440
+Pa, da krenemo sa primerom, kao i obično.
+
+9
+00:00:28,840 --> 00:00:32,610
+Recimo da imam dve matrice i želim da ih pomnožim.
+
+10
+00:00:32,610 --> 00:00:34,805
+Hajde da opet samo pređem primer a
+
+11
+00:00:34,805 --> 00:00:38,060
+tada ću da vam objasnim šta se desilo.
+
+12
+00:00:38,060 --> 00:00:43,460
+Dakle, prvo ću da izvadim prvu
+
+13
+00:00:43,460 --> 00:00:46,480
+kolonu ove matrice desno.
+
+14
+00:00:46,480 --> 00:00:49,240
+A ovu matricu na levoj strani ću da
+
+15
+00:00:49,240 --> 00:00:53,790
+pomnožim sa vektorom, što je samo prva kolona.
+
+16
+00:00:55,180 --> 00:00:59,770
+I videćete da, ako to uradim, dobiću vektor 11, 9.
+
+17
+00:00:59,770 --> 00:01:03,370
+Dakle, ovo je isto množenje matrice i vektora
+
+18
+00:01:03,370 --> 00:01:04,790
+kao što smo videli u poslednjem videu.
+
+19
+00:01:06,070 --> 00:01:08,570
+Ovo sam unapred već uradio tako 
+da znam da će da bude 11, 9.
+
+20
+00:01:08,570 --> 00:01:12,620
+A druga stvar koju ću da uradim je da
+
+21
+00:01:12,620 --> 00:01:16,550
+ću da izvadim drugu kolonu ove matrice desno
+
+22
+00:01:16,550 --> 00:01:20,430
+i tada ću da uzmem ovu matricu levo,
+
+23
+00:01:20,430 --> 00:01:24,960
+dakle ovu matricu, i pomnožim je drugom kolonom desno.
+
+24
+00:01:24,960 --> 00:01:28,840
+I opet, ovo je množenje matrice i vektora
+
+25
+00:01:28,840 --> 00:01:30,580
+što ste videli u prethodnom videu.
+
+26
+00:01:30,580 --> 00:01:35,540
+I videćete da ako pomnožite ovu matricu 
+i ovaj vektor, dobićete 10, 14.
+
+27
+00:01:35,540 --> 00:01:39,650
+Usput, ako želite da vežbate množenje matrice i vektora,
+
+28
+00:01:39,650 --> 00:01:42,159
+slobodno zaustavite video i proverite sami proizvod.
+
+29
+00:01:43,260 --> 00:01:46,880
+Sada ću samo da ove rezultate sastavim, i
+
+30
+00:01:46,880 --> 00:01:48,470
+to će da bude moj odgovor.
+
+31
+00:01:48,470 --> 00:01:53,060
+Videli sta da će rezultat množenja da bude 2x2 matrica.
+
+32
+00:01:53,060 --> 00:01:58,005
+Način na koji ću da popunim 
+ovu matricu je da uzmem elemente
+
+33
+00:01:58,005 --> 00:01:59,950
+11 i 9 i uključim ih ovde.
+
+34
+00:01:59,950 --> 00:02:07,510
+I uzmem 10 i 14 i uključim ih u drugu kolonu, u redu?
+
+35
+00:02:07,510 --> 00:02:12,350
+Dakle to je mehanizam 
+množenja matrice drugom matricom.
+
+36
+00:02:12,350 --> 00:02:15,810
+U osnovi gledate jednu kolonu druge matrice
+
+37
+00:02:15,810 --> 00:02:17,550
+i spojite odgovore.
+
+38
+00:02:17,550 --> 00:02:20,252
+Još jednom, 
+ubrzo ćemo da uđemo u postupak malo detaljnije.
+
+39
+00:02:20,252 --> 00:02:25,494
+Ali, samo želim da napomenem, 
+ova prva matrica je dimenzija 2x3.
+
+40
+00:02:25,494 --> 00:02:31,270
+Ako to pomnožimo sa 3x2 matricom, rezultat
+
+41
+00:02:31,270 --> 00:02:36,520
+množenja će da bude 2x2 matrica.
+
+42
+00:02:36,520 --> 00:02:39,744
+I opet, ubrzo ćemo da vidimo zašto je to tako.
+
+43
+00:02:39,744 --> 00:02:42,730
+U redu, to je bio mehanizam računanja.
+
+44
+00:02:42,730 --> 00:02:46,540
+Hajde da vidimo detaljnije šta se u stvari desilo.
+
+45
+00:02:46,540 --> 00:02:47,480
+Ovo su detalji.
+
+46
+00:02:47,480 --> 00:02:52,550
+Imam matricu A i želim da je pomnožim matricom B
+
+47
+00:02:52,550 --> 00:02:54,540
+a rezultat će da bude neka nova matrica C.
+
+48
+00:02:55,720 --> 00:03:00,300
+Videćete da možete da pomnožite samo 
+matrice čije dimenzije odgovaraju.
+
+49
+00:03:00,300 --> 00:03:04,630
+Dakle, A je mxn matrica, dakle m redova, n kolona.
+
+50
+00:03:04,630 --> 00:03:07,000
+A množimo je jednom nxo matricom.
+
+51
+00:03:07,000 --> 00:03:10,680
+Videćete da ovo ovde n mora da odgovara ovome ovde n.
+
+52
+00:03:10,680 --> 00:03:13,340
+Dakle, broj kolona prve matrice
+
+53
+00:03:13,340 --> 00:03:16,830
+mora da bude jednak broju redova druge.
+
+54
+00:03:16,830 --> 00:03:25,470
+A rezultat množenja će da bude mxo matrica, 
+kao ova matrica C.
+
+55
+00:03:25,470 --> 00:03:30,220
+U prethodnom videu sve je 
+odgovaralo specijalnom slučaju
+
+56
+00:03:30,220 --> 00:03:32,400
+da je o jednako 1.
+
+57
+00:03:32,400 --> 00:03:35,540
+A to znači da je B vektor.
+
+58
+00:03:35,540 --> 00:03:40,930
+A sada ćemo da radimo sa 
+slučajem gde su vrednosti veće od 1.
+
+59
+00:03:40,930 --> 00:03:46,690
+Dakle, evo kako množite dve matrice.
+
+60
+00:03:46,690 --> 00:03:51,712
+Ono što radim je da prvo uzmem prvu kolonu od B i
+
+61
+00:03:51,712 --> 00:03:57,960
+računam je kao vektor i množim 
+matricu A prvom kolonom od B.
+
+62
+00:03:57,960 --> 00:04:03,980
+Rezultat toga će da bude nx1 vektor 
+i to ću da stavim ovde.
+
+63
+00:04:05,220 --> 00:04:11,880
+Tada ću da uzmem drugu kolonu od B, u redu?
+
+64
+00:04:11,880 --> 00:04:14,820
+Dakle, ovo je još jedan nx1 vektor.
+
+65
+00:04:14,820 --> 00:04:17,130
+Dakle, ova ovde kolona je nx1.
+
+66
+00:04:17,130 --> 00:04:18,810
+To je n-dimenzionalni vektor.
+
+67
+00:04:18,810 --> 00:04:22,460
+Ovu matricu ćemo da pomnožimo ovim nx1 vektorom.
+
+68
+00:04:22,460 --> 00:04:28,600
+Rezultat će da bude m-dimenzionalni vektor, 
+što ćemo da stavimo ovde, i tako dalje.
+
+69
+00:04:29,750 --> 00:04:34,860
+I onda ću da uzmem treću kolonu 
+i pomnožim je ovom matricom.
+
+70
+00:04:34,860 --> 00:04:37,530
+Dobijam m-dimenzionalni vektor.
+
+71
+00:04:37,530 --> 00:04:41,200
+I tako dalje dok ne dođete do poslednje kolone.
+
+72
+00:04:41,200 --> 00:04:45,230
+Matrica puta poslednja kolona 
+daje poslednju kolonu matrice C.
+
+73
+00:04:46,510 --> 00:04:50,198
+Samo da još jednom ponovim, i-ta kolona
+
+74
+00:04:50,198 --> 00:04:55,154
+matrice C je dobijena tako što uzmemo matricu A i
+
+75
+00:04:55,154 --> 00:05:01,149
+pomnožimo je sa i-tom kolonom matrice B za
+
+76
+00:05:01,149 --> 00:05:05,080
+vrednosti i = 1, 2, sve do o.
+
+77
+00:05:05,080 --> 00:05:10,190
+Dakle ovo je samo zaključak šta smo 
+tamo uradili da bismo izračunali matricu C.
+
+78
+00:05:11,530 --> 00:05:13,660
+Hajde da pogledamo samo još jedan primer.
+
+79
+00:05:13,660 --> 00:05:17,300
+Recimo da hoću da pomnožim ove dve matrice.
+
+80
+00:05:17,300 --> 00:05:24,230
+Dakle, prvo što ću da uradim je da 
+izvadim prvu kolonu druge matrice.
+
+81
+00:05:24,230 --> 00:05:29,670
+To je matrica B sa prethodnog slajda i
+
+82
+00:05:29,670 --> 00:05:32,670
+treba da pomnožim ovu matricu sa ovim vektorom.
+
+83
+00:05:32,670 --> 00:05:35,340
+I tako, o, hajde da na brzinu izračunamo.
+
+84
+00:05:35,340 --> 00:05:41,332
+Ovo će da bude jednako 1, 3 puta 0, 3,
+
+85
+00:05:41,332 --> 00:05:46,168
+dakle ovo daje 1 * 0 + 3 * 3.
+
+86
+00:05:46,168 --> 00:05:51,255
+A drugi element će da bude 2, 5 puta 0, 3.
+
+87
+00:05:51,255 --> 00:05:55,488
+Dakle, to će da bude 2 * 0 + 5 * 3.
+
+88
+00:05:55,488 --> 00:06:00,748
+A to je 9, 15.
+
+89
+00:06:00,748 --> 00:06:03,158
+O, u stvari to ću da napišem zelenom.
+
+90
+00:06:03,158 --> 00:06:07,948
+Dakle to je 9, 15.
+
+91
+00:06:07,948 --> 00:06:13,552
+Dalje, izvući ću drugu kolonu odavde i
+
+92
+00:06:13,552 --> 00:06:16,948
+uraditi odgovarajući račun.
+
+93
+00:06:16,948 --> 00:06:21,608
+Dakle to je ova matrica puta ovaj vektor 1, 2.
+
+94
+00:06:21,608 --> 00:06:24,731
+Takođe i ovo ćemo da ubrzamo,
+
+95
+00:06:24,731 --> 00:06:30,150
+dakle 1 * 1 + 3 * 2 i to je taj red.
+
+96
+00:06:30,150 --> 00:06:31,168
+Hajde da uradimo i drugu.
+
+97
+00:06:31,168 --> 00:06:33,972
+Dakle, da vidimo.
+
+98
+00:06:33,972 --> 00:06:39,577
+To mi daje 2 * 1 + 5 * 2 a
+
+99
+00:06:39,577 --> 00:06:45,184
+to će da bude jednako,
+
+100
+00:06:45,184 --> 00:06:51,219
+da vidimo, 1 * 1 + 3 * 2 je 7 a
+
+101
+00:06:51,219 --> 00:06:55,570
+2 * 1 + 5 * 2 je 12.
+
+102
+00:06:55,570 --> 00:06:59,896
+Dakle, imam ova dva a samim tim i rezultat,
+
+103
+00:06:59,896 --> 00:07:03,715
+proizvod ove dve matrice
+
+104
+00:07:03,715 --> 00:07:08,820
+će da bude, ovo ide ovde a ovo ovde,
+
+105
+00:07:08,820 --> 00:07:13,937
+dakle, dobijam 9, 15 i
+
+106
+00:07:13,937 --> 00:07:16,950
+4, 12.
+
+107
+00:07:16,950 --> 00:07:22,547
+Možda ste primetili da je rezultat množenja 2x2 matrice sa drugom 2x2
+
+108
+00:07:22,547 --> 00:07:27,930
+matricom, dimenzije rezultirajuće 
+matrice će da budu prvo 2 puta drugo 2.
+
+109
+00:07:27,930 --> 00:07:31,950
+Dakle, rezultat je takođe 2x2 matrica.
+
+110
+00:07:34,900 --> 00:07:39,839
+Na kraju, pokazaću vam jedan zgodan 
+trik koji možete da primenite kada množite
+
+111
+00:07:39,839 --> 00:07:41,040
+matricu sa matricom.
+
+112
+00:07:41,040 --> 00:07:47,019
+Recimo, kao pre, da imamo 
+4 kuće čije cene želimo da predvidimo.
+
+113
+00:07:48,470 --> 00:07:53,780
+Samo što sada imamo 3 ponuđene 
+hipoteze prikazane desno.
+
+114
+00:07:53,780 --> 00:07:56,380
+Ako želite da primenite sve tri
+
+115
+00:07:56,380 --> 00:07:59,480
+ponuđene hipoteze na sve četiri kuće, videćete da
+
+116
+00:07:59,480 --> 00:08:04,030
+to možete da uradite veoma efikasno 
+koristeći množenje matrice sa matricom.
+
+117
+00:08:04,030 --> 00:08:09,050
+Dakle, levo je moja uobičajena matrica, 
+ista kao u prošlom videu
+
+118
+00:08:09,050 --> 00:08:15,620
+gde su ove vrednosti cene mojih kuća 
+i staviću jedinice u levu kolonu.
+
+119
+00:08:15,620 --> 00:08:22,486
+Ono što ću da uradim je da 
+napravim drugu matricu gde je
+
+120
+00:08:22,486 --> 00:08:27,572
+prva kolona -40 i 0.25 a
+
+121
+00:08:27,572 --> 00:08:33,189
+druga kolona je 200 i 0.1 i tako dalje.
+
+122
+00:08:33,189 --> 00:08:37,930
+Videćete da ako pomnožite ove dve matrice,
+
+123
+00:08:37,930 --> 00:08:44,560
+ono što ćete da vidite je da ova prva kolona, zaokružiću je plavom,
+
+124
+00:08:44,560 --> 00:08:46,160
+dakle, kako dobijate ovu prvu kolonu?
+
+125
+00:08:47,430 --> 00:08:51,080
+Procedura množenja matrice sa matricom je, 
+način na koji ste dobili ovu
+
+126
+00:08:51,080 --> 00:08:56,330
+prvu kolonu je da uzmete ovu 
+matricu i pomnožite je prvom kolonom.
+
+127
+00:08:56,330 --> 00:09:01,970
+A videli smo u prethodnom videu 
+da su to upravo predviđene cene
+
+128
+00:09:01,970 --> 00:09:07,540
+kuća u prvoj hipotezi, u redu, ove prve hipoteze.
+
+129
+00:09:08,790 --> 00:09:10,810
+Šta je sa drugom kolonom?
+
+130
+00:09:10,810 --> 00:09:13,040
+Dakle, sa ovom drugom kolonom.
+
+131
+00:09:13,040 --> 00:09:15,050
+Način na koji dobijate drugu kolonu je, dakle,
+
+132
+00:09:15,050 --> 00:09:19,340
+uzmete ovu matricu i pomnožite je drugom kolonom.
+
+133
+00:09:19,340 --> 00:09:23,541
+I tako druga kolona, videćete da su
+
+134
+00:09:23,541 --> 00:09:29,319
+to predviđene cene drugom hipotezom,
+
+135
+00:09:29,319 --> 00:09:33,400
+i slično tome za treću kolonu.
+
+136
+00:09:34,450 --> 00:09:36,890
+Nisam ulazio u sve detalje, ali
+
+137
+00:09:36,890 --> 00:09:41,600
+nadam se da ste slobodni da zaustavite 
+video i matematički proverite
+
+138
+00:09:41,600 --> 00:09:44,120
+da je istina ono što upravo tvrdim.
+
+139
+00:09:44,120 --> 00:09:48,290
+Videćete da pravljenjem ove dve matrice, šta ipak možete da
+
+140
+00:09:48,290 --> 00:09:54,000
+uradite je da veoma brzo primenite 
+sve tri hipoteze na sve četiri veličine kuća
+
+141
+00:09:54,000 --> 00:09:59,860
+i dobijete svih 12 predviđenih 
+cena od te tri hipoteze na četiri kuće.
+
+142
+00:10:00,930 --> 00:10:05,902
+Dakle, sa samo jednim množenjem 
+matrica napravili ste dvanaest predviđanja.
+
+143
+00:10:05,902 --> 00:10:10,760
+Još bolje, videćete da, 
+da biste uradili množenje matrica,
+
+144
+00:10:10,760 --> 00:10:13,852
+postoji mnogo biblioteka linearne algebre
+
+145
+00:10:13,852 --> 00:10:16,742
+da biste uradili ovaj korak množenja.
+
+146
+00:10:16,742 --> 00:10:21,518
+I nije važno koji programski jezik
+
+147
+00:10:21,518 --> 00:10:22,072
+koristite.
+
+148
+00:10:22,072 --> 00:10:25,436
+Svakako da deset najpopularnijih programskih jezika
+
+149
+00:10:25,436 --> 00:10:27,935
+ima sjajne biblioteke linearne algebre.
+
+150
+00:10:27,935 --> 00:10:31,295
+I postoje dobre biblioteke linearne 
+algebre koje su veoma optimizovane
+
+151
+00:10:31,295 --> 00:10:35,840
+da bi se uradilo množenje matrica veoma efikasno.
+
+152
+00:10:35,840 --> 00:10:41,333
+Uključujući i prednosti paralelnog 
+računanja koje pružaju mogućnosti vašeg
+
+153
+00:10:41,333 --> 00:10:47,070
+računara, možda vaš računar ima 
+više jezgara ili više procesora.
+
+154
+00:10:47,070 --> 00:10:51,685
+Ili isto tako, u procesoru ponekad postoji paralelizam
+
+155
+00:10:51,685 --> 00:10:56,310
+koji se zove SIMD paralelizam o kom računar brine.
+
+156
+00:10:56,310 --> 00:10:59,410
+A postoje veoma dobre besplatne biblioteke koje
+
+157
+00:10:59,410 --> 00:11:03,720
+možete da koristite veoma efikasno za množenje matrica,
+
+158
+00:11:03,720 --> 00:11:08,440
+dakle veoma efikasno možete da napravite 
+mnogo predviđanja sa mnogo hipoteza.

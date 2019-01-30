@@ -1,0 +1,73 @@
+U ovom i narednom snimku želim da
+detaljno razradim primer izračunavanja kompleksne nelinearne funkcije
+pomoću neuronske mreže. Nadam se da će Vam to pojasniti
+zašto se neuronske mreže koriste za učenje kompleksnih
+nelinearnih hipoteza. Razmotrimo primer u kome
+imamo promenljive X1 i X2 koje uzimaju binarne vrednosti. Dakle, mogu biti ili 0 ili 1. Znači, svaka od te dve promenljive može imati
+samo jednu od te dve vrednosti. U ovom primeru nacrtao sam samo 
+dva pozitivna i dva negativna primera. Možete na ovo gledati kao na
+pojednostavljenu verziju problema u kojima imamo mnogo pozitivnih
+primera gore desno i dole levo i mnogo negativnih primera
+obeleženih kružićima. Mi želimo da naučimo nelinearnu
+granicu koja odvaja pozitivne od
+negativnih primera. Kako to može uraditi neuronska mreža? Umesto ovog primera razmotrićemo
+njegovu uprošćenu verziju sa leve strane. Konkretno, ovo predstavlja izračunavanje y je jednako
+x1 xor x2, preciznije ovo je x1 xnor x2 funkcija
+gde je xnor alternativna oznaka za
+nije x1 ili x2. Dakle, x1 xor x2 je tacno samo ako je
+jedno od X1 ili X2 jednako 1. Ispostavlja se da je ovaj primer
+lakše razumeti ako koristimo xnor primer umesto njega. Ova dva su ista, naravno. Ovo je negacija od x1 xor x2
+koja je tačna samo ako su oba tačna ili ako su oba netačna
+i tada je y jednako 1. Imaćemo da je y jednako 0 samo kada
+je jedno od njih tačno i pokušaćemo da napravimo neuronsku
+mrežu za ovaj skup podataka za treniranje. Da bismo napravili mrežu koja
+modelira xnor primer počećemo sa jednostavnijim primerom
+mreže koja modelira "i" funkciju. Konkretno, recimo da imamo ulazne
+promenljive x1 i x2 koje su, ponovo, binarne
+znači ili 0 ili 1. Recimo da je modeliramo informaciju y
+ jednako x1 i x2. Ovo je logičko "i". Možemo li napraviti mrežu sa jednom
+jedinicom za izračunavanje funkcije logičkog "i"? Da bismo to uradili, nacrtaću i jedinicu pristrasnosti, +1 jedinicu. Sada ću dodeliti neke vrednosti
+težinama tj. parametrima ove mreže. Zapisaću parametre na ovom
+dijagramu, -30 ovde i +20 i +20. Ovo označava to da dodeljujem
+vrednost -30 vrednosti koju ima x0,
+ovo +1 ide u ovu jedinicu. Parametar sa vrednošću +20
+množi x1, vrednost +20 ima i parametar
+koji množi x2. Konkretno, to je isto kao da sam napisao da je hipoteza h Teta od x jednako
+g od -30 plus 20 x1 plus 20 x2. Ponekad je korisno nacrtati
+ove težine, nacrtati te parametre na dijagramu.
+I naravno ovo -30 to je zapravo Teta(1)10. Ovo je Teta(1)11, a ovo je Teta(1)12, ali je lakše o tome razmišljati kao o vezi parametara sa
+ivicama neuronske mreže. Pogledajmo šta će izračunati ova neuronska mreža
+koja ima samo jedan jedini neuron. Samo da Vas podsetim, sigmoidna funkcija
+aktivacije, g od z, izgleda ovako. Počinje u nuli, zatim glatko raste,
+prolazi kroz 0,5 i asimptotski se približava jedinici.
+Da bolje razumete ovu funkciju, znajte da, kada za vrednost na
+horizontalnoj osi 4,6 sigmoidna funkcija ima vrednost 0,99, što je veoma blizu jedinice.
+Simetrično, za vrednost -4,6 sigmoidna funkcija ima
+vrednost 0,01, što je blizu nule. Razmotrimo koje su četiri moguće vrednosti
+koje promenljive x1 i x2 mogu da imaju i koje će vrednosti hipoteza imati
+u tim slučajevima. Ako su i x1 i x2 jednaki nuli, vidimo ovde da ako su x1 i x2 jednaki nuli onda je
+hipoteza, g od z, jednaka -30. Ta vrednost je na levom kraju ovog dijagrama,
+znači hipoteza je skoro nula. Ako je x1 nula, a x2 jedan
+onda je prema ovoj formuli g, tj. sigma funkcija jednaka -10
+i ponovo to je na levom kraju grafika
+pa je hipoteza bliska nuli. Ovo je, takođe, g od -10
+to je slučaj kada je x1 jedan i x2 nula, tada imamo -30 plus 20
+što je -10. Na kraju, ako su i x1 i x2 jednaki 1
+onda imamo g od -30 plus 20 plus 20. Znači imamo g od 10,
+što je veoma blizu 1. Ako pogledate ovu kolonu
+videćete da je to upravo funkcija logičkog "i". Dakle, računali smo hipotezu
+h od x približno jednako x1 i x2. Drugim rečima, ona ima vrednost 1
+ako i samo ako su x1 i x2 oba jednaka jedinici. Time što smo nacrtali ovu
+tablicu istinitosti uspeli smo otkriti koju
+logičku funkciju naša neuronska mreža računa. Ova mreža izračunava funkciju "ili". Samo da Vam pokažem kako
+sam ja to zaključio. Ako zapišete hipotezu videćete da
+je ona g od -10 plus 20 x1 plus 20 x2
+pa ako je izračunate za ove vrednosti videćete da je ovo g od -10,
+što je približno 0, ovo je g od 10, a to je približno 1,
+i tako dalje i ovo je približno jedan i ovo je približno 1, i ovi brojevi 
+predstavljaju funkciju logičkog "ili". Nadam se da nakon ovoga razumete
+kako neuronske mreže sa jednim neuronom mogu izračunati logičke funkcije
+kao što su "i" i "ili" i druge. U sledećem snimku nastavićemo sa
+ovim primerom i videćemo jedan kompleksniji primer. Videćete i kako neuronske mreže
+sa više slojeva mogu da se koriste za složenije funkcije
+kao što je xor funkcija ili xnor funkcija.

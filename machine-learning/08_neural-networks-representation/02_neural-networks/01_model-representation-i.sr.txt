@@ -1,0 +1,106 @@
+U ovom video snimku pričaću Vam o tome
+kako predstavljamo neuronske mreže. Drugim rečima, kako predstavljamo
+hipoteze odnosno kako predstavljamo model
+kada koristimo neuronske mreže. Neuronske mreže su nastale kao
+simulacije neurona ili mreža neurona u mozgu. Da bismo objasnili način predstavljanja
+hipoteze, počnimo sa proučavanjem izgleda jednog
+neurona u mozgu. Vaš mozak, kao i moj, je prepun neurona poput ovog,
+a ti neuroni su moždane ćelije. Dve stvari je bitno istaći.
+Prva je da neuron ima telo, kao na slici,
+i uz to neuron ima puno ulaznih veza
+koje se zovu dendriti. Možete ih zamisliti kao veze koje samo
+primaju signal iz spoljašnjosti. Neuron ima i izlazne veze
+koje se zovu aksoni i koji šalju signale drugim neuronima, šalju poruke drugim neuronima. Dakle, pojednostavljeno, neuron je
+jedinica za izračunavanje koja prima razne signale preko ulaznih veza,
+zatim izvršava neku računicu i onda, preko aksona, šalje rezultat
+drugim čvorovima, drugim neuronima u mozgu. Evo jedne ilustracije
+grupe neurona. Neuroni međusobno komuniciraju pomoću
+malih električnih impulsa koje neki zovu nervni impulsi, ali to su zapravo
+samo električni signali. Kada jedan neuron, poput ovog na slici,
+želi da pošalje poruku on pošalje mali električni impuls preko svog aksona do drugog neurona,
+ovde vidimo kako je akson, koji šalje izlazne signale, povezan sa
+delom koji prima signale, sa dendritom drugog neurona koji prima poslatu poruku
+zatim izvršava neki proračun i onda šalje svoju poruku preko svog aksona
+nekim drugim neuronima. Ovo je proces koji se odvija kada se
+ formiraju ljudske misli. Neuroni vrše svoja izračunavanja i drugim neuronima prosleđuju poruke 
+koje su formirane na osnovu primljenih poruka. Ovo je način na koji i naša čula,
+ali i naši mišići rade. Ukoliko želite da pomerite neki mišić, to ćete uraditi
+tako što će neuron poslati električne impulse do tog mišića
+što će izazvati kontrakcije mišića. Ukoliko neki senzorni organ, na primer oko,
+želi da pošalje poruku mozgu on onda šalje električne impulse
+neuronu u mozgu. U neuronskoj mreži, odnosno u
+veštačkoj neuronskoj mreži koju ćemo implementirati na računaru
+koristićemo veoma jednostavan model ponašanja neurona, modeliraćemo neuron
+kao logističku jedinicu. Kada nacrtam ovakav žuti krug
+neka Vas to asocira na ulogu koju obavlja telo neurona i u to telo šaljemo razne informacije preko
+dendrita, ulaznih veza. Zatim neuron izvrši svoja izračunavanja i pošalje povratnu informaciju
+kroz izlaznu vezu, što je u biološkom neuronu akson. Kad god nacrtam ovakav dijagram on označava postupak u kome se izračunava h teta od x jednako 1 kroz 1 plus e na
+minus teta transponovano x, gde su, kao i obično, x i teta vektori parametara. Ovo je jednostavan, možda i previše
+uprošćen model izračunavanja koje obavljaju neuroni koji, 
+kada dobiju informacije x1, x2, x3 i na osnovu njih izračunaju neku vrednost. Kada crtam neuronsku mrežu obično
+nacrtam samo ulazne čvorove x1,x2,x3 ali ponekad kada je korisno,
+nacrtam i dodatni čvor x0. Čvor x0 se zove jedinica pristrasnosti ili
+neuron pristrasnosti, ali kako je x0 uvek jednak 1
+ponekad ga nacrtam, a ponekad ne u zavisnosti od toga da li je
+korisno istaći taj član u konkretnom primeru. Konačno, još jedan dogovor oko terminologije je
+da, kada se govori o neuronskim mrežama, ponekad se kaže da je ovo neuron, veštački neuron sa sigmoidnom ili logističkom
+aktivacionom funkcijom. Dakle, aktivaciona funkcija je termin
+vezan za neuronske mreže, ali to je samo drugačiji naziv za
+nelinearnu funkciju g od z jednako 1 kroz 1 plus e na -z. Do sada teta nazivali parametrima modela i uglavnom ću nastaviti da koristim taj termin, da ih oslovljavam parametrima,
+ali u literaturi vezanoj za neuronske mreže ponekad možete naići na
+termin "težine modela" i znajte da to znači isto što i
+parametri modela. Što se tiče ovih video snimaka,
+uglavnom ću koristiti termin "parametri", ali ponekad ćete možda od drugih
+čuti termin "težine". Dakle, ovaj mali dijagram predstavlja
+jedan neuron. Neuronska mreža je samo grupa neurona
+koji su međusobno povezani. Konkretno, evo primera sa ulaznim
+čvorovima x1, x2, x3 i po dogovoru možemo nacrtati i čvor x0,
+ali ne moramo. Ovde imamo tri neurona označena sa
+a(2)1, a(2)2, a(2)3 o tim oznakama ću pričati kasnije. Ponovo, ako želimo možemo dodati a0 možemo dodati tu jedinicu pristrasnosti koja uvek ima vrednost 1. Na kraju, imamo treći čvor koji predstavlja
+poslednji sloj i on kao izlaznu informaciju daje vrednost
+koju izračuna hipoteza h(x). Uvedimo još neke termine,
+u neuronskim mrežama prvi sloj se zove ulazni sloj
+jer preko njega u mrežu "ulaze" promenljive x1, x2, x3. Poslednji sloj se naziva izlazni sloj
+jer on sadrži neuron ovaj ovde, koji prikazuje konačnu vrednost
+izračunatu pomoću hipoteze. Sloj 2, koji je između njih,
+naziva se skriveni sloj. To nije baš najbolji naziv, ali intuicija je ta da, znate, u nadgledanom učenju vidite ulazne vrednosti
+i tačne izlazne vrednosti, a između je skriveni sloj vrednosti koje
+ne vidite u skupu podataka za treniranje. To nije x i nije y, pa je zato skriven. Kasnije ćemo videti i neuronske mreže sa
+više skrivenih slojeva, dok u ovom primeru imamo jedan ulazni sloj - sloj 1,
+jedan izlazni sloj - sloj 2 i jedan izlazni sloj - sloj 3. U suštini, sve što nije ulazni niti izlazni sloj je skriveni sloj. Želim da u potpunosti razjasnim šta ova
+neuronska mreža radi. Prođimo kroz korake izračunavanja koji su prikazani ovim dijagramom. Radi pojašnjenja izračunavanja koje
+vrši ova neuronska mreža analizirajmo neke oznake. Korisiću a sa gornjim indeksom (j) i
+donjim indeksom i kao oznaku za aktivaciju neurona, tj. jedinice i u sloju j. Konkretno, ovo a sa gornjim indeksom (2) i donjim 1 to je aktivacija prvog neurona u drugom sloju
+odnosno u skrivenom sloju. Kada kažem "aktivacija" mislim na vrednost
+koju je izračunao i prikazao taj neuron. Našu neuronsku mrežu parametrizuju
+matrice Teta sa gornjim indeksom (j) i to su matrice težina
+koje kontrolišu funkciju koja preslikava jedan sloj u drugi,
+na primer prvi sloj u drugi ili drugi sloj u treći sloj. Ovo su izračunavanja koja
+ovaj dijagram prikazuje. Ova prva skrivena jedinica ima vrednost
+koja se izračunava kao a(2)1 je jednako sigmoidnoj funkciji
+ili sigmoidnoj aktivacionoj funkciji koja se naziva i logistička
+aktivaciona funkcija, primenjenoj na ovakvu linearnu
+kombinaciju ovih ulaznih vrednosti. Zatim, ova druga skrivena jedinica
+ima ovu aktivacionu vrednost koja se računa kao vrednost
+sigmoidne funkcije od ovog. I na sličan način se ova treća skrivena jedinica
+računa po ovoj formuli. Ovde imamo 3 ulazne jedinice i
+3 skrivene jedinice. Koje je dimenzije Teta(1), matrica parametara koji određuju
+preslikavanje iz 3 ulazne u 3 skrivene jedinice? Teta(1) će biti matrica koja je dimenzije 3x4. Uopšteno, ako mreža ima sj jedinica u sloju j i s(j+1) jedinica u sloju j+1 onda je matrica Teta(j) koja predstavlja preslikavanje
+iz sloja j u sloj j+1 biti dimenzije s(j+1) sa sj +1. Samo da budemo načisto sa oznakama, ovo je s sa indeksom j+1,
+a ovo je s sa indeksom j pa sve to plus 1. Dakle, s sa indeksom j+1 plus,
+odnosno puta... Dakle, s sa indeksom j+1 puta sj plus 1 gde ovo +1 nije u indeksu. U redu, pričali smo o tome kako tri
+skrivena sloja vrše izračunavanja, ostao je još ovaj poslednji sloj. Posle skrivenih imamo izlaznu jedinicu
+koja izračunava vrednost h od x, što ponekad označavamo sa a(3)1 i
+ono je jednako ovome. Primetite da sam ovde napisao 2
+u gornjem indeksu jer je Teta(2) matrica parametara,
+ odnosno matrica težina koja kontroliše funkciju koja preslikava
+skrivene jedinice, odnosno sloj 2 u sloj 3 koji ima samo jednu jedinicu,
+izlaznu jedinicu. Da sumiramo, ovakva jedna slika definiše veštačku neuronsku mrežu
+koja definiše funkciju h koja preslikava x-eve koji su ulazne vrednosti
+u neki prostor koji nam daje vrednost y. Ove hipoteze su parametrizovane
+parametrima koje označavamo velikim Teta
+pa zato kada menjamo Teta dobijamo različite hipoteze,
+dobijamo različite funkcije koje preslikavaju x u y. Dakle, ovo je matematička definicija
+reprezentacije hipoteze neuronske mreže. U narednih nekoliko video snimaka
+voleo bih da Vam intuitivno približim šta ove reprezentacije hipoteze rade
+i da Vam prikažem par primera i objasnim kako se one mogu efikasno izračunati.

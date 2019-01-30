@@ -1,0 +1,555 @@
+1
+00:00:00,000 --> 00:00:06,015
+O "abandono" ("dropout") faz essa coisa aparentemente
+louca de nocautear unidades ao acaso na sua rede.
+
+2
+00:00:06,015 --> 00:00:08,240
+Por que isso funciona tão bem como um regulador?
+
+3
+00:00:08,240 --> 00:00:10,665
+Vamos ter uma ideia de como isso funciona.
+
+4
+00:00:10,665 --> 00:00:11,970
+No vídeo anterior,
+
+5
+00:00:11,970 --> 00:00:16,705
+nós entendemos que o "abandono" 
+nocauteia unidades ao acaso na sua rede.
+
+6
+00:00:16,705 --> 00:00:20,860
+Então é como se em cada iteração,
+você trabalhasse com uma rede neural menor,
+
+7
+00:00:20,860 --> 00:00:26,360
+e trabalhando com uma rede neural menor,
+a impressão é de que deveria se ter um efeito regularizador.
+
+8
+00:00:26,360 --> 00:00:28,255
+Vamos dar uma olhada nisso melhor.
+
+9
+00:00:28,255 --> 00:00:34,795
+Vamos ver isso da perspectiva de 
+uma unidade individual. Digamos que esta.
+
+10
+00:00:34,795 --> 00:00:37,530
+Agora, para que esta unidade faça 
+seu trabalho, quanto a entradas,
+
+11
+00:00:37,530 --> 00:00:41,370
+ela necessita gerar uma saída 
+com algum significado.
+
+12
+00:00:41,370 --> 00:00:42,595
+Enquanto que com "abandono",
+
+13
+00:00:42,595 --> 00:00:45,555
+as entradas podem ser eliminadas ao acaso.
+
+14
+00:00:45,555 --> 00:00:47,965
+Às vezes, essas duas unidades serão eliminadas,
+
+15
+00:00:47,965 --> 00:00:50,530
+outras, uma unidade diferente será eliminada.
+
+16
+00:00:50,530 --> 00:00:52,635
+Então, o que isso significa é que esta unidade,
+
+17
+00:00:52,635 --> 00:00:54,005
+que estou circulando em roxo,
+
+18
+00:00:54,005 --> 00:00:58,560
+pode depender de qualquer recurso, 
+porque qualquer um poderia desaparecer
+
+19
+00:00:58,560 --> 00:01:03,715
+ao acaso, ou qualquer uma
+de suas próprias entradas poderia desaparecer ao acaso.
+
+20
+00:01:03,715 --> 00:01:08,070
+Alguns em particular,
+relutariam em pôr todas suas apostas,
+
+21
+00:01:08,070 --> 00:01:10,475
+digamos que apenas nesta entrada, certo?
+
+22
+00:01:10,475 --> 00:01:12,990
+Os pesos, relutamos em pôr peso demais
+
+23
+00:01:12,990 --> 00:01:16,035
+em qualquer entrada, 
+visto que ela poderia desaparecer.
+
+24
+00:01:16,035 --> 00:01:20,820
+Assim, esta unidade ficará mais motivada
+para se espalhar dessa forma e pôr um pouco mais de peso
+
+25
+00:01:20,820 --> 00:01:26,250
+em cada uma das 
+quatro entradas desta unidade.
+
+26
+00:01:26,250 --> 00:01:27,765
+E espalhando todos os pesos,
+
+27
+00:01:27,765 --> 00:01:34,815
+isso tenderá a um efeito de diminuição
+da norma ao quadrado dos pesos.
+
+28
+00:01:34,815 --> 00:01:38,730
+E então, semelhante ao que vimos na regularização de L2,
+
+29
+00:01:38,730 --> 00:01:41,650
+o efeito de implementar "abandono" é diminuir
+
+30
+00:01:41,650 --> 00:01:46,195
+os pesos e fazer uma regularização
+similar à da L2, o que ajuda a prevenir sobreajuste.
+
+31
+00:01:46,195 --> 00:01:48,750
+Mas acontece que o "abandono" pode
+
+32
+00:01:48,750 --> 00:01:52,035
+se apresentar formalmente como 
+uma forma adaptativa de regularização.
+
+33
+00:01:52,035 --> 00:01:55,305
+Mas as penalidades de L2 
+em pesos diversos são diferentes,
+
+34
+00:01:55,305 --> 00:01:58,830
+dependendo do tamanho das ativações 
+sendo multiplicadas por esse peso.
+
+35
+00:01:58,830 --> 00:02:02,580
+Mas para resumir, 
+é possível demonstrar que o "abandono"
+
+36
+00:02:02,580 --> 00:02:06,705
+tem um efeito similar à regularização L2.
+
+37
+00:02:06,705 --> 00:02:09,990
+Só que para regularização L2 
+aplicada a pesos diferentes
+
+38
+00:02:09,990 --> 00:02:13,540
+pode ser um pouco diferente,
+e até mais adaptativa à escala de entradas diversas.
+
+39
+00:02:13,540 --> 00:02:15,930
+Mais um detalhe para quando 
+você for implementar "abandono".
+
+40
+00:02:15,930 --> 00:02:19,510
+Aqui temos uma rede, onde 
+há três características de entrada.
+
+41
+00:02:19,510 --> 00:02:21,795
+Isto é, sete unidades escondidas aqui,
+
+42
+00:02:21,795 --> 00:02:24,625
+sete, três, duas, um.
+
+43
+00:02:24,625 --> 00:02:26,915
+Então, um dos parâmetros que nós tivemos de escolher
+
+44
+00:02:26,915 --> 00:02:31,395
+foi o "keep-prob", o qual tem a chance
+de manter uma unidade em cada camada.
+
+45
+00:02:31,395 --> 00:02:36,550
+Então, também é razoável diferir "keep-prob" por camada.
+
+46
+00:02:36,550 --> 00:02:38,490
+Logo, para a primeira camada,
+
+47
+00:02:38,490 --> 00:02:42,460
+sua matriz W'¹' será de 3 por 7.
+
+48
+00:02:42,460 --> 00:02:46,120
+Sua segunda matriz de peso será de 7 por 7.
+
+49
+00:02:46,120 --> 00:02:49,680
+W'³' será de 7 por 3 e assim por diante.
+
+50
+00:02:49,680 --> 00:02:53,205
+E assim, W'²' é na verdade, a maior matriz de peso,
+
+51
+00:02:53,205 --> 00:02:55,500
+porque eles são realmente o maior conjunto de parâmetros
+
+52
+00:02:55,500 --> 00:02:58,195
+que poderiam estar em W'²', que é sete por sete.
+
+53
+00:02:58,195 --> 00:03:01,605
+Então para prevenir, para reduzir o sobreajuste dessa matriz,
+
+54
+00:03:01,605 --> 00:03:03,600
+talvez para esta camada,
+
+55
+00:03:03,600 --> 00:03:05,205
+acho que esta é a camada dois,
+
+56
+00:03:05,205 --> 00:03:08,490
+você pode possuir um "keep-prob" que é relativamente baixo,
+
+57
+00:03:08,490 --> 00:03:10,435
+digamos que 0,5,
+
+58
+00:03:10,435 --> 00:03:13,825
+enquanto que para camadas diferentes,
+onde você pode se preocupar menos em relação a sobreajuste,
+
+59
+00:03:13,825 --> 00:03:15,080
+você poderia ter um "keep-prob" mais alto,
+
+60
+00:03:15,080 --> 00:03:18,255
+talvez apenas 0,7.
+
+61
+00:03:18,255 --> 00:03:22,715
+E se uma camada for pequena,
+não se preocupe com sobreajuste,
+
+62
+00:03:22,715 --> 00:03:25,240
+você pode utilizar um "keep-prob" de 1,0.
+
+63
+00:03:25,240 --> 00:03:30,725
+Para ficar mais claro, eu estou desenhando estes números na caixa roxa.
+
+64
+00:03:30,725 --> 00:03:34,635
+Poderiam ser "keep-probs" diversos para camadas diferentes.
+
+65
+00:03:34,635 --> 00:03:39,100
+Note que o "keep-prob" = 1 
+indica que você está mantendo cada unidade
+
+66
+00:03:39,100 --> 00:03:41,855
+e portanto, você não utilizará o "abandono" para essa camada.
+
+67
+00:03:41,855 --> 00:03:44,730
+Mas para camadas, com as quais
+você se preocupa em relação a sobreajuste,
+
+68
+00:03:44,730 --> 00:03:46,660
+as camadas com muitos parâmetros,
+
+69
+00:03:46,660 --> 00:03:51,600
+você pode definir o "keep-prob" de forma que ele fique menor,
+ para aplicar uma forma mais poderosa de "abandono".
+
+70
+00:03:51,600 --> 00:03:53,070
+Isso de certa forma, inicia
+
+71
+00:03:53,070 --> 00:03:54,910
+o parâmetro de regularização Lambda
+
+72
+00:03:54,910 --> 00:03:57,960
+da regularização L2,
+onde você tenta regularizar algumas camadas, mais que outras.
+
+73
+00:03:57,960 --> 00:04:02,715
+E tecnicamente,
+você também pode aplicar o "abandono" à camada de entrada,
+
+74
+00:04:02,715 --> 00:04:07,295
+onde você tem alguma chance de apenas
+deixar um ou mais recursos (características) de entrada.
+
+75
+00:04:07,295 --> 00:04:11,580
+Embora na prática, não faça isso constantemente.
+
+76
+00:04:11,580 --> 00:04:15,270
+Então, um "keep-prob" = 1 é muito comum para essa entrada.
+
+77
+00:04:15,270 --> 00:04:17,985
+Você também pode usar um valor alto, talvez 0,9,
+
+78
+00:04:17,985 --> 00:04:22,740
+mas é menos provável que
+você queira eliminar metade dos recursos de entrada.
+
+79
+00:04:22,740 --> 00:04:25,665
+Assim, geralmente "keep-prob", se você aplicar a lei,
+
+80
+00:04:25,665 --> 00:04:32,030
+será um número próximo de um, se você ao menos,
+aplicar "abandono" nessa entrada.
+
+81
+00:04:32,030 --> 00:04:33,450
+Apenas para resumir:
+
+82
+00:04:33,450 --> 00:04:36,330
+você está mais preocupado
+com algumas camadas sofrendo mais sobreajuste que outras,
+
+83
+00:04:36,330 --> 00:04:40,320
+você pode definir um "keep-prob"
+menor para algumas camadas, em relação a outras.
+
+84
+00:04:40,320 --> 00:04:41,430
+A desvantagem disso é que isso lhe fornece
+
+85
+00:04:41,430 --> 00:04:44,955
+ainda mais hiperparâmetros para pesquisar usando validação cruzada.
+
+86
+00:04:44,955 --> 00:04:48,525
+Uma outra alternativa pode ser
+ter algumas camadas nas quais você aplica
+
+87
+00:04:48,525 --> 00:04:50,460
+"abandono" e algumas outras, nas quais você não o aplica,
+
+88
+00:04:50,460 --> 00:04:52,630
+e então ter apenas um hiperparâmetro,
+
+89
+00:04:52,630 --> 00:04:55,910
+o qual é um "keep-prob" para as camadas
+nas quais você realmente aplica "abandono".
+
+90
+00:04:55,910 --> 00:04:59,070
+E antes de concluir, só mais algumas dicas.
+
+91
+00:04:59,070 --> 00:05:03,850
+Muitas das implementações de "abandono" bem sucedidas foram para visão computacional.
+
+92
+00:05:03,850 --> 00:05:05,075
+Então em visão computacional,
+
+93
+00:05:05,075 --> 00:05:06,890
+o tamanho da entrada é tão grande,
+
+94
+00:05:06,890 --> 00:05:11,275
+inserindo todos esses pixels, que você nunca tem dados suficientes.
+
+95
+00:05:11,275 --> 00:05:14,710
+Logo, "abandono" é muito usado por visão computacional.
+
+96
+00:05:14,710 --> 00:05:18,035
+E há muitos pesquisadores
+de visão computacional que o utilizam bastante,
+
+97
+00:05:18,035 --> 00:05:19,750
+quase como que um padrão.
+
+98
+00:05:19,750 --> 00:05:24,866
+Mas o que se deve recordar é que
+"abandono" é uma técnica de regularização,
+
+99
+00:05:24,866 --> 00:05:27,010
+que ajuda a prevenir sobreajuste.
+
+100
+00:05:27,010 --> 00:05:30,880
+E então, a menos que meu algoritmo esteja sobreajustado,
+
+101
+00:05:30,880 --> 00:05:33,250
+eu não me incomodaria em usar "abandono".
+
+102
+00:05:33,250 --> 00:05:36,557
+Assim, ele é usado um pouco menos que outras áreas de aplicação.
+
+103
+00:05:36,557 --> 00:05:38,320
+É só que na visão computacional,
+
+104
+00:05:38,320 --> 00:05:40,600
+você geralmente não tem dados suficientes,
+
+105
+00:05:40,600 --> 00:05:42,090
+então você quase sempre tem sobreajuste,
+
+106
+00:05:42,090 --> 00:05:46,425
+e é por isso que há alguns pesquisadores de visão computacional
+que preferem utilizar "abandono".
+
+107
+00:05:46,425 --> 00:05:52,498
+Mas essa atitude não deve ser aplicada a todas as disciplinas, penso eu.
+
+108
+00:05:52,498 --> 00:06:00,490
+Uma grande desvantagem do "abandono"
+é que a função de custo J não fica bem definida.
+
+109
+00:06:00,490 --> 00:06:06,635
+Em toda iteração, você anula um monte de nós ao acaso.
+
+110
+00:06:06,635 --> 00:06:10,855
+Logo, se você estiver conferindo o gradiente descendente,
+
+111
+00:06:10,855 --> 00:06:14,590
+é mais difícil fazer uma dupla verificação
+
+112
+00:06:14,590 --> 00:06:20,365
+sobre se você tem uma função de custo J
+que está indo ladeira abaixo em cada iteração.
+
+113
+00:06:20,365 --> 00:06:24,625
+Porque a função de custo J que você está otimizando é na verdade,
+
+114
+00:06:24,625 --> 00:06:27,395
+menos bem definida, ou certamente é complicada de se calcular.
+
+115
+00:06:27,395 --> 00:06:30,160
+Assim, você perder essa ferramenta de depuração,
+para em seu lugar, ter uma com um gráfico,
+
+116
+00:06:30,160 --> 00:06:32,010
+um como este.
+
+117
+00:06:32,010 --> 00:06:34,805
+Então, o que eu geralmente faço é desligar o "abandono",
+
+118
+00:06:34,805 --> 00:06:37,060
+defino "keep-prob" = 1,
+
+119
+00:06:37,060 --> 00:06:40,885
+e executo meu código, e certifico-me de que está
+monotonicamente diminuindo J,
+
+120
+00:06:40,885 --> 00:06:43,960
+e então, ligo o "abandono" e torço
+
+121
+00:06:43,960 --> 00:06:47,035
+para que eu não tenha introduzido
+erros no meu código durante o "abandono".
+
+122
+00:06:47,035 --> 00:06:49,195
+Porque você pode precisar de outras formas, eu acho,
+
+123
+00:06:49,195 --> 00:06:52,060
+mas não precisa traçar essas figuras, para se certificar
+
+124
+00:06:52,060 --> 00:06:55,900
+que seu código está funcionando,
+que o gradiente descendente está funcionando, mesmo com o "abandono".
+
+125
+00:06:55,900 --> 00:06:58,130
+Com isso, há ainda
+
+126
+00:06:58,130 --> 00:07:01,830
+algumas outras técnicas de regularização que valem a pena você saber.
+
+127
+00:07:01,830 --> 00:07:04,480
+Falaremos sobre algumas outras técnicas no próximo vídeo.
+[Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage]

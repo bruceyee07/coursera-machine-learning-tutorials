@@ -1,0 +1,392 @@
+1
+00:00:00,436 --> 00:00:03,390
+Quando treinamos uma rede neural, uma das técnicas que podem acelerar
+
+2
+00:00:03,390 --> 00:00:06,060
+o seu treino é normalizar suas entradas.
+
+3
+00:00:06,060 --> 00:00:07,730
+Vejamos o que isso significa.
+
+4
+00:00:07,730 --> 00:00:10,240
+Vamos ver se um treino se ajusta 
+com duas características de entrada.
+
+5
+00:00:10,240 --> 00:00:13,520
+Assim, a característica de entrada x 
+ tem duas dimensões,
+
+6
+00:00:13,520 --> 00:00:16,550
+e aqui está um gráfico de dispersão 
+do seu conjunto de treino.
+
+7
+00:00:16,550 --> 00:00:20,730
+Normalizar suas entradas 
+corresponde a duas etapas.
+
+8
+00:00:20,730 --> 00:00:26,270
+A primeira é subtrair ou zerar a média.
+
+9
+00:00:26,270 --> 00:00:34,140
+Então você define µ = 1/m 
+vezes a somatória (variando i de 1 até m) de X⁽ⁱ⁾.
+
+10
+00:00:34,140 --> 00:00:39,786
+Isso é um vetor, e então 'x' é definido
+como x - µ para cada exemplo de treino,
+
+11
+00:00:39,786 --> 00:00:44,571
+então isso significa que você apenas modifica
+a formação definida até que ela atinja a média 0.
+
+12
+00:00:44,571 --> 00:00:49,530
+E o segundo passo é 
+normalizar a variância.
+
+13
+00:00:49,530 --> 00:00:54,640
+Note que o recurso x₁
+ tem variância muito maior
+
+14
+00:00:54,640 --> 00:00:55,410
+que o x₂ aqui.
+
+15
+00:00:55,410 --> 00:01:00,030
+Então definiremos σ² = 1/m vezes a
+
+16
+00:01:00,030 --> 00:01:04,580
+somatória (variando i de 1 a m) de x⁽ⁱ⁾**2.
+
+17
+00:01:04,580 --> 00:01:07,220
+Acho que este é um
+'produto de Hadamard'.
+
+18
+00:01:07,220 --> 00:01:13,040
+E agora sigma ao quadrado é um vetor com a variância de cada uma das características,
+
+19
+00:01:13,040 --> 00:01:15,435
+e note que já subtraímos a média,
+
+20
+00:01:15,435 --> 00:01:19,600
+assim, x⁽ⁱ⁾ ao quadrado, 
+usando produto de Hadamard, é apenas a variância.
+
+21
+00:01:19,600 --> 00:01:24,580
+E você pega cada exemplo e o divide 
+por este vetor sigma ao quadrado.
+
+22
+00:01:24,580 --> 00:01:28,490
+Então graficamente, você termina com isto.
+
+23
+00:01:28,490 --> 00:01:34,785
+Onde agora, 
+as variâncias de x₁ e de x₂ são ambas iguais a um.
+
+24
+00:01:35,975 --> 00:01:42,627
+E uma dica, se usar isto
+para escalar seus dados de treino, use os mesmos valores de µ
+
+25
+00:01:42,627 --> 00:01:47,735
+e σ² para normalizar
+seu conjunto de teste, certo?
+
+26
+00:01:47,735 --> 00:01:51,015
+Em particular, você 
+não deve normalizar o conjunto de treino
+
+27
+00:01:51,015 --> 00:01:52,865
+e o conjunto de teste de formas diferentes:
+
+28
+00:01:52,865 --> 00:01:57,520
+quaisquer que sejam estes ou esses valores,
+ use-os nestas duas
+
+29
+00:01:57,520 --> 00:02:02,190
+fórmulas, para que você escale seu 
+conjunto de teste exatamente da mesma forma,
+
+30
+00:02:02,190 --> 00:02:06,500
+ao invés de estimar 'µ' e 'σ²' separadamente 
+nos seus conjuntos de teste e de treino.
+
+31
+00:02:06,500 --> 00:02:10,167
+Pois você quer seus dados,
+ambos os exemplos de teste e de treino,
+
+32
+00:02:10,167 --> 00:02:13,831
+tenham a mesma transformação
+definida pela mesma média, µ,
+
+33
+00:02:13,831 --> 00:02:16,752
+e pela mesma variância, σ², 
+calculados em seus dados de treino.
+
+34
+00:02:16,752 --> 00:02:18,210
+E por que fazemos isto?
+
+35
+00:02:18,210 --> 00:02:21,290
+Por que desejamos normalizar as
+características de entrada?
+
+36
+00:02:21,290 --> 00:02:25,790
+Lembre-se que uma função de custo é definida
+como está escrito no canto superior direito.
+
+37
+00:02:25,790 --> 00:02:31,030
+Então se você usar características (x) de entrada 
+não normalizadas, será mais provável
+
+38
+00:02:31,030 --> 00:02:35,860
+que sua função de custo parecerá com isto, 
+uma tigela bem esguichada,
+
+39
+00:02:35,860 --> 00:02:41,500
+uma função de custo bem alongada,
+onde o mínimo que você está tentando encontrar talvez, esteja lá.
+
+40
+00:02:41,500 --> 00:02:46,890
+Mas se suas características estiverem em escalas bem diferentes,
+digamos que a característica x₁ varia
+
+41
+00:02:46,890 --> 00:02:52,280
+de 1 a 1000, e a característica x₂,
+varia de 0 a 1,
+
+42
+00:02:52,280 --> 00:02:56,790
+a relação, ou o intervalo de valores
+
+43
+00:02:56,790 --> 00:03:02,020
+para os parâmetros w₁ e w₂ 
+vão acabar assumindo valores muito diferentes.
+
+44
+00:03:02,020 --> 00:03:06,771
+E talvez estes eixos devessem ser w₁ e w₂, 
+mas nesta explanação, vou traçar w e b,
+
+45
+00:03:06,771 --> 00:03:11,270
+dessa forma sua função de custo 
+pode se tornar uma tigela alongada assim.
+
+46
+00:03:11,270 --> 00:03:14,440
+Então se você traçar os contornos desta função,
+
+47
+00:03:14,440 --> 00:03:17,705
+você pode ter uma função bem alongada como essa.
+
+48
+00:03:17,705 --> 00:03:19,500
+Enquanto que se você normalizar os recursos,
+
+49
+00:03:19,500 --> 00:03:24,570
+sua função de custo vai em média, 
+parecer mais simétrica.
+
+50
+00:03:24,570 --> 00:03:28,728
+E se você estiver executando o gradiente descendente
+sobre a função de custo
+
+51
+00:03:28,728 --> 00:03:33,216
+como a da esquerda, então talvez você precise usar
+uma taxa de aprendizagem bem pequena,
+
+52
+00:03:33,216 --> 00:03:37,242
+porque se você está aqui, esse gradiente descendente
+pode precisar de muitos passos para oscilar para frente e para trás,
+
+53
+00:03:37,242 --> 00:03:40,800
+antes que ele finalmente 
+encontre seu caminho para o mínimo.
+
+54
+00:03:40,800 --> 00:03:45,466
+Enquanto que se você tiver um contorno mais esférico, 
+onde quer que você comece,
+
+55
+00:03:45,466 --> 00:03:49,125
+o gradiente descendente poderá ir diretamente 
+para o mínimo.
+
+56
+00:03:49,125 --> 00:03:53,665
+Você pode dar passos muito maiores
+com o gradiente descendente,
+
+57
+00:03:53,665 --> 00:03:56,345
+do que precisar ficar oscilando, 
+como na figura à esquerda.
+
+58
+00:03:56,345 --> 00:04:00,250
+Claro que na prática, 
+w é um vetor com alta dimensão,
+
+59
+00:04:00,250 --> 00:04:04,530
+então tentar traçá-lo em 2D não é suficiente 
+ para adequadamente compreendê-lo.
+
+60
+00:04:04,530 --> 00:04:08,220
+Mas a intuição aproximada de que a sua 
+função de custo será mais redonda
+
+61
+00:04:08,220 --> 00:04:12,510
+e mais fácil de otimizar quando seus recursos estão 
+todos em escalas similares.
+
+62
+00:04:12,510 --> 00:04:15,600
+Não de 1 a 1000 
+e de 0 a 1,
+
+63
+00:04:15,600 --> 00:04:20,880
+mas, a maioria, a partir de -1 até 1
+ ou com variâncias semelhantes entre eles.
+
+64
+00:04:20,880 --> 00:04:25,630
+Isso só faz com que a sua função de custo J
+se torne mais fácil e rápida de se otimizar.
+
+65
+00:04:25,630 --> 00:04:30,450
+Na prática, se uma característica, 
+digamos que x₁, varie de 0 até 1,
+
+66
+00:04:30,450 --> 00:04:35,530
+e x₂ varie de -1 até 1,
+e x₃ varie de 1 até 2,
+
+67
+00:04:35,530 --> 00:04:38,730
+estas são escalas bastante semelhantes, 
+então isso vai funcionar muito bem.
+
+68
+00:04:38,730 --> 00:04:41,430
+É quando eles estão em 
+escalas dramaticamente diferentes
+
+69
+00:04:41,430 --> 00:04:42,470
+como umas de 1 a 1000,
+
+70
+00:04:42,470 --> 00:04:46,720
+e outras de 0 até 1, 
+isso realmente fere seu algoritmo de otimização.
+
+71
+00:04:46,720 --> 00:04:50,664
+Mas apenas atribuindo a todas elas a 
+média = 0, e digamos, variância = 1,
+
+72
+00:04:50,664 --> 00:04:54,857
+como fizemos no último slide, isso só garante que todos
+os seus recursos estejam em uma escala semelhante
+
+73
+00:04:54,857 --> 00:04:58,290
+e frequentemente farão com que
+seu algoritmo de aprendizagem seja executado rápido.
+
+74
+00:04:58,290 --> 00:05:01,600
+Então se suas características de entrada 
+vierem de escalas muito diferentes,
+
+75
+00:05:01,600 --> 00:05:03,410
+talvez algumas delas sejam de 0 a 1,
+
+76
+00:05:03,410 --> 00:05:08,130
+outras de 1 a 1000, 
+será importante normalizá-las.
+
+77
+00:05:08,130 --> 00:05:11,630
+Se elas vierem em escalas similares,
+esta etapa é menos importante.
+
+78
+00:05:11,630 --> 00:05:15,235
+Embora realizar este tipo de 
+normalização nunca realmente
+
+79
+00:05:15,235 --> 00:05:19,170
+cause algum dano, logo,
+eu sempre o farei, mesmo sem a certeza
+
+80
+00:05:19,170 --> 00:05:21,970
+de que ele ajudará a acelerar
+ o treinamento do algoritmo.
+
+81
+00:05:22,970 --> 00:05:26,020
+Então, isso é tudo sobre normalização
+ das características (x) de entrada.
+
+82
+00:05:26,020 --> 00:05:29,840
+Em seguida, falaremos sobre 
+formas de acelerar o treino da sua rede neural.
+[Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage]

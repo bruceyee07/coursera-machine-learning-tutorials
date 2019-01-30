@@ -1,0 +1,477 @@
+1
+00:00:00,470 --> 00:00:03,955
+Momentum kullanımının gradyan düşümünü 
+nasıl hızlandırdığını gördünüz.
+
+2
+00:00:03,955 --> 00:00:06,230
+RMSprop adında başka bir algoritma da,
+
+3
+00:00:06,230 --> 00:00:10,490
+ki bu root mean square prop'u temsil eder, 
+ve bu da gradyan düşümünü hızlandırabilir.
+
+4
+00:00:10,490 --> 00:00:11,800
+Nasıl kullanıldığına bakalım.
+
+5
+00:00:11,800 --> 00:00:16,313
+Daha önceden kullanmış olduğumuz örneği
+ hatırlayın; gradyan düşümü uygularsanız,
+
+6
+00:00:16,313 --> 00:00:20,252
+her ne kadar yatay doğrultuda ilerlemeye çalışşa bile,
+
+7
+00:00:20,252 --> 00:00:24,569
+Dikey doğrultuda ciddi salınımlarla neticelenebilir.
+
+8
+00:00:24,569 --> 00:00:29,214
+Bu ders çerçevesinde sezgi geliştirmek amacıyla, diyelim ki
+
+9
+00:00:29,214 --> 00:00:34,733
+dikey eksenin parametresi b ve yatay eksenin 
+parametresi de w olsun..
+
+10
+00:00:34,733 --> 00:00:39,614
+Gercekten de w1 ya da w2 veya merkez 
+parametrelerinden bazıları sezgisellik adına
+
+11
+00:00:39,614 --> 00:00:42,090
+b ve w olarak adlandırılabilir.
+
+12
+00:00:42,090 --> 00:00:46,690
+Ve bu yüzden, öğrenmeyi b doğrultusunda ya da
+
+13
+00:00:46,690 --> 00:00:48,400
+dikey doğrultuda yavaşlatmak,
+
+14
+00:00:48,400 --> 00:00:54,830
+ve öğrenmeyi yatay doğrultuda hızlandırmak ya da 
+en azından yavaşlatmamak isteyebilirsiniz.
+
+15
+00:00:54,830 --> 00:00:59,411
+RMSprop algoritmasının yaptığı şey budur, bunu gerçekleştirmek.
+
+16
+00:00:59,411 --> 00:01:07,237
+Yineleme t'de, her zaman yaptığımız, güncel türev dW, db
+
+17
+00:01:07,237 --> 00:01:11,387
+mini-yığında hesaplamak.
+
+18
+00:01:15,464 --> 00:01:19,400
+VdW yerine bu üssel ağırlıklı ortalamayı tutacaktım,
+
+19
+00:01:19,400 --> 00:01:22,890
+onun yerine yeni bir notasyon SdW kullanacağım.
+
+20
+00:01:22,890 --> 00:01:28,954
+Yani, SdW, β çarpı önceki değeri artı 
+
+21
+00:01:28,954 --> 00:01:34,181
+(1 - β) çarpı dW'nun karesine eşit olacaktır.
+
+22
+00:01:34,181 --> 00:01:41,130
+Bazen [ANLAŞILAMIYOR] dW'nun karesi olarak.
+
+23
+00:01:41,130 --> 00:01:48,530
+Kafalarda soru işareti kalmaması için, 
+bu kare alma işlemi bir öğe bazlı kare alma işlemidir.
+
+24
+00:01:48,530 --> 00:01:52,170
+Yani bunun işlevi, türevlerin karelerinin 
+
+25
+00:01:52,170 --> 00:01:56,230
+üssel ağırlıklı ortalamalarını tutmaktır.
+
+26
+00:01:56,230 --> 00:02:04,368
+Ve bir benzeri, elimizde 
+Sdb = β Sdb + (1 - β)db^2 de var.
+
+27
+00:02:04,368 --> 00:02:08,031
+Ve tekrar edeyim, kare alma işlemi 
+bir öğe bazlı kare alma işlemidir.
+
+28
+00:02:08,031 --> 00:02:13,330
+Takiben, RMSprop parametreleri şu şekilde günceller:
+
+29
+00:02:13,330 --> 00:02:17,875
+W, W - α (öğrenme hızı) olarak güncellenir ve 
+
+30
+00:02:17,875 --> 00:02:22,580
+önceden elimizde alfa çarpı dW varken, şimdi
+
+31
+00:02:22,580 --> 00:02:27,596
+dW'nun, SdW'nun kare kökü'ne bölümü olur.
+
+32
+00:02:27,596 --> 00:02:33,322
+Ve b, b eksi öğrenme hızı çarpı
+
+33
+00:02:33,322 --> 00:02:38,080
+sadece gradyan yerine, bu da db bölü Sdb olur.
+
+34
+00:02:39,600 --> 00:02:42,970
+O zaman bunun nasıl çalıştığına dair 
+biraz sezgi geliştirmeye çalışalım.
+
+35
+00:02:42,970 --> 00:02:45,750
+Hatırlayın, yatay doğrultuda ya da bu örnekte, 
+
+36
+00:02:45,750 --> 00:02:50,380
+W doğrultusunda, 
+öğrenmenin oldukça hızlı ilerlemesini istiyoruz.
+
+37
+00:02:50,380 --> 00:02:54,819
+Buna karşın, dikey doğrultuda
+ya da bu örnekte b doğrultusunda,
+
+38
+00:02:54,819 --> 00:02:59,137
+dikey doğrultuda yaşanacak 
+tüm salınımları yavaşlatmak istiyoruz.
+
+39
+00:02:59,137 --> 00:03:01,737
+Böylelikle bu SdW ve Sdb terimleri olarak,
+
+40
+00:03:01,737 --> 00:03:06,729
+beklediğimiz şey, 
+SdW'nin göreceli olarak küçük olması,
+
+41
+00:03:06,729 --> 00:03:11,836
+ki böylece burada göreceli olarak küçük bir sayıya bölüyor olalım,
+
+42
+00:03:11,836 --> 00:03:16,851
+öte yandan, Sdb göreceli olarak büyük olmalı, 
+ki burada göreceli olarak büyük bir sayıya
+
+43
+00:03:16,851 --> 00:03:21,226
+bölüyor olalım, 
+ve böylece bu da dikey boyutta güncellemeleri yavaşlatabilsin.
+
+44
+00:03:21,226 --> 00:03:25,518
+Ve gerçekten de şayet türevlere bakarsanız, bu türevler
+
+45
+00:03:25,518 --> 00:03:30,340
+dikey doğrultuda yatay doğrultudakilere nazaran 
+çok daha büyüktür.
+
+46
+00:03:30,340 --> 00:03:33,720
+Yani b doğrultusunda eğim daha fazla, değil mi?
+
+47
+00:03:33,720 --> 00:03:40,790
+Yani böylesi türevler ile çok büyük bir db 
+ve göreceli olarak küçük bir dw olur.
+
+48
+00:03:40,790 --> 00:03:45,350
+çünkü fonksiyon dikey doğrultuda (b doğrultusunda), 
+yataydaki doğrultudan (w doğrultusundan)
+
+49
+00:03:45,350 --> 00:03:50,870
+çok daha dik eğimli olur.
+
+50
+00:03:50,870 --> 00:03:53,008
+Ve böylece, db'nin karesi göreceli olarak daha büyük olacak.
+
+51
+00:03:53,008 --> 00:03:58,010
+Böylece, Sdb göreceli olarak daha büyük, buna karşın 
+karşılaştırmalı olarak, dW daha küçük olacaktır.
+
+52
+00:03:58,010 --> 00:04:02,080
+ya da dW'nun karesi daha küçük, ve böylece SdW daha küçük olacaktır.
+
+53
+00:04:02,080 --> 00:04:06,600
+Bu durumun net etkisi 
+dikey doğrultudaki güncellemelerinizin
+
+54
+00:04:06,600 --> 00:04:11,230
+cok daha büyük sayılara bölünmesi ve bunun da salınımları sönümlemeye yardım etmesidir.
+
+55
+00:04:11,230 --> 00:04:15,440
+buna karşın, yatay doğrultudaki güncellemeler 
+daha küçük sayılara bölünüyor olacak.
+
+56
+00:04:15,440 --> 00:04:19,470
+Yani RMSprop kullanmanın net etkisi 
+güncellemelerin nihayetinde daha çok
+
+57
+00:04:19,470 --> 00:04:20,750
+şu şekilde görünmeleri olacak:
+
+58
+00:04:22,750 --> 00:04:27,587
+dikey doğrultudaki güncellemeleriniz
+
+59
+00:04:27,587 --> 00:04:32,370
+yatay doğrultudaki güncellemelerinize nazaran azalacak
+ ve böyle devam edebilecek.
+
+60
+00:04:32,370 --> 00:04:36,890
+Ve bunun bir etkisi de dolayısıyla sizin daha büyük bir öğrenme hızı alfası kullanabilmeniz
+
+61
+00:04:36,890 --> 00:04:41,540
+ve dikey doğrultuda ıraksama yaşamadan 
+daha hızlı öğrenme sağlamanızdır.
+
+62
+00:04:41,540 --> 00:04:45,223
+Şimdi sırf kafalardaki soruları temizlemek için 
+yatay ve dikey doğrultular
+
+63
+00:04:45,223 --> 00:04:48,348
+ b ve w'yu örneklemek adına göstereyim.
+
+64
+00:04:48,348 --> 00:04:53,188
+Pratikte, çok yüksek boyutlu bir 
+parametre alanı içinde olursunuz,
+
+65
+00:04:53,188 --> 00:04:57,383
+o yüzden, 
+salınımlarını sönümlemeye çalıştığınız dikey boyutlar,
+
+66
+00:04:57,383 --> 00:05:01,757
+bir takım w1, w2, w17 parametrelerinin toplamı, (sanırım burada b1 b2, b17 demek istiyor?)
+
+67
+00:05:01,757 --> 00:05:07,223
+ve yatay boyutlar w3, w4 ve benzeri olabilir, değil mi?
+
+68
+00:05:07,223 --> 00:05:11,150
+ve böylelikle, buradaki w ve b ayrımı sadece bir örnekleme olur.
+
+69
+00:05:11,150 --> 00:05:15,330
+Uygulamada, dW çok boyutlu bir parametre vektörüdür.
+
+70
+00:05:15,330 --> 00:05:18,620
+Db de ayrıca çok boyutlu bir parametre vektörüdür,
+
+71
+00:05:18,620 --> 00:05:22,830
+ama bu noktada sezgi, 
+bu salınımları aldığınız boyutlarda
+
+72
+00:05:22,830 --> 00:05:26,570
+bu kareler ve türevler için
+
+73
+00:05:26,570 --> 00:05:29,406
+daha büyük bir toplamı ya da bir ağırlıklı ortalama hesaplamanız,
+
+74
+00:05:29,406 --> 00:05:33,080
+ve böylece, bu salınımların olduğu doğrultuları sönümlüyor olmanızdır.
+
+75
+00:05:33,080 --> 00:05:39,680
+Yani, RMSprop bu, 
+ve bu kök ortalama kare anlamına geliyor, çünkü
+
+76
+00:05:39,680 --> 00:05:44,110
+çünkü burada türevlerin karesini alıyorsunuz ve 
+kare kökünü sonunda burada alıyorsunuz.
+
+77
+00:05:44,110 --> 00:05:48,560
+Sonuç olarak, devam etmeden önce, bu algoritma hakkında son birkaç ayrıntı.
+
+78
+00:05:49,870 --> 00:05:55,420
+Bir sonraki videoda, aslında RMSprop'u momentumla birleştireceğiz.
+
+79
+00:05:55,420 --> 00:06:00,540
+Burada momentum amacıyla kullandığımız 
+hiperparametre beta'yı (β) kullanmak yerine,
+
+80
+00:06:00,540 --> 00:06:05,188
+çelişmemek amacıyla, 
+bu seferlik bunlara hiperparametre beta 2 diyeceğim.
+
+81
+00:06:05,188 --> 00:06:09,350
+Hem momentum hem de RMSprop için 
+aynı hiperparametre, birbirlerine karışmasın diye. 
+
+82
+00:06:09,350 --> 00:06:13,540
+Ve ayrıca, algoritmanızın 
+sıfıra bölünmediğinden emin olmak için...
+
+83
+00:06:13,540 --> 00:06:17,910
+Düşünün, ya SdW'nun kare kökü sıfıra çok yakın bir değerse, değil mi.
+
+84
+00:06:17,910 --> 00:06:19,730
+O zaman her şey mahvolabilir.
+
+85
+00:06:19,730 --> 00:06:24,320
+Sırf sayısal tutarlılığı sağlamak için, ne zaman bunu pratikte uygulamak isterseniz,
+
+86
+00:06:24,320 --> 00:06:28,200
+paydaya çok çok küçük bir epsilon (Ɛ) eklersiniz.
+
+87
+00:06:28,200 --> 00:06:30,760
+Epsilon'un ne olduğu gerçekten de çok önemli değil,
+
+88
+00:06:30,760 --> 00:06:34,948
+10 üzeri-8 gibi bir şey, makul bir varsayılan olabilir,
+
+89
+00:06:34,948 --> 00:06:39,202
+ama bu sadece biraz daha iyi bir 
+sayısal tutarlılık sağlar. 
+Ki bu da sayısal bir yuvarlama ya da 
+
+90
+00:06:39,202 --> 00:06:43,030
+herhangi başka bir nedenle, çok çok küçük bir sayıya 
+bölmenizin önüne geçmek için.
+
+91
+00:06:43,030 --> 00:06:47,870
+Sonuçta RMSprop dediğimiz şey bu, ve momentum'a 
+benzer olarak, gradyan düşümü esnasındaki,
+
+92
+00:06:47,870 --> 00:06:52,910
+mini-yığın gradyan düşümü esnasındaki, 
+salınımların sönümlenmesi etkisini sağlar.
+
+93
+00:06:52,910 --> 00:06:56,510
+Ve size daha büyük bir öğrenme hızı alfası 
+kullanmanıza olanak sağlar.
+
+94
+00:06:56,510 --> 00:07:01,920
+Ve kesinlikle algoritmanızın öğrenme hızı süresini hızlandıracaktır.
+
+95
+00:07:01,920 --> 00:07:05,350
+Ve böylece RMSprop uygulamasını artık biliyorsunuz 
+ve bu öğrenme algoritmasının
+
+96
+00:07:05,350 --> 00:07:07,920
+hızlandırılması için diğer bir yönetem olacak.
+
+97
+00:07:07,920 --> 00:07:09,554
+RMSprop ile ilgili ilginç bir durum da,
+
+98
+00:07:09,554 --> 00:07:13,572
+bu gerçekten de ilk kez akademik bir çalışmada değil, 
+aksine - yıllar evvel Coursera'da ders verirken -
+
+99
+00:07:13,572 --> 00:07:17,947
+Jeff Hinton tarafından bir Coursera kursunda 
+ileri sürülmüştü.
+
+100
+00:07:17,947 --> 00:07:22,108
+Sanırım Coursera,
+ özgün akademik çalışmaların yayımlanması amacıyla
+ bir platform olsun diye tasarlanmamıştı,
+
+101
+00:07:22,108 --> 00:07:26,214
+ama bu bağlamda gayet iyi iş yaptı.
+
+102
+00:07:26,214 --> 00:07:30,126
+Ve gerçekten de RMSprop Coursera kursu sayesinde geniş çevrelerce bilinmeye başlandı
+
+103
+00:07:30,126 --> 00:07:31,790
+ve sonrasında sıçarama yaptı.
+
+104
+00:07:31,790 --> 00:07:32,970
+Momentum hakkında konuştuk,
+
+105
+00:07:32,970 --> 00:07:34,330
+RMSprop hakkında konuştuk.
+
+106
+00:07:34,330 --> 00:07:37,970
+Sonunda anlaşılıyor ki, şayet ikisini bir araya getirirseniz,
+
+107
+00:07:37,970 --> 00:07:39,530
+çok daha iyi bir optimizasyon algoritması elde edersiniz.
+
+108
+00:07:39,530 --> 00:07:41,040
+Sonraki videomuzda bunun hakkında biraz konuşalım.

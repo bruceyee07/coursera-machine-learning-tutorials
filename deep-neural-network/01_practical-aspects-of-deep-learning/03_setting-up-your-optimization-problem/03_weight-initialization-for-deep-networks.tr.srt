@@ -1,0 +1,359 @@
+1
+00:00:00,530 --> 00:00:04,590
+Önceki videoda, derin sinir ağlarınında azalan ve artan
+
+2
+00:00:04,590 --> 00:00:08,330
+eğimlerin bazı sorunlara neden olduğunu gördünüz.
+
+3
+00:00:08,330 --> 00:00:11,040
+Bu sorunlar,sinir ağları için rastgele ilkleme işleminin daha iyi ya da dikkatli seçiminin
+
+4
+00:00:11,040 --> 00:00:13,455
+kısmi bir çözüm olduğunu,
+
+5
+00:00:13,455 --> 00:00:18,915
+tamamen çözmese de çözüme oldukça yardım ettiğini ortaya çıkardı.
+
+6
+00:00:18,915 --> 00:00:23,220
+Bunu anlamak için önce tek bir sinir hücresini ilkleme işlemiyle başlayalım
+
+7
+00:00:23,220 --> 00:00:27,505
+ve daha sonra bunu derin ağlar için genelleştirelim.
+
+8
+00:00:27,505 --> 00:00:30,040
+Tek bir sinir hücresi örneği üzerinden gidelim
+
+9
+00:00:30,040 --> 00:00:33,140
+ve daha sonra derin ağlar hakkında konuşalım.
+
+10
+00:00:33,140 --> 00:00:39,060
+Bir sinir hücresinde x1'den x4'e kadar öznitelikler ve ardından
+
+11
+00:00:39,060 --> 00:00:42,465
+a=g(z) ile herhangi bir y olsun.
+
+12
+00:00:42,465 --> 00:00:46,830
+Sonrasında, daha derin bir sinir ağı için bu girişler herhangi bir a(l) katmanı için
+
+13
+00:00:46,830 --> 00:00:51,780
+doğru olacak fakat şimdilik bunu x olarak isimlendirelim.
+
+14
+00:00:51,780 --> 00:00:59,070
+O zaman z, w1x1 + w2x2 +... WnXn'e kadar ifadesine eşit olacak.
+
+15
+00:00:59,070 --> 00:01:08,570
+Bu arada, b=0 alarak b'yi şimdilik görmezden gelelim.
+
+16
+00:01:08,570 --> 00:01:12,390
+Z'nin çok yüksek ya da çok küçük olmaması için
+
+17
+00:01:12,390 --> 00:01:16,960
+n'in büyük olması,
+
+18
+00:01:16,960 --> 00:01:22,070
+Wi'nin küçük olmasını istediğiniz anlamına gelir, fark ettiniz değil mi?
+
+19
+00:01:22,070 --> 00:01:25,910
+Çünkü z, WiXi'nin toplamıdır ve
+
+20
+00:01:25,910 --> 00:01:30,680
+eğer bu terimlerden çok fazla ekliyorsak, terimlerin her birinin daha küçük olmasını isteriz.
+
+21
+00:01:30,680 --> 00:01:41,045
+Gidilebilecek mantıklı bir yol, Wi'nin değişintisinin 1 bölü n'e eşitlenmesidir.
+
+22
+00:01:41,045 --> 00:01:45,495
+Burada n, bir sinir hücresine giden giriş özniteliklerinin sayısıdır.
+
+23
+00:01:45,495 --> 00:01:51,441
+Yani uygulamada yapmanız gereken şey, ağırlık matrisi W'yi belirli bir katman için
+
+24
+00:01:51,441 --> 00:01:58,045
+np.random.randn olacak şekilde belirlemek
+
+25
+00:01:58,045 --> 00:02:02,205
+-ardından matrisin boyutları ne ise buraya yazılacak-
+
+26
+00:02:02,205 --> 00:02:06,810
+çarpı, 1 bölü
+
+27
+00:02:06,810 --> 00:02:12,890
+her bir sinir ağını beslediğim öznitelik sayısının karekökü
+
+28
+00:02:12,890 --> 00:02:14,605
+burada bir n(l-1) terimi olacak
+
+29
+00:02:14,605 --> 00:02:20,700
+çünkü bu,l katmanında beslediğim birimlerin sayısıdır.
+
+30
+00:02:20,700 --> 00:02:23,340
+Eğer aktivasyon fonksiyonu olarak 1 bölü n yerine
+
+31
+00:02:23,340 --> 00:02:28,830
+ReLU kullanıyorsanız,değişintiyi 1 bölü n değil de
+
+32
+00:02:28,830 --> 00:02:32,105
+2 bölü n olarak belirlemek biraz daha iyidir.
+
+33
+00:02:32,105 --> 00:02:35,580
+Bunu ilklemede sıkça göreceksiniz. Özellikle de
+
+34
+00:02:35,580 --> 00:02:42,425
+ReLU aktivasyon fonksiyonunu kullanıyorsanız. O zaman gl(z), ReLu(z) olur.
+
+35
+00:02:42,425 --> 00:02:45,030
+Ah tabi bu sizin rastgele değişkenlerle ne kadar alakalı olduğunuza bağlıdır.
+
+36
+00:02:45,030 --> 00:02:46,590
+Formül şunu ortaya koyuyor,
+
+37
+00:02:46,590 --> 00:02:50,835
+bir Gauss rastgele değişkeni ve bunu, bu terimin kareköküyle çarpılır
+
+38
+00:02:50,835 --> 00:02:54,330
+ve bu da değişintiyi bu şeye, yani
+
+39
+00:02:54,330 --> 00:02:59,485
+2 bölü n'e eşitler. Ve n'den bu n üzeri l-1'e geçmemin nedeni,
+
+40
+00:02:59,485 --> 00:03:02,610
+bu örnekte mantıksal bağlanım n adet
+
+41
+00:03:02,610 --> 00:03:05,625
+giriş özniteliği vardır ama daha genel bir durumda
+
+42
+00:03:05,625 --> 00:03:12,400
+l katmanı, her birim için n üzeri l-1 giriş içerecek olmasıydı.
+
+43
+00:03:12,400 --> 00:03:19,305
+O halde, eğer giriş öznitelikleri kabaca sıfırsa ve
+
+44
+00:03:19,305 --> 00:03:22,760
+standart değişinti 1 ise, bu durumda z de
+
+45
+00:03:22,760 --> 00:03:26,580
+benzer bir skalada yer alacaktır. Bu tamamen çözmez
+
+46
+00:03:26,580 --> 00:03:30,630
+fakat bu kesinlikle artan,azalan eğimler
+
+47
+00:03:30,630 --> 00:03:33,240
+sorununun çözümüne yardım edecektir. Çünkü bu, ağırlık matrisi w'daki
+
+48
+00:03:33,240 --> 00:03:36,510
+her elemanı ne birden çok büyük
+
+49
+00:03:36,510 --> 00:03:42,900
+ne de birden çok küçük olacak şekilde belirlemeye çalışıyor. Bu da çok hızlı artmasını ya da azalmasını önlüyor.
+
+50
+00:03:42,900 --> 00:03:45,075
+Bazı farklı örneklere değindim.
+
+51
+00:03:45,075 --> 00:03:47,640
+Ve anlattığımız bu örnekler ReLU aktivasyon fonksiyonunun
+
+52
+00:03:47,640 --> 00:03:51,270
+kullanıldığını varsayıyor.
+
+53
+00:03:51,270 --> 00:03:53,750
+Diğer birkaç örneği olarak,
+
+54
+00:03:53,750 --> 00:03:57,600
+eğer TanH aktivasyon fonksiyonunu kullanıyorsanız
+
+55
+00:03:57,600 --> 00:04:02,060
+o zaman, 2 sabitini kullanmak yerine 1'i kullanmanın daha iyi
+
+56
+00:04:02,060 --> 00:04:06,870
+olduğu bir makalede gösterilmiştir. O halde 2 yerine
+
+57
+00:04:06,870 --> 00:04:12,615
+1 bölü ve bunun kareköküyle bu çarpılır.
+
+58
+00:04:12,615 --> 00:04:16,605
+O zaman bu karekök terimi
+
+59
+00:04:16,605 --> 00:04:23,165
+tanh aktivasyon fonksiyonu kullanıyorsanız bu terimin yerine geçecek.
+
+60
+00:04:23,165 --> 00:04:26,790
+Bu Xavier ilklemesi olarak adlandırılır.
+
+61
+00:04:26,790 --> 00:04:30,870
+Ayrıca Yoshua Bengio ve çalışma arkadaşları tarafından bulunan
+
+62
+00:04:30,870 --> 00:04:32,190
+ve bazı kağıtlarda görebileceğiniz diğer bir sürümü
+
+63
+00:04:32,190 --> 00:04:36,140
+farklı teorik kanıtlara dayanarak
+
+64
+00:04:36,140 --> 00:04:40,300
+bu şekilde formülize edilmiştir.
+
+65
+00:04:40,300 --> 00:04:43,800
+Ama belirtmeliyim ki; eğer ReLU aktivasyon fonksiyonunu kullanıyorsanız,
+
+66
+00:04:43,800 --> 00:04:46,605
+-ki en yaygın aktivasyon fonksiyonudur-
+
+67
+00:04:46,605 --> 00:04:48,555
+ben olsaydım bu formülü kullanırdım.
+
+68
+00:04:48,555 --> 00:04:53,610
+Eğer TanH kullanıyorsanız, bu versiyonu deneyebilirsiniz. Bazı yazarlar bunu da kullanacaktır
+
+69
+00:04:53,610 --> 00:04:58,665
+fakat uygulamada, bence tüm bu formüller size bir başlama noktası verir
+
+70
+00:04:58,665 --> 00:05:01,210
+size, ağırlık matrisinizi ilkleme işlemini yaparken
+
+71
+00:05:01,210 --> 00:05:04,270
+değişinti olarak kullanacağınız rastgele bir değer verir.
+
+72
+00:05:04,270 --> 00:05:06,760
+Eğer isterseniz, buradaki değişinti
+
+73
+00:05:06,760 --> 00:05:09,875
+bu değişinti parametresi sizin hiperparametreleri değiştirerek belirlediğiniz
+
+74
+00:05:09,875 --> 00:05:13,530
+başka bir şey de olabilirdi. Yani bu formülde
+
+75
+00:05:13,530 --> 00:05:16,930
+farklı bir çarpım parametresi kullanarak ve ayarlayarak
+
+76
+00:05:16,930 --> 00:05:21,075
+hiperparametre arayışında başka bir çarpan elde edebiliriz.
+
+77
+00:05:21,075 --> 00:05:26,105
+Bazen hiperparametre ayarlamanın 
+
+78
+00:05:26,105 --> 00:05:29,670
+Bu benim genellikle ayarlamayı denediğim ilk hipermetrelerden biri değil
+
+79
+00:05:29,670 --> 00:05:33,325
+ama bunun ayarlandığı da bazı problemler de gördüm.
+
+80
+00:05:33,325 --> 00:05:37,680
+Eh, makul bir miktar yardımcı olur ama bu genellikle
+
+81
+00:05:37,680 --> 00:05:42,870
+benim için ayarlayabileceğiniz diğer hiperparametrelere göre daha az önemli.
+
+82
+00:05:42,870 --> 00:05:47,520
+Sonuç olarak, umarım bu video size ağırlıkların nasıl tutarlı bir aralığa ilkleneceği,
+
+83
+00:05:47,520 --> 00:05:49,935
+hızlı artan ve azalan eğim probleminin çözümü
+
+84
+00:05:49,935 --> 00:05:52,955
+gibi konularda bazı fikirler vermiştir.
+
+85
+00:05:52,955 --> 00:05:55,620
+Umarım bu ağırlıklarınızın ne çok hızlı yükselmesini
+
+86
+00:05:55,620 --> 00:05:58,890
+ne de çok hızlı sıfıra düşmesini önler ve böylece
+
+87
+00:05:58,890 --> 00:06:01,650
+ağırlıklar ya da eğim hızla artıp azalmadan
+
+88
+00:06:01,650 --> 00:06:05,730
+tutarlı bir derin ağ eğitebilirsiniz.
+
+89
+00:06:05,730 --> 00:06:08,580
+Derin ağlarınızı eğittiğinizde, bu derin ağları daha fazla eğitmede
+
+90
+00:06:08,580 --> 00:06:11,640
+size yardım edecek başka bir yoldur.

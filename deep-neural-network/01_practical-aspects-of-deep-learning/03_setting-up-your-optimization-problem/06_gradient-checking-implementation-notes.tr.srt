@@ -1,0 +1,374 @@
+1
+00:00:00,610 --> 00:00:03,220
+Son videoda, gradyan kontrolünü öğrendiniz.
+
+2
+00:00:03,220 --> 00:00:06,317
+Bu videoda, bazı pratik ipuçları
+
+3
+00:00:06,317 --> 00:00:10,950
+ve bunları sinir ağınıza nasıl uygulayacağınızla 
+ilgili bazı notlar paylaşmak istiyorum.
+
+4
+00:00:10,950 --> 00:00:14,590
+İlk olarak, gradyan(eğim) kontrolünü eğitimde kullanmayın.
+Sadece hata ayıklamak için.
+
+5
+00:00:14,590 --> 00:00:19,470
+Yani bunun anlamı, "dθapprox[i]"
+
+6
+00:00:19,470 --> 00:00:22,520
+"i" nin tüm değerleri için, çok yavaş bir hesaplamadır.
+
+7
+00:00:22,520 --> 00:00:26,320
+Gradyan düşümü uygulaması için, dθ'yi
+
+8
+00:00:26,320 --> 00:00:29,110
+ve türevi hesaplamak için sadece geri-yayılımı kullanın.
+
+9
+00:00:29,110 --> 00:00:32,140
+Ve bunu sadece hata ayıklarken, dθ'ye yakın olduğundan
+
+10
+00:00:32,140 --> 00:00:34,218
+emin olmak için hesaplarsınız.
+
+11
+00:00:34,218 --> 00:00:37,048
+Ama bunu yaptıktan sonra, gradyan kontrolünü kapatırsınız
+
+12
+00:00:37,048 --> 00:00:39,502
+ve bunu gradyan düşümünün her yinelenmesi
+ sırasında çalıştırmazsınız.
+
+13
+00:00:39,502 --> 00:00:41,530
+Çünkü bu sadece çok yavaştır.
+
+14
+00:00:41,530 --> 00:00:45,060
+İkincisi, eğer algoritma gradyan kontrolünde başarısız olursa, 
+bileşenlere bakın.
+
+15
+00:00:45,060 --> 00:00:48,010
+Bireysel bileşenlere bakın 
+ve hatayı tanımlamaya çalışın.
+
+16
+00:00:48,010 --> 00:00:52,124
+Yani demek istediğim, eğer "dθapprox" ifadesi 
+dθ'den çok uzak olursa yapmam gereken şey,
+
+17
+00:00:52,124 --> 00:00:57,079
+"dθapprox"un değerlerinin dθ'nin değerlerinden
+ oldukça farklı olduğunu görmek için,
+
+18
+00:00:57,079 --> 00:01:02,360
+"i"nin farklı değerlerine bakmaktır.
+
+19
+00:01:02,360 --> 00:01:06,842
+Örneğin, eğer θ'nin ya da dθ'nin değerini çok uzak bulursanız,
+
+20
+00:01:06,842 --> 00:01:11,495
+hepsi, bazı katman veya katmanlar için "dbl"ye karşılık gelir.
+
+21
+00:01:11,495 --> 00:01:16,162
+Fakat, dw'nin bileşenleri daha yakındır, değil mi?
+
+22
+00:01:16,162 --> 00:01:20,803
+Hatırlayın, θ'nin farklı bileşenleri "b" ve "w"nun farklı bileşenlerine
+
+23
+00:01:20,803 --> 00:01:21,434
+karşılık gelir.
+
+24
+00:01:21,434 --> 00:01:25,918
+Bu durumla karşılaştığınızda,
+ hatanın b parametrelerine göre
+
+25
+00:01:25,918 --> 00:01:30,411
+"db" türevinin nasıl hesaplandığını bulabilirsiniz.
+
+26
+00:01:30,411 --> 00:01:35,495
+Ve benzer şekilde tersi, eğer çok uzak değerler bulursanız,
+
+27
+00:01:35,495 --> 00:01:39,610
+"dθapprox"un değerleri, dθ'den çok uzaksa,
+
+28
+00:01:39,610 --> 00:01:44,452
+tüm bu bileşenlerin dw'den ya da 
+dw'nin belirli bir katmanından geldiğini görürsünüz
+
+29
+00:01:44,452 --> 00:01:48,455
+ve bu, hatanın bulunduğu yere girmenize yardımcı olabilir.
+
+30
+00:01:48,455 --> 00:01:51,562
+Bu, her zaman hatayı hemen tanımlamanıza izin vermez
+
+31
+00:01:51,562 --> 00:01:55,622
+fakat bazen hatayı nerede arayacağınız konusunda
+ bazı tahminler yürütmenize yardımcı olur.
+
+32
+00:01:56,782 --> 00:01:59,502
+Sıradaki, gradyan kontrolünü yaparken,
+
+33
+00:01:59,502 --> 00:02:03,372
+eğer düzenlileştirme kullanıyorsanız, 
+düzenlileştirme terimlerinizi hatırlayın.
+
+34
+00:02:03,372 --> 00:02:10,052
+Yani, eğer maliyet fonksiyonunuz J(θ) ise
+ kayıplarınızın 1'den m'e kadar olan
+
+35
+00:02:10,052 --> 00:02:15,570
+toplama eşittir ve daha sonra, 
+düzenlileştirme terimi eklenir.
+
+36
+00:02:15,570 --> 00:02:22,790
+Ve "wl"nin karesi "l" üzerinden toplanır, 
+ bu J fonksiyonun tanımıdır.
+
+37
+00:02:22,790 --> 00:02:27,200
+Ve, dθ ifadesi,
+ düzenlileştirme terimini içeren J'nin θ'ya göre
+
+38
+00:02:27,200 --> 00:02:30,840
+gradyantının alınması ile elde edilir.
+
+39
+00:02:30,840 --> 00:02:32,880
+Yani, bu terimi dahil etmeyi unutmayın.
+
+40
+00:02:32,880 --> 00:02:37,185
+Bir sonraki, gradyan kontrolü seyreltme (dropout)
+ ile birlikte çalışmaz.
+
+41
+00:02:37,185 --> 00:02:41,307
+Çünkü her yinelemede, "dropout" 
+gizli birimlerin farklı alt kümelerini rastgele olarak ortadan kaldırır.
+
+42
+00:02:41,307 --> 00:02:45,923
+"Seyreltme (dropout)" gradyan düşümü yapıyorken, J maliyet fonksiyonun
+
+43
+00:02:45,923 --> 00:02:48,098
+hesaplanması kolay değildir.
+
+44
+00:02:48,098 --> 00:02:52,932
+"Seyreltme (dropout)" işlemi, 
+bazı J maliyet fonksiyonunun optimizasyonu olarak görülebilir
+
+45
+00:02:52,932 --> 00:02:57,254
+fakat J maliyet fonksiyonu, 
+herhangi bir yinelemede ortadan kaldırabilecekleri,
+
+46
+00:02:57,254 --> 00:03:00,900
+düğümlerin tüm üstel büyük alt kümeleri üzerinde 
+toplanmasıyla tanımlanır.
+
+47
+00:03:00,900 --> 00:03:04,780
+Dolayısıyla, J maliyet fonksiyonunun hesaplanması çok zordur ve
+
+48
+00:03:04,780 --> 00:03:07,560
+farklı alt kümeleri ortadan kaldırmak için
+ "seyreltme (dropout)" kullandığınızda,
+
+49
+00:03:07,560 --> 00:03:11,770
+her seferinde sadece maliyet fonksiyonunu örnekliyorsunuz.
+
+50
+00:03:11,770 --> 00:03:14,730
+Bu nedenle, "Seyreltme (dropout)" ile 
+hesaplamanızı iki kez kontrol etmek için
+
+51
+00:03:14,730 --> 00:03:16,810
+gradyan kontrolünü kullanmak zordur.
+
+52
+00:03:16,810 --> 00:03:20,360
+Yani genellikle yaptığım şey, 
+"seyreltme(dropout)" olmadan gradyan kontrolünü uygulamaktır.
+
+53
+00:03:20,360 --> 00:03:25,285
+Yani isterseniz, "keep-prob" ve "dropout" değerini
+ 1.0'a eşit olacak şekilde ayarlayabilirsiniz.
+
+54
+00:03:25,285 --> 00:03:29,590
+Ve sonra "dropout"u açın ve "dropout" uygulamamın 
+doğru olduğunu umuyorum.
+
+55
+00:03:30,770 --> 00:03:35,738
+Yapabileceğiniz diğer şeyler, 
+düşmüş düğümlerin örüntülerini düzeltmek gibi ve
+
+56
+00:03:35,738 --> 00:03:39,914
+ve [..] şeklindeki örüntü için gradyan kontrolünün doğru olduğunu teyit edin.
+
+57
+00:03:39,914 --> 00:03:43,200
+Fakat pratikte, bunu genellikle uygulamıyorum.
+
+58
+00:03:43,200 --> 00:03:48,010
+Bu nedenle benim önerim, "dropout"un kapatılması,
+ algoritmanızı iki kez kontrol etmek için gradyan kontrolünün kullanılması
+
+59
+00:03:48,010 --> 00:03:52,560
+en azından "dropout" kullanılmadan daha doğrudur
+ve daha sonra "dropot"u açın.
+
+60
+00:03:52,560 --> 00:03:55,520
+Son olarak, bu küçük bir ayrıntıdır.
+
+61
+00:03:55,520 --> 00:03:59,853
+Bu imkansız değildir, nadiren gerçekleşir, 
+ancak rastgele başlatmalarda (initialization)
+
+62
+00:03:59,853 --> 00:04:04,322
+"w" ve "b" 0'a yakın olduğunda gradyan düşümü uygulamanızın
+
+63
+00:04:04,322 --> 00:04:06,500
+doğru olması imkansız değildir.
+
+64
+00:04:06,500 --> 00:04:10,223
+Ancak, gradyan düşümünü çalıştırırken ve 
+"w" ve "b" değerleri daha da büyümeye başlıyorsa
+
+65
+00:04:10,223 --> 00:04:15,089
+belki de geri-yayılım uygulamanız, 
+sadece "w" ve "b" sıfıra yakınken doğrudur
+
+66
+00:04:15,089 --> 00:04:18,660
+fakat "w" ve "b" büyük olduğunda, bu daha da yanlış olur.
+
+67
+00:04:18,660 --> 00:04:21,510
+Yapabileceğiniz bir şey, ben bunu pek yapmam,
+
+68
+00:04:21,510 --> 00:04:25,850
+ancak yapabileceğiniz bir şey, rastgele başlatma (initialization) 
+işleminde gradyan kontrolünü çalıştırmaktır
+
+69
+00:04:25,850 --> 00:04:27,940
+ve daha sonra ağınızı bir süreliğine eğitin,
+böylece "w" ve "b"nin
+
+70
+00:04:27,940 --> 00:04:33,198
+sıfırdan, küçük rastgele başlangıç değerlerinizden
+ uzaklaşmak için biraz zamanı olur.
+
+71
+00:04:33,198 --> 00:04:37,620
+Ve birkaç iterasyon için eğittikten sonra
+ tekrar gradyan kontrolünü çalıştırın.
+
+72
+00:04:37,620 --> 00:04:39,165
+Yani bu, gradyan kontrolü için.
+
+73
+00:04:39,165 --> 00:04:42,760
+Ve bu haftanın materyallerinin sonuna geldiğiniz için 
+tebrik ederim!
+
+74
+00:04:42,760 --> 00:04:47,100
+Bu hafta, geliştirme ve eğitim kümelerinizi 
+nasıl kuracağınızı
+
+75
+00:04:47,100 --> 00:04:51,254
+sapma ve varyansı nasıl analiz edeceğinizi ve
+ yüksek sapmaya, yüksek varyansa ya da
+
+76
+00:04:51,254 --> 00:04:54,230
+hem yüksek varyansa ve hem de yüksek sapmaya sahipseniz 
+ne yapacağınızı öğrendiniz.
+
+77
+00:04:54,230 --> 00:04:57,930
+Ayrıca, regülasyonun farklı biçimlerini, L2 regülasyonu gibi, ve
+
+78
+00:04:57,930 --> 00:05:02,070
+"seyreltme(dropout)"yi sinir ağınıza nasıl uygulayacağınızı gördünüz.
+
+79
+00:05:02,070 --> 00:05:05,318
+Yani, sinir ağınızın eğitimini hızlandırmak için bazı ipuçlarını
+
+80
+00:05:05,318 --> 00:05:07,920
+ve son olarak da gradyan kontrolünü gördünüz.
+
+81
+00:05:07,920 --> 00:05:10,480
+Bu yüzden bu hafta çok şey gördüğünüzü düşünüyorum ve
+
+82
+00:05:10,480 --> 00:05:14,300
+bu haftaki programlama alıştırmasında bu fikirlerin çoğunu kullanacaksınız.
+
+83
+00:05:14,300 --> 00:05:15,520
+İyi şanslar diliyorum ve
+
+84
+00:05:15,520 --> 00:05:17,830
+ikinci hafta konularında tekrar görüşmeyi sabırsızlıkla beliyorum.

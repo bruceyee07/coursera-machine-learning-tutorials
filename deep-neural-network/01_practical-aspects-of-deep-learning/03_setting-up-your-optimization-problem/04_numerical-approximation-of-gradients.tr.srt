@@ -1,0 +1,387 @@
+1
+00:00:00,930 --> 00:00:04,720
+Geri yayılımı uygularken, geri yayılım uygulamanızın doğru olduğundan
+
+2
+00:00:04,720 --> 00:00:07,700
+emin olmanıza yardımcı olabilecek bir kontrol oluşturma denemesi yaptığınızı fark edeceksiniz
+
+3
+00:00:07,700 --> 00:00:10,710
+bu sizin geri destek uygulamasının iş doğru olduğunu belirtir
+
+4
+00:00:10,710 --> 00:00:14,376
+Çünkü bazen tüm bu denklemleri yazarsınız ve eğer% 100 emin değilseniz
+
+5
+00:00:14,376 --> 00:00:17,940
+tüm detayların doğru ve iç geri yayılımı vardır.
+
+6
+00:00:17,940 --> 00:00:21,020
+Bu yüzden indirgemek ve kontrol etmek için
+
+7
+00:00:21,020 --> 00:00:25,490
+İlk önce sayısal olarak gradyanların hesaplamaları hakkında ve
+
+8
+00:00:25,490 --> 00:00:28,400
+bir sonraki videoda, nasıl uygulayacağınız hakkında konuşacağız
+
+9
+00:00:28,400 --> 00:00:32,028
+indirgemek kontrol etmek için zemin uygulaması doğrudur.
+
+10
+00:00:32,028 --> 00:00:37,310
+Yani f fonksiyonunu ele alalım ve buraya yazınız ve bunun
+
+11
+00:00:37,310 --> 00:00:43,110
+teta'nın eşitliği teta eşittir ve hadi tekrar teta'nın bir miktarına başlayalım.
+
+12
+00:00:43,110 --> 00:00:44,640
+Diyelim ki, teta eşittir 1
+
+13
+00:00:44,640 --> 00:00:50,180
+Şimdi sağa doğru itelemek için teta ile epsilonu topluyoruz 
+
+14
+00:00:50,180 --> 00:00:52,460
+onu sağa doğru kaydıracağız
+
+15
+00:00:52,460 --> 00:00:58,110
+teta artı epsilon olduğu gibi, teta eksi ile epsilon elde etmek için sola doğru dürtün.
+
+16
+00:00:58,110 --> 00:01:02,935
+Yani bu 1, bu 1.01, bu, 0.99 nerede, yine,
+
+17
+00:01:02,935 --> 00:01:06,144
+epsilon, öncekiyle aynıdır, 0.01'dir.
+
+18
+00:01:06,144 --> 00:01:10,378
+Bu, bu küçük üçgeni alarak tahmin yerine çıkıyor.
+
+19
+00:01:10,378 --> 00:01:15,526
+genişlikten yüksekliği hesaplamaktan çok daha iyi bir tahmin alabilirsiniz
+
+20
+00:01:15,526 --> 00:01:20,922
+Bu noktayı alırsanız gradyan, teta eksi epsilon'un f'i ve bu nokta,
+
+21
+00:01:20,922 --> 00:01:26,230
+ve bunun yerine bu büyük üçgenin yükseklik genişliğini hesaplarsınız
+
+22
+00:01:26,230 --> 00:01:31,988
+Bu yüzden, benim teknik nedenlerden dolayı girmeyeceğim, bu büyüklüğün genişliğinden daha büyük.
+
+23
+00:01:31,988 --> 00:01:37,601
+yeşil üçgen size teta daki türevi çok daha iyi bir yaklaşım sağlar
+
+24
+00:01:37,601 --> 00:01:41,338
+Ve sen de kendini gördün, bu alt üçgeni sağ üstte alarak
+
+25
+00:01:41,338 --> 00:01:43,372
+iki üçgen varmış gibi, değil mi?
+
+26
+00:01:43,372 --> 00:01:47,220
+Buradaki yukarda sağda olan ve burdaki sol altta olan
+
+27
+00:01:47,220 --> 00:01:49,760
+Ve her ikisini de hesaba katıyorsunuz
+
+28
+00:01:49,760 --> 00:01:54,450
+Bu büyük yeşil üçgen kullanarak.
+
+29
+00:01:54,450 --> 00:01:57,720
+Tek taraflı bir farktan ziyade, iki taraflı bir fark alıyorsunuz.
+
+30
+00:01:57,720 --> 00:01:58,954
+Öyleyse matematik çalışalım.
+
+31
+00:01:58,954 --> 00:02:03,648
+Buradaki nokta, teta artı epsilon'un F 'sidir.
+
+32
+00:02:03,648 --> 00:02:07,870
+Bu nokta burada teta eksi epsilon'dur.
+
+33
+00:02:07,870 --> 00:02:12,390
+Yani bu büyük yeşil üçgenin yüksekliği teta artı epsilon f
+
+34
+00:02:12,390 --> 00:02:15,230
+eksi f, eksi epsilon.
+
+35
+00:02:15,230 --> 00:02:21,250
+Ve sonra genişlik bu 1 epsilon, bu 2 epsilon.
+
+36
+00:02:21,250 --> 00:02:24,390
+Bu yeşil üçgenin genişliği 2 epsilon.
+
+37
+00:02:24,390 --> 00:02:28,400
+Yani genişliğin yüksekliği first ilk önce yükseklik olacak, yani
+
+38
+00:02:28,400 --> 00:02:35,110
+teta eksi epsilon eksi F, bölmek teta eksi epsilon genişliğiyle bölünür.
+
+39
+00:02:35,110 --> 00:02:37,920
+Yani bu 2 epsilon oldu burada yazıyoruz
+
+40
+00:02:38,950 --> 00:02:43,450
+Ve bu umarım the teta'ya yakın olmalıdır.
+
+41
+00:02:43,450 --> 00:02:46,350
+Bu yüzden değerleri girin, teta'nın f'nin küplü olduğunu hatırlayın.
+
+42
+00:02:46,350 --> 00:02:49,890
+Yani bu teta artı epsilon 1.01.
+
+43
+00:02:49,890 --> 00:02:58,250
+Bu yüzden eksi 0,99 teta küpünün küpünü 2 kere 0.01'e bölerim.
+
+44
+00:02:58,250 --> 00:03:03,580
+Hesap makinesinde video ve uygulama pratiği yapmaktan çekinmeyin.
+
+45
+00:03:03,580 --> 00:03:06,259
+Bunu 3.0001 almalısın.
+
+46
+00:03:06,259 --> 00:03:10,581
+Oysa önceki slaytta, g teta'yı gördük,
+
+47
+00:03:10,581 --> 00:03:14,272
+Bu 3 teta kare oldu, yani teta 1 olduğunda
+
+48
+00:03:14,272 --> 00:03:18,519
+Bu iki değer aslında birbirine çok yakındır.
+
+49
+00:03:18,519 --> 00:03:22,250
+Yaklaşık hata şu an 0.0001'dir.
+
+50
+00:03:22,250 --> 00:03:27,456
+Önceki slaytta ise, one biz tek taraflı aldık
+
+51
+00:03:27,456 --> 00:03:34,150
+fark sadece teta + teta + epsilon biz 3.0301 aldık ve
+
+52
+00:03:34,150 --> 00:03:40,340
+bu nedenle yaklaşık error hatası, 0.0001 yerine 0.03 idi.
+
+53
+00:03:40,340 --> 00:03:44,260
+Yani bu iki yönlü fark yolu
+
+54
+00:03:44,260 --> 00:03:48,462
+bulduğunuz türevi yaklaşık olarak this 3'e çok yakındır.
+
+55
+00:03:48,462 --> 00:03:53,320
+Ve bu size teta'nın g olduğuna dair daha fazla güven veriyor.
+
+56
+00:03:53,320 --> 00:03:56,890
+Muhtemelen F.'nin türevinin doğru bir uygulamasıdır.
+
+57
+00:03:58,220 --> 00:04:01,480
+Bu yöntemi derecelendirme, kontrol etme ve geri yayma için kullandığınızda,
+
+58
+00:04:01,480 --> 00:04:06,230
+Bu, tek taraflı bir savunma kullanacak olursanız iki kat daha yavaş çalışır.
+
+59
+00:04:06,230 --> 00:04:10,193
+Pratikte, bu diğer yöntemi kullanmak için buna değer olduğunu düşünüyorum.
+
+60
+00:04:10,193 --> 00:04:11,752
+Bu sadece çok daha doğru.
+
+61
+00:04:11,752 --> 00:04:13,946
+İsteğe bağlı teori için biraz
+
+62
+00:04:13,946 --> 00:04:18,685
+Hesaplamalar biraz daha tanıdık olanlarınız, bunun
+
+63
+00:04:18,685 --> 00:04:22,249
+ve eğer anlamadım ki, burada söyleyeceklerim.
+
+64
+00:04:22,249 --> 00:04:26,772
+Ancak, bir türevin resmi tanımının
+
+65
+00:04:26,772 --> 00:04:31,629
+epsilon'un çok küçük değerleri, teta artı epsilon eksi f'nin teta
+
+66
+00:04:31,629 --> 00:04:33,917
+2 epsilon üzerinde eksi epsilon.
+
+67
+00:04:33,917 --> 00:04:38,852
+Ve türevinin resmi tanımı tam olarak sınırlıdır.
+
+68
+00:04:38,852 --> 00:04:42,480
+Bu formülü sağdaki il epsilon olarak 0 olarak.
+
+69
+00:04:42,480 --> 00:04:46,270
+Ve sınırsızlığın tanımı eğer öğrenirsen
+
+70
+00:04:46,270 --> 00:04:48,980
+bir hesaplama dersi aldı ama buraya girmeyeceğim.
+
+71
+00:04:48,980 --> 00:04:52,398
+Ve bu, sıfır olmayan bir epsilon değeri için ortaya çıkıyor.
+
+72
+00:04:52,398 --> 00:04:56,517
+Bu yaklaşımla hatanın sırasına geldiğini gösterebilirsiniz.
+
+73
+00:04:56,517 --> 00:05:00,889
+epsilon karesi, ve epsilon un çok küçük bir sayı olduğunu unutmayın
+
+74
+00:05:00,889 --> 00:05:08,471
+Eğer epsilon 0,0 ise, burada epsilon karesi 0.0001'dir.
+
+75
+00:05:08,471 --> 00:05:12,098
+Büyük O notasyonu, hatanın aslında bazı sabit zamanlarda olduğu anlamına gelir, fakat
+
+76
+00:05:12,098 --> 00:05:15,240
+Bu aslında tam olarak tahminde bizim yaklaştırma hatasıdır.
+
+77
+00:05:15,240 --> 00:05:17,478
+Yani büyük O sabit 1 olur.
+
+78
+00:05:17,478 --> 00:05:22,182
+Oysa, bu formülü kullanacak olursak, diğeri,
+
+79
+00:05:22,182 --> 00:05:25,129
+sonra hata epsilon sırasına göre.
+
+80
+00:05:25,129 --> 00:05:29,872
+Ve yine, epsilon 1'den küçük bir sayı olduğunda, o zaman epsilon aslında
+
+81
+00:05:29,872 --> 00:05:34,618
+epsilon karesinden çok daha büyük, buradaki formül aslında neden burada?
+
+82
+00:05:34,618 --> 00:05:38,790
+Soldaki bu formülden çok daha az doğru yaklaşık 
+
+83
+00:05:38,790 --> 00:05:43,690
+Bu yüzden, gradyan kontrolünü yaparken, bu iki yönlü farkı kullanmayı tercih ediyoruz.
+
+84
+00:05:43,690 --> 00:05:48,113
+teta artı epsilon eksi f'nin teta eksi epsilon'unu hesapladığınızda
+
+85
+00:05:48,113 --> 00:05:52,900
+Daha az doğru olan tek taraflı bir fark yerine 2 epsilon ile bölün.
+
+86
+00:05:53,980 --> 00:05:57,090
+Son iki yorumumu anlamıyorsanız, bu şeylerin hepsi burada.
+
+87
+00:05:57,090 --> 00:05:58,480
+Don't worry about it.
+
+88
+00:05:58,480 --> 00:06:02,460
+Bu sizin için gerçekten daha çok hesaplama ile biraz daha tanıdık ve
+
+89
+00:06:02,460 --> 00:06:04,630
+sayısal yaklaşımlarla.
+
+90
+00:06:04,630 --> 00:06:08,890
+ancak paket servisi olan taraf, bu iki yönlü fark formülü çok daha doğru.
+
+91
+00:06:08,890 --> 00:06:12,445
+Ve bir sonraki videoda gradyan kontrolünü yaptığımızda kullanacağımız şey bu.
+
+92
+00:06:13,725 --> 00:06:16,355
+Yani, iki taraflı bir fark alarak nasıl olduğunu gördünüz.
+
+93
+00:06:16,355 --> 00:06:20,845
+Sayısal olarak birisinin g, g değerindeki bir fonksiyonun olup olmadığını doğrulayabilirsiniz.
+
+94
+00:06:20,845 --> 00:06:25,675
+başka bir deyişle, bir fonksiyonun türevinin doğru bir uygulamasıdır.
+
+95
+00:06:25,675 --> 00:06:28,265
+Şimdi nasıl kullanabileceğimizi görelim.
+
+96
+00:06:28,265 --> 00:06:31,435
+yapılan geri yayılım değil ,uygulama doğrudur veya
+
+97
+00:06:31,435 --> 00:06:34,855
+Orada bir hata olabilirse, gitmek ve irdelemek lazım

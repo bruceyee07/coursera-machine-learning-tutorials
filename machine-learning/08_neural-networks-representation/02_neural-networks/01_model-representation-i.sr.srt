@@ -1,0 +1,724 @@
+1
+00:00:00,800 --> 00:00:05,590
+U ovom video snimku pričaću Vam o tome
+kako predstavljamo neuronske mreže.
+
+2
+00:00:05,590 --> 00:00:08,140
+Drugim rečima, kako predstavljamo
+hipoteze
+
+3
+00:00:08,140 --> 00:00:12,060
+odnosno kako predstavljamo model
+kada koristimo neuronske mreže.
+
+4
+00:00:12,060 --> 00:00:16,110
+Neuronske mreže su nastale kao
+simulacije neurona
+
+5
+00:00:16,110 --> 00:00:18,560
+ili mreža neurona u mozgu.
+
+6
+00:00:18,560 --> 00:00:21,430
+Da bismo objasnili način predstavljanja
+hipoteze,
+
+7
+00:00:21,430 --> 00:00:26,420
+počnimo sa proučavanjem izgleda jednog
+neurona u mozgu.
+
+8
+00:00:26,420 --> 00:00:27,110
+Vaš mozak, kao i moj,
+
+9
+00:00:27,110 --> 00:00:32,410
+je prepun neurona poput ovog,
+a ti neuroni su moždane ćelije.
+
+10
+00:00:32,410 --> 00:00:36,260
+Dve stvari je bitno istaći.
+Prva je da
+
+11
+00:00:36,260 --> 00:00:40,320
+neuron ima telo, kao na slici,
+i uz to
+
+12
+00:00:40,320 --> 00:00:44,330
+neuron ima puno ulaznih veza
+koje se zovu dendriti.
+
+13
+00:00:44,330 --> 00:00:50,220
+Možete ih zamisliti kao veze koje samo
+primaju signal iz spoljašnjosti.
+
+14
+00:00:50,220 --> 00:00:55,347
+Neuron ima i izlazne veze
+koje se zovu aksoni
+
+15
+00:00:55,347 --> 00:01:01,478
+i koji šalju signale drugim neuronima,
+
+16
+00:01:01,478 --> 00:01:05,051
+šalju poruke drugim neuronima.
+
+17
+00:01:05,051 --> 00:01:09,760
+Dakle, pojednostavljeno, neuron je
+jedinica za izračunavanje
+
+18
+00:01:09,760 --> 00:01:14,623
+koja prima razne signale preko ulaznih veza,
+zatim izvršava neku računicu
+
+19
+00:01:14,623 --> 00:01:20,490
+i onda, preko aksona, šalje rezultat
+drugim čvorovima, drugim neuronima u mozgu.
+
+20
+00:01:20,490 --> 00:01:24,290
+Evo jedne ilustracije
+grupe neurona.
+
+21
+00:01:24,290 --> 00:01:28,420
+Neuroni međusobno komuniciraju pomoću
+malih električnih impulsa
+
+22
+00:01:28,420 --> 00:01:33,140
+koje neki zovu nervni impulsi, ali to su zapravo
+samo električni signali.
+
+23
+00:01:33,140 --> 00:01:37,921
+Kada jedan neuron, poput ovog na slici,
+želi da pošalje poruku
+
+24
+00:01:37,921 --> 00:01:40,977
+on pošalje mali električni impuls preko
+
+25
+00:01:40,977 --> 00:01:47,446
+svog aksona do drugog neurona,
+ovde vidimo kako je akson,
+
+26
+00:01:47,446 --> 00:01:52,276
+koji šalje izlazne signale, povezan sa
+delom koji prima signale, sa dendritom
+
+27
+00:01:52,276 --> 00:01:57,714
+drugog neurona koji prima poslatu poruku
+zatim izvršava neki proračun
+
+28
+00:01:57,714 --> 00:02:04,033
+i onda šalje svoju poruku preko svog aksona
+nekim drugim neuronima.
+
+29
+00:02:04,033 --> 00:02:08,630
+Ovo je proces koji se odvija kada se
+ formiraju ljudske misli.
+
+30
+00:02:08,630 --> 00:02:10,800
+Neuroni vrše svoja izračunavanja i
+
+31
+00:02:10,800 --> 00:02:16,540
+drugim neuronima prosleđuju poruke 
+koje su formirane na osnovu primljenih poruka.
+
+32
+00:02:16,540 --> 00:02:21,073
+Ovo je način na koji i naša čula,
+ali i naši mišići rade.
+
+33
+00:02:21,073 --> 00:02:26,550
+Ukoliko želite da pomerite neki mišić, to ćete uraditi
+tako što će neuron poslati
+
+34
+00:02:26,550 --> 00:02:32,282
+električne impulse do tog mišića
+što će izazvati kontrakcije mišića.
+
+35
+00:02:32,282 --> 00:02:37,759
+Ukoliko neki senzorni organ, na primer oko,
+želi da pošalje poruku mozgu
+
+36
+00:02:37,759 --> 00:02:43,020
+on onda šalje električne impulse
+neuronu u mozgu.
+
+37
+00:02:43,020 --> 00:02:48,116
+U neuronskoj mreži, odnosno u
+veštačkoj neuronskoj mreži
+
+38
+00:02:48,116 --> 00:02:52,893
+koju ćemo implementirati na računaru
+koristićemo veoma jednostavan model
+
+39
+00:02:52,893 --> 00:02:58,540
+ponašanja neurona, modeliraćemo neuron
+kao logističku jedinicu.
+
+40
+00:02:58,540 --> 00:03:03,170
+Kada nacrtam ovakav žuti krug
+neka Vas to asocira na
+
+41
+00:03:03,170 --> 00:03:07,260
+ulogu koju obavlja telo neurona
+
+42
+00:03:07,260 --> 00:03:12,910
+i u to telo šaljemo razne informacije preko
+dendrita, ulaznih veza.
+
+43
+00:03:14,850 --> 00:03:17,380
+Zatim neuron izvrši svoja izračunavanja
+
+44
+00:03:17,380 --> 00:03:21,560
+i pošalje povratnu informaciju
+kroz izlaznu vezu,
+
+45
+00:03:21,560 --> 00:03:24,480
+što je u biološkom neuronu akson.
+
+46
+00:03:24,480 --> 00:03:26,710
+Kad god nacrtam ovakav dijagram
+
+47
+00:03:26,710 --> 00:03:31,650
+on označava postupak u kome se izračunava
+
+48
+00:03:31,650 --> 00:03:37,690
+h teta od x jednako 1 kroz 1 plus e na
+minus teta transponovano x,
+
+49
+00:03:37,690 --> 00:03:41,530
+gde su, kao i obično, x i teta vektori parametara.
+
+50
+00:03:42,630 --> 00:03:46,365
+Ovo je jednostavan, možda i previše
+uprošćen model
+
+51
+00:03:46,365 --> 00:03:51,136
+izračunavanja koje obavljaju neuroni koji, 
+kada dobiju informacije
+
+52
+00:03:51,136 --> 00:03:54,267
+x1, x2, x3 i na osnovu njih izračunaju neku vrednost.
+
+53
+00:03:59,308 --> 00:04:06,320
+Kada crtam neuronsku mrežu obično
+nacrtam samo ulazne čvorove x1,x2,x3
+
+54
+00:04:06,320 --> 00:04:09,860
+ali ponekad kada je korisno,
+nacrtam i dodatni čvor x0.
+
+55
+00:04:11,070 --> 00:04:16,644
+Čvor x0 se zove jedinica pristrasnosti ili
+neuron pristrasnosti,
+
+56
+00:04:16,644 --> 00:04:22,044
+ali kako je x0 uvek jednak 1
+ponekad ga nacrtam, a ponekad ne
+
+57
+00:04:22,044 --> 00:04:28,620
+u zavisnosti od toga da li je
+korisno istaći taj član u konkretnom primeru.
+
+58
+00:04:31,302 --> 00:04:36,537
+Konačno, još jedan dogovor oko terminologije je
+da, kada se govori o neuronskim mrežama,
+
+59
+00:04:36,537 --> 00:04:39,612
+ponekad se kaže da je ovo neuron,
+
+60
+00:04:39,612 --> 00:04:44,710
+veštački neuron sa sigmoidnom ili logističkom
+aktivacionom funkcijom.
+
+61
+00:04:44,710 --> 00:04:48,920
+Dakle, aktivaciona funkcija je termin
+vezan za neuronske mreže,
+
+62
+00:04:48,920 --> 00:04:52,722
+ali to je samo drugačiji naziv za
+nelinearnu funkciju
+
+63
+00:04:52,722 --> 00:04:57,320
+g od z jednako 1 kroz 1 plus e na -z.
+
+64
+00:04:57,320 --> 00:05:01,410
+Do sada teta nazivali parametrima modela
+
+65
+00:05:01,410 --> 00:05:04,070
+i uglavnom ću nastaviti da koristim taj termin,
+
+66
+00:05:04,070 --> 00:05:08,430
+da ih oslovljavam parametrima,
+ali u literaturi vezanoj za
+
+67
+00:05:08,430 --> 00:05:13,030
+neuronske mreže ponekad možete naići na
+termin "težine modela"
+
+68
+00:05:13,030 --> 00:05:17,190
+i znajte da to znači isto što i
+parametri modela.
+
+69
+00:05:17,190 --> 00:05:21,540
+Što se tiče ovih video snimaka,
+uglavnom ću koristiti termin "parametri",
+
+70
+00:05:21,540 --> 00:05:24,860
+ali ponekad ćete možda od drugih
+čuti termin "težine".
+
+71
+00:05:27,880 --> 00:05:31,660
+Dakle, ovaj mali dijagram predstavlja
+jedan neuron.
+
+72
+00:05:34,500 --> 00:05:41,690
+Neuronska mreža je samo grupa neurona
+koji su međusobno povezani.
+
+73
+00:05:41,690 --> 00:05:46,747
+Konkretno, evo primera sa ulaznim
+čvorovima x1, x2, x3 
+
+74
+00:05:46,747 --> 00:05:52,940
+i po dogovoru možemo nacrtati i čvor x0,
+ali ne moramo.
+
+75
+00:05:52,940 --> 00:05:59,111
+Ovde imamo tri neurona označena sa
+a(2)1, a(2)2, a(2)3
+
+76
+00:05:59,111 --> 00:06:00,992
+o tim oznakama ću pričati kasnije.
+
+77
+00:06:00,992 --> 00:06:06,569
+Ponovo, ako želimo možemo dodati a0
+
+78
+00:06:06,569 --> 00:06:10,480
+možemo dodati tu jedinicu pristrasnosti
+
+79
+00:06:10,480 --> 00:06:11,970
+koja uvek ima vrednost 1.
+
+80
+00:06:11,970 --> 00:06:16,520
+Na kraju, imamo treći čvor koji predstavlja
+poslednji sloj
+
+81
+00:06:16,520 --> 00:06:22,370
+i on kao izlaznu informaciju daje vrednost
+koju izračuna hipoteza h(x).
+
+82
+00:06:22,370 --> 00:06:26,253
+Uvedimo još neke termine,
+u neuronskim mrežama
+
+83
+00:06:26,253 --> 00:06:31,222
+prvi sloj se zove ulazni sloj
+jer preko njega u mrežu "ulaze"
+
+84
+00:06:31,222 --> 00:06:33,805
+promenljive x1, x2, x3.
+
+85
+00:06:33,805 --> 00:06:39,283
+Poslednji sloj se naziva izlazni sloj
+jer on sadrži neuron
+
+86
+00:06:39,283 --> 00:06:44,544
+ovaj ovde, koji prikazuje konačnu vrednost
+izračunatu pomoću hipoteze.
+
+87
+00:06:44,544 --> 00:06:49,180
+Sloj 2, koji je između njih,
+naziva se skriveni sloj.
+
+88
+00:06:49,180 --> 00:06:53,701
+To nije baš najbolji naziv, ali intuicija je ta da,
+
+89
+00:06:53,701 --> 00:06:55,688
+znate, u nadgledanom učenju
+
+90
+00:06:55,688 --> 00:06:59,796
+vidite ulazne vrednosti
+i tačne izlazne vrednosti,
+
+91
+00:06:59,796 --> 00:07:04,550
+a između je skriveni sloj vrednosti koje
+ne vidite u skupu podataka za treniranje.
+
+92
+00:07:04,550 --> 00:07:08,490
+To nije x i nije y, pa je zato skriven.
+
+93
+00:07:08,490 --> 00:07:12,730
+Kasnije ćemo videti i neuronske mreže sa
+više skrivenih slojeva,
+
+94
+00:07:12,730 --> 00:07:17,280
+dok u ovom primeru imamo jedan ulazni sloj - sloj 1,
+jedan izlazni sloj - sloj 2
+
+95
+00:07:17,280 --> 00:07:19,260
+i jedan izlazni sloj - sloj 3.
+
+96
+00:07:19,260 --> 00:07:22,054
+U suštini, sve što nije ulazni niti
+
+97
+00:07:22,054 --> 00:07:24,498
+izlazni sloj je skriveni sloj.
+
+98
+00:07:29,200 --> 00:07:34,020
+Želim da u potpunosti razjasnim šta ova
+neuronska mreža radi.
+
+99
+00:07:34,020 --> 00:07:37,570
+Prođimo kroz korake izračunavanja koji
+
+100
+00:07:37,570 --> 00:07:41,580
+su prikazani ovim dijagramom.
+
+101
+00:07:41,580 --> 00:07:45,600
+Radi pojašnjenja izračunavanja koje
+vrši ova neuronska mreža
+
+102
+00:07:45,600 --> 00:07:47,350
+analizirajmo neke oznake.
+
+103
+00:07:47,350 --> 00:07:52,300
+Korisiću a sa gornjim indeksom (j) i
+donjim indeksom i kao oznaku za
+
+104
+00:07:52,300 --> 00:07:56,810
+aktivaciju neurona, tj. jedinice i u sloju j.
+
+105
+00:07:56,810 --> 00:08:01,530
+Konkretno, ovo a sa gornjim indeksom (2) i donjim 1
+
+106
+00:08:01,530 --> 00:08:07,180
+to je aktivacija prvog neurona u drugom sloju
+odnosno u skrivenom sloju.
+
+107
+00:08:07,180 --> 00:08:11,280
+Kada kažem "aktivacija" mislim na vrednost
+koju je izračunao
+
+108
+00:08:11,280 --> 00:08:13,260
+i prikazao taj neuron.
+
+109
+00:08:13,260 --> 00:08:18,010
+Našu neuronsku mrežu parametrizuju
+matrice
+
+110
+00:08:18,010 --> 00:08:22,720
+Teta sa gornjim indeksom (j) i to su matrice težina
+koje kontrolišu
+
+111
+00:08:22,720 --> 00:08:27,070
+funkciju koja preslikava jedan sloj u drugi,
+na primer prvi sloj u drugi
+
+112
+00:08:27,070 --> 00:08:28,920
+ili drugi sloj u treći sloj.
+
+113
+00:08:30,020 --> 00:08:33,360
+Ovo su izračunavanja koja
+ovaj dijagram prikazuje.
+
+114
+00:08:34,540 --> 00:08:39,442
+Ova prva skrivena jedinica ima vrednost
+koja se izračunava kao
+
+115
+00:08:39,442 --> 00:08:44,940
+a(2)1 je jednako sigmoidnoj funkciji
+ili sigmoidnoj aktivacionoj funkciji
+
+116
+00:08:44,940 --> 00:08:47,800
+koja se naziva i logistička
+aktivaciona funkcija,
+
+117
+00:08:47,800 --> 00:08:53,780
+primenjenoj na ovakvu linearnu
+kombinaciju ovih ulaznih vrednosti.
+
+118
+00:08:53,780 --> 00:08:58,540
+Zatim, ova druga skrivena jedinica
+ima ovu aktivacionu
+
+119
+00:08:58,540 --> 00:09:01,793
+vrednost koja se računa kao vrednost
+sigmoidne funkcije od ovog.
+
+120
+00:09:01,793 --> 00:09:08,037
+I na sličan način se ova treća skrivena jedinica
+računa po ovoj formuli.
+
+121
+00:09:08,037 --> 00:09:13,857
+Ovde imamo 3 ulazne jedinice i
+3 skrivene jedinice.
+
+122
+00:09:13,857 --> 00:09:19,167
+Koje je dimenzije Teta(1),
+
+123
+00:09:19,167 --> 00:09:26,719
+matrica parametara koji određuju
+preslikavanje iz 3 ulazne u 3 skrivene jedinice?
+
+124
+00:09:26,719 --> 00:09:29,958
+Teta(1) će biti matrica
+
+125
+00:09:35,213 --> 00:09:41,761
+koja je dimenzije 3x4.
+
+126
+00:09:41,761 --> 00:09:46,777
+Uopšteno, ako mreža ima sj jedinica u sloju j
+
+127
+00:09:46,777 --> 00:09:50,686
+i s(j+1) jedinica u sloju j+1 onda je
+
+128
+00:09:50,686 --> 00:09:55,428
+matrica Teta(j) koja predstavlja preslikavanje
+iz sloja j u sloj j+1
+
+129
+00:09:55,428 --> 00:10:00,105
+biti dimenzije s(j+1) sa sj +1.
+
+130
+00:10:00,105 --> 00:10:02,318
+Samo da budemo načisto sa oznakama,
+
+131
+00:10:02,318 --> 00:10:06,649
+ovo je s sa indeksom j+1,
+a ovo je
+
+132
+00:10:06,649 --> 00:10:12,315
+s sa indeksom j pa sve to plus 1.
+
+133
+00:10:12,315 --> 00:10:16,784
+Dakle, s sa indeksom j+1 plus,
+odnosno puta...
+
+134
+00:10:21,847 --> 00:10:26,851
+Dakle, s sa indeksom j+1 puta sj plus 1
+
+135
+00:10:26,851 --> 00:10:31,736
+gde ovo +1 nije u indeksu.
+
+136
+00:10:31,736 --> 00:10:36,508
+U redu, pričali smo o tome kako tri
+skrivena sloja vrše izračunavanja,
+
+137
+00:10:36,508 --> 00:10:40,252
+ostao je još ovaj poslednji sloj.
+
+138
+00:10:40,252 --> 00:10:45,036
+Posle skrivenih imamo izlaznu jedinicu
+koja izračunava vrednost h od x,
+
+139
+00:10:45,036 --> 00:10:51,488
+što ponekad označavamo sa a(3)1 i
+ono je jednako ovome.
+
+140
+00:10:51,488 --> 00:10:56,105
+Primetite da sam ovde napisao 2
+u gornjem indeksu
+
+141
+00:10:56,105 --> 00:11:00,560
+jer je Teta(2) matrica parametara,
+ odnosno matrica težina
+
+142
+00:11:00,560 --> 00:11:06,149
+koja kontroliše funkciju koja preslikava
+skrivene jedinice, odnosno sloj 2
+
+143
+00:11:06,149 --> 00:11:12,330
+u sloj 3 koji ima samo jednu jedinicu,
+izlaznu jedinicu.
+
+144
+00:11:12,330 --> 00:11:17,340
+Da sumiramo, ovakva jedna slika definiše
+
+145
+00:11:17,340 --> 00:11:22,020
+veštačku neuronsku mrežu
+koja definiše funkciju h
+
+146
+00:11:22,020 --> 00:11:27,520
+koja preslikava x-eve koji su ulazne vrednosti
+u neki prostor koji nam daje vrednost y.
+
+147
+00:11:27,520 --> 00:11:31,480
+Ove hipoteze su parametrizovane
+parametrima koje
+
+148
+00:11:31,480 --> 00:11:36,240
+označavamo velikim Teta
+pa zato kada menjamo Teta
+
+149
+00:11:36,240 --> 00:11:38,805
+dobijamo različite hipoteze,
+dobijamo različite funkcije
+
+150
+00:11:38,805 --> 00:11:40,630
+koje preslikavaju x u y.
+
+151
+00:11:42,590 --> 00:11:47,418
+Dakle, ovo je matematička definicija
+reprezentacije hipoteze
+
+152
+00:11:47,418 --> 00:11:48,722
+neuronske mreže.
+
+153
+00:11:48,722 --> 00:11:53,178
+U narednih nekoliko video snimaka
+voleo bih da Vam intuitivno približim
+
+154
+00:11:53,178 --> 00:11:58,132
+šta ove reprezentacije hipoteze rade
+i da Vam prikažem par primera
+
+155
+00:11:58,132 --> 00:12:00,850
+i objasnim kako se one mogu efikasno izračunati.

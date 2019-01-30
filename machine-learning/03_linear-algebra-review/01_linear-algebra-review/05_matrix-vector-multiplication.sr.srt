@@ -1,0 +1,1463 @@
+1
+00:00:00,230 --> 00:00:01,364
+U ovome video voleo bih
+
+2
+00:00:01,364 --> 00:00:02,699
+da počnemo da govorimo o tome
+
+3
+00:00:02,699 --> 00:00:05,020
+kako množimo dve matrice.
+
+4
+00:00:05,020 --> 00:00:06,618
+Počećemo specijalnim slučajem,
+
+5
+00:00:06,618 --> 00:00:08,347
+množenjem matrice i
+
+6
+00:00:08,350 --> 00:00:12,530
+vektora - množenje matrice i vektora.
+
+7
+00:00:12,530 --> 00:00:13,975
+Počnimo primerom.
+
+8
+00:00:13,975 --> 00:00:15,722
+Ovo je matrica,
+
+9
+00:00:15,722 --> 00:00:17,283
+a ovo je vektor i
+
+10
+00:00:17,283 --> 00:00:18,351
+recimo da želimo da
+
+11
+00:00:18,351 --> 00:00:21,281
+pomnožimo ovu matricu
+
+12
+00:00:21,281 --> 00:00:24,202
+ovim vektorom, šta je rezultat?
+
+13
+00:00:24,202 --> 00:00:25,209
+Dozvolite mi da samo izračunam
+
+14
+00:00:25,210 --> 00:00:27,058
+ovaj primer a onda ćemo
+
+15
+00:00:27,058 --> 00:00:29,886
+da se vratimo korak nazad i vidimo koji su koraci.
+
+16
+00:00:29,886 --> 00:00:31,104
+Videćete da će rezultat
+
+17
+00:00:31,104 --> 00:00:32,912
+ovoga procesa množenja da
+
+18
+00:00:32,912 --> 00:00:34,554
+bude isto vektor.
+
+19
+00:00:34,560 --> 00:00:35,931
+I samo ću prvo da uradim
+
+20
+00:00:35,931 --> 00:00:37,108
+ovo a kasnije ćemo da
+
+21
+00:00:37,108 --> 00:00:39,650
+se vratimo i vidimo šta sam ovde uradio.
+
+22
+00:00:39,652 --> 00:00:41,228
+Da bismo dobili prvi element
+
+23
+00:00:41,228 --> 00:00:42,445
+ovoga vektora, ja ću da
+
+24
+00:00:42,445 --> 00:00:44,840
+uzmem ova dva broja
+
+25
+00:00:44,849 --> 00:00:47,682
+i pomnožim ih
+
+26
+00:00:47,682 --> 00:00:49,463
+prvim redom ove
+
+27
+00:00:49,463 --> 00:00:51,884
+matrice i saberem odgovarajuće brojeve.
+
+28
+00:00:51,884 --> 00:00:54,223
+Uzimam jedan pomnoženo
+
+29
+00:00:54,223 --> 00:00:57,430
+sa 1 i uzimam
+
+30
+00:00:57,430 --> 00:00:58,616
+tri i množim sa
+
+31
+00:00:58,616 --> 00:01:01,557
+pet, i to je
+
+32
+00:01:01,580 --> 00:01:04,542
+šta, to je jedan plus petnaest i to mi daje šesnaest.
+
+33
+00:01:04,542 --> 00:01:06,879
+Ovde ću da napišem šesnaest.
+
+34
+00:01:06,880 --> 00:01:09,926
+Tada, za drugi red,
+
+35
+00:01:09,926 --> 00:01:12,555
+drugi element,
+
+36
+00:01:12,555 --> 00:01:14,022
+uzeću drugi red
+
+37
+00:01:14,022 --> 00:01:15,255
+i pomnožiti ga ovim vektorom,
+
+38
+00:01:15,255 --> 00:01:17,762
+tako imam četiri
+
+39
+00:01:17,800 --> 00:01:20,554
+puta jedan, plus nula
+
+40
+00:01:20,554 --> 00:01:21,894
+puta pet, što je
+
+41
+00:01:21,894 --> 00:01:25,625
+jednako četiri, znači tamo ćete imati četiri.
+
+42
+00:01:25,625 --> 00:01:28,168
+I konačno, za ovan poslednji
+
+43
+00:01:28,168 --> 00:01:30,015
+imam dva jedan puta
+
+44
+00:01:30,015 --> 00:01:31,540
+jedan pet, dakle dva
+
+45
+00:01:31,540 --> 00:01:33,791
+sa jedan plus jedan
+
+46
+00:01:33,791 --> 00:01:36,361
+sa pet, što je jednako
+
+47
+00:01:36,361 --> 00:01:39,422
+sedam, i
+
+48
+00:01:39,422 --> 00:01:43,145
+tako ovde dobijam sedam.
+
+49
+00:01:43,810 --> 00:01:45,464
+Videćete da je
+
+50
+00:01:45,464 --> 00:01:48,102
+rezultat množenja, to je
+
+51
+00:01:48,102 --> 00:01:50,750
+jedna 3x2 matrica, sa jednom
+
+52
+00:01:51,030 --> 00:01:53,498
+2x1 matricom je takođe
+
+53
+00:01:53,498 --> 00:01:55,504
+jedan dvo-dimenzionalni vektor.
+
+54
+00:01:55,504 --> 00:01:57,034
+Rezultat ovoga će da
+
+55
+00:01:57,040 --> 00:02:01,975
+bude jedna 3x1
+
+56
+00:02:01,980 --> 00:02:03,945
+matrica, zato dobijam
+
+57
+00:02:03,960 --> 00:02:05,737
+jednu 3x1
+
+58
+00:02:05,750 --> 00:02:07,534
+matricu, drugim rečima
+
+59
+00:02:07,550 --> 00:02:13,141
+3x1 matrica je samo tro-dimenzionalni vektor.
+
+60
+00:02:13,170 --> 00:02:14,359
+Dakle, shvatio sam da sam
+
+61
+00:02:14,359 --> 00:02:16,072
+ovo uradio veoma brzo, i verovatno
+
+62
+00:02:16,072 --> 00:02:17,078
+niste sigurni da li možete sami da
+
+63
+00:02:17,078 --> 00:02:18,530
+ponovite proces, ali
+
+64
+00:02:18,530 --> 00:02:20,196
+pogledajmo malo detaljnije
+
+65
+00:02:20,196 --> 00:02:22,019
+šta se upravo desilo i kako
+
+66
+00:02:22,020 --> 00:02:26,618
+ovaj proces množenja matrice i vektora izgleda.
+
+67
+00:02:26,618 --> 00:02:28,478
+Ovo su detalji toga kako
+
+68
+00:02:28,478 --> 00:02:30,532
+se množe matrica i vektor.
+
+69
+00:02:30,540 --> 00:02:32,014
+Recimo da imam matricu A
+
+70
+00:02:32,014 --> 00:02:33,355
+i želim da je pomnožim
+
+71
+00:02:33,355 --> 00:02:35,637
+vektorom x.
+
+72
+00:02:35,637 --> 00:02:37,220
+Rezultat će da bude neki
+
+73
+00:02:37,220 --> 00:02:39,569
+vektor y. Dakle,
+
+74
+00:02:39,569 --> 00:02:41,334
+matrica A je m
+
+75
+00:02:41,334 --> 00:02:43,388
+puta n dimenzionalna matrica, znači
+
+76
+00:02:43,388 --> 00:02:45,062
+m redova i n kolona i
+
+77
+00:02:45,062 --> 00:02:46,570
+pomnožićemo to sa jednom
+
+78
+00:02:46,570 --> 00:02:49,651
+n puta 1 matricom,
+ drugim rečima n-dimenzionalnim vektorom.
+
+79
+00:02:49,651 --> 00:02:51,203
+Videćete da ovo
+
+80
+00:02:51,203 --> 00:02:54,694
+n ovde mora da odgovara ovome n ovde.
+
+81
+00:02:54,694 --> 00:02:55,933
+Drugim rečima, broj
+
+82
+00:02:55,933 --> 00:02:58,560
+kolona ove matrice, dakle
+
+83
+00:02:58,580 --> 00:03:01,821
+to je broj n kolona,
+
+84
+00:03:01,821 --> 00:03:03,457
+broj kolona ovde mora
+
+85
+00:03:03,457 --> 00:03:06,442
+da odgovara broju redova ovde.
+
+86
+00:03:06,442 --> 00:03:09,274
+Mora da odgovara dimenziji ovoga vektora.
+
+87
+00:03:09,280 --> 00:03:10,645
+A rezultat ovoga proizvoda
+
+88
+00:03:10,645 --> 00:03:15,681
+će da bude jedan n-dimenzionalni
+
+89
+00:03:15,761 --> 00:03:19,858
+vektor y. Drugim rečima, broj redova
+
+90
+00:03:19,858 --> 00:03:23,009
+m će da bude
+
+91
+00:03:23,010 --> 00:03:24,972
+jednako broju
+
+92
+00:03:24,972 --> 00:03:28,237
+redova ove matrice A.
+
+93
+00:03:28,250 --> 00:03:31,082
+Dakle, kako u stvari računamo ovaj vektor y?
+
+94
+00:03:31,082 --> 00:03:32,110
+Videćete, da biste izračunali
+
+95
+00:03:32,110 --> 00:03:34,280
+ovaj vektor y, proces
+
+96
+00:03:34,280 --> 00:03:36,860
+dobijanja yi je, pomnožite i-ti
+
+97
+00:03:37,200 --> 00:03:38,799
+red od A sa
+
+98
+00:03:38,799 --> 00:03:40,218
+elementima vektora x
+
+99
+00:03:40,218 --> 00:03:41,623
+i saberete ih.
+
+100
+00:03:41,625 --> 00:03:42,464
+Dakle, na ovo sam mislio.
+
+101
+00:03:42,470 --> 00:03:45,035
+Da bismo dobili
+
+102
+00:03:45,060 --> 00:03:47,847
+prvi element od y,
+
+103
+00:03:47,847 --> 00:03:49,980
+taj prvi broj, šta god
+
+104
+00:03:49,980 --> 00:03:51,424
+on bio, mi ćemo da uzmemo
+
+105
+00:03:51,424 --> 00:03:53,012
+prvi red ove
+
+106
+00:03:53,020 --> 00:03:55,486
+matrice A i pomnožiti
+
+107
+00:03:55,486 --> 00:03:57,680
+ga jedan po jedan
+
+108
+00:03:57,680 --> 00:03:59,842
+elementima ovoga vektora x.
+
+109
+00:03:59,842 --> 00:04:01,755
+Dakle, uzimam ovaj prvi broj
+
+110
+00:04:01,760 --> 00:04:03,912
+i množim ga ovim prvim brojem.
+
+111
+00:04:03,912 --> 00:04:07,331
+Tada uzimam drugi broj i množim ga ovim drugim broj.
+
+112
+00:04:07,331 --> 00:04:09,264
+Uzmite ovaj treći broj koji
+
+113
+00:04:09,264 --> 00:04:10,603
+god da je, pomnožite ga sa trećim brojem
+
+114
+00:04:10,603 --> 00:04:12,871
+i tako dalje skroz do kraja.
+
+115
+00:04:13,320 --> 00:04:14,578
+I ja ću da saberem rezultate
+
+116
+00:04:14,578 --> 00:04:16,289
+ovih proizvoda i
+
+117
+00:04:16,300 --> 00:04:19,918
+rezultat koji dobijem će da da ovaj prvi element od y.
+
+118
+00:04:19,922 --> 00:04:21,690
+Tada, ako želimo da dobijemo
+
+119
+00:04:21,690 --> 00:04:25,334
+drugi element od y, recimo ovaj element,
+
+120
+00:04:25,340 --> 00:04:26,735
+način na koji to radimo je da
+
+121
+00:04:26,735 --> 00:04:28,688
+uzmemo drugi red od
+
+122
+00:04:28,688 --> 00:04:30,078
+A i ponovimo celi postupak.
+
+123
+00:04:30,078 --> 00:04:31,265
+Dakle, uzimamo drugi red
+
+124
+00:04:31,265 --> 00:04:32,994
+od A i množimo ga
+
+125
+00:04:32,994 --> 00:04:34,407
+po elementima, znači elementima
+
+126
+00:04:34,407 --> 00:04:35,814
+od x i sabiramo
+
+127
+00:04:35,830 --> 00:04:37,460
+rezultate proizvoda
+
+128
+00:04:37,460 --> 00:04:38,402
+i to će da mi da
+
+129
+00:04:38,402 --> 00:04:40,107
+drugi element od y. I
+
+130
+00:04:40,107 --> 00:04:41,598
+nastavljate tako, uzimamo
+
+131
+00:04:41,600 --> 00:04:42,839
+teći red od A,
+
+132
+00:04:42,850 --> 00:04:44,720
+množimo elemente od y
+
+133
+00:04:44,720 --> 00:04:47,558
+sa vektorom x,
+
+134
+00:04:47,560 --> 00:04:48,682
+sabiramo rezultate i tada
+
+135
+00:04:48,682 --> 00:04:50,246
+dobijamo treći element i
+
+136
+00:04:50,260 --> 00:04:51,600
+tako dalje dok ne dođemo
+
+137
+00:04:51,600 --> 00:04:55,139
+do poslednjeg reda, u redu?
+
+138
+00:04:55,676 --> 00:04:57,930
+Dakle, to je procedura.
+
+139
+00:04:58,340 --> 00:05:00,685
+Hajde da uradimo još jedan primer.
+
+140
+00:05:00,685 --> 00:05:05,240
+Ovo je primer. Da vidimo dimenzije.
+
+141
+00:05:05,240 --> 00:05:08,428
+Ovo je tri
+
+142
+00:05:08,428 --> 00:05:11,086
+puta četiri dimenzionalna matrica.
+
+143
+00:05:11,086 --> 00:05:13,280
+Ovo je četvoro-dimenzionalni vektor,
+
+144
+00:05:13,280 --> 00:05:15,292
+ili 4x1 matrica, i
+
+145
+00:05:15,292 --> 00:05:16,825
+rezultat ovoga,
+
+146
+00:05:16,825 --> 00:05:18,210
+rezultat ovoga proizvoda će da
+
+147
+00:05:18,220 --> 00:05:20,881
+bude trodimenzionalni vektor.
+
+148
+00:05:20,890 --> 00:05:23,169
+U redu, znate, vektor
+
+149
+00:05:23,180 --> 00:05:26,531
+sa sobom za tri elementa.
+
+150
+00:05:26,531 --> 00:05:30,256
+Hajde da uradimo, hajde da izvršimo množenje.
+
+151
+00:05:30,256 --> 00:05:32,915
+Dakle, za prvi element,
+
+152
+00:05:32,915 --> 00:05:35,068
+uzeću ova četiri broja
+
+153
+00:05:35,068 --> 00:05:36,272
+i pomnožiti ih sa
+
+154
+00:05:36,272 --> 00:05:38,873
+vektorom x. Dakle, imam
+
+155
+00:05:38,873 --> 00:05:42,227
+jedan puta jedan plus dva puta tri
+
+156
+00:05:42,568 --> 00:05:47,301
+plus jedan puta dva plus pet puta jedan
+
+157
+00:05:47,301 --> 00:05:49,994
+što je jednako, to je
+
+158
+00:05:50,050 --> 00:05:55,602
+jedan plus šest plus dva plus pet što mi daje 14.
+
+159
+00:05:55,630 --> 00:05:58,156
+I dalje, za
+
+160
+00:05:58,156 --> 00:05:59,754
+drugi element, ja ću da
+
+161
+00:05:59,754 --> 00:06:01,422
+uzmem sada ovaj red i
+
+162
+00:06:01,422 --> 00:06:04,604
+pomnožim sa ovim vektorom, dakle počinjem sa nula.
+
+163
+00:06:04,604 --> 00:06:06,196
+U redu, dakle,
+
+164
+00:06:06,243 --> 00:06:12,764
+nula puta jedan plus tri puta tri plus
+
+165
+00:06:12,764 --> 00:06:19,958
+nula puta dva plus četiri puta 1
+
+166
+00:06:20,840 --> 00:06:22,974
+što je jednako, da
+
+167
+00:06:22,974 --> 00:06:26,105
+vidimo, to je devet plus četiri je trinaest.
+
+168
+00:06:26,105 --> 00:06:28,093
+I konačno, za poslednji
+
+169
+00:06:28,093 --> 00:06:29,455
+element, ja ću da uzmem
+
+170
+00:06:29,455 --> 00:06:30,847
+ovaj poslednji red, tako da
+
+171
+00:06:30,847 --> 00:06:33,978
+imam minus jedan puta jedan.
+
+172
+00:06:34,110 --> 00:06:38,068
+Imate minus dva, znate, plus negativan daje minus,
+
+173
+00:06:38,080 --> 00:06:40,656
+puta tri plus nula
+
+174
+00:06:40,656 --> 00:06:42,441
+puta dva plus nula puta
+
+175
+00:06:42,441 --> 00:06:44,047
+jedan, i tako to će
+
+176
+00:06:44,047 --> 00:06:45,496
+da bude minus jedan minus
+
+177
+00:06:45,496 --> 00:06:46,474
+šest što će da bude
+
+178
+00:06:46,474 --> 00:06:49,636
+ovo sedam, sedam negativno.
+
+179
+00:06:49,636 --> 00:06:50,136
+U redu?
+
+180
+00:06:50,136 --> 00:06:51,097
+Dakle, konačan odgovor je ovaj
+
+181
+00:06:51,097 --> 00:06:54,033
+vektor, četrnaest, samo da
+
+182
+00:06:54,033 --> 00:06:56,117
+napišem bez boja, četrnaest,
+
+183
+00:06:56,117 --> 00:06:59,843
+trinaest, minus sedam.
+
+184
+00:07:01,190 --> 00:07:03,567
+I kao što sam obećao,
+
+185
+00:07:03,567 --> 00:07:07,775
+rezultat ovde je tri puta jedan matrica.
+
+186
+00:07:07,775 --> 00:07:11,147
+Dakle, tako množite matricu i vektor.
+
+187
+00:07:11,170 --> 00:07:12,309
+Znam da se mnogo stvari
+
+188
+00:07:12,309 --> 00:07:13,710
+desilo na ovome slajdu, pa
+
+189
+00:07:13,710 --> 00:07:14,662
+ako niste baš sigurni gde svi
+
+190
+00:07:14,680 --> 00:07:16,228
+ovi brojevi idu, znate,
+
+191
+00:07:16,228 --> 00:07:17,260
+slobodno zaustavite video,
+
+192
+00:07:17,280 --> 00:07:18,345
+znate, i polako i
+
+193
+00:07:18,345 --> 00:07:19,980
+pažljivo pogledajte ovaj
+
+194
+00:07:19,980 --> 00:07:21,195
+veliki račun koji smo upravo
+
+195
+00:07:21,195 --> 00:07:22,318
+uradili i pokušajte da
+
+196
+00:07:22,318 --> 00:07:23,755
+se uverite da ste razumeli korake
+
+197
+00:07:23,760 --> 00:07:25,144
+koje smo upravo napravili da bismo
+
+198
+00:07:25,144 --> 00:07:29,570
+dobili ove brojeve, četrnaest, trinaest i minus sedam.
+
+199
+00:07:29,650 --> 00:07:31,959
+Konačno, da vam pokažem zgodan trik.
+
+200
+00:07:31,959 --> 00:07:33,939
+Recimo da imamo
+
+201
+00:07:33,940 --> 00:07:36,462
+jedan skup od četiri
+
+202
+00:07:36,462 --> 00:07:38,650
+kuće sa ove 4 veličine kuća.
+
+203
+00:07:38,650 --> 00:07:39,908
+I recimo da imam
+
+204
+00:07:39,908 --> 00:07:41,418
+hipotezu za predviđanje koja je
+
+205
+00:07:41,420 --> 00:07:43,885
+cijena kuće, i
+
+206
+00:07:43,890 --> 00:07:45,861
+recimo da želim da izračunam,
+
+207
+00:07:45,861 --> 00:07:49,347
+znate, h(x) za svaku od moje četiri kuće.
+
+208
+00:07:49,347 --> 00:07:51,039
+Videćete da postoji zgodan način
+
+209
+00:07:51,039 --> 00:07:52,979
+postavljanja problema, primenjujući ovu
+
+210
+00:07:52,980 --> 00:07:56,780
+hipotezu na sve četiri kuće istovremeno.
+
+211
+00:07:56,780 --> 00:07:57,795
+Videćete da postoji prikladan
+
+212
+00:07:57,795 --> 00:07:59,509
+načina da problem postavite kao
+
+213
+00:07:59,509 --> 00:08:01,798
+množenje matrice i vektora.
+
+214
+00:08:02,240 --> 00:08:03,672
+Dakle, ovako ću to da uradim.
+
+215
+00:08:03,672 --> 00:08:06,717
+Napraviću matricu kao što sledi.
+
+216
+00:08:06,717 --> 00:08:08,122
+Moja matrica će da bude
+
+217
+00:08:08,122 --> 00:08:11,892
+1, 1, 1, 1 puta, a
+
+218
+00:08:11,892 --> 00:08:15,495
+napisaću ka dole veličine
+
+219
+00:08:15,510 --> 00:08:19,935
+moje četiri kuće a
+
+220
+00:08:19,935 --> 00:08:21,249
+isto tako ću da napravim
+
+221
+00:08:21,249 --> 00:08:23,354
+vektor, a moj
+
+222
+00:08:23,354 --> 00:08:25,609
+vektor će da bude ovaj
+
+223
+00:08:25,609 --> 00:08:30,072
+vektor od dva elementa, to je
+
+224
+00:08:30,072 --> 00:08:32,182
+-40 i 0.25.
+
+225
+00:08:32,182 --> 00:08:34,607
+To su ova dva koeficijenta,
+
+226
+00:08:34,607 --> 00:08:35,432
+teta0 i teta1.
+
+227
+00:08:35,432 --> 00:08:36,835
+A ono što ću da
+
+228
+00:08:36,835 --> 00:08:38,048
+uradim je da uzmem matricu
+
+229
+00:08:38,060 --> 00:08:39,708
+i taj vektor i pomnožim ih,
+
+230
+00:08:39,708 --> 00:08:42,465
+ovo puta je simbol množenja.
+
+231
+00:08:42,465 --> 00:08:43,288
+Dakle, šta dobijam?
+
+232
+00:08:43,288 --> 00:08:46,412
+Pa, ovo je jedna
+
+233
+00:08:46,420 --> 00:08:48,228
+četiri puta dva matrica.
+
+234
+00:08:48,228 --> 00:08:52,005
+Ovo je dva puta jedan matrica.
+
+235
+00:08:52,005 --> 00:08:53,952
+Dakle, rezultat će da
+
+236
+00:08:53,952 --> 00:08:55,355
+bude četiri puta jedan
+
+237
+00:08:55,355 --> 00:08:59,506
+vektor, u redu.
+
+238
+00:08:59,520 --> 00:09:02,860
+Dakle, hajde da,
+
+239
+00:09:02,870 --> 00:09:05,334
+dakle ovo će
+
+240
+00:09:05,334 --> 00:09:06,188
+da bude četiri puta
+
+241
+00:09:06,188 --> 00:09:06,957
+jedan matrica kao rezultat ili
+
+242
+00:09:06,957 --> 00:09:10,035
+u stvari četvoro-dimenzionalni vektor,
+
+243
+00:09:10,035 --> 00:09:11,562
+pa ću da napišem kao
+
+244
+00:09:11,562 --> 00:09:15,991
+jedan od moja četiri elementa sa ova četiri realna broja.
+
+245
+00:09:16,010 --> 00:09:17,202
+Videćete da ovaj
+
+246
+00:09:17,202 --> 00:09:18,952
+prvi element ovoga
+
+247
+00:09:18,952 --> 00:09:20,497
+rezultata, način na
+
+248
+00:09:20,497 --> 00:09:21,505
+koji ću da ga dobijem je,
+
+249
+00:09:21,505 --> 00:09:25,526
+uzeću ovo i pomnožiti ga vektorom.
+
+250
+00:09:25,526 --> 00:09:29,381
+Tako, ovo će da
+
+251
+00:09:29,381 --> 00:09:33,053
+bude -40 * 1
+
+252
+00:09:33,053 --> 00:09:37,645
+plus 0.25 * 2104.
+
+253
+00:09:37,645 --> 00:09:38,998
+Usput, u
+
+254
+00:09:38,998 --> 00:09:40,915
+ranijim slajdovima ja sam
+
+255
+00:09:40,915 --> 00:09:42,257
+pisao 1 * -40 i
+
+256
+00:09:42,260 --> 00:09:44,405
+2104 * 0.25 ali
+
+257
+00:09:44,405 --> 00:09:46,570
+redosled nije bitan, u redu?
+
+258
+00:09:46,580 --> 00:09:49,637
+-40 * 1 je isto što i 1 * -40.
+
+259
+00:09:49,637 --> 00:09:52,115
+A ovaj prvi element, naravno,
+
+260
+00:09:52,115 --> 00:09:55,288
+je h primenjeno na 2104.
+
+261
+00:09:55,288 --> 00:09:57,395
+Dakle, to je stvarno
+
+262
+00:09:57,395 --> 00:09:59,969
+predviđena cena moje prve kuće.
+
+263
+00:09:59,969 --> 00:10:02,351
+Dobro, šta je sa drugim elementom?
+
+264
+00:10:02,390 --> 00:10:04,089
+Nadam se da vidite
+
+265
+00:10:04,089 --> 00:10:07,912
+gde ću da stavim drugi element.
+
+266
+00:10:07,912 --> 00:10:08,750
+Shvatate?
+
+267
+00:10:08,750 --> 00:10:11,052
+Ja ću da uzmem ovo i da pomnožim mojim vektorom.
+
+268
+00:10:11,052 --> 00:10:13,154
+Tako, ovo će da bude
+
+269
+00:10:13,180 --> 00:10:15,038
+-40 * 1 + 0.25 * 1416.
+
+270
+00:10:15,038 --> 00:10:23,037
+I to će da bude h(1416)
+
+271
+00:10:23,110 --> 00:10:23,110
+Shvatate?
+
+272
+00:10:25,810 --> 00:10:27,024
+I tako dalje za
+
+273
+00:10:27,024 --> 00:10:30,720
+treći i četvrti
+
+274
+00:10:30,760 --> 00:10:33,797
+element ovoga 4x1 vektora.
+
+275
+00:10:33,800 --> 00:10:37,142
+Samo da bude jasno, u redu,
+
+276
+00:10:37,142 --> 00:10:39,239
+ovo ovde što sam
+
+277
+00:10:39,239 --> 00:10:41,131
+upravo zaokružio zelenom bojom,
+
+278
+00:10:41,131 --> 00:10:42,752
+to je realan broj, u redu?
+
+279
+00:10:42,752 --> 00:10:44,169
+To je jedan realan broj,
+
+280
+00:10:44,180 --> 00:10:45,673
+a ovo ovde što
+
+281
+00:10:45,680 --> 00:10:47,812
+sam zaokružio magenta bojom,
+
+282
+00:10:47,812 --> 00:10:49,826
+ljubičastom, magenta bojom,
+
+283
+00:10:49,850 --> 00:10:50,908
+i to je jedan realan broj, u redu?
+
+284
+00:10:50,920 --> 00:10:52,683
+Isto tako, ovo na
+
+285
+00:10:52,683 --> 00:10:54,104
+desnoj, sve ovo na
+
+286
+00:10:54,104 --> 00:10:55,200
+desnoj strani, to je jedan
+
+287
+00:10:55,220 --> 00:10:59,288
+4x1 dimenzionalna matrica, 
+četvoro-dimenzionalni vektor.
+
+288
+00:10:59,288 --> 00:11:00,728
+A zgodna stvar u vezi
+
+289
+00:11:00,728 --> 00:11:02,128
+sa ovim je da, kada ovo
+
+290
+00:11:02,130 --> 00:11:04,613
+implementirate u programu, dakle,
+
+291
+00:11:04,613 --> 00:11:06,344
+kada imate 4 kuće i
+
+292
+00:11:06,350 --> 00:11:08,525
+kada želite da koristite vašu hipotezu
+
+293
+00:11:08,525 --> 00:11:12,308
+da biste predvideli cene, cene y sve četiri vaše kuće.
+
+294
+00:11:12,308 --> 00:11:13,553
+To znači da, znate,
+
+295
+00:11:13,553 --> 00:11:16,130
+ovo možete da napišete u jednoj liniji koda.
+
+296
+00:11:16,140 --> 00:11:17,878
+Kada govorimo o Octave i
+
+297
+00:11:17,878 --> 00:11:19,782
+kasnije o programskim jezicima, možete
+
+298
+00:11:19,790 --> 00:11:22,120
+u stvari, ovo ćete u stvari da 
+pišete u jednoj liniji koda.
+
+299
+00:11:22,120 --> 00:11:24,879
+Pišete da je predviđanje jednako,
+
+300
+00:11:24,879 --> 00:11:29,697
+znate, matrica podataka puta
+
+301
+00:11:30,582 --> 00:11:33,888
+parametri, u redu?
+
+302
+00:11:33,890 --> 00:11:36,994
+Gde je matrica podataka
+
+303
+00:11:36,994 --> 00:11:38,661
+ovo ovde, a parametri
+
+304
+00:11:38,661 --> 00:11:40,447
+su ovo ovde, a ovo
+
+305
+00:11:40,447 --> 00:11:44,138
+puta je množenje matrice i vektora.
+
+306
+00:11:44,138 --> 00:11:45,834
+I ako uradite ovo tada
+
+307
+00:11:45,834 --> 00:11:47,579
+predviđanje varijable, izvinite
+
+308
+00:11:47,579 --> 00:11:49,270
+na mom lošem rukopisu, tada
+
+309
+00:11:49,270 --> 00:11:50,942
+samo implementirajte ovu
+
+310
+00:11:50,942 --> 00:11:52,357
+liniju koda, uz pretpostavku da imate
+
+311
+00:11:52,357 --> 00:11:55,328
+odgovarajuću biblioteku za množenje matrice i vektora.
+
+312
+00:11:55,328 --> 00:11:56,518
+Ako uradite ovo,
+
+313
+00:11:56,518 --> 00:11:58,965
+tada predviđanje postaje ovaj
+
+314
+00:11:58,965 --> 00:12:00,714
+4x1 dimenzionalni vektor, sa
+
+315
+00:12:00,714 --> 00:12:04,655
+desne strane, daje vam sve predviđene cene.
+
+316
+00:12:04,655 --> 00:12:07,163
+A vaša alternativa ovome
+
+317
+00:12:07,163 --> 00:12:09,286
+postupku množenja matrice i vektora
+
+318
+00:12:09,310 --> 00:12:11,241
+bi bilo da napišete nešto kao,
+
+319
+00:12:11,241 --> 00:12:13,542
+znate, for i = 1 to 4, u redu?
+
+320
+00:12:13,542 --> 00:12:15,150
+I možete da kažete za hiljadu kuća
+
+321
+00:12:15,160 --> 00:12:17,451
+bi bilo for i = 1 to 1000 ili šta god.
+
+322
+00:12:17,451 --> 00:12:18,772
+I tada morate da napišete
+
+323
+00:12:18,772 --> 00:12:21,898
+predviđanje, znate, if i = ...
+
+324
+00:12:21,910 --> 00:12:23,123
+i tada uradite hrpu
+
+325
+00:12:23,130 --> 00:12:25,645
+posla tamo i videćete
+
+326
+00:12:25,645 --> 00:12:27,188
+da ako imate veliki
+
+327
+00:12:27,188 --> 00:12:28,549
+broj kuća,
+
+328
+00:12:28,549 --> 00:12:29,928
+ako pokušavate da predvidite cene
+
+329
+00:12:29,930 --> 00:12:31,033
+ne samo četiri već možda
+
+330
+00:12:31,033 --> 00:12:33,230
+hiljadu kuća, tada,
+
+331
+00:12:33,410 --> 00:12:35,175
+videćete da kada
+
+332
+00:12:35,175 --> 00:12:36,118
+implementirate ovo na računaru,
+
+333
+00:12:36,118 --> 00:12:40,087
+možete da radite na ovaj način 
+na velikom broju programskih jezika.
+
+334
+00:12:40,087 --> 00:12:41,535
+Ovo ne važi samo za
+
+335
+00:12:41,535 --> 00:12:43,022
+Octave, već i za C++,
+
+336
+00:12:43,030 --> 00:12:46,252
+Java ili Python, kao i za druge jezike visokog nivoa.
+
+337
+00:12:46,252 --> 00:12:48,045
+Videćete da, pišući
+
+338
+00:12:48,045 --> 00:12:49,811
+kod u ovome stilu na
+
+339
+00:12:49,811 --> 00:12:51,552
+levoj strani, to vam omogućava
+
+340
+00:12:51,552 --> 00:12:53,283
+da ne samo da pojednostavite
+
+341
+00:12:53,283 --> 00:12:54,677
+kod, jer sada samo
+
+342
+00:12:54,677 --> 00:12:55,857
+pišete jednu liniju koda
+
+343
+00:12:55,870 --> 00:12:58,427
+umesto mnoštva stvari unutra.
+
+344
+00:12:58,450 --> 00:12:59,727
+Ali zbog praktičnih razloga koje
+
+345
+00:12:59,730 --> 00:13:01,398
+ćemo da vidimo kasnije,
+
+346
+00:13:01,400 --> 00:13:03,392
+mnogo je računski efikasnije
+
+347
+00:13:03,392 --> 00:13:05,617
+da pravite predviđanja
+
+348
+00:13:05,617 --> 00:13:06,583
+svih cena svih vaših
+
+349
+00:13:06,583 --> 00:13:08,348
+kuća radeći na način
+
+350
+00:13:08,360 --> 00:13:09,693
+na levoj strani i način
+
+351
+00:13:09,693 --> 00:13:13,334
+na desnoj strani nego da pišete sopstvenu formulu.
+
+352
+00:13:13,334 --> 00:13:14,596
+Kasnije ću da govorim više o ovome
+
+353
+00:13:14,596 --> 00:13:15,978
+kada budemo govorili o
+
+354
+00:13:15,978 --> 00:13:17,684
+vektorizaciji, ali
+
+355
+00:13:17,684 --> 00:13:19,145
+postavljajući predviđanje na ovaj način,
+
+356
+00:13:19,145 --> 00:13:20,511
+ne samo da dobijate jednostavniji deo
+
+357
+00:13:20,511 --> 00:13:23,200
+koda već i efikasniji.
+
+358
+00:13:23,200 --> 00:13:25,151
+Dakle, to je sve o
+
+359
+00:13:25,151 --> 00:13:27,063
+množenju matrice i vektora a
+
+360
+00:13:27,063 --> 00:13:28,432
+koristićemo na pravi način mnogo
+
+361
+00:13:28,432 --> 00:13:30,352
+ovih operacija kako budemo dalje razvijali
+
+362
+00:13:30,370 --> 00:13:32,888
+modele linearne regresije a i ostale.
+
+363
+00:13:32,910 --> 00:13:34,259
+A u sledećem videu ćemo
+
+364
+00:13:34,259 --> 00:13:36,150
+da uzmemo ovo i da ga generalizujemo
+
+365
+00:13:36,150 --> 00:13:39,527
+do slučaja množenja matrice sa matricom.

@@ -1,0 +1,307 @@
+1
+00:00:00,220 --> 00:00:03,688
+U prethodnom videu smo govorili 
+o obliku hipoteze za linearnu
+
+2
+00:00:03,688 --> 00:00:07,246
+regresiju sa višestrukim 
+osobinama ili sa više varijabli.
+
+3
+00:00:07,246 --> 00:00:11,912
+Hajde da u ovome videu govorimo kako 
+da podesimo parametre takve hipoteze.
+
+4
+00:00:11,912 --> 00:00:15,175
+Posebno ćemo da govorimo o tome 
+kako da koristimo gradijent opadanja za
+
+5
+00:00:15,175 --> 00:00:19,875
+linearnu regresiju sa višestrukim osobinama.
+
+6
+00:00:19,875 --> 00:00:24,802
+Da sumiramo obeležavanje, 
+ovo je naša formalna hipoteza
+
+7
+00:00:24,802 --> 00:00:31,509
+u multivarijabilnoj linearnoj regresiji 
+gde smo usvojili pravilo da je x0 = 1.
+
+8
+00:00:31,509 --> 00:00:37,505
+Parametri ovoga modela su od teta0 do tetan, 
+ali umesto da o njima mislimo
+
+9
+00:00:37,505 --> 00:00:42,385
+kao o n odvojenih parametara, 
+što je ispravno, smatraćemo ih
+
+10
+00:00:42,385 --> 00:00:51,175
+kao teta gde je teta n + 1 dimenzionalni vektor.
+
+11
+00:00:51,175 --> 00:00:55,498
+Znači, parametre ovoga 
+modela ćemo da smatramo
+
+12
+00:00:55,498 --> 00:00:58,674
+kao zasebnim vektorom.
+
+13
+00:00:58,674 --> 00:01:03,507
+Naša funkcija greške je J od 
+teta0 do tetan što je predstavljeno
+
+14
+00:01:03,507 --> 00:01:08,983
+sumom kvadrata greške. Ali još jednom, 
+umesto da J smatram funkcijom
+
+15
+00:01:08,983 --> 00:01:14,016
+od n + 1 broja, uopšteno ću da pišem J kao
+
+16
+00:01:14,016 --> 00:01:22,275
+funkciju od vektora parametara 
+teta pa je ovo teta vektor.
+
+17
+00:01:22,275 --> 00:01:26,897
+Evo kako gradijent opadanja izgleda. 
+Ponavljajući ćemo da menjamo svaki
+
+18
+00:01:26,897 --> 00:01:32,142
+parametar tetaj u skladu sa 
+tetaj minus alfa puta ovaj izvod.
+
+19
+00:01:32,142 --> 00:01:37,868
+I još jednom ovo ćemo da pišemo J od teta, 
+tako da se tetaj menja kao
+
+20
+00:01:37,868 --> 00:01:41,840
+tetaj minus stopa učenja alfa puta izvod, 
+parcijalni
+
+21
+00:01:41,840 --> 00:01:47,840
+izvod funkcije greške u 
+odnosu na parametar tetaj.
+
+22
+00:01:47,840 --> 00:01:51,305
+Da vidimo kako ovo izgleda kada 
+primenimo gradijent opadanja
+
+23
+00:01:51,305 --> 00:01:55,985
+i hajde da vidimo kako 
+taj parcijalni izvod izgleda.
+
+24
+00:01:55,985 --> 00:02:01,383
+Evo šta imamo za gradijent opadanja 
+za slučaj da imamo n = 1 osobinu.
+
+25
+00:02:01,383 --> 00:02:06,782
+Imamo dva odvojena pravila promene za parametre teta0 i teta1 i
+
+26
+00:02:06,782 --> 00:02:12,779
+nadam se da vam izgleda poznato. 
+A ovaj član ovde je naravno
+
+27
+00:02:12,779 --> 00:02:17,672
+parcijalni izvod funkcije greške 
+u odnosu na parametar teta0,
+
+28
+00:02:17,672 --> 00:02:21,891
+i slično imamo drugačije pravilo 
+promene za parametar teta1.
+
+29
+00:02:21,891 --> 00:02:26,259
+Postoji jedna mala razlika a to je 
+da smo prethodno imali samo jednu
+
+30
+00:02:26,259 --> 00:02:31,992
+osobinu, tu osobinu bismo zvali x(i) ali 
+sada po našem novom načinu obeležavanja
+
+31
+00:02:31,992 --> 00:02:38,462
+ovo ćemo da zovemo x(i) sabskript 
+<u>1 da bismo obeležili novu osobinu.</u>
+
+32
+00:02:38,462 --> 00:02:41,019
+Dakle, to je bilo za samo jednu osobinu.
+
+33
+00:02:41,019 --> 00:02:44,496
+Hajde da vidimo novi algoritam kada 
+imamo više od jedne osobine,
+
+34
+00:02:44,496 --> 00:02:47,350
+kada je broj osobina n mnogo veći od 1.
+
+35
+00:02:47,350 --> 00:02:53,158
+Dobijamo ovo pravilo promene za 
+gradijent opadanja, za vas koji
+
+36
+00:02:53,158 --> 00:02:57,781
+poznajete račun, 
+ako uzmete definiciju funkcije greške i
+
+37
+00:02:57,781 --> 00:03:03,312
+parcijalni izvod funkcije greške 
+J u odnosu na parametar
+
+38
+00:03:03,312 --> 00:03:08,119
+tetaj, shvatićete da je taj 
+parcijalni izvod upravo taj član
+
+39
+00:03:08,119 --> 00:03:10,665
+koji sam upravo uokvirio plavom.
+
+40
+00:03:10,665 --> 00:03:14,837
+A ako ovo primenite, 
+dobićete radnu implementaciju
+
+41
+00:03:14,837 --> 00:03:18,962
+gradijenta opadanja za linearnu 
+regresiju sa višestrukim parametrima.
+
+42
+00:03:18,962 --> 00:03:21,572
+Poslednja stvar koju bih želeo da uradim 
+na ovome slajdu je da vam dam osećaj
+
+43
+00:03:21,572 --> 00:03:26,882
+toga zašto su ovaj novi i stari 
+algoritam ista stvar ili zašto su
+
+44
+00:03:26,882 --> 00:03:30,904
+slični algoritmi ili zašto su oba 
+algoritmi gradijenta opadanja.
+
+45
+00:03:30,904 --> 00:03:34,363
+Hajde da razmotrimo slučaj 
+kada imamo dve osobine
+
+46
+00:03:34,363 --> 00:03:37,488
+ili možda više od dve, 
+dakle imamo tri pravila promene
+
+47
+00:03:37,488 --> 00:03:42,680
+za parametre teta0, teta1 i teta2 
+i možda druge vrednosti teta.
+
+48
+00:03:42,680 --> 00:03:49,457
+Ako pogledate pravilo promene za teta0, 
+videćete da je ovo
+
+49
+00:03:49,457 --> 00:03:55,300
+pravilo ovde je isto kao prethodno pravilo promene
+
+50
+00:03:55,300 --> 00:03:57,350
+za slučaj kada je n = 1.
+
+51
+00:03:57,350 --> 00:04:00,203
+Razlog zbog kog su jednaka je, naravno,
+
+52
+00:04:00,203 --> 00:04:06,871
+što smo se dogovorili da je <u>x0(i) = 1,</u>
+
+53
+00:04:06,871 --> 00:04:12,003
+zbog toga su ova dva člana 
+uokvirena magenta bojom jednaka.
+
+54
+00:04:12,003 --> 00:04:16,010
+Slično, ako pogledate pravilo za teta1, 
+videćete da
+
+55
+00:04:16,010 --> 00:04:21,540
+je ovaj član ovde isti kao 
+član koji smo prethodno imali,
+
+56
+00:04:21,540 --> 00:04:25,020
+jednakost pravila promene koju 
+smo prethodno imali za teta1,
+
+57
+00:04:25,020 --> 00:04:30,222
+gde naravno koristimo nova 
+obeležja x(i) <u>1 da bismo označili</u>
+
+58
+00:04:30,222 --> 00:04:37,605
+našu prvu osobinu, a sada kada imamo 
+više od jedne osobine, možemo da imamo
+
+59
+00:04:37,605 --> 00:04:43,560
+slična pravila promene za ostale parametre, 
+teta2, i tako dalje.
+
+60
+00:04:43,560 --> 00:04:48,219
+Mnogo smo stvari prešli na 
+ovome slajdu tako da vas podstičem
+
+61
+00:04:48,219 --> 00:04:52,020
+da, ako treba, stopirate video i 
+pogledate svu matematiku na slajdu
+
+62
+00:04:52,020 --> 00:04:55,446
+polako da biste bili sigurni da 
+razumete sve o čemu smo pričali.
+
+63
+00:04:55,446 --> 00:05:00,440
+Ali ako primenite algoritam 
+napisan ovde, imate
+
+64
+00:05:00,440 --> 00:05:51,300
+radnu implementaciju linearne 
+regresije sa višestrukim osobinama.

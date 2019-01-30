@@ -1,0 +1,954 @@
+1
+00:00:00,540 --> 00:00:02,320
+Bu hafta için son videoya hoş geldiniz.
+
+2
+00:00:02,320 --> 00:00:05,987
+Çok sayıda harika, 
+derin öğrenme programlama yapıları var.
+
+3
+00:00:05,987 --> 00:00:07,900
+Bunlardan biri TensorFlow.
+
+4
+00:00:07,900 --> 00:00:11,430
+TensorFlow kullanmayı öğrenmeye başlamanıza
+ yardımcı olmak için heyecanlıyım.
+
+5
+00:00:11,430 --> 00:00:14,760
+Bu video da yapmak istediklerim
+size temel yapıyı gösteriyor
+
+6
+00:00:14,760 --> 00:00:18,970
+TensorFlow programı hakkında daha fazla ayrıntı öğrenmenize
+ daha sonra pratik yapmanıza ve 
+
+7
+00:00:18,970 --> 00:00:22,150
+bu hafta ki problem alıştırmasını yapabilmenize yardımcı olacak.
+
+8
+00:00:22,150 --> 00:00:24,660
+Bu hafta ki problem alıştırmasını yapmak biraz zaman alacak
+
+9
+00:00:24,660 --> 00:00:27,622
+lütfen bunu yapmak için biraz fazla 
+zaman ayırdığınızdan emin olun.
+
+10
+00:00:27,622 --> 00:00:29,270
+Motivasyon problemi,
+
+11
+00:00:29,270 --> 00:00:34,210
+En aza indirmek istediğiniz bir maliyet fonksiyonu
+ J'ye sahip olduğunuzu varsayalım.
+
+12
+00:00:34,210 --> 00:00:39,857
+Bu örnek için bunu çok basit bir şekilde kullanacağım
+
+13
+00:00:39,857 --> 00:00:45,033
+maliyet fonksiyonu J(w)= w'nin karesi - 10 w + 25
+
+14
+00:00:45,033 --> 00:00:46,870
+Yani bu maliyet fonksiyonu.
+
+15
+00:00:46,870 --> 00:00:53,751
+Bu fonksiyonun aslında (w-5)'in karesi olduğunu
+ fark edebilirsiniz.
+
+16
+00:00:53,751 --> 00:00:58,569
+Bu ifadeyi genişletirseniz yukarıda ki ifadeyi alırsınız 
+ve bu nedenle
+
+17
+00:00:58,569 --> 00:01:01,552
+bunu en aza indiren W değeri W=5'dir.
+
+18
+00:01:01,552 --> 00:01:05,770
+Ama diyelim ki bunu bilmiyorduk ve siz sadece bu işleve sahipsiniz.
+
+19
+00:01:05,770 --> 00:01:10,240
+Hadi bunu en aza indirmek için 
+TensorFlow'da nasıl uygulayabileceğimizi görelim.
+
+20
+00:01:10,240 --> 00:01:13,960
+Çünkü, çok benzer bir program yapısı sinir ağınızın
+
+21
+00:01:13,960 --> 00:01:18,337
+tüm parametrelerine bağlı olarak 
+karmaşık bir maliyet fonksiyonuna
+
+22
+00:01:18,337 --> 00:01:22,934
+(J (w, b)) sahip olabileceğiniz sinir ağlarını eğitmek için kullanılabilir.
+
+23
+00:01:22,934 --> 00:01:26,910
+Ve benzer şekilde, TensorFlow'u otomatik olarak kullanabileceksiniz
+
+24
+00:01:26,910 --> 00:01:33,010
+böylece bu maliyet fonksiyonunu en aza indirecek 
+şekilde w ve b değerlerini bulmaya deneyin.
+
+25
+00:01:33,010 --> 00:01:36,140
+Ama soldaki daha basit örnekle başlayalım.
+
+26
+00:01:36,140 --> 00:01:41,690
+Bunun için Jupyter Notebook'da Python'u çalıştırıyor
+ ve TensorFlow'u başlatıyorum.
+
+27
+00:01:41,690 --> 00:01:48,390
+İlk satır da import numpy as np ve 
+import tensorflow as tf yazıyorum.
+
+28
+00:01:48,390 --> 00:01:52,979
+Sonra, w parametresini tanımlayayım.
+
+29
+00:01:52,979 --> 00:01:58,556
+Tensorflow'da bir parametreyi tanımlamak için
+tf.Variable kullanacaksınız.
+
+30
+00:02:01,932 --> 00:02:06,396
+Dtype = tf.float32.
+
+31
+00:02:08,480 --> 00:02:10,520
+Ve sonra maliyet fonksiyonunun tanımlayalım.
+
+32
+00:02:10,520 --> 00:02:15,839
+Maliyet fonksiyonunun w'nin karesi - 10 w +25 olduğunu hatırlayalım.
+
+33
+00:02:15,839 --> 00:02:19,239
+Sonra tf.add kullanalım.
+
+34
+00:02:19,239 --> 00:02:26,989
+Böylece w'nin karesi + tf.multiply sahip olacağım
+
+35
+00:02:26,989 --> 00:02:31,642
+İkinci terimim -10 ,w.
+
+36
+00:02:31,642 --> 00:02:35,491
+Ve sonra 25'i ekleyeceğim.
+
+37
+00:02:35,491 --> 00:02:40,500
+Şuraya bir tane daha tf.add yazıyorum.
+
+38
+00:02:40,500 --> 00:02:43,310
+Böylece sahip olduğumuz J maliyetini tanımlamış oluruz.
+
+39
+00:02:43,310 --> 00:02:48,067
+Ve sonra, train= yazacağım.
+
+40
+00:02:48,067 --> 00:02:53,945
+tf.train.GradientDescentOptimizer
+
+41
+00:02:53,945 --> 00:03:01,409
+Şimdi 0.01'lik bir öğrenme oranını kullanalım, 
+amaç maliyeti en aza indirmektir.
+
+42
+00:03:01,409 --> 00:03:05,850
+Ve son olarak, aşağıdaki birkaç satır oldukça deyimseldir.
+
+43
+00:03:05,850 --> 00:03:13,560
+Init = tf.global_variables_initializer ve
+
+44
+00:03:13,560 --> 00:03:18,404
+sonra session= tf.Sessions.
+
+45
+00:03:18,404 --> 00:03:21,044
+Bu bir TensorFlow oturumu başlatır.
+
+46
+00:03:21,044 --> 00:03:25,890
+Global değişkenleri başlatmak için 
+ init değişkenini Session.run içinde yazıyoruz.
+
+47
+00:03:25,890 --> 00:03:33,135
+Ve sonra,TensorFlow'un değerlendirme değişkeni 
+için Sess.run(w)'yi kullanacağız.
+
+48
+00:03:33,135 --> 00:03:34,320
+Henüz bir şey yapmadık.
+
+49
+00:03:34,320 --> 00:03:39,540
+Bu yüzden yukarıdaki bu satırla, w'yi sıfıra
+ sıfırlayın ve bir maliyet fonksiyonu tanımlayın.
+
+50
+00:03:39,540 --> 00:03:42,668
+Train'i maliyet fonksiyonumuzu en aza indirecek olan
+
+51
+00:03:42,668 --> 00:03:46,206
+GradientDescentOptimizer (Gradyan Düşümü İyileştirici) olarak tanımlarız.
+
+52
+00:03:46,206 --> 00:03:50,549
+Ama biz henüz öğrenme algoritmasını henüz çalıştırmadık,
+
+53
+00:03:50,549 --> 00:03:55,778
+Session.run w'yi değerlendirmemi sağlar. print(session.run(w)) yazalım.
+
+54
+00:03:55,778 --> 00:03:56,852
+Öyleyse bunu çalıştırsak,
+
+55
+00:03:56,852 --> 00:04:01,029
+henüz bir bir şey çalıştırmadığımız için 0'a eşit olur.
+
+56
+00:04:01,029 --> 00:04:06,420
+Şimdi,
+
+57
+00:04:06,420 --> 00:04:11,190
+Bunun yapacağı şey GradientDescent(Gradyan Düşümü)'in bir adımının çalışmasıdır.
+
+58
+00:04:11,190 --> 00:04:15,814
+Ve sonra, GradientDescent (Gradyan Düşümü)'in bir adımından 
+sonra w'nin 
+
+59
+00:04:15,814 --> 00:04:19,870
+değerinin azaltalım ve yazdıralım.
+
+60
+00:04:19,870 --> 00:04:25,690
+Bu yüzden bunu bir gradyan düşümü(gradient descent)
+ setinden yapıyoruz, w şu an 0,1.
+
+61
+00:04:25,690 --> 00:04:33,057
+Şimdi gradyan düşümü(gradient descent)'i 1000 iterasyon çalıştıralım.
+
+62
+00:04:35,543 --> 00:04:41,880
+Ve daha sonra print(session.run w).
+
+63
+00:04:41,880 --> 00:04:45,501
+Yani, Bu GradientDescent(Gradyan Düşümü)'in 1000 yineleme çalıştırabilir
+
+64
+00:04:45,501 --> 00:04:47,989
+ve sonunda w 4.9999 olarak bulunur.
+
+65
+00:04:47,989 --> 00:04:51,914
+Unutmayın, biz w-5 karesini en aza indirdiğimizi söyledik
+
+66
+00:04:51,914 --> 00:04:56,330
+böylece w'nin mutlak değeri 5'tir ve buna çok yaklaşmıştır.
+
+67
+00:04:56,330 --> 00:05:02,680
+Umarım bu, bir TensorFlow programının geniş yapısı 
+hakkında size bir fikir verir.
+
+68
+00:05:02,680 --> 00:05:08,038
+Ve aşağıdaki alıştırmayı yaptığınızda ve 
+daha fazla TensorFlow kursuyla oynadığınızda,
+
+69
+00:05:08,038 --> 00:05:12,653
+burada kullandığım bu işlevlerin bazıları daha tanıdık hale gelecektir.
+
+70
+00:05:12,653 --> 00:05:16,836
+Bu konuda dikkat edilmesi gereken bazı şeyler, w optimize ettiğim bir parametredir,
+
+71
+00:05:16,836 --> 00:05:19,760
+bu yüzden bunu bir değişken olarak ilan edeceğiz.
+
+72
+00:05:19,760 --> 00:05:24,400
+Yapmamız gereken tek şey, bu ekleme ve çarpma işlevlerini kullanarak
+
+73
+00:05:24,400 --> 00:05:26,654
+bir maliyet fonksiyonu tanımlamak.
+
+74
+00:05:26,654 --> 00:05:31,450
+Ve TensorFlow, diğer işlevler gibi ekleme ve çoğaltma ile ilgili olarak
+
+75
+00:05:31,450 --> 00:05:34,370
+türevlerin nasıl alınacağını otomatik olarak bilir.
+
+76
+00:05:34,370 --> 00:05:38,640
+Bu nedenle temel olarak dört destek sistemi uygulamak 
+zorunda kaldınız ve geri problemi
+
+77
+00:05:38,640 --> 00:05:43,560
+veya not hesaplama işleminin nasıl yapılacağını anlayabiliyorsunuz.
+
+78
+00:05:43,560 --> 00:05:48,070
+Çünkü bu zaten kare alma fonksiyonlarının yanı sıra
+
+79
+00:05:48,070 --> 00:05:50,920
+toplama ve çarpma işlemlerine de eklenmiştir.
+
+80
+00:05:50,920 --> 00:05:55,078
+Bu arada,sembolle gösterimi gerçekten kötü görüldüğü durumlarda
+
+81
+00:05:55,078 --> 00:05:59,830
+Aslında TensorFlow normal artı, eksi vb. 
+
+82
+00:05:59,830 --> 00:06:03,320
+için ölçümleri aşırı yükledi.
+
+83
+00:06:03,320 --> 00:06:07,480
+Bu nedenle, maliyet için bu güzel
+ biçimi de yazabilir ve bunu tekrar
+
+84
+00:06:07,480 --> 00:06:11,600
+yorumlayabilir,tekrar yayınlayabilir ve aynı sonucu alabilirsiniz.
+
+85
+00:06:11,600 --> 00:06:15,913
+Yani bir kez TensorFlow değişkenine sahip
+ olduğu beyan edildiğinde, kare alma,
+
+86
+00:06:15,913 --> 00:06:18,785
+çarpma, toplama ve çıkarma işlemleri aşırı yüklenir.
+
+87
+00:06:18,785 --> 00:06:22,575
+Yani yukarıda gördüğüm bu çirkin söz 
+dizimini kullanmanıza gerek yok.
+
+88
+00:06:22,575 --> 00:06:27,848
+Şimdi, size göstermek istediğim TensorFlow'un 
+bir özelliği daha var,
+
+89
+00:06:27,848 --> 00:06:31,460
+bu w örneğinin bir işlevini en aza indiriyor.
+
+90
+00:06:31,460 --> 00:06:34,880
+En aza indirmek istediğimiz işlevlerden biriside eğitim setimizdir.
+
+91
+00:06:34,880 --> 00:06:38,540
+Bu nedenle, bazı egzersiz verileriniz olsun,
+
+92
+00:06:38,540 --> 00:06:43,090
+x ve nöral bir ağı eğitirken x eğitim verileri değişebilir.
+
+93
+00:06:43,090 --> 00:06:49,242
+Öyleyse bir eğitim verisini TensorFlow 
+programına nasıl verebilirsin?
+
+94
+00:06:49,242 --> 00:06:50,913
+t ve X'i tanımlayacağım
+
+95
+00:06:50,913 --> 00:06:54,811
+bunun için geçerli bir eğitim verisi olarak düşünürüm ya da 
+x ve y ile gerçekten de eğitim verisini
+
+96
+00:06:54,811 --> 00:07:00,008
+tanımlayacağım ama bu örnekte sadece x var.
+
+97
+00:07:00,008 --> 00:07:03,504
+Yani x'i yer tutucuyla tanımlayacak ve
+
+98
+00:07:03,504 --> 00:07:10,260
+bu bir tip float32 olacak ve bunu bir [3,1] dizisi yapalım.
+
+99
+00:07:10,260 --> 00:07:15,489
+Ve yapacağım şey, buradaki maliyetin, bu ikinci derecedeki
+
+100
+00:07:15,489 --> 00:07:21,308
+Bu ikinci derecedeki üç terimin önünde ki katsayılar 1w'nin karesi eksi 10*w +25.
+
+101
+00:07:21,308 --> 00:07:26,821
+Bu sayıları 1-10 ve 25 arasında verilere dönüştürebiliriz.
+
+102
+00:07:26,821 --> 00:07:33,436
+Öyleyse yapacağım şey maliyetin yerine
+
+103
+00:07:33,436 --> 00:07:40,052
+with cost = x[0][0]*w'nin karesi
+
+104
+00:07:40,052 --> 00:07:47,600
++ x[1][0]*w + x[2][0].
+
+105
+00:07:47,600 --> 00:07:49,380
+Peki,1 defa
+
+106
+00:07:49,380 --> 00:07:54,197
+Öyleyse,Şimdi X bu 2.derecen fonksiyonun katsayılarını
+
+107
+00:07:54,197 --> 00:07:59,148
+kontrol eden veri türü haline geliyor.
+
+108
+00:07:59,148 --> 00:08:03,805
+Ve bu yer tutucu işlevi, TensorFlow'a x'in daha sonra
+
+109
+00:08:03,805 --> 00:08:08,470
+değer verdiğiniz bir şey olduğunu söyler.
+
+110
+00:08:09,850 --> 00:08:16,669
+Başka bir dizi tanımlayalım, coefficient =np.array,
+
+111
+00:08:19,030 --> 00:08:23,514
+[1.], [-10.] ve evet
+
+112
+00:08:23,514 --> 00:08:27,554
+kayıp değeri [25.] idi.
+
+113
+00:08:27,554 --> 00:08:31,120
+X'e takacağımız veriler bu olacak.
+
+114
+00:08:32,300 --> 00:08:38,830
+Sonuç olarak, bu dizi katsayılarını x değişkenine ve söz dizimini
+
+115
+00:08:38,830 --> 00:08:43,170
+yapmak için bir yola ihtiyacımız var.
+
+116
+00:08:43,170 --> 00:08:49,224
+X için sağlanacak olan değerlerin,
+
+117
+00:08:49,224 --> 00:08:56,302
+Ben burada ayarlayacağım
+feed_dict = x:coefficients
+
+118
+00:08:58,005 --> 00:09:04,236
+Ve bunu değiştireceğim, kopyalayıp yapıştıracağım.
+
+119
+00:09:04,236 --> 00:09:06,320
+Tamam, umarım bir söz dizimi hatası almam.
+
+120
+00:09:06,320 --> 00:09:13,330
+Bunu tekrar çalıştırmayı deneyelim ve aynı sonuçları 
+daha önce olduğu gibi elde ederiz.
+
+121
+00:09:14,710 --> 00:09:19,540
+Ve şimdi, bu 2.dereceden fonksiyonun katsayılarını değiştirmek istiyorsanız,
+
+122
+00:09:19,540 --> 00:09:24,239
+[-10]'u [-20] yaparak değiştir.
+
+123
+00:09:24,239 --> 00:09:26,823
+Ve bunu 100 ile değiştirelim.
+
+124
+00:09:26,823 --> 00:09:30,947
+Şimdi bu fonksiyon x-10'in karesi
+
+125
+00:09:30,947 --> 00:09:34,068
+Ve eğer bunu tekrar çalıştırırsam, umarım 
+
+126
+00:09:34,068 --> 00:09:39,810
+x-10 karesini minimize eden değerin w = 10 olduğunu bulurum.
+
+127
+00:09:39,810 --> 00:09:41,521
+Haydi görelim, güzel,harika ve
+
+128
+00:09:41,521 --> 00:09:46,610
+GradientDescent (Gradyan Düşümü)'i 1000 yineleme çalıştırdıktan sonra 10 değerine çok yaklaştık.
+
+129
+00:09:46,610 --> 00:09:51,462
+Yani, egzersiz yaptığınızda bunu daha çok 
+gördüğünüzde, TensorFlow öğesindeki
+
+130
+00:09:51,462 --> 00:09:55,490
+bir yer tutucunun, daha sonra atayacağınız
+ bir değişken olduğu anlamına gelir.
+
+131
+00:09:55,490 --> 00:10:02,297
+Ve bu, egzersiz verilerinizi maliyet fonksiyonuna getirmenin uygun bir yoludur.
+
+132
+00:10:02,297 --> 00:10:07,011
+Ayrıca, verilerinizi maliyet işlevine getirme biçiminiz,
+
+133
+00:10:07,011 --> 00:10:10,099
+x'in burada katsayılara eşit olmasını ayarlamak için feed_dict öğesini
+
+134
+00:10:10,099 --> 00:10:15,070
+kullanmak üzere bir eğitim yinelemesi çalıştırdığınızda bu söz dizimi ile olur.
+
+135
+00:10:15,070 --> 00:10:18,930
+Ve eğer her bir yinelemede mini batch GradientDescent(Gradyan Düşümü) yapıyorsanız
+
+136
+00:10:18,930 --> 00:10:22,914
+farklı bir mini parça kullanmanız gerekir,
+daha sonra farklı yinelemelerde 
+
+137
+00:10:22,914 --> 00:10:26,676
+öğrenme(training) setleriniz farklı alt kümelerini beslemek için feed_dict'i kullanırsınız.
+
+138
+00:10:26,676 --> 00:10:31,940
+Maliyet fonksiyonu verileri görmeyi bekliyor.
+
+139
+00:10:31,940 --> 00:10:36,120
+Umarım bu TensorFlow'un neler yapabileceğine dair bir fikir verir.
+
+140
+00:10:36,120 --> 00:10:37,350
+Ve bunu bu kadar güçlü yapmak için yapmanız gereken tek şey
+
+141
+00:10:37,350 --> 00:10:42,470
+maliyet fonksiyonunu nasıl hesaplayacağınızı belirtmektir.
+
+142
+00:10:42,470 --> 00:10:44,380
+Ve sonra, türevleri alır ve
+
+143
+00:10:44,380 --> 00:10:48,760
+hemen hemen bir veya iki satır kodla bir 
+Gradyan (Gradient) iyileştirici veya
+
+144
+00:10:48,760 --> 00:10:53,200
+bir eklenti iyileştirici veya başka bir iyileştirici uygulayabilir.
+
+145
+00:10:53,200 --> 00:10:55,980
+İşte yine kod.
+
+146
+00:10:55,980 --> 00:10:57,840
+Bunu biraz temizledim
+
+147
+00:10:57,840 --> 00:10:59,830
+Ve bu işlevlerin veya değişkenlerin bir kısmı
+
+148
+00:10:59,830 --> 00:11:04,390
+kullanım için biraz esrarengiz görünüyorsa da,birkaç
+
+149
+00:11:04,390 --> 00:11:09,830
+problem alıştırması yaptıktan sonra daha aşina olacaktır.
+
+150
+00:11:09,830 --> 00:11:11,664
+Bahsetmek istediğim son bir şey.
+
+151
+00:11:11,664 --> 00:11:16,153
+Bu üç kod satırı Tensorflow'da oldukça deyimlidir ve bazı 
+
+152
+00:11:16,153 --> 00:11:20,960
+programcıların yapacağı şey bu alternatif biçimi kullanmaktır.
+
+153
+00:11:20,960 --> 00:11:22,880
+Temelde aynı şeyi yapar.
+
+154
+00:11:22,880 --> 00:11:25,460
+Oturumu başlatmak için tf.Session() değerini session olarak ayarlayın,
+
+155
+00:11:25,460 --> 00:11:28,050
+sonra oturumu başlatmak için session.run(init)'i kullanın.
+
+156
+00:11:28,050 --> 00:11:32,650
+ve daha sonra değerlendirmek için w'yi kullanıp sonucu yazdırın.
+
+157
+00:11:32,650 --> 00:11:38,000
+Ancak bu yapı bir çok TensorFlow programında da kullanılmaktadır.
+
+158
+00:11:38,000 --> 00:11:41,511
+Az ya da çok, soldaki şeyle aynı şey anlamına gelir.
+
+159
+00:11:41,511 --> 00:11:47,213
+Ancak Python'daki komutla, bu iç döngüyü yürütürken
+
+160
+00:11:47,213 --> 00:11:52,437
+istisnai bir hata durumunda temizleme konusunda biraz daha iyidir.
+
+161
+00:11:52,437 --> 00:11:55,792
+Gördüğünüz gibi bu da aşağıdaki alıştırmadır.
+
+162
+00:11:55,792 --> 00:11:58,890
+Peki bu kod gerçekten ne yapıyor?
+
+163
+00:11:58,890 --> 00:12:02,230
+Bu denkleme odaklanalım.
+
+164
+00:12:02,230 --> 00:12:07,885
+Bir TensorFlow programının kalbi, maliyetle hesaplanacak 
+bir şeydir ve daha sonra TensorFlow,
+
+165
+00:12:07,885 --> 00:12:13,410
+türevleri bu maliyetlerin nasıl en aza indirileceği konusunda otomatik olarak hesaplar.
+
+166
+00:12:13,410 --> 00:12:18,710
+Yani bu denklem ya da bu kod 
+satırının yaptığı şey
+
+167
+00:12:18,710 --> 00:12:23,670
+TensorFlow'un bir hesaplama taslağı
+ oluşturmasına izin vermesidir.
+
+168
+00:12:23,670 --> 00:12:26,840
+Ve bir hesaplama taslağı aşağıdakileri yapar: x [0] [0] alır,
+
+169
+00:12:26,840 --> 00:12:32,310
+w'yi alır ve sonra w'nin karesi olur.
+
+170
+00:12:33,840 --> 00:12:39,382
+Ve sonra x [0] [0] w kare ile çarpılır,
+
+171
+00:12:39,382 --> 00:12:45,160
+böylece x [0] [0] * w kare vb olur değil mi?
+
+172
+00:12:45,160 --> 00:12:49,893
+Ve sonunda, bildiğiniz gibi, bu xw,
+
+173
+00:12:49,893 --> 00:12:54,650
+x [0] [0] * w kare + x [1] [0] * w + vb.
+
+174
+00:12:54,650 --> 00:12:58,539
+Ve sonuç olarak, maliyet fonksiyonunu elde edersiniz.
+
+175
+00:12:58,539 --> 00:13:03,404
+Ve böylece maliyet fonksiyonuna eklenecek 
+
+176
+00:13:03,404 --> 00:13:05,751
+son terim x [2] [0] olurdu.
+
+177
+00:13:05,751 --> 00:13:08,398
+Maliyet için başka format yazmayacağım.
+
+178
+00:13:08,398 --> 00:13:13,206
+Ve TensorFlow ile ilgili güzel şey, bu hesaplama taslağı 
+aracılığıyla temelde dört
+
+179
+00:13:13,206 --> 00:13:17,937
+destekleyici uygulama uygulayarak hesaplanan maliyet,
+
+180
+00:13:17,937 --> 00:13:21,230
+TensorFlow'da zaten yerleşik olarak bulunmasıdır.
+
+181
+00:13:21,230 --> 00:13:24,420
+Gerekli tüm geriye dönük işlevler.
+
+182
+00:13:24,420 --> 00:13:29,287
+Öyleyse, derin bir sinir ağının eğitiminin geriye doğru işlevler yerine
+
+183
+00:13:29,287 --> 00:13:31,424
+nasıl bir ileri dizi işlevi olduğunu hatırlayın.
+
+184
+00:13:31,424 --> 00:13:35,661
+TensorFlow gibi programlama çatıları zaten 
+
+185
+00:13:35,661 --> 00:13:37,240
+gerekli geriye dönük işlevlere sahiptir.
+
+186
+00:13:37,240 --> 00:13:41,892
+Bu nedenle, ileri işlevi hesaplamak için yerleşik işlevleri kullanarak,
+
+187
+00:13:41,892 --> 00:13:46,129
+çok karmaşık işlevlerle bile geri yayılımı uygulamak
+
+188
+00:13:46,129 --> 00:13:51,351
+ve sizin için türevleri hesaplamak için otomatik olarak geriye dönük işlevleri gerçekleştirebilir.
+
+189
+00:13:51,351 --> 00:13:55,180
+Bu yüzden, bu nedenle açık bir şekilde geri yayılım(backprop) uygulamanıza gerek yoktur.
+
+190
+00:13:55,180 --> 00:13:58,240
+Bu, programlama çatılarını gerçekten verimli
+
+191
+00:13:58,240 --> 00:14:00,140
+hale getirmenize yardımcı olan şeylerden biridir.
+
+192
+00:14:00,140 --> 00:14:03,470
+TensorFlow'un dökümanlarına bakarsanız,
+
+193
+00:14:03,470 --> 00:14:06,270
+Sadece TensorFlow belgelerinin, hesaplama taslağını çizmek için
+
+194
+00:14:06,270 --> 00:14:11,023
+yaptığımdan biraz farklı bir gösterim kullandığını belirtmek istiyorum.
+
+195
+00:14:11,023 --> 00:14:14,205
+Bu yüzden x[0][0] w kullanıyor.
+
+196
+00:14:14,205 --> 00:14:17,408
+Ve sonra,w karesi gibi değeri yazmaktan ziyade,
+
+197
+00:14:17,408 --> 00:14:21,100
+TensorFlow dokümantasyonu işlemi yazma eğilimindedir.
+
+198
+00:14:21,100 --> 00:14:23,390
+Yani bu bir kare işlem olacak,
+
+199
+00:14:23,390 --> 00:14:28,520
+ve daha sonra bu iki çarpım işleminde
+ birleştirilecek ve böyle devam edecek.
+
+200
+00:14:28,520 --> 00:14:30,990
+Ve sonra, son bir not, sanırım bu
+
+201
+00:14:30,990 --> 00:14:36,420
+son değeri bulmak için x 0'a eklediğiniz bir ekleme işlemi olacaktır.
+
+202
+00:14:36,420 --> 00:14:40,080
+Dolayısıyla, bu sınıfın amaçları için, hesaplama taslağı için bu gösterimin 
+
+203
+00:14:40,080 --> 00:14:43,670
+sizin anlamanız için daha kolay olacağını düşündüm.
+
+204
+00:14:43,670 --> 00:14:47,010
+Fakat TensorFlow'un dökümanlarına bakarsanız,
+
+205
+00:14:47,010 --> 00:14:51,840
+dökümanlarda ki hesaplama taslaklarına bakarsanız,
+
+206
+00:14:51,840 --> 00:14:55,630
+notların, değerle değil, işlemlerle etiketlendiği
+
+207
+00:14:55,630 --> 00:14:58,900
+bu alternatif yazıyı görürsünüz.
+
+208
+00:14:58,900 --> 00:15:01,380
+Ancak bu gösterimlerin ikisi de temelde
+
+209
+00:15:01,380 --> 00:15:04,270
+aynı hesaplama taslağını temsil etmektedir.
+
+210
+00:15:04,270 --> 00:15:07,730
+Ve programlama çatılarında (frameworks) sadece bir satır kod ile yapabileceğiniz
+
+211
+00:15:07,730 --> 00:15:08,390
+pek çok şey var.
+
+212
+00:15:08,390 --> 00:15:11,585
+Örneğin, GradientDescent(Gradyan Düşümü) 'i kullanmak istemezseniz, bunun yerine
+
+213
+00:15:11,585 --> 00:15:16,075
+bu kod satırını değiştirerek eklenti iyileştiriciyi'yi kullanmak istiyorsanız, bunu çok hızlı bir şekilde değiştirebilir,
+
+214
+00:15:16,075 --> 00:15:21,685
+daha iyi bir en iyileştirme algoritmasında kullanabilirsiniz.
+
+215
+00:15:21,685 --> 00:15:25,905
+Bu nedenle tüm modern derin öğrenme programlama yapıları
+
+216
+00:15:25,905 --> 00:15:27,095
+bunun gibi şeyleri destekler ve
+
+217
+00:15:27,095 --> 00:15:32,360
+oldukça karmaşık sinir ağlarını bile 
+kodlamanızı gerçekten kolaylaştırır.
+
+218
+00:15:32,360 --> 00:15:33,730
+Bu yüzden size bir TensorFlow programının tipik
+
+219
+00:15:33,730 --> 00:15:38,220
+yapısını anlamanız için yardımcı olacağını umuyorum.
+
+220
+00:15:38,220 --> 00:15:40,360
+Bu haftayı özetleyecek olursak,hiper parametre arama sürecini
+
+221
+00:15:40,360 --> 00:15:44,900
+sistematik olarak nasıl organize edeceğinizi gördünüz.
+
+222
+00:15:44,900 --> 00:15:46,940
+Ayrıca, toplu normalleştirme ve sinir ağlarınızın eğitimini 
+
+223
+00:15:46,940 --> 00:15:49,890
+hızlandırmak için bunu nasıl kullanabileceğinizi de konuştuk.
+
+224
+00:15:49,890 --> 00:15:53,580
+Son olarak, derin öğrenme çatılarını(frameworks)
+ programlamayı konuştuk.
+
+225
+00:15:53,580 --> 00:15:55,640
+Birçok harika programlama yapısı var.
+
+226
+00:15:55,640 --> 00:15:59,710
+Ve bu yapılardan TensorFlow'a odaklanan bu video vardı.
+
+227
+00:15:59,710 --> 00:16:03,420
+Bununla birlikte, umarım bu haftaki programlama 
+egzersizinden keyif aldınız ve
+
+228
+00:16:03,420 --> 00:16:06,870
+bu da bu fikirlerle daha da aşinalık kazanmanıza yardımcı oluyor.

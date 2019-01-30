@@ -1,0 +1,193 @@
+1
+00:00:00,000 --> 00:00:04,162
+U ovome videu bih želeo samo da vas
+ nabrzinu provedem kroz logistiku kako da
+
+2
+00:00:04,162 --> 00:00:09,387
+ovaj kurs radite od kuće i kako da koristite 
+sistem za dostavljanje rešenja koji će
+
+3
+00:00:09,387 --> 00:00:15,619
+da vam omogući da proverite da li ste dali 
+pravi odgovor na vežbi mašinskog učenja.
+
+4
+00:00:15,619 --> 00:00:19,354
+Ovo je moj Octave prozor i
+ hajdemo prvo na desktop.
+
+5
+00:00:19,354 --> 00:00:25,374
+Neke od fajlova iz prvog primera
+ sam sačuvao na desktopu,
+
+6
+00:00:25,374 --> 00:00:27,994
+u ovome direktorijumu ml-class-ex1.
+
+7
+00:00:27,994 --> 00:00:32,921
+Obezbedili smo brojne fajlove 
+i tražimo da editujete neke.
+
+8
+00:00:32,921 --> 00:00:40,701
+Prvi fajl sadrži detalje u 
+pdf fajlu za ovu vežbu.
+
+9
+00:00:40,701 --> 00:00:45,352
+Ali fajl koji tražimo da editujete je onaj sa nazivom warmUpExercise.m
+
+10
+00:00:45,352 --> 00:00:49,890
+a vežba služi zato da biste 
+uvežbali sistem dostavljanja.
+
+11
+00:00:49,890 --> 00:00:53,795
+Sve što treba da uradite je da 
+vratite 5x5 jediničnu matricu.
+
+12
+00:00:53,795 --> 00:01:00,301
+Dakle, rešenje ove vežbe 
+je da napišete А = еye(5).
+
+13
+00:01:00,301 --> 00:01:05,766
+To kaže našoj funkciji da 
+napravi 5x5 jediničnu matricu.
+
+14
+00:01:05,766 --> 00:01:11,149
+A ova funkcija warmUpExercise() 
+sada vraća 5x5 jediničnu matricu.
+
+15
+00:01:11,149 --> 00:01:13,727
+I to ću upravo da sačuvam.
+
+16
+00:01:13,727 --> 00:01:17,465
+Dakle, rešio sam prvi deo ovoga zadatka. 
+Vratimo se nazad u Octave,
+
+17
+00:01:17,465 --> 00:01:27,185
+hajdemo u direktorijum 
+C:\Users\ang\Desktop\ml-class-ex1.
+
+18
+00:01:27,185 --> 00:01:33,347
+Ako želim da budem siguran da sam 
+ovo implementirao, ukucaću warmUpExercise().
+
+19
+00:01:33,347 --> 00:01:39,671
+I da, vraća 5x5 jediničnu matricu koju
+ smo upravo kodirali da bude napravljena.
+
+20
+00:01:39,671 --> 00:01:43,870
+A sada mogu da dostavim kod na sledeći način. Ukucaću submit() u ovome
+
+21
+00:01:43,870 --> 00:01:49,300
+direktorijumu i spreman sam da dostavim 
+prvi deo tako da ću da unesem izbor 1.
+
+22
+00:01:49,300 --> 00:01:54,387
+Pita me za moju imejl adresu, 
+tako da ću da odem na stranicu kursa.
+
+23
+00:01:54,387 --> 00:01:59,682
+Ovo je interni sajt za testiranje pa vaša 
+verzija sajta može da izgleda malo drugačije.
+
+24
+00:01:59,682 --> 00:02:07,934
+Ali ovo je moja imejl adresa i ovo je 
+moja lozinka pa ću da ih unesem ovde.
+
+25
+00:02:07,934 --> 00:02:19,205
+Imam ang@cs.stanford.edu a 
+moja lozinka za dostavu je 9yC75USsGf.
+
+26
+00:02:19,205 --> 00:02:23,849
+Udariću enter, 
+povezuje se na server i dostavlja, i odmah posle
+
+27
+00:02:23,849 --> 00:02:28,567
+vam kaže "Čestitamo! 
+Uspešno ste završili Zadatak 1 Deo 1".
+
+28
+00:02:28,567 --> 00:02:33,160
+Dobijate potvrdu da ste 
+prošli ovaj deo kako treba.
+
+29
+00:02:33,160 --> 00:02:36,795
+A ako ne dostavite pravi odgovor, 
+dobićete poruku koja ukazuje na to
+
+30
+00:02:36,795 --> 00:02:39,501
+da još uvek niste dali pravi odgovor.
+
+31
+00:02:39,501 --> 00:02:47,861
+Možete da koristite ovu lozinku za dostavljanje 
+a možete da napravite novu, kako god.
+
+32
+00:02:47,861 --> 00:02:52,556
+Ali možete takođe da koristite i lozinku sa
+ važećeg veb sajta, ali, pošto je ova lozinka
+
+33
+00:02:52,556 --> 00:02:59,281
+ovde kucana u nekodiranom tekstu, 
+dajemo vam dodatnu lozinku za dostavljanje
+
+34
+00:02:59,281 --> 00:03:03,650
+u slučaju da ne želite da kucate 
+lozinku sa sajta u taj prozor koji,
+
+35
+00:03:03,650 --> 00:03:09,219
+u zavisnosti od operativnog sistema, 
+može da a ne mora da bude kao tekst dok kucate
+
+36
+00:03:09,219 --> 00:03:14,544
+u skriptu za dostavu u Octave.
+
+37
+00:03:14,544 --> 00:03:18,746
+Dakle, tako dostavljate rešenja 
+zadataka nakon što ih završite.
+
+38
+00:03:18,746 --> 00:03:23,696
+Srećno i, kad budete radili zadatke, 
+nadam se da ćete da ih uradite ispravno.
+
+39
+00:03:23,696 --> 00:03:28,329
+I konačno, u sledećem i poslednjem 
+videu iz Octave, želim da vam kažem o
+
+40
+00:03:28,329 --> 00:03:33,337
+vektorizaciji, načinu na koji 
+pokrećete vaš Octave kod mnogo efikasnije.

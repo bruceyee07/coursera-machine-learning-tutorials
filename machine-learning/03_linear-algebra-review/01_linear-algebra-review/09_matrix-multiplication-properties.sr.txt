@@ -1,0 +1,45 @@
+Množenje matrica je veoma korisno jer 
+možete da upakujete mnogo računanja u samo jednu operaciju množenja matrica. Ali treba da budete oprezni
+ oko toga kako ih koristite. U ovome videu želim da vam govorim 
+o nekim osobinama množenja matrica. Kada radite sa samo realnim brojevima ili kada radite sa skalarima,
+ množenje je komutativno. Ono što mislim time reći je da ako množite 3 * 5, to je jednako 5 * 3. Redosled u množenju nije bitan. Ova osobina se zove komutativnost množenja realnih brojeva. Kako se pokazalo, ova osobina da se može promeniti redosled stvari koje množite, to ne važi za množenje matrica. Konkretno, ako su A i B matrice, tada uopšteno, A * B nije jednako B * A. Dakle, obratite pažnju na to. Nije ispravno da svojevoljno 
+obrnete redosled množenja matrica. Množenje matrica nije komutativno,
+to je elegantan način da to kažemo. Kao konkretan primer,
+ evo dve matrice. Ova matrica 1100 puta 0020 i ako pomnožite ove dve matrice 
+dobijate ovaj rezultat desno. Sada ćemo da zamenimo mesta
+ ovim dvema matricama. Dakle, uzeću ove dve matrice i obrnuću ih. Videćete da ako pomnožite ove dve matrice, dobićete drugi rezultat desno. Veoma je jasno, ove dve matrice nisu jednake. Dakle, uopšteno, 
+ako imate operaciju nad matricama kao što je A * B, ako je A mxn matrica, a B je nxm matrica, na primer, tada ispada da će matrica A * B, da bude mxm matrica, dok će matrica B * A da bude nxn matrica. Dakle, čak ni dimenzije
+ ne odgovaraju, je l' tako? Dakle A * B i B * A mogu da 
+ne budu čak ni istih dimenzija. U primeru levo imam sve 2x2 matrice, pa su dimenzije iste ali generalno, menjanje redosleda matricama može čak da promeni dimenzije rezultata. Dakle, množenje matrica nije komutativno. Evo sledeće osobine o kojoj bih želeo da govorim. Dakle, kada govorimo o realnim brojevima,
+ ili skalarima, recimo da imam 3 * 5 * 2. Mogu da množim prvo 5 * 2. Onda mogu da računam 3 * 10. Ili mogu da prvo množim 3 * 5 
+a onda da računam 15 * 2. Oba načina daju isti odgovor, u redu? Oba su jednaka 30. Dakle, nije važno da li prvo množim 5 * 2 ili prvo množim 3 * 5 jer je, dakle, 3 * (5 * 2) = (3 * 5) * 2. Ova osobina se zove asocijativnost 
+množenja realnih brojeva. Videćete da je množenje matrica asocijativno. Konkretno, recimo da imam 
+proizvod tri matrice A * B * C. Onda, mogu da računam ili A * (B * C) ili mogu isto da računam (A * B) * C, a to će da mi da isti odgovor. Ovo neću da dokazujem ali možete da me držite za reč. Da bude jasno, šta sam mislio ovim dvama slučajevima? Hajde da vidimo onaj prvi, u redu? Ovaj prvi slučaj. Ono što sam mislio ovim je da 
+ako želite da računate A * B * C, ono što možete da uradite je da 
+prvo možete da računate B * C tako da je D = B * C a onda računate A * D. I stvarno ovo je računanje A * B * C. Ili, u ovome drugom slučaju, 
+ovo možete da računate kao, možete da postavite E = A * B, i onda E * C. I ovo je isto kao A * B * C, i ispada da će obe opcije garantovano da daju isti odgovor. I možemo da kažemo da je 
+množenje matrica asocijativno. U redu? Ne brinite oko pojmova asocijativno i komutativno. Tako se oni zovu ali kasnije 
+uopšte neću da koristim te pojmove, zato ne brinite oko pamćenja tih pojmova. Konačno, želim da kažem nešto o jediničnoj matrici, a to je specijalna matrica. Hajde da još jednom napravimo 
+poređenje sa realnim brojevima. Kada radimo sa realnim brojevima
+ ili skalarima, broj 1, možete ga smatrati
+ neutralnim elementom množenja. Ono što mislim time je da za svaki broj z,
+ 1 * z = z * 1. I to je jednako broju z
+ za bilo koji realan broj z. Dakle, 1 je neutralan element 
+i zadovoljava ovu jednačinu. Videćete da u prostoru matrica postoji jedinična matrica i obično se obeležava sa I ili ponekad pišemo kao Inxn ako 
+želimo da eksplicitno izrazimo dimenzije. Dakle, Inxn je nxn jedinična matrica. To je još jedna jedinična matrica za svaku dimenziju n. Evo nekoliko primera. Ovo je 2x2 jedinična matrica, 
+ovo je 3x3 jedinična matrica, ovo je 4x4 jedinična matrica. Dakle, jedinična matrica ima osobinu 
+da ima 1 duž dijagonale. U redu, i tako dalje. A 0 na svim ostalim pozicijama. Usput, 1x1 jedinična matrica je samo broj 1, znači 1x1 matrica sa samo jedinicom unutra. Nije baš interesantna jedinična matrica. Neformalno, da sam ja ili bilo ko drugi nemaran, vema često bismo pisali jediničnu 
+matricu u konačnom obliku. Pisali bismo uglaste zagrade, 
+jedan, jedan, jedan, tri tačke jedan, i onda bismo ovde otprilike napisali hrpu nula. A ove nule, ova velika nula i ova velika nula, to znači da ova matrica ima 
+nule svuda osim na dijagonali. To je način na koji mogu još da napišem jediničnu matricu. Videćete da jedinična matrica ima osobinu da za bilo koju matricu A, A puta jedinična matrica 
+je jednako jedinična puta A jednako A, a to mnogo liči na ovu jednačinu koju smo gore videli. Shvatate? Dakle, 1 * z = z * 1 = z. Isto tako, A * I = I * A = A. Da se uverimo da su dimenzije u redu. Ako je A mxn matrica, tada ova jedinična matrica ovde, 
+ona je nxn jedinična matrica. Ako je A mxn, tada je ova jedinična matrica, u redu, da bi množenje matrica imalo smisla, 
+to mora da bude mxm matrica. Ovo m odgovara ovome m, u bilo kom slučaju, rezultat ovoga procesa je da 
+dobijate natrag matricu A koja je mxn. Kada god pišemo jediničnu matricu I, znate, veoma često će dimenzija da bude 
+implicitno prikazana iz konteksta. Dakle, ove dve I matrice su u 
+stvari matrice različitih dimenzija. Jedna može biti nxn a druga mxm. Ali, kada želimo da eksplicitno 
+prikažemo dimenzije matrica, ponekad pišemo Inxn, nešto kao ovde gore. Ali veoma često, 
+dimenzije će da budu implicitno prikazane. I na kraju, želim da pojasnim ono što sam ranije rekao da AB u osnovi nije jednako BA. Shvatate? Za mnoge matrice ovo nije tačno. Ali, kada je B jedinična matrica, ovo je tačno, da je A puta jedinična matrica stvarno jednako jedinična matrica puta A, ali u osnovi ovo nije tačno. Dakle, ovo je sve o osobinama množenja matrica i o specijalnim matricama kao što su jedinične 
+matrice o kojim sam hteo da vam nešto kažem. U sledećem i poslednjem videu pregleda algebre, na brzinu ću da vam kažem nešto o par 
+specijalnih operacija nad matricama a posle toga znaćete sve što treba da 
+znate o linearnoj algebri za ovaj kurs.

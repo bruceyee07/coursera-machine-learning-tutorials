@@ -1,0 +1,667 @@
+1
+00:00:00,000 --> 00:00:03,600
+Makine öğrenimini iyi bir şekilde uygulayanların hemen hemen hepsinin
+
+2
+00:00:03,600 --> 00:00:07,890
+Yanlılık ve varyans hakkında iyi bir bilgiye sahip olduğunu fark ettim.
+
+3
+00:00:07,890 --> 00:00:12,330
+Yanlılık ve varyans öğrenmesi kolay fakat ustalaşması zor konseptlerden birer tanesidir
+
+4
+00:00:12,330 --> 00:00:16,155
+Yanlılık ve varyansın temel mekanizmasını bildiğinizi düşünseniz bile
+
+5
+00:00:16,155 --> 00:00:18,805
+genellikle daha fazla öğrenilecek şey vardır.
+
+6
+00:00:18,805 --> 00:00:20,620
+Derin Öğrenme çağında,
+
+7
+00:00:20,620 --> 00:00:22,650
+başka bir eğilim ise
+
+8
+00:00:22,650 --> 00:00:26,035
+yanlılık-varyans uzlaşımı tartışmasıdır.
+
+9
+00:00:26,035 --> 00:00:28,657
+Yanlılık-varyans uzlaşımını daha önce duymuş olabilirsiniz
+
+10
+00:00:28,657 --> 00:00:31,330
+fakat derin öğrenme çağında feragat daha azdır
+
+11
+00:00:31,330 --> 00:00:32,520
+bu sayede hala yanlılığı çözebilir
+
+12
+00:00:32,520 --> 00:00:33,865
+ve hala varyansı çözebiliriz
+
+13
+00:00:33,865 --> 00:00:37,295
+fakat hadi daha az bu konuyu konuşup
+
+14
+00:00:37,295 --> 00:00:39,795
+ne anlama geldiğini konuşalım
+
+15
+00:00:39,795 --> 00:00:42,750
+Veri setimiz bu şekilde gözüküyor
+
+16
+00:00:42,750 --> 00:00:44,800
+Eğer verilere düz bir çizgi oturtursak
+
+17
+00:00:44,800 --> 00:00:48,130
+belki buna mantıksal bağlanım uygulayabiliriz
+
+18
+00:00:48,130 --> 00:00:50,415
+fakat bu çok iyi bir seçim olmaz
+
+19
+00:00:50,415 --> 00:00:52,380
+ve bu yüzden bu yüksek yanlılık sınıfına girer
+
+20
+00:00:52,380 --> 00:00:56,400
+dolayısıyla bu duruma eksik öğrenme deriz
+
+21
+00:00:56,400 --> 00:00:57,850
+Diğer tarafta ise,
+
+22
+00:00:57,850 --> 00:01:00,645
+eğer çok karmaşık bir sınıflandırıcı oturtacak olursanız
+
+23
+00:01:00,645 --> 00:01:02,640
+belki derin öğrenme ağı
+
+24
+00:01:02,640 --> 00:01:05,995
+ya da sinir ağı ve bütün gizli ünitelerini,
+
+25
+00:01:05,995 --> 00:01:10,255
+belki verilere mükemmel bir şelikde oturtabilirsiniz fakat
+
+26
+00:01:10,255 --> 00:01:12,220
+bu da veriye çok iyi bir şekilde oturduğu anlamına gelmez
+
+27
+00:01:12,220 --> 00:01:17,535
+Çünkü bu durumda yüksek varyanslı bir sınıflandırma ve veriyi fazla öğrenmeden bahsetmiş oluruz
+
+28
+00:01:17,535 --> 00:01:19,650
+Ve bu iki uç arasında başka bir sınıflandırıcı olabilir
+
+29
+00:01:19,650 --> 00:01:22,070
+bu sınıflandırıcı orta karmaşıklıkta olabilir
+
+30
+00:01:22,070 --> 00:01:24,585
+ve veriye doğru bir şekilde oturabilir.
+
+31
+00:01:24,585 --> 00:01:27,300
+Bu çok daha mantıklı bir oturma gibi gözüküyor
+
+32
+00:01:27,300 --> 00:01:31,705
+buna tam olarak iyi bir seçim diyebiliriz, ikisinin arasında bir seçim.
+
+33
+00:01:31,705 --> 00:01:34,260
+Bunun gibi 2 boyutlu bir örnekte,
+
+34
+00:01:34,260 --> 00:01:35,610
+sadece 2 öznitelik olan
+
+35
+00:01:35,610 --> 00:01:39,700
+X1 ve X2 ile,verileri çizim haline getirebilirsiniz ve yanlılık ile varyansı görselleştirebilirsiniz.
+
+36
+00:01:39,700 --> 00:01:41,250
+Yüksek boyutlu problemlerde,
+
+37
+00:01:41,250 --> 00:01:44,735
+verileri çizim haline getiremez ve görselleştiremezsiniz dolayısıyla karar sınırını çizemezsiniz.
+
+38
+00:01:44,735 --> 00:01:46,830
+Bunun yerine, birkaç farklı ölçev mevcut,
+
+39
+00:01:46,830 --> 00:01:49,750
+ve bunlara bakıp yanlılık ve varyansı anlamaya çalışacağız
+
+40
+00:01:49,750 --> 00:01:51,960
+Kedi resmi sınıflandırması örneğimize devam edecek olursak,
+
+41
+00:01:51,960 --> 00:01:57,600
+bunun pozitif örnek olduğu ve bunun negatif sayacak olursak
+
+42
+00:01:57,600 --> 00:02:01,455
+yanlılık ve varyansı anlamak için bakacağımız iki anahtar sayı 
+
+43
+00:02:01,455 --> 00:02:06,415
+eğitim seti hatası ve geliştirme seti hatası olacaktır.
+
+44
+00:02:06,415 --> 00:02:07,716
+Bu düşünceye yönelik olarak,
+
+45
+00:02:07,716 --> 00:02:10,290
+diyelim ki resimlerdeki kedileri tanımlıyorsunuz,
+
+46
+00:02:10,290 --> 00:02:13,860
+bu insanların mükemmel olarak yaptığı birşey değil mi?
+
+47
+00:02:13,860 --> 00:02:22,155
+Diyelim ki, eğitim seti hatanız yüzde 1 ve geliştirme seti hatası,
+
+48
+00:02:22,155 --> 00:02:23,580
+bu örneği daha iyi açıklamak için,
+
+49
+00:02:23,580 --> 00:02:25,585
+diyelim ki yüzde 11 olsun
+
+50
+00:02:25,585 --> 00:02:26,730
+Bu yüzden bu örnekte,
+
+51
+00:02:26,730 --> 00:02:29,495
+eğitim setinde çok iyi sonuç alırken,
+
+52
+00:02:29,495 --> 00:02:34,355
+geliştirme setinde göreceli olarak daha kötü bir sonuç alıyoruz.
+
+53
+00:02:34,355 --> 00:02:38,215
+Bu eğitim setinde fazla oturtmadan ileri gelmekte gibi görünüyor,
+
+54
+00:02:38,215 --> 00:02:40,620
+bu yüzden geliştirme setindeki
+
+55
+00:02:40,620 --> 00:02:43,815
+bütün çapraz geçerleme setinde genelleştirmede zayıf kalınıyor
+
+56
+00:02:43,815 --> 00:02:46,440
+ve eğer böyle bir örneğiniz varsa,
+
+57
+00:02:46,440 --> 00:02:50,785
+buna yüksek varyanslı deriz.
+
+58
+00:02:50,785 --> 00:02:54,240
+Dolayısıyla eğitim seti hatasına ve geliştirme seti hatasına bakarak,
+
+59
+00:02:54,240 --> 00:02:59,730
+algoritmanızda yüksek varyansa sebep olan hataları anlayabilirsiniz.
+
+60
+00:02:59,730 --> 00:03:04,435
+Şimdi, diyelim ki eğitim seti ve geliştirme seti hatalarını ölçüyorsunuz,
+
+61
+00:03:04,435 --> 00:03:06,095
+ve farklı bir sonuç aldınız.
+
+62
+00:03:06,095 --> 00:03:09,610
+Diyelim ki eğitim seti hatanız yüzde 15,
+
+63
+00:03:09,610 --> 00:03:12,375
+-eğitim seti hatanızı yukarı yazıyorum-
+
+64
+00:03:12,375 --> 00:03:15,880
+ve geliştirme seti hatan yüzde 16,
+
+65
+00:03:15,880 --> 00:03:22,870
+Bu durumda, insanların yüzde 0 hataya sahip olduğunuz varsayarsak,
+
+66
+00:03:22,870 --> 00:03:27,451
+insanlar resimlere bakıp kedi olup olmadığını söyleyebilir,
+
+67
+00:03:27,451 --> 00:03:31,600
+bu durumda, algoritmenız eğitim setinde bie iyi sonuç almıyor demektir.
+
+68
+00:03:31,600 --> 00:03:35,380
+Dolayısıyla eğer eğitim seti verilerine oturması bile yetersiz kalıyorsa,
+
+69
+00:03:35,380 --> 00:03:38,220
+bu duruma eksik öğrenme deriz.
+
+70
+00:03:38,220 --> 00:03:40,895
+ve bu algoritma yüksek yanlılığa sahip olmuş olur.
+
+71
+00:03:40,895 --> 00:03:45,390
+Fakat yine de, bu durumda yeterinde iyi şekilde geliştirme setinde genelleştirme yapabiliyor,
+
+72
+00:03:45,390 --> 00:03:49,365
+çünkü, geliştirme setindeki performansı eğitim setindeki performansından yalnızca yüzde 1 daha düşük.
+
+73
+00:03:49,365 --> 00:03:52,355
+Dolayısıyla bu algoritma yüksek yanlılığa sahiptir,
+
+74
+00:03:52,355 --> 00:03:56,325
+çünkü,eğitim setindeki oturması yetersiz.
+
+75
+00:03:56,325 --> 00:04:01,030
+Bu önceki slayttaki ensoldaki çizime benzemekte.
+
+76
+00:04:01,030 --> 00:04:03,329
+Şimde, bir başka örnek verelim,
+
+77
+00:04:03,329 --> 00:04:06,430
+Diyeilm ki yüzde 15 eğitim seti hatasına sahibiz,
+
+78
+00:04:06,430 --> 00:04:08,127
+dolayısıyla bu epey yüksek yanlılığa sahip,
+
+79
+00:04:08,127 --> 00:04:11,446
+fakat bunu geliştirme setinde değerlendirdiğinizde daha da kötü oluyor,
+
+80
+00:04:11,446 --> 00:04:13,450
+belki yüzde 30 hata.
+
+81
+00:04:13,450 --> 00:04:18,175
+Bu durumda, bu algoritmayı ben yüksek yanlılığa sahip olarak değerlendirdim,
+
+82
+00:04:18,175 --> 00:04:23,780
+çünkü, hem eğitim setinde iyi sonuç almıyor hem de yüksek varyansa sahip.
+
+83
+00:04:23,780 --> 00:04:27,950
+Dolayısıyla bu iki durumun kesişimine benziyor.
+
+84
+00:04:27,950 --> 00:04:29,325
+Ve son olarak bir örnek daha verelim,
+
+85
+00:04:29,325 --> 00:04:32,605
+eğer yüzde 0.5 eğitim seti hatasına sahipseniz,
+
+86
+00:04:32,605 --> 00:04:35,145
+ve yüzde 1 geliştirme seti hatasıba sahipseniz,
+
+87
+00:04:35,145 --> 00:04:37,130
+bu durumda kedi sınıflandırıcınız yüzde 1 hataya sahip olduğu için 
+
+88
+00:04:37,130 --> 00:04:39,850
+ve düşük yanlılığa ve düşük varyansa sahip olduğumuz için,
+
+89
+00:04:39,850 --> 00:04:44,340
+kullanıcı gayet mutlu olacaktır.
+
+90
+00:04:44,340 --> 00:04:47,610
+Kısaca bahsedeceğim ve ayrıntısını daha
+
+91
+00:04:47,610 --> 00:04:50,955
+sonraya bırakacağımız küçük bir nokta
+
+92
+00:04:50,955 --> 00:04:54,188
+bu analizin insanın bu durumdaki hatasının yüzde 0 olduğu varsayımıyla
+
+93
+00:04:54,188 --> 00:04:59,115
+yola çıkarak ve bunun genel olarak
+
+94
+00:04:59,115 --> 00:05:01,749
+en uygun hata olduğu veya bazen
+
+95
+00:05:01,749 --> 00:05:04,225
+bayes hatası olarak anıldığını söylemek olacaktır.
+
+96
+00:05:04,225 --> 00:05:10,355
+Dolayısıyla en uygun hatanın yani temel hatanın yüzde 0 olduğunu söyleyebiliriz.
+
+97
+00:05:10,355 --> 00:05:13,565
+Bu konu hakkında çok fazla detaya girmek istemiyorum,
+
+98
+00:05:13,565 --> 00:05:18,070
+fakat gerçek şu ki eğer en uygun hata ya da temel hatası çok daha fazla olsaydı, diyelim ki
+
+99
+00:05:18,070 --> 00:05:22,360
+yüzde 15, bu durumda eğer bu sınıflandırıcıya bakarsak,
+
+100
+00:05:22,360 --> 00:05:25,460
+yüzde 15 hata çok yeterli bir hata olarak karşımıza çıkar.
+
+101
+00:05:25,460 --> 00:05:30,120
+Bu durumda yüksek yanlılık görmeyiz ve yine düşük varyanstanc söz etmiş oluruz.
+
+102
+00:05:30,120 --> 00:05:33,440
+Dolayısıyla, yanlılık ve varyansı hiçbir sınıflandırıcı mükemmel
+
+103
+00:05:33,440 --> 00:05:37,460
+sonuç vermeyeceğinden dolayı nasıl inceleyeceğimize gelirsek
+
+104
+00:05:37,460 --> 00:05:40,833
+Örnek olarak, eğer bulanık görüntülere sahipseniz,
+
+105
+00:05:40,833 --> 00:05:46,081
+dolayısıyla herhangi bir sistemin hatta insanın bile iyi bir sonuç elde edemeyeceği bir durumda,
+
+106
+00:05:46,081 --> 00:05:49,237
+bayes hatası çok daha yüksek olabilir
+
+107
+00:05:49,237 --> 00:05:52,295
+ve bu durumda analizin nasıl değişeceği ile ilgili yorum yapabiliriz.
+
+108
+00:05:52,295 --> 00:05:54,725
+Fakat bu noktayı şimdilik bir kenara bırakırsak,
+
+109
+00:05:54,725 --> 00:05:57,430
+öğreneceğimiz şey şu, eğitim seti hatasına
+
+110
+00:05:57,430 --> 00:06:02,676
+bakarak sisteminizi ne kadar iyi oturttuğunuz hakkında fikir sahibi olabilirsiniz,
+
+111
+00:06:02,676 --> 00:06:04,331
+en azından eğitim verisi
+
+112
+00:06:04,331 --> 00:06:06,770
+size yanlılık probleminizin olup olmadığını söyleyebilir.
+
+113
+00:06:06,770 --> 00:06:10,190
+Daha sonrasında eğitim setinden geliştirme setine doğru giderken 
+
+114
+00:06:10,190 --> 00:06:12,965
+hatanın ne kadar yukarı çıktığına bakarak varyans probleminizin 
+
+115
+00:06:12,965 --> 00:06:17,055
+ne kadar olduğu hakkında bilgi sahibi olmuş olursunuz.
+
+116
+00:06:17,055 --> 00:06:20,857
+dolayısıyla eğer eğitim setinden geliştirme setine genelleştirme 
+
+117
+00:06:20,857 --> 00:06:22,645
+yapabiliyorsanız, bu varyans probleminizin düşük olduğu hakkında bilgi verir
+
+118
+00:06:22,645 --> 00:06:26,210
+Tüm bunlarda bayes hatasının oldukça düşük olduğu ve eğitim 
+
+119
+00:06:26,210 --> 00:06:30,235
+ve geliştirme setlerinin aynı dağılımdan ileri geldiği varsayılmıştır.
+
+120
+00:06:30,235 --> 00:06:32,210
+Eğer bu varsayımlar ihlal edilmiş olsaydı,
+
+121
+00:06:32,210 --> 00:06:34,323
+bu durumda yapılabilecek daha gelişmiş analizler mevcut
+
+122
+00:06:34,323 --> 00:06:36,510
+fakat bunları daha ileri videolarda konuşacağız
+
+123
+00:06:36,510 --> 00:06:38,780
+Şimdi, önceki slaytta,
+
+124
+00:06:38,780 --> 00:06:40,849
+yanlılığın ne olduğunu ve
+
+125
+00:06:40,849 --> 00:06:42,185
+varyansın nası göründüğünü gördünüz.
+
+126
+00:06:42,185 --> 00:06:44,920
+Aynı zamanda iyi bir sınıflandırmanın nasıl olduğunu anladınız
+
+127
+00:06:44,920 --> 00:06:48,110
+Peki, yüksek yanlılık ve yüksek varyans nasıl gözüküyor?
+
+128
+00:06:48,110 --> 00:06:50,535
+Bu ikisinin kötü yanlarını toplamak gibi bir şey.
+
+129
+00:06:50,535 --> 00:06:53,415
+Hatırlayın bunun gibi bir sınıflandırıcının yani doğrusal sınıflandırıcının,
+
+130
+00:06:53,415 --> 00:06:55,755
+yüksek yanlılığa sahip olduğunu görmüştük
+
+131
+00:06:55,755 --> 00:06:58,185
+çünkü veriye eksik öğrenme söz konusu bu durumda.
+
+132
+00:06:58,185 --> 00:07:04,030
+Dolayısıyla burada büyük oranda doğrusal bir sınıflandırıcı olduğundan dolayı genellikle eksik öğrenme söz konusu,
+
+133
+00:07:04,030 --> 00:07:05,570
+burada mor ile çiziyoruz,
+
+134
+00:07:05,570 --> 00:07:09,546
+fakat bir şekilde sınıflandırıcı bunun gibi ilginç şeyler yaparsa
+
+135
+00:07:09,546 --> 00:07:14,460
+o zaman burada fazla öğrenmeden söz edebiliriz.
+
+136
+00:07:14,460 --> 00:07:16,500
+Dolayısıyla burada mor ile çizdiğim sınıflandırıcı,
+
+137
+00:07:16,500 --> 00:07:19,455
+hem yüksek yanlılığa hem de yüksek varyansa sahip.
+
+138
+00:07:19,455 --> 00:07:21,300
+Yüksek yanlılığa sahip çünkü,
+
+139
+00:07:21,300 --> 00:07:23,325
+büyük oranda doğrusal sınıflandırıcıya sahip,
+
+140
+00:07:23,325 --> 00:07:24,875
+yani aslında tam oturmuyor.
+
+141
+00:07:24,875 --> 00:07:28,466
+yani gördüğünüz ikinci dereceden şekle,
+
+142
+00:07:28,466 --> 00:07:31,200
+fakat ortası kısımda çok fazla esnekliğe sahip olarak,
+
+143
+00:07:31,200 --> 00:07:32,995
+bir şekilde bu sonuca yol açıyor
+
+144
+00:07:32,995 --> 00:07:36,720
+ve bu sonuçta iki örnekte fazla öğrenmeden söz edebiliriz.
+
+145
+00:07:36,720 --> 00:07:40,515
+Dolayısıyla bu sınıflandırıcı büyük oranda doğrusal sınıflandırıcıya sahip olduğundan dolayı yüksek yanlılığa sahip,
+
+146
+00:07:40,515 --> 00:07:43,620
+dolayısıyla burada ikinci dereceden bir fonksiyona veya eğimli bir fonksiyona ihtiyacınız var.
+
+147
+00:07:43,620 --> 00:07:45,115
+ve aynı zamanda bu sınıflandırıcı yüksek varyansa sahip,
+
+148
+00:07:45,115 --> 00:07:49,595
+çünkü gözüken iki yanlış etiketlemeye sebebiyet verecek şekilde çok fazla esnekliğe sahip
+
+149
+00:07:49,595 --> 00:07:52,475
+orta kısımda bu iki hatalı etiketlemeyi görebilirsiniz.
+
+150
+00:07:52,475 --> 00:07:54,300
+Bu örnek elle yapılmış gibi duruyor, kabul ,
+
+151
+00:07:54,300 --> 00:07:57,585
+çünkü iki boyutta tasarlanan bir örnek ve bu şekilde verdik örneği
+
+152
+00:07:57,585 --> 00:07:59,883
+fakat çok yüksek boyutlu girdilerde,
+
+153
+00:07:59,883 --> 00:08:01,795
+gerçek anlamda bazı bölgelerde hem yüksek yanlılığa 
+
+154
+00:08:01,795 --> 00:08:04,800
+sahip hem de yüksek varyansa sahip kısımlarla karşılaşabilirsiniz
+
+155
+00:08:04,800 --> 00:08:07,410
+dolayısıyla bunun gibi olan fakat elle tasarlanmamış 
+
+156
+00:08:07,410 --> 00:08:11,415
+bir örnekle karşılaşmanız mümkün.
+
+157
+00:08:11,415 --> 00:08:15,690
+Özetlemek gerekirse, algoritmanızın eğitim setindeki hatasına 
+
+158
+00:08:15,690 --> 00:08:20,550
+ve geliştirme setindeki hatasına bakarak bunu probleminizin yüksek yanlılığa sahip mi
+
+159
+00:08:20,550 --> 00:08:23,413
+veya yüksek varyansa sahip mi konularında sorunları teşhis etmekte kullanabilirsiniz
+
+160
+00:08:23,413 --> 00:08:25,420
+belki de hem ikisi de vardır veya hiçbiri yoktur.
+
+161
+00:08:25,420 --> 00:08:28,995
+Algoritmanızın yüksek yanlılığa veya yüksek varyansa sahip olması konusunda
+
+162
+00:08:28,995 --> 00:08:31,765
+görünen o ki farklı çözümler üretmek mümkün.
+
+163
+00:08:31,765 --> 00:08:33,840
+Dolayısıyla bir sonraki videoda sizlere 
+
+164
+00:08:33,840 --> 00:08:37,390
+Makine Öğreniminin temel reçetesi olarak adlandırdığım 
+
+165
+00:08:37,390 --> 00:08:40,905
+ve yüksek yanlılık veya yüksek varyansa bağlı olarak 
+
+166
+00:08:40,905 --> 00:08:44,370
+sistematik bir şekilde algoritmanızı geliştirmeye yarayacak yöntemler sunacağım.
+
+167
+00:08:44,370 --> 00:08:46,110
+Haydi bir sonraki videoya geçelim.

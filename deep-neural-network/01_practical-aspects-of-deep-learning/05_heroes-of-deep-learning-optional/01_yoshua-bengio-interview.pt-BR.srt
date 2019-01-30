@@ -1,0 +1,1826 @@
+1
+00:00:03,182 --> 00:00:05,735
+Oi Yoshua. Estou muito feliz que 
+você pôde estar aqui conosco hoje.
+
+2
+00:00:05,735 --> 00:00:06,602
+Estou muito feliz também.
+
+3
+00:00:06,602 --> 00:00:11,892
+Hoje, você não é apenas um pesquisador 
+ou engenheiro de aprendizagem profunda.
+
+4
+00:00:11,892 --> 00:00:16,458
+Você tornou-se uma das instituições e 
+um dos ícones de aprendizagem profunda, mas
+
+5
+00:00:16,458 --> 00:00:19,660
+eu gostaria muito de saber 
+como essa história começou.
+
+6
+00:00:19,660 --> 00:00:26,242
+Então, como você acabou gostando de aprendizagem 
+profunda, e depois seguindo esta jornada?
+
+7
+00:00:26,242 --> 00:00:31,289
+Bem, na verdade, começou quando 
+eu era criança, adolescente,
+
+8
+00:00:31,289 --> 00:00:35,912
+e lia muito sobre ficção 
+científica, como muitos de nós.
+
+9
+00:00:35,912 --> 00:00:42,374
+E quando eu comecei meus estudos de pós-graduação 
+em 1985, comecei lendo artigos de redes neurais,
+
+10
+00:00:42,374 --> 00:00:48,040
+e foi quando eu fiquei muito empolgado, 
+e tornou-se realmente uma paixão.
+
+11
+00:00:48,040 --> 00:00:52,230
+Como era em meados 
+dos anos 1980, certo, 1985,
+
+12
+00:00:52,230 --> 00:00:54,492
+lendo estes artigos? 
+Você se lembra?
+
+13
+00:00:54,492 --> 00:00:55,545
+− Sim.
+
+14
+00:00:59,565 --> 00:01:05,277
+Bem, a partir dos cursos que eu fiz em 
+IA clássica com sistemas inteligentes,
+
+15
+00:01:05,277 --> 00:01:09,981
+e, de repente, descobrir que havia 
+todo este mundo de descoberta
+
+16
+00:01:09,981 --> 00:01:14,445
+de como humanos aprendiam, 
+e sobre a inteligência humana.
+
+17
+00:01:14,445 --> 00:01:19,347
+E como desenhar conexões entre 
+isso e a inteligência artificial e
+
+18
+00:01:19,347 --> 00:01:21,100
+computadores.
+
+19
+00:01:21,100 --> 00:01:25,230
+Isso foi muito empolgante para mim 
+quando eu descobri esta literatura, e
+
+20
+00:01:25,230 --> 00:01:27,730
+eu comecei a ler sobre 
+conexionismo, é claro.
+
+21
+00:01:27,730 --> 00:01:31,682
+Então, os artigos de Geoff Hinton, 
+Rumelhart, e assim por diante.
+
+22
+00:01:31,682 --> 00:01:38,462
+E eu trabalhei com redes recorrentes, 
+reconhecimento de fala,
+
+23
+00:01:38,462 --> 00:01:42,666
+HMNs, que são modelos gráficos.
+
+24
+00:01:42,666 --> 00:01:50,295
+E então, rapidamente, mudei para os laboratórios Bell
+da AT&T e MIT, onde eu fiz pós-doutorado.
+
+25
+00:01:50,295 --> 00:01:54,629
+E foi onde eu descobri alguns dos 
+problemas com as dependências
+
+26
+00:01:54,629 --> 00:01:57,335
+de longo-prazo no 
+treino de redes neurais.
+
+27
+00:01:57,335 --> 00:02:02,505
+E então, logo depois, eu fui recrutado 
+pela UdeM, de volta em Montreal,
+
+28
+00:02:02,505 --> 00:02:06,475
+onde eu passei a maior 
+parte da minha adolescência.
+
+29
+00:02:08,260 --> 00:02:12,948
+Então, como alguém que esteve lá 
+por muitas décadas e viu de tudo,
+
+30
+00:02:12,948 --> 00:02:17,049
+certamente quase tudo, 
+conte-me o que você pensa
+
+31
+00:02:17,049 --> 00:02:21,610
+sobre a evolução da aprendizagem profunda 
+e redes neurais ao longo do tempo?
+
+32
+00:02:22,740 --> 00:02:25,590
+Começamos com 
+experimentos, intuições, e
+
+33
+00:02:25,590 --> 00:02:27,030
+a teoria acabou vindo mais tarde.
+
+34
+00:02:27,030 --> 00:02:30,540
+Agora, nós entendemos 
+muito melhor, por exemplo,
+
+35
+00:02:30,540 --> 00:02:35,132
+porque retropropagação está funcionando tão 
+bem, porque profundidade é tão importante.
+
+36
+00:02:35,132 --> 00:02:41,904
+E estes conceitos, não tínhamos uma 
+base teórica sólida naquela época.
+
+37
+00:02:41,904 --> 00:02:46,488
+Quando começamos a trabalhar em redes profundas 
+no início dos anos 2000, tínhamos a intuição que
+
+38
+00:02:46,488 --> 00:02:50,680
+fazia sentido que uma rede mais 
+profunda deveria ser mais poderosa.
+
+39
+00:02:50,680 --> 00:02:54,450
+Mas não sabíamos como pegar isso e
+
+40
+00:02:54,450 --> 00:02:57,680
+fazer a prova, e é claro, nossos experimentos, 
+inicialmente, não funcionaram.
+
+41
+00:02:59,260 --> 00:02:59,910
+E, quais foram
+
+42
+00:02:59,910 --> 00:03:04,580
+as coisas que, na sua 
+opinião, de fato se concretizaram?
+
+43
+00:03:04,580 --> 00:03:08,120
+E quais foram as maiores 
+surpresas ou o que deu errado,
+
+44
+00:03:08,120 --> 00:03:09,680
+se comparado com o 
+que sabíamos há 30 anos?
+
+45
+00:03:11,070 --> 00:03:15,880
+Então, um dos maiores 
+erros que eu cometi foi pensar
+
+46
+00:03:15,880 --> 00:03:18,686
+como todo mundo 
+na década de 1990,
+
+47
+00:03:18,686 --> 00:03:24,980
+que você precisava de não-linearidades sutis 
+para que a retropropagação funcionasse.
+
+48
+00:03:24,980 --> 00:03:31,330
+Porque eu pensei que, se tivéssemos 
+algo corrigindo as não-linearidades,
+
+49
+00:03:31,330 --> 00:03:35,010
+onde você tem uma parte plana, 
+isso seria muito difícil de treinar,
+
+50
+00:03:35,010 --> 00:03:38,090
+porque a derivada seria 
+zero em muitos pontos.
+
+51
+00:03:38,090 --> 00:03:41,981
+E quando começamos a fazer 
+experimentos com ReLu ("rectified linear unit"),
+
+52
+00:03:41,981 --> 00:03:48,065
+com redes profundas por volta de 2010, 
+eu estava obcecado com a ideia que
+
+53
+00:03:48,065 --> 00:03:55,270
+deveríamos ter cuidado para que os neurônios 
+não saturassem muito na parte zero.
+
+54
+00:03:55,270 --> 00:03:59,679
+Mas no final, acabou resultando que, na 
+verdade, o ReLu estava trabalhando bem
+
+55
+00:03:59,679 --> 00:04:03,751
+melhor do que os sigmoides e anexos, 
+e isso foi uma grande surpresa.
+
+56
+00:04:03,751 --> 00:04:07,969
+Nós fizemos desta forma, explorando isso 
+pela conexão biológica, na verdade,
+
+57
+00:04:07,969 --> 00:04:11,105
+não porque achávamos 
+que seria mais fácil otimizar.
+
+58
+00:04:11,105 --> 00:04:16,300
+Mas resultou que funcionou melhor, enquanto na 
+verdade eu achava que seria mais difícil de treinar.
+
+59
+00:04:16,300 --> 00:04:17,490
+Deixe-me perguntá-lo.
+
+60
+00:04:17,490 --> 00:04:20,890
+Qual é a relação entre aprendizagem 
+profunda e o cérebro?
+
+61
+00:04:20,890 --> 00:04:25,491
+Há uma resposta óbvia, mas eu 
+estou curioso qual é a sua resposta?
+
+62
+00:04:25,491 --> 00:04:31,093
+Bem, o insight inicial que realmente 
+me deixou empolgado com
+
+63
+00:04:31,093 --> 00:04:37,839
+redes neurais foi este ideia 
+dos conexionistas que informação é
+
+64
+00:04:37,839 --> 00:04:43,003
+distribuída através da ativação 
+de muitos neurônios.
+
+65
+00:04:43,003 --> 00:04:47,431
+Ao invés de ser representada 
+por um tipo de célula avó,
+
+66
+00:04:47,431 --> 00:04:51,209
+como eles estavam chamando, 
+uma representação simbólica.
+
+67
+00:04:51,209 --> 00:04:54,972
+Essa era uma visão 
+tradicional em IA clássica.
+
+68
+00:04:54,972 --> 00:04:58,860
+E eu ainda acredito que isso é 
+uma coisa muito importante, e
+
+69
+00:04:58,860 --> 00:05:03,573
+ainda vejo pessoas redescobrindo a importância 
+disso, até mesmo recentemente.
+
+70
+00:05:03,573 --> 00:05:06,850
+Então, essa foi realmente a base.
+
+71
+00:05:06,850 --> 00:05:12,919
+A coisa da profundidade é algo que veio 
+depois, no início da década de 2000,
+
+72
+00:05:12,919 --> 00:05:16,563
+mas não era algo que estava pensando 
+na década de 1990, por exemplo.
+
+73
+00:05:16,563 --> 00:05:21,318
+Certo, certo, e lembro-me que você construiu 
+muitas representações relativamente rasas,
+
+74
+00:05:21,318 --> 00:05:26,859
+mas bem distribuídas de 
+"word embeddings", certo, bem no início.
+
+75
+00:05:26,859 --> 00:05:28,897
+Certo, isso mesmo.
+
+76
+00:05:28,897 --> 00:05:33,661
+Esta é uma das coisas que eu me 
+empolguei muito no final da década de 1990.
+
+77
+00:05:33,661 --> 00:05:38,351
+Na verdade, meu irmão Samy e eu, trabalhamos 
+na ideia que poderíamos usar redes neurais
+
+78
+00:05:38,351 --> 00:05:42,171
+para enfrentar a maldição da 
+dimensionalidade, que acreditava-se ser um
+
+79
+00:05:42,171 --> 00:05:45,980
+dos problemas centrais 
+com aprendizagem de estatística.
+
+80
+00:05:45,980 --> 00:05:51,440
+E o fato que podíamos ter 
+estas representações distribuídas
+
+81
+00:05:51,440 --> 00:05:57,150
+para representar distribuições conjuntas ao longo 
+de muitas variáveis aleatórias de uma forma muito eficiente.
+
+82
+00:05:57,150 --> 00:06:01,250
+E resultou que funcionou muito 
+bem, e eu estendi isso para
+
+83
+00:06:01,250 --> 00:06:04,920
+distribuições sobre sequências de palavras, 
+e assim foi que surgiu "word embeddings".
+
+84
+00:06:04,920 --> 00:06:10,525
+Porque eu pensei, isso 
+permitirá generalização
+
+85
+00:06:10,525 --> 00:06:16,373
+através de palavras que tenham um 
+significado semântico similar e assim por diante.
+
+86
+00:06:16,373 --> 00:06:20,974
+Nas últimas décadas, seu grupo 
+de pesquisa inventou mais ideias
+
+87
+00:06:20,974 --> 00:06:24,030
+que ninguém consegue 
+resumir em alguns minutos.
+
+88
+00:06:24,030 --> 00:06:26,879
+Então, estou curioso, quais 
+são as invenções ou
+
+89
+00:06:26,879 --> 00:06:29,810
+ideias do seu grupo que 
+deixou você mais orgulhoso?
+
+90
+00:06:29,810 --> 00:06:35,640
+Bem, eu acho que mencionei 
+dependências de longo-prazo, este estudo.
+
+91
+00:06:35,640 --> 00:06:40,770
+Eu penso que as pessoas 
+ainda não entendem muito bem.
+
+92
+00:06:40,770 --> 00:06:45,214
+Então, há a história que eu mencionei 
+sobre a maldição da dimensionalidade,
+
+93
+00:06:45,214 --> 00:06:49,887
+distribuições conjuntas com redes neurais, 
+que tornaram-se, mais recentemente,
+
+94
+00:06:49,887 --> 00:06:52,435
+o que fez Hugo Larochelle.
+
+95
+00:06:52,435 --> 00:06:55,255
+E então, como disse, isso deu 
+origem a muitos trabalhos
+
+96
+00:06:55,255 --> 00:06:59,660
+em aprendizagem de "word embeddings" 
+para distribuições conjuntas de palavras.
+
+97
+00:06:59,660 --> 00:07:04,410
+Então veio o que eu acho que são os eventos 
+mais conhecidos do trabalho que fizemos com
+
+98
+00:07:04,410 --> 00:07:07,639
+aprendizagem profunda, com pilhas 
+de "autoencoders" e pilhas de RBMs (Restricted Boltzmann Machines).
+
+99
+00:07:09,580 --> 00:07:15,500
+Isso foi o trabalho sobre 
+entender melhor as dificuldades
+
+100
+00:07:15,500 --> 00:07:20,530
+no treino de redes profundas 
+com as ideias de inicialização,
+
+101
+00:07:20,530 --> 00:07:24,840
+e também, o desaparecimento do 
+gradiente em redes profundas.
+
+102
+00:07:24,840 --> 00:07:29,440
+E este trabalho realmente foi o que deu 
+origem aos experimentos que mostraram
+
+103
+00:07:29,440 --> 00:07:34,986
+a importância das funções 
+lineares de ativação.
+
+104
+00:07:34,986 --> 00:07:38,804
+Depois, eu nomearia alguns dos trabalhos 
+mais importantes relativos ao trabalho
+
+105
+00:07:38,804 --> 00:07:43,706
+que realizamos com aprendizagem não supervisionada, a auto-encoder 
+com fitragem de ruído (denoising auto-encoder), as GANs,
+
+106
+00:07:43,706 --> 00:07:48,340
+que são muito populares atualmente, 
+as Redes Gerativas Adversárias.
+
+107
+00:07:48,340 --> 00:07:54,563
+O trabalho que fizemos com tradução 
+de máquina neural baseada em atenção,
+[NT: attention-based NMT(Bahdanau et al., 2014]
+
+108
+00:07:54,563 --> 00:08:01,132
+que acabou tornando-se muito importante 
+em trabalhos de tradução.
+
+109
+00:08:01,132 --> 00:08:05,540
+E atualmente está sendo usado em sistemas 
+industriais, como "Google Translate".
+
+110
+00:08:05,540 --> 00:08:09,800
+Mas esta coisa de atenção, na verdade 
+mudou muito minha visão sobre redes neurais.
+
+111
+00:08:09,800 --> 00:08:14,860
+Costumávamos pensar redes neurais como 
+máquinas que podiam mapear um vetor para outro.
+
+112
+00:08:14,860 --> 00:08:19,300
+Mas realmente com mecanismos de atenção, você 
+pode manipular qualquer tipo de estrutura de dados.
+
+113
+00:08:19,300 --> 00:08:24,565
+E isso está realmente abrindo uma 
+série de avenidas interessantes.
+
+114
+00:08:24,565 --> 00:08:27,415
+Um direcionamento que, na verdade, 
+possibilita a conexão com a biologia,
+
+115
+00:08:27,415 --> 00:08:31,403
+uma coisa que eu tenho 
+trabalhado nos últimos anos é,
+
+116
+00:08:31,403 --> 00:08:36,970
+como podemos criar algo similar a retropropagação, 
+mas que os cérebros poderiam implementar.
+
+117
+00:08:36,970 --> 00:08:41,500
+E temos alguns artigos nesta direção 
+que parecem ser interessantes para
+
+118
+00:08:41,500 --> 00:08:43,930
+o pessoal da neurociência.
+
+119
+00:08:43,930 --> 00:08:46,240
+E então, estamos continuando 
+nesta direção, obviamente.
+
+120
+00:08:47,890 --> 00:08:50,785
+Um dos tópicos, que eu sei 
+que você tem pensado muito, é
+
+121
+00:08:50,785 --> 00:08:52,990
+a relação entre aprendizagem profunda e
+
+122
+00:08:52,990 --> 00:08:56,720
+o cérebro. Você pode nos 
+falar um pouco mais sobre isso?
+
+123
+00:08:56,720 --> 00:09:03,030
+Esta coisa biológica é algo que eu 
+venho pensando há algum tempo, na verdade,
+
+124
+00:09:03,030 --> 00:09:08,110
+e que eu venho, eu diria, 
+sonhando acordado.
+
+125
+00:09:08,110 --> 00:09:12,897
+Porque, penso nisso como um quebra-cabeça.
+
+126
+00:09:12,897 --> 00:09:16,957
+Então, nós temos estes pedaços de evidências, 
+do que sabemos sobre o cérebro e
+
+127
+00:09:16,957 --> 00:09:21,042
+da aprendizagem no cérebro, como plasticidade 
+dependente do tempo de disparos entre os neurônios.
+
+128
+00:09:21,042 --> 00:09:27,490
+E, por outro lado, temos todos esses 
+conceitos da aprendizagem de máquina.
+
+129
+00:09:27,490 --> 00:09:31,822
+A ideia do treinamento global 
+de todo o sistema com relação a
+
+130
+00:09:31,822 --> 00:09:35,440
+uma função objetiva, e 
+a ideia da retropropagação.
+
+131
+00:09:35,440 --> 00:09:37,370
+E o que significa retropropagação?
+
+132
+00:09:37,370 --> 00:09:42,710
+Tipo, o que realmente 
+significa atribuição de crédito?
+
+133
+00:09:42,710 --> 00:09:47,515
+Quando eu comecei a pensar sobre como 
+cérebros podem fazer algo tipo retropropagação,
+
+134
+00:09:47,515 --> 00:09:53,070
+isso me levou a pensar sobre, bem, talvez haja 
+alguns conceitos mais genéricos por trás
+
+135
+00:09:53,070 --> 00:09:58,271
+da retropropagação que o faça tão eficiente que 
+nos permita sermos eficientes com retropropagação.
+
+136
+00:09:58,271 --> 00:10:02,217
+E talvez, há um grupo maior de maneiras 
+de fazer atribuição de crédito, e
+
+137
+00:10:02,217 --> 00:10:06,973
+isso se relaciona a perguntas que pessoas, que estão 
+na aprendizagem por reforço, estejam fazendo.
+
+138
+00:10:06,973 --> 00:10:12,161
+Então, é interessante como, às vezes, 
+perguntas simples nos levam
+
+139
+00:10:12,161 --> 00:10:18,366
+a pensar sobre tantas coisas 
+diferentes, e nos força a pensarmos sobre
+
+140
+00:10:18,366 --> 00:10:23,387
+tantos elementos que você gostaria de introduzir, 
+como um grande quebra-cabeça.
+
+141
+00:10:23,387 --> 00:10:26,510
+Então, isso tem sido há alguns anos.
+
+142
+00:10:26,510 --> 00:10:30,538
+E eu preciso dizer que esta grande 
+jornada, como muitas daquelas que eu
+
+143
+00:10:30,538 --> 00:10:34,714
+segui, foi altamente inspirada 
+pelos pensamentos de Jeff Hinton.
+
+144
+00:10:34,714 --> 00:10:41,171
+Especificamente, ele apresentou 
+isso em 2007, eu acho,
+
+145
+00:10:41,171 --> 00:10:46,013
+o primeiro "workshop" em 
+aprendizagem profunda, em que
+
+146
+00:10:46,013 --> 00:10:51,270
+era como ele pensava 
+que o cérebro funcionava.
+
+147
+00:10:52,840 --> 00:10:56,515
+Qual tipo de código 
+temporal poderia ser usado
+
+148
+00:10:56,515 --> 00:11:00,719
+para potencialmente fazer 
+o trabalho de retropropagação.
+
+149
+00:11:00,719 --> 00:11:06,700
+E isso leva a muitas ideias que 
+eu tenho explorado nos últimos anos.
+
+150
+00:11:07,850 --> 00:11:12,700
+Sim, é uma história 
+interessante que tem sido
+
+151
+00:11:13,830 --> 00:11:16,090
+escrita basicamente 
+há uma década agora.
+
+152
+00:11:17,100 --> 00:11:21,030
+Um dos temas que eu também 
+já escutei você falar muitas vezes é
+
+153
+00:11:21,030 --> 00:11:23,090
+Aprendizado não Supervisionado.
+
+154
+00:11:23,090 --> 00:11:25,000
+Podes compartilhar a sua 
+perspectiva sobre o tema?
+
+155
+00:11:26,010 --> 00:11:29,880
+Sim, sim. Então, aprendizagem não 
+supervisionada é muito importante.
+
+156
+00:11:29,880 --> 00:11:34,744
+Agora, nosso sistema industrial está 
+baseado em aprendizagem supervisionada,
+
+157
+00:11:34,744 --> 00:11:40,259
+que essencialmente requer que humanos definam 
+quais são os conceitos importantes para
+
+158
+00:11:40,259 --> 00:11:43,845
+o problema e rotular 
+estes conceitos nos dados.
+
+159
+00:11:43,845 --> 00:11:49,740
+E nós construímos todos esses brinquedos 
+incríveis, e serviços e sistemas que usam isso.
+
+160
+00:11:49,740 --> 00:11:52,397
+Mas humanos são capazes 
+de fazer muito mais.
+
+161
+00:11:52,397 --> 00:11:57,869
+Eles são capazes de explorar e descobrir 
+novos conceitos através da observação e
+
+162
+00:11:57,869 --> 00:12:00,360
+interação com o mundo.
+
+163
+00:12:00,360 --> 00:12:05,362
+Uma criança de 2 anos é capaz 
+de entender física intuitivamente.
+
+164
+00:12:05,362 --> 00:12:08,490
+Em outras palavras, ela entende sobre 
+gravidade, ela entende sobre pressão,
+
+165
+00:12:08,490 --> 00:12:11,990
+ela entende sobre inercia,
+
+166
+00:12:11,990 --> 00:12:14,480
+ela entende líquidos e sólidos.
+
+167
+00:12:14,480 --> 00:12:18,140
+E claro, seus pais nunca a 
+ensinaram nada disso, certo?
+
+168
+00:12:18,140 --> 00:12:21,110
+Então, como ela aprendeu isso?
+
+169
+00:12:21,110 --> 00:12:26,160
+Então, este é o tipo de pergunta que a aprendizagem 
+não supervisionada está tentando responder.
+
+170
+00:12:26,160 --> 00:12:30,460
+Não é apenas sobre nós 
+termos rótulos ou não.
+
+171
+00:12:30,460 --> 00:12:33,790
+Trata-se, na verdade, do 
+desenvolvimento de uma construção
+
+172
+00:12:33,790 --> 00:12:38,630
+mental que explica como o mundo 
+funciona, através de observação.
+
+173
+00:12:38,630 --> 00:12:42,430
+E mais recentemente, 
+eu tenho combinado
+
+174
+00:12:42,430 --> 00:12:45,810
+as ideias de aprendizagem não supervisionada 
+com as ideias de aprendizagem por reforço.
+
+175
+00:12:45,810 --> 00:12:50,430
+Porque eu acredito que há 
+um indicativo muito forte sobre
+
+176
+00:12:50,430 --> 00:12:54,899
+os importantes conceitos subjacentes 
+que estamos tentando desvendar,
+
+177
+00:12:54,899 --> 00:12:57,020
+que estamos tentando 
+separar uns dos outros.
+
+178
+00:12:58,150 --> 00:13:03,166
+O que um humano ou máquina pode 
+aprender pela interação com o mundo,
+
+179
+00:13:03,166 --> 00:13:08,969
+explorando o mundo, fazendo testes 
+e tentando controlar as coisas.
+
+180
+00:13:08,969 --> 00:13:13,598
+Então, penso que isso está 
+conectado com as ideias originais de
+
+181
+00:13:13,598 --> 00:13:14,354
+aprendizagem profunda.
+
+182
+00:13:14,354 --> 00:13:17,082
+Bem, minha experiência com 
+aprendizagem não supervisionada.
+
+183
+00:13:17,082 --> 00:13:22,027
+Há 15 anos, quando começamos a 
+fazer os RBMs, e essas coisas,
+
+184
+00:13:22,027 --> 00:13:26,819
+eu estava muito focado na ideia 
+da aprendizagem de boas representações.
+
+185
+00:13:26,819 --> 00:13:29,350
+E eu ainda penso que 
+está é uma questão essencial.
+
+186
+00:13:29,350 --> 00:13:34,370
+Mas o que não sabemos é como e o 
+que é uma boa representação?
+
+187
+00:13:34,370 --> 00:13:39,569
+Como descobrimos uma 
+função objetiva, por exemplo?
+
+188
+00:13:39,569 --> 00:13:41,945
+Então, tentamos muitas 
+coisas ao longo dos anos.
+
+189
+00:13:41,945 --> 00:13:46,262
+E isso é, na verdade, uma das coisas mais legais sobre 
+as pesquisas em aprendizagem não supervisionada,
+
+190
+00:13:46,262 --> 00:13:48,449
+que há tantas ideias distintas, tantas
+
+191
+00:13:48,449 --> 00:13:51,079
+formas diferentes 
+de atacar este problema.
+
+192
+00:13:51,079 --> 00:13:56,482
+E que, talvez haja uma outra forma, que 
+descobriremos no próximo ano, e que é totalmente
+
+193
+00:13:56,482 --> 00:14:01,066
+diferente, talvez o cérebro esteja usando 
+algo completamente diferente.
+
+194
+00:14:01,066 --> 00:14:03,197
+Então, isso não é pesquisa incremental.
+
+195
+00:14:03,197 --> 00:14:06,300
+Isso é algo que, em si, 
+já é muito exploratória.
+
+196
+00:14:07,500 --> 00:14:11,150
+Não temos uma boa definição do que é 
+a função objetiva correta, nem mesmo
+
+197
+00:14:11,150 --> 00:14:14,446
+para medir se um sistema está fazendo um bom 
+trabalho em aprendizagem não supervisionada.
+
+198
+00:14:14,446 --> 00:14:19,710
+Então, é claro que é desafiador, 
+mas ao mesmo tempo,
+
+199
+00:14:19,710 --> 00:14:23,140
+isso deixa um vasto 
+campo de oportunidades,
+
+200
+00:14:23,140 --> 00:14:26,980
+e isso é o que os pesquisadores 
+adoram, pelo menos é algo que me atrai.
+
+201
+00:14:28,600 --> 00:14:31,536
+Nos dias de hoje, há muita coisa 
+acontecendo na aprendizagem profunda.
+
+202
+00:14:31,536 --> 00:14:34,175
+E eu penso que nós já passamos 
+o ponto onde é possível
+
+203
+00:14:34,175 --> 00:14:37,410
+que qualquer ser humano leia qualquer artigo 
+publicado sobre aprendizagem profunda.
+
+204
+00:14:38,590 --> 00:14:44,397
+Então, estou curioso, qual campo na 
+aprendizagem profunda mais te encanta?
+
+205
+00:14:44,397 --> 00:14:49,059
+Bem, eu sou muito ambiciosa, e 
+eu sinto que o estado da ciência
+
+206
+00:14:49,059 --> 00:14:54,780
+atual da aprendizagem profunda 
+está longe de onde gostaria de vê-lo.
+
+207
+00:14:54,780 --> 00:15:01,060
+E eu tenho a impressão que nossos 
+sistemas agora, cometem erros que
+
+208
+00:15:01,060 --> 00:15:05,480
+sugerem que eles têm um entendimento 
+do mundo muito superficial.
+
+209
+00:15:06,510 --> 00:15:11,504
+Então, o que mais me encanta agora é o 
+direcionamento de pesquisa em que não estamos
+
+210
+00:15:11,504 --> 00:15:15,527
+tentando construir sistemas 
+que não irão fazer algo útil.
+
+211
+00:15:15,527 --> 00:15:21,494
+Estamos voltando aos princípios do tipo: 
+como um computador observa o mundo,
+
+212
+00:15:21,494 --> 00:15:26,030
+interage com o mundo e 
+descobre como o mundo funciona?
+
+213
+00:15:26,030 --> 00:15:30,348
+Mesmo se este mundo é simples, algo que possamos 
+programar como um tipo de videogame,
+
+214
+00:15:30,348 --> 00:15:32,718
+nós não sabemos como fazer bem isto.
+
+215
+00:15:32,718 --> 00:15:36,655
+E isso está ok, porque eu não tenho 
+que competir com Google, Facebook, e
+
+216
+00:15:36,655 --> 00:15:38,400
+Baidu, dentre outros, certo?
+
+217
+00:15:38,400 --> 00:15:41,300
+Porque isso é um tipo de pesquisa
+
+218
+00:15:41,300 --> 00:15:45,640
+básica que pode ser feita por qualquer um 
+em sua garagem e poderia mudar o mundo.
+
+219
+00:15:45,640 --> 00:15:50,130
+Então, há muitas 
+formas de abordar isso.
+
+220
+00:15:50,130 --> 00:15:54,509
+Mas eu vejo bons frutos, nas 
+interações entre aprendizagem
+
+221
+00:15:54,509 --> 00:15:59,311
+profunda e aprendizagem por 
+reforço, e que são importantes.
+
+222
+00:15:59,311 --> 00:16:03,076
+E eu estou muito empolgado 
+que o progresso nesta direção
+
+223
+00:16:03,076 --> 00:16:06,940
+possa ter um grande impacto 
+em aplicações práticas na verdade.
+
+224
+00:16:06,940 --> 00:16:11,774
+Porque se você olhar para alguns dos grandes 
+desafios que temos nas aplicações,
+
+225
+00:16:11,774 --> 00:16:14,044
+tipo como lidamos com novos domínios, ou
+
+226
+00:16:14,044 --> 00:16:16,921
+categorias das quais temos 
+muito poucos exemplos.
+
+227
+00:16:16,921 --> 00:16:21,100
+E em casos onde humanos são muito 
+bons em solucionar estes problemas.
+
+228
+00:16:21,100 --> 00:16:25,336
+Assim, essas transferências de 
+aprendizagem e problemas de dramatização,
+
+229
+00:16:25,336 --> 00:16:30,201
+elas se tornariam muito mais fácil de resolver, 
+se nós tivéssemos sistemas que tivessem
+
+230
+00:16:30,201 --> 00:16:33,821
+um entendimento melhor 
+de como o mundo funciona.
+
+231
+00:16:33,821 --> 00:16:35,280
+Um entendimento 
+mais profundo, certa?
+
+232
+00:16:35,280 --> 00:16:36,215
+O que realmente está acontecendo?
+
+233
+00:16:36,215 --> 00:16:40,218
+Quais são as causas 
+daquilo que estou vendo?
+
+234
+00:16:40,218 --> 00:16:44,170
+E como eu posso influenciar 
+o que eu vejo, pelas minhas ações?
+
+235
+00:16:44,170 --> 00:16:50,542
+Então, estas são tipos de questões 
+que eu estou muito empolgado atualmente.
+
+236
+00:16:50,542 --> 00:16:56,029
+Eu penso que a conexão e a pesquisa 
+na aprendizagem profunda evoluíram
+
+237
+00:16:56,029 --> 00:17:01,060
+nas últimas décadas com 
+perguntas bem antigas de IA.
+
+238
+00:17:01,060 --> 00:17:07,760
+Porque muito do sucesso em aprendizagem 
+profunda tem haver com a percepção.
+
+239
+00:17:07,760 --> 00:17:08,917
+Então, o que ainda falta?
+
+240
+00:17:08,917 --> 00:17:11,305
+O que resta é um tipo 
+de condição de alto nível,
+
+241
+00:17:11,305 --> 00:17:14,890
+que está relacionado com o entendimento em um 
+nível abstrato de como as coisas funcionam.
+
+242
+00:17:14,890 --> 00:17:19,093
+Então, programas que entendem 
+abstrações de alto nível, ainda não
+
+243
+00:17:19,093 --> 00:17:23,109
+alcançaram estes níveis altos de 
+abstração, e nós precisamos chegar lá.
+
+244
+00:17:23,109 --> 00:17:28,796
+Temos que pensar sobre raciocínio, 
+processamento sequencial de informação.
+
+245
+00:17:28,796 --> 00:17:31,087
+Nós temos que pensar 
+como funciona a casualidade e
+
+246
+00:17:31,087 --> 00:17:34,540
+como máquinas podem descobrir 
+todas estas coisas por si mesmas.
+
+247
+00:17:34,540 --> 00:17:39,555
+Potencialmente guiadas por humanos, mas 
+o máximo que der, de forma autônoma.
+
+248
+00:17:39,555 --> 00:17:42,395
+E parece, partindo do 
+que você disse, que
+
+249
+00:17:42,395 --> 00:17:46,160
+você é um fã de abordagens de 
+pesquisa onde você faz experimentos.
+
+250
+00:17:46,160 --> 00:17:49,730
+Usarei o termo problema de 
+brinquedo, não de forma depreciativa.
+
+251
+00:17:49,730 --> 00:17:51,354
+Certo, mas em um pequeno problema.
+
+252
+00:17:51,354 --> 00:17:55,670
+E você é otimista que eles possam ser 
+transferidos para problemas maiores mais tarde.
+
+253
+00:17:55,670 --> 00:18:00,634
+Sim, sim. Transfere de certa forma.
+
+254
+00:18:00,634 --> 00:18:05,223
+Claro, teremos que fazer 
+algum trabalho para ampliar e
+
+255
+00:18:05,223 --> 00:18:08,170
+tratar estes problemas,
+
+256
+00:18:08,170 --> 00:18:11,295
+mas a minha motivação principal para
+
+257
+00:18:11,295 --> 00:18:17,233
+estes problemas de brinquedos, é que 
+podemos entender melhor nossas falhas e
+
+258
+00:18:17,233 --> 00:18:22,233
+podemos reduzir o problema 
+a algo que podemos intuitivamente
+
+259
+00:18:22,233 --> 00:18:26,528
+manipulá-lo e entendê-lo mais facilmente.
+
+260
+00:18:26,528 --> 00:18:31,031
+Então, um tipo clássico de abordagem 
+científica de divisão e conquista.
+
+261
+00:18:31,031 --> 00:18:35,591
+Além disso, eu penso, algo que 
+as pessoas não pensam muito, é
+
+262
+00:18:35,591 --> 00:18:38,750
+o ciclo de pesquisa pode 
+ser muito mais rápido.
+
+263
+00:18:38,750 --> 00:18:44,225
+Então, se eu puder fazer um experimento em algumas 
+horas, eu consigo progredir muito mais rápido.
+
+264
+00:18:44,225 --> 00:18:49,448
+Se eu tiver que treinar um modelo gigante 
+que tenta capturar todo o senso comum
+
+265
+00:18:49,448 --> 00:18:55,511
+e tudo relativo ao conhecimento 
+genérico, que eventualmente nós faremos.
+
+266
+00:18:55,511 --> 00:18:59,010
+É apenas que cada experimento toma muito 
+tempo com o hardware disponível atualmente.
+
+267
+00:18:59,010 --> 00:19:02,984
+Então, enquanto nossos amigos de hardware estão 
+construindo máquinas mil vezes,
+
+268
+00:19:02,984 --> 00:19:06,050
+ou um milhão de vezes mais rápidas, 
+eu faço estes experimentos de brinquedos.
+
+269
+00:19:06,050 --> 00:19:11,094
+[Risos] Sabe, eu também 
+escutei você falar
+
+270
+00:19:11,094 --> 00:19:15,904
+de ciência da aprendizagem profunda, não 
+apenas como uma disciplina de engenharia,
+
+271
+00:19:15,904 --> 00:19:19,610
+mas realizando mais trabalho para 
+entender o que está realmente acontecendo.
+
+272
+00:19:19,610 --> 00:19:22,185
+Compartilhe os seus 
+conhecimentos sobre isso.
+
+273
+00:19:22,185 --> 00:19:24,287
+Claro, absolutamente.
+
+274
+00:19:24,287 --> 00:19:29,105
+Eu tenho medo que grande do parte que estamos 
+fazendo é tipo um monte de pessoas cegas tentando
+
+275
+00:19:29,105 --> 00:19:30,278
+encontrar o seu caminho.
+
+276
+00:19:30,278 --> 00:19:37,247
+[Risos] E podemos ter sorte e encontrar 
+coisas interessantes deste jeito.
+
+277
+00:19:37,247 --> 00:19:40,487
+Mas, realmente, se nós 
+pararmos um pouco e
+
+278
+00:19:40,487 --> 00:19:45,619
+tentarmos entender o que estamos fazendo 
+de forma que seja transferível,
+
+279
+00:19:45,619 --> 00:19:49,220
+porque voltamos aos 
+princípios da teoria, mas
+
+280
+00:19:49,220 --> 00:19:53,378
+quando eu digo teoria, eu não quero 
+dizer necessariamente matemática.
+
+281
+00:19:53,378 --> 00:19:57,733
+Claro que eu gosto de matemática, etc., mas 
+eu não acho que nós precisamos que tudo
+
+282
+00:19:57,733 --> 00:20:01,221
+seja formalizado matematicamente, 
+mas sim formalizados de forma lógica.
+
+283
+00:20:01,221 --> 00:20:05,567
+No sentido que eu consiga 
+convencer alguém que isso funciona,
+
+284
+00:20:05,567 --> 00:20:07,348
+que isso faz sentido.
+
+285
+00:20:07,348 --> 00:20:09,550
+Este é o aspecto mais importante.
+
+286
+00:20:09,550 --> 00:20:14,650
+E então, a matemática nos permite 
+tornar isso mais forte e comprovado.
+
+287
+00:20:14,650 --> 00:20:17,330
+Mas isso é mais sobre 
+o entendimento, na verdade.
+
+288
+00:20:17,330 --> 00:20:21,145
+E é também sobre 
+fazer a nossa pesquisa,
+
+289
+00:20:21,145 --> 00:20:25,396
+não para ser a próxima linha 
+de base ou referência, ou
+
+290
+00:20:25,396 --> 00:20:30,850
+para ser melhor que os outros caras no 
+outro laboratório, ou na outra empresa.
+
+291
+00:20:30,850 --> 00:20:35,148
+É mais sobre que tipo de pergunta devemos 
+fazer, de modo que nos permita
+
+292
+00:20:35,148 --> 00:20:38,200
+entender melhor o 
+fenômeno de interesse.
+
+293
+00:20:38,200 --> 00:20:40,330
+O que torna, por exemplo,
+
+294
+00:20:40,330 --> 00:20:45,247
+o treinamento em redes mais profundas 
+ou em redes atuais mais difícil?
+
+295
+00:20:45,247 --> 00:20:48,110
+Temos algumas ideias, mas muitas 
+coisas ainda não entendemos.
+
+296
+00:20:49,310 --> 00:20:54,624
+Então, talvez possamos projetar experimentos cujo 
+objetivo não seja ter um algoritmo melhor,
+
+297
+00:20:54,624 --> 00:20:58,987
+mas apenas entender melhor os 
+algoritmos que temos atualmente, ou
+
+298
+00:20:58,987 --> 00:21:03,857
+quais circunstâncias fazem com que um 
+algoritmo específico trabalhe melhor e por quê.
+
+299
+00:21:03,857 --> 00:21:05,346
+É o porquê que realmente importa.
+
+300
+00:21:05,346 --> 00:21:06,595
+Isto é ciência.
+
+301
+00:21:06,595 --> 00:21:07,669
+É a razão.
+
+302
+00:21:07,669 --> 00:21:09,826
+Certo. Hoje existem 
+muitas pessoas querendo
+
+303
+00:21:09,826 --> 00:21:10,764
+entrar nesta área.
+
+304
+00:21:10,764 --> 00:21:14,496
+E eu tenho certeza que já respondeu 
+isso em muitas sessões individuais, mas
+
+305
+00:21:14,496 --> 00:21:18,288
+com todas estas pessoas assistindo 
+este vídeo, qual dica você daria
+
+306
+00:21:18,288 --> 00:21:21,238
+às pessoas que querem entrar na IA, 
+entrar na aprendizagem profunda?
+
+307
+00:21:21,238 --> 00:21:26,160
+Certo. Primeiramente, há 
+motivações distintas e
+
+308
+00:21:26,160 --> 00:21:28,537
+coisas diferentes que pode-se fazer.
+
+309
+00:21:28,537 --> 00:21:33,064
+O que você precisa para tonar-se um pesquisador de aprendizagem 
+profunda, não é necessariamente o mesmo, caso você
+
+310
+00:21:33,064 --> 00:21:37,333
+queira tornar-se um engenheiro que irá usar 
+aprendizagem profunda para construir produtos.
+
+311
+00:21:37,333 --> 00:21:40,844
+Há diferentes níveis de entendimento que 
+são necessários em ambos os casos.
+
+312
+00:21:40,844 --> 00:21:46,090
+Mas de qualquer forma, em 
+ambos os casos, pratique.
+
+313
+00:21:46,090 --> 00:21:51,004
+Então, para realmente dominar um 
+assunto como aprendizagem profunda,
+
+314
+00:21:51,004 --> 00:21:54,166
+obviamente você precisa ler muito.
+
+315
+00:21:54,166 --> 00:21:56,899
+Você tem que praticar programar 
+as coisas por conta própria.
+
+316
+00:21:58,450 --> 00:22:02,516
+Muitas vezes eu entrevisto 
+estudantes que utilizaram software.
+
+317
+00:22:02,516 --> 00:22:06,788
+E hoje em dia, há tantos softwares 
+bons que permitem que você faça
+
+318
+00:22:06,788 --> 00:22:09,690
+"plug and play" sem entender 
+nada do que está sendo feito.
+
+319
+00:22:09,690 --> 00:22:12,890
+Ou em um nível tão superficial 
+que depois torna-se difícil de
+
+320
+00:22:12,890 --> 00:22:16,027
+descobrir quando algo não funciona ou 
+o que está acontecendo de errado.
+
+321
+00:22:16,027 --> 00:22:19,880
+Então, de fato, tente implementar coisas, 
+mesmo que sejam ineficientes.
+
+322
+00:22:19,880 --> 00:22:24,366
+Mas assegurar-se de que você realmente esteja 
+entendo o que está acontecendo, é muito
+
+323
+00:22:24,366 --> 00:22:26,972
+útil. E tente fazer 
+as coisas você mesmo.
+
+324
+00:22:26,972 --> 00:22:29,886
+Então, não use apenas uma plataforma 
+de programação onde você pode fazer de
+
+325
+00:22:29,886 --> 00:22:33,432
+tudo com algumas linhas de código, mas que você 
+não sabe exatamente o que está acontecendo.
+
+326
+00:22:33,432 --> 00:22:37,480
+Exatamente, exatamente! 
+Eu diria ainda mais.
+
+327
+00:22:37,480 --> 00:22:42,911
+Tente distinguir as coisas por 
+si, desde o início, se puder.
+
+328
+00:22:42,911 --> 00:22:44,597
+Isso ajuda muito.
+
+329
+00:22:44,597 --> 00:22:48,275
+Mas, as coisas normais que você 
+tem que fazer, tais como ler,
+
+330
+00:22:48,275 --> 00:22:52,110
+analisar códigos de outras pessoas, 
+escrever seu próprio código,
+
+331
+00:22:52,110 --> 00:22:57,066
+fazer muitos experimentos, assegurar-se de 
+que você entenda tudo o que está fazendo.
+
+332
+00:22:57,066 --> 00:23:00,621
+Então, especialmente 
+na parte da ciência,
+
+333
+00:23:00,621 --> 00:23:05,810
+tentar perguntar "por que eu estou fazendo isso?" 
+"Por que as pessoas estão fazendo isso?"
+
+334
+00:23:05,810 --> 00:23:10,470
+Talvez a resposta esteja em algum lugar 
+do livro e você tem que ler mais.
+
+335
+00:23:11,490 --> 00:23:14,340
+Mas é ainda melhor se você 
+consegue descobrir por si mesmo.
+
+336
+00:23:15,580 --> 00:23:16,992
+Sim, legal.
+
+337
+00:23:16,992 --> 00:23:21,547
+E de fato, das coisas que li, 
+você, Ian Goodfellow e
+
+338
+00:23:21,547 --> 00:23:25,207
+Aaron Courville escreveram 
+um livro altamente considerado.
+
+339
+00:23:25,207 --> 00:23:27,240
+Obrigado, obrigado.
+
+340
+00:23:27,240 --> 00:23:28,607
+Sim, está vendendo muito.
+
+341
+00:23:28,607 --> 00:23:30,206
+É um pouco insano.
+
+342
+00:23:30,206 --> 00:23:35,027
+Sinto que há mais pessoas lendo este livro, 
+do que pessoas que estão capacitadas
+
+343
+00:23:35,027 --> 00:23:36,816
+para lê-lo atualmente [RISO].
+
+344
+00:23:36,816 --> 00:23:40,188
+Também, os anais 
+da conferência IRCT,
+
+345
+00:23:40,188 --> 00:23:44,968
+é o melhor lugar para 
+encontrar bons artigos.
+
+346
+00:23:44,968 --> 00:23:49,145
+Claro que há ótimos artigos na 
+NIPS, ICML e outras conferências.
+
+347
+00:23:49,145 --> 00:23:54,345
+Mas se você realmente quer ler 
+muitos artigos bons, leia os últimos anais da
+
+348
+00:23:54,345 --> 00:23:59,648
+IRCT, eles lhe darão uma 
+visão muito boa deste campo.
+
+349
+00:23:59,648 --> 00:24:01,454
+Legal!
+
+350
+00:24:01,454 --> 00:24:02,940
+Algum outro comentário?
+
+351
+00:24:02,940 --> 00:24:09,337
+Quando pessoas pedem conselhos de como 
+alguém se torna bom em aprendizagem profunda?
+
+352
+00:24:09,337 --> 00:24:14,949
+Bem, depende de 
+onde você vem.
+
+353
+00:24:14,949 --> 00:24:17,590
+Não se apavore com a matemática.
+
+354
+00:24:17,590 --> 00:24:22,557
+Trabalhe nos conceitos, e então a 
+matemática se tornará muito mais fácil
+
+355
+00:24:22,557 --> 00:24:27,870
+de entender uma vez que você 
+domina o que acontece no nível intuitivo.
+
+356
+00:24:27,870 --> 00:24:32,218
+E uma boa notícia é que você não 
+precisa de 5 anos de doutorado para ser
+
+357
+00:24:32,218 --> 00:24:34,300
+especialista em aprendizagem profunda.
+
+358
+00:24:34,300 --> 00:24:35,637
+Na verdade, você pode 
+aprender bem rápido.
+
+359
+00:24:35,637 --> 00:24:40,040
+Se você tem uma boa base 
+em ciência da computação e
+
+360
+00:24:40,040 --> 00:24:44,742
+matemática, você pode aprender o 
+suficiente para utilizá-la, construir coisas
+
+361
+00:24:44,742 --> 00:24:48,962
+e começar experimentos de 
+pesquisa em apenas alguns meses.
+
+362
+00:24:48,962 --> 00:24:53,312
+Aproximadamente seis meses para 
+pessoas com o treinamento apropriado.
+
+363
+00:24:53,312 --> 00:24:56,224
+Talvez elas não saibam nada 
+de aprendizagem de máquina, mas
+
+364
+00:24:56,224 --> 00:24:59,427
+se elas são boas em matemática e ciência 
+da computação, isso pode ser bem rápido.
+
+365
+00:24:59,427 --> 00:25:02,722
+E claro, isso significa que você precisa 
+ter o treinamento correto em matemática e
+
+366
+00:25:02,722 --> 00:25:03,640
+ciência da computação.
+
+367
+00:25:03,640 --> 00:25:08,920
+Às vezes, o que você aprende nos cursos 
+de ciência da computação não é suficiente.
+
+368
+00:25:08,920 --> 00:25:13,928
+Você precisa de um aprendizado 
+contínuo em matemática, especialmente.
+
+369
+00:25:13,928 --> 00:25:20,309
+Por exemplo, probabilidade, 
+álgebra e otimização.
+
+370
+00:25:20,309 --> 00:25:22,313
+Entendo. E Cálculo.
+
+371
+00:25:22,313 --> 00:25:24,037
+E Cálculo, correto.
+
+372
+00:25:24,037 --> 00:25:28,809
+Muito obrigado, Joshua, por compartilhar 
+os comentários, ideias e conselhos.
+
+373
+00:25:28,809 --> 00:25:32,561
+Mesmo que eu te conheça por muito tempo, 
+há muitos detalhes do início da sua
+
+374
+00:25:32,561 --> 00:25:35,084
+trajetória que eu não 
+sabia até agora. Então, obrigado.
+
+375
+00:25:35,084 --> 00:25:39,880
+Bem, obrigado Andrew, 
+por estar fazendo este
+
+376
+00:25:39,880 --> 00:25:44,819
+vídeo especial e pelo 
+que você está fazendo.
+
+377
+00:25:44,819 --> 00:25:47,150
+Espero que seja utilizado por muita gente. 
+[Tradução: Renato Barata Gomes | Revisão: Carlos Lage]

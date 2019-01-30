@@ -1,0 +1,485 @@
+1
+00:00:00,400 --> 00:00:04,000
+A verificação de gradiente é uma técnica
+que me ajudou a economizar muito tempo,
+
+2
+00:00:04,000 --> 00:00:08,500
+e me ajudou, muitas vezes, a encontrar erros
+na minha implementação de retropropagação.
+
+3
+00:00:08,500 --> 00:00:10,890
+Vamos ver como você também 
+pode utilizá-la para depurar,
+
+4
+00:00:10,890 --> 00:00:14,885
+ou verificar se a sua implementação
+e a sua retropropagação estão corretas.
+
+5
+00:00:14,885 --> 00:00:20,975
+A sua rede neural terá alguns tipos de parâmetros,
+W'¹', b'¹' e assim por diante, até W'ᴸ' b'ᴸ'.
+
+6
+00:00:20,975 --> 00:00:23,935
+Então, para implementar a verificação de gradiente,
+a primeira coisa que você deve fazer é pegar
+
+7
+00:00:23,935 --> 00:00:28,835
+todos os seus parâmetros e remodelá-los
+em um vetor teta gigante.
+
+8
+00:00:28,835 --> 00:00:34,860
+Assim, o que você deve fazer é pegar W,
+a qual é uma matriz, e remodelá-la em um vetor.
+
+9
+00:00:34,860 --> 00:00:39,850
+Você deve pegar todos esses Ws
+e remodelá-los em vetores, e então, concatenar
+
+10
+00:00:39,850 --> 00:00:45,170
+todas estas coisas, de modo que
+você tenha um vetor teta gigante.
+
+11
+00:00:45,170 --> 00:00:47,020
+Um vetor gigante pronunciado como teta.
+
+12
+00:00:47,020 --> 00:00:52,720
+Então, digamos que a função de custo J
+é uma função dos Ws e
+
+13
+00:00:52,720 --> 00:00:58,380
+bs. Agora você tem a função de custo J
+como apenas uma função de teta.
+
+14
+00:00:58,380 --> 00:01:02,160
+A seguir, com "W" e "b" ordenados da mesma forma,
+
+15
+00:01:02,160 --> 00:01:07,740
+você também pode pegar dW'¹', db'¹',
+ etc., e remodelá-los em um
+
+16
+00:01:07,740 --> 00:01:12,200
+vetor gigante dΘ 
+com a mesma dimensão de teta.
+
+17
+00:01:12,200 --> 00:01:17,210
+Assim, da mesma forma que antes,
+nós moldamos dW'¹' na matriz, db'¹' já é um vetor.
+
+18
+00:01:17,210 --> 00:01:21,220
+Nós moldamos dW'ᴸ',
+todos os dW's que são matrizes.
+
+19
+00:01:21,220 --> 00:01:24,632
+Lembre-se, dW'¹' tem 
+a mesma dimensão de W'¹'.
+
+20
+00:01:24,632 --> 00:01:27,080
+db'¹' tem a mesma dimensão de b'¹'.
+
+21
+00:01:27,080 --> 00:01:31,252
+Então, com o mesmo tipo de operação
+de remodelagem e concatenação,
+
+22
+00:01:31,252 --> 00:01:36,343
+você pode remodelar todas
+essas derivadas em um vetor gigante dΘ.
+
+23
+00:01:36,343 --> 00:01:38,750
+O qual tem a mesma dimensão do vetor teta.
+
+24
+00:01:38,750 --> 00:01:43,780
+Então, a pergunta agora é: seria o teta o gradiente
+
+25
+00:01:43,780 --> 00:01:47,310
+ou a inclinação da função de custo j?
+
+26
+00:01:47,310 --> 00:01:49,620
+Eis como implementar uma 
+verificação de gradiente,
+
+27
+00:01:49,620 --> 00:01:52,740
+frequentemente abrevie
+verificação de gradiente para "grad check".
+
+28
+00:01:52,740 --> 00:01:57,690
+Primeiro, lembramos que J 
+é uma função do parâmetro gigante
+
+29
+00:01:57,690 --> 00:01:58,277
+teta, certo?
+
+30
+00:01:58,277 --> 00:02:04,750
+Logo, J se expande, sendo uma função de teta 1,
+ teta 2, teta 3, etc.
+
+31
+00:02:06,880 --> 00:02:11,618
+Qualquer que seja a dimensão deste vetor de parâmetro gigante teta.
+
+32
+00:02:11,618 --> 00:02:18,519
+E para implementar a verificação de gradiente,
+você vai implementar um laço de repetição (um 'loop'),
+
+33
+00:02:18,519 --> 00:02:23,008
+para cada i:
+ "for each i:" , ou seja, para cada componente de teta,
+
+34
+00:02:23,008 --> 00:02:26,416
+calculemos dΘapprox [i] =
+
+35
+00:02:26,416 --> 00:02:28,170
+e deixe-me fazer uma diferença de dois lados.
+
+36
+00:02:28,170 --> 00:02:30,100
+Então, eu vou pegar J de teta.
+
+37
+00:02:30,100 --> 00:02:34,440
+Θ₁, Θ₂, até Θᵢ.
+
+38
+00:02:34,440 --> 00:02:38,380
+E nós vamos empurrar tetaᵢ e 
+adicionar épsilon assim.
+
+39
+00:02:38,380 --> 00:02:42,970
+Então, apenas adicione épsilon a tetaᵢ,
+e mantenha todo o resto da mesma forma.
+
+40
+00:02:42,970 --> 00:02:46,164
+E por você estar tirando uma diferença de dois lados,
+
+41
+00:02:46,164 --> 00:02:51,226
+nós faremos no outro lado com tetaᵢ,
+mas agora menos épsilon.
+
+42
+00:02:51,226 --> 00:02:54,520
+E então, todos os outros 
+elementos de teta ficam sozinhos.
+
+43
+00:02:54,520 --> 00:02:59,690
+Pegamos isto, e dividimos por 2 épsilon. 
+[NT: o professor fala "2 teta", mas, corretamente escreve "2 épsilon"]
+
+44
+00:02:59,690 --> 00:03:04,772
+E o que vimos, 
+no vídeo anterior é que
+
+45
+00:03:04,772 --> 00:03:10,270
+isto deve ser aproximadamente
+igual a dӨᵢ
+
+46
+00:03:10,270 --> 00:03:15,609
+que deve ser a derivada parcial 
+de J ou em relação a,
+
+47
+00:03:15,609 --> 00:03:21,320
+eu acho que Өᵢ, se dӨᵢ for
+a derivada da função de custo J.
+
+48
+00:03:21,320 --> 00:03:25,130
+Então, você vai calcular isto 
+para cada valor de i,
+
+49
+00:03:25,130 --> 00:03:28,360
+e no fim, você vai 
+acabar tendo dois vetores.
+
+50
+00:03:28,360 --> 00:03:31,793
+Você vai ter este dӨapprox,
+
+51
+00:03:31,793 --> 00:03:35,860
+que vai ter a mesma 
+dimensão de dӨ.
+
+52
+00:03:35,860 --> 00:03:39,373
+E ambos têm, por sua vez, 
+a mesma dimensão de teta.
+
+53
+00:03:39,373 --> 00:03:43,183
+E o que você quer fazer é verificar
+se estes vetores, estas matrizes, se entre
+
+54
+00:03:43,183 --> 00:03:44,130
+elas serão iguais.
+
+55
+00:03:44,130 --> 00:03:47,310
+Então, detalhadamente, como você define
+
+56
+00:03:47,310 --> 00:03:50,910
+se dois vetores são, de fato, 
+razoavelmente próximos um do outro ou não?
+
+57
+00:03:50,910 --> 00:03:52,593
+O que eu faço é o seguinte:
+
+58
+00:03:52,593 --> 00:03:57,297
+Eu calculo a distância euclidiana
+entre estes dois vetores,
+
+59
+00:03:57,297 --> 00:04:02,100
+dӨapprox menos dӨ,
+e apenas a norma o2 disto.
+
+60
+00:04:02,100 --> 00:04:03,851
+Note que não está elevado ao quadrado,
+
+61
+00:04:03,851 --> 00:04:06,788
+então, essa é a soma dos quadrados
+dos elementos das diferenças,
+
+62
+00:04:06,788 --> 00:04:09,857
+e então você extrai uma raiz quadrada,
+enquanto calcula a distância euclidiana.
+
+63
+00:04:09,857 --> 00:04:15,512
+E apenas para normalizar 
+pelo comprimento destes vetores,
+
+64
+00:04:15,512 --> 00:04:19,150
+divida por dӨapprox mais dӨ.
+
+65
+00:04:19,150 --> 00:04:22,620
+Apenas pegue os comprimentos
+euclidianos destes vetores.
+
+66
+00:04:22,620 --> 00:04:28,044
+E a linha para o denominador é só para, caso
+algum destes vetores sejam realmente pequenos,
+
+67
+00:04:28,044 --> 00:04:32,860
+ou grandes demais, seu denominador
+transforma esta fórmula em uma razão.
+
+68
+00:04:32,860 --> 00:04:35,202
+Logo, quando você implementa isso na prática,
+
+69
+00:04:35,202 --> 00:04:39,898
+eu uso épsilon igual a, talvez, 10 elevado a menos 7.
+
+70
+00:04:39,898 --> 00:04:44,644
+E com esta faixa de valores de épsilon,
+ se você achar que esta fórmula lhe dá
+
+71
+00:04:44,644 --> 00:04:49,460
+um valor como 10 elevado a menos 7 
+ou menor, então está tudo bem.
+
+72
+00:04:49,460 --> 00:04:53,302
+Isso significa que a sua 
+aproximação derivada está correta.
+
+73
+00:04:53,302 --> 00:04:55,330
+Este é apenas um valor muito pequeno.
+
+74
+00:04:55,330 --> 00:05:00,790
+Se estiver talvez, na faixa de 10 elevado a -5,
+eu daria uma olhado cuidadosa.
+
+75
+00:05:00,790 --> 00:05:02,148
+Talvez, esteja tudo bem.
+
+76
+00:05:02,148 --> 00:05:05,239
+Mas, eu prefiro conferir 
+os componentes deste vetor,
+
+77
+00:05:05,239 --> 00:05:07,862
+e confirmar que nenhum dos 
+componentes são grandes demais.
+
+78
+00:05:07,862 --> 00:05:10,649
+E se algum dos componentes desta diferença 
+for grande demais,
+
+79
+00:05:10,649 --> 00:05:12,860
+talvez você tenha algum erro em algum lugar.
+
+80
+00:05:12,860 --> 00:05:17,719
+E se esta fórmula na esquerda estiver
+na ordem de 10⁻ᶟ, aí eu
+
+81
+00:05:17,719 --> 00:05:21,728
+me preocuparia, porque
+talvez haja um erro em algum lugar.
+
+82
+00:05:21,728 --> 00:05:25,083
+Mas, você realmente deveria estar obtendo
+valores muito menores que 10⁻ᶟ.
+
+83
+00:05:25,083 --> 00:05:29,690
+Se houver qualquer um maior que 10⁻ᶟ,
+então, eu ficaria muito preocupado.
+
+84
+00:05:29,690 --> 00:05:32,970
+Eu ficaria seriamente preocupado 
+ por haver algum erro.
+
+85
+00:05:32,970 --> 00:05:37,204
+Você deveria verificar os componentes individuais
+
+86
+00:05:37,204 --> 00:05:41,799
+de dados para ver se 
+há um valor específico de i
+
+87
+00:05:41,799 --> 00:05:45,960
+para o qual dӨapprox [i] é
+ muito diferente de dӨi.
+
+88
+00:05:45,960 --> 00:05:47,867
+E usar isso para tentar localizar
+
+89
+00:05:47,867 --> 00:05:51,040
+se algum dos seus cálculos derivados 
+podem estar certos ou não.
+
+90
+00:05:51,040 --> 00:05:54,970
+E depois de realizar algumas depurações,
+finalmente, isso acaba se tornando
+
+91
+00:05:54,970 --> 00:05:59,820
+este tipo de valor bem pequeno,
+e então, você talvez, tenha uma implementação correta.
+
+92
+00:05:59,820 --> 00:06:01,320
+Assim, quando você implementa uma rede neural,
+
+93
+00:06:01,320 --> 00:06:04,840
+o que geralmente acontece é que
+eu implemento propagação para frente, para trás,
+
+94
+00:06:04,840 --> 00:06:08,612
+e então, eu descubro que esta verificação de gradiente
+tem um valor relativamente grande.
+
+95
+00:06:08,612 --> 00:06:12,460
+E eu suspeito que deva haver um erro,
+depuro várias vezes,
+
+96
+00:06:12,460 --> 00:06:16,310
+e depois de depurar por algum tempo,
+se eu achar que a verificação de gradiente passa com um valor
+
+97
+00:06:16,310 --> 00:06:20,110
+pequeno, você pode confiar mais que está correto.
+
+98
+00:06:20,110 --> 00:06:22,310
+Então, agora você sabe
+como a verificação de gradiente funciona.
+
+99
+00:06:22,310 --> 00:06:24,850
+Isso me ajudou a encontrar muitos erros
+em minhas implementações de redes neurais,
+
+100
+00:06:24,850 --> 00:06:27,330
+e eu espero que lhe ajude também.
+
+101
+00:06:27,330 --> 00:06:29,970
+No próximo vídeo,
+quero compartilhar com você algumas dicas
+
+102
+00:06:29,970 --> 00:06:33,490
+ou algumas notas sobre
+como de fato, implementar a verificação de gradiente.
+
+103
+00:06:33,490 --> 00:06:34,640
+Vamos para o próximo vídeo.
+Tradução: Diogo dos Santos Farias | Revisão: Carlos Lage.
