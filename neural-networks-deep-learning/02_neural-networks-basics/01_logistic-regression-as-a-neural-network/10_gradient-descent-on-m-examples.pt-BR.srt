@@ -1,0 +1,749 @@
+1
+00:00:00,060 --> 00:00:03,750
+Num vídeo anterior você viu como
+
+2
+00:00:01,890 --> 00:00:05,819
+calcular derivadas e implementar
+
+3
+00:00:03,750 --> 00:00:07,500
+o gradiente descendente relativo a apenas
+
+4
+00:00:05,819 --> 00:00:09,929
+um exemplo de treino da regressão logística.
+
+5
+00:00:07,500 --> 00:00:12,450
+Agora o que queremos é aplicar o gradiente
+
+6
+00:00:09,929 --> 00:00:14,429
+para "m" exemplos de treino.
+Para começar,
+
+7
+00:00:12,450 --> 00:00:17,460
+vamos relembrar a definição da função custo J.
+
+8
+00:00:14,429 --> 00:00:19,380
+A função de custo J(w,b)
+
+9
+00:00:17,460 --> 00:00:22,699
+pode ser definida como 1/m
+multiplicado pelo somatório
+
+10
+00:00:19,380 --> 00:00:25,350
+Ʃ de 1 a m da função Perda
+ ʆ (a⁽ⁱ⁾, y⁽ⁱ⁾)
+
+11
+00:00:22,699 --> 00:00:29,519
+onde, como sabemos,
+
+12
+00:00:25,350 --> 00:00:33,510
+a⁽ⁱ⁾ = ŷ⁽ⁱ⁾, 
+ou a predição do i-ésimo
+
+13
+00:00:29,519 --> 00:00:36,120
+exemplo de treino, definida por
+
+14
+00:00:33,510 --> 00:00:40,620
+sigma((z⁽ⁱ⁾))
+que é igual a
+
+15
+00:00:36,120 --> 00:00:46,800
+sigma (W⸆ X⁽ⁱ⁾ + b).
+
+16
+00:00:40,620 --> 00:00:48,510
+Ok?
+
+17
+00:00:46,800 --> 00:00:51,600
+Mostramos no último slide:
+
+18
+00:00:48,510 --> 00:00:55,620
+Para qualquer
+exemplo de treino individual [...]
+
+19
+00:00:51,600 --> 00:01:00,180
+Como calcular as derivadas quando se tem
+
+20
+00:00:55,620 --> 00:01:03,809
+apenas um exemplo de treino. Assim,
+dw₁⁽ⁱ⁾, dw₂⁽ⁱ⁾,
+
+21
+00:01:00,180 --> 00:01:06,689
+até db⁽ⁱ⁾,
+onde o (i) sobrescrito
+
+22
+00:01:03,809 --> 00:01:08,369
+denota os valores correspondentes,
+
+23
+00:01:06,689 --> 00:01:10,799
+se você se recorda do que fizemos
+
+24
+00:01:08,369 --> 00:01:15,030
+no slide anterior usando somente um
+
+25
+00:01:10,799 --> 00:01:17,850
+exemplo de treino (x⁽ⁱ⁾, y⁽ⁱ⁾).
+
+26
+00:01:15,030 --> 00:01:20,759
+Desculpa, faltou colocar o (i) aqui também.
+
+27
+00:01:17,850 --> 00:01:22,530
+Note que a 
+função custo geral é, na verdade,
+
+28
+00:01:20,759 --> 00:01:26,220
+a soma de 1 até m 
+da função de perda ʆ,
+
+29
+00:01:22,530 --> 00:01:29,369
+em cada um dos exemplos de treino individuais.
+
+30
+00:01:26,220 --> 00:01:32,810
+Dessa forma, temos
+que a derivada parcial em relação
+
+31
+00:01:29,369 --> 00:01:38,600
+a W₁ da função custo total
+
+32
+00:01:32,810 --> 00:01:42,600
+também será a média das
+
+33
+00:01:38,600 --> 00:01:46,170
+derivadas parciais com relação a w₁ das
+
+34
+00:01:42,600 --> 00:01:48,240
+funções de perda dos termos individuais.
+
+35
+00:01:46,170 --> 00:01:54,119
+Porém, mostramos anteriormente
+como calcular este
+
+36
+00:01:48,240 --> 00:01:55,890
+termo definido como dw₁⁽ⁱ⁾.
+
+37
+00:01:54,119 --> 00:01:57,659
+No slide anterior, mostramos como calcular,
+
+38
+00:01:55,890 --> 00:02:00,450
+para um exemplo de treino individual.
+
+39
+00:01:57,659 --> 00:02:03,119
+Agora, o que devemos fazer é calcular
+
+40
+00:02:00,450 --> 00:02:04,680
+as derivadas da mesma forma que
+
+41
+00:02:03,119 --> 00:02:07,350
+mostramos no exemplo de treinamento anterior,
+
+42
+00:02:04,680 --> 00:02:10,379
+e então, calcular a média deles, o que nos dará
+
+43
+00:02:07,350 --> 00:02:10,830
+o gradiente geral que você pode usar para
+
+44
+00:02:10,379 --> 00:02:12,870
+implementar o
+
+45
+00:02:10,830 --> 00:02:15,390
+gradiente descendente. 
+
+46
+00:02:12,870 --> 00:02:17,730
+Há muitos detalhes, eu sei.
+Mas vamos pegar tudo isso,
+
+47
+00:02:15,390 --> 00:02:19,920
+consolidá-lo e transformá-lo
+
+48
+00:02:17,730 --> 00:02:21,690
+em um algoritmo concreto,
+ de forma que você deve implementar
+
+49
+00:02:19,920 --> 00:02:24,960
+a regressão logística com o gradiente descendente
+
+50
+00:02:21,690 --> 00:02:28,350
+funcionando em conjunto.
+
+51
+00:02:24,960 --> 00:02:37,770
+Então, o que você pode fazer [...]
+ Vamos inicializar:
+
+52
+00:02:28,350 --> 00:02:40,140
+J = 0, dw₁ = 0, dw₂ = 0, db = 0
+
+53
+00:02:37,770 --> 00:02:43,190
+E o que devemos fazer é:
+
+54
+00:02:40,140 --> 00:02:45,690
+usar o loop 'FOR'
+ sobre o conjunto de treinamento
+
+55
+00:02:43,190 --> 00:02:47,670
+e calcular as derivadas em relação a cada
+
+56
+00:02:45,690 --> 00:02:49,020
+exemplo de treinamento e calcular o somatório.
+
+57
+00:02:47,670 --> 00:02:51,480
+Então aqui está: para i = 1 a m
+[ For i = 1 to m ]
+
+58
+00:02:49,020 --> 00:02:54,360
+m é o número de exemplos de treinamento.
+
+59
+00:02:51,480 --> 00:02:57,090
+Nós calculamos:
+
+60
+00:02:54,360 --> 00:03:00,360
+z⁽ⁱ⁾ = w⸆ x⁽ⁱ⁾ + b
+
+61
+00:02:57,090 --> 00:03:04,020
+A predição:
+a⁽ⁱ⁾ = σ (z⁽ⁱ⁾)
+
+62
+00:03:00,360 --> 00:03:09,120
+Então, vamos somar J:
+
+63
+00:03:04,020 --> 00:03:12,360
+J + =
+
+64
+00:03:09,120 --> 00:03:14,010
+J + = y⁽ⁱ⁾ log a⁽ⁱ⁾ + ( 1 - y⁽ⁱ⁾ ) log ( 1 - a⁽ⁱ⁾ )
+Colocamos um sinal negativo na frente de tudo:
+
+65
+00:03:12,360 --> 00:03:15,959
+J + = - [ y⁽ⁱ⁾ log a⁽ⁱ⁾ + ( 1 - y⁽ⁱ⁾ ) log ( 1 - a⁽ⁱ⁾ ) ]
+
+66
+00:03:14,010 --> 00:03:20,580
+E tal como vimos antes:
+
+67
+00:03:15,959 --> 00:03:28,500
+dz⁽ⁱ⁾ = a⁽ⁱ⁾ - y⁽ⁱ⁾
+
+68
+00:03:20,580 --> 00:03:33,180
+dw₁ + = x₁⁽ⁱ⁾ dz⁽ⁱ⁾
+
+69
+00:03:28,500 --> 00:03:35,280
+dw₂ + = x₂⁽ⁱ⁾ dz⁽ⁱ⁾
+
+70
+00:03:33,180 --> 00:03:37,680
+Estou fazendo esse cálculo,
+assumindo que você tem
+
+71
+00:03:35,280 --> 00:03:41,070
+apenas 2 características. Portanto n = 2.
+
+72
+00:03:37,680 --> 00:03:45,480
+Senão, você deve fazer isso para
+ dw₁,  dw₂,  dw₃, etc.
+
+73
+00:03:41,070 --> 00:03:47,430
+E temos:
+db + = dz⁽ⁱ⁾
+
+74
+00:03:45,480 --> 00:03:49,350
+Assim, eu acho que temos o fim do loop "FOR".
+
+75
+00:03:47,430 --> 00:03:51,900
+Finalmente, tendo feito todos esses
+
+76
+00:03:49,350 --> 00:03:54,959
+exemplos de treinamento m, você ainda
+
+77
+00:03:51,900 --> 00:03:56,880
+        precisa dividir por m,
+                         porque estamos calculando a média.
+
+78
+00:03:54,959 --> 00:04:01,920
+Então: 
+ J / =m ;  dw₁ / =m
+
+79
+00:03:56,880 --> 00:04:04,260
+dw₂ / =m ; db/ =m
+
+80
+00:04:01,920 --> 00:04:07,019
+Calculamos as médias para todos.
+
+81
+00:04:04,260 --> 00:04:09,060
+Então, com todos esses
+
+82
+00:04:07,019 --> 00:04:11,160
+cálculos, você computou
+
+83
+00:04:09,060 --> 00:04:14,250
+as derivadas da função custo J
+
+84
+00:04:11,160 --> 00:04:17,010
+em relação a cada parâmetro,
+  w₁,  w₂  e  b
+
+85
+00:04:14,250 --> 00:04:22,079
+Apenas para comentar os detalhes
+do que estamos fazendo:
+
+86
+00:04:17,010 --> 00:04:25,020
+Estamos usando  dw₁,  dw₂  e  db
+
+87
+00:04:22,079 --> 00:04:28,169
+como acumuladores.
+
+88
+00:04:25,020 --> 00:04:31,500
+Então, após esses cálculos,
+
+89
+00:04:28,169 --> 00:04:33,509
+dw₁ = ∂J / ∂w₁ 
+(derivada parcial da função custo total J
+
+90
+00:04:31,500 --> 00:04:36,780
+em relação ao w₁)
+
+91
+00:04:33,509 --> 00:04:39,720
+Similarmente ao  dw₂  e  db.
+
+92
+00:04:36,780 --> 00:04:41,520
+Note que dw₁  e  dw₂  não têm o (i) sobrescrito,
+
+93
+00:04:39,720 --> 00:04:43,379
+porque estamos usando-os neste código
+
+94
+00:04:41,520 --> 00:04:45,690
+como acumuladores para o somatório
+
+95
+00:04:43,379 --> 00:04:48,960
+do conjunto inteiro de treinamento.
+Enquanto que
+
+96
+00:04:45,690 --> 00:04:51,539
+o  dz⁽ⁱ⁾  aqui era
+
+97
+00:04:48,960 --> 00:04:53,490
+dz em relação ao 
+exemplo de treinamento único.
+
+98
+00:04:51,539 --> 00:04:55,740
+Por isso ele tem o (i) sobrescrito, para se referir
+
+99
+00:04:53,490 --> 00:04:58,379
+ao único exemplo de treinamento i
+
+100
+00:04:55,740 --> 00:05:00,960
+que está sendo calculado.
+Então, tendo concluído
+
+101
+00:04:58,379 --> 00:05:03,449
+todos esses cálculos para implementar
+
+102
+00:05:00,960 --> 00:05:06,360
+uma etapa do gradiente descendente,
+você executa o w₁.
+
+103
+00:05:03,449 --> 00:05:10,710
+Obtém a atualização: w₁ := w₁ - α.dw₁ 
+(α = taxa de aprendizagem)
+
+104
+00:05:06,360 --> 00:05:13,740
+Obtém a atualização:  w₂ := w₂ - α.dw₂ 
+
+105
+00:05:10,710 --> 00:05:17,190
+e a atualização do b:
+
+106
+00:05:13,740 --> 00:05:21,000
+b := b  -  α.db 
+
+107
+00:05:17,190 --> 00:05:23,879
+Onde:  dw₁,  dw₂  e  db
+
+108
+00:05:21,000 --> 00:05:27,000
+são os valores tais como foram calculados.
+E finalmente, o J aqui
+
+109
+00:05:23,879 --> 00:05:28,590
+será, também, um valor corrigido para a sua
+
+110
+00:05:27,000 --> 00:05:31,050
+função custo. Portanto, tudo neste slide
+
+111
+00:05:28,590 --> 00:05:33,060
+implementa apenas uma etapa
+
+112
+00:05:31,050 --> 00:05:35,699
+do gradiente descendente. Então, você precisa
+
+113
+00:05:33,060 --> 00:05:37,680
+repetir tudo que está neste slide múltiplas vezes,
+
+114
+00:05:35,699 --> 00:05:40,469
+a fim de ter múltiplas etapas do
+
+115
+00:05:37,680 --> 00:05:41,819
+gradiente descendente. 
+Se esses detalhes
+
+116
+00:05:40,469 --> 00:05:43,830
+parecem muito complicados,
+
+117
+00:05:41,819 --> 00:05:45,960
+por favor, não se preocupe muito, por enquanto.
+
+118
+00:05:43,830 --> 00:05:48,599
+Com certeza, isso tudo se tornará mais claro
+
+119
+00:05:45,960 --> 00:05:50,520
+quando você for implementá-lo
+
+120
+00:05:48,599 --> 00:05:54,120
+nas tarefas de programação.
+Acontece que
+
+121
+00:05:50,520 --> 00:05:57,300
+há duas fragilidades
+
+122
+00:05:54,120 --> 00:05:59,729
+nos cálculos aplicados aqui.
+
+123
+00:05:57,300 --> 00:06:01,440
+Isto é, para implementar
+
+124
+00:05:59,729 --> 00:06:03,960
+a regressão logística dessa forma, você precisa
+
+125
+00:06:01,440 --> 00:06:05,490
+escrever 2 loops 'FOR'. O primeiro loop 'FOR'
+
+126
+00:06:03,960 --> 00:06:07,770
+é um pequeno loop sobre os
+m exemplos de treinamento;
+
+127
+00:06:05,490 --> 00:06:10,919
+e o segundo loop 'FOR'
+
+128
+00:06:07,770 --> 00:06:13,139
+é um loop 'FOR' para todas as características aqui.
+
+129
+00:06:10,919 --> 00:06:15,930
+Neste exemplo, nós temos apenas 2 características.
+
+130
+00:06:13,139 --> 00:06:17,879
+n = 2;  e  x = 2
+
+131
+00:06:15,930 --> 00:06:21,000
+Mas se você tem mais características,
+
+132
+00:06:17,879 --> 00:06:23,099
+você acaba escrevendo os seus  dw₁,  dw₂
+
+133
+00:06:21,000 --> 00:06:25,979
+e você terá cálculos semelhantes para
+dw₃, etc... até dwn.
+
+134
+00:06:23,099 --> 00:06:29,009
+Então, isso dá mostras de que
+
+135
+00:06:25,979 --> 00:06:31,279
+você precisa de loop 'FOR'
+para todas as características,
+
+136
+00:06:29,009 --> 00:06:33,199
+todas as 'n' características.
+
+137
+00:06:31,279 --> 00:06:36,049
+Quando você está implementando algoritmos
+de Aprendizagem Profunda,
+
+138
+00:06:33,199 --> 00:06:38,419
+você verá que tendo explicitado
+
+139
+00:06:36,049 --> 00:06:41,839
+os loops 'FOR' em seus códigos, isso faz
+
+140
+00:06:38,419 --> 00:06:44,149
+com que os algoritmos
+operem com menos eficiência.
+
+141
+00:06:41,839 --> 00:06:46,669
+E então, na era da Aprendizagem Profunda,
+isso começaria a
+
+142
+00:06:44,149 --> 00:06:48,649
+produzir conjuntos de dados sempre maiores.
+
+143
+00:06:46,669 --> 00:06:50,779
+Portanto, ser capaz
+de implementar os seus algoritmos
+
+144
+00:06:48,649 --> 00:06:52,969
+sem usar os loops 'FOR' explícitos
+
+145
+00:06:50,779 --> 00:06:55,129
+é realmente importante. E isso o ajudará
+
+146
+00:06:52,969 --> 00:06:56,719
+a dimensionar conjuntos de dados bem grandes.
+
+147
+00:06:55,129 --> 00:06:58,129
+No entanto, há um conjunto
+
+148
+00:06:56,719 --> 00:07:01,159
+de técnica denominada vetorização
+
+149
+00:06:58,129 --> 00:07:03,559
+que se livra
+
+150
+00:07:01,159 --> 00:07:06,169
+desses loops explícitos no seu código.
+
+151
+00:07:03,559 --> 00:07:08,199
+Eu acho que na era pré-Deep Learning,
+
+152
+00:07:06,169 --> 00:07:11,239
+isto é, antes da ascensão
+da Aprendizagem Profunda,
+
+153
+00:07:08,199 --> 00:07:13,159
+era bom ter a vetorização.
+
+154
+00:07:11,239 --> 00:07:15,589
+Às vezes, você a usava para acelerar um código,
+
+155
+00:07:13,159 --> 00:07:17,749
+ou às vezes não.
+Mas na era da Aprendizagem Profunda,
+
+156
+00:07:15,589 --> 00:07:20,029
+a vetorização que é usada para se livrar
+
+157
+00:07:17,749 --> 00:07:22,699
+de loops 'FOR' como este e esse,
+
+158
+00:07:20,029 --> 00:07:25,039
+começou a ser muito importante,
+
+159
+00:07:22,699 --> 00:07:26,989
+porque nós estamos treinando, mais e mais,
+
+160
+00:07:25,039 --> 00:07:29,239
+em conjuntos de dados muito grandes.
+
+161
+00:07:26,989 --> 00:07:31,209
+Assim, você realmente necessita
+que o seu código seja muito eficiente.
+
+162
+00:07:29,239 --> 00:07:34,219
+Então, no próximo vídeo, falaremos sobre
+
+163
+00:07:31,209 --> 00:07:37,339
+vetorização e como implementar tudo isso,
+
+164
+00:07:34,219 --> 00:07:40,879
+sem usar nem mesmo um loop 'FOR'.
+
+165
+00:07:37,339 --> 00:07:43,069
+Assim, com isso,
+eu espero que você tenha uma ideia
+
+166
+00:07:40,879 --> 00:07:44,299
+de como se implementa uma regressão logística
+
+167
+00:07:43,069 --> 00:07:46,339
+ou gradiente descendente para
+
+168
+00:07:44,299 --> 00:07:47,959
+regressão logística.
+As coisas se tornarão mais claras
+
+169
+00:07:46,339 --> 00:07:50,299
+quando você pôr em prática
+o exercício de programação.
+
+170
+00:07:47,959 --> 00:07:51,829
+Mas antes de fazer os exercícios de programação,
+
+171
+00:07:50,299 --> 00:07:54,079
+vamos, primeiro, falar sobre vetorização.
+
+172
+00:07:51,829 --> 00:07:56,419
+Assim, você pode implementar
+
+173
+00:07:54,079 --> 00:07:58,369
+todas essas coisas, ou seja, implementar
+
+174
+00:07:56,419 --> 00:08:01,479
+uma simples iteração de gradiente descendente,
+
+175
+00:07:58,369 --> 00:08:01,479
+sem usar qualquer loop 'FOR'.
+Tradução: Igor Cabral Corrêa/Julia Yuri
+Revisão: Carlos Lage

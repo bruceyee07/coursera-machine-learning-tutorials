@@ -1,0 +1,39 @@
+Bem-vindo de volta. Nesta semana, você aprenderá a executar uma rede neural.
+Antes de mergulhar nos detalhes técnicos, eu gostaria de dar uma rápida visão geral, neste vídeo, do que você verá nos vídeos desta semana. Então, se você não seguir todos os detalhes deste vídeo, não se preocupe com isso. Nós aprofundaremos os detalhes técnicos nos próximos vídeos, mas agora vamos dar uma rápida visão geral de como você transita em sua rede.
+ Na semana passada, nós tínhamos falado sobre regressão logística e vimos como esse modelo corresponde ao seguinte gráfico de computação onde você não informou as características ' x '
+ e os parâmetros 'w' e 'b' que permitem você calcular o 'z', que é usado para calcular 'a'; e estávamos usando 'a' de forma intercambiável com esta saída ŷ e, então, você pode computar a função de perda " ʆ ". 
+Uma rede neural se parece com isso, e, como eu havia aludido previamente, você pode formar uma rede neural ao empilhar um monte de pequenas unidades sigmoides.
+Como vimos anteriormente, este nó corresponde a duas etapas de cálculos: 
+Os primeiros três computam o valor ' z '. 
+O segundo calcula o valor de ' a '. Nesta rede neural, esta pilha de nós corresponderá ao cálculo similar ao 'z' como este, assim como a um cálculo similar ao valor de 'a' como este. E, então, este nó corresponderá ao outro cálculo similar ao 'z' e um outro similar ao 'a', de modo que a notação que devemos usar mais tarde será semelhante a esse. Primeiro, o que 
+introduz as características 'x' junto com alguns 
+parâmetros 'w' e 'b'; e isso permitirá
+                                          que você compute z'¹'. Então, a nova notação 
+que usaremos é um  [1]  sobrescrito
+                                       (1, entre colchetes, sobrescrito) referindo-se 
+                                         às quantidades associadas com esta pilha de nós chamados
+                     de camada [NT: camada 1] e, então, mais tarde, usaremos '²', (2, entre colchetes, sobrescrito)
+                       referindo-nos às quantidades associadas com aqueles nós que chamamos de outra camada
+                   de redes [NT: camada 2] e os sobrescritos entre colchetes como temos aqui
+                                 não devem ser confundidos com os sobrescritos entre parênteses,
+ que nós usamos para nos referirmos
+a exemplos de treinamentos individuais, ou seja, x⁽ⁱ⁾  (x com i, entre parênteses,
+             sobrescrito) refere-se ao i-ésimo exemplo de treinamento.
+Já os [1] e [2] sobrescritos –  '¹'  e  '²'  –
+referem-se a essas diferentes camadas, camada 1 e camada 2 nesta rede.
+                                        Mas, então, continuando... Depois de computar o z'¹', 
+                             similarmente à regressão logística,
+                               haverá o processamento para calcular o a'¹'. 
+E isso é apenas um sigmoide de z'¹' e,
+                                        então, você calcula z'²' usando outra equação linear; 
+e depois calcula a'²';
+ e a'²' é o resultado final da rede neural e também será usada de maneira intercambiável com ŷ. Então, sei que há muitos detalhes, mas a intuição-chave para captar é que, ao passo que na regressão logística nós tínhamos esse 'z' seguido pelo cálculo de 'a', nesta nova rede aqui,
+                          nós, simplesmente, fazemos isso várias vezes:
+                               'z' seguido pelo cálculo de 'a'; e 'z' seguido pelo cálculo de 'a'; e então, você finalmente calcula a perda no final. E você se lembra de que na regressão logística tivemos alguns cálculos para trás, no intuito de calcular as derivadas. E assim calculava-se o 'dz', 'da', etc.
+ E da mesma forma, em uma rede neural,
+ acabamos fazendo um cálculo para trás, semelhante, em que você acaba calculando
+ da'²', dz'²' que lhe permitem calcular dw'²', db'²', etc.
+ Nesta ordem, da direita para a esquerda: cálculo para trás que é indicado com a seta vermelha. Então, obrigado. Uma rápida visão geral da aparência de uma rede neural. Basicamente,
+ você usou uma regressão logística, repetindo-a duas vezes. Eu sei que havia muita notação nova, muitos detalhes novos. Não se preocupe em conseguir acompanhar tudo.
+Passaremos pelos detalhes mais lentamente nos próximos vídeos. Então, vamos ao próximo vídeo. Vamos começar a falar sobre a representação da rede neural.
+Revisão: Simone Tateishi | Revisão: Julia Yuri

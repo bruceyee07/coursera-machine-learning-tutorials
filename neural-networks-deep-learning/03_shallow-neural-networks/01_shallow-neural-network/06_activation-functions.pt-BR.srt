@@ -1,0 +1,1023 @@
+1
+00:00:00,390 --> 00:00:04,350
+Quando você constrói uma rede neural,
+
+2
+00:00:02,580 --> 00:00:06,720
+uma das escolhas que você pode fazer
+
+3
+00:00:04,350 --> 00:00:09,599
+é quais funções de ativação usar nas camadas ocultas
+
+4
+00:00:06,720 --> 00:00:11,490
+bem como a unidade de saída
+da sua rede neural.
+
+5
+00:00:09,599 --> 00:00:13,139
+Até agora, temos usado
+
+6
+00:00:11,490 --> 00:00:16,080
+a função de ativação sigmoide,
+mas às vezes,
+
+7
+00:00:13,139 --> 00:00:18,720
+outras opções podem funcionar bem melhor.
+
+8
+00:00:16,080 --> 00:00:20,939
+Vamos analisar algumas opções.
+
+9
+00:00:18,720 --> 00:00:23,279
+Nas etapas de propagação
+ para frente
+
+10
+00:00:20,939 --> 00:00:26,099
+                              para a rede neural,
+
+11
+00:00:23,279 --> 00:00:28,710
+                                temos estes 2 passos
+                       em que usamos
+
+12
+00:00:26,099 --> 00:00:32,610
+                                 a função sigmoide aqui,
+                de modo que
+
+13
+00:00:28,710 --> 00:00:37,590
+                          o sigmoide é denominado
+                         função de ativação.
+
+14
+00:00:32,610 --> 00:00:40,680
+                          Aqui, nós temos a função sigmoide:
+
+15
+00:00:37,590 --> 00:00:42,600
+                                     a = 1/(1+e⁻ᶻ)
+
+16
+00:00:40,680 --> 00:00:49,739
+                           Então, generalizando,
+            podemos ter
+
+17
+00:00:42,600 --> 00:00:53,309
+uma função diferente:
+a'¹' = g(z'¹')
+                    vamos escrever aqui.
+
+18
+00:00:49,739 --> 00:00:56,010
+                     g  poderia ser
+                               uma função não linear,
+
+19
+00:00:53,309 --> 00:00:59,250
+                   que não seja
+                                  uma função sigmoide.
+
+20
+00:00:56,010 --> 00:01:01,879
+                            Por exemplo:
+                            a função sigmoide
+
+21
+00:00:59,250 --> 00:01:04,290
+                    vai de 0 a 1.
+
+22
+00:01:01,879 --> 00:01:06,900
+                          E a função de ativação que,
+    quase sempre,
+
+23
+00:01:04,290 --> 00:01:10,320
+funciona melhor,
+em relação à função sigmoide,
+
+24
+00:01:06,900 --> 00:01:14,189
+é a função ‘tanh’.
+Ou função tangente hiperbólica.
+
+25
+00:01:10,320 --> 00:01:19,979
+Então, isto é z;
+este é a; e
+
+26
+00:01:14,189 --> 00:01:25,710
+a=tanh(z)
+
+27
+00:01:19,979 --> 00:01:31,079
+E isto está entre +1 e -1.
+
+28
+00:01:25,710 --> 00:01:37,799
+A fórmula para a função tanh é:
+
+29
+00:01:31,079 --> 00:01:40,140
+a = tanh(z) = (eᶻ - e⁻ᶻ) / (eᶻ + e⁻ᶻ)
+
+30
+00:01:37,799 --> 00:01:43,890
+Na verdade, matematicamente,
+
+31
+00:01:40,140 --> 00:01:46,350
+isso é uma versão deslocada (“shifted version”)
+da função sigmoide.
+
+32
+00:01:43,890 --> 00:01:49,860
+Isto é, função sigmoide tal como naquele,
+
+33
+00:01:46,350 --> 00:01:52,079
+mas deslocada. Assim, agora, a curva
+
+34
+00:01:49,860 --> 00:01:54,570
+cruza o ponto (0, 0) e a redimensiona,
+
+35
+00:01:52,079 --> 00:01:58,530
+de modo que ela passa por +1 e -1.
+
+36
+00:01:54,570 --> 00:02:05,340
+Isso faz com que, nas unidades ocultas,
+
+37
+00:01:58,530 --> 00:02:09,910
+se você fizer: 
+ g(z'¹') = tanh(z'¹')
+
+38
+00:02:05,340 --> 00:02:12,490
+Isso quase sempre funciona melhor
+
+39
+00:02:09,910 --> 00:02:14,020
+do que a função sigmoide, porque
+
+40
+00:02:12,490 --> 00:02:16,930
+com os valores entre +1 e -1,
+
+41
+00:02:14,020 --> 00:02:19,000
+a média das ativações resultantes aqui
+
+42
+00:02:16,930 --> 00:02:21,550
+é mais próxima da média zero.
+
+43
+00:02:19,000 --> 00:02:23,020
+Então, tal como acontece às vezes,
+
+44
+00:02:21,550 --> 00:02:23,590
+quando você exercita
+
+45
+00:02:23,020 --> 00:02:25,690
+algoritmos de aprendizado,
+
+46
+00:02:23,590 --> 00:02:29,709
+você pode centralizar os dados
+
+47
+00:02:25,690 --> 00:02:31,510
+e ter média zero usando o 'tanh'
+
+48
+00:02:29,709 --> 00:02:34,750
+em vez da função sigmoide.
+
+49
+00:02:31,510 --> 00:02:36,880
+Isso proporciona a centralização dos seus dados
+
+50
+00:02:34,750 --> 00:02:39,610
+e assim, a média dos seus dados fica próximo do zero,
+
+51
+00:02:36,880 --> 00:02:41,410
+ao invés de 0,5, talvez.
+
+52
+00:02:39,610 --> 00:02:43,510
+Isso, na verdade, facilita um pouco
+
+53
+00:02:41,410 --> 00:02:45,820
+o aprendizado sobre a próxima camada.
+
+54
+00:02:43,510 --> 00:02:47,380
+Veremos mais disso no segundo curso,
+
+55
+00:02:45,820 --> 00:02:50,739
+quando falarmos, também,
+sobre otimizações de algoritmos
+
+56
+00:02:47,380 --> 00:02:52,480
+Mas uma lição aqui é que...
+
+57
+00:02:50,739 --> 00:02:54,250
+eu quase nunca mais usarei
+
+58
+00:02:52,480 --> 00:02:56,410
+a função de ativação sigmoide.
+
+59
+00:02:54,250 --> 00:02:59,560
+A função 'tanh' é quase sempre
+
+60
+00:02:56,410 --> 00:03:03,550
+estritamente superior.
+Uma exceção é
+
+61
+00:02:59,560 --> 00:03:07,420
+para a camada de saída, porque
+
+62
+00:03:03,550 --> 00:03:10,570
+se y = 0; ou y=1;
+então, faz sentido termos
+
+63
+00:03:07,420 --> 00:03:13,989
+ŷ igual a um número que você quer para a saída,
+
+64
+00:03:10,570 --> 00:03:16,570
+entre 0 e 1, em vez de
+
+65
+00:03:13,989 --> 00:03:19,360
+uma saída entre -1 e +1.
+
+66
+00:03:16,570 --> 00:03:21,430
+Então, a exceção em que eu usaria
+
+67
+00:03:19,360 --> 00:03:24,670
+a função de ativação sigmoide é quando usamos
+
+68
+00:03:21,430 --> 00:03:26,350
+a classificação binária, caso em que
+
+69
+00:03:24,670 --> 00:03:29,709
+você poderia usar a função de ativação
+
+70
+00:03:26,350 --> 00:03:35,170
+sigmoide para a camada de saída.
+
+71
+00:03:29,709 --> 00:03:37,180
+Então, temos aqui:
+g(z'²') = σ(z'²')
+
+72
+00:03:35,170 --> 00:03:40,299
+Assim, o que você vê neste exemplo
+
+73
+00:03:37,180 --> 00:03:43,920
+é onde você pode ter uma função de ativação 'tanh'
+
+74
+00:03:40,299 --> 00:03:47,769
+para a unidade oculta; e
+
+75
+00:03:43,920 --> 00:03:49,299
+uma função sigmoide para a camada de saída.
+
+76
+00:03:47,769 --> 00:03:51,670
+Portanto, as funções de ativação podem ser diferentes
+
+77
+00:03:49,299 --> 00:03:53,709
+para camadas distintas. E, às vezes,
+
+78
+00:03:51,670 --> 00:03:55,690
+para mostrar que as funções de ativação
+
+79
+00:03:53,709 --> 00:03:58,510
+são diferentes para camadas distintas,
+
+80
+00:03:55,690 --> 00:04:02,230
+podemos usar estes colchetes sobrescritos,
+
+81
+00:03:58,510 --> 00:04:04,540
+bem como para indicar que
+
+82
+00:04:02,230 --> 00:04:06,940
+g'¹' é diferente de g'²'.
+
+83
+00:04:04,540 --> 00:04:09,340
+Então, novamente: [1] sobrescrito
+
+84
+00:04:06,940 --> 00:04:11,470
+refere-se a esta camada;
+
+85
+00:04:09,340 --> 00:04:12,879
+e [2] sobrescrito refere-se
+
+86
+00:04:11,470 --> 00:04:15,680
+à camada de saída.
+
+87
+00:04:12,879 --> 00:04:18,109
+Uma das desvantagens para ambas as funções,
+
+88
+00:04:15,680 --> 00:04:20,780
+sigmoide e 'tanh',
+
+89
+00:04:18,109 --> 00:04:22,910
+é que se o z é muito grande;
+
+90
+00:04:20,780 --> 00:04:24,460
+ou muito pequeno, então 
+
+91
+00:04:22,910 --> 00:04:27,560
+o gradiente da derivada
+ou o grau de inclinação dessa função
+
+92
+00:04:24,460 --> 00:04:30,139
+fica bem pequeno.
+Então, se z é muito grande
+
+93
+00:04:27,560 --> 00:04:33,169
+ou z é muito pequeno, a inclinação da função
+
+94
+00:04:30,139 --> 00:04:35,270
+acaba ficando próximo do zero.
+
+95
+00:04:33,169 --> 00:04:38,360
+E isso pode desacelerar o gradiente descendente.
+
+96
+00:04:35,270 --> 00:04:41,810
+Então, uma das ferramentas que é
+
+97
+00:04:38,360 --> 00:04:44,900
+bem popular em Aprendizado de Máquina
+
+98
+00:04:41,810 --> 00:04:50,720
+é o que chamamos de Unidade Linear Retificada.
+
+99
+00:04:44,900 --> 00:04:57,110
+Então a função ReLU é parecida com isso...
+
+100
+00:04:50,720 --> 00:05:00,500
+E a fórmula é:
+a = max(0, z)
+
+101
+00:04:57,110 --> 00:05:03,530
+Então, a derivada é 1 enquanto o z é positivo;
+
+102
+00:05:00,500 --> 00:05:05,990
+e a derivada ou a inclinação é 0,
+
+103
+00:05:03,530 --> 00:05:07,580
+quando o z é negativo.
+
+104
+00:05:05,990 --> 00:05:10,190
+Se você está executando-o tecnicamente,
+
+105
+00:05:07,580 --> 00:05:12,349
+a derivada quando z é exatamente 0
+
+106
+00:05:10,190 --> 00:05:14,210
+não é bem definida, mas quando você o executa
+
+107
+00:05:12,349 --> 00:05:18,770
+em um computador, você obtém:
+
+108
+00:05:14,210 --> 00:05:21,229
+exatamente                           
+ z = 0000000000000                   
+
+109
+00:05:18,770 --> 00:05:22,940
+Ele é muito pequeno, então,
+você não precisa se preocupar com isso
+
+110
+00:05:21,229 --> 00:05:25,610
+Na prática, você pode simular
+
+111
+00:05:22,940 --> 00:05:29,659
+uma derivada quando z = 0;
+
+112
+00:05:25,610 --> 00:05:32,270
+você pode simulá-la tanto para 1 ou para 0;
+
+113
+00:05:29,659 --> 00:05:35,479
+e você pode trabalhar bem.
+
+114
+00:05:32,270 --> 00:05:37,430
+Então esse fato não é diferenciável.
+
+115
+00:05:35,479 --> 00:05:40,010
+Aqui temos algumas regras de ouro
+
+116
+00:05:37,430 --> 00:05:43,280
+para as escolhas das funções de ativação:
+
+117
+00:05:40,010 --> 00:05:45,620
+                  Se a sua saída é 
+                                         ou 0 ou 1 e se você está usando
+
+118
+00:05:43,280 --> 00:05:47,539
+classificação binária, então,
+
+119
+00:05:45,620 --> 00:05:50,479
+a função de ativação sigmoide é bem simples
+
+120
+00:05:47,539 --> 00:05:59,419
+para a camada de saída.
+
+121
+00:05:50,479 --> 00:06:04,460
+Então para todas as outras unidades:
+
+122
+00:05:59,419 --> 00:06:07,190
+ReLU, Unidade Linear Retificada,
+é cada vez mais uma escolha padrão
+
+123
+00:06:04,460 --> 00:06:10,280
+da função de ativação. Assim, se você
+
+124
+00:06:07,190 --> 00:06:13,849
+não tem certeza sobre qual delas usar,
+
+125
+00:06:10,280 --> 00:06:15,289
+eu usaria a função de ativação ReLU
+
+126
+00:06:13,849 --> 00:06:17,570
+que é a que muitas pessoas usam
+
+127
+00:06:15,289 --> 00:06:20,120
+hoje em dia. Apesar de que, às vezes,
+
+128
+00:06:17,570 --> 00:06:21,350
+elas usam também a função de ativação
+
+129
+00:06:20,120 --> 00:06:23,150
+'tanh'.
+
+130
+00:06:21,350 --> 00:06:26,270
+Uma desvantagem para o uso da ReLU
+
+131
+00:06:23,150 --> 00:06:28,640
+é que a derivada é igual a zero
+quando o z é negativo.
+
+132
+00:06:26,270 --> 00:06:31,700
+Na prática, ela funciona bem,
+
+133
+00:06:28,640 --> 00:06:33,890
+mas há uma outra versão da ReLU
+
+134
+00:06:31,700 --> 00:06:35,420
+chamada LeakyReLU.
+
+135
+00:06:33,890 --> 00:06:38,690
+Eu lhe darei a fórmula no próximo slide,
+
+136
+00:06:35,420 --> 00:06:40,520
+mas ao invés de zero, aqui,
+
+137
+00:06:38,690 --> 00:06:42,940
+quando o g é negativo,
+ocorre uma leve inclinação
+
+138
+00:06:40,520 --> 00:06:47,900
+como essa. Por isso é denominada
+"LeakyReLU".
+
+139
+00:06:42,940 --> 00:06:51,170
+Normalmente, ela funciona melhor
+
+140
+00:06:47,900 --> 00:06:53,900
+do que a função de ativação ReLU,
+
+141
+00:06:51,170 --> 00:06:54,860
+apesar de não ser tão usual na prática.
+
+142
+00:06:53,900 --> 00:06:56,770
+Qualquer uma delas deve funcionar bem.
+
+143
+00:06:54,860 --> 00:06:59,330
+Apesar de que, se tiver que optar por uma,
+
+144
+00:06:56,770 --> 00:07:01,460
+geralmente, eu uso a ReLU.
+
+145
+00:06:59,330 --> 00:07:04,460
+A vantagem de ambas, ReLU e LeakyReLU,
+
+146
+00:07:01,460 --> 00:07:06,500
+é que, para um espaço extenso de z,
+
+147
+00:07:04,460 --> 00:07:08,150
+a derivada da função de ativação,
+
+148
+00:07:06,500 --> 00:07:11,870
+a inclinação da função de ativação,
+
+149
+00:07:08,150 --> 00:07:13,970
+é bem diferente de zero.
+
+150
+00:07:11,870 --> 00:07:15,920
+Então, na prática, quando usamos
+
+151
+00:07:13,970 --> 00:07:18,590
+a função de ativação ReLU, a sua rede neural,
+
+152
+00:07:15,920 --> 00:07:20,810
+com frequência, aprenderá mais rapidamente
+
+153
+00:07:18,590 --> 00:07:23,840
+do que quando usamos as funções de ativação
+ tanh ou sigmoide.
+
+154
+00:07:20,810 --> 00:07:26,420
+A principal razão para isso é que
+
+155
+00:07:23,840 --> 00:07:28,700
+o efeito menor na inclinação
+
+156
+00:07:26,420 --> 00:07:31,580
+da função, aproximando-a do zero,
+
+157
+00:07:28,700 --> 00:07:33,950
+atenua a aprendizagem.
+E eu sei que,
+
+158
+00:07:31,580 --> 00:07:36,710
+para a metade da faixa de z,
+a inclinação da ReLU
+
+159
+00:07:33,950 --> 00:07:39,050
+é zero, mas na prática, quantidades suficientes
+
+160
+00:07:36,710 --> 00:07:41,120
+das suas unidades ocultas terão  z > 0.
+
+161
+00:07:39,050 --> 00:07:43,700
+Assim, a aprendizagem ainda pode ser bem rápida
+
+162
+00:07:41,120 --> 00:07:45,800
+para a maioria dos exemplos de treinamento.
+
+163
+00:07:43,700 --> 00:07:47,600
+Então, vamos recapitular rapidamente.
+
+164
+00:07:45,800 --> 00:07:50,030
+Há os prós e os contras
+entre as diferentes funções de ativação.
+
+165
+00:07:47,600 --> 00:07:52,790
+Aqui temos a função de ativação sigmoide.
+
+166
+00:07:50,030 --> 00:07:54,410
+Eu diria para não a usar, exceto para
+
+167
+00:07:52,790 --> 00:07:56,330
+a camada de saída, se você estiver fazendo
+
+168
+00:07:54,410 --> 00:07:59,540
+a classificação binária.
+Não a use, quase nunca.
+
+169
+00:07:56,330 --> 00:08:02,720
+E a razão para quase nunca a usar
+
+170
+00:07:59,540 --> 00:08:05,060
+é porque a função tanh é
+
+171
+00:08:02,720 --> 00:08:12,080
+estritamente superior.
+
+172
+00:08:05,060 --> 00:08:13,430
+Então, esta é a função de ativação tanh.
+
+173
+00:08:12,080 --> 00:08:15,490
+                               Depois, o padrão,
+                         a função de ativação
+
+174
+00:08:13,430 --> 00:08:19,100
+                       mais usada, de modo geral,
+                                é a ReLU, que é esta.
+
+175
+00:08:15,490 --> 00:08:23,660
+                       Então, se você não tem
+                      certeza sobre qual delas
+
+176
+00:08:19,100 --> 00:08:26,600
+                            usar, opte por esta.
+                        E, talvez, você se sinta
+
+177
+00:08:23,660 --> 00:08:31,930
+livre para tentar                       
+ a LeakyReLU.                       
+
+178
+00:08:26,600 --> 00:08:36,659
+Isso pode ser:                    
+ a = max(0.01z , z)                   
+
+179
+00:08:31,930 --> 00:08:40,390
+Então, ' a ' é o máximo de 0,01 vezes ' z ' 
+e ' z '
+
+180
+00:08:36,659 --> 00:08:43,810
+Portanto, isso lhe dá esta...
+
+181
+00:08:40,390 --> 00:08:46,200
+inclinação na sua função.                             
+
+182
+00:08:43,810 --> 00:08:51,670
+Você pode se perguntar:
+ "Por que essa constante: 0,01?"
+
+183
+00:08:46,200 --> 00:08:53,380
+Bem, você pode usar um outro parâmetro
+
+184
+00:08:51,670 --> 00:08:54,670
+de algoritmo de aprendizagem.
+
+185
+00:08:53,380 --> 00:08:58,480
+Algumas pessoas dizem que fazer isso é até melhor,
+
+186
+00:08:54,670 --> 00:08:59,649
+mas dificilmente eu as vejo fazendo isso.
+
+187
+00:08:58,480 --> 00:09:01,360
+Mas se você quiser tentar
+
+188
+00:08:59,649 --> 00:09:03,430
+nas suas aplicações, sinta-se livre para fazê-lo.
+
+189
+00:09:01,360 --> 00:09:05,800
+Assim, você poderá ver como isso funciona,
+
+190
+00:09:03,430 --> 00:09:08,290
+quão bem isso funciona,
+ e continuar para ver
+
+191
+00:09:05,800 --> 00:09:09,880
+se isso lhe dá bons resultados.
+
+192
+00:09:08,290 --> 00:09:11,620
+Espero que isso lhe dê uma ideia sobre
+
+193
+00:09:09,880 --> 00:09:13,870
+algumas das opções das funções de ativação
+
+194
+00:09:11,620 --> 00:09:15,940
+que você pode usar em suas redes neurais.
+Um dos temas
+
+195
+00:09:13,870 --> 00:09:18,130
+que veremos em aprendizagem profunda é que,
+
+196
+00:09:15,940 --> 00:09:20,110
+frequentemente, você tem muitas opções diferentes
+
+197
+00:09:18,130 --> 00:09:22,089
+para codificar a sua rede neural.
+
+198
+00:09:20,110 --> 00:09:24,430
+Variando desde número de unidades ocultas
+
+199
+00:09:22,089 --> 00:09:25,839
+até a escolha das funções de ativação,
+
+200
+00:09:24,430 --> 00:09:28,480
+ou até como você inicializa as suas camadas,
+
+201
+00:09:25,839 --> 00:09:30,880
+o que veremos mais tarde... 
+Muitas opções como essas.
+
+202
+00:09:28,480 --> 00:09:33,279
+E isso, às vezes, atrapalha para
+
+203
+00:09:30,880 --> 00:09:35,649
+conseguirmos bons manuais de instruções,
+destinados exatamente
+
+204
+00:09:33,279 --> 00:09:37,270
+para aquilo que funcionará melhor
+para o nosso problema.
+
+205
+00:09:35,649 --> 00:09:39,070
+Assim, por causa disso,
+continuarei dando-lhes
+
+206
+00:09:37,270 --> 00:09:40,839
+uma ideia do que eu vejo na área,
+
+207
+00:09:39,070 --> 00:09:43,450
+em termos do que é mais ou menos popular.
+
+208
+00:09:40,839 --> 00:09:45,520
+Mas para seu aplicativo,
+
+209
+00:09:43,450 --> 00:09:46,930
+com as idiossincrasias dos seus aplicativos,
+
+210
+00:09:45,520 --> 00:09:49,450
+é realmente muito difícil saber,
+com antecedência,
+
+211
+00:09:46,930 --> 00:09:51,400
+exatamente o que funcionará melhor.
+
+212
+00:09:49,450 --> 00:09:52,930
+Aqui vai uma dica:
+
+213
+00:09:51,400 --> 00:09:54,940
+Se você está incerto sobre qual dessas
+
+214
+00:09:52,930 --> 00:09:57,700
+funções de ativação funciona melhor,
+tente todas elas
+
+215
+00:09:54,940 --> 00:10:00,010
+e avalie-as usando o método Holdout,
+
+216
+00:09:57,700 --> 00:10:02,529
+no conjunto de validação ou no conjunto de desenvolvimento,
+
+217
+00:10:00,010 --> 00:10:04,480
+sobre os quais falaremos mais tarde.
+
+218
+00:10:02,529 --> 00:10:08,350
+E veja qual função é melhor, e então, use-a.
+
+219
+00:10:04,480 --> 00:10:10,180
+E eu acho que testando essas diferentes opções
+
+220
+00:10:08,350 --> 00:10:13,510
+para o seu aplicativo,
+
+221
+00:10:10,180 --> 00:10:16,240
+você se sairá melhor no futuro, provando
+
+222
+00:10:13,510 --> 00:10:18,130
+a arquitetura da sua rede neural
+
+223
+00:10:16,240 --> 00:10:20,550
+contra a idiossincrasia dos nossos problemas,
+
+224
+00:10:18,130 --> 00:10:23,440
+tanto quanto a evolução dos algoritmos, ao invés de
+
+225
+00:10:20,550 --> 00:10:25,630
+eu falar para você usar sempre
+
+226
+00:10:23,440 --> 00:10:27,339
+a função de ativação ReLU e não usar
+
+227
+00:10:25,630 --> 00:10:29,440
+nenhuma outra. O que pode ou
+
+228
+00:10:27,339 --> 00:10:30,790
+não pode ser aplicado, se o produto
+
+229
+00:10:29,440 --> 00:10:32,410
+acaba funcionando,
+
+230
+00:10:30,790 --> 00:10:36,220
+tanto num futuro próximo quanto distante.
+
+231
+00:10:32,410 --> 00:10:37,870
+Certo, essas são as opções
+
+232
+00:10:36,220 --> 00:10:39,310
+das funções de ativação que você tem visto.
+
+233
+00:10:37,870 --> 00:10:41,459
+As funções de ativação mais populares.
+
+234
+00:10:39,310 --> 00:10:44,260
+Há uma outra questão que,
+
+235
+00:10:41,459 --> 00:10:45,160
+às vezes, você poderia levantar:
+
+236
+00:10:44,260 --> 00:10:46,959
+"Por que você precisa mesmo
+usar uma função de ativação?;
+
+237
+00:10:45,160 --> 00:10:49,240
+por que não, simplesmente, ignorá-la?"
+
+238
+00:10:46,959 --> 00:10:49,779
+Então, vamos falar
+
+239
+00:10:49,240 --> 00:10:52,240
+sobre isso
+
+240
+00:10:49,779 --> 00:10:54,430
+no próximo vídeo, quando você verá o porquê
+
+241
+00:10:52,240 --> 00:10:58,259
+de a rede neural necessitar,
+realmente, de algum tipo
+
+242
+00:10:54,430 --> 00:10:58,259
+de função de ativação não linear.
+[Tradução: Julia Yuri | Revisão: Carlos Lage.]

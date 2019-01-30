@@ -1,0 +1,384 @@
+1
+00:00:00,030 --> 00:00:05,279
+Tekrar hoş geldiniz. Bu hafta
+
+2
+00:00:02,639 --> 00:00:07,440
+yapay sinir ağını kurmayı
+
+3
+00:00:05,279 --> 00:00:09,059
+teknik detaylara girmeden öğrendiniz. 
+İstediğim
+
+4
+00:00:07,440 --> 00:00:10,889
+bu video size bu haftanın videolarıyla ilgili
+
+5
+00:00:09,059 --> 00:00:13,679
+genel bir bakış açısı verecek.
+
+6
+00:00:10,889 --> 00:00:15,389
+eğer tüm detayları takip etmezseniz
+
+7
+00:00:13,679 --> 00:00:17,100
+endişelenmeyin, ileriki videolarda
+
+8
+00:00:15,389 --> 00:00:19,680
+teknik detayları derinlemesine ele alacağız.
+
+9
+00:00:17,100 --> 00:00:21,660
+Ama şimdi
+
+10
+00:00:19,680 --> 00:00:24,269
+sinir ağınızı nasıl kuracağınıza dair küçük bir
+
+11
+00:00:21,660 --> 00:00:26,250
+ön izleme yapalım.
+ Geçen hafta
+
+12
+00:00:24,269 --> 00:00:30,300
+lojistik regresyon hakkında konuştuk ve
+
+13
+00:00:26,250 --> 00:00:32,430
+bu modelin ekranda gördüğünüz hesaplama grafiğine
+
+14
+00:00:30,300 --> 00:00:35,520
+nasıl karşılık geldiğini gördük.
+
+15
+00:00:32,430 --> 00:00:38,370
+Girdi olarak her bir özellik X
+
+16
+00:00:35,520 --> 00:00:40,620
+ve parametrelerimiz w ile b'yi kullanarak z'yi hesapladınız.
+
+17
+00:00:38,370 --> 00:00:44,219
+Daha sonra z'yi kullanarak a'yı hesapladınız.
+
+18
+00:00:40,620 --> 00:00:47,190
+y^ yani çıktı ile aynı terime karşılık gelen a'yı kullanarak
+
+19
+00:00:44,219 --> 00:00:51,059
+kayıp fonksiyonu L'i hesaplayabilirsiniz.
+
+20
+00:00:47,190 --> 00:00:52,920
+Sinirsel ağ böyle gözükür
+
+21
+00:00:51,059 --> 00:00:54,930
+ve daha önce kastettiğim gibi
+
+22
+00:00:52,920 --> 00:00:57,239
+bir çok sigmoid birimini bu şekilde üst üste dizerek
+
+23
+00:00:54,930 --> 00:01:00,420
+bir sinirsel ağ kurabilirsiniz.
+
+24
+00:00:57,239 --> 00:01:02,969
+Daha önce dediğimiz gibi,
+
+25
+00:01:00,420 --> 00:01:04,920
+bu düğüm iki hesap aşamasını gösteriyor
+
+26
+00:01:02,969 --> 00:01:07,680
+ilk hesap z değerini
+
+27
+00:01:04,920 --> 00:01:11,640
+ikinci hesap ise a değerini belirliyor.
+
+28
+00:01:07,680 --> 00:01:14,549
+Bu sinirsel ağda bu düğüm yığını
+
+29
+00:01:11,640 --> 00:01:17,880
+Z gibi bir hesaplamaya ve aynı zamanda
+
+30
+00:01:14,549 --> 00:01:21,720
+şu kısım a benzeri bir hesaplamaya denk geliyor.
+
+31
+00:01:17,880 --> 00:01:24,090
+Ve bu düğüm diğer bir z
+
+32
+00:01:21,720 --> 00:01:26,790
+ve diğer bir a'ya karşılık geliyor.
+
+33
+00:01:24,090 --> 00:01:29,040
+Dolayısıyla ileride kullanacağımız
+
+34
+00:01:26,790 --> 00:01:30,000
+notasyon
+
+35
+00:01:29,040 --> 00:01:32,759
+şöyle olacak:
+
+36
+00:01:30,000 --> 00:01:35,430
+öncelikle girdilerimiz X
+
+37
+00:01:32,759 --> 00:01:40,320
+ve beraberinde bazı parametrelerimiz W ve b
+
+38
+00:01:35,430 --> 00:01:42,930
+bunlar Z1'i hesaplamanızı sağlayacak
+
+39
+00:01:40,320 --> 00:01:45,600
+Kullanacağımız yeni notasyon şöyle:
+
+40
+00:01:42,930 --> 00:01:48,689
+üstindis köşeli parantez içinde 1
+
+41
+00:01:45,600 --> 00:01:50,759
+ile bu düğüm yığınıyla
+
+42
+00:01:48,689 --> 00:01:53,579
+yani katman ile alakalı değerleri göstereceğiz.
+
+43
+00:01:50,759 --> 00:01:56,280
+Sonra üstindis köşeli parantez içinde 2 ile
+
+44
+00:01:53,579 --> 00:01:58,920
+ile bu düğüm yığınındaki değerleri
+
+45
+00:01:56,280 --> 00:02:01,200
+yani sinir ağının diğer bir katmanındaki değerleri
+göstereceğiz.
+
+46
+00:01:58,920 --> 00:02:04,140
+Bu üstindise eklediğimiz köşeli parantezler
+
+47
+00:02:01,200 --> 00:02:06,719
+buradaki gibi,
+
+48
+00:02:04,140 --> 00:02:10,319
+eğitim setindeki her bir örneği
+
+49
+00:02:06,719 --> 00:02:12,390
+tanımlamak için kullandığımız normal parantezler
+
+50
+00:02:10,319 --> 00:02:14,080
+ile karıştırılmamalıdır.
+
+51
+00:02:12,390 --> 00:02:16,300
+Yani X üstindis normal parantez ile
+
+52
+00:02:14,080 --> 00:02:19,030
+i'inci eğitim seti örneğinden bahsederken
+
+53
+00:02:16,300 --> 00:02:21,340
+üstindis köşeli parantez
+
+54
+00:02:19,030 --> 00:02:25,570
+1 ve 2 her bir katmana karşılık geliyor.
+
+55
+00:02:21,340 --> 00:02:28,600
+Sinir ağının birinci ve ikinci katmanları.
+
+56
+00:02:25,570 --> 00:02:32,860
+Devam edelim,
+
+57
+00:02:28,600 --> 00:02:35,350
+Z1'i hesapladıktan sonra
+
+58
+00:02:32,860 --> 00:02:39,000
+lojistik regresyonda olduğu gibi
+
+59
+00:02:35,350 --> 00:02:44,550
+a1'i hesaplayacağız.
+
+60
+00:02:39,000 --> 00:02:49,270
+z1'in sigmoid fonksiyonundan geçirilmiş hali.
+
+61
+00:02:44,550 --> 00:02:54,610
+Diğer bir lineer denklem kullanarak
+
+62
+00:02:49,270 --> 00:02:57,370
+a2'yi hesaplayacağız.
+a2 sinirsel ağın nihai çıktısı
+
+63
+00:02:54,610 --> 00:02:59,890
+ve aynı zamanda
+
+64
+00:02:57,370 --> 00:03:01,390
+y^ile eş anlamlı olarak kullanılacak.
+
+65
+00:02:59,890 --> 00:03:03,730
+Biliyorum çok fazla detay oldu ancak
+
+66
+00:03:01,390 --> 00:03:06,460
+alınacak esas ders şu ki
+
+67
+00:03:03,730 --> 00:03:09,220
+lojistik regresyon için
+
+68
+00:03:06,460 --> 00:03:11,590
+Z ve müteakiben a hesaplamalarımız vardı.
+
+69
+00:03:09,220 --> 00:03:13,780
+Sinirsel ağda ise bunu birden fazla sayıda
+yapıyoruz.
+
+70
+00:03:11,590 --> 00:03:16,390
+z'yi takip eden bir a hesaplaması
+
+71
+00:03:13,780 --> 00:03:19,959
+ve tekrar z ve ardından a
+
+72
+00:03:16,390 --> 00:03:22,600
+ve daha sonra son olarak sondaki kaybı hesaplıyorsunuz
+
+73
+00:03:19,959 --> 00:03:24,670
+ve yapısal bağıntı(logistic regression)'nın
+
+74
+00:03:22,600 --> 00:03:27,959
+türevlerini hesaplamak için (da,dz vs.)
+
+75
+00:03:24,670 --> 00:03:30,970
+burada gördüğünüz gibi
+
+76
+00:03:27,959 --> 00:03:34,750
+geriye yönelik hesaplama yapıyoruz
+
+77
+00:03:30,970 --> 00:03:36,580
+dolayısıyla aynı mantıkla
+
+78
+00:03:34,750 --> 00:03:38,860
+bir sinir ağı, buna benzeyen
+
+79
+00:03:36,580 --> 00:03:44,910
+şekilde da2,dz2 yi hesapladığınız
+
+80
+00:03:38,860 --> 00:03:50,890
+ve bunların dw2 db2 yi hesaplamada
+
+81
+00:03:44,910 --> 00:03:57,850
+kullanılacağı sağdan sola doğru
+
+82
+00:03:50,890 --> 00:04:01,090
+hesaplamaları kırmızı okla
+
+83
+00:03:57,850 --> 00:04:05,020
+belirttiğim şekilde yapacağınız
+
+84
+00:04:01,090 --> 00:04:05,360
+geriye yönelik hesaplama
+
+85
+00:04:05,020 --> 00:04:07,970
+yapar
+
+86
+00:04:05,360 --> 00:04:09,770
+ve böylece, bunlar size sinir ağının
+
+87
+00:04:07,970 --> 00:04:12,950
+ne yaptığı ile ilgili fikir verecektir basitçe
+
+88
+00:04:09,770 --> 00:04:14,630
+yapısal bağlanımı(logictic regression) alıyor ve iki kez tekrar ediyor.
+
+89
+00:04:12,950 --> 00:04:16,880
+Çok fazla yeni kavram ve detay olduğunu biliyorum
+
+90
+00:04:14,630 --> 00:04:18,980
+fakat eğer hepsini takip edemediyseniz
+
+91
+00:04:16,880 --> 00:04:20,900
+bunlar hakkında çok fazla endişelenmeyin
+
+92
+00:04:18,980 --> 00:04:22,820
+daha sonraki videolarda bu detayların
+
+93
+00:04:20,900 --> 00:04:24,620
+üzerinden daha yavaş bir şekilde geçeceğiz
+
+94
+00:04:22,820 --> 00:04:27,850
+hadi, sinir ağlarının nasıl temsil edildiği
+
+95
+00:04:24,620 --> 00:04:27,850
+ile alakalı olan bir sonraki videoya geçelim
