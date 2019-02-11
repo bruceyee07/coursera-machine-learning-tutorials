@@ -1,0 +1,331 @@
+1
+00:00:01,440 --> 00:00:06,640
+Gelin, doğru bir word embedding öğreniminin<br /> problemini şekillendirmeye başlayalım. 
+
+2
+00:00:06,640 --> 00:00:09,230
+Bir 'sözcük gömme' öğrenimi adına bir algoritma uyguladığınızda,
+
+3
+00:00:09,230 --> 00:00:12,698
+nihayetinde öğrendiğiniz bir gömülü matris olmaktadır.
+
+4
+00:00:12,698 --> 00:00:14,285
+Bunun ne anlama geldiğine gelin bir göz atalım.
+
+5
+00:00:14,285 --> 00:00:19,005
+Diyelim ki, her zamanki gibi, 10,000'lik kelime sözlüğümüzü kullanıyoruz.
+
+6
+00:00:19,005 --> 00:00:21,412
+Şöyle, sözlük A, Aaron,
+
+7
+00:00:21,412 --> 00:00:29,750
+Orange, Zulu, belki bir andıç olarak tanımsız kelime'ye sahip.
+
+8
+00:00:29,750 --> 00:00:34,475
+Yapmaya çalıştığımız bir gömme matris (E) öğrenimidir,
+
+9
+00:00:34,475 --> 00:00:43,900
+bu 300 x 10,000 boyutunda bir matris olacaktır.
+
+10
+00:00:43,900 --> 00:00:48,933
+Eğer 10,000 kelime sözlüğüne sahipseniz ya da belki 10,001, sizin kelime andıçınız,
+
+11
+00:00:48,933 --> 00:00:51,105
+bir tane ekstra andıç bulunmaktadır.
+
+12
+00:00:51,105 --> 00:00:54,675
+ve bu matrisin sütunları sözlüğünüzde<br /> bulunan 10,000 farklı kelime için
+
+13
+00:00:54,675 --> 00:00:58,245
+farklı gömülü yaklaşım olurdu.
+
+14
+00:00:58,245 --> 00:01:05,475
+Orange 10,000 kelimelik sözlüğünüzde 6257 numaralı kelimedir.
+
+15
+00:01:05,475 --> 00:01:12,300
+kullanacağımız şey, 06257, 
+
+16
+00:01:12,300 --> 00:01:20,995
+hepsinin sıfır ve 6257 numaralı pozisyonun 1 olduğu tek-birli vektör'dür.
+
+17
+00:01:20,995 --> 00:01:27,690
+Bu, sadece tek bir yerinde 1 olan <br />10,000 x 1 boyutunda bir vektör olacak.
+
+18
+00:01:27,690 --> 00:01:29,430
+Aslında, bu pek ölçekli bir çizim olmalı.
+
+19
+00:01:29,430 --> 00:01:34,220
+Evet, bu, soldaki geniş embedding matris gibi uzun olmalıdır.
+
+20
+00:01:34,220 --> 00:01:40,530
+ve eğer embedding matris büyük E olarak isimlendiriliyorsa, bilin ki,
+
+21
+00:01:40,530 --> 00:01:49,140
+eğer E'yi alıp tek bir içeren 06257'li vektör ile çarparsanız,
+
+22
+00:01:49,140 --> 00:01:54,045
+bu 300 x 1 boyutlu bir vektör olacaktır.
+
+23
+00:01:54,045 --> 00:02:02,170
+Böylece, E, 300 x 10,000 ve O, 10,000 x 1 boyutundadır.
+
+24
+00:02:02,170 --> 00:02:06,700
+Çarpım 300 x 1 olacaktır.
+
+25
+00:02:06,700 --> 00:02:10,060
+yani 300 boyutlu bir vektör ve bilin ki,
+
+26
+00:02:10,060 --> 00:02:13,840
+bu vektörün ilk elemanını işleme sokmak için,
+
+27
+00:02:13,840 --> 00:02:15,385
+bu 300 x 1 boyutlu vektörün,
+
+28
+00:02:15,385 --> 00:02:21,565
+yapacağınız şey, matris E'nin ilk satırı ile bunu çarpacaksınız.
+
+29
+00:02:21,565 --> 00:02:24,535
+ama 6257 dışındaki tüm elemanlar sıfır
+
+30
+00:02:24,535 --> 00:02:27,970
+ve sıfır kere bu, sıfır kere bu,
+
+31
+00:02:27,970 --> 00:02:30,490
+sıfır kere bu, vesaire, olarak sonuçlanacak.
+
+32
+00:02:30,490 --> 00:02:34,270
+ve sonra 1 kere (her ne ise) bu
+
+33
+00:02:34,270 --> 00:02:37,060
+ve sıfır kere bu, sıfır kere bu, sıfır kere bu, ve vesaire.
+
+34
+00:02:37,060 --> 00:02:44,350
+ve sonra, Orange sütunu altında bu yukarıdaki element her ne ise bu
+
+35
+00:02:44,350 --> 00:02:46,235
+ilk element ile sonuca varacaksınız.
+
+36
+00:02:46,235 --> 00:02:50,169
+sonra 300 x 1 boyutundaki vektörün ikinci elemanı için hesaplama yapıyoruz,
+
+37
+00:02:50,169 --> 00:02:52,210
+06257 vektörünü alıp
+
+38
+00:02:52,210 --> 00:02:57,555
+Matris E'nin ikinci satırı ile çarpıyorsunuz. Sonra tekrar,
+
+39
+00:02:57,555 --> 00:03:00,010
+sıfır kere buna, 
+
+40
+00:03:00,010 --> 00:03:01,835
+artı sıfır kere buna
+
+41
+00:03:01,835 --> 00:03:07,855
+artı sıfır kere tüm buradaki elemanlar ile ve 1 kere buna,
+
+42
+00:03:07,855 --> 00:03:10,330
+ve sıfır kere hepsiyle ve hepsini birlikte ekleyin.
+
+43
+00:03:10,330 --> 00:03:19,795
+Böylece, geri kalan bu sütundan aşağı inerek bu sonuca varıyorsunuz.
+
+44
+00:03:19,795 --> 00:03:25,485
+Bu yüzden embedding matris E kere tek bir içeren vektör (burada),
+
+45
+00:03:25,485 --> 00:03:32,430
+Orange kelimesine karşılık gelen 300 boyutlu bu sütunu seçmiş olur.
+
+46
+00:03:32,430 --> 00:03:38,870
+Bu, e 6257 ifadesine eşit olacaktır ki
+
+47
+00:03:38,870 --> 00:03:41,245
+Orange kelimesi adına 300 x 1 boyutundaki embedding vektörü
+
+48
+00:03:41,245 --> 00:03:46,345
+açıklamak için kullanacağımız gösterimdir.
+
+49
+00:03:46,345 --> 00:03:49,658
+Daha genel bir açıklama olarak,<br /> E ve spesifik olarak 'w'
+
+50
+00:03:49,658 --> 00:03:56,195
+'w' kelimesi için bir kelime adreslemesi olacaktır.
+
+51
+00:03:56,195 --> 00:03:59,583
+Daha genel bir şekilde, E kere Oj
+
+52
+00:03:59,583 --> 00:04:02,500
+J pozisyonundaki 1 ile birlikte tek birden oluşan vektör,
+
+53
+00:04:02,500 --> 00:04:05,090
+bu ej 'ye eşit olacak ve bu
+
+54
+00:04:05,090 --> 00:04:11,695
+sözlükteki J kelimesine eşlenen adresi (embedding) olacak.
+
+55
+00:04:11,695 --> 00:04:16,325
+Sonucunda, bu slaytta hatırlamamız gereken şey,
+
+56
+00:04:16,325 --> 00:04:21,650
+amacımız bir embedding matris E öğrenmektir ve bir sonraki video'da
+
+57
+00:04:21,650 --> 00:04:24,460
+E'ye rastgele şekilde değer atayıp Gradyan İnişi kullanarak 
+
+58
+00:04:24,460 --> 00:04:27,725
+300 x 10,000 boyutundaki matris'in tüm parametrelerinin öğrenmesini 
+
+59
+00:04:27,725 --> 00:04:35,105
+artı, E kere bu tek birden oluşan vektör, size embedding matrisi gösterdiğini göreceksiniz.
+
+60
+00:04:35,105 --> 00:04:37,390
+Sadece ufak bir not,
+
+61
+00:04:37,390 --> 00:04:38,742
+denklemi yazarken,
+
+62
+00:04:38,742 --> 00:04:41,750
+Matris E'yi alıp onunla tek birden oluşan vektörü çarptığınız 
+
+63
+00:04:41,750 --> 00:04:45,726
+bu tip bir formülü yazmak daha kullanışlı olacak.
+
+64
+00:04:45,726 --> 00:04:49,095
+Fakat eğer bunu uyguluyorsanız,
+
+65
+00:04:49,095 --> 00:04:52,400
+bir küme matris vektör çarpımı olarak uygulamak için
+
+66
+00:04:52,400 --> 00:04:56,627
+verimli değildir çünkü tek birden oluşan vektör
+
+67
+00:04:56,627 --> 00:05:01,355
+oldukça yüksek boyutlu bir vektör ve çoğu elemanı sıfırdır.
+
+68
+00:05:01,355 --> 00:05:03,560
+O yüzden, bir matris vektör çarpımını kullanmak
+
+69
+00:05:03,560 --> 00:05:06,770
+gerçekte verimli değildir çünkü
+
+70
+00:05:06,770 --> 00:05:10,070
+tümünü sıfır ile çarpıyoruz. Gerçek uygulamalarda,
+
+71
+00:05:10,070 --> 00:05:12,950
+bunu matris çarpımı ile yapmak yerine, sadece matris E'nin bir sütununa bakacağınız
+
+72
+00:05:12,950 --> 00:05:17,335
+belli amaç için oluşturulan bir fonksiyonu kullanmanız gerekecek.
+
+73
+00:05:17,335 --> 00:05:20,945
+hiç olmazsa haritalamayı yazmak, bu şekilde düzenlemek adına işe yaramaktadır.
+
+74
+00:05:20,945 --> 00:05:24,545
+Örneğin, Keras kütüphanesinde,
+
+75
+00:05:24,545 --> 00:05:29,637
+bir Embedding katmanı bulunmaktadır.
+
+76
+00:05:29,637 --> 00:05:33,970
+Bunu kullanarak daha yavaş olan matris vektör çarpımı yerine <br /> embedding matris'den
+
+77
+00:05:33,970 --> 00:05:38,638
+çok daha verimli bir şekilde istediğiniz sütuna ulaşabilirsiniz.
+
+78
+00:05:38,638 --> 00:05:40,870
+Bu videoda, embedding'i öğrenmek adına 
+
+79
+00:05:40,870 --> 00:05:43,740
+kullanılacak algoritmaların formüllerini gördük.
+
+80
+00:05:43,740 --> 00:05:45,220
+Ana terminoloji
+
+81
+00:05:45,220 --> 00:05:50,265
+sözlükteki kelimelerin hepsi için tüm embedding yapıyı kapsayan Matris E'dir.
+
+82
+00:05:50,265 --> 00:05:53,590
+Sıradaki video'da, matris E ögrenimi adına spesifik algoritmalar hakkında
+
+83
+00:05:53,590 --> 00:05:57,030
+konuşmaya başlayacağız. Bir sonraki video'ya gelin geçelim.

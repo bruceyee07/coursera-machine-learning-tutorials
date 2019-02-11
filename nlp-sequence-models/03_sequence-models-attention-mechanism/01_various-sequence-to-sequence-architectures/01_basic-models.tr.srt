@@ -1,0 +1,413 @@
+1
+00:00:00,000 --> 00:00:03,398
+Merhaba ve bu dersimizin bu son haftasına hoş geldiniz.
+
+2
+00:00:03,398 --> 00:00:05,805
+Beş dizi dersten oluşan derin öğrenme uzmanlığının
+
+3
+00:00:05,805 --> 00:00:09,215
+son haftasına gelmiş olmakla birlikte
+
+4
+00:00:09,215 --> 00:00:11,430
+bitiş çizgisine neredeyse ulaşmış durumdasınız.
+
+5
+00:00:11,430 --> 00:00:14,875
+Bu hafta, diziden diziye (sequence-to-sequence)
+ modelleri hakkında konuşacağız.
+
+6
+00:00:14,875 --> 00:00:19,590
+Ki bu modeller 
+makine çevirisinden (machine translation) tutun da
+ ses tanımaya (speech recognition) kadar her konuda faydalılar.
+
+7
+00:00:19,590 --> 00:00:22,710
+Önce temel modeller ile başlayalım. 
+ Akabinde bu haftanın sonuna doğru
+
+8
+00:00:22,710 --> 00:00:23,738
+hüzme aramasına (beam search) geçip,
+
+9
+00:00:23,738 --> 00:00:25,847
+dikkat modeli (attention model) ve son olarak da
+
+10
+00:00:25,847 --> 00:00:29,540
+ses verileri (audio data) - örneğin konuşma verileri- için
+ modeller konusuna değinip toparlayacağız.
+
+11
+00:00:29,540 --> 00:00:32,160
+Haydi başlayalım. 
+
+12
+00:00:32,160 --> 00:00:38,770
+Diyelim ki şöyle bir Fransızca cümleyi 
+girdi olarak vermek istiyorsunuz: 
+"Jane visite l'Afrique en septembre"  
+
+13
+00:00:38,770 --> 00:00:41,620
+ve bunu İngilice şu cümleye çevirtmek istiyorsunuz: 
+
+14
+00:00:41,620 --> 00:00:44,160
+"Jane is visiting Africa in September."  
+
+15
+00:00:44,160 --> 00:00:48,380
+Her zamanki gibi, x<1>'den 
+
+16
+00:00:48,380 --> 00:00:49,655
+bu örnekte x<5>'e kadar  
+
+17
+00:00:49,655 --> 00:00:52,445
+bu dizi girdisindeki kelimleri temsilen x değerlerini kullanalım.  
+
+18
+00:00:52,445 --> 00:00:58,460
+ve çıktı dizisi içindeki kelimeleri temsilen y<1>'den y<6>'ya kadar
+ y değerleri kullanalım.  
+
+19
+00:00:58,460 --> 00:01:05,895
+Bu durumda x dizisini girdi olarak alıp 
+y dizisini çıktı olarak verecek yeni bir ağı nasıl eğitirsiniz?  
+
+20
+00:01:05,895 --> 00:01:08,010
+Evet, işte şöyle bir şey yapabiliriz.  
+
+21
+00:01:08,010 --> 00:01:14,630
+Şimdi size sunacağım fikirler bu iki çalışmaya dayanıyor:  
+
+22
+00:01:14,630 --> 00:01:16,580
+İlki Ilya Sutskever, Oriol Vinyals and Quoc Le'nin şu çalışması  
+
+23
+00:01:16,580 --> 00:01:23,023
+ve ikincisi de Kyunghyun Cho,  
+
+24
+00:01:23,023 --> 00:01:26,023
+Bart van Merrienboer, Caglar Gulcehre, 
+Dzmitry Bahdanau, Fethi Bougares,  
+
+25
+00:01:26,023 --> 00:01:29,023
+Holger Schwen, and Yoshua Bengio'nun bu çalışması.  
+
+26
+00:01:29,023 --> 00:01:31,875
+Öncelikle, RNN (özyineli sinir ağı) olarak inşa edilmiş 
+ve gizyazar (encoder) olarak adlandıracağımız  
+
+27
+00:01:31,875 --> 00:01:38,060
+bir ağı ele alalım.  
+
+28
+00:01:38,060 --> 00:01:41,473
+ve bu bir GRU (kapalı özyineli birim) 
+ve LSTM (uzun-kısa vadeli bellek) olabilir.  
+
+29
+00:01:41,473 --> 00:01:44,945
+Bu ağda Fransızca kelimeler ağa tek tek beslenir.  
+
+30
+00:01:44,945 --> 00:01:49,135
+ve ağ girdi dizisini aldıktan sonra  
+
+31
+00:01:49,135 --> 00:01:55,770
+RNN (özyineli sinir ağı) girdi dizisini temsilen 
+bir yöney (vector) önerir.  
+
+32
+00:01:55,770 --> 00:02:00,755
+Bundan sonra, bir gizçözer (decoder) ağı inşa edebilirsiniz.
+Ki buraya çiziyorum şimdi  
+
+33
+00:02:00,755 --> 00:02:02,525
+Bu, girdi olarak sol tarafta siyah renk ile gösterilmiş olan  
+
+34
+00:02:02,525 --> 00:02:07,220
+gizyazar (encoder) ağından gelen gizyazımı çıktıyı alıp  
+
+35
+00:02:07,220 --> 00:02:10,900
+akabinde her seferinde bir kelime olacak şekilde  
+
+36
+00:02:10,900 --> 00:02:15,720
+çıktıya tercüme olarak eğitilebilir.  
+
+37
+00:02:15,720 --> 00:02:22,300
+ta ki sonunda çıktı çalışmayı durduruncaya kadar,  
+
+38
+00:02:22,300 --> 00:02:25,783
+ki bu da dizinin sonu ya da cümlenin sonunu gösteren,  
+
+39
+00:02:25,783 --> 00:02:29,900
+gizçözerin (decoder) duracağını anlatan
+ bir işaretçiyle (token) gösterilebilir.  
+
+40
+00:02:29,900 --> 00:02:34,460
+genelde oluşturulan bu işaretçileri (tokens) alıp 
+dizideki bir sonraki basamağa besleriz;  
+
+41
+00:02:34,460 --> 00:02:39,640
+tıpkı daha evvelden 
+ dil modelini kullanarak yazı sentezlemede yaptığımız gibi.  
+
+42
+00:02:39,640 --> 00:02:45,915
+Derin öğrenmede
+ son dönemdeki en önemli dikkat çeken sonuçlardan biri  
+
+43
+00:02:45,915 --> 00:02:49,725
+yeterince İngilizce ve Fransızca cümle çiftleri (pairs) verildiğinde
+ bu modelin çalışıyor oluşudur.  
+
+44
+00:02:49,725 --> 00:02:52,815
+Şayet modeli Fansızca bir cümleyi girdi ve  
+
+45
+00:02:52,815 --> 00:02:57,144
+İngilizce bir cümleyi denk düşen çeviri çıktısı olarak eğitirseniz,  
+
+46
+00:02:57,144 --> 00:02:59,695
+bu aslında yeterince iyi çalışacaktır.  
+
+47
+00:02:59,695 --> 00:03:03,270
+Ve bu model basitçe bir gizyazar (encoder) ağı kullanır.  
+
+48
+00:03:03,270 --> 00:03:08,400
+Görevi de, girdi Fransızca cümlenin 
+bir gizyazımını (decoder) bulmak  
+
+49
+00:03:08,400 --> 00:03:13,860
+ve sonra bir gizçözer (decoder) ağı kullanıp 
+denk düşen İngilizce çeviriyi oluşturmaktır.  
+
+50
+00:03:13,860 --> 00:03:18,630
+Buna çok benzer bir mimari yapı (architecture)  
+
+51
+00:03:18,630 --> 00:03:24,060
+görüntü tanımlamada (image captioning) da çalışır. 
+Burada gördüğünüze benzer bir görüntüyü  
+
+52
+00:03:24,060 --> 00:03:29,260
+belki otomatik olarak "bir sandalyede oturan bir kedi"
+ diye tanımlanmak (caption) istemektesiniz.  
+
+53
+00:03:29,260 --> 00:03:32,790
+Peki o zaman bir görünütüyü (image) girdi olarak alacak  
+
+54
+00:03:32,790 --> 00:03:38,405
+ve yukarıdakine benzer bir tanımlamayı (caption) 
+size çıktıyı verecek yeni bir ağı nasıl eğitirsiniz?  
+
+55
+00:03:38,405 --> 00:03:43,715
+Burada yapabileceğiniz şey şudur: 
+Daha evvelki derslerimizden ConvNets'te  
+
+56
+00:03:43,715 --> 00:03:48,453
+bir görüntüyü (image) evrişimli bir ağa (convolutional network) 
+girdi olarak nasıl verebileceğinizi öğrendiniz  
+
+57
+00:03:48,453 --> 00:03:50,555
+Örneğin bir ön-eğitimli (pre-trained) AlexNet.  
+
+58
+00:03:50,555 --> 00:03:56,360
+Ve onun bir gizyazar (encoding) öğrenmesini ya da
+ girdi görüntüsünün (image) bir takım 
+öznitelikler (features) öğrenmesini sağladınız.  
+
+59
+00:03:56,360 --> 00:03:57,440
+Yani bu aslında AlexNet mimarisi  
+
+60
+00:03:57,440 --> 00:04:04,295
+ve eger biz bu sondaki Softmax birimini atarsak  
+
+61
+00:04:04,295 --> 00:04:06,770
+ön-eğitimli (pre-trained) AlexNet size bu kedi resmini temsilen  
+
+62
+00:04:06,770 --> 00:04:12,705
+4096 boyutlu bir öznitelik (feature) yöneyi (vector) verecektir.  
+
+63
+00:04:12,705 --> 00:04:18,760
+Ve böylece ön-eğitimli ağ (pre-trained)
+görüntü (image) için gizyazar (encoder) ağı olabilir  
+
+64
+00:04:18,760 --> 00:04:25,120
+ve sonuçta elinizde görüntüyü (image) temsil eden
+ 4096 boyutlu bir yöney (vector) olur.  
+
+65
+00:04:25,120 --> 00:04:28,870
+ Akabinde bunu alıp bir RNN'e (özyineli sinir ağı) besleyebilirsiniz.  
+
+66
+00:04:28,870 --> 00:04:36,878
+Ki bu ağın işi de, her seferinde tek kelime olacak şekilde
+ tanımlamayı (caption) oluşturmaktır.  
+
+67
+00:04:36,878 --> 00:04:43,985
+Fransızca'dan İngilizce'ye tercüme yapan 
+makine çevirisinde gördüğümüze çok benzer bir şekilde   
+
+68
+00:04:43,985 --> 00:04:50,590
+girdiyi tanımlayan bir öznitelik yöneyi (feature vector) 
+girdi olarak verebilir ve   
+
+69
+00:04:50,590 --> 00:04:58,180
+bir çıktı dizisi veya her seferinde tek bir kelime olacak şekilde
+ bir dizi çıktı kelimesi oluşturmasını sağlarsınız.  
+
+70
+00:04:58,180 --> 00:05:01,941
+ve aslına baktığınızda bu durum görüntü tanımlama
+ (image captioning) için oldukça iyi çalışmaktadır.  
+
+71
+00:05:01,941 --> 00:05:04,610
+Özellikle de oluşturmak istediğiniz 
+tanımlama (caption) çok uzun değilse.  
+
+72
+00:05:04,610 --> 00:05:07,730
+Bildiğim kadarıyla,
+
+73
+00:05:07,730 --> 00:05:10,115
+Bu tarz bir model  
+
+74
+00:05:10,115 --> 00:05:12,731
+ilk olarak Junhua Mao, Wei Xu, Yi Yang, Jiang Wang,   
+
+75
+00:05:12,731 --> 00:05:18,185
+Zhiheng Huang ve Alan Yuille tarafından teklif edildi.  
+
+76
+00:05:18,185 --> 00:05:20,030
+Sonradan ortaya çıktığı kadarıyla, 
+bir çok grup çok benzer modeller ile  
+
+77
+00:05:20,030 --> 00:05:25,080
+birbirlerinden bağımsız (habersiz) ve 
+hemen hemen aynı zamanlarda ortaya çıktılar.  
+
+78
+00:05:25,080 --> 00:05:29,560
+Yani, bu çok benzer çalışmayı
+ yaklaşık aynı zamanlarda  
+
+79
+00:05:29,560 --> 00:05:33,260
+ve sanırım birbirlerinden bağımsız olarak 
+Mao ve gurubu ile birlikte yapan diğer 2 grup;  
+
+80
+00:05:33,260 --> 00:05:35,025
+Oriol Vinyals, Alexander Toshev, Samy Bengio ve Dumtiru Erhan  
+
+81
+00:05:35,025 --> 00:05:38,750
+gurubu ile birlikte Andrej Karpathy ve Fei-Fei Yi gurubudur.  
+
+82
+00:05:38,750 --> 00:05:45,040
+Böylece temel diziden diziye (sequence to sequence)
+ modelini   
+
+83
+00:05:45,040 --> 00:05:49,340
+veya temel görüntüden diziye (image-to-sequence) ya da 
+ görüntü tanımlama (image captioning) modelinin 
+nasıl çalıştığını görmüş oldunuz.
+
+84
+00:05:49,340 --> 00:05:53,460
+Fakat böyle bir modeli nasıl çalıştıracağınız, 
+yani bir diziyi oluşturmak ile
+
+85
+00:05:53,460 --> 00:05:56,550
+bir dil modeli kullanarak özgün bir metni nasıl sentezlediğiniz
+
+86
+00:05:56,550 --> 00:06:00,495
+arasında bazı farklar vardır.
+
+87
+00:06:00,495 --> 00:06:02,050
+Temel farklardan birisi,
+
+88
+00:06:02,050 --> 00:06:04,887
+rastgele seçilmiş bir tercüme istemediğiniz,
+
+89
+00:06:04,887 --> 00:06:07,626
+tercihen en mantıklı çeviriyi istediğiniz,
+
+90
+00:06:07,626 --> 00:06:10,345
+ya da rastsal (random) bir tanımlama (caption) istemediğiniz,
+
+91
+00:06:10,345 --> 00:06:13,870
+tam aksine, en uygun tanımlamayı (caption) ya da 
+en mantıklı tanımlamayı (caption) istediğinizdir.
+
+92
+00:06:13,870 --> 00:06:18,000
+O zaman bir sonraki videomuzda 
+bunu nasıl oluşturacağımızı görelim.

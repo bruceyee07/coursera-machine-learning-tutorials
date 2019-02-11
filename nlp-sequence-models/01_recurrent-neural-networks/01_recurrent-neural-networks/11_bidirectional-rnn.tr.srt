@@ -1,0 +1,495 @@
+1
+00:00:00,000 --> 00:00:05,285
+Şimdiye kadar RNN'lerin (Özyineli Sinirsel Ağların) temel yapı taşlarını öğrendiniz.
+
+2
+00:00:05,285 --> 00:00:09,910
+Fakat çok daha kuvvetli modeller üretebileceğiniz iki fikir daha var.
+
+3
+00:00:09,910 --> 00:00:12,005
+Biri Çift Yönlü RNN'ler.
+
+4
+00:00:12,005 --> 00:00:14,370
+Bunlar sayesinde dizinin hem önceki zamanlarından
+
+5
+00:00:14,370 --> 00:00:17,368
+hem de ileriki zamanlardan bilgileri kullanabiliyorsunuz.
+
+6
+00:00:17,368 --> 00:00:19,500
+Bu videoda bundan bahsedeceğiz.
+
+7
+00:00:19,500 --> 00:00:21,870
+İkincisi ise Derin RNN'ler.
+
+8
+00:00:21,870 --> 00:00:23,770
+Bunu da bir sonraki videoda göreceksiniz.
+
+9
+00:00:23,770 --> 00:00:26,817
+Çift Yönlü RNN'ler ile bağlayalım.
+
+10
+00:00:26,817 --> 00:00:29,230
+Çift Yönlü RNN'lere neden ihtiyaç duyduğumuzu anlamak için
+
+11
+00:00:29,230 --> 00:00:32,010
+gelin Varlık İsmi Tanıma ile ilgili olarak
+
+12
+00:00:32,010 --> 00:00:35,570
+daha önce de gördüğümüz şu ağa bakalım.
+
+13
+00:00:35,570 --> 00:00:38,115
+Bu ağın sorunlarından biri şuydu,
+
+14
+00:00:38,115 --> 00:00:43,280
+üçüncü kelime olan Teddy'nin bir insan ismi olup olmadığını
+
+15
+00:00:43,280 --> 00:00:46,760
+anlamak için cümlenin ilk bölümüne bakmak yeterli olmuyordu.
+
+16
+00:00:46,760 --> 00:00:50,910
+Yani y_3 çıktısının sıfır mı yoksa bir mi olacağını
+
+17
+00:00:50,910 --> 00:00:52,585
+bilebilmek için ilk üç
+
+18
+00:00:52,585 --> 00:00:56,935
+kelimeden fazlasına ihtiyacınız vardı. Çünkü ilk üç kelime size
+
+19
+00:00:56,935 --> 00:01:03,565
+oyuncak ayının mı (teddy bear) yoksa ABD başkanı Teddy Roosevelt'in mi kastettiğini söylemiyordu.
+
+20
+00:01:03,565 --> 00:01:09,510
+Buradaki sadece tek yönlü ya da ileri yönlü bir RNN.
+
+21
+00:01:09,510 --> 00:01:13,890
+Ve bu son söylediğim şey, bu birimler
+
+22
+00:01:13,890 --> 00:01:16,020
+standart RNN de olsa
+
+23
+00:01:16,020 --> 00:01:24,130
+GRU veya LSTM de olsa geçerli.
+
+24
+00:01:24,130 --> 00:01:29,245
+Tüm bu bloklar sadece ileri yönlü işliyor.
+
+25
+00:01:29,245 --> 00:01:32,010
+Yani Çift Yönlü RNN ya da BRNN dediğimiz şeyin yaptığı
+
+26
+00:01:32,010 --> 00:01:34,865
+bu sorunu çözmek.
+
+27
+00:01:34,865 --> 00:01:38,473
+Çöft Yönlü RNN şöyle çalışır.
+
+28
+00:01:38,473 --> 00:01:45,405
+Basitleştirilmiş 4 sözcüklü bir cümle kullanacağım.
+
+29
+00:01:45,405 --> 00:01:47,080
+Yani 4 girdimiz var.
+
+30
+00:01:47,080 --> 00:01:49,224
+x_1'den x_4'e kadar.
+
+31
+00:01:49,224 --> 00:01:56,110
+Bu ağın gizli katmanı ileri yönlü özyineli öğelere sahip olacak.
+
+32
+00:01:56,110 --> 00:02:04,135
+Bunlara a_1, a_2,
+
+33
+00:02:04,135 --> 00:02:09,465
+a_3 ve a_4 diyeceğim.
+
+34
+00:02:09,465 --> 00:02:12,955
+Ve şuraya sağa doğru giden bir ok çizeceğim.
+
+35
+00:02:12,955 --> 00:02:17,000
+Bu ok bunun ileri yönlü bir öğe olduğunu gösterecek.
+
+36
+00:02:17,000 --> 00:02:22,985
+Bu yüzden bu şekilde bağlanacak.
+
+37
+00:02:22,985 --> 00:02:28,512
+Ve bu özyineli birimlerin her biri o anki x değerini alarak
+
+38
+00:02:28,512 --> 00:02:33,709
+y^_1, y^_2
+
+39
+00:02:33,709 --> 00:02:42,730
+y^_3 ve y^_4'ü
+
+40
+00:02:42,730 --> 00:02:46,928
+tahmin edebilmek için kullanacak.
+
+41
+00:02:46,928 --> 00:02:50,241
+Yani şu ana kadar hiçbir şey yapmadım.
+
+42
+00:02:50,241 --> 00:02:54,220
+Önceki slaytlardaki RNN'i tekrar çizdik.
+
+43
+00:02:54,220 --> 00:02:57,675
+Ve tuhaf yerlere oklar koyduk.
+
+44
+00:02:57,675 --> 00:03:00,970
+Fakat bu okları bu tuhaf yerlere koydum
+
+45
+00:03:00,970 --> 00:03:03,550
+çünkü geri yönlü bir
+
+46
+00:03:03,550 --> 00:03:06,656
+özyineli katman daha ekleyeceğiz.
+
+47
+00:03:06,656 --> 00:03:08,650
+Yani yine a_1 olacak,
+
+48
+00:03:08,650 --> 00:03:12,994
+ama bu sefer sola bakan okla geri yönlü bağlantıyı simgeleyecek.
+
+49
+00:03:12,994 --> 00:03:15,410
+Sonra a_2, geri yönlü.
+
+50
+00:03:15,410 --> 00:03:20,725
+a_3 geri yönlü. Ve a_4 geri yönlü.
+
+51
+00:03:20,725 --> 00:03:25,730
+Yani sola bakan ok geri yönlü bağlantı demek.
+
+52
+00:03:25,730 --> 00:03:32,780
+Sonra ağı şu şekilde bağlantılandırıyoruz.
+
+53
+00:03:32,780 --> 00:03:41,627
+Ve tüm bu geri yönlü a bağlantıları zamanda geriye doğru birbirine bağlanacak.
+
+54
+00:03:41,627 --> 00:03:48,493
+Dikkat ederseniz bu ağ Döngüsüz Düz Ağaç formunda (Acyclic Graph).
+
+55
+00:03:48,493 --> 00:03:51,472
+Yani x_1'den x_4'e bir girdi dizisi verildiğinde
+
+56
+00:03:51,472 --> 00:03:55,310
+ileri yönlü dizi önce a_ileri_1'i
+
+57
+00:03:55,310 --> 00:03:57,116
+sonra a_ileri_2'yi
+
+58
+00:03:57,116 --> 00:03:59,240
+sonra a_ileri_3'ü ve sonra a_ileri_4'ü hesaplayacak.
+
+59
+00:03:59,240 --> 00:04:03,634
+Geri yönlü dizi a_geri_4'den başlayıp
+
+60
+00:04:03,634 --> 00:04:06,160
+a_geri_3'e doğru geri gidecek.
+
+61
+00:04:06,160 --> 00:04:08,645
+Dikkat edin bu şekilde ağ aktivasyonlarını hesaplıyoruz.
+
+62
+00:04:08,645 --> 00:04:10,840
+Yani bu Geriye Yayılım (back-prop) değil İleri Yayılım.
+
+63
+00:04:10,840 --> 00:04:15,710
+Ama İleri Yayılım hesaplamasının bir bölümü
+
+64
+00:04:15,710 --> 00:04:17,810
+soldan sağa doğru giderken diğer bir bölümü
+
+65
+00:04:17,810 --> 00:04:20,875
+sağdan sola doğru gidiyor.
+
+66
+00:04:20,875 --> 00:04:23,061
+a_geriye_3'ü hesapladıktan sonra
+
+67
+00:04:23,061 --> 00:04:27,200
+bu aktivasyonları kullanarak a_geriye_2'yi
+
+68
+00:04:27,200 --> 00:04:30,580
+ve a_geriye_1'i hesaplayabilirsiniz. Ve tüm aktivasyonları hesapladıktan sonra
+
+69
+00:04:30,580 --> 00:04:34,290
+artık tahminlerinizi hesaplayabilirsiniz.
+
+70
+00:04:34,290 --> 00:04:36,050
+Yani örneğin
+
+71
+00:04:36,050 --> 00:04:37,590
+tahmin yapmak için
+
+72
+00:04:37,590 --> 00:04:44,790
+ağınız t zamanındaki y^ tahminini yapacaksa
+
+73
+00:04:44,790 --> 00:04:54,345
+aktivasyon fonksiyonu içinde W_y,
+
+74
+00:04:54,345 --> 00:05:00,160
+hem t anındaki ileri yönlü aktivasyona
+
+75
+00:05:00,160 --> 00:05:07,690
+hem de t anındaki geri yönlü aktivasyona uygulanacak.
+
+76
+00:05:07,690 --> 00:05:11,390
+Diyelim t'nin 3'e eşit olduğu zamandaki tahmine bakarsak
+
+77
+00:05:11,390 --> 00:05:15,910
+x_1'den gelen bilgi buradan akabilir,
+
+78
+00:05:15,910 --> 00:05:18,270
+ileri 1 den ileri 2'ye,
+
+79
+00:05:18,270 --> 00:05:24,140
+x_2'den ayrıca bilgi alacak, sonra ileri 3'e ve y^_3'e kadar gelecek.
+
+80
+00:05:24,140 --> 00:05:27,150
+Yani x_1, x_2, x_3'ten
+
+81
+00:05:27,150 --> 00:05:31,700
+gelen bilgilerin hepsi dikkate alınacak. x_4'ten gelen bilgi ise
+
+82
+00:05:31,700 --> 00:05:37,110
+geriye 4, geriye 3 üzerinden y^_3'e akacak.
+
+83
+00:05:37,110 --> 00:05:40,590
+Böylece t=3 zamanı için yapılacak tahminin
+
+84
+00:05:40,590 --> 00:05:44,925
+hem geçmişten bilgi alması
+
+85
+00:05:44,925 --> 00:05:47,430
+hem şimdiki zamandan bilgi alması,
+
+86
+00:05:47,430 --> 00:05:49,935
+ki hem ileri hem de geri yönlü adımlarda şimdiki zaman kullanılıyor,
+
+87
+00:05:49,935 --> 00:05:54,215
+hem de gelecekten bilgi alması sağlanıyor.
+
+88
+00:05:54,215 --> 00:05:57,853
+Örneğimize dönersek "He said, Teddy Roosevelt..." diye bir
+
+89
+00:05:57,853 --> 00:06:05,680
+cümle parçası verildiğinde Teddy'nin bir isim olup olmadığını
+
+90
+00:06:05,680 --> 00:06:08,573
+tahmin etmek için
+
+91
+00:06:08,573 --> 00:06:15,220
+gelecek ve geçmişten bilgi kullanıyorsunuz.
+
+92
+00:06:15,220 --> 00:06:21,260
+Çift Yönlü Özyineli Sinirsel Ağ işte bu ve burada gördüğünüz
+
+93
+00:06:21,260 --> 00:06:24,530
+bloklar sadece standart RNN blokları değil
+
+94
+00:06:24,530 --> 00:06:28,245
+GRU veya LSTM blokları da olabilir.
+
+95
+00:06:28,245 --> 00:06:30,670
+İşin aslı birçok Doğal Dil İşleme (DDİ) probleminde,
+
+96
+00:06:30,670 --> 00:06:33,440
+doğal dil işleme gerektiren metin bazlı problemlerde
+
+97
+00:06:33,440 --> 00:06:40,520
+LSTM içeren Çift Yönlü RNN'ler sıklıkla kullanılıyor.
+
+98
+00:06:40,520 --> 00:06:45,100
+Yani bir DDİ problemimiz varsa, örneğin bir cümleyi tamamlamak
+
+99
+00:06:45,100 --> 00:06:47,000
+veya cümledeki şeyleri etiketlemek istiyorsanız
+
+100
+00:06:47,000 --> 00:06:50,395
+LSTM bloklu Çift Yönlü RNN'ler
+
+101
+00:06:50,395 --> 00:06:55,235
+ilk denenecek mantıklı şeylerden biri.
+
+102
+00:06:55,235 --> 00:06:59,240
+Çift Yönlü RNN'ler için bu kadar.
+
+103
+00:06:59,240 --> 00:07:05,710
+Bu temel RNN, GRU veya LSTM mimarisine yapılan bir değişiklik.
+
+104
+00:07:05,710 --> 00:07:07,910
+Ve bu değişik sayesinde
+
+105
+00:07:07,910 --> 00:07:11,360
+RNN, GRU ve LSTM'ler
+
+106
+00:07:11,360 --> 00:07:14,640
+dizinin ortasındaki bir tahmin için bile
+
+107
+00:07:14,640 --> 00:07:18,830
+bütün diziden gelen bilgiyi kullanma potansiyeline sahip.
+
+108
+00:07:18,830 --> 00:07:22,640
+Çift Yönlü RNN'lerin dezavantajı ise
+
+109
+00:07:22,640 --> 00:07:26,750
+tahmin üretebilmek için bütün veri dizisinin elinizde olması gerektiği.
+
+110
+00:07:26,750 --> 00:07:30,170
+Örneğin bir Konuşma Tanıma sistemi yapıyorsanız
+
+111
+00:07:30,170 --> 00:07:33,140
+BRNN (Çift Yönlü RNN) tüm konuşmanın tamamındaki sesleri
+
+112
+00:07:33,140 --> 00:07:37,595
+kullanmanıza izin veriyor ama buradaki basit uygulamayı kullanırsanız
+
+113
+00:07:37,595 --> 00:07:40,280
+tüm sesleri toplayıp, işlemeye başlayıp bir konuşma tanıma tahmini
+
+114
+00:07:40,280 --> 00:07:43,100
+üretmeden önce konuşan kişinin
+
+115
+00:07:43,100 --> 00:07:46,400
+konuşmasını bitirmesini beklemeniz gerekir.
+
+116
+00:07:46,400 --> 00:07:48,560
+Gerçek hayattaki konuşma tanıma uygulamaları için
+
+117
+00:07:48,560 --> 00:07:52,340
+burada gördüğünüz standart Çift Yönlü RNN yerine
+
+118
+00:07:52,340 --> 00:07:56,730
+daha karmaşık modüller de kullanılabiliyor.
+
+119
+00:07:56,730 --> 00:07:59,510
+Fakat tüm cümleyi aynı anda aldığınız
+
+120
+00:07:59,510 --> 00:08:02,870
+bir çok doğal dil işleme uygulaması için
+
+121
+00:08:02,870 --> 00:08:06,560
+buradaki standart BRNN algoritmaları oldukça etkili.
+
+122
+00:08:06,560 --> 00:08:10,715
+BRNN'ler için bu kadar. Sıradaki bu haftanın son videosunda
+
+123
+00:08:10,715 --> 00:08:13,010
+tüm bu fikirleri, RNN'leri, LSTM'leri ve GRU'ları
+
+124
+00:08:13,010 --> 00:08:19,000
+ve bunların Çift Yönlü versiyonlarını alalım ve Derin versiyonlarını yapalım.

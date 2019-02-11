@@ -1,0 +1,47 @@
+Merhaba ve bu dersimizin bu son haftasına hoş geldiniz. Beş dizi dersten oluşan derin öğrenme uzmanlığının son haftasına gelmiş olmakla birlikte bitiş çizgisine neredeyse ulaşmış durumdasınız. Bu hafta, diziden diziye (sequence-to-sequence)
+ modelleri hakkında konuşacağız. Ki bu modeller 
+makine çevirisinden (machine translation) tutun da
+ ses tanımaya (speech recognition) kadar her konuda faydalılar. Önce temel modeller ile başlayalım. 
+ Akabinde bu haftanın sonuna doğru hüzme aramasına (beam search) geçip, dikkat modeli (attention model) ve son olarak da ses verileri (audio data) - örneğin konuşma verileri- için
+ modeller konusuna değinip toparlayacağız. Haydi başlayalım. Diyelim ki şöyle bir Fransızca cümleyi 
+girdi olarak vermek istiyorsunuz: 
+"Jane visite l'Afrique en septembre" ve bunu İngilice şu cümleye çevirtmek istiyorsunuz: "Jane is visiting Africa in September." Her zamanki gibi, x<1>'den bu örnekte x<5>'e kadar bu dizi girdisindeki kelimleri temsilen x değerlerini kullanalım. ve çıktı dizisi içindeki kelimeleri temsilen y<1>'den y<6>'ya kadar
+ y değerleri kullanalım. Bu durumda x dizisini girdi olarak alıp 
+y dizisini çıktı olarak verecek yeni bir ağı nasıl eğitirsiniz? Evet, işte şöyle bir şey yapabiliriz. Şimdi size sunacağım fikirler bu iki çalışmaya dayanıyor: İlki Ilya Sutskever, Oriol Vinyals and Quoc Le'nin şu çalışması ve ikincisi de Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, 
+Dzmitry Bahdanau, Fethi Bougares, Holger Schwen, and Yoshua Bengio'nun bu çalışması. Öncelikle, RNN (özyineli sinir ağı) olarak inşa edilmiş 
+ve gizyazar (encoder) olarak adlandıracağımız bir ağı ele alalım. ve bu bir GRU (kapalı özyineli birim) 
+ve LSTM (uzun-kısa vadeli bellek) olabilir. Bu ağda Fransızca kelimeler ağa tek tek beslenir. ve ağ girdi dizisini aldıktan sonra RNN (özyineli sinir ağı) girdi dizisini temsilen 
+bir yöney (vector) önerir. Bundan sonra, bir gizçözer (decoder) ağı inşa edebilirsiniz.
+Ki buraya çiziyorum şimdi Bu, girdi olarak sol tarafta siyah renk ile gösterilmiş olan gizyazar (encoder) ağından gelen gizyazımı çıktıyı alıp akabinde her seferinde bir kelime olacak şekilde çıktıya tercüme olarak eğitilebilir. ta ki sonunda çıktı çalışmayı durduruncaya kadar, ki bu da dizinin sonu ya da cümlenin sonunu gösteren, gizçözerin (decoder) duracağını anlatan
+ bir işaretçiyle (token) gösterilebilir. genelde oluşturulan bu işaretçileri (tokens) alıp 
+dizideki bir sonraki basamağa besleriz; tıpkı daha evvelden 
+ dil modelini kullanarak yazı sentezlemede yaptığımız gibi. Derin öğrenmede
+ son dönemdeki en önemli dikkat çeken sonuçlardan biri yeterince İngilizce ve Fransızca cümle çiftleri (pairs) verildiğinde
+ bu modelin çalışıyor oluşudur. Şayet modeli Fansızca bir cümleyi girdi ve İngilizce bir cümleyi denk düşen çeviri çıktısı olarak eğitirseniz, bu aslında yeterince iyi çalışacaktır. Ve bu model basitçe bir gizyazar (encoder) ağı kullanır. Görevi de, girdi Fransızca cümlenin 
+bir gizyazımını (decoder) bulmak ve sonra bir gizçözer (decoder) ağı kullanıp 
+denk düşen İngilizce çeviriyi oluşturmaktır. Buna çok benzer bir mimari yapı (architecture) görüntü tanımlamada (image captioning) da çalışır. 
+Burada gördüğünüze benzer bir görüntüyü belki otomatik olarak "bir sandalyede oturan bir kedi"
+ diye tanımlanmak (caption) istemektesiniz. Peki o zaman bir görünütüyü (image) girdi olarak alacak ve yukarıdakine benzer bir tanımlamayı (caption) 
+size çıktıyı verecek yeni bir ağı nasıl eğitirsiniz? Burada yapabileceğiniz şey şudur: 
+Daha evvelki derslerimizden ConvNets'te bir görüntüyü (image) evrişimli bir ağa (convolutional network) 
+girdi olarak nasıl verebileceğinizi öğrendiniz Örneğin bir ön-eğitimli (pre-trained) AlexNet. Ve onun bir gizyazar (encoding) öğrenmesini ya da
+ girdi görüntüsünün (image) bir takım 
+öznitelikler (features) öğrenmesini sağladınız. Yani bu aslında AlexNet mimarisi ve eger biz bu sondaki Softmax birimini atarsak ön-eğitimli (pre-trained) AlexNet size bu kedi resmini temsilen 4096 boyutlu bir öznitelik (feature) yöneyi (vector) verecektir. Ve böylece ön-eğitimli ağ (pre-trained)
+görüntü (image) için gizyazar (encoder) ağı olabilir ve sonuçta elinizde görüntüyü (image) temsil eden
+ 4096 boyutlu bir yöney (vector) olur. Akabinde bunu alıp bir RNN'e (özyineli sinir ağı) besleyebilirsiniz. Ki bu ağın işi de, her seferinde tek kelime olacak şekilde
+ tanımlamayı (caption) oluşturmaktır. Fransızca'dan İngilizce'ye tercüme yapan 
+makine çevirisinde gördüğümüze çok benzer bir şekilde girdiyi tanımlayan bir öznitelik yöneyi (feature vector) 
+girdi olarak verebilir ve bir çıktı dizisi veya her seferinde tek bir kelime olacak şekilde
+ bir dizi çıktı kelimesi oluşturmasını sağlarsınız. ve aslına baktığınızda bu durum görüntü tanımlama
+ (image captioning) için oldukça iyi çalışmaktadır. Özellikle de oluşturmak istediğiniz 
+tanımlama (caption) çok uzun değilse. Bildiğim kadarıyla, Bu tarz bir model ilk olarak Junhua Mao, Wei Xu, Yi Yang, Jiang Wang, Zhiheng Huang ve Alan Yuille tarafından teklif edildi. Sonradan ortaya çıktığı kadarıyla, 
+bir çok grup çok benzer modeller ile birbirlerinden bağımsız (habersiz) ve 
+hemen hemen aynı zamanlarda ortaya çıktılar. Yani, bu çok benzer çalışmayı
+ yaklaşık aynı zamanlarda ve sanırım birbirlerinden bağımsız olarak 
+Mao ve gurubu ile birlikte yapan diğer 2 grup; Oriol Vinyals, Alexander Toshev, Samy Bengio ve Dumtiru Erhan gurubu ile birlikte Andrej Karpathy ve Fei-Fei Yi gurubudur. Böylece temel diziden diziye (sequence to sequence)
+ modelini veya temel görüntüden diziye (image-to-sequence) ya da 
+ görüntü tanımlama (image captioning) modelinin 
+nasıl çalıştığını görmüş oldunuz. Fakat böyle bir modeli nasıl çalıştıracağınız, 
+yani bir diziyi oluşturmak ile bir dil modeli kullanarak özgün bir metni nasıl sentezlediğiniz arasında bazı farklar vardır. Temel farklardan birisi, rastgele seçilmiş bir tercüme istemediğiniz, tercihen en mantıklı çeviriyi istediğiniz, ya da rastsal (random) bir tanımlama (caption) istemediğiniz, tam aksine, en uygun tanımlamayı (caption) ya da 
+en mantıklı tanımlamayı (caption) istediğinizdir. O zaman bir sonraki videomuzda 
+bunu nasıl oluşturacağımızı görelim.

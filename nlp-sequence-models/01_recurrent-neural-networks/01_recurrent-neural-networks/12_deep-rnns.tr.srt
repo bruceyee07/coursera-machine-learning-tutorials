@@ -1,0 +1,315 @@
+1
+00:00:00,000 --> 00:00:02,704
+Bu zamana kadar gördüğünüz farklı RNN versiyonları
+
+2
+00:00:02,704 --> 00:00:05,055
+kendi başlarına oldukça iyi çalışıyorlar.
+
+3
+00:00:05,055 --> 00:00:09,240
+Fakat çok karmaşık fonksiyonları öğrenmek için bazen
+
+4
+00:00:09,240 --> 00:00:13,860
+RNN'lerin birden çok katmanını birleştirip bu modellerin daha derin versiyonlarını yapmamız gerekebilir.
+
+5
+00:00:13,860 --> 00:00:19,195
+Bu videoda bu derin RNN'leri nasıl yapacağınızı öğreneceksiniz. Haydi başlayalım.
+
+6
+00:00:19,195 --> 00:00:20,850
+Hatırlarsanız standart bir Sinirsal Ağ için
+
+7
+00:00:20,850 --> 00:00:23,520
+x girdisi vardı,
+
+8
+00:00:23,520 --> 00:00:29,580
+bir gizli katmanı besliyordu, bu katmanın aktivasyonları vardı,
+
+9
+00:00:29,580 --> 00:00:33,610
+ilk gizli katman için bu aktivasyona a_1 diyelim.
+
+10
+00:00:33,610 --> 00:00:36,790
+Bu sonraki gizli katmana bağlıydı. Aktivasyonları a_2.
+
+11
+00:00:36,790 --> 00:00:40,000
+Sonra belki bir katman daha.
+
+12
+00:00:40,000 --> 00:00:42,880
+a_3 aktivasyonları. Ve sonunda çıktı tahmini y^.
+
+13
+00:00:42,880 --> 00:00:45,290
+Derin RNN de buna benziyor.
+
+14
+00:00:45,290 --> 00:00:47,900
+Elle çizdiğim bu ağın
+
+15
+00:00:47,900 --> 00:00:51,370
+zaman boyunca açılmışı gibi. Bir bakalım.
+
+16
+00:00:51,370 --> 00:00:54,070
+Burada daha önce gördüğünüz standart RNN var.
+
+17
+00:00:54,070 --> 00:00:56,395
+Fakat gösterimi biraz değiştirdim.
+
+18
+00:00:56,395 --> 00:01:01,450
+Sıfır zamanındaki aktivasyonu a_0 olarak yazmak yerine
+
+19
+00:01:01,450 --> 00:01:06,605
+şu köşeli parantez içinde 1'i ekledim. Bunun birinci katman için olduğunu simgeliyor.
+
+20
+00:01:06,605 --> 00:01:12,970
+Yani kullanacağımız gösterim, l'inci katmanın aktivasyonu için
+
+21
+00:01:12,970 --> 00:01:20,285
+a[l] ve zamanı göstermek için <t> <t>
+
+22
+00:01:20,285 --> 00:01:23,830
+Yani bunun aktivasyonu birinci katman zaman 1,
+
+23
+00:01:23,830 --> 00:01:32,688
+bunlar da ilk katman zaman 2,3 ve 4.
+
+24
+00:01:32,688 --> 00:01:38,950
+Sonra bunları üst üste ekliyoruz.
+
+25
+00:01:38,950 --> 00:01:45,697
+Bu 3 gizli katmanlı bir sinirsel ağ oldu.
+
+26
+00:01:45,697 --> 00:01:51,740
+Şuradaki değer nasıl hesaplanıyor bir bakalım.
+
+27
+00:01:51,740 --> 00:01:56,440
+a[2]<3>'nin iki girdisi var.
+
+28
+00:01:56,440 --> 00:01:58,750
+Bir alttan gelen girdisi var,
+
+29
+00:01:58,750 --> 00:02:03,005
+bir tane de soldan gelen.
+
+30
+00:02:03,005 --> 00:02:09,055
+Aktivasyon fonksiyonu g içinde, bir ağırlık matrisi olacak,
+
+31
+00:02:09,055 --> 00:02:14,140
+bu matrise Wa diyeceğiz çünkü a, yani aktivasyon değerini hesaplıyor.
+
+32
+00:02:14,140 --> 00:02:16,097
+Ve ikinci katman için olacak.
+
+33
+00:02:16,097 --> 00:02:19,510
+Bu matrise şunları vereceğim:
+
+34
+00:02:19,510 --> 00:02:25,045
+a[2]<2> virgül a[1]<3>
+
+35
+00:02:25,045 --> 00:02:34,653
+artı ikinci katman için olan ba.
+
+36
+00:02:34,653 --> 00:02:37,400
+Akitvasyon değerini bu şekilde hesaplıyorsunuz.
+
+37
+00:02:37,400 --> 00:02:41,985
+Yani bu katmandaki tüm hesaplamalarda
+
+38
+00:02:41,985 --> 00:02:48,515
+aynı Wa[2] ve ba[2] parametreleri kullanılıyor.
+
+39
+00:02:48,515 --> 00:02:57,150
+İlk katmanın ise kendi parametreleri olacak: Wa[1] ve ba[1].
+
+40
+00:02:57,150 --> 00:03:01,625
+Soldaki gibi standart sinirsel ağlar
+
+41
+00:03:01,625 --> 00:03:03,580
+bildiğiniz gibi çok derin olabiliyor.
+
+42
+00:03:03,580 --> 00:03:05,575
+Belki 100'den fazla katmanlı olabiliyor.
+
+43
+00:03:05,575 --> 00:03:10,970
+RNN'ler için ise 3 katman bile çok fazla.
+
+44
+00:03:10,970 --> 00:03:12,720
+Çünkü zaman boyutu için halihazırda
+
+45
+00:03:12,720 --> 00:03:17,260
+bu ağlar çok büyük olabiliyor. Az katman olsa bile.
+
+46
+00:03:17,260 --> 00:03:22,535
+Genelde 100 katman gibi çok katman kullanıldığını görmezsiniz.
+
+47
+00:03:22,535 --> 00:03:26,080
+Bazen görebileceğiniz bir şey ise,
+
+48
+00:03:26,080 --> 00:03:30,040
+özyineli katmanların üst üste eklenmesi.
+
+49
+00:03:30,040 --> 00:03:32,988
+Fakat o zaman çıktıyı buradan alabilirsiniz, şundan kurtulalım.
+
+50
+00:03:32,988 --> 00:03:36,730
+Yatay olarak bağlı olmayan derin katmanlar olur,
+
+51
+00:03:36,730 --> 00:03:41,495
+ve sonunda y<1>'i tahmin eden derin bir ağ oluştururlar.
+
+52
+00:03:41,495 --> 00:03:48,000
+y<2>'i tahmin eden bir derin ağ da burada olabilir.
+
+53
+00:03:48,000 --> 00:03:51,270
+Bu gördüğünüz ağ mimarisinde
+
+54
+00:03:51,270 --> 00:03:55,065
+zaman boyunca bağlı 3 özyineli birim,
+
+55
+00:03:55,065 --> 00:03:56,655
+sonra bir ağ,
+
+56
+00:03:56,655 --> 00:03:58,285
+sonra tekrar bir ağ,
+
+57
+00:03:58,285 --> 00:04:00,705
+y<3> ve y<4> için gördüğümüz gibi.
+
+58
+00:04:00,705 --> 00:04:04,105
+Derin bir ağ var ama yatay bağlantıları yok.
+
+59
+00:04:04,105 --> 00:04:08,095
+Daha sık görmeye başladığımız bir mimari bu.
+
+60
+00:04:08,095 --> 00:04:12,410
+Bu bloklar standart RNN,
+
+61
+00:04:12,410 --> 00:04:14,390
+yani basit RNN modeli olmak zorunda değil.
+
+62
+00:04:14,390 --> 00:04:17,770
+GRU veya LSTM blokları da olabilirler.
+
+63
+00:04:17,770 --> 00:04:24,110
+Son olarak Çift Yönlü RNN'lerin de derin versiyonlarını yapabilirsiniz.
+
+64
+00:04:24,110 --> 00:04:30,085
+Derin RNN'lerin eğitilmesi hesaplama açısından pahalı olduğu için,
+
+65
+00:04:30,085 --> 00:04:32,715
+çünkü halihazırda zaman ekseninde çok genişler,
+
+66
+00:04:32,715 --> 00:04:37,700
+çok derin özyineli katmanlar görmezsiniz.
+
+67
+00:04:37,700 --> 00:04:42,320
+Burada zaman ekseninde bağlı 3 derin katman var.
+
+68
+00:04:42,320 --> 00:04:45,530
+Normal derin ağlarda gördüğünüz kadar çok sayıda
+
+69
+00:04:45,530 --> 00:04:48,940
+katman göremezsiniz.
+
+70
+00:04:48,940 --> 00:04:51,510
+Derin RNN'ler için bu kadar.
+
+71
+00:04:51,510 --> 00:04:53,810
+Bu hafta temel RNN'lerden
+
+72
+00:04:53,810 --> 00:04:55,621
+temel özyineli birimlerden,
+
+73
+00:04:55,621 --> 00:04:57,050
+GRU'lara, LSTM'lere ve Çift Yönlü RNN'lere,
+
+74
+00:04:57,050 --> 00:04:58,149
+az önce gördüğünüz gibi bunların derin versiyonlarına
+
+75
+00:04:58,149 --> 00:05:01,770
+kadar öğrendiklerinizle
+
+76
+00:05:01,770 --> 00:05:04,685
+elinizde zengin bir alet çantası oluştu. Artık dizi modellerinde
+
+77
+00:05:04,685 --> 00:05:08,530
+çok güçlü modeller oluşturabilirsiniz.
+
+78
+00:05:08,530 --> 00:05:11,450
+Umarım bu haftanın videolarını beğenmişsinizdir.
+
+79
+00:05:11,450 --> 00:05:16,000
+Programlama egzersizleri için bol şans. Haftaya tekrar görüşmek üzere.

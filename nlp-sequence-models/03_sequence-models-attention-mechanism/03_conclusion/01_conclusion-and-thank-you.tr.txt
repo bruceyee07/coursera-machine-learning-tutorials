@@ -1,0 +1,18 @@
+Buraya kadar gelebildiğiniz için tebrikler. Genel bir toparlama yapıp ve 
+nihai düşüncelerimi paylşıp sizi bırakacağım. Beraber uzun bir yol katettik, ve şayet uzmanlık derslerinin tamamını aldıysanız, o zaman sinir ağları ve derin öğrenme, derin öğrenmenin nasıl iyileştirileceği, makine öğrenmesi projelerinin nasıl yapılandırılacağı, evrişimli sinir ağları,
+ ve bu en son dersimizde de 
+dizi modelleri hakkında bilgi edindiniz. Biliyorum ki bu noktaya gelesiye çok çalıştınız, ve umuyorum ki kendinizle gurur duyuyorsunuzdur, özellikle de sıkı çalışmanızdan
+ ve kat ettiğiniz mesafe açısından. Bu noktada sizinle - belki de önemli - 
+bir görüşümü paylaşmak istiyorum, ki bu da, benim derin öğrenmenin 
+bir çeşit süper kahraman gücü olduğunu düşünmem. Derin öğrenme algoritmalarıyla, bir bilgisayarın görmesini, bir bilgisayarın özgün bir resim 
+ya da müzik sentezlemesini, ya da bir bilgisayarın bir dilden başka bir dile
+ tercüme yapmasını sağlayabilirsiniz. Belki de bilgisayarın
+ elinizdeki radyoloji görüntülerini almasını ve bunları kullanarak tıbbi bir tanıda bulunmasını ya da 
+sürücüsüz bir aracın tasarlanmasını sağlayabilirsiniz. Şayet bu bir süper kahraman gücü değilse bir süper kahraman gücü nedir bilemiyorum. Bu bir dizi dersimizi, bu uzmanlık derslerini toparlayıp sona erdirirken, Umarım ki öğrendiğiniz bu fikirleri 
+kariyerinizi geliştirebilmek adına, hayallerinizi kovalamak adına, ve belkide en önemlisi, insanlık namına yapabileceğinizi düşündüğünüz ne varsa
+ gerçekleştirebilmek adına 
+kullanabileceğiniz gerekli alanları bulursunuz. Günümüz dünyası zorluklarla dolu, ama yapay zekanın ve derin öğrenmenin gücü ile, dünyayı çok daha yaşanabilir bir yer yapabileceğimize inanıyorum. Ve şimdi siz bu süper kahraman gücüne sahip kişi olarak umuyorum ki bu gücünüzü, hayatı hem kendiniz hem de başkaları için 
+daha güzel hale getirmek amacıyla kullanırsınız. Ve de tabii, umuyorum ki başarılarınızdan dolayı, katettiğiniz yoldan dolayı, ve tüm öğrendiklerinizden dolayı 
+kendinizi gururlu hissediyorsunuzdur. Bu bir dizi dersi tamamladıktan sonra bunu Twitter ya da Facebook gibi sosyal medyalarda da paylaşmalı ve çevrenizi haberdar etmelisiniz. Ve en son olarak, size söylemek istediğim şey bu kursu bitirdiğiniz için tebrikler. Umarım başarınızdan ötürü kendinizi harika hissediyorsunuzdur, ama ayrıca size teşekkür de etmek istiyorum. Biliyorum ki yoğun bir yaşantınız var, ama buna rağmen zamanınızı harcadınız ve bu videoları izlediniz ve belkide sınavları ve programlama ödevlerini yapmak için de
+ onca zamanınızı harcadınız. Dilerim bu süreçten ve yaptıklarınızdan keyif aldınız. Ama ayrıca harcadığınız zaman ve tüm bunları öğrenmek için sarf ettiğiniz çaba için 
+size minnettarım. Çok Teşekkürler

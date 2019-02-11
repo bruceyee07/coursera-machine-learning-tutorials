@@ -1,0 +1,623 @@
+1
+00:00:00,000 --> 00:00:02,825
+Önceki videoda GRU'ları,
+
+2
+00:00:02,825 --> 00:00:04,170
+yani Geçitlenmiş Özyinelemeli Birim'leri (Gated Recurrent Unit)
+
+3
+00:00:04,170 --> 00:00:09,770
+ve bunlar sayesinde bir dizi içerisinde nasıl uzun vadeli bağlantılar kurabileceğinizi öğrendiniz.
+
+4
+00:00:09,770 --> 00:00:12,765
+Aynı şeyi yapmanıza izin veren bir diğer birim ise
+
+5
+00:00:12,765 --> 00:00:16,028
+LSTM yani Uzun-Kısa Vadeli Bellek (Long Short-Term Memory) birimleridir.
+
+6
+00:00:16,028 --> 00:00:20,110
+Hatta bunlar GRU'lardan daha da güçlüdür. Gelin inceleyelim.
+
+7
+00:00:20,110 --> 00:00:23,161
+Önceki videoda GRU için yazdığımız denklemler bunlardı.
+
+8
+00:00:23,161 --> 00:00:24,354
+GRU için
+
+9
+00:00:24,354 --> 00:00:27,210
+a_t eşittir c_t demiştik.
+
+10
+00:00:27,210 --> 00:00:31,615
+Ve iki geçit vardı, güncelleme geçidi ve ilgililik geçidi.
+
+11
+00:00:31,615 --> 00:00:34,946
+Bellek hücresinin üstüne yazma adayı olan c_tilde_t.
+
+12
+00:00:34,946 --> 00:00:38,267
+Güncelleme geçidi, gamma_u'yu ise
+
+13
+00:00:38,267 --> 00:00:43,408
+c_t'yi c_tilde_t ile güncelleyip güncellemeyeceğimize karar veriyordu.
+
+14
+00:00:43,408 --> 00:00:49,985
+LSTM, GRU'nun biraz daha güçlü ve daha genel bir versiyonu.
+
+15
+00:00:49,985 --> 00:00:55,360
+Sepp Hochreiter and Jurgen Schmidhuber tarafından geliştirildi.
+
+16
+00:00:55,360 --> 00:00:57,415
+Bu gerçekten çığır açıcı bir makaleydi ve
+
+17
+00:00:57,415 --> 00:01:01,555
+Dizi modellemesi konusunda büyük etkisi oldu.
+
+18
+00:01:01,555 --> 00:01:04,740
+Bence okuması biraz daha zor olan bir makale.
+
+19
+00:01:04,740 --> 00:01:08,280
+Kaybolan gradyanların teorisine biraz fazla giriyor.
+
+20
+00:01:08,280 --> 00:01:12,555
+Bu yüzden çoğu kişi LSTM'lerin detaylarını
+
+21
+00:01:12,555 --> 00:01:15,510
+başka kaynaklardan öğrenmiştir diye düşünüyorum. Yine de bu makale Derin Öğrenme
+
+22
+00:01:15,510 --> 00:01:19,345
+camiasında büyük etki yaratmıştır.
+
+23
+00:01:19,345 --> 00:01:23,176
+LSTM'i kontrol eden denklemlere gelirsek.
+
+24
+00:01:23,176 --> 00:01:26,775
+Bellek hücresine c ve güncelleme için kullanacağımız
+
+25
+00:01:26,775 --> 00:01:30,480
+yeni bellek adayına c_tilde_t demeye devam ediyoruz.
+
+26
+00:01:30,480 --> 00:01:34,810
+Şu şekilde tanımlıyoruz.
+
+27
+00:01:34,810 --> 00:01:38,930
+Dikkat ederseniz LSTM için
+
+28
+00:01:38,930 --> 00:01:45,800
+artık a_t eşittir c_t durumunu kullanmıyoruz.
+
+29
+00:01:45,800 --> 00:01:48,000
+Artık bunu kullanıyoruz.
+
+30
+00:01:48,000 --> 00:01:51,830
+Bu yine soldaki denkleme benziyor. Tek farkı artık a'yı kullanıyoruz.
+
+31
+00:01:51,830 --> 00:01:56,095
+c_<t-1> yerine a_<t-1> yazdık.
+
+32
+00:01:56,095 --> 00:01:59,710
+Ve artık bu gamayı yani bu ilgililik geçidini kullanmıyoruz.
+
+33
+00:01:59,710 --> 00:02:03,615
+Aslında bunu ekleyebileceğiniz bir LSTM çeşidi de var ama
+
+34
+00:02:03,615 --> 00:02:06,110
+daha sık kullanılan LSTM versiyonunda
+
+35
+00:02:06,110 --> 00:02:07,900
+bununla ilgilenmiyoruz.
+
+36
+00:02:07,900 --> 00:02:12,320
+Yine önceki gibi bir Güncelleme Geçidi olacak.
+
+37
+00:02:12,320 --> 00:02:21,110
+Güncelleme ağırlıkları W_u. Burada a_t-1 kullanıyoruz.
+
+38
+00:02:21,110 --> 00:02:25,340
+LSTM'in yeni bir özelliği,
+
+39
+00:02:25,340 --> 00:02:28,725
+bu iki terimi de yöneten
+
+40
+00:02:28,725 --> 00:02:29,970
+tek bir güncelleme geçidi yerine
+
+41
+00:02:29,970 --> 00:02:32,315
+iki ayrı terimimiz olacak.
+
+42
+00:02:32,315 --> 00:02:35,795
+Yani gamma_u ve 1-gamma_u yerine
+
+43
+00:02:35,795 --> 00:02:37,415
+burada bir gamma_u olacak.
+
+44
+00:02:37,415 --> 00:02:41,910
+Ve bir de gamma_f diyeceğimiz Unutma Geçidi (Forget Gate) olacak.
+
+45
+00:02:41,910 --> 00:02:43,790
+Bu gamma_f geçidi,
+
+46
+00:02:43,790 --> 00:02:48,695
+tahmin ettiğiniz gibi şunların sigmoidi olacak.
+
+47
+00:02:48,695 --> 00:02:54,866
+x_t artı b_f
+
+48
+00:02:54,866 --> 00:03:01,180
+Sonra bir de yeni Çıktı Geçidimiz olacak. Sigma içinde W_o,
+
+49
+00:03:01,180 --> 00:03:09,239
+ve yine aynı şeyler. Artı b_o.
+
+50
+00:03:09,239 --> 00:03:17,560
+Sonra belleğin güncelleme değeri. c_t, eşittir gamma_u
+
+51
+00:03:17,560 --> 00:03:21,785
+yıldız burada her elemanı karşılıklı çarpmayı belirtiyor.
+
+52
+00:03:21,785 --> 00:03:24,575
+Yani iki vektörün elemanlarını çarpıyoruz.
+
+53
+00:03:24,575 --> 00:03:27,525
+Artı. 1-gamma_u yerine
+
+54
+00:03:27,525 --> 00:03:30,470
+ayrı bir Unutma Geçidimiz var, gamma_f,
+
+55
+00:03:30,470 --> 00:03:34,475
+çarpı c_t-1.
+
+56
+00:03:34,475 --> 00:03:37,970
+Bu, Bellek hücresine eski c_t değerini tutma
+
+57
+00:03:37,970 --> 00:03:41,720
+ve buna yeni değeri, c_tilde_t'yi ekleme
+
+58
+00:03:41,720 --> 00:03:43,160
+imkanı veriyor.
+
+59
+00:03:43,160 --> 00:03:48,445
+Bu yüzden ayrı güncelleme ve unutma geçitleri kullandık.
+
+60
+00:03:48,445 --> 00:03:53,960
+Bunlar güncelleme, unutma ve çıktı geçitleri.
+
+61
+00:03:53,960 --> 00:04:02,413
+Ve son olarak, a_t eşittir c_t yerine, a_t eşittir
+
+62
+00:04:02,413 --> 00:04:10,700
+Çıktı Geçidiyle c_t'nin elemanlarının çarpımı.
+
+63
+00:04:10,700 --> 00:04:13,170
+LSTM'in denklemleri işte bunlar.
+
+64
+00:04:13,170 --> 00:04:18,070
+İki yerine üç tane geçit olduğunu görüyorsunuz.
+
+65
+00:04:18,070 --> 00:04:23,025
+Biraz daha karmaşık ve geçitleri biraz farklı yerlere koyuyor.
+
+66
+00:04:23,025 --> 00:04:29,805
+LSTM davranışını tanımlayan denklemler tekrar karşınızda.
+
+67
+00:04:29,805 --> 00:04:33,450
+Bunları resimlerle açıklamak adettendir.
+
+68
+00:04:33,450 --> 00:04:35,505
+Şuraya bir tane çizdim.
+
+69
+00:04:35,505 --> 00:04:38,995
+Bu resim çok karmaşık göründüyse dert etmeyin.
+
+70
+00:04:38,995 --> 00:04:42,940
+Ben şahsen denklemleri resimden daha anlaşılır buluyorum.
+
+71
+00:04:42,940 --> 00:04:46,680
+Yine de bu resim sezgisel olarak daha iyi kavramanıza yardımcı olacaktır.
+
+72
+00:04:46,680 --> 00:04:52,210
+Buradaki büyük resim Chris Ola'nın "Understanding LSTM Network" (LSTM Ağlarını Anlamak)
+
+73
+00:04:52,210 --> 00:04:54,580
+adlı blog yazısından esinlendi. Bu diyagram
+
+74
+00:04:54,580 --> 00:04:58,540
+o yazıdakinin bir benzeri.
+
+75
+00:04:58,540 --> 00:05:02,460
+Ama bu resimden aklınızda kalmasını beklediğim bütün geçit değerlerinin
+
+76
+00:05:02,460 --> 00:05:06,900
+a_t-1 ve x_t ile hesaplandığı.
+
+77
+00:05:06,900 --> 00:05:08,970
+Bu resimde a_t-1 ve
+
+78
+00:05:08,970 --> 00:05:11,940
+x_t bir araya gelerek unutma geçidini,
+
+79
+00:05:11,940 --> 00:05:13,665
+güncelleme geçidini,
+
+80
+00:05:13,665 --> 00:05:16,140
+ve çıktı geçidini hesaplıyor.
+
+81
+00:05:16,140 --> 00:05:21,765
+Ayrıca tanh'ten geçerek c_tilde_t'yi de hesaplıyorlar.
+
+82
+00:05:21,765 --> 00:05:23,790
+Ve bu değerler eleman boyunca çarpım gibi
+
+83
+00:05:23,790 --> 00:05:27,384
+karmaşık yollarla birleşip
+
+84
+00:05:27,384 --> 00:05:33,000
+bir önceki c_t-1'i c_t'ye dönüştürüyorlar.
+
+85
+00:05:33,000 --> 00:05:37,020
+Şimdi bunlardan bir kaç tanesini paralel bağlayarak ilginç bir özelliğini görelim.
+
+86
+00:05:37,020 --> 00:05:39,605
+Bunları teker teker alalım ve
+
+87
+00:05:39,605 --> 00:05:41,633
+geçici olarak bağlayalım.
+
+88
+00:05:41,633 --> 00:05:45,545
+Bu girdi x_1, sonra x_2 ve x_3.
+
+89
+00:05:45,545 --> 00:05:51,020
+Sonra bu birimleri şu şekilde birleştirebilirsiniz.
+
+90
+00:05:51,020 --> 00:05:56,860
+a'nın bir zaman dilimindeki çıktısı sonraki zaman dilimindeki girdisi.
+
+91
+00:05:56,860 --> 00:06:00,180
+c için de aynı şekilde. Diyagramların alt kısmını biraz sadeleştirdim.
+
+92
+00:06:00,180 --> 00:06:03,350
+Burada fark edebileceğiniz güzel bir özellik
+
+93
+00:06:03,350 --> 00:06:07,185
+yukarıdaki şu çizgi boyunca
+
+94
+00:06:07,185 --> 00:06:12,180
+unutma ve güncelleme geçitlerini doğru ayarladığınız sürece
+
+95
+00:06:12,180 --> 00:06:15,450
+LSTM'in baştaki c_0'ın değerini 
+
+96
+00:06:15,450 --> 00:06:21,380
+en sağdaki c_3'e kadar değişmeden geçirmesi
+
+97
+00:06:21,380 --> 00:06:23,434
+görece kolay.
+
+98
+00:06:23,434 --> 00:06:25,095
+İşte bu yüzden LSTM'ler
+
+99
+00:06:25,095 --> 00:06:26,895
+ve benzer şekilde GRU'lar da,
+
+100
+00:06:26,895 --> 00:06:31,585
+bazı değerleri uzun süre hafızada tutma konusunda oldukça iyiler.
+
+101
+00:06:31,585 --> 00:06:39,975
+Bazı gerçek değerler bellek hücrelerinde çok uzun süre saklanabilir.
+
+102
+00:06:39,975 --> 00:06:41,970
+LSTM bu kadar.
+
+103
+00:06:41,970 --> 00:06:44,965
+Tahmin edebileceğiniz gibi bunun
+
+104
+00:06:44,965 --> 00:06:48,690
+insanların kullandığı birkaç varyasyonu daha var.
+
+105
+00:06:48,690 --> 00:06:52,410
+Sanırım en yaygın değişiklik, geçit değerlerinin sadece
+
+106
+00:06:52,410 --> 00:06:57,094
+a_t-1 ve x_t'ye bağlı olması yerine,
+
+107
+00:06:57,094 --> 00:07:05,745
+bezen insanlar araya c_t-1 değerini de sıkıştırıyorlar.
+
+108
+00:07:05,745 --> 00:07:10,311
+Buna gözetleme deliği bağlantısı deniyor.
+
+109
+00:07:10,311 --> 00:07:13,595
+Süper bir isim değil belki ama gözetleme deliğinin anlamı,
+
+110
+00:07:13,595 --> 00:07:19,975
+geçit değerleri sadece a_t-1 ve x_t'ye bağlı olmakla kalmıyor.
+
+111
+00:07:19,975 --> 00:07:23,090
+Aynı zamanda önceki bellek hücresi değerine de bağlı.
+
+112
+00:07:23,090 --> 00:07:28,615
+Bu gözetleme deliği bağlantısı her üç geçidin hesaplanmasında da kullanılabiliyor.
+
+113
+00:07:28,615 --> 00:07:32,985
+Bu LSTM'lerde görebileceğiniz sık kullanılan bir varyasyon.
+
+114
+00:07:32,985 --> 00:07:38,200
+Bir teknik detay ise şu. Bunlar diyelim 100 boyutlu vektörler olsun.
+
+115
+00:07:38,200 --> 00:07:41,975
+Eğer 100 boyutlu bir gizli hafıza hücresi birimin varsa böyle oluyor.
+
+116
+00:07:41,975 --> 00:07:46,450
+Ve c_t-1'in diyelim ki beşinci elemanı
+
+117
+00:07:46,450 --> 00:07:51,045
+bağlı geçitlerin sadece beşinci elemanlarını etkiliyor.
+
+118
+00:07:51,045 --> 00:07:54,070
+Yani bu ilişki bire bir.
+
+119
+00:07:54,070 --> 00:07:56,035
+100 elemanlı c_t-1'in her elemanı,
+
+120
+00:07:56,035 --> 00:07:59,850
+geçitlerdeki her elemanı etkilemiyor.
+
+121
+00:07:59,850 --> 00:08:04,720
+İlk eleman sadece ilk elemanı etkiliyor,
+
+122
+00:08:04,720 --> 00:08:07,395
+ikinci eleman ikinciyi etkiliyor, bu şeklinde gidiyor.
+
+123
+00:08:07,395 --> 00:08:10,870
+Eğer bir makale gözetleme deliği bağlantısından bahsedildiğini görürseniz,
+
+124
+00:08:10,870 --> 00:08:16,630
+c_t-1'in geçit değerini etkilemek için kullanıldığını kastediyorlardır.
+
+125
+00:08:16,630 --> 00:08:19,720
+LSTM için bu kadar.
+
+126
+00:08:19,720 --> 00:08:21,350
+Ne zaman GRU kullanmalısız?
+
+127
+00:08:21,350 --> 00:08:23,285
+Ve ne zaman LSTM kullanmalısınız?
+
+128
+00:08:23,285 --> 00:08:25,865
+Bu konuda geniş tabanlı bir uzlaşma yok.
+
+129
+00:08:25,865 --> 00:08:28,755
+Her ne kadar bu derste GRU'ları daha önce anlattıysam da
+
+130
+00:08:28,755 --> 00:08:30,730
+derin öğrenme tarihinde
+
+131
+00:08:30,730 --> 00:08:33,020
+LSTM'ler çok daha önce ortaya çıktı.
+
+132
+00:08:33,020 --> 00:08:37,092
+GRU'lar görece daha yeni icatlar.
+
+133
+00:08:37,092 --> 00:08:41,725
+Daha karmaşık olan LSTM modelini basitleştirme çabasının ürünü olması olası.
+
+134
+00:08:41,725 --> 00:08:44,860
+Araştırmacılar her iki modeli de farklı problemlerde denediler
+
+135
+00:08:44,860 --> 00:08:46,350
+ve farklı problemler için
+
+136
+00:08:46,350 --> 00:08:47,840
+farklı algoritmalar kazandı.
+
+137
+00:08:47,840 --> 00:08:51,070
+Yani evrensel olarak daha üstün bir algoritma yok.
+
+138
+00:08:51,070 --> 00:08:53,630
+Bu yüzden size ikisini de göstermek istedim.
+
+139
+00:08:53,630 --> 00:08:56,970
+Fakat bunları kullanırken benim hissetiğim,
+
+140
+00:08:56,970 --> 00:09:00,170
+GRU'nun avantajı, daha basit bir model olması
+
+141
+00:09:00,170 --> 00:09:03,465
+nedeniyle daha büyük bir ağ oluşturmanın daha kolay olması.
+
+142
+00:09:03,465 --> 00:09:04,780
+Sadece iki geçidi var.
+
+143
+00:09:04,780 --> 00:09:06,940
+Bu yüzden biraz daha hızlı çalışıyor.
+
+144
+00:09:06,940 --> 00:09:10,630
+Daha büyük modeller için ölçeklenebiliyor. Fakat LSTM
+
+145
+00:09:10,630 --> 00:09:15,465
+daha güçlü ve daha esnek çünkü iki yerine üç geçidi var.
+
+146
+00:09:15,465 --> 00:09:17,875
+Birini seçmeniz gerekirse
+
+147
+00:09:17,875 --> 00:09:21,550
+sanırım LSTM tarihsel olarak daha kendini ispat etmiş bir seçenek.
+
+148
+00:09:21,550 --> 00:09:23,015
+Yani birini seçmek zorundaysanız
+
+149
+00:09:23,015 --> 00:09:28,510
+sanırım çoğu kişi ilk denenecek şey olarak LSTM'i seçer.
+
+150
+00:09:28,510 --> 00:09:30,490
+Yine de son birkaç yıldır
+
+151
+00:09:30,490 --> 00:09:35,050
+GRU'lar büyük bir momentum kazanıyor ve bana öyle geliyor ki giderek daha fazla takım
+
+152
+00:09:35,050 --> 00:09:39,835
+GRU'ları kullanıyor. Çünkü daha basitler ama çoğunlukla eşit derecede iyi çalışıyorlar.
+
+153
+00:09:39,835 --> 00:09:43,920
+Ve daha büyük problemler için ölçeklenmeleri de daha kolay.
+
+154
+00:09:43,920 --> 00:09:46,065
+LSTM'ler için bu kadar.
+
+155
+00:09:46,065 --> 00:09:48,607
+GRU da olsa LSTM de olsa
+
+156
+00:09:48,607 --> 00:09:53,430
+çok daha uzun bir aralıktaki bağlantıları yakalayan bir sinirsel ağ yapabilecek durumdasınız.

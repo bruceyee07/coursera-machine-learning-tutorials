@@ -1,0 +1,216 @@
+1
+00:00:00,000 --> 00:00:03,000
+Buraya kadar gelebildiğiniz için tebrikler.
+
+2
+00:00:03,000 --> 00:00:07,005
+Genel bir toparlama yapıp ve 
+nihai düşüncelerimi paylşıp sizi bırakacağım.
+
+3
+00:00:07,005 --> 00:00:10,230
+Beraber uzun bir yol katettik,
+
+4
+00:00:10,230 --> 00:00:13,065
+ve şayet uzmanlık derslerinin tamamını aldıysanız,
+
+5
+00:00:13,065 --> 00:00:16,365
+o zaman sinir ağları ve derin öğrenme,
+
+6
+00:00:16,365 --> 00:00:18,555
+derin öğrenmenin nasıl iyileştirileceği,
+
+7
+00:00:18,555 --> 00:00:20,970
+makine öğrenmesi projelerinin nasıl yapılandırılacağı,
+
+8
+00:00:20,970 --> 00:00:26,115
+evrişimli sinir ağları,
+ ve bu en son dersimizde de 
+dizi modelleri hakkında bilgi edindiniz.
+
+9
+00:00:26,115 --> 00:00:28,440
+Biliyorum ki bu noktaya gelesiye çok çalıştınız,
+
+10
+00:00:28,440 --> 00:00:30,420
+ve umuyorum ki kendinizle gurur duyuyorsunuzdur,
+
+11
+00:00:30,420 --> 00:00:33,960
+özellikle de sıkı çalışmanızdan
+ ve kat ettiğiniz mesafe açısından.
+
+12
+00:00:33,960 --> 00:00:37,950
+Bu noktada sizinle - belki de önemli - 
+bir görüşümü paylaşmak istiyorum,
+
+13
+00:00:37,950 --> 00:00:42,375
+ki bu da, benim derin öğrenmenin 
+bir çeşit süper kahraman gücü olduğunu düşünmem.
+
+14
+00:00:42,375 --> 00:00:44,279
+Derin öğrenme algoritmalarıyla,
+
+15
+00:00:44,279 --> 00:00:46,400
+bir bilgisayarın görmesini,
+
+16
+00:00:46,400 --> 00:00:51,580
+bir bilgisayarın özgün bir resim 
+ya da müzik sentezlemesini,
+
+17
+00:00:51,580 --> 00:00:55,435
+ya da bir bilgisayarın bir dilden başka bir dile
+ tercüme yapmasını sağlayabilirsiniz.
+
+18
+00:00:55,435 --> 00:00:58,990
+Belki de bilgisayarın
+ elinizdeki radyoloji görüntülerini almasını
+
+19
+00:00:58,990 --> 00:01:05,830
+ve bunları kullanarak tıbbi bir tanıda bulunmasını ya da 
+sürücüsüz bir aracın tasarlanmasını sağlayabilirsiniz.
+
+20
+00:01:05,830 --> 00:01:07,675
+Şayet bu bir süper kahraman gücü değilse
+
+21
+00:01:07,675 --> 00:01:09,980
+bir süper kahraman gücü nedir bilemiyorum.
+
+22
+00:01:09,980 --> 00:01:13,410
+Bu bir dizi dersimizi,
+
+23
+00:01:13,410 --> 00:01:15,855
+bu uzmanlık derslerini toparlayıp sona erdirirken,
+
+24
+00:01:15,855 --> 00:01:22,055
+Umarım ki öğrendiğiniz bu fikirleri 
+kariyerinizi geliştirebilmek adına,
+
+25
+00:01:22,055 --> 00:01:23,670
+hayallerinizi kovalamak adına,
+
+26
+00:01:23,670 --> 00:01:25,650
+ve belkide en önemlisi,
+
+27
+00:01:25,650 --> 00:01:30,320
+insanlık namına yapabileceğinizi düşündüğünüz ne varsa
+ gerçekleştirebilmek adına 
+kullanabileceğiniz gerekli alanları bulursunuz. 
+
+28
+00:01:30,320 --> 00:01:33,890
+Günümüz dünyası zorluklarla dolu,
+
+29
+00:01:33,890 --> 00:01:37,130
+ama yapay zekanın ve derin öğrenmenin gücü ile,
+
+30
+00:01:37,130 --> 00:01:40,235
+dünyayı çok daha yaşanabilir bir yer yapabileceğimize inanıyorum.
+
+31
+00:01:40,235 --> 00:01:42,365
+Ve şimdi siz bu süper kahraman gücüne sahip kişi olarak
+
+32
+00:01:42,365 --> 00:01:45,860
+umuyorum ki bu gücünüzü,
+
+33
+00:01:45,860 --> 00:01:50,270
+hayatı hem kendiniz hem de başkaları için 
+daha güzel hale getirmek amacıyla kullanırsınız.
+
+34
+00:01:50,270 --> 00:01:55,280
+Ve de tabii, umuyorum ki başarılarınızdan dolayı,
+
+35
+00:01:55,280 --> 00:01:57,070
+katettiğiniz yoldan dolayı,
+
+36
+00:01:57,070 --> 00:01:59,115
+ve tüm öğrendiklerinizden dolayı 
+kendinizi gururlu hissediyorsunuzdur.
+
+37
+00:01:59,115 --> 00:02:02,600
+Bu bir dizi dersi tamamladıktan sonra
+
+38
+00:02:02,600 --> 00:02:04,100
+bunu Twitter ya da Facebook gibi sosyal medyalarda da
+
+39
+00:02:04,100 --> 00:02:08,150
+paylaşmalı ve çevrenizi haberdar etmelisiniz.
+
+40
+00:02:08,150 --> 00:02:11,480
+Ve en son olarak, size söylemek istediğim şey
+
+41
+00:02:11,480 --> 00:02:14,015
+bu kursu bitirdiğiniz için tebrikler.
+
+42
+00:02:14,015 --> 00:02:16,505
+Umarım başarınızdan ötürü kendinizi harika hissediyorsunuzdur,
+
+43
+00:02:16,505 --> 00:02:19,280
+ama ayrıca size teşekkür de etmek istiyorum.
+
+44
+00:02:19,280 --> 00:02:22,830
+Biliyorum ki yoğun bir yaşantınız var, ama buna rağmen
+
+45
+00:02:22,830 --> 00:02:26,750
+zamanınızı harcadınız ve bu videoları izlediniz ve belkide 
+
+46
+00:02:26,750 --> 00:02:31,010
+sınavları ve programlama ödevlerini yapmak için de
+ onca zamanınızı harcadınız.
+
+47
+00:02:31,010 --> 00:02:34,220
+Dilerim bu süreçten ve yaptıklarınızdan keyif aldınız.
+
+48
+00:02:34,220 --> 00:02:37,600
+Ama ayrıca harcadığınız zaman ve
+
+49
+00:02:37,600 --> 00:02:41,220
+tüm bunları öğrenmek için sarf ettiğiniz çaba için 
+size minnettarım.
+
+50
+00:02:41,220 --> 00:02:44,300
+Çok Teşekkürler

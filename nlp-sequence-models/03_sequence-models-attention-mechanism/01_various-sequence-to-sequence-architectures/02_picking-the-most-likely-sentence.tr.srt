@@ -1,0 +1,583 @@
+1
+00:00:00,000 --> 00:00:05,525
+"Sequence to Sequence" makine çeviri modeli ve bu kursun ilk haftasında...
+
+2
+00:00:05,525 --> 00:00:11,058
+...çalıştığınız dil modelleri arasında bazı benzerlikler vardır.
+
+3
+00:00:11,058 --> 00:00:14,060
+Ama bazı önemli farklılıklarda var.
+
+4
+00:00:14,060 --> 00:00:16,335
+Bunlara bir bakalım
+
+5
+00:00:16,335 --> 00:00:20,625
+Makine çevirisini bir koşullu dil modeli inşa etme gibi düşünebilirsiniz.
+
+6
+00:00:20,625 --> 00:00:23,378
+Şunu söylemeye çalışıyorum. Dil modellemesinde...
+
+7
+00:00:23,378 --> 00:00:27,473
+...bu bizim ilk hafta oluşturduğumuz ağ idi.
+
+8
+00:00:27,473 --> 00:00:35,350
+Ve bu model bir cümlenin olabilirliğini tahmin etmenize imkan verir.
+
+9
+00:00:35,350 --> 00:00:38,175
+Dil modelinin yaptığı budur.
+
+10
+00:00:38,175 --> 00:00:42,235
+Ve siz bunu roman cümleleri oluşturmak için de kullanabilirsiniz,
+
+11
+00:00:42,235 --> 00:00:46,450
+ve bazen burada x1 ve x2'yi yazarken,
+
+12
+00:00:46,450 --> 00:00:47,740
+bu örnekte olduğu gibi,
+
+13
+00:00:47,740 --> 00:00:53,210
+x2 y1'e veya y'ye eşit ve biri sadece geri bildirim olmalı.
+
+14
+00:00:53,210 --> 00:00:56,040
+Ama x1, x2 ve diğerleri önemli değil.
+
+15
+00:00:56,040 --> 00:00:57,950
+Yani bu slayt için şunu netleştirelim,
+
+16
+00:00:57,950 --> 00:00:59,800
+Bunların üzerini çizeceğim.
+
+17
+00:00:59,800 --> 00:01:02,660
+x1 tüm sıfırların vektörü olabilir,
+
+18
+00:01:02,660 --> 00:01:06,995
+ve x2, x3 oluşturduğunuz bir önceki çıktılar.
+
+19
+00:01:06,995 --> 00:01:09,243
+Bu dil modeliydi.
+
+20
+00:01:09,243 --> 00:01:12,315
+Makine çevirisi modeli şöyle görünür,
+
+21
+00:01:12,315 --> 00:01:14,200
+birkaç farklı renk kullanacağım,
+
+22
+00:01:14,200 --> 00:01:17,490
+yeşil ve mor renklerle sırasıyla
+
+23
+00:01:17,490 --> 00:01:22,369
+kodlanmış ve kodu çözülen ağları belirteceğim.
+
+24
+00:01:22,369 --> 00:01:27,820
+Ve kodu çözülmüş ağın, yukarıdaki dil modeliyle...
+
+25
+00:01:27,820 --> 00:01:33,938
+...hemen hemen aynı olduğunu fark ediyorsunuz.
+
+26
+00:01:33,938 --> 00:01:35,520
+Öyleyse makine çevirisi modeli nedir,
+
+27
+00:01:35,520 --> 00:01:38,715
+dil modeline ile çok benzer,
+
+28
+00:01:38,715 --> 00:01:43,690
+her zaman tüm sıfırların vektöründen başlaması yerine,
+
+29
+00:01:43,690 --> 00:01:46,385
+girdi cümlesinin gösterimini anlatan...
+
+30
+00:01:46,385 --> 00:01:49,960
+...kodu çözülmüş bir ağa sahip olması dışında,
+
+31
+00:01:49,960 --> 00:01:54,425
+girdi cümlesini alır ve tüm sıfırların temsili yerine...
+
+32
+00:01:54,425 --> 00:02:01,915
+...girdi cümlesinin temsili ile kodu çözülen ağa başlar.
+
+33
+00:02:01,915 --> 00:02:07,355
+Bu yüzden buna bir koşullu dil modeli diyorum,
+
+34
+00:02:07,355 --> 00:02:11,345
+ve herhangi bir cümlenin olasılığını modellemek yerine,
+
+35
+00:02:11,345 --> 00:02:14,790
+bu artık girdi olarak verilen...
+
+36
+00:02:14,790 --> 00:02:17,490
+...Fransızca cümlelere bağlı olarak,
+
+37
+00:02:17,490 --> 00:02:22,745
+İngilizce çeviri çıktısının olasılığını modellemedir.
+
+38
+00:02:22,745 --> 00:02:28,780
+Yani başka bir deyişle, bir İngilizce çevirinin olasılığını tahmin etmeye çalışıyorsun.
+
+39
+00:02:28,780 --> 00:02:33,795
+"Jane is visiting Africa in September" cümlesinin çeviri olma olasılığı gibi,
+
+40
+00:02:33,795 --> 00:02:38,870
+ancak "Jane visite I'Afrique en septembre" gibi
+
+41
+00:02:38,870 --> 00:02:42,271
+Fransızca cümle girdisine bağlı olarak.
+
+42
+00:02:42,271 --> 00:02:46,830
+Yani, bu gerçekten Fransızca kelime girdisi koşullarına bağlı bir İngilizce cümlenin olasılığıdır,
+
+43
+00:02:46,830 --> 00:02:51,710
+bu yüzden buna koşullu dil modeli denir.
+
+44
+00:02:51,710 --> 00:02:54,830
+Şimdi bu modeli gerçekten Fransızca'dan İngilizce'ye...
+
+45
+00:02:54,830 --> 00:02:58,790
+...bir cümleyi çevirmek için uygulamak istiyorsanız,
+
+46
+00:02:58,790 --> 00:03:02,045
+verilen bu girdi Fransızca cümleyle,
+
+47
+00:03:02,045 --> 00:03:05,285
+model size ilgili İngilizce çevirilerin...
+
+48
+00:03:05,285 --> 00:03:08,550
+olma olasılıkları arasındaki farları söyleyebilir.
+
+49
+00:03:08,550 --> 00:03:11,900
+Yani, x Fransızca cümle,
+
+50
+00:03:11,900 --> 00:03:13,669
+"Jane visite l'Afrique en septembre."
+
+51
+00:03:13,669 --> 00:03:17,330
+Ve bu şimdi size, o Fransızca girdisinin...
+
+52
+00:03:17,330 --> 00:03:22,058
+...farklı İngilizce çevirilerinin olasılığını anlatıyor.
+
+53
+00:03:22,058 --> 00:03:28,235
+Ve çıktıların rastgele örneklenmesini istemezsiniz.
+
+54
+00:03:28,235 --> 00:03:31,970
+Kelimeleri şu dağılımla örneklerseniz,
+
+55
+00:03:31,970 --> 00:03:36,343
+y'nin x verildiğinde P'si, belki bir kereliğine iyi bir çeviri elde edersiniz,
+
+56
+00:03:36,343 --> 00:03:38,081
+"Jane is visiting Africa in September"
+
+57
+00:03:38,081 --> 00:03:40,850
+Ama belki başka bir zaman farklı bir çeviri alırsınız,
+
+58
+00:03:40,850 --> 00:03:42,770
+"Jane is going to be visiting Africa in September"
+
+59
+00:03:42,770 --> 00:03:46,805
+ki bu da kulağa biraz garip geliyor ama çok kötü bir çeviri değil,
+
+60
+00:03:46,805 --> 00:03:48,120
+sadece en iyisi değil.
+
+61
+00:03:48,120 --> 00:03:49,970
+Ve bazen, sadece şans eseri,
+
+62
+00:03:49,970 --> 00:03:52,432
+diğerlerini alırsınız:
+
+63
+00:03:52,432 --> 00:03:54,055
+"In September, Jane will visit Africa"
+
+64
+00:03:54,055 --> 00:03:55,580
+Ve belki, sadece şans eseri,
+
+65
+00:03:55,580 --> 00:03:57,930
+Bazen gerçekten kötü bir çeviri örneği alırsınız:
+
+66
+00:03:57,930 --> 00:04:00,055
+"Her African friend welcomed Jane in September"
+
+67
+00:04:00,055 --> 00:04:04,475
+Yani, bu modeli makine çevirisi için kullanırken,
+
+68
+00:04:04,475 --> 00:04:08,810
+bu dağılımdan rastgele bir örnekleme oluşturmaya çalışmıyorsunuz.
+
+69
+00:04:08,810 --> 00:04:13,130
+Bunun yerine, istediğiniz şey,
+
+70
+00:04:13,130 --> 00:04:16,910
+bu koşullu olasılığı en üst düzeye çıkaran İngilizce cümleyi, y'yi bulmak.
+
+71
+00:04:16,910 --> 00:04:20,660
+Öyleyse bir makine çeviri sistemi geliştirirken,
+
+72
+00:04:20,660 --> 00:04:25,910
+Yapmanız gereken şeylerden biri,
+
+73
+00:04:25,910 --> 00:04:31,805
+bu terimi burada maksimuma çıkaran y'nin değerini gerçekten bulan bir algoritma elde etmektir.
+
+74
+00:04:31,805 --> 00:04:34,810
+Bunu yapmak için en sık kullanılan algoritmaya "Beam Search" adı verilir,
+
+75
+00:04:34,810 --> 00:04:37,565
+ve bunu bir sonraki video göreceksiniz.
+
+76
+00:04:37,565 --> 00:04:39,730
+Ancak "Beam Search" algoritmasını açıklamadan önce,
+
+77
+00:04:39,730 --> 00:04:43,700
+neden "Greedy Search" kullanmadığımızı merak ediyorsunuzdur. Peki "Greedy Search" nedir?
+
+78
+00:04:43,700 --> 00:04:49,310
+"Greedy Search", koşullu dil modelinize göre...
+
+79
+00:04:49,310 --> 00:04:50,960
+...herhangi bir en muhtemel ilk kelimeyi seçerek ilk kelimeyi üretmemizi söyleyen,
+
+80
+00:04:50,960 --> 00:04:55,390
+bilgisayar biliminde kullanılan algoritmadır
+
+81
+00:04:55,390 --> 00:05:01,160
+Makine çeviri modelinizde ilk kelimeyi seçtikten sonra,
+
+82
+00:05:01,160 --> 00:05:04,685
+en muhtemel görünen ikinci kelimeyi seçersiniz,
+
+83
+00:05:04,685 --> 00:05:07,335
+sonra en muhtemel görünen üçüncü kelimeyi seçersiniz.
+
+84
+00:05:07,335 --> 00:05:10,685
+Bu algoritmaya "Greedy Search" denir.
+
+85
+00:05:10,685 --> 00:05:16,759
+Ve asıl istediğin tüm kelimelerin sırasını seçmektir,
+
+86
+00:05:16,759 --> 00:05:21,973
+yTy'ye bağlı olarak y1, y2,
+
+87
+00:05:21,973 --> 00:05:27,705
+bu bütünün birlikte olma olasılığını maksimuma çıkarır.
+
+88
+00:05:27,705 --> 00:05:30,176
+Ve bu bizi en iyi ilk kelimeyi seçen,
+
+89
+00:05:30,176 --> 00:05:31,620
+ardından en iyi birinci kelimeyi seçtikten sonra
+
+90
+00:05:31,620 --> 00:05:34,280
+ikinci kelimeyi seçmeye çalışan,
+
+91
+00:05:34,280 --> 00:05:36,104
+ve daha sonra
+
+92
+00:05:36,104 --> 00:05:37,395
+en iyi üçüncü kelimeyi seçmeye çalışan
+
+93
+00:05:37,395 --> 00:05:39,318
+"Greedy" yaklaşımından uzaklaştırıyor.
+
+94
+00:05:39,318 --> 00:05:41,545
+bu yaklaşım gerçekten işe yaramıyor.
+
+95
+00:05:41,545 --> 00:05:44,990
+Bunu göstermek için, aşağıdaki iki çeviriyi düşünelim.
+
+96
+00:05:44,990 --> 00:05:46,920
+İlki daha iyi bir çeviri,
+
+97
+00:05:46,920 --> 00:05:50,610
+Umarım, bizim makine çevirisi modelinde,
+
+98
+00:05:50,610 --> 00:05:56,330
+ilk cümle için x verildiğinde y nin p değerinin daha yüksek olduğunu söyleyecektir.
+
+99
+00:05:56,330 --> 00:05:59,907
+Bu sadece Fransızca girdinin daha iyi, daha özlü bir çevirisi.
+
+100
+00:05:59,907 --> 00:06:02,394
+İkinci kötü bir çeviri değil,
+
+101
+00:06:02,394 --> 00:06:03,665
+sadece daha ayrıntılı,
+
+102
+00:06:03,665 --> 00:06:05,970
+daha fazla gereksiz kelime var.
+
+103
+00:06:05,970 --> 00:06:10,485
+Fakat algoritma "Jane is" kelimelerini ilk iki kelime olarak alırsa,
+
+104
+00:06:10,485 --> 00:06:14,298
+"going" daha yaygın bir kelime olduğu için,
+
+105
+00:06:14,298 --> 00:06:21,930
+muhtemelen verilen Fransızca girdi ile "Jane is going" ifadesinin...
+
+106
+00:06:21,930 --> 00:06:26,610
+"Jane is visiting" ifadesinden...
+
+107
+00:06:26,610 --> 00:06:32,710
+...verilen Fransızca cümle için daha fazla şansı olacaktır.
+
+108
+00:06:32,710 --> 00:06:35,760
+Bu yüzden,
+
+109
+00:06:35,760 --> 00:06:40,215
+eğer sadece ilk üç kelimenin olasılığını en üst seviyeye çıkartan ne olursa olsun, üçüncü kelimeyi seçerseniz,
+
+110
+00:06:40,215 --> 00:06:43,670
+iki numaralı seçeneği seçmeniz yeterlidir.
+
+111
+00:06:43,670 --> 00:06:50,710
+Ancak, bu model tarafından ve x verildiğinde y'nin p değeri için ölçülen daha az iyi bir cümle içerisinde,
+
+112
+00:06:50,710 --> 00:06:55,325
+bu sonuçta daha az uygun bir cümle ile sonuçlanır.
+
+113
+00:06:55,325 --> 00:07:01,280
+Bunun az elle tutulur bir argüman olabileceğini biliyorum.
+
+114
+00:07:01,280 --> 00:07:05,110
+Ama, bu daha yaygın bir fenomenin bir örneğidir,
+
+115
+00:07:05,110 --> 00:07:08,860
+Burada birlikte olasılığı en üst düzeye çıkaran son kelimeye kadar,
+
+116
+00:07:08,860 --> 00:07:13,822
+y1, y2 kelimelerinin sırasını bulmak istiyorsanız,
+
+117
+00:07:13,822 --> 00:07:17,845
+bir seferde sadece bir kelime seçmek her zaman uygun değildir.
+
+118
+00:07:17,845 --> 00:07:21,730
+Ve elbette, İngilizce cümlede bulunan kelimelerin kombinasyonlarının toplam sayısı...
+
+119
+00:07:21,730 --> 00:07:25,660
+...üssel olarak daha büyüktür.
+
+120
+00:07:25,660 --> 00:07:30,365
+Yani, bir sözlükte sadece 10.000 kelimeniz varsa ve...
+
+121
+00:07:30,365 --> 00:07:35,211
+...on kelime uzunluğuna kadar çeviriler düşünürseniz,
+
+122
+00:07:35,211 --> 00:07:42,085
+10.000 tane on adet olası on kelime uzunluğunda cümle vardır.
+
+123
+00:07:42,085 --> 00:07:44,955
+Kelime haznesi, boyutu 10.000 olan sözlükten...
+
+124
+00:07:44,955 --> 00:07:47,970
+...kelimeler seçmek.
+
+125
+00:07:47,970 --> 00:07:51,260
+Bu sadece muhtemel cümlelerin çok büyük bir alanıdır,
+
+126
+00:07:51,260 --> 00:07:53,455
+ve hepsini derecelendirmek imkansızdır,
+
+127
+00:07:53,455 --> 00:08:00,880
+bu yüzden yapılacak en bilinen şey onlardan yaklaşık bir aramayı kullanmaktır.
+
+128
+00:08:00,880 --> 00:08:02,540
+Ve, yaklaşık bir arama algoritmasının yaptığı şey,
+
+129
+00:08:02,540 --> 00:08:03,724
+deneyecek,
+
+130
+00:08:03,724 --> 00:08:05,135
+her zaman başarılı olmayacak,
+
+131
+00:08:05,135 --> 00:08:07,737
+ama bu koşullu olasılığı...
+
+132
+00:08:07,737 --> 00:08:11,900
+en üst düzeye çıkaran cümleyi (y) seçecek.
+
+133
+00:08:11,900 --> 00:08:16,925
+Ve bunu maksimize eden y'nin değerini bulma garantisi olmasa da,
+
+134
+00:08:16,925 --> 00:08:19,025
+genellikle yeterince iyi bir iş çıkarır.
+
+135
+00:08:19,025 --> 00:08:20,570
+Yani, özetlemek gerekirse, bu videoda,
+
+136
+00:08:20,570 --> 00:08:26,430
+Makine çevirisinin koşullu dil modelleme problemi olarak nasıl ifade edilebileceğini gördünüz.
+
+137
+00:08:26,430 --> 00:08:28,880
+Ancak, bu ve önceki dil modelleme problemleri arasındaki en büyük farklardan biri,
+
+138
+00:08:28,880 --> 00:08:31,460
+rastgele bir cümle oluşturmak istemekten ziyade,
+
+139
+00:08:31,460 --> 00:08:34,313
+en muhtemel İngilizce cümleyi,
+
+140
+00:08:34,313 --> 00:08:37,910
+en muhtemel İngilizce tercümeyi...
+
+141
+00:08:37,910 --> 00:08:40,130
+bulmayı deneyebilirsiniz.
+
+142
+00:08:40,130 --> 00:08:43,655
+Ancak, belirli bir uzunluktaki bütün İngilizce cümlelerin seti,
+
+143
+00:08:43,655 --> 00:08:47,420
+ayrıntılı bir şekilde numaralandırmak için çok büyük.
+
+144
+00:08:47,420 --> 00:08:51,155
+Bu yüzden bir arama algoritmasına başvurmalıyız.
+
+145
+00:08:51,155 --> 00:08:53,369
+Öyleyse hadi "Beam Search" algoritmasını öğreneceğiniz...
+
+146
+00:08:53,369 --> 00:08:56,000
+...bir sonraki videoya gidelim.
