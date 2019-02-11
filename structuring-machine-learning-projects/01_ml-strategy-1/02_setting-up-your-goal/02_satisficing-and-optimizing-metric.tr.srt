@@ -1,0 +1,379 @@
+1
+00:00:00,000 --> 00:00:02,910
+İlgilendiğiniz her şeyi tek bir satır sayısı değerlendirme ölçevinde birleştirmek
+
+2
+00:00:02,910 --> 00:00:06,265
+her zaman kolay değildir.
+
+3
+00:00:06,265 --> 00:00:09,150
+Bu durumlarda matrisin optimize edilmesinin yanı sıra
+
+4
+00:00:09,150 --> 00:00:12,390
+bazen, tatmin edici matris oluşturmayı da yararlı buldum.
+
+5
+00:00:12,390 --> 00:00:13,950
+Size ne demek istediğimi göstereyim.
+
+6
+00:00:13,950 --> 00:00:16,410
+Kedi sınıflandırıcınızın sınıflandırma doğruluğunu
+
+7
+00:00:16,410 --> 00:00:20,694
+önemsemeye karar verdiğinizi varsayalım,
+
+8
+00:00:20,694 --> 00:00:25,470
+bu F1 puanı veya başka bir doğruluk ölçüsü olabilirdi.
+
+9
+00:00:25,470 --> 00:00:29,610
+ama diyelim ki, doğruluğun yanı sıra, çalışma süresini de önemsersiniz.
+
+10
+00:00:29,610 --> 00:00:35,050
+Bir görüntüyü sınıflandırmak ne kadar sürer? A sınıflandırıcısı 80 milisaniyede,
+
+11
+00:00:35,050 --> 00:00:36,690
+B, 95 milisaniyede
+
+12
+00:00:36,690 --> 00:00:39,325
+ve C, 1,500 milisaniyede -ki bu 1,5 saniyedir- bir görüntüyü sınıflandırır.
+
+13
+00:00:39,325 --> 00:00:42,150
+ve C, 1,500 milisaniyede -ki bu 1,5 saniyedir- bir görüntüyü sınıflandırır.
+
+14
+00:00:42,150 --> 00:00:45,000
+Yapacağınız şey, doğruluk ve çalışma süresini
+
+15
+00:00:45,000 --> 00:00:48,075
+genel bir değerlendirme ölçeviyle birleştirmektir.
+
+16
+00:00:48,075 --> 00:00:57,898
+Ve maliyetler yani genel maliyet doğruluk eksi 0.5 çarpı çalışma süresine eşittir.
+
+17
+00:00:57,898 --> 00:01:01,460
+Ama belki de bu şekilde,
+
+18
+00:01:01,460 --> 00:01:05,265
+bu iki şeyin doğrusal ağırlıklı bir toplamı gibi bir formül kullanarak
+
+19
+00:01:05,265 --> 00:01:08,805
+doğruluk ve çalışma süresini birleştirmek biraz yapay görünüyor olabilir.
+
+20
+00:01:08,805 --> 00:01:11,090
+Bunun yerine yapabileceğiniz başka bir şey daha var:
+
+21
+00:01:11,090 --> 00:01:13,841
+Doğruluğu en üst düzeye çıkaran, ancak
+
+22
+00:01:13,841 --> 00:01:26,470
+görüntüyü sınıflandırmak üzere 100 milisaniyeden küçük
+
+23
+00:01:26,470 --> 00:01:28,584
+veya eşit olması gereken çalışma süresine tabi olan
+
+24
+00:01:28,584 --> 00:01:36,325
+bir sınıflandırıcı seçmek isteyebilirsiniz.
+
+25
+00:01:36,325 --> 00:01:40,170
+Bu durumda doğruluğun bir optimizasyon ölçevi olduğunu söyleyebiliriz
+
+26
+00:01:40,170 --> 00:01:44,460
+çünkü siz doğruluk düzeyini en üst düzeye çıkarmak istiyorsunuz
+
+27
+00:01:44,460 --> 00:01:48,195
+doğruluğu mümkün olduğu kadar iyi yapmak istiyorsunuz, ancak
+
+28
+00:01:48,195 --> 00:01:53,845
+tatmin edici bir ölçev dediğimiz çalışma süresi
+
+29
+00:01:53,845 --> 00:01:55,580
+yeterince iyi ve 100 milisaniyeden daha az olmalı
+
+30
+00:01:55,580 --> 00:02:00,285
+ve bunun ötesini gerçekten umursamazsınız
+
+31
+00:02:00,285 --> 00:02:04,280
+en azından o kadar fazla umursamazsınız.
+
+32
+00:02:04,280 --> 00:02:07,340
+Böylece bu, çalışma süresinin yanı sıra doğruluğu değiş tokuş etmek
+
+33
+00:02:07,340 --> 00:02:11,705
+veya bir araya getirmek için oldukça makul bir yol olacaktır.
+
+34
+00:02:11,705 --> 00:02:16,015
+Çalışma süresi 100 milisaniyeden az olduğu sürece,
+
+35
+00:02:16,015 --> 00:02:18,465
+kullanıcılarınız 100 milisaniye veya 50 milisaniye
+
+36
+00:02:18,465 --> 00:02:21,855
+veya daha hızlı olup olmadığıyla çok ilgilenmezler.
+
+37
+00:02:21,855 --> 00:02:26,380
+Tatmin edici matrisin yanı sıra optimizasyonu tanımlamak,
+
+38
+00:02:26,380 --> 00:02:30,475
+size tırnak içinde en iyi sınıflandırıcıyı seçmenizin net bir yolunu sunar.
+
+39
+00:02:30,475 --> 00:02:34,450
+Bu durumda, en iyi sınıflandırıcı B sınıflandırıcısı olurdu
+
+40
+00:02:34,450 --> 00:02:39,865
+çünkü 100 milisaniyeden daha iyi bir çalışma süresine sahip olanlardan en iyi doğruluğa sahip olanıdır.
+
+41
+00:02:39,865 --> 00:02:45,220
+Daha genel olarak, önemsediğiniz bir N matrisiniz varsa,
+
+42
+00:02:45,220 --> 00:02:50,830
+optimizasyon yapmak için bazen mantıklı olan bunlardan birini seçmektir.
+
+43
+00:02:50,830 --> 00:02:54,005
+Yani bunu olabildiğince iyi yapmak istiyorsunuz.
+
+44
+00:02:54,005 --> 00:02:57,515
+N eksi 1'in tatmin edici olması için,
+
+45
+00:02:57,515 --> 00:02:59,380
+yani, 100 milisaniyeden
+
+46
+00:02:59,380 --> 00:03:02,730
+daha hızlı çalışma süreleri gibi bazı eşiklere ulaştıkları takdirde,
+
+47
+00:03:02,730 --> 00:03:04,405
+daha hızlı çalışma süreleri gibi bazı eşiklere ulaştıkları takdirde,
+
+48
+00:03:04,405 --> 00:03:06,520
+bu eşikte ne kadar iyi olduğunu umursamıyorsunuz
+
+49
+00:03:06,520 --> 00:03:09,455
+ama bu eşiğe ulaşmak zorundalar.
+
+50
+00:03:09,455 --> 00:03:11,350
+Başka bir örnek daha,
+
+51
+00:03:11,350 --> 00:03:15,280
+Tetikleyici kelimeler olarak da adlandırılan uyandırma kelimelerini algılamak için
+
+52
+00:03:15,280 --> 00:03:19,030
+bir sistem kurduğunuzu varsayalım.
+
+53
+00:03:19,030 --> 00:03:22,900
+Yani bu, Alexa'yı söyleyerek uyanabileceğiniz
+
+54
+00:03:22,900 --> 00:03:25,780
+Amazon Echo gibi ses kontrol cihazlarına,
+
+55
+00:03:25,780 --> 00:03:29,020
+veya tamam Google’ı söyleyerek uyanabileceğiniz bazı Google cihazlarına,
+
+56
+00:03:29,020 --> 00:03:35,095
+ya da Hey Siri'yi söyleyerek uyanabileceğiniz bazı Apple cihazlarına,
+
+57
+00:03:35,095 --> 00:03:42,300
+veyahut da Nihau Baidu diyerek uyanmamız gereken bazı Baidu cihazlarına atıfta bulunuyor.
+
+58
+00:03:42,300 --> 00:03:46,390
+Oh, sanırım Çince nasıl okunduğunu bilmek istiyorsunuz, o da Nihau Baidu'dur.
+
+59
+00:03:46,390 --> 00:03:51,560
+Bunlar, uyandırmak ve söylemek istediğiniz bir şeyi dinletmek için
+
+60
+00:03:51,560 --> 00:03:54,350
+bu ses kontrol cihazlarından birine
+
+61
+00:03:54,350 --> 00:03:56,990
+söylediğiniz uyanma kelimeleridir.
+
+62
+00:03:56,990 --> 00:04:02,090
+Ve bu diğer Çince karakterler ni hao Baidu.
+
+63
+00:04:02,090 --> 00:04:07,935
+Tetikleyici sözcüğü algılama sistemlerinizin doğruluğunu önemseyebilirsiniz.
+
+64
+00:04:07,935 --> 00:04:10,325
+Birisi bu tetikleyici kelimelerden birini söylediğinde,
+
+65
+00:04:10,325 --> 00:04:13,525
+cihazınızı gerçekten uyandırmanız ne kadar muhtemel
+
+66
+00:04:13,525 --> 00:04:16,970
+ve yanlış pozitiflerin sayısını da ne kadar önemsersiniz?
+
+67
+00:04:16,970 --> 00:04:19,891
+O zaman hiç kimse aslında bu tetikleyici kelimeyi söylemediğinde,
+
+68
+00:04:19,891 --> 00:04:23,294
+cihaz ne sıklıkla rastgele uyanır?
+
+69
+00:04:23,294 --> 00:04:27,770
+Bu durumda, bu iki değerlendirme matrisini bir araya getirmenin
+
+70
+00:04:27,770 --> 00:04:33,275
+belki de tek makul yolu, doğruluğu en üst düzeye çıkarmak olabilir,
+
+71
+00:04:33,275 --> 00:04:35,165
+bu yüzden birisi cihazınızın uyanma şansını en üst düzeye çıkarmak için
+
+72
+00:04:35,165 --> 00:04:37,565
+tetikleyici kelimelerden birini söylerken,
+
+73
+00:04:37,565 --> 00:04:39,215
+buna tabi olarak,
+
+74
+00:04:39,215 --> 00:04:48,815
+her 24 saatlik çalışmada en fazla
+
+75
+00:04:48,815 --> 00:04:51,070
+bir yanlış pozitifiniz var, değil mi?
+
+76
+00:04:51,070 --> 00:04:53,760
+Böylece, cihazınız, hiç kimse aslında konuşmuyorken,
+
+77
+00:04:53,760 --> 00:04:57,270
+ortalama günde sadece bir kez rastgele uyanır.
+
+78
+00:04:57,270 --> 00:05:00,900
+Bu durumda, doğruluk
+
+79
+00:05:00,900 --> 00:05:05,505
+optimizasyon ölçevidir ve her 24 saatte bir dizi yanlış pozitif,
+
+80
+00:05:05,505 --> 00:05:09,870
+her 24 saatte en fazla bir yanlış pozitif olduğu sürece
+
+81
+00:05:09,870 --> 00:05:14,490
+memnun olacağınız tatmin edici ölçevdir.
+
+82
+00:05:14,490 --> 00:05:17,100
+Özetlemek gerekirse, önem verdiğiniz birden fazla şey varsa,
+
+83
+00:05:17,100 --> 00:05:19,920
+mümkün olduğunca iyi yapmak istediğiniz
+
+84
+00:05:19,920 --> 00:05:22,530
+optimizasyon ölçevi ve tatmin edeceğiniz
+
+85
+00:05:22,530 --> 00:05:25,475
+bir veya daha fazla tatmin edici ölçev gibi.
+
+86
+00:05:25,475 --> 00:05:29,430
+Neredeyse bazı eşik değerlerden daha iyi sonuçlar elde edersiniz,
+
+87
+00:05:29,430 --> 00:05:32,310
+birden fazla çekirdek boyutuna hızla bakmak ve
+
+88
+00:05:32,310 --> 00:05:35,864
+tırnak içinde en iyiyi seçmek için neredeyse otomatik bir yol bulabilirsiniz.
+
+89
+00:05:35,864 --> 00:05:39,000
+Bu değerlendirme matrisi bir eğitim kümesi veya geliştirme kümesi
+
+90
+00:05:39,000 --> 00:05:44,095
+veya belki de sınama kümesinde değerlendirilmeli veya hesaplanmalıdır.
+
+91
+00:05:44,095 --> 00:05:46,935
+Bu yüzden yapmanız gereken şeylerden biri de
+
+92
+00:05:46,935 --> 00:05:50,100
+sınama kümelerinin yanı sıra eğitim ve geliştirme kümeleri kurmaktır.
+
+93
+00:05:50,100 --> 00:05:52,800
+Bir sonraki videoda; eğitim, geliştirme ve sınama kümelerinin
+
+94
+00:05:52,800 --> 00:05:55,800
+nasıl kurulacağıyla ilgili bazı ipuçlarını paylaşmak istiyorum.
+
+95
+00:05:55,800 --> 00:05:57,470
+Bir sonraki videoyla devam edelim.

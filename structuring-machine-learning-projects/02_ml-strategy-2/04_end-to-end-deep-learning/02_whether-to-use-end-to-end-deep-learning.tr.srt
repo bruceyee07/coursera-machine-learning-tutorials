@@ -1,0 +1,639 @@
+1
+00:00:00,000 --> 00:00:02,820
+Diyelim ki bir makine öğrenmesi sistemi inşa ediyorsunuz
+
+2
+00:00:02,820 --> 00:00:05,690
+uçtan-uca bir yaklaşım kullanıp kullanmayacağınıza karar vermeye çalıştığınız
+
+3
+00:00:05,690 --> 00:00:08,250
+Bazı artılarına ve eksilerine bir göz atalım
+
+4
+00:00:08,250 --> 00:00:10,770
+uçtan-uca derin öğrenmenin böylece 
+
+5
+00:00:10,770 --> 00:00:12,690
+bazı yönergeler elde edersiniz
+
+6
+00:00:12,690 --> 00:00:17,040
+uçtan-uca bir yaklaşımın sizin uygulamanız için uygun olup olmadığına dair
+
+7
+00:00:17,040 --> 00:00:20,265
+Uçtan-uca öğrenme uygulamanın bazı faydaları şunlardır.
+
+8
+00:00:20,265 --> 00:00:25,435
+İlk olarak uçtan-uca öğrenme gerçekten verinin konuşmasına imkan verir.
+
+9
+00:00:25,435 --> 00:00:29,010
+Dolayısıyla yeteri kadar X, Y verisine sahipseniz,
+
+10
+00:00:29,010 --> 00:00:33,450
+X'den Y'ye haritalandırma yapmak için en uygun fonksiyon ne olursa olsun,
+
+11
+00:00:33,450 --> 00:00:35,475
+eğer yeteri kadar büyük bir sinir ağını eğitiyorsanız,
+
+12
+00:00:35,475 --> 00:00:38,395
+umulur ki sinir ağı bir yolunu bulacaktır.
+
+13
+00:00:38,395 --> 00:00:41,040
+Ve yalın bir makine öğrenimi yaklaşımı ile,
+
+14
+00:00:41,040 --> 00:00:44,550
+X'den Y'ye girdi öğrenen sinir ağınız
+
+15
+00:00:44,550 --> 00:00:48,540
+veride yer alan her istatistiği
+
+16
+00:00:48,540 --> 00:00:52,800
+insan önyargıları ile zorlanmasına göre daha iyi elde edebilir.
+
+17
+00:00:52,800 --> 00:00:55,695
+Örneğin, bir konuşma tanıma vakasında,
+
+18
+00:00:55,695 --> 00:00:58,530
+daha önceki konuşma sistemlerinde 
+
+19
+00:00:58,530 --> 00:01:01,260
+C, A ve T gibi basit bir ses birimi olan bir fonem vardı
+
+20
+00:01:01,260 --> 00:01:04,240
+kedi (cat) kelimesi için
+
+21
+00:01:04,240 --> 00:01:09,890
+Ve ben fonemlerin insan dil bilimciler tarafından oluşturulmuş yapay bir olgu olduğunu düşünüyorum.
+
+22
+00:01:09,890 --> 00:01:12,120
+Aslında öyle düşünüyorum ki fonemler dil bilimcilerin 
+
+23
+00:01:12,120 --> 00:01:15,690
+dil için makul bir tanımlama olan bir fantezisi,
+
+24
+00:01:15,690 --> 00:01:21,785
+fakat sizin öğrenme algoritmanızı fonemler içinde düşünmeye zorlamak istediğiniz belli değil. 
+
+25
+00:01:21,785 --> 00:01:25,895
+Ve eğer algoritmanıza istediği simgelemeyi öğrenmesi için izin verirseniz
+
+26
+00:01:25,895 --> 00:01:30,675
+fonemleri bir simgeleme olarak kullanmasına zorlamak yerine, 
+
+27
+00:01:30,675 --> 00:01:34,645
+tüm performansı daha iyi sonuçlanabilecektir. 
+
+28
+00:01:34,645 --> 00:01:37,140
+Uçtan-uca derin öğrenmenin ikinci faydası,
+
+29
+00:01:37,140 --> 00:01:40,480
+bileşenlerin manuel tasarlanmasını daha az gerektirmesidir. 
+
+30
+00:01:40,480 --> 00:01:43,960
+Ve bu böylece sizin tasarlayacağınız iş akışını,
+
+31
+00:01:43,960 --> 00:01:47,655
+özellikleri, bu ara simgeleri manuel tasarlamak için çok fazla zaman harcamanız gerekmeyeceğinden
+
+32
+00:01:47,655 --> 00:01:51,040
+basitleştirebilecektir. 
+
+33
+00:01:51,040 --> 00:01:52,650
+Dezavantajlarına ne desiniz?
+
+34
+00:01:52,650 --> 00:01:54,335
+İşte bazı dezavantajları.
+
+35
+00:01:54,335 --> 00:01:57,010
+İlk olarak, büyük miktarda veri gerektirebilir.
+
+36
+00:01:57,010 --> 00:02:00,225
+Çünkü X'den Y'ye haritalamayı doğrudan öğrenmek için
+
+37
+00:02:00,225 --> 00:02:03,030
+birçok X verisine,
+
+38
+00:02:03,030 --> 00:02:06,600
+Y verisine ihtiyaç duyabilirsiniz ve önceki bir videoda 
+
+39
+00:02:06,600 --> 00:02:10,720
+alt görevler için birçok veriyi nereden elde edebileceğinizi görüyorduk.
+
+40
+00:02:10,720 --> 00:02:13,675
+Örneğin yüz tanıma, 
+
+41
+00:02:13,675 --> 00:02:17,310
+yüzü bir kez bulduktan sonra onu tanımlamak için birçok veri bulabileceğimiz gibi
+
+42
+00:02:17,310 --> 00:02:20,510
+resim içindeki bir yüzü bulmak için de birçok veri bulabiliriz, 
+
+43
+00:02:20,510 --> 00:02:24,780
+fakat tüm uçtan-uca görev için daha az veri ulaşılabilirdir. 
+
+44
+00:02:24,780 --> 00:02:32,989
+Yani X, uçtan-uca öğrenmenin girdi ucu ve Y de çıktı ucudur.
+
+45
+00:02:32,989 --> 00:02:36,180
+Ve bu yüzden tüm X Y verisine 
+
+46
+00:02:36,180 --> 00:02:40,540
+bu sistemleri eğitmek için hem girdi ucu hem de çıktı ucu ile ihtiyaç duyacaksınız, 
+
+47
+00:02:40,540 --> 00:02:45,100
+ve bu yüzden buna uçtan-uca öğrenmenin değeri diyoruz çünkü 
+
+48
+00:02:45,100 --> 00:02:52,690
+sistemin bir ucundan sonuna kadar sitemin diğer ucuna doğrudan bir haritalama öğreniyorsunuz. 
+
+49
+00:02:52,690 --> 00:02:58,960
+Diğer bir dezavantajı da potansiyel olarak faydalı olabilecek elle tasarlanmış bileşenleri dahil etmemesidir. 
+
+50
+00:02:58,960 --> 00:03:04,510
+Bu yüzden makine öğrenmesi araştırmacıları bir şeylerin elle tasarlanmasının aleyhinde konuşma eğilimindedirler.
+
+51
+00:03:04,510 --> 00:03:06,880
+Fakat çok fazla veriye sahip değilseniz,
+
+52
+00:03:06,880 --> 00:03:09,490
+o zaman öğrenme algoritmanız,
+
+53
+00:03:09,490 --> 00:03:13,450
+eğitim kümeniz küçükse, verinizden elde edebileceği çok fazla sezgiye sahip değildir. 
+
+54
+00:03:13,450 --> 00:03:17,080
+Ve bu yüzden bir bileşeni elle tasarlamak 
+
+55
+00:03:17,080 --> 00:03:21,138
+manuel bilgiyi algoritmaya aktarmak için gerçekten iyi bir yol olabilir,
+
+56
+00:03:21,138 --> 00:03:24,035
+ve bu her zaman kötü bir şey değildir.
+
+57
+00:03:24,035 --> 00:03:28,060
+Öğrenme algoritmalarının iki temel bilgi kaynağı olduğunu düşünüyorum. 
+
+58
+00:03:28,060 --> 00:03:33,590
+Bir tanesi veri ve diğeri de elle tasarladığınız herşey,
+
+59
+00:03:33,590 --> 00:03:37,070
+bileşenleri, veya özellikleri, veya diğer şeyler.
+
+60
+00:03:37,070 --> 00:03:39,840
+Ve bu yüzden bir yığın veriye sahip olduğunuzda, 
+
+61
+00:03:39,840 --> 00:03:44,125
+bir şeyleri elle tasarlamak daha az önemli fakat o kadar çok veriye sahip olmadığınızda,
+
+62
+00:03:44,125 --> 00:03:49,170
+o zaman dikkatlice elle tasarlanmış bir sisteme sahip olmak gerçekten insanların 
+
+63
+00:03:49,170 --> 00:03:51,555
+problem hakkında bir çok bilgiyi 
+
+64
+00:03:51,555 --> 00:03:54,985
+algoritmaya aktarmasına imkan verebilir ve bu oldukça faydalı olmalı.
+
+65
+00:03:54,985 --> 00:03:58,200
+Yani uçtan-uca derin öğrenmenin dezavantajlarından biri
+
+66
+00:03:58,200 --> 00:04:02,605
+potansiyel olarak faydalı olan elle tasarlanmış bileşenleri hariç tutmasıdır. 
+
+67
+00:04:02,605 --> 00:04:06,490
+Ve elle tasarlanmış bileşenler iyi tasarlanmışlarsa çok faydalı olabilirler.
+
+68
+00:04:06,490 --> 00:04:09,660
+Eğer performansınızı kısıtlıyorsa gerçekten zararlı olabilir,
+
+69
+00:04:09,660 --> 00:04:12,960
+örneğin bir algoritmayı fonemler içinde düşünmeye zorlarsanız
+
+70
+00:04:12,960 --> 00:04:16,770
+kendi kendine daha iyi bir simge keşfettiğinde.
+
+71
+00:04:16,770 --> 00:04:19,110
+Yani bu bir çeşit iki ucu keskin kılıçtır
+
+72
+00:04:19,110 --> 00:04:21,660
+zarar verebilen veya yardımcı olabilen fakat daha ziyade yardım etmeye meyillidir,
+
+73
+00:04:21,660 --> 00:04:26,320
+elle tasarlanmış bileşenler küçük bir eğitim kümesi üzerinde eğitim yaptığınızda yardım etmeye meyillidir. 
+
+74
+00:04:26,320 --> 00:04:29,250
+Yani yeni bir makine öğrenmesi sistemi inşa ediyorsanız ve 
+
+75
+00:04:29,250 --> 00:04:32,535
+uçtan-uca derin öğrenme kullanıp kullanmamaya karar vermeye çalışıyorsanız, 
+
+76
+00:04:32,535 --> 00:04:34,500
+bana göre anahtar soru,
+
+77
+00:04:34,500 --> 00:04:37,330
+yetecek kadar veriye sahip misiniz?
+
+78
+00:04:37,330 --> 00:04:41,340
+X'den Y'ye haritalama yapmak için gerekli olan karmaşıklıktaki fonksiyonu öğrenmeye 
+
+79
+00:04:41,340 --> 00:04:44,790
+Bu ifade için yapısal bir tanımım yok,
+
+80
+00:04:44,790 --> 00:04:49,170
+karmaşıklık gereklidir, fakat sezgisel olarak,
+
+81
+00:04:49,170 --> 00:04:52,140
+X'den Y'ye bir fonksiyon öğrenmeye çalışıyorsanız,
+
+82
+00:04:52,140 --> 00:04:54,685
+bu bunun gibi bir resime bakmaktır
+
+83
+00:04:54,685 --> 00:04:57,495
+ve resimdeki kemiklerin pozisyonunu algılamaktır
+
+84
+00:04:57,495 --> 00:05:01,435
+o zaman belki bu nispeten kolay bir problem gibi gözükebilir
+
+85
+00:05:01,435 --> 00:05:06,030
+resimdeki kemiklerin tanımlanması ve belki bu görev için o kadar çok veriye ihtiyaç duyacaklar.
+
+86
+00:05:06,030 --> 00:05:12,020
+Veya bir insan fotoğrafı verildiğinde,
+
+87
+00:05:12,020 --> 00:05:18,995
+belki resimdeki o kişinin yüzünü bulmak çok zor bir problem gibi gözükmez,
+
+88
+00:05:18,995 --> 00:05:23,420
+yani bir insanın yüzünü bulmak için çok fazla veriye ihtiyaç duymazsınız.
+
+89
+00:05:23,420 --> 00:05:28,465
+Veya en azından o görevi çözmek için yeteri kadar veri bulabilirsiniz, 
+
+90
+00:05:28,465 --> 00:05:34,210
+ele bakıp doğrudan çocuğun yaşı ile eşleştirmek için gerekli olan fonksiyonla ters olarak,
+
+91
+00:05:34,210 --> 00:05:38,995
+daha karmaşık bir problem gibi gözüken
+
+92
+00:05:38,995 --> 00:05:45,815
+eğer yalın bir uçtan-uca derin öğrenme yaklaşımı uyguluyorsanız sezgisel olarak öğrenmek için daha çok veriye ihtiyaç duyacağınız 
+
+93
+00:05:45,815 --> 00:05:50,185
+Daha karmaşık bir örnekle bu videoyu bitirelim.
+
+94
+00:05:50,185 --> 00:05:52,645
+Belki biliyorsunuzdur, yardım etmek için zaman harcıyorum.
+
+95
+00:05:52,645 --> 00:05:55,360
+bir otonom sürüş şirketine, Drive.ai
+
+96
+00:05:55,360 --> 00:06:00,108
+Yani aslında otonom sürüş konusunda çok heyecanlıyım.
+
+97
+00:06:00,108 --> 00:06:03,950
+Kendi kendini süren bir arabayı nasıl yaparsınız?
+
+98
+00:06:03,950 --> 00:06:06,065
+Yapabileceğiniz şeylerden biri burada,
+
+99
+00:06:06,065 --> 00:06:08,795
+ve bu uçtan-uca bir öğrenme yaklaşımı değil. 
+
+100
+00:06:08,795 --> 00:06:15,620
+Arabanızın önünde yer alan şeyin bir resmini girdi olarak alabilirsiniz, radar, ışık, 
+
+101
+00:06:15,620 --> 00:06:17,075
+diğer sensör okuyucuları da,
+
+102
+00:06:17,075 --> 00:06:20,030
+fakat tanımları basitleştirmek için, 
+
+103
+00:06:20,030 --> 00:06:24,700
+arabanızın önünde veya etrafında yer alan şeylerin bir fotoğrafını çektiğinizi söyleyelim. 
+
+104
+00:06:24,700 --> 00:06:28,430
+Ve sonra arabanızı güvenli bir şekilde sürmek için 
+
+105
+00:06:28,430 --> 00:06:33,135
+diğer arabaları ve yayaları tespit etmelisiniz. 
+
+106
+00:06:33,135 --> 00:06:35,840
+Elbette diğer şeyleri de tespit etmelisiniz, 
+
+107
+00:06:35,840 --> 00:06:39,033
+fakat burada sadece basitleştirilmiş bir örnek vereceğiz. 
+
+108
+00:06:39,033 --> 00:06:42,625
+Diğer arabaların ve yayaların nerede olduğunu tespit ettiğinizde,
+
+109
+00:06:42,625 --> 00:06:48,783
+kendi rotanızı planlamanız gerekmektedir. 
+
+110
+00:06:48,783 --> 00:06:50,305
+Diğer bir deyişle,
+
+111
+00:06:50,305 --> 00:06:54,880
+diğer arabaların, yayaların nerede olduğunu görürseniz,
+
+112
+00:06:54,880 --> 00:06:58,300
+kendi arabanızı nasıl yönlendireceğinize karar vermeniz gerekir,
+
+113
+00:06:58,300 --> 00:07:02,110
+sonraki birkaç saniye için arabanızı hangi yola yönlendireceğinize.
+
+114
+00:07:02,110 --> 00:07:08,185
+Ve belli bir yola süreceğinize karar verdiğinizde,
+
+115
+00:07:08,185 --> 00:07:14,725
+belki bu bir yolun tepeden aşağı bir görünüşü ve sizin arabanızdır. 
+
+116
+00:07:14,725 --> 00:07:17,625
+Belki o yola sürmeye karar verdiniz,
+
+117
+00:07:17,625 --> 00:07:18,750
+bu bir rotadır, 
+
+118
+00:07:18,750 --> 00:07:25,405
+sonra uygun yönlendirmeyi oluşturarak bunu uygulamanız gerekir,
+
+119
+00:07:25,405 --> 00:07:28,850
+gaza basma ve frene basma komutları gibi.
+
+120
+00:07:28,850 --> 00:07:34,030
+Yani arabaları ve yayaları tespit etmek için resminiz veya sensör girdileriniz üzerinden gidildiğinde,
+
+121
+00:07:34,030 --> 00:07:37,630
+derin öğrenme kullanılarak oldukça iyi bir şekilde yapılabilir,
+
+122
+00:07:37,630 --> 00:07:40,870
+fakat sonra diğer arabaların ve yayaların nereye gidiyor olduğunu tespit ederken,
+
+123
+00:07:40,870 --> 00:07:45,220
+arabanızı tam olarak hareket ettirmek istediğiniz bu rotayı seçmek 
+
+124
+00:07:45,220 --> 00:07:47,420
+genelde derin öğrenme ile yapılmaz.
+
+125
+00:07:47,420 --> 00:07:51,715
+Bunun yerine bu Hareket Planlama (Motion Planning) isminde bir yazılım ile yapılır. 
+
+126
+00:07:51,715 --> 00:07:55,420
+Ve eğer robotik konusunda bir ders alırsanız hareket planlama konusunu öğreneceksiniz. 
+
+127
+00:07:55,420 --> 00:07:59,240
+Ve sonra arabanızı hangi yol boyunca yönlendirmek istediğinize karar verdiğinizde, 
+
+128
+00:07:59,240 --> 00:08:00,880
+orada başka algoritma da olacaktır,
+
+129
+00:08:00,880 --> 00:08:06,355
+bunun kesin kararı veren bir kontrol algoritmasını olduğunu söyleyeceğiz, 
+
+130
+00:08:06,355 --> 00:08:09,040
+direksiyonu ne kadar çevireceğine ve 
+
+131
+00:08:09,040 --> 00:08:13,160
+gaza veya frene ne kadar basacağına karar veren.
+
+132
+00:08:13,160 --> 00:08:16,990
+Bana göre bu örneğin gösterdiği şey,
+
+133
+00:08:16,990 --> 00:08:21,340
+bazı bireysel bileşenleri öğrenmek için makine öğrenmesi veya derin öğrenme kullanmak istersiniz
+
+134
+00:08:21,340 --> 00:08:30,640
+ve denetimli öğrenmeyi uygularken
+
+135
+00:08:30,640 --> 00:08:37,650
+X'den Y'ye hangi tipte eşleştirme öğrenmek istediğinizi dikkatli bir şekilde seçmelisiniz.
+
+136
+00:08:37,650 --> 00:08:44,745
+hangi görev için 
+
+137
+00:08:44,745 --> 00:08:48,875
+veri elde edebileceğinize bağlı olarak
+
+138
+00:08:48,875 --> 00:08:51,765
+Buna karşılık, 
+
+139
+00:08:51,765 --> 00:08:54,435
+yalın bir uçtan-uca derin öğrenme yaklaşımı hakkında konuşmak heyecan vericidir
+
+140
+00:08:54,435 --> 00:08:57,180
+resmi girdi olarak verdiğiniz ve doğrudan bir yönlendirme çıktısı aldığınız.
+
+141
+00:08:57,180 --> 00:09:04,570
+Fakat mevcut veri ulaşılabilirliği
+
+142
+00:09:04,570 --> 00:09:08,140
+ve bugün sinir ağları ile öğrenebildiğimiz şeylerin tipleri ile,
+
+143
+00:09:08,140 --> 00:09:12,880
+bu aslında en umut vadeden yaklaşım değildir veya 
+
+144
+00:09:12,880 --> 00:09:18,170
+bana göre takımların en iyi sonuçları aldığı yaklaşım değildir. 
+
+145
+00:09:18,170 --> 00:09:22,780
+Ve bence bu uçtan-uca derin öğrenme yaklaşımı aslında
+
+146
+00:09:22,780 --> 00:09:27,170
+bu gibi daha karmaşık yaklaşımlara göre daha az umut vadeder,
+
+147
+00:09:27,170 --> 00:09:32,260
+mevcut veri ulaşılabilirliği ve bugünkü sinir ağlarını eğitme kabiliyetimiz ile. 
+
+148
+00:09:32,260 --> 00:09:35,055
+Evet uçtan-uca derin öğrenme yaklaşımı böyle.
+
+149
+00:09:35,055 --> 00:09:38,380
+Bazen gerçekten iyi çalışabilir fakat 
+
+150
+00:09:38,380 --> 00:09:42,453
+uçtan-uca derin öğrenmeyi nereye uyguladığınıza dikkat etmelisiniz. 
+
+151
+00:09:42,453 --> 00:09:46,985
+Son olarak, benimle buraya kadar geldiğiniz için teşekkürler ve tebrikler. 
+
+152
+00:09:46,985 --> 00:09:50,290
+Eğer geçen haftanın ve bu haftanın videolarını bitirirseniz 
+
+153
+00:09:50,290 --> 00:09:53,860
+daha akıllı ve stratejik olacağınızı düşünüyorum.
+
+154
+00:09:53,860 --> 00:09:57,250
+ve iyi önceliklendirme kararlarını daha iyi vereceğinizi 
+
+155
+00:09:57,250 --> 00:10:01,138
+makine öğrenmesi projenizde nasıl ilerleyeceğinize dair,
+
+156
+00:10:01,138 --> 00:10:03,520
+hatta birçok makine öğrenmesi mühendisiyle 
+
+157
+00:10:03,520 --> 00:10:06,310
+ve burada Silikon Vadisi'nde gördüğüm araştırmacıyla karşılaştırıldığında
+
+158
+00:10:06,310 --> 00:10:11,320
+Dolayısıyla buraya kadar öğrendiğiniz herşey için tebrikler ve 
+
+159
+00:10:11,320 --> 00:10:13,480
+bu haftanın ödev problemlerine bir göz atacağınızı umuyorum
+
+160
+00:10:13,480 --> 00:10:18,770
+size bu fikirlerle alıştırma yapmak ve onlara hakim olmanızı sağlamak için diğer bir fırsat verecek

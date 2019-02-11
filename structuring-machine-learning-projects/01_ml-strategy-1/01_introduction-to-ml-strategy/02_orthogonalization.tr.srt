@@ -1,0 +1,680 @@
+1
+00:00:00,340 --> 00:00:03,520
+Makine öğrenmesi sistemleri inşa ederken 
+karşılaşılan zorluklardan biri
+
+2
+00:00:03,520 --> 00:00:06,250
+deneyebileceğiniz ve değiştirebileceğiniz çok şey olmasıdır.
+
+3
+00:00:06,250 --> 00:00:09,840
+Örneğin, ayarlayabileceğiniz bir çok 
+aşırı değişken olması gibi.
+
+4
+00:00:10,960 --> 00:00:14,210
+En etkin makine öğrenmesi insanları hakkında
+farkettiğim şeylerden biri
+
+5
+00:00:14,210 --> 00:00:17,440
+onların neyin ayarlanması gerektiği konusunda
+keskin görüşlü olmalarıdır
+
+6
+00:00:17,440 --> 00:00:20,200
+belli bir sonuç elde etmeye çalışırken.
+
+7
+00:00:20,200 --> 00:00:22,842
+Bu, dikgenleştirme (orthogonalization) dediğimiz bir süreçtir.
+
+8
+00:00:22,842 --> 00:00:24,120
+Ne demek istediğimi açıklayayım.
+
+9
+00:00:25,490 --> 00:00:28,560
+Bu eski tip bir televizyonun resmi,
+
+10
+00:00:28,560 --> 00:00:33,820
+üzerinde görüntüyü farklı şekillerde
+ayarlayabileceğiniz düğmeleri var.
+
+11
+00:00:35,050 --> 00:00:39,880
+Böyle eski televizyonlarda belki
+bir düğme görüntünün dikey yüksekliğini
+
+12
+00:00:39,880 --> 00:00:45,160
+ayarlamak için ve bir diğeri de
+genişliğini ayarlamak için vardı.
+
+13
+00:00:45,160 --> 00:00:49,310
+Belki başka bir düğme
+yamukluğu ayarlamak için
+
+14
+00:00:49,310 --> 00:00:52,370
+diğer bir düğme
+görüntüyü sola ve sağa kaydırmak için
+
+15
+00:00:52,370 --> 00:00:57,090
+bir diğeri görüntünün ne kadar döndürüleceğini
+ayarlamak için olabilir.
+
+16
+00:00:58,740 --> 00:01:03,719
+Ve TV tasarımcılarının bir sürü zaman harcayarak
+yaptıklarıysa devreleri yapmaktı,
+
+17
+00:01:03,719 --> 00:01:06,477
+gerçekte o zamanlarda çoğunlukla analog devreydi,
+
+18
+00:01:06,477 --> 00:01:11,170
+her bir düğmenin görece tahmin edilebilir bir fonksiyona
+sahip olmasının yolu.
+
+19
+00:01:11,170 --> 00:01:15,358
+Bir düğmenin bunu ayarlaması, bir düğmenin bunu ayarlaması,
+bir düğmenin bunu ayarlaması gibi
+
+20
+00:01:15,358 --> 00:01:15,960
+ve benzeri.
+
+21
+00:01:17,840 --> 00:01:24,488
+Buna karşılık, düşününki bir düğmeniz olsun
+görüntünün yüksekliği x 0.1
+
+22
+00:01:24,488 --> 00:01:32,002
++0.3 x görüntünün genişliği,
+-1.7 x görüntünün yamukluğu
+
+23
+00:01:32,002 --> 00:01:39,010
++0.8 yatay eksende görüntünün pozisyonu
+ ve benzeri ayarları yapsın.
+
+24
+00:01:39,010 --> 00:01:42,330
+Eğer bu düğmeyi çevirirseniz, o zaman
+görüntünün yüksekliği, görüntünün genişliği
+
+25
+00:01:42,330 --> 00:01:46,350
+ne kadar yamuk olduğu, ne kadar kaydığı
+hepsi aynı anda değişir.
+
+26
+00:01:46,350 --> 00:01:51,211
+Eğer böyle bir düğmeniz olsaydı,
+neredeyse imkansız olurdu televizyonu
+
+27
+00:01:51,211 --> 00:01:54,790
+görüntüsü ekranın ortasına gelecek şekilde ayarlamak.
+
+28
+00:01:54,790 --> 00:02:00,569
+Bu bağlamda, dikgenleştirme (orthogonalization)
+TV tasarımcılarının
+
+29
+00:02:00,569 --> 00:02:06,076
+düğmeleri, her bir düğme sadece tek bir şey yapacak
+şekilde tasarlamalarını ifade eder.
+
+30
+00:02:06,076 --> 00:02:09,118
+Ve bu televizyonu ayarlamayı çok daha kolay yapar böylece
+
+31
+00:02:09,118 --> 00:02:12,712
+görüntü istediğiniz yere konumlanır.
+
+32
+00:02:14,032 --> 00:02:17,075
+Dikgenleştirmenin (orthogonalization)
+bir başka örneği de şudur.
+
+33
+00:02:17,075 --> 00:02:22,736
+Eğer bir araba kullanmayı öğrenmeyi düşünürseniz,
+bir arabanın üç ana kontrolü vardır,
+
+34
+00:02:22,736 --> 00:02:28,124
+bunlar, ne kadar sola ya da sağa gideceğinize
+karar veren direksiyon,
+
+35
+00:02:28,124 --> 00:02:31,170
+hızlanma ve fren yapmadır.
+
+36
+00:02:31,170 --> 00:02:35,560
+Yani bu üç kontrol ya da aslında
+bir kontrol direksiyon için ve
+
+37
+00:02:35,560 --> 00:02:38,810
+hızınız için diğer iki kontrol.
+
+38
+00:02:38,810 --> 00:02:42,150
+Bu da görece, sizin farklı kontroller üzerinden farklı davranışlarınızın
+
+39
+00:02:42,150 --> 00:02:46,770
+arabanız üzerinde ne yapacağını tahmin edilebilir yapar.
+
+40
+00:02:46,770 --> 00:02:51,940
+Ama şimdi düşünün, birisi öyle bir araba yapsa
+bir oyun kolu olan
+
+41
+00:02:51,940 --> 00:02:56,560
+oyun kolunun bir ekseni
+0.3 x direksiyon açınızı,
+
+42
+00:02:56,560 --> 00:03:00,910
+-0.8 x hızınızı kontrol etsin.
+
+43
+00:03:00,910 --> 00:03:05,957
+Ve farklı bir kontrolünüz olsa
+2 x direksiyon açınızı
+
+44
+00:03:05,957 --> 00:03:12,530
++ 0.9 x arabanızın hızını kontrol eden.
+
+45
+00:03:12,530 --> 00:03:15,140
+Teoride, bu iki düğmeyi ayarlayarak
+
+46
+00:03:15,140 --> 00:03:19,072
+arabanızı istediğiniz açıya ve
+istediğiniz hıza getirebilirsiniz.
+
+47
+00:03:19,072 --> 00:03:22,840
+Ama bu, direksiyon açısını ayarlamak için
+tek bir kontrol ve 
+
+48
+00:03:22,840 --> 00:03:26,980
+hızı ayarlamak için ayrı bir grup kontrole
+
+49
+00:03:26,980 --> 00:03:28,750
+sahip olduğunuz durumdan çok daha zordur.
+
+50
+00:03:28,750 --> 00:03:31,913
+Yani dikgenleştirme kavramı şunu ifade eder,
+
+51
+00:03:31,913 --> 00:03:35,707
+eğer yapmak istediğiniz işin
+bir boyutunu direksiyon açısının kontrolü
+
+52
+00:03:35,707 --> 00:03:39,877
+ve diğer boyutu da
+hızınızın kontrolü olarak düşünürseniz
+
+53
+00:03:39,877 --> 00:03:44,756
+O zaman bir düğmenin sadece
+direksiyon açısını etkilemesini istersiniz
+
+54
+00:03:44,756 --> 00:03:49,179
+ve araba örneğinde, diğer bir düğmenin de
+hızınızı kontrol eden
+
+55
+00:03:49,179 --> 00:03:51,634
+ hızlanma ve frenlemeyi etkilemesini.
+
+56
+00:03:51,634 --> 00:03:54,564
+Ama eğer bu ikisini birbirine
+karıştıran bir kontrolünüz olsaydı,
+
+57
+00:03:54,564 --> 00:03:59,156
+hem direksiyon açınızı hem de hızınızı
+etkileyen bu kontrol gibi,
+
+58
+00:03:59,156 --> 00:04:01,752
+her ikisini aynı anda değiştiren bir şey,
+
+59
+00:04:01,752 --> 00:04:06,570
+o zaman arabayı istediğiniz hız ve açıya
+ayarlamak çok daha zor olurdu.
+
+60
+00:04:06,570 --> 00:04:11,933
+Ve dikgen (orthogonal) olduğunda,
+dikgenlik bir biriyle 90 derece açı olması demektir.
+
+61
+00:04:11,933 --> 00:04:16,309
+Gerçekten kontrol etmek istediğiniz şeyler ile
+uyumlu dikgen kontrolleriniz olduğunda,
+
+62
+00:04:16,309 --> 00:04:21,251
+ayarlamanız gereken düğmeleri ayarlamak
+çok daha kolay olur.
+
+63
+00:04:21,251 --> 00:04:23,939
+Direksiyon açısını ve
+
+64
+00:04:23,939 --> 00:04:28,813
+gazınızı, freninizi
+arabaya istediğinizi yaptırmak için ayarlamak.
+
+65
+00:04:28,813 --> 00:04:31,090
+Bu, makine öğrenmesi ile nasıl ilişkilendirilebilir?
+
+66
+00:04:32,260 --> 00:04:35,980
+Denetimli bir öğrenme sisteminin iyi çalışması için,
+genelde siz
+
+67
+00:04:35,980 --> 00:04:40,080
+dört şeyin doğru olduğundan emin olmak için
+sisteminizin düğmelerini ayarlamalısınız.
+
+68
+00:04:40,080 --> 00:04:43,930
+İlk olarak yapmanız gereken, en azından eğitim verileri ile
+
+69
+00:04:43,930 --> 00:04:45,210
+iyi çalıştığınızdan emin olmaktır.
+
+70
+00:04:45,210 --> 00:04:50,327
+O yüzden eğitim verilerinin sonucunun
+bir kabul edilebilirlik değerlendirmesinden geçmesi gerekir.
+
+71
+00:04:50,327 --> 00:04:52,458
+Bazı uygulamalar için
+
+72
+00:04:52,458 --> 00:04:57,841
+bu insan seviyesine yakın bir performans anlamına gelebilir.
+
+73
+00:04:57,841 --> 00:05:00,005
+Ama bu uygulamanıza bağlı olacaktır ve
+
+74
+00:05:00,005 --> 00:05:03,400
+gelecek hafta insan seviyesinde performansla
+karşılaştırma hakkında daha çok konuşacağız.
+
+75
+00:05:04,520 --> 00:05:07,689
+Fakat , ancak "Eğitim veri seti" ile iyi sonuç bir elde ettikten sonra ,
+
+76
+00:05:07,689 --> 00:05:12,281
+"Doğrulama veri setinin" üzerinde iyi bir sonuç elde etmeyi bekleyebilirsiniz,
+
+77
+00:05:12,281 --> 00:05:16,520
+ve sonra "Test veri setinin" üzerinde ,
+
+78
+00:05:16,520 --> 00:05:20,025
+ve son olarak , gerçek veriler üzerinde 
+
+79
+00:05:20,025 --> 00:05:23,544
+"maliyet fonksiyonu" için iyi bir sonuç elde etmeyi bekleyebilirsiniz.
+
+80
+00:05:23,544 --> 00:05:28,481
+Umarım bu mutlu kedi resmi kullanıcıları sorununu
+
+81
+00:05:28,481 --> 00:05:32,590
+çözümleyebilir.
+
+82
+00:05:32,590 --> 00:05:37,990
+TV örneğine geri dönecek olursak, eğer ki TV resminiz
+
+83
+00:05:37,990 --> 00:05:43,040
+çok geniş ya da çok darsa, bir düğme ile bunu düzeltmek isteyebilirsiniz.
+
+84
+00:05:43,040 --> 00:05:45,680
+Farklı farklı şeyleri etkileyen beş farklı düğüm
+
+85
+00:05:45,680 --> 00:05:47,720
+ayarlamak için uğraşmak istemezsiniz.
+
+86
+00:05:47,720 --> 00:05:52,510
+TV resminin genişliğini sadece bir düğme etkilesin istersiniz.
+
+87
+00:05:52,510 --> 00:05:57,500
+Benzer şekilde, eğer algoritmanız eğitim setinde maliyet fonksiyonuna iyi oturmuyorsa
+
+88
+00:05:57,500 --> 00:06:02,540
+bir düğme isteyebilirsiniz, evet, bu benim düğmeleri gösterme şeklim.
+
+89
+00:06:02,540 --> 00:06:05,540
+Ya da bir düğme seti de kullanabilirsiniz.
+
+90
+00:06:05,540 --> 00:06:10,960
+Bu da algoritmanızı eğitim setine uyacak şekilde düzeltebilmenize yarar.
+
+91
+00:06:10,960 --> 00:06:15,560
+Düzeltmeler için kullandığınız düğmeler sayesinde daha büyük ağlar üzerinde çalışabilirsiniz.
+
+92
+00:06:16,730 --> 00:06:20,740
+Ya da daha iyi bir optimizasyon algoritması kurabilirsiniz.
+
+93
+00:06:20,740 --> 00:06:24,270
+Tıpkı "Adam optimizasyon algoritması" gibi.
+
+94
+00:06:24,270 --> 00:06:27,410
+Bunları ve daha başka seçeneklerinizi ileri zamanlarda da konuşacağız zaten.
+
+95
+00:06:28,440 --> 00:06:33,588
+Eğer algoritmanızın doğrulama veri setine uymadığını gördüyseniz
+
+96
+00:06:33,588 --> 00:06:36,251
+burada da birbirinden ayrı düğüm setleri var demektir.
+
+97
+00:06:36,251 --> 00:06:40,976
+Evet, bu da benim bir diğer pek afilli olmayan düğme gösterme şeklim
+
+98
+00:06:40,976 --> 00:06:44,465
+Bağımsız düğüm setleri kullanmayı deneyebilirsiniz.
+
+99
+00:06:44,465 --> 00:06:49,196
+Yani örneğin, algoritmaniz doğrulama veri setinde çok iyi çalışmamasına rağmen
+
+100
+00:06:49,196 --> 00:06:53,455
+test veri setinde iyi çalışıyorsa, düzenleme yapabilmek için düğüm setiniz
+
+101
+00:06:53,455 --> 00:06:57,938
+olması, ikinci kriteri de sağlamanıza yarar.
+
+102
+00:06:57,938 --> 00:07:01,786
+Yani şimdi TV setinizin genişliğini ayarladınız diyelim.
+
+103
+00:07:01,786 --> 00:07:04,467
+Ama eğer resmin yüksekliği doğru değilse
+
+104
+00:07:04,467 --> 00:07:08,680
+yüksekliği düzeltmek için farklı bir düğme kullanmak istersiniz.
+
+105
+00:07:08,680 --> 00:07:13,429
+Tabi bunu TV resminin genişliğini çok fazla bozmadan
+
+106
+00:07:13,429 --> 00:07:14,563
+yapabilmeyi istersiniz.
+
+107
+00:07:14,563 --> 00:07:20,655
+Daha büyük bir eğitim seti kullanmanız durumunda başka bir düğme daha
+
+108
+00:07:20,655 --> 00:07:26,758
+kullanmak, algoritmanızı doğrulama setine genellemenizde faydalı olabilir.
+
+109
+00:07:26,758 --> 00:07:30,248
+Şimdi, diyelim ki TV resminin genişliğini ve yüksekliğini ayarladık.
+
+110
+00:07:30,248 --> 00:07:32,587
+Peki ya üçüncü kritere uymazsa?
+
+111
+00:07:32,587 --> 00:07:36,880
+Ya eğitim veri setlerine uymasına rağmen test veri setine uymazsa?
+
+112
+00:07:36,880 --> 00:07:37,840
+Eğer böyle bir şey olusa,
+
+113
+00:07:37,840 --> 00:07:42,880
+muhtemelen daha büyük bir doğrulama setine ihtiyacınız var demektir.
+
+114
+00:07:42,880 --> 00:07:47,452
+Çünkü eğer doğrulama setine uyup test setine uymuyorsa muhtemelen
+
+115
+00:07:47,452 --> 00:07:51,010
+"overfitting" sorunu vardır. Daha büyük bir doğrulama seti bulmalısınız.
+
+116
+00:07:52,590 --> 00:07:57,630
+Ve son olarak, bu size sonuç olarak
+
+117
+00:07:57,630 --> 00:08:04,020
+mutlu kedi resmi getirmiyorsa
+
+118
+00:08:04,020 --> 00:08:10,270
+ya doğrulama setini ya da maliyet fonksiyonunu değiştirin.
+
+119
+00:08:13,600 --> 00:08:18,230
+Çünkü eğer test veri setinizde uyumlu çalışan bir algoritma
+
+120
+00:08:18,230 --> 00:08:21,870
+gerçek hayatta ihtiyaç duyacağınız şeyi tam karşılamıyorsa
+
+121
+00:08:21,870 --> 00:08:27,260
+ya doğrulama veri setinin dağılımını doğru seçmediniz demektir
+
+122
+00:08:27,260 --> 00:08:30,230
+ya da maliyet fonksiyonunuz doğru şeyi hesaplamıyordur.
+
+123
+00:08:30,230 --> 00:08:34,260
+Biliyorum bu örnekleri çok hızlı geçiyorum, ama detaylı olarak
+
+124
+00:08:34,260 --> 00:08:39,770
+spesifik düğmeleri önümüzdeki haftalarda anlatacağım.
+
+125
+00:08:39,770 --> 00:08:42,870
+Yani eğer tüm detayları takip edemediğinizi düşünüyorsanız endişelenmeyin.
+
+126
+00:08:42,870 --> 00:08:46,429
+Ama dikgenleştirme süreci hakkında bir fikir oluşturmak istiyorum.
+
+127
+00:08:46,429 --> 00:08:50,184
+Farklı konulara adreslemeye çalıştığınızda
+
+128
+00:08:50,184 --> 00:08:53,569
+farklı şeyler ayarlamada daha net olmak isteyebilirsiniz.
+
+129
+00:08:53,569 --> 00:08:57,809
+Bir yapay sinir ağı oluştururken çok çabuk durdurmayı tercih etmiyorum.
+
+130
+00:08:57,809 --> 00:09:00,845
+Kötü bir teknik değil, çoğu kişi bu şekilde yapar
+
+131
+00:09:00,845 --> 00:09:04,450
+ama kişisel olarak bu yöntemi zor buluyorum.
+
+132
+00:09:04,450 --> 00:09:09,530
+Çünkü eğitim setinizin uyumunu da etkiler
+
+133
+00:09:09,530 --> 00:09:13,370
+Eğer erken durdurursanız eğitim veri setinizden daha az verim alırsınız.
+
+134
+00:09:13,370 --> 00:09:18,610
+Doğrulama setinin performansını geliştirmek için de yapılır bazen bu.
+
+135
+00:09:18,610 --> 00:09:21,973
+Bakın, bu daha az dikgenleştirilmiş bir düğme
+
+136
+00:09:21,973 --> 00:09:25,343
+çünkü aynı anda iki şeyi etkiliyor.
+
+137
+00:09:25,343 --> 00:09:28,691
+Tıpkı TV resmi örneğinde bir düğümün hem genişliği
+
+138
+00:09:28,691 --> 00:09:30,900
+hem de yüksekliği etkilediği gibi.
+
+139
+00:09:30,900 --> 00:09:34,285
+Bu kötü olduğu anlamına gelmez, istiyorsanız kullanabilirsiniz.
+
+140
+00:09:34,285 --> 00:09:37,400
+Ama daha fazla dikgenleştirme kontrolü
+
+141
+00:09:37,400 --> 00:09:40,020
+tıpkı burada yazdığım diğerleri gibi
+
+142
+00:09:40,020 --> 00:09:44,260
+bu düzeltme sürecini daha da kolaylaştıracaktır.
+
+143
+00:09:44,260 --> 00:09:47,655
+Umarım bu dikgenleştirmenin ne anlama geldiği hakkında bir fikir oluşturmuştur.
+
+144
+00:09:47,655 --> 00:09:51,645
+TV resmine bakıp benim resmim çok geniş, bunu düzeltmeliyim diyebilmeniz
+
+145
+00:09:51,645 --> 00:09:55,343
+ya da bu TV resmi çok uzun, ya da çapraz duruyor
+
+146
+00:09:55,343 --> 00:09:59,390
+bu hatayı düzeltmeliyim diyebilmeniz gerekli.
+
+147
+00:09:59,390 --> 00:10:01,710
+Makine öğrenmesinde kurduğunuz sisteme bakıp
+
+148
+00:10:01,710 --> 00:10:03,430
+bu parçası yanlış diyebiliyorsanız bu iyi bir şey.
+
+149
+00:10:03,430 --> 00:10:06,088
+Eğitim setinde düzgün çalışmaz, doğrulama setinde doğru çalışmaz,
+
+150
+00:10:06,088 --> 00:10:08,702
+test setinde çalışmaz veya çalışır, ama
+
+151
+00:10:08,702 --> 00:10:09,720
+gerçek hayatta bu kabul edilmez.
+
+152
+00:10:09,720 --> 00:10:13,309
+Tam olarak neyin yanlış olduğunu anlamak,
+
+153
+00:10:13,309 --> 00:10:17,310
+belli bir düğmeyi veya düğme setini bulmak,
+
+154
+00:10:17,310 --> 00:10:20,770
+makine öğrenmesi sisteminin performansını kısıtlayan bir sorunu çözmenize yardımcı olur.
+
+155
+00:10:20,770 --> 00:10:24,643
+Bu hafta ve önümüzdeki hafta, sisteminizin performansını engelleyen
+
+156
+00:10:24,643 --> 00:10:28,025
+sorunu nasıl tespit edeceğinizi öğreneceğiz.
+
+157
+00:10:28,025 --> 00:10:32,386
+Spesifik düğüm setlerini belirlemekte olduğu kadar, bunları sisteminizin
+
+158
+00:10:32,386 --> 00:10:34,715
+performansını arttırmak için de kullanabilirsiniz.
+
+159
+00:10:34,715 --> 00:10:37,900
+Haydi bu sürecin biraz daha detaylarına girelim.

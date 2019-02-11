@@ -1,0 +1,427 @@
+1
+00:00:00,252 --> 00:00:03,417
+Üst parametreleri ayarlıyor olun veya algoritmanız için farklı fikirler deniyor olun,
+
+2
+00:00:03,417 --> 00:00:06,047
+ya da makine öğrenimi sisteminizi inşa etmek için farklı
+
+3
+00:00:06,047 --> 00:00:07,764
+seçenekler deniyor olun şunu fark edeceksiniz:
+
+4
+00:00:07,764 --> 00:00:12,016
+Eğer son denediğiniz fikrin işe mi yaradığını ya da kötüye mi götürdüğünü
+
+5
+00:00:12,016 --> 00:00:16,064
+hızlıca söyleyebilecek tek gerçek sayı değerlendirme ölçeğiniz
+
+6
+00:00:16,064 --> 00:00:20,260
+varsa ilerlemeniz çok daha hızlı olacaktır.
+
+7
+00:00:20,260 --> 00:00:24,710
+Dolayısıyla takımlar makine öğrenimi projesine başlarken ben genellikle
+
+8
+00:00:24,710 --> 00:00:29,570
+problem için tek gerçek sayı değerlendirme ölçeği kurmalarını tavsiye ediyorum
+
+9
+00:00:29,570 --> 00:00:30,600
+Bir örneğe bakalım.
+
+10
+00:00:32,400 --> 00:00:35,244
+Daha önce uygulamalı makine öğreniminin deneyime dayalı bir işlem olduğunu
+
+11
+00:00:35,244 --> 00:00:36,165
+söylediğimi duymuştunuz.
+
+12
+00:00:36,165 --> 00:00:40,360
+Genellikle bir fikrimiz olur, kodlarız, nası sonuç verdiğini görmek için deneyi çalıştırırız ve
+
+13
+00:00:40,360 --> 00:00:44,100
+deneyin sonucunu başta oluşturduğumuz fikrimizi daha iyi konuma getirmek için kullanırız
+
+14
+00:00:44,100 --> 00:00:48,590
+ve bu döngünün etrafında algoritmamızı geliştirmeye devam ederken dönmeye devam ederiz.
+
+15
+00:00:48,590 --> 00:00:54,124
+Diyelim ki, daha önce bir A sınıflandırıcısı inşa ettiniz ve üst parametreleri,
+
+16
+00:00:54,124 --> 00:00:58,036
+eğitim setlerini veya başka şeyleri değiştirerek şu
+
+17
+00:00:58,036 --> 00:01:02,032
+anda yeni B sınıflandırıcısında eğitiyorsunuz.
+
+18
+00:01:02,032 --> 00:01:06,866
+Burada sınıflandırıcınızın performansını mantıklı bir şekilde değerlendirmenin bir
+
+19
+00:01:06,866 --> 00:01:08,680
+yolu kesinlik ve anmaya bakmak olacaktır.
+
+20
+00:01:08,680 --> 00:01:12,804
+Bu örnek için kesinlik ve anmanın ne demek olduğunun tam karşılığı
+
+21
+00:01:12,804 --> 00:01:13,650
+şu anda fark etmiyor.
+
+22
+00:01:13,650 --> 00:01:16,594
+Fakat kısaca, kesinliğe bir örnek verecek olursak,
+
+23
+00:01:16,594 --> 00:01:20,207
+->sınıflandırıcınızın kedi olarak tanıdığı örneklerden yüzde kaçı gerçekten kedidir?
+
+24
+00:01:23,068 --> 00:01:26,741
+şeklinde bir örnek verebiliriz
+
+25
+00:01:32,341 --> 00:01:37,045
+Dolayısıyla eğer A sınıflandırıcısı %95 kesinliğe sahipse, bu A sınıflandırıcısının bir örneği kedi olarak
+
+26
+00:01:37,045 --> 00:01:41,830
+tanımladığında bunun % 95 olasılıkla gerçekten kedi olduğu anlamına gelir.
+
+27
+00:01:41,830 --> 00:01:45,878
+ve anma ise, -->gerçekte kedi olan tüm görüntüler arasından sınıflandırıcınızın
+
+28
+00:01:45,878 --> 00:01:50,731
+% kaçını doğru tanıdığıdır bir başka değişle kedilerin %kaçının
+
+29
+00:01:50,731 --> 00:01:57,110
+sınıflandırıcınız tarafından doğru tanımlandığıdır.
+
+30
+00:02:04,331 --> 00:02:08,986
+Dolayısıyla A sınıflandırıcısı %90 anmaya sahipse,
+
+31
+00:02:08,986 --> 00:02:11,010
+örneğin geliştirme setindeki tüm görüntülerden
+
+32
+00:02:11,010 --> 00:02:13,987
+gerçekten kedi olanların %90'ını seçmiştir.
+
+33
+00:02:13,987 --> 00:02:19,049
+Kesinlik ve anmanın tanımları hakkında çok fazla endişelenmeyin.
+
+34
+00:02:19,049 --> 00:02:23,933
+Fakat görünen o ki kesinlik ve anma arasında ikisinden birinden feragat etme
+
+35
+00:02:23,933 --> 00:02:26,845
+söz konusudur ve ikisini de önemseriz.
+
+36
+00:02:26,845 --> 00:02:29,455
+Sınıflandırıcınız bir şeye kedi dediği zaman bunun büyük oranda
+
+37
+00:02:29,455 --> 00:02:31,765
+gerçekten kedi olmasını istersiniz
+
+38
+00:02:31,765 --> 00:02:33,475
+fakat kedilerin tüm görüntüleri arasından aynı zamanda
+
+39
+00:02:33,475 --> 00:02:37,905
+büyük bir oranını kedi olarak belirlemesini de istersiniz
+
+40
+00:02:37,905 --> 00:02:40,865
+dolayısıyla sınıflandırıcınızı kesinlik ve anma değerleri
+
+41
+00:02:40,865 --> 00:02:44,685
+açısından değerlendirmek mantıklı olacaktır.
+
+42
+00:02:44,685 --> 00:02:49,728
+Değerlendirme ölçeğinizi kekinlik-anma olarak kullanmanızdaki problem ,
+
+43
+00:02:49,728 --> 00:02:54,926
+Eğer A sınıflandırıcınız anmada daha iyi sonuç veriyorsa ve B sınıflandırıcınız kesinlikte daha iyi
+
+44
+00:02:54,926 --> 00:02:59,840
+sonuç veriyorsa bu durumda hangi sınıflandırıcınızın daha iyi olduğundan emin olmamanızdır
+
+45
+00:03:03,481 --> 00:03:06,976
+ve eğer birçok farklı fikir deniyorsanız birçok farklı üst parametre
+
+46
+00:03:06,976 --> 00:03:11,076
+deniyorsanız hızlıca sadece 2 sınıflandırıcı değil belki de bir düzine
+
+47
+00:03:11,076 --> 00:03:14,932
+sınıflandırıcı denemek ve en iyisini seçmek istersiniz
+
+48
+00:03:14,932 --> 00:03:17,010
+-ki böylece buradan devam edebilin
+
+49
+00:03:19,850 --> 00:03:23,570
+ve iki değerlendirme ölçeğiyle ikisi arasında veya belki onu
+
+50
+00:03:23,570 --> 00:03:27,380
+arasında hangisini seçmeniz gerektiğini bilmek zordur
+
+51
+00:03:29,170 --> 00:03:33,220
+bundan dolayı sınıflandırıcı seçmek için önerdiğim şey, iki ölçek(kesinlik ve anma)
+
+52
+00:03:33,220 --> 00:03:35,870
+kullanmaktansa kesinlik ve anmanın
+
+53
+00:03:35,870 --> 00:03:40,440
+birleştirildiği tek bir değerlendirme ölçeği bulmanız olacaktır.
+
+54
+00:03:41,740 --> 00:03:45,205
+Makine öğrenimi literatüründe, kesinlik ve anmayı birleştirmenin standart yolu
+
+55
+00:03:45,205 --> 00:03:47,028
+F1 skoru diye anladırılan bir skordur
+
+56
+00:03:47,028 --> 00:03:52,777
+ve F1 skorunun detayları çok fazla önemli değil fakat , tam resmi
+
+57
+00:03:52,777 --> 00:03:58,541
+olmayarak bunu kesinlik P ve anma R'ın ortalaması şeklinde düşünebilirsiniz.
+
+58
+00:03:58,541 --> 00:04:04,574
+Resmi olarak F1 skoru şu formülle tanımlanır;
+
+59
+00:04:04,574 --> 00:04:07,670
+2/((1/P)+(1/R))
+
+60
+00:04:07,670 --> 00:04:12,240
+ve matematikte bu fonksiyon kesinlik P ile anma R'nin
+
+61
+00:04:12,240 --> 00:04:16,860
+harmonik ortalaması olarak adlandırılır
+
+62
+00:04:16,860 --> 00:04:17,850
+fakat çok resmi olmadan,
+
+63
+00:04:17,850 --> 00:04:21,721
+bunu, kesinlik ve anmanın ortalamasını almanın bir yolu olarak düşünebilirsiniz
+
+64
+00:04:22,840 --> 00:04:25,190
+sadece aritmetik ortalama almak yerine,
+
+65
+00:04:25,190 --> 00:04:28,800
+harmonik ortalamasını alıyorsunuz bu formülde belirtildiği gibi,
+
+66
+00:04:28,800 --> 00:04:33,410
+ve kesinlik ve anma 'nın ikisi arasındaki feragat ile ilgili bazı avantajları vardır.
+
+67
+00:04:33,410 --> 00:04:34,953
+Şimdilik, sizin
+
+68
+00:04:34,953 --> 00:04:39,853
+sınıflandırıcı A'nın, daha iyi F skoruna sahip olduğunu görebilirsiniz
+
+69
+00:04:39,853 --> 00:04:43,825
+ve F1 skorunun kesinlik ve anmayı kombine etmenin mantıklı bir yolu olduğunu varsayarsak,
+
+70
+00:04:43,825 --> 00:04:47,000
+sınıflandırıcı A'yı sınıflandırıcı B üzerine kolaylıkla seçebilirsiniz.
+
+71
+00:04:48,100 --> 00:04:48,880
+Birçok makine öğrenimi
+
+72
+00:04:48,880 --> 00:04:52,401
+takımında bulduğum şey, İyi tanımlanmış geliştirme setine
+
+73
+00:04:52,401 --> 00:04:57,598
+sahip olmak artı tek sayı değerlendirme ölçeğine
+
+74
+00:04:57,598 --> 00:05:03,430
+sahip olmak -ki buna bazen tek sıra numarası diyeceğim
+
+75
+00:05:04,580 --> 00:05:09,147
+değerlendirme ölçeği sınıflandırıcı A'nın mı yoksa sınıflandırıcı B'nin mi daha iyi
+
+76
+00:05:09,147 --> 00:05:13,971
+olduğunu hızlıca söylemenize izin verir ve bakımdan geliştirme seti ve artı olarak
+
+77
+00:05:13,971 --> 00:05:18,301
+tek sayı değerlendirme ölçeğine sahip olmak yinelemeyi hızlandırmada yardım eder.
+
+78
+00:05:21,551 --> 00:05:26,980
+Makine öğrenimi algoritmanızın geliştirme sürecinin yineleyici işleminin hızını artırır.
+
+79
+00:05:26,980 --> 00:05:28,010
+Bir diğer örneğe birlikte bakalım.
+
+80
+00:05:29,130 --> 00:05:35,390
+Diyelim ki 4 büyük coğrafyadaki kedi severler için bir kedi uygulaması geliştiriyorsunuz:
+
+81
+00:05:35,390 --> 00:05:40,490
+Birleşik Devletler, Çin, Hindistan, diğerleri yani dünyanın geriye kalan kısmı
+
+82
+00:05:40,490 --> 00:05:43,940
+ve diyelim ki iki sınıflandırıcınız bu 4 farklı coğrafyalardan alınmış
+
+83
+00:05:45,370 --> 00:05:48,400
+verisetlerinde farklı hatalara ulaşıyorlar
+
+84
+00:05:48,400 --> 00:05:54,280
+Algoritma A, Birleşik Devletlerdeki kişiler tarafından yüklenmiş fotoğraflarda %3 hataya ulaşıyor vs gibi..
+
+85
+00:05:56,100 --> 00:05:59,140
+Dolayısıyla sınıflandırıcınızın bu farklı pazarlarda veya coğrafyalarda
+
+86
+00:05:59,140 --> 00:06:03,260
+ne kadar iyi sonuç verdiğini takip etmek mantıklı seçenek olacaktır
+
+87
+00:06:03,260 --> 00:06:06,770
+fakat bu 4 numarayı takip ederek, bu numaralara bakmak ve algoritma A'nın mı yoksa
+
+88
+00:06:06,770 --> 00:06:10,890
+algoritma B'nin mi daha üstün olduğuna hızlıca karar vermek oldukça zordur
+
+89
+00:06:10,890 --> 00:06:13,370
+ve birçok farklı sınıflandırıcı test ediyorsanız,
+
+90
+00:06:13,370 --> 00:06:17,590
+bu durumda bütün bu namaralara bakıp bir tanesini seçmek çok daha zor olacaktır
+
+91
+00:06:17,590 --> 00:06:22,390
+bundan dolayı bu örnekte tavsiye ettiğim şey, 4 farklı coğrafyadaki
+
+92
+00:06:22,390 --> 00:06:26,450
+performansı takip etmenin yanı sıra ortalamayı da hesaplamanız olacaktır
+
+93
+00:06:26,450 --> 00:06:30,874
+ve ortalama performansın mantıklı bir tek sayı değerlendirme ölçeği olduğunu varsayarak,
+
+94
+00:06:30,874 --> 00:06:33,799
+ortalamayı hesaplayarak algoritma C'nin
+
+95
+00:06:33,799 --> 00:06:38,530
+en düşük ortalama skora sahip olduğunu hızlıca hızlıca söyleyebilirsiniz
+
+96
+00:06:38,530 --> 00:06:40,555
+ve daha sonra bununla devam edebilirsiniz
+
+97
+00:06:40,555 --> 00:06:44,490
+burada yinelemeye devam etmek için bir algotirma seçmelisiniz
+
+98
+00:06:44,490 --> 00:06:47,573
+Dolayısıyla makine öğrenimi iş yükünüz genellikle şu şekilde; bir fikre sahip olursunuz,
+
+99
+00:06:47,573 --> 00:06:51,970
+bunu uygulayıp denersiniz ve bu fikrin yardımcı olup olmadığına bakarsınız.
+
+100
+00:06:51,970 --> 00:06:56,760
+Böylece, bu videodaki gördüklerimiz, tek sayı değerlendirme ölçeğine sahip olmanın
+
+101
+00:06:56,760 --> 00:06:58,980
+verimliliğinizi gerçekten artıracağını ya da
+
+102
+00:06:58,980 --> 00:07:02,340
+takımınızın kararları alırkenki verimliliğini geliştireceğini gördük
+
+103
+00:07:02,340 --> 00:07:03,240
+Şu ana kadar, değerlendirme ölçeklerinin
+
+104
+00:07:03,240 --> 00:07:07,510
+nasıl verimli bir şekilde kuracağımız konusunu tamamlamadık
+
+105
+00:07:07,510 --> 00:07:08,430
+Bir sonraki videoda,
+
+106
+00:07:08,430 --> 00:07:13,880
+nasıl iyilemeyi sağlayacağımızı ve bunun yanı sıra memnum edici bir dizey'i nasıl kuracağımızı paylaşacağım.
+
+107
+00:07:13,880 --> 00:07:15,480
+Dolayısıyla hadi diğer videoya göz atalım.

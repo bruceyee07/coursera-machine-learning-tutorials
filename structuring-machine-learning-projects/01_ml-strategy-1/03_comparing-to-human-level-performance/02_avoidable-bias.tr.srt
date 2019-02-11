@@ -1,0 +1,419 @@
+1
+00:00:02,400 --> 00:00:07,760
+Öğrenme algoritmalarınızın eğitim setinde ne kadar iyi performans sergilemesi
+
+2
+00:00:07,760 --> 00:00:10,085
+gerektiğini konuşmuştuk fakat bazen çok fazla iyi olmasını
+
+3
+00:00:10,085 --> 00:00:12,765
+istemezsiniz ve insan seviyesi performansını bilmek
+
+4
+00:00:12,765 --> 00:00:15,070
+size eğitim setinde tam olarak ne kadar iyi bir
+
+5
+00:00:15,070 --> 00:00:18,250
+performans sergilemeniz gerektiği konusunda yardımcı olur
+
+6
+00:00:18,250 --> 00:00:19,392
+Size ne demek istediğimi göstereyim.
+
+7
+00:00:19,392 --> 00:00:24,320
+Kedi sınıflandırmasını daha önce birçok kez kullandık, bir kedi resmini ele alalım,
+
+8
+00:00:24,320 --> 00:00:32,195
+diyelim ki insanlar mükemmele yakın doğruluk oranına sahip ve bu oran %1 olsun
+
+9
+00:00:32,195 --> 00:00:34,475
+bu durumda aynı zamanda eğer öğrenme algoritmanız
+
+10
+00:00:34,475 --> 00:00:38,915
+%8 eğitim hatasına ve %10 geliştirme hatasına sahipse,
+
+11
+00:00:38,915 --> 00:00:44,500
+belki de eğitim setinde daha iyi bir sonuç elde etmek istersiniz
+
+12
+00:00:44,500 --> 00:00:49,510
+bu durumda algoritmanızın ne kadar iyi yaptığı ile insanların ne kadar iyi yaptığı
+
+13
+00:00:49,510 --> 00:00:52,010
+arasında büyük bir fark olması algoritmanızın
+
+14
+00:00:52,010 --> 00:00:55,625
+eğitim setinde çok iyi oturmadığını gösterir.
+
+15
+00:00:55,625 --> 00:00:59,210
+Dolayısıyla, yanlılık ve değişintiyi azaltmayı sağlayan araçlar bakımından bu durumda,
+
+16
+00:00:59,210 --> 00:01:03,835
+odağınızı yanlılığı azaltmaya yönlendirin derim
+
+17
+00:01:03,835 --> 00:01:09,410
+bunun için yapmak isteyeceğiniz şeylere daha büyük bir ağ eğitmek veya eğitim setinde daha fazla eğitmek örnek olarak verilebilir,
+
+18
+00:01:09,410 --> 00:01:12,003
+yani bu durumda eğitim setinde daha iyi yapmaya odaklanın
+
+19
+00:01:12,003 --> 00:01:15,050
+Şimdi ise aynı eğitim hatasına ve geliştirme hatasında,
+
+20
+00:01:15,050 --> 00:01:19,340
+insan seviyesi performansının yüzde 1 olmadığını düşünelim
+
+21
+00:01:19,340 --> 00:01:22,120
+dolayısıyla aynı değerleri farklı bir uygulamaya veya
+
+22
+00:01:22,120 --> 00:01:25,170
+farklı bir veri setine kopyalayalım
+
+23
+00:01:25,170 --> 00:01:30,180
+fakat bu sefer insan seviyesi hatası %7.5 olsun
+
+24
+00:01:30,180 --> 00:01:33,890
+belki sağ taraftaki verilerinizdeki görüntüler fazla miktarda bulanık ve
+
+25
+00:01:33,890 --> 00:01:37,917
+insanlar bile bunun kedi mi değil mi olduğunu ayırt etmekte güçlük çekiyor
+
+26
+00:01:37,917 --> 00:01:41,090
+bu örnek aslında bir miktar tasarlanmış bir örnek çünkü
+
+27
+00:01:41,090 --> 00:01:44,525
+aslında insanlar resime bakıp bunun bir kedi olup olmadığını söylemekte oldukça başarılıdırlar
+
+28
+00:01:44,525 --> 00:01:46,490
+fakat bu örneği vermek adına bu rakamlarla devam edelim,
+
+29
+00:01:46,490 --> 00:01:48,270
+diyelim ki veri setlerinin görüntüleri
+
+30
+00:01:48,270 --> 00:01:54,680
+bulanık ya da düşük çözünürlüğe sahip ve insanlar %7.5 hataya sahipler,
+
+31
+00:01:54,680 --> 00:01:56,720
+bu durumda, eğitim hatanız
+
+32
+00:01:56,720 --> 00:02:00,305
+ve geliştirme hatanız diğer durumdaki ile(sol taraftaki durum) aynı olsa bile,
+
+33
+00:02:00,305 --> 00:02:04,016
+yine de eğitim setinde iyi bir sonuç elde etmiş olursunuz
+
+34
+00:02:04,016 --> 00:02:07,980
+burada(sağda) insan seviyesi performansından biraz daha kötü bir performans sergiliyor
+
+35
+00:02:07,980 --> 00:02:10,010
+ve bu örnekte,
+
+36
+00:02:10,010 --> 00:02:14,295
+belki bu bileşeni azaltmaya odaklanmayı isteyebilirsiniz
+
+37
+00:02:14,295 --> 00:02:19,390
+yani algoritmanızdaki değişintiyi azaltmaya,
+
+38
+00:02:19,390 --> 00:02:21,650
+dolayısıyla geliştirme hatanızı eğitim hatanıza
+
+39
+00:02:21,650 --> 00:02:25,600
+yaklaştırmak için normalleştirme deneyebilirsiniz örneğin.
+
+40
+00:02:25,600 --> 00:02:29,790
+Önceki kurslarda, yanlılık ve değişinti konusunda,
+
+41
+00:02:29,790 --> 00:02:36,900
+çoğunlukla olarak bayes hatasının neredeyse 0 olduğu görevler olduğunu varsayıyorduk,
+
+42
+00:02:36,900 --> 00:02:39,280
+dolayısıyla burada ne olduğunu açıklamak için,
+
+43
+00:02:39,280 --> 00:02:42,150
+kedi sınıflandırma örneğimizde,
+
+44
+00:02:42,150 --> 00:02:47,510
+insan seviyesi hatasını,
+
+45
+00:02:47,510 --> 00:02:56,030
+vekil(Bayes hatası için yerine) ya da tahmini Bayes hatası ya da optimum Bayes hatası olarak düşünün
+
+46
+00:02:56,030 --> 00:02:58,660
+ve bilgisayarlı görü işlemleri için,
+
+47
+00:02:58,660 --> 00:03:02,450
+bu çok mantıklı bir vekildir çünkü insanlar aslında bilgisayarlı görüde oldukça iyidirler
+
+48
+00:03:02,450 --> 00:03:08,750
+ve belki de insanın aldığı sonuç Bayes hatasından çokta uzakta değildir
+
+49
+00:03:08,750 --> 00:03:11,930
+Tanımsal olarak, insan seviyesi hatası Bayes hatasından daha kötüdür,
+
+50
+00:03:11,930 --> 00:03:14,840
+çünkü hiçbir şey Bayes hatasından daha iyi olamaz
+
+51
+00:03:14,840 --> 00:03:19,665
+fakat insan seviyesi hatası Bayes hatasından çokta uzakta olmayabilir.
+
+52
+00:03:19,665 --> 00:03:25,145
+dolayısıyla burada gördüğünüz şaşırtıcı şey, insan seviyesi hatasının ne olduğuna bağlı olarak,
+
+53
+00:03:25,145 --> 00:03:31,214
+-ki bu hata(insan seviyesi hatası) Bayes hatasına çok yakın veya biz öyle olduğunu varsayıyoruz-
+
+54
+00:03:31,214 --> 00:03:35,273
+aynı eğitim ve geliştirme hatasıyla bu iki örnekte,
+
+55
+00:03:35,273 --> 00:03:40,970
+başarılı olacağını düşündüğümüz,
+
+56
+00:03:40,970 --> 00:03:47,510
+yanlılık azaltma taktiklerine veya değişinti azaltma taktiklerine odaklanmayı seçiyoruz
+
+57
+00:03:47,510 --> 00:03:51,710
+ve soldaki örnekte olan şey ise,
+
+58
+00:03:51,710 --> 00:03:55,850
+%8 eğitim hatası bunu %1'e kadar düşürebileceğinizi düşündüğünüz zaman çok yüksek olarak karşımıza çıkıyor
+
+59
+00:03:55,850 --> 00:04:01,310
+ve yanlılık azaltma taktikleri bu konuda yardımcı olabilir
+
+60
+00:04:01,310 --> 00:04:02,885
+bunun yanısıra sağdaki örneğe baktığımız zaman,
+
+61
+00:04:02,885 --> 00:04:07,140
+eğer bayes hatasının %7.5 olduğunu düşünürseniz,
+
+62
+00:04:07,140 --> 00:04:12,265
+-ki burada insan seviyesi hatasını tahmin ya da bayes hatası yerine vekil olarak kullanıyoruz-
+
+63
+00:04:12,265 --> 00:04:13,622
+bu durumda eğitim hatanızı
+
+64
+00:04:13,622 --> 00:04:15,860
+daha fazla azaltacak çok fazla
+
+65
+00:04:15,860 --> 00:04:20,195
+boşluk ya da oynama alanı kalmamış demektir.
+
+66
+00:04:20,195 --> 00:04:24,710
+Bu hatayı(eğitim seti hatasını) %7.5'tan daha fazla azaltmak istemezsiniz çünkü
+
+67
+00:04:24,710 --> 00:04:29,780
+bu durumda aşırı öğrenmeye başlatabilirsiniz
+
+68
+00:04:29,780 --> 00:04:32,910
+bunun yerine aradaki %2 farkı azaltmak için
+
+69
+00:04:32,910 --> 00:04:36,380
+çok daha fazla imkan mevcuttur ve bunu değişinti azaltma taktikleri kullanarak
+
+70
+00:04:36,380 --> 00:04:38,660
+örneğin normalleştirme yaparak
+
+71
+00:04:38,660 --> 00:04:43,370
+veya belki de daha fazla eğitim verisi kullanarak yapabilirsiniz
+
+72
+00:04:43,370 --> 00:04:47,463
+Dolayısıyla, bunlara birkaç isim vermek gerekirse,
+
+73
+00:04:47,463 --> 00:04:50,490
+bu kullanacağım isim çok sık kullanılan bir terminoloji değil
+
+74
+00:04:50,490 --> 00:04:54,075
+fakat bunu faydalı bulduğum için söylemek istiyorum,
+
+75
+00:04:54,075 --> 00:04:58,380
+bu da bayes hatasıyla ya da bayes hatasının yaklaşık değeriyle
+
+76
+00:04:58,380 --> 00:05:05,670
+eğitim hatasının farkının önlenebilir yanlılığın yaklaşık değeri olduğudur.
+
+77
+00:05:05,670 --> 00:05:11,830
+Dolayısıyla, istediğiniz şey eğitim hatanızı Bayes hatasına
+
+78
+00:05:11,830 --> 00:05:14,020
+varıncaya kadar geliştirmeye devam ettirmenizdir
+
+79
+00:05:14,020 --> 00:05:16,565
+fakat Bayes hatasından daha iyi yapmak istemezsiniz çünkü
+
+80
+00:05:16,565 --> 00:05:20,740
+aşırı öğrenme'ye maruz kalmadan Bayes hatasından daha iyi bir sonuç alamazsınız
+
+81
+00:05:20,740 --> 00:05:24,879
+Bu bahsettiğimiz , eğitim seti ile geliştirme hatası arasındaki fark ,
+
+82
+00:05:24,879 --> 00:05:29,775
+algoritmanızdaki değişinti probleminin miktarıdır
+
+83
+00:05:29,775 --> 00:05:35,350
+ve önlenebilir yanlılık terimi size şu bilgiyi verir; minimum yanlılık ya da
+
+84
+00:05:35,350 --> 00:05:38,140
+minimum hata olan ve daha aşağısına geçemeyeceğiniz
+
+85
+00:05:38,140 --> 00:05:42,975
+bir değer vardır ki bu değer Bayes değeridir
+
+86
+00:05:42,975 --> 00:05:46,885
+bu değerin altına geçebilecek geliştirmeler yapmak istemezsiniz.
+
+87
+00:05:46,885 --> 00:05:50,650
+Dolayısıyla, eğitim hatanız yüzde 8 ise, %8 yanlılık miktarıdır
+
+88
+00:05:50,650 --> 00:05:53,427
+demek yerine önlenebilir yanlılık
+
+89
+00:05:53,427 --> 00:06:01,520
+%0.5'tir(bu örnekte) ve bu örnekte %2 değişinti ölçüsüdür
+
+90
+00:06:01,520 --> 00:06:06,220
+ve %2'yi azaltmak için %0.5'i azaltmaya
+
+91
+00:06:06,220 --> 00:06:11,378
+çalışmaktan çok daha fazla aralık mevcuttur diyebilirsiniz.
+
+92
+00:06:11,378 --> 00:06:14,384
+Tam tersine, soldaki örnekte,
+
+93
+00:06:14,384 --> 00:06:20,055
+% 7 önlenebilir yanlılığın miktarıdır
+
+94
+00:06:20,055 --> 00:06:24,275
+aynı şekilde %2 ise ne kadar değişintiye sahip olduğunuzun ölçüsüdür
+
+95
+00:06:24,275 --> 00:06:25,960
+ve dolayısıyla, soldaki örnekte,
+
+96
+00:06:25,960 --> 00:06:31,789
+önlenebilir yanlılığı azaltmak için çok daha fazla potansiyel vardır
+
+97
+00:06:31,789 --> 00:06:33,310
+Bu yüzden bu örnekte,
+
+98
+00:06:33,310 --> 00:06:35,845
+insan seviyesi hatasını anlamak ve
+
+99
+00:06:35,845 --> 00:06:38,220
+Bayes hatasını anlamak gerçekten sizi farklı
+
+100
+00:06:38,220 --> 00:06:42,420
+durumlarda yanlılık önleme taktikleri ya da değişinti önleme taktikleri
+
+101
+00:06:42,420 --> 00:06:45,970
+gibi farklı taktikler uygulamaya yönlendirir.
+
+102
+00:06:45,970 --> 00:06:48,820
+Neye odaklanmak istediğinizi seçerken insan seviyesi hatayı
+
+103
+00:06:48,820 --> 00:06:53,800
+nasıl olaya dahil ettiğiniz ile ilgili çok daha fazla ayrıntı vardır
+
+104
+00:06:53,800 --> 00:06:55,970
+Hadi, bir sonraki videoda,
+
+105
+00:06:55,970 --> 00:06:59,460
+insan seviyesi hatanın ne anlama geldiğini daha derinden anlamaya çalışalım.

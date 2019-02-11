@@ -1,0 +1,641 @@
+1
+00:00:00,008 --> 00:00:03,400
+İnsan-düzeyinde performans terimi bazen gündelik
+
+2
+00:00:03,400 --> 00:00:05,820
+olarak araştırma makalelerinde kullanılmaktadır.
+
+3
+00:00:05,820 --> 00:00:09,070
+Ancak size bunu nasıl daha kesin
+ bir şekilde tanımlayabileceğimizi göstereyim.
+
+4
+00:00:09,070 --> 00:00:13,350
+Özellikle de, makinesel öğrenme projenizde
+ ilerleme kaydetmek için
+
+5
+00:00:13,350 --> 00:00:17,430
+en faydalı olan tanım, insan-düzeyindeki
+ performansın açıklamasıdır.
+
+6
+00:00:19,370 --> 00:00:23,455
+Son videomuzda, bu ifadenin kullanım alanlarından biri olan
+ insan-düzeyindeki hatanın
+
+7
+00:00:23,455 --> 00:00:28,820
+bize Bayes teoremini tahmin etmenin bir yolunu sağladığını hatırlayalım.
+
+8
+00:00:28,820 --> 00:00:31,914
+Şimdi veya gelecekte, herhangi bir fonksiyonun
+
+9
+00:00:31,914 --> 00:00:35,380
+ulaşabileceği en iyi hata nedir?
+
+10
+00:00:35,380 --> 00:00:40,190
+O zaman bunu aklımızda tutarak,
+ medikal bir görüntünün sınıflandırılma örneğine bakalım.
+
+11
+00:00:40,190 --> 00:00:43,900
+Diyelim ki, bu tarz bir radyoloji görüntüsü örneğine bakmak istiyorsunuz
+
+12
+00:00:43,900 --> 00:00:48,010
+ve teşhisi sınıflandırmak için bir karar vermek istiyorsunuz.
+
+13
+00:00:49,155 --> 00:00:52,541
+Farz edelim ki sıradan, eğitimsiz bir insan
+
+14
+00:00:52,541 --> 00:00:55,350
+bu görevi %3 hata ile tamamlıyor.
+
+15
+00:00:55,350 --> 00:01:02,460
+Tipik bir doktor, belki de tipik bir radyoloji doktoru, %1 hata ile tamamlıyor.
+
+16
+00:01:02,460 --> 00:01:06,330
+Tecrübeli bir doktor ise çok daha iyi bir sonuç alıyor, %0.7 hata.
+
+17
+00:01:06,330 --> 00:01:11,370
+Eğer tecrübeli bir doktor ekibine ulaşırsanız,
+
+18
+00:01:11,370 --> 00:01:14,790
+ve onlardan bu görüntüye bakıp
+ tartışmalarını ve müzakere etmelerini isterseniz
+
+19
+00:01:14,790 --> 00:01:20,085
+birlikte, fikir birliğiyle verecekleri karar
+ yüzde %0.5 hataya payına sahip oluyor.
+
+20
+00:01:20,085 --> 00:01:25,247
+Yani size sormak istediğim soru, insan-düzeyindeki hatayı nasıl tanımlamalıyız?
+
+21
+00:01:25,247 --> 00:01:31,080
+Buradaki insan-düzeyinde hata oranı %3, %1, %0,7 mi yoksa %0.5 mi?
+
+22
+00:01:31,080 --> 00:01:34,910
+Bu videoyu durdurup bu konu
+ hakkında düşünmek isterseniz hiç çekinmeyin.
+
+23
+00:01:34,910 --> 00:01:39,690
+Ve bu soruyu cevaplamak için insan hatasını düşünmenin en kullanışlı yolunun
+
+24
+00:01:39,690 --> 00:01:45,990
+bir vekil veya Bayes teoremini tahmin etmek olduğunu aklınızda tutmanızı öneririm.
+
+25
+00:01:45,990 --> 00:01:50,360
+Bu yüzden lütfen bu videoyu durdurup üzerinde düşünmek istiyorsanız çekinmeyin.
+
+26
+00:01:50,360 --> 00:01:55,300
+Ancak ben insan-düzeyindeki hatayı şu şekilde tanımlardım:
+
+27
+00:01:55,300 --> 00:02:00,014
+Bayes teoremi için bir vekillik veya tahmin istiyorsanız, 
+
+28
+00:02:00,014 --> 00:02:04,924
+tecrübeli bir doktor grubunun tartışması ve müzakeresi sonucunda
+
+29
+00:02:04,924 --> 00:02:08,102
+%0.5 hataya ulaşabilirler,
+
+30
+00:02:08,102 --> 00:02:12,649
+biz ise Bayes teoreminin %0.5'ten daha az bir değere
+ eşit olduğunu biliyoruz.
+
+31
+00:02:12,649 --> 00:02:17,801
+Bir sistemden ötürü, bu doktor grubu %0.5 hata oranına ulaşabiliyor,
+
+32
+00:02:17,801 --> 00:02:23,366
+yani direkt olarak bu tanıma göre, optimal hata %0.5 veya daha az olmalı.
+
+33
+00:02:23,366 --> 00:02:26,680
+Ne kadar daha iyi olduğunu bilemiyoruz, belki çok daha büyük ve
+
+34
+00:02:26,680 --> 00:02:29,488
+daha tecrübeli bir doktor grubu çok daha iyi bir sonuç alabilir
+
+35
+00:02:29,488 --> 00:02:32,087
+yani bu sonuç %0.5'ten birazcık daha iyi olabilir.
+
+36
+00:02:32,087 --> 00:02:36,325
+Ancak biliyoruz ki optimal hata %0.5'ten daha yüksek olamaz.
+
+37
+00:02:36,325 --> 00:02:43,265
+Benim bu durumda yapacağım şey %0.5'i Bayes teoreminin
+ tahmini değeri olarak kullanmak olurdu.
+
+38
+00:02:43,265 --> 00:02:48,548
+Yani insan-düzeyinde performansı %0.5 olarak tanımlardım.
+
+39
+00:02:48,548 --> 00:02:52,928
+En azından insan-düzeyinde hatayı yanlılık ve değişkenlik analizinde
+
+40
+00:02:52,928 --> 00:02:55,300
+son video'da gördüğümüz gibi kullanmayı umut ediyorsanız.
+
+41
+00:02:56,330 --> 00:02:59,370
+Şimdi, bir araştırma makalesi yayınlama veya 
+
+42
+00:02:59,370 --> 00:03:03,535
+bir sistemi uygulama amacı için, belki insan-düzeyindeki hatanın 
+
+43
+00:03:03,535 --> 00:03:06,725
+tipik bir doktorun performansını aşabilene kadar kullanabileceğiniz 
+
+44
+00:03:06,725 --> 00:03:10,675
+farklı bir tanımı vardır.
+
+45
+00:03:10,675 --> 00:03:13,865
+Bu sanki başarılırsa çok yararlı bir sonuç olarak görülebilir,ve
+
+46
+00:03:13,865 --> 00:03:18,002
+belki tek bir radyologu, tek bir doktorun performansını aşabilmek
+
+47
+00:03:18,002 --> 00:03:21,312
+sistemin bazı ortamlarda uygulanmaya hazır olduğu manasına gelebilir.
+
+48
+00:03:22,342 --> 00:03:26,412
+Öyleyse, bu insan-düzeyindeki hata terimini
+
+49
+00:03:26,412 --> 00:03:28,902
+tanımlamadaki amacınızın ne olduğunu netleştirmektedir.
+
+50
+00:03:28,902 --> 00:03:34,006
+Ve eğer bu, tek bir insanı aşabileceğinizi ve bu nedenle sisteminizi bir ortamda uygulamayı savunduğunuzu
+
+51
+00:03:34,006 --> 00:03:39,126
+gösteriyorsa,belki de bu uygun bir tanımdır.
+
+52
+00:03:39,126 --> 00:03:41,642
+Ama eğer sizin amacınız Bayes hatası için bir vekillik ise
+
+53
+00:03:41,642 --> 00:03:44,976
+işte bu uygun olan tanımdır.
+
+54
+00:03:44,976 --> 00:03:48,662
+Bunun neden önemli olduğunu görmek için, hadi bir hata analiz örneğine bakalım.
+
+55
+00:03:51,642 --> 00:03:55,830
+Hadi, tıbbi bir görüntüleme tanı örneği için
+
+56
+00:03:55,830 --> 00:04:00,320
+diyelim ki sizin eğitim hatanız yüzde 5 ve geliştirme hatanız yüzde 6.
+
+57
+00:04:00,320 --> 00:04:05,260
+Ve öncedeki slayttaki örnekten ,bizim insan-düzey performansımızı,
+
+58
+00:04:05,260 --> 00:04:08,688
+Bayes hatası için bir vekil olarak düşüneceğim.
+
+59
+00:04:12,460 --> 00:04:17,577
+Tanımladığınız şeyin tipik bir doktorun performansı mı veya
+
+60
+00:04:17,577 --> 00:04:22,362
+tecrübeli bir doktorunki mi, ya da tecrübeli bir doktor takımı mı olduğuna göre değişmekle beraber,
+
+61
+00:04:22,362 --> 00:04:24,599
+yüzde 1 , yüzde 0.7 ,yüzde 0.5'i düşünebilirsiniz.
+
+62
+00:04:24,599 --> 00:04:28,476
+Ve önceki videodaki tanımlarımızı da hatırlayın,
+
+63
+00:04:28,476 --> 00:04:32,504
+Bayes hatası veya Bayes hatasının tahmini ve
+
+64
+00:04:32,504 --> 00:04:36,625
+eğitim hatası arasındaki şu boşluk önlenebilir bir yanlılığın ölçüsü olarak adlandırılır.
+
+65
+00:04:36,625 --> 00:04:40,633
+Ve bu bir ölçü olarak ya da ne kadar çelişkili bir problemin olduğunun tahmini olarak
+
+66
+00:04:40,633 --> 00:04:42,067
+sizin öğrenme algoritmanızda bulunur.
+
+67
+00:04:44,417 --> 00:04:49,008
+Bu yüzden bu ilk örnekte, sizin seçtikleriniz ne olursa olsun,
+
+68
+00:04:49,008 --> 00:04:53,271
+önlenebilir yanlılığın ölçüsü yüzde 4 gibi bir şey olacaktır.
+
+69
+00:04:53,271 --> 00:04:56,784
+Eğer bunu yüzde 4.5'e çıkarırsanız, yüzde 0.5'i kullanırsanız, 
+
+70
+00:04:56,784 --> 00:05:02,526
+tahminimce, yüzde 4 gibi bir aralıkta olacaktır,halbuki bu yüzde 1'dir.
+
+71
+00:05:06,108 --> 00:05:08,013
+Öyleyse bu örnekte, söyleyebilirim ki,
+
+72
+00:05:08,013 --> 00:05:12,780
+gerçekten hangi insan-düzey hatası tanımını yani,
+
+73
+00:05:12,780 --> 00:05:15,435
+tipik bir doktorun hatasını veya
+
+74
+00:05:15,435 --> 00:05:20,361
+tek bir tecrübeli doktorun hatasını veya bir takım tecrübeli doktorun hatasını kullanmanızın bir önemi yoktur.
+
+75
+00:05:20,361 --> 00:05:27,520
+Bu yüzde 4 veya yüzde 4.5 olsa da, bu açıkca çelişkili problemden daha büyük bir problemdir.
+
+76
+00:05:27,520 --> 00:05:29,020
+Ve bu yüzden bu mevzuda,
+
+77
+00:05:29,020 --> 00:05:34,490
+daha büyük bir ağı eğitmek gibi yanlılık indirgeme tekniklerini kullanmalısınız.
+
+78
+00:05:34,490 --> 00:05:36,970
+Şimdi ikinci bir örneğe bakalım.
+
+79
+00:05:36,970 --> 00:05:42,880
+Eğitim hatanız yüzde 1 ve geliştirme(dev) hatanız yüzde 5 olsun.
+
+80
+00:05:42,880 --> 00:05:45,386
+Yine gerçekten bir önem arz etmeyecek ve,
+
+81
+00:05:45,386 --> 00:05:49,617
+akademik olarak insan düzeyindeki performansın yüzde 1, yüzde 0.7 ya da yüzde 0.5 olup olmadığı görülecektir.
+
+82
+00:05:49,617 --> 00:05:54,599
+Çünkü bu tanımlardan hangisini kullanırsanız kullanın, sizin önlenebilir yanlılığınızın ölçüsü
+
+83
+00:05:54,599 --> 00:05:59,517
+eğer bunu kullanırsanız yüzde 0 ila yüzde 0.5 arasında bir yerde olacaktır,sanırım.
+
+84
+00:05:59,517 --> 00:06:03,268
+Bu insan-düzey performansı ve sizin eğitim hatanızın arasındaki şu boşluktur,
+
+85
+00:06:03,268 --> 00:06:04,516
+halbuki bu boşluk yüzde 4'tür.
+
+86
+00:06:04,516 --> 00:06:08,976
+Bu yüzden, bu yüzde 4 her halükarda önlenebilir yanlılıktan daha büyük olacaktır.
+
+87
+00:06:08,976 --> 00:06:13,355
+Ve bu yüzden, bunlar sadece sizin düzeltme veya daha büyük bir eğitim seti alma gibi 
+
+88
+00:06:13,355 --> 00:06:16,571
+tutarsızlık azaltma tekniklerine odaklanmanız gerektiğini ima eder.
+
+89
+00:06:16,571 --> 00:06:20,946
+Ama, bu eğer sizin eğitim hatnız yüzde 0.7 ise gerçekten önemli hale gelir.
+
+90
+00:06:20,946 --> 00:06:26,830
+Bu yüzden, şu an gayet iyi gidiyorsunuz, ve sizin geliştirme(dev) hatanız yüzde 0.8.
+
+91
+00:06:26,830 --> 00:06:33,597
+Burada, sizin Bayes hatası için tahmininizi yüzde 0.5 olarak kullanmanız gerçekten önemlidir.
+
+92
+00:06:36,027 --> 00:06:41,303
+Çünkü bu durumda, sizin ne kadar önlenebilir yanlılığa sahip olduğunuzun ölçüsü yüzde 0.2 idir ve
+
+93
+00:06:41,303 --> 00:06:46,512
+bu tutarsızlığınız için olan yüzde 0.1'lik ölçünün iki katı kadardır.
+
+94
+00:06:48,592 --> 00:06:52,226
+Ve bu yüzden, belki de bu yanlılığın ve tutarsızlığın ikisinin de problem olduğunu destekleyebilir ancak,
+
+95
+00:06:52,226 --> 00:06:54,880
+önlenebilir yanlılık birazcık daha büyük bir sorundur.
+
+96
+00:06:54,880 --> 00:07:00,000
+Ve bu örnekte, önceki slaytta tartıştığımız gibi yüzde 0.5 Bayes hatasının en iyi ölçüsüydü,
+
+97
+00:07:00,000 --> 00:07:04,130
+çünkü insan doktorlardan oluşan bir ekip şu performansı başarabilirdi.
+
+98
+00:07:04,130 --> 00:07:08,711
+Eğer, 0.7'yi vekiliniz olarak kullansaydınız, 
+
+99
+00:07:08,711 --> 00:07:13,200
+önlenebilir yanlılığı yaklaşık olarak yüzde 0 olarak tahmin eder ve bunu kaçırabilirdiniz.
+
+100
+00:07:13,200 --> 00:07:15,870
+Doğrusu, eğitim setinizi daha iyi yapmak için uğraşmanız gerek.
+
+101
+00:07:18,085 --> 00:07:22,640
+Böylece umarım, bu size makine öğrenmesinde bir problemdeki ilerlemenin 
+
+102
+00:07:22,640 --> 00:07:27,660
+insan-düzeyindeki performansa ulaşıp yaklaştıkça neden zorlaştığının fikrini de verir.
+
+103
+00:07:27,660 --> 00:07:31,600
+Bu örnekte, bir kez yüzde 0.7'lik hataya yaklaştık.
+
+104
+00:07:31,600 --> 00:07:35,300
+Eğer Bayes hatasını tahmin etme konusunda çok dikkatli değilseniz,
+
+105
+00:07:35,300 --> 00:07:38,620
+Bayes hatasından ne kadar uzakta olduğunuzu bile bilemeyebilirsiniz.
+
+106
+00:07:38,620 --> 00:07:42,999
+Ve bu yüzden, önlenebilir yanlılığı azaltmak için ne kadar uğraşmanız gerekecek?
+
+107
+00:07:42,999 --> 00:07:47,691
+Aslında, hepiniz tek bir doktorun yüzde bir hatayla başaracağını biliyordunuz,ve
+
+108
+00:07:47,691 --> 00:07:52,247
+eğer eğitim setinizin daha iyi olması için uğraşmanız gerekiyorsa 
+
+109
+00:07:52,247 --> 00:07:53,070
+bunu bilmek çok zor olabilir.
+
+110
+00:07:54,860 --> 00:07:58,720
+Ve zaten bu problem sadece siz probleminizi çok iyi çözerken ortaya çıkar,
+
+111
+00:07:58,720 --> 00:08:02,764
+sadece yüzde 0.7 ve 0.8'e yaklaştığınızda, gerçekten insan-düzey performansına çok yakınken.
+
+112
+00:08:04,430 --> 00:08:09,254
+Halbuki soldaki bu iki örnekte, siz insan-düzey performansından uzaktayken,
+
+113
+00:08:09,254 --> 00:08:13,530
+yanlılık ve değişinti üzerine odaklanmak çok daha kolaydı.
+
+114
+00:08:13,530 --> 00:08:17,209
+Yani bu, belki de insan seviyesindeki performansınızda aslında yanlılık ve ⏎  
+
+115
+00:08:17,209 --> 00:08:20,071
+değişinti etkilerini azaltmanın daha zor olduğunun göstergesidir.
+
+116
+00:08:20,071 --> 00:08:23,555
+Ve bu nedenle makine öğrenmesi projenizdeki ilerleme 
+
+117
+00:08:23,555 --> 00:08:24,810
+siz daha iyi yaptıkça zorlaşacaktır.
+
+118
+00:08:25,930 --> 00:08:28,590
+Ne hakkında konuştuğumuzu özetlemek gerekirse;
+
+119
+00:08:28,590 --> 00:08:31,863
+Eğer, insanların gayet iyi yapabileceği bir çalışma için insan düzeyi hatanın tahminini yaptığınız yerdeki
+
+120
+00:08:31,863 --> 00:08:36,734
+yanlılık ve değişintiyi anlamaya çalışıyorsanız,
+
+121
+00:08:36,734 --> 00:08:41,419
+insan-düzeyi hatasını Bayes hatası için birer vekil veya tahmin olarak kullanabilirsiniz.  
+
+122
+00:08:47,130 --> 00:08:51,917
+Ve böylece, Bayes hatası tahmininizle olan fark size önlenebilir yanlılığın ne kadar büyük bir problem olduğunu,
+
+123
+00:08:51,917 --> 00:08:56,568
+ne kadar önlenebilir yanlılığa sahip olduğunu anlatacaktır.
+
+124
+00:08:56,568 --> 00:08:59,767
+Ve eğitim hatanız ve geliştirme(dev) hatanız arasındaki fark,
+
+125
+00:08:59,767 --> 00:09:04,075
+değişintinin ne kadar büyük bir problem olduğunu,
+
+126
+00:09:04,075 --> 00:09:07,500
+algoritmanızın eğitim setinden geliştirme(dev) setine genelleyip genellemediğini anlatacaktır.
+
+127
+00:09:07,500 --> 00:09:10,708
+Ve tartışmamızla ve bir önceki kursta gördüğümüz şey arasındaki büyük farklılık 
+
+128
+00:09:10,708 --> 00:09:15,740
+eğitim hatasını yüzde 0'la karşılaştırmak yerine
+
+129
+00:09:18,471 --> 00:09:23,553
+sadece şu yanlılık tahminini uygulamaktır.
+
+130
+00:09:23,553 --> 00:09:28,400
+Buna ek olarak, bu videoda yüzde 0 hatası almanız gerektiğine dair 
+
+131
+00:09:28,400 --> 00:09:31,999
+özel bir beklentiye sahip olmayan daha fazla detaylı analize sahibiz.
+
+132
+00:09:31,999 --> 00:09:36,269
+Çünkü bazenleri Bayes hatası sıfırdan farklıdır ve bazenleri kesin bir hata eşiğinden
+
+133
+00:09:36,269 --> 00:09:39,198
+ daha iyisini yapmanın hiçbir yolu yoktur.
+
+134
+00:09:41,723 --> 00:09:46,305
+Ve bu yüzden bir önceki kursta, eğitim hatasını ölçmüş, ve
+
+135
+00:09:46,305 --> 00:09:49,895
+bunu eğitim hatasının sıfırdan ne kadar büyük olabileceğini görerek yapmıştık.
+
+136
+00:09:49,895 --> 00:09:53,720
+Ve yanlılığımızın da ne kadar büyük olduğunu anlamak için sadece bunu kullanmıştık.
+
+137
+00:09:53,720 --> 00:09:58,458
+Ve bu sadece Bayes hatasının neredeyse yüzde 0 olduğu problemler için iyi çalışınca ortaya çıkar,
+
+138
+00:09:58,458 --> 00:10:00,085
+kedileri tanımlama gibi.
+
+139
+00:10:00,085 --> 00:10:04,005
+İnsanlar bunda mükemmeldir bu yüzden, Bayes hatası da bunda mükemmelliğe yakındır
+
+140
+00:10:04,005 --> 00:10:07,525
+Bu yüzden aslında Bayes hatası sıfıra yakınken, bu gayet iyi çalışır.
+
+141
+00:10:07,525 --> 00:10:11,441
+Ancak problemlere gelindiğinde, veri çok gürültülü olduğunda, mesela gürültülü bir seste tanımlama yapıldığında,
+
+142
+00:10:11,441 --> 00:10:14,831
+ne söylendiğini anlamak ve doğru transkripsiyonu almak  
+
+143
+00:10:14,831 --> 00:10:16,594
+neredeyse imkansızdır.
+
+144
+00:10:16,594 --> 00:10:19,239
+Bunun gibi problemler için, Bayes hatası için daha iyi tahminler yapmak,
+
+145
+00:10:19,239 --> 00:10:22,787
+size daha iyi yanlılık ve değişinti tahmini yapmanıza yardım eder.
+
+146
+00:10:22,787 --> 00:10:26,569
+Ve bu yüzden, yanlılık azaltma veya değişinti azaltma taktiklerine, neye odaklandığınız fark etmeksizin,
+
+147
+00:10:26,569 --> 00:10:28,955
+her zaman daha iyi kararlar vermeye çalışın.
+
+148
+00:10:30,915 --> 00:10:34,855
+Tekrarlamak gerekirse, insan-düzey performansı tahmin etmek size
+
+149
+00:10:34,855 --> 00:10:36,442
+Bayes hatasının tahminini verecektir
+
+150
+00:10:36,442 --> 00:10:40,468
+Ve bu sizin daha hızlı karar almanıza olanak sağlayacak ve
+
+151
+00:10:40,468 --> 00:10:44,390
+algoritmanızın yanlılığını ve ya değişintisini azaltmaya çalışıyorsanız, hangisinde çalışırsanız çalışın, bu size yardımcı olacaktır. 
+
+152
+00:10:45,690 --> 00:10:50,190
+Ve bu teknikler insan-düzey performansını aşana kadar çalışma eğilimindedir,
+
+153
+00:10:50,190 --> 00:10:54,750
+üstelik hala size yardım eden ve gerçekten net kararlar aldıran 
+
+154
+00:10:54,750 --> 00:10:57,420
+ iyi bir Bayes hatasıyla karşılaştırmayacaktır.
+
+155
+00:10:58,470 --> 00:11:01,980
+Şimdi, derin öğrenmedeki heyecanlı gelişmelerden biri 
+
+156
+00:11:01,980 --> 00:11:06,360
+giderek daha fazla yerde insan-düzey performansını aşabilecek duruma geliyor olmamızdır.
+
+157
+00:11:06,360 --> 00:11:07,630
+Bir sonraki videoda,
+
+158
+00:11:07,630 --> 00:11:11,394
+insan-düzey performansını aşma süreci hakkında biraz daha fazla konuşalım.

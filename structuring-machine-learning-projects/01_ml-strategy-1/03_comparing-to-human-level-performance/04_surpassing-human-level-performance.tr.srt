@@ -1,0 +1,427 @@
+1
+00:00:00,000 --> 00:00:03,075
+Bir çok takım belirli ve eğlence amaçlı sınıflandırma görevlerinde 
+
+2
+00:00:03,075 --> 00:00:07,305
+insan seviyesi performansı geçebilmeyi çok heyecan verici buluyor.
+
+3
+00:00:07,305 --> 00:00:12,355
+Hadi şimdi bunu kendi başınıza başarmayı denediğinizde karşılaşacağınız şeylerden bahsedelim.
+
+4
+00:00:12,355 --> 00:00:15,570
+Daha önce makine öğrenimi ilerleyişinin insan seviyesi performansa
+
+5
+00:00:15,570 --> 00:00:19,895
+yaklaştıkça ve hatta geçtikçe daha zorlaştığını konuşmuştuk.
+
+6
+00:00:19,895 --> 00:00:23,480
+Bunun neden böyle olduğuyla ilgili bir örnek daha verelim.
+
+7
+00:00:23,480 --> 00:00:26,820
+Diyelim ki insanlardan oluşan tartışan ve karara varan bir takımın
+
+8
+00:00:26,820 --> 00:00:30,105
+0.5% hataya ulaştığını varsayalım,
+
+9
+00:00:30,105 --> 00:00:32,465
+tek bir kişi 1% hataya sahip olsun,
+
+10
+00:00:32,465 --> 00:00:38,785
+ve algoritmanızın 0.6% eğitim seti hatası ve 0.8% geliştirme seti hatasına sahip olduğunu varsayalım.
+
+11
+00:00:38,785 --> 00:00:40,440
+Bu durumda,
+
+12
+00:00:40,440 --> 00:00:46,093
+önlenebilir yanlılık kaç olur?
+
+13
+00:00:46,093 --> 00:00:50,460
+bu soruya cevap vermesi göreceli olarak kolay,
+
+14
+00:00:50,460 --> 00:00:53,420
+0.5% sizin tahmini taban hatanızı oluşturuyor
+
+15
+00:00:53,420 --> 00:00:54,990
+dolayısıyla önlenebilir yanlılığınız,
+
+16
+00:00:54,990 --> 00:00:57,360
+(burada 1% sayısını referans almayacaksınız,
+
+17
+00:00:57,360 --> 00:00:58,625
+burada bu farkı kullanabilirsiniz)
+
+18
+00:00:58,625 --> 00:01:06,360
+dolayısıyla önlenebilir yanlılığınızın tahmini en az 0.1% ve değişintiniz 0.2%.
+
+19
+00:01:06,360 --> 00:01:13,805
+dolayısıyla belki de değişintinizi azaltmak için önlenebilir yanlılığınızı azaltmaktan daha fazla yapılabilecek şey var
+
+20
+00:01:13,805 --> 00:01:16,795
+fakat şimdi daha zor bir örneği ele alalım, diyelim ki,
+
+21
+00:01:16,795 --> 00:01:20,730
+insanlardan oluşan takımın ve tek bir kişinin performansı aynı kalsın,
+
+22
+00:01:20,730 --> 00:01:24,300
+fakat algoritmanız bu sefer 0.3% eğitim seti hatası alsın,
+
+23
+00:01:24,300 --> 00:01:28,635
+ve 0.4% geliştirme seti hatası alsın
+
+24
+00:01:28,635 --> 00:01:31,405
+bu durumda, önlenebilir yanlılık kaç olurdu?
+
+25
+00:01:31,405 --> 00:01:34,425
+aslında bu soruya cevap vermek çok daha zor
+
+26
+00:01:34,425 --> 00:01:36,940
+eğtim seti hatanızın 0.3% olması,
+
+27
+00:01:36,940 --> 00:01:41,415
+0.2% oranında aşırı öğrendiğiniz anlamına mı geliyor?
+
+28
+00:01:41,415 --> 00:01:44,505
+ya da taban hatanızın 0.1% olduğu anlamına mı geliyor?
+
+29
+00:01:44,505 --> 00:01:46,740
+ya da belki de 0.2% olduğu?
+
+30
+00:01:46,740 --> 00:01:49,455
+ya da belki de 0.3% olduğu?
+
+31
+00:01:49,455 --> 00:01:51,564
+bunu tam olarak bilmiyorsunuz,
+
+32
+00:01:51,564 --> 00:01:56,935
+fakat bu örnekte verilen bilgilere dayanarak söylemek gerekirse,
+
+33
+00:01:56,935 --> 00:02:01,150
+algoritmanızdaki yanlılığı mı değişintiyi mi azaltmanız gerektiğine
+
+34
+00:02:01,150 --> 00:02:05,845
+odaklanmanızı söyleyecek yeterli bilgiye sahip olmadığınızı söylemek mümkün
+
+35
+00:02:05,845 --> 00:02:10,810
+dolayısıyla bu ilerleme kaydetmeniz gereken yerde verimliliğin azalmasına sebep olan bir durum.
+
+36
+00:02:10,810 --> 00:02:15,005
+Dahası, örnek vermek gerekirse sizin hatanız(algoritmanızın hatası),
+
+37
+00:02:15,005 --> 00:02:20,020
+insanlardan oluşan tartışan ve sonuca varan takımın hatasından bile halihazırda iyi ise,
+
+38
+00:02:20,020 --> 00:02:25,150
+bu durumda algoritmanızın performansını geliştirmenin
+
+39
+00:02:25,150 --> 00:02:27,939
+yollarını ararken insan sezgilerine güvenmekte
+
+40
+00:02:27,939 --> 00:02:30,970
+zor hale gelecektir.
+
+41
+00:02:30,970 --> 00:02:32,275
+Bu yüzden bu örnekte,
+
+42
+00:02:32,275 --> 00:02:35,950
+0.5% sınırını geçtiğiniz zaman,
+
+43
+00:02:35,950 --> 00:02:38,920
+seçenekleriniz ya da makine öğrenimi probleminde,
+
+44
+00:02:38,920 --> 00:02:43,540
+gelişim sağlamanızın yolları daha belirsiz hale gelir.
+
+45
+00:02:43,540 --> 00:02:45,207
+Bu gelişim sağlayamayacağınız anlamına gelmez,
+
+46
+00:02:45,207 --> 00:02:48,655
+hala önemli geliştirmeler yapma imkanınız mevcut,
+
+47
+00:02:48,655 --> 00:02:51,130
+fakat sizin daha iyi bir noktaya gelmenizi sağlayacak
+
+48
+00:02:51,130 --> 00:02:55,720
+bazı araçlar eskisi kadar iyi çalışmaz.
+
+49
+00:02:55,720 --> 00:02:58,690
+Şu anda, makine öğreniminin insan seviyesi performansı
+
+50
+00:02:58,690 --> 00:03:02,365
+önemli ölçüde geçebildiği bir çok problem mevcut.
+
+51
+00:03:02,365 --> 00:03:03,970
+Örnek olarak, şu an düşündüğümde,
+
+52
+00:03:03,970 --> 00:03:08,515
+çevirimiçi reklamcılıkta, birisinin reklama tıklaması ihtimalini tahmin etmekte
+
+53
+00:03:08,515 --> 00:03:12,685
+muhtemelen, öğrenme algoritmaları bu konuda insandan çok daha iyi bir performans sergileyebilir,
+
+54
+00:03:12,685 --> 00:03:14,505
+ya da ürün önerilerinde,
+
+55
+00:03:14,505 --> 00:03:17,690
+alacağınız filim veya kitap önerilerinde,
+
+56
+00:03:17,690 --> 00:03:20,290
+bence günümüzdeki web siteleri belki de en yakın arkadaşımızın
+
+57
+00:03:20,290 --> 00:03:23,510
+önerebileceğinden daha iyi önerilerde bulunabiliyor.
+
+58
+00:03:23,510 --> 00:03:26,800
+A noktasında B noktasına ne kadar zamanda gidebileceğinize yönelik tahminleri hesaplamaların tamamı ya da
+
+59
+00:03:26,800 --> 00:03:30,580
+teslimat aracının A noktasından B noktasına olan teslimatın ne kadar zaman alacağınına yönelik tahminler ya da
+
+60
+00:03:30,580 --> 00:03:34,795
+birisinin krediyi ödeyip ödemeyeceğini tahmin etme ve
+
+61
+00:03:34,795 --> 00:03:39,155
+bu bakımdan kredi teklifi yapmanız mı yapmamanız mı gerektiği konusunun tahmini,...
+
+62
+00:03:39,155 --> 00:03:42,430
+bütün bu problemlerde düşünüyorum da, günümüz makine öğrenimi
+
+63
+00:03:42,430 --> 00:03:46,930
+tek bir insan performansının çok daha önüne geçmiştir.
+
+64
+00:03:46,930 --> 00:03:49,450
+Verilen bu 4 örnekle ilgili bir şey fark edin,
+
+65
+00:03:49,450 --> 00:03:53,970
+bütün bu 4 örnekte aslında yapılı verilerden öğrenme mevcut
+
+66
+00:03:53,970 --> 00:03:58,250
+buradaki yapılı verilerde,kullanıcıların neye tıkladığıyla ilgili
+
+67
+00:03:58,250 --> 00:04:00,520
+veya daha önce ne satın aldığıyla ilgili
+
+68
+00:04:00,520 --> 00:04:03,022
+veya A'dan B'ye ne kadar zamanda gidileceği ile ilgili
+
+69
+00:04:03,022 --> 00:04:07,825
+veya önceki krediler ve sonuçlarıyla ilgili veritabanları mevcuttur
+
+70
+00:04:07,825 --> 00:04:11,740
+ve dikkat ederseniz bunlar doğal algı problemleri değiller,
+
+71
+00:04:11,740 --> 00:04:14,395
+dolayısıyla bunlar bilgisayarlı görü problemi,
+
+72
+00:04:14,395 --> 00:04:18,980
+konuşma tanıma, doğal dil işleme gibi insanların oldukça iyi
+
+73
+00:04:18,980 --> 00:04:23,260
+performans sergilediği doğal algı problemleri değillerdir.
+
+74
+00:04:23,260 --> 00:04:25,090
+Dolayısıyla, bunun gibi
+
+75
+00:04:25,090 --> 00:04:27,580
+doğal algı problemlerinde bilgisayarların
+
+76
+00:04:27,580 --> 00:04:31,275
+insan seviyesi performansı geçmesi mümkün olmakla birlikte daha zordur
+
+77
+00:04:31,275 --> 00:04:34,360
+özetle burada gördüğünüz , büyük miktarlarda veriye erişim sağlayan
+
+78
+00:04:34,360 --> 00:04:38,555
+takımların olduğu bütün bu problemlerde makine öğrenimi öne geçer
+
+79
+00:04:38,555 --> 00:04:43,480
+çünkü, bu 4 uygulamadaki en iyi sistemler o uygulamayla ilgili muhtemelen
+
+80
+00:04:43,480 --> 00:04:49,075
+herhangi bir insanın bakabileceğinden çok daha fazla veriye bakmıştır
+
+81
+00:04:49,075 --> 00:04:51,910
+ve böylelikle bir bilgisayarın
+
+82
+00:04:51,910 --> 00:04:56,450
+insan seviyesi performansı geçmesi kolay hale gelir.
+
+83
+00:04:56,450 --> 00:04:59,910
+Dolayısıyla, bilgisayarların inceleyebileceği çok fazla veri olduğu için,
+
+84
+00:04:59,910 --> 00:05:04,525
+bazı örüntüleri insan beyninden daha iyi tanımlayabilir.
+
+85
+00:05:04,525 --> 00:05:06,650
+Bu problemelerin dışında,
+
+86
+00:05:06,650 --> 00:05:12,340
+günümüzde insan seviyesi performansı geçebilecek konuşma tanıma sistemleri mevcuttur
+
+87
+00:05:12,340 --> 00:05:15,340
+ve aynı zamanda bilgisayarların
+
+88
+00:05:15,340 --> 00:05:17,740
+insan seviyesi performansı geçtiği bazı bilgisayarlı görü
+
+89
+00:05:17,740 --> 00:05:21,670
+veya görüntü tanıma sistemleri de mevcuttur
+
+90
+00:05:21,670 --> 00:05:25,060
+fakat insanlar bu tarz doğal algı görevlerinde çok iyi oldukları için,
+
+91
+00:05:25,060 --> 00:05:28,160
+bilgisayarların insan seviyesine gelmesinin zorlu bir süreç olduğunu düşünüyorum
+
+92
+00:05:28,160 --> 00:05:30,595
+ve bunların yanı sıra bazı tıbbi görevler mevcut,
+
+93
+00:05:30,595 --> 00:05:34,585
+örnek verirsek, ECG'leri okumak veya deri kanseri tanısını koymak gibi,
+
+94
+00:05:34,585 --> 00:05:37,570
+ya da belirlenmiş bir radyoloji görevini yerine getirmek,
+
+95
+00:05:37,570 --> 00:05:40,300
+bu tarz örneklerde bilgisayarlar gittikçe gelişiyor ve
+
+96
+00:05:40,300 --> 00:05:44,310
+belki de günümüzde tek kişi performansını geçebilecek düzeydeler
+
+97
+00:05:44,310 --> 00:05:46,510
+ve bence derin öğrenmedeki son zamanlardaki
+
+98
+00:05:46,510 --> 00:05:48,970
+heyecan verici gelişmelerden biri ise bu görevler için
+
+99
+00:05:48,970 --> 00:05:53,935
+bile günümüzde insan seviyesi performansını bazı durumlarda geçebiliyoruz
+
+100
+00:05:53,935 --> 00:05:56,650
+fakat bu zor bir süreç çünkü
+
+101
+00:05:56,650 --> 00:06:00,070
+insanlar bu tarz doğal algı görevlerinde çok iyi performansa sahipler.
+
+102
+00:06:00,070 --> 00:06:04,285
+Dolayısıyla insan seviyesi performansı geçmek çoğunlukla kolay olduğu söylenemez
+
+103
+00:06:04,285 --> 00:06:08,290
+fakat yeterli veri verildiğinde tek bir gözetimli problemde
+
+104
+00:06:08,290 --> 00:06:12,455
+insan seviyesi performansı geçebilecek ve üzerinde çalıştığınız uygulamada fayda
+
+105
+00:06:12,455 --> 00:06:15,120
+sağlayabilecek birçok derin öğrenme sistemi mevcut.
+
+106
+00:06:15,120 --> 00:06:17,660
+Umarım bir gün siz de derin öğrenme sisteminizi,
+
+107
+00:06:17,660 --> 00:06:21,300
+insan seviyesi performansı geçebilecek seviyeye getirmeyi başarırsınız.

@@ -1,0 +1,383 @@
+1
+00:00:00,000 --> 00:00:01,370
+Son videoda,
+
+2
+00:00:01,370 --> 00:00:05,445
+Geçerleme ve test kümesinin aynı dağılımdan nasıl geldiğini görmüştünüz
+
+3
+00:00:05,445 --> 00:00:07,370
+ama bu dağılım nasıl olmalı?
+
+4
+00:00:07,370 --> 00:00:08,780
+Geçerleme ve test kümelerinizi oluşturmanıza yardımcı olacak yönergeler
+
+5
+00:00:08,780 --> 00:00:11,955
+Deep Learning döneminde değişiyor.
+
+6
+00:00:11,955 --> 00:00:14,645
+En iyi uygulamalara bir göz atalım.
+
+7
+00:00:14,645 --> 00:00:17,870
+Makine öğrenmesinde belki temel kural olarak duymuşsunuzdur;
+
+8
+00:00:17,870 --> 00:00:20,489
+sahip olunan tüm verilerin alındığını
+
+9
+00:00:20,489 --> 00:00:26,495
+ve 70/30 şeklinde eğitim ve test veri kümesi olarak bölünerek kullanıldığını
+
+10
+00:00:26,495 --> 00:00:30,800
+veya belki eğitim, geçerleme ve test kümesi olarak kullanmak zorundaysanız,
+
+11
+00:00:30,800 --> 00:00:42,705
+%60 eğitim, %20 geçerleme ve %20 test kümesi olarak kullanabilirsiniz.
+
+12
+00:00:42,705 --> 00:00:47,200
+Makine öğreniminin önceki dönemlerinde,
+
+13
+00:00:47,200 --> 00:00:50,155
+bu oldukça makuldu,
+
+14
+00:00:50,155 --> 00:00:54,550
+özellikle veri kümesinin boyutları daha küçük olduğunda.
+
+15
+00:00:54,550 --> 00:00:57,085
+Yani toplamda yüz örneğiniz olsaydı,
+
+16
+00:00:57,085 --> 00:01:03,555
+Bu 70/30 veya 60/20/20 temel kural oldukça makul olacaktı.
+
+17
+00:01:03,555 --> 00:01:05,485
+Eğer bin örneğiniz olsaydı,
+
+18
+00:01:05,485 --> 00:01:09,070
+belki on bin örneğiniz olsaydı,
+
+19
+00:01:09,070 --> 00:01:13,070
+bunlar mantıksız değildir.
+
+20
+00:01:13,070 --> 00:01:16,255
+Fakat modern makine öğrenmesi döneminde,
+
+21
+00:01:16,255 --> 00:01:20,310
+artık çok daha büyük veri kümesi boyutları ile çalışıyoruz.
+
+22
+00:01:20,310 --> 00:01:26,430
+Diyelim ki bir milyon eğitim örneğiniz var,
+
+23
+00:01:26,430 --> 00:01:29,490
+verilerinizin makul şekilde ayarlanması
+
+24
+00:01:29,490 --> 00:01:33,810
+verinizin %98'ini öğretim kümesi,
+
+25
+00:01:33,810 --> 00:01:40,437
+%1'i geçerleme ve %1'i test kümesi olacak şekilinde olabilir.
+
+26
+00:01:40,437 --> 00:01:44,590
+Ve geçerleme ve test kümelerini kısaltmak için DNT'yi kullandığınızda.
+
+27
+00:01:44,590 --> 00:01:46,710
+Eğer siz bir milyon örneğe sahipseniz,
+
+28
+00:01:46,710 --> 00:01:48,285
+o zaman bunun %1'i
+
+29
+00:01:48,285 --> 00:01:54,800
+10.000 örnektir ve bu, bir geçerleme kümesi veya bir test kümesi için yeterli olabilir.
+
+30
+00:01:54,800 --> 00:02:00,255
+Dolayısıyla, bazen daha da büyük veri kümelerine sahip olduğumuz modern Derin Öğrenme döneminde,
+
+31
+00:02:00,255 --> 00:02:04,020
+Mantıklı olan verilerinizin % 20
+
+32
+00:02:04,020 --> 00:02:07,785
+veya 30'undan daha küçük bir miktarını geçerleme veya test kümesi için kullanmak olabilir.
+
+33
+00:02:07,785 --> 00:02:12,690
+ve Derin Öğrenme algoritmaları veri konusunda çok büyük bir açlığa sahip olduğu için, görüyorum ki
+
+34
+00:02:12,690 --> 00:02:16,020
+Problemler bizim büyük veri kümelerine sahip olmamız
+
+35
+00:02:16,020 --> 00:02:20,430
+ki onlar daha büyük bir kısmı eğitim kümesi olan.
+
+36
+00:02:20,430 --> 00:02:24,447
+Peki ya test kümesi?
+
+37
+00:02:24,447 --> 00:02:28,930
+Test setinin amacını hatırlarsak,
+
+38
+00:02:28,930 --> 00:02:30,865
+bir sistemi geliştirdikten sonra
+
+39
+00:02:30,865 --> 00:02:34,360
+test kümesi, son sisteminizin ne kadar iyi olduğunu değerlendirmenize yardımcı olur.
+
+40
+00:02:34,360 --> 00:02:37,690
+Temel ilke, test kümesini yeterli büyüklükte ayarlamak
+
+41
+00:02:37,690 --> 00:02:41,150
+sistemin genel performansını en yüksek güvenilirlik değerini verecek şekilde.
+
+42
+00:02:41,150 --> 00:02:43,690
+Yani, sizin
+
+43
+00:02:43,690 --> 00:02:48,090
+son sisteminizin ne kadar iyi performans gösterdiğine dair çok doğru bir ölçüme sahip olmanız gerekmedikçe,
+
+44
+00:02:48,090 --> 00:02:54,059
+belki de bir test kümesinde milyonlarca ve milyonlarca örneğe ihtiyacınız yoktur,
+
+45
+00:02:54,059 --> 00:02:57,640
+ve belki de sizin uygulamanız için 10,000 örneğe sahip olmanızın
+
+46
+00:02:57,640 --> 00:03:00,545
+performansı bulmanız için yeterli güvenilirliğe sahip olduğunu düşünüyorsanız,
+
+47
+00:03:00,545 --> 00:03:03,725
+belki 100.000 üzerinde , bu yeterli olabilir.
+
+48
+00:03:03,725 --> 00:03:05,260
+Ve bu daha az olabilir
+
+49
+00:03:05,260 --> 00:03:07,340
+toplam veri kümesinin% 30'undan, 
+
+50
+00:03:07,340 --> 00:03:08,440
+sahip olduğunuz veri miktarına bağlı olarak.
+
+51
+00:03:08,440 --> 00:03:13,250
+Bazı uygulamalar için
+
+52
+00:03:13,250 --> 00:03:18,320
+belki de son sisteminizin genel performansında yüksek bir güvene ihtiyacınız yoktur.
+
+53
+00:03:18,320 --> 00:03:23,055
+Belkide tek ihtiyacın olan bir eğitim ve geçerleme kümesidir,
+
+54
+00:03:23,055 --> 00:03:29,230
+ve bir test kümesinin olmaması daha iyi olabilir diye düşünüyorum.
+
+55
+00:03:29,230 --> 00:03:31,685
+Gerçekte, bazen
+
+56
+00:03:31,685 --> 00:03:33,965
+insanlar kullanmaktan bahsediyorlardı
+
+57
+00:03:33,965 --> 00:03:40,580
+eğitim ve test bölmelerini ama onlar aslında test kümesinde yineleme yapıyorlardı.
+
+58
+00:03:40,580 --> 00:03:42,250
+Yani test seti yerine
+
+59
+00:03:42,250 --> 00:03:46,415
+eğitim geçerleme bölümlemesi varken, test kümesi yoktu.
+
+60
+00:03:46,415 --> 00:03:48,604
+Eğer gerçekten bu kümeyi ayarlıyorsanız,
+
+61
+00:03:48,604 --> 00:03:50,390
+yani bu geçerleme ve bu test kümesini,
+
+62
+00:03:50,390 --> 00:03:53,205
+bunu geçerleme kümesi olarak isimlendirmek daha iyi.
+
+63
+00:03:53,205 --> 00:03:56,335
+Buna rağmen makine öğrenmesinin tarihini düşünürsek,
+
+64
+00:03:56,335 --> 00:03:59,875
+herkes gerçekten temiz ve geçerleme kümesini çağırmaktan tamamen uzak değildi
+
+65
+00:03:59,875 --> 00:04:03,895
+test kümesi olarak ele alındığında.
+
+66
+00:04:03,895 --> 00:04:07,485
+Ancak, umursadığınız tek şey, üzerinde çalıştığın bazı veriler
+
+67
+00:04:07,485 --> 00:04:09,150
+ve ayarlanması gereken bazı verilere sahip olmaksa,
+
+68
+00:04:09,150 --> 00:04:11,682
+ve sadece son sistemi sarsacaksınız
+
+69
+00:04:11,682 --> 00:04:15,710
+ve aslında nasıl olduğu hakkında çok fazla endişelenmeyeceksiniz,
+
+70
+00:04:15,710 --> 00:04:17,940
+Sağlıklı olacağını düşündüğüm şey sadece eğitim kümesini belirlemek
+
+71
+00:04:17,940 --> 00:04:20,700
+ve test kümesinin olmadığını kabul etmek.
+
+72
+00:04:20,700 --> 00:04:22,720
+Bu biraz sıra dışı mı?
+
+73
+00:04:22,720 --> 00:04:26,970
+Bir sistem kurarken kesinlikle test kümesinin olmamasını tavsiye etmiyorum.
+
+74
+00:04:26,970 --> 00:04:30,225
+Ayrı bir test kümesinin olmasını güven verici buluyorum
+
+75
+00:04:30,225 --> 00:04:33,900
+siz onu değiştirmeden önce yaptığımın tarafsız bir tahminini yapmak için kullanabilirsiniz
+
+76
+00:04:33,900 --> 00:04:37,770
+ama çok büyük bir geçerleme kümeniz varsa
+
+77
+00:04:37,770 --> 00:04:41,650
+geçerleme kümesini çok kötü bir şekilde kullanamayacağınızı düşünürsünüz.
+
+78
+00:04:41,650 --> 00:04:45,200
+Belkide sadece bir eğitim kümesine sahip olmak tamamen mantıksız değildir,
+
+79
+00:04:45,200 --> 00:04:48,800
+genellikle tavsiye ettiğim bir şey olmamasına rağmen.
+
+80
+00:04:48,800 --> 00:04:51,600
+Özetlemek gerekirse, büyük veri çağında,
+
+81
+00:04:51,600 --> 00:04:54,500
+düşünüyorum ki 70/30 değerinin temel kuralının
+
+82
+00:04:54,500 --> 00:04:56,275
+artık geçerli değil.
+
+83
+00:04:56,275 --> 00:05:01,035
+Ve trend, eğitim için daha fazla veri ve geçerleme ve test için daha az kullanmak olmuştur.
+
+84
+00:05:01,035 --> 00:05:03,220
+özellikle çok büyük bir veri kümeniz olduğunda.
+
+85
+00:05:03,220 --> 00:05:06,960
+Ve temel kural gerçekten de geçerleme kümesini amacına uygun boyutta olacak şekilde ayarlamaya çalışmaktır
+
+86
+00:05:06,960 --> 00:05:11,110
+Bu, farklı fikirleri değerlendirmenize ve bunu AOP'dan daha iyi seçmenize yardımcı olur.
+
+87
+00:05:11,110 --> 00:05:15,450
+Ve test kümesinin amacı, alımlarınızın nihai bedelini değerlendirmenize yardımcı olmaktır.
+
+88
+00:05:15,450 --> 00:05:18,590
+Test setini bu amaç için yetecek büyüklükte tutmalısın
+
+89
+00:05:18,590 --> 00:05:21,710
+ve bu verilerin% 30'undan daha az olabilir.
+
+90
+00:05:21,710 --> 00:05:24,810
+Bu yüzden, umarım bazı rehberlik veya bazı önerilerde bulunulur
+
+91
+00:05:24,810 --> 00:05:28,710
+Geçerleme ve test kümelerinizi nasıl kuracağınıza dair Derin Öğrenme döneminde.
+
+92
+00:05:28,710 --> 00:05:30,595
+Daha sonra bazen,
+
+93
+00:05:30,595 --> 00:05:32,640
+bir makine öğrenimi problemi yoluyla
+
+94
+00:05:32,640 --> 00:05:34,800
+değerlendirme metriğinizi değiştirmek
+
+95
+00:05:34,800 --> 00:05:36,615
+veya geçerleme veya test kümenizi değiştirmek isteyebilirsiniz.
+
+96
+00:05:36,615 --> 00:05:38,250
+Bunun hakkında ne zaman isterseniz konuşuruz.

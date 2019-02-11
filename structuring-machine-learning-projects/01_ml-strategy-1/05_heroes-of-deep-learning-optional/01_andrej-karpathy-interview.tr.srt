@@ -1,0 +1,1339 @@
+1
+00:00:02,977 --> 00:00:06,068
+Hoşgeldin Andrej, bugün gelmene çok memnun oldum.
+
+2
+00:00:06,068 --> 00:00:08,180
+Hoşbulduk, beni ağırladığın için teşekkürler.
+
+3
+00:00:08,180 --> 00:00:12,170
+Birçok insan senin derin öğrenme çalışmalarını biliyor ama,
+
+4
+00:00:12,170 --> 00:00:14,600
+herkes kişisel hikayeni bilmeyebilir.
+
+5
+00:00:14,600 --> 00:00:17,100
+Onun için bu derin öğrenme çalışmalarını 
+
+6
+00:00:17,100 --> 00:00:20,510
+nasıl yaptığını anlatarak başlayabilir misin?
+
+7
+00:00:20,510 --> 00:00:21,590
+>> Evet, kesinlikle.
+
+8
+00:00:21,590 --> 00:00:25,100
+İlk defa Toronto Üniversitesi'nde lisans eğitimi alırken 
+
+9
+00:00:25,100 --> 00:00:26,520
+derin öğrenmeyle alakam olmuştu. 
+
+10
+00:00:26,520 --> 00:00:28,696
+Orada Geoff Hinton derin öğrenme dersi veriyordu.
+
+11
+00:00:28,696 --> 00:00:32,346
+O zaman ders eğitilen makineler ve rakamlarla alakalıydı.
+
+12
+00:00:32,346 --> 00:00:35,966
+Ve Geoff'in ağı eğitmeyle alakalı konuşma 
+tarzını oldukça beğenmiştim.
+
+13
+00:00:35,966 --> 00:00:38,999
+Ağın aklı gibi ifadeler kullanıyordu.
+
+14
+00:00:38,999 --> 00:00:42,333
+İşte orada benim için bu rakamların 
+eğitimiyle alakalı sihirli
+
+15
+00:00:42,333 --> 00:00:46,870
+bir şeyler olduğunu düşündüm.
+
+16
+00:00:46,870 --> 00:00:50,130
+İşte bu benim ilk tanışmam oldu.
+
+17
+00:00:50,130 --> 00:00:52,440
+Gene de o zaman çok detaya girmemiştim.
+
+18
+00:00:52,440 --> 00:00:55,540
+Sonrasında University of British Columbia'da 
+yüksek lisansımı yaparken,
+
+19
+00:00:57,000 --> 00:00:59,850
+makine öğrenmesiyle alakalı bir ders daha aldım.
+
+20
+00:00:59,850 --> 00:01:03,665
+İşte o zaman sinir ağları üzerine daha
+ detaylı çalışma fırsatı buldum.
+
+21
+00:01:03,665 --> 00:01:07,790
+İlginç olan şu ki yapay zekaya çok meraklıydım ve
+
+22
+00:01:07,790 --> 00:01:10,430
+bununla ilgili dersler aldım ama
+
+23
+00:01:10,430 --> 00:01:12,690
+derslerde gördüğüm şeyler
+ beni her zaman tatmin etmiyordu.
+
+24
+00:01:12,690 --> 00:01:16,277
+Dersler hep derin öncelikli derin öğrenme, 
+alfa beta budaması tarzı
+
+25
+00:01:16,277 --> 00:01:17,220
+ve bunun gibi şeylerle alakalıydı.
+
+26
+00:01:17,220 --> 00:01:20,190
+Nasıl olduğunu pek anlamıyordum
+ ve tatmin olmamıştım.
+
+27
+00:01:20,190 --> 00:01:23,700
+İlk kez sinir ağlarını gördüğümde ise
+
+28
+00:01:23,700 --> 00:01:25,720
+ki yapay zeka konusunda
+ daha teknik bir terim olduğunu 
+
+29
+00:01:25,720 --> 00:01:29,280
+ve çok kişinin bilmediğini düşünüyorum.
+
+30
+00:01:29,280 --> 00:01:32,550
+Makine öğrenmesi daha 
+teknik bir terim diyebillirim.
+
+31
+00:01:32,550 --> 00:01:34,940
+Yani yapay zekadan
+ memnun kalmamıştım ama
+
+32
+00:01:34,940 --> 00:01:36,520
+makine öğrenmesini gördüğümde,
+
+33
+00:01:36,520 --> 00:01:41,498
+ilgimi çekenin bu olduğunu 
+ve zaman harcamaya eğer olduğunu anlamıştım.
+
+34
+00:01:41,498 --> 00:01:45,200
+İşte bu şekilde yeni bir 
+hesaplama yöntemi olduğuna inandığım 
+
+35
+00:01:45,200 --> 00:01:47,000
+bu işe başlamış oldum.
+
+36
+00:01:48,210 --> 00:01:50,730
+Çünkü normalde, insanlar kod yazar ama,
+
+37
+00:01:50,730 --> 00:01:54,263
+burada optimizasyon kod yazıyor.
+
+38
+00:01:54,263 --> 00:01:56,260
+Siz girdi/çıktı özelliklerini oluşturuyorsunuz,
+
+39
+00:01:56,260 --> 00:01:59,460
+bir çok örnekle besliyorsunuz 
+ve optimizasyon kodu yazıyor. Bazen 
+
+40
+00:01:59,460 --> 00:02:01,370
+sizden de iyi yazıyor.
+
+41
+00:02:01,370 --> 00:02:06,300
+Ben bunun programlamayla ilgili
+ yeni bir düşünme tarzı olduğunu hissettim.
+
+42
+00:02:06,300 --> 00:02:08,150
+İlgimi çeken de bu oldu.
+
+43
+00:02:08,150 --> 00:02:11,580
+Seninle alakalı şeylerden biri de şu ki;
+ sen ImageNet görüntü sınıflandırması yarışmasının
+
+44
+00:02:11,580 --> 00:02:18,030
+insan referans noktası kabul ediliyorsun.
+
+45
+00:02:18,030 --> 00:02:19,280
+Bu nerden çıktı?
+
+46
+00:02:19,280 --> 00:02:23,620
+ImageNet yarışması aslında görüntü işlemenin 
+
+47
+00:02:23,620 --> 00:02:24,870
+Dünya Kupası olarak düşünülebilir.
+
+48
+00:02:24,870 --> 00:02:27,820
+İnsanlar da bu hata oranıyla ilgileniyor.
+
+49
+00:02:27,820 --> 00:02:29,330
+Hata oranı gittikçe azalıyor.
+
+50
+00:02:29,330 --> 00:02:33,390
+Ben bir insanın nasıl bir performans
+ göstereceğini bilmiyordum.
+
+51
+00:02:33,390 --> 00:02:37,054
+Daha öncesinde CIFAR-10 veriseti üzerinde 
+daha küçük bir deneme yapmıştım.
+
+52
+00:02:37,054 --> 00:02:40,437
+Onu da şöyle yaptım: 
+32x32 görüntülere bakıyordum ve,
+
+53
+00:02:40,437 --> 00:02:42,290
+kendim sınıflandırmaya çalışıyordum.
+
+54
+00:02:42,290 --> 00:02:43,751
+O zaman sadece 10 kategori vardı ve bir 
+
+55
+00:02:43,751 --> 00:02:45,371
+arayüz oluşturmak daha basitti.
+
+56
+00:02:45,371 --> 00:02:48,341
+Galiba %6 gibi bir hatayla tamamladım.
+
+57
+00:02:48,341 --> 00:02:52,057
+Sonrasında anladım ki bu zor bir iş ve 
+
+58
+00:02:52,057 --> 00:02:56,634
+galiba yapabileceğimiz 
+en düşük hata oranını yakalamıştım.
+
+59
+00:02:56,634 --> 00:02:58,812
+Tamam, kesin rakamları hatırlayamam ama
+
+60
+00:02:58,812 --> 00:03:03,530
+%10 gibiydi ve biz
+ %3 %2 gibi çok iyi oranları yakalamıştık.
+
+61
+00:03:03,530 --> 00:03:09,113
+bu benim insan değerlendirmesinde 
+yaptığım ilk eğlenceli deneyimimdi.
+
+62
+00:03:09,113 --> 00:03:11,870
+Ve bence bu sizin de bazı derslerinizde değindiğiniz 
+
+63
+00:03:11,870 --> 00:03:13,950
+sebepler için önemli bir işti.
+
+64
+00:03:13,950 --> 00:03:18,790
+Çünkü bu oran gerçekten insanların 
+bu işte nasıl olduğunu anlamak için önemlidir.
+
+65
+00:03:18,790 --> 00:03:20,868
+Böylece algoritmalarla insanları kıyaslayabiliriz.
+
+66
+00:03:20,868 --> 00:03:24,610
+ImageNet açısından baktığımızda ise
+ ortada bir hata oranıyla ilgili tutarsızlık ortaya çıkıyor.
+
+67
+00:03:24,610 --> 00:03:27,600
+Devamlı olarak hata oranını düşürmeye
+ çalışıyoruz ve insanların ne kadar iyi 
+
+68
+00:03:27,600 --> 00:03:31,800
+yaptığını anlamaya çalışmıyoruz bile.
+
+69
+00:03:31,800 --> 00:03:35,770
+Ben de kendimi görüntülerle test etmek için
+ bir JavaScript arayüzünü yazdım.
+
+70
+00:03:35,770 --> 00:03:38,340
+Problem şu ki, ImageNet'de 10 kategori yok.
+
+71
+00:03:38,340 --> 00:03:39,340
+1000 tane var.
+
+72
+00:03:39,340 --> 00:03:41,085
+Kullanıcı arayüzü yarışı gibiydi.
+
+73
+00:03:41,085 --> 00:03:44,443
+Tabii ki 1000 kategoriyi 
+hatırlayamam. Bunun 
+
+74
+00:03:44,443 --> 00:03:45,708
+için ne yapmam lazım?
+
+75
+00:03:45,708 --> 00:03:48,955
+Ben de bütün kategorileri listeledim
+ ve örnekler hazırladım.
+
+76
+00:03:48,955 --> 00:03:52,679
+Sonrasında her tek bir görüntü için 
+1000 kategoriyi de baştan aşağı kontol ediyordum.
+
+77
+00:03:52,679 --> 00:03:56,401
+Böylece tahmin yapmaya ve 
+görüntünün ne olabileceğini 
+
+78
+00:03:56,401 --> 00:03:57,739
+anlamaya çalışıyordum.
+
+79
+00:03:57,739 --> 00:04:01,880
+Aslında bu önemli bir egzersizdi.
+
+80
+00:04:01,880 --> 00:04:06,539
+ImageNet görüntülerinin üçte birinin 
+köpeklerden oluştuğunu kendim bile anlamamıştım.
+
+81
+00:04:06,539 --> 00:04:10,125
+Ama sinir ağı köpeklerle
+ alakalı çok vakit harcıyordu.
+
+82
+00:04:10,125 --> 00:04:12,800
+Böyle düşünmüştüm.
+
+83
+00:04:12,800 --> 00:04:14,588
+Performansının üçte biri 
+köpeklerden geliyordu.
+
+84
+00:04:14,588 --> 00:04:20,809
+Böylece bir iki hafta boyunca 
+sadece bununla uğraşmıştım.
+
+85
+00:04:20,809 --> 00:04:21,837
+Geri kalan herşeyi bir kenara koydum.
+
+86
+00:04:21,837 --> 00:04:24,250
+Oldukça eğlenceli gelimişti.
+
+87
+00:04:24,250 --> 00:04:26,703
+Bir sonuç elde ettim ama 
+şunu düşünmüştüm: Tek kişi yeterli değil.
+
+88
+00:04:26,703 --> 00:04:28,770
+Bir kaç kişiden daha 
+yardım almak istedim.
+
+89
+00:04:28,770 --> 00:04:32,275
+Laboratuvardaki diğer insanları da bunu yapmaları için organize etmeye çalıştım.
+
+90
+00:04:32,275 --> 00:04:36,544
+Galiba insanlar çok da katkı 
+yapmaya istekli değillerdi. Sonuçta
+
+91
+00:04:36,544 --> 00:04:41,402
+bir iki hafta günde 5 saat oturup resimlerin hangi 
+
+92
+00:04:41,402 --> 00:04:44,222
+köpek türüne ait olduğunu bulmaya çalışacaklardı.
+
+93
+00:04:44,222 --> 00:04:47,876
+Bu yüzden çok veri 
+toplayamadım diyebilirim.
+
+94
+00:04:47,876 --> 00:04:53,430
+En azından yaklaşık bir 
+performans elde ettik ve eğlenceliydi.
+
+95
+00:04:53,430 --> 00:04:57,530
+Sonrasında bu haberim 
+olmadan popüler olmuş.
+
+96
+00:04:57,530 --> 00:04:59,946
+Sadece oranı bilmek istemiştim ve birden yayılmıştı.
+
+97
+00:04:59,946 --> 00:05:03,800
+İnsanlar bunun gerçekten yaşanmasına bayılmıştı ve 
+
+98
+00:05:03,800 --> 00:05:06,140
+benden referans insan diye bahsetmeye başladılar.
+
+99
+00:05:06,140 --> 00:05:10,775
+Oldukça komik tabi.
+
+100
+00:05:10,775 --> 00:05:15,892
+Yazılım en sonunda 
+
+101
+00:05:15,892 --> 00:05:18,785
+seni geçtiğinde şaşırmış mıydın?
+
+102
+00:05:18,785 --> 00:05:19,787
+>> Kesinlikle.
+
+103
+00:05:19,787 --> 00:05:21,968
+Evet kesinlikle.
+
+104
+00:05:21,968 --> 00:05:26,851
+Özellikle bazen gerçekten de 
+resimde ne olduğunu çözmek zor.
+
+105
+00:05:26,851 --> 00:05:30,125
+Sadece bir parça
+ siyah nokta var.
+
+106
+00:05:30,125 --> 00:05:31,335
+Ve bir şey göremiyorum.
+
+107
+00:05:31,335 --> 00:05:34,897
+Benim aklıma 20 farklı kategori geliyor ama
+ sinir ağı bunu hemen yapabiliyor.
+
+108
+00:05:34,897 --> 00:05:37,420
+Nasıl oluyor anlayamıyorum.
+
+109
+00:05:37,420 --> 00:05:39,506
+İnsanüstü bir şeyler var bunda.
+
+110
+00:05:39,506 --> 00:05:44,040
+Ama sinir ağı bu gibi
+ istatistikle alakalı 
+
+111
+00:05:44,040 --> 00:05:45,050
+işlerde oldukça iyi.
+
+112
+00:05:46,090 --> 00:05:49,950
+Bu açıdan bakınca ağın 
+böyle istatistikle alakalı bir 
+
+113
+00:05:49,950 --> 00:05:53,680
+işi daha iyi 
+yapmasına şaşırmamıştım.
+
+114
+00:05:53,680 --> 00:05:57,720
+Aslında şaşırtıcı olan bazı 
+resimlerde okumanız gereken yerler olmasıydı.
+
+115
+00:05:57,720 --> 00:05:59,544
+Örneğin bir şişe var,
+ göremiyorsunuz ama 
+
+116
+00:05:59,544 --> 00:06:00,904
+üstünde ne olduğu yazıyor.
+
+117
+00:06:00,904 --> 00:06:04,382
+Ben bir insan olarak bunu 
+okuyabilirim ama sinir ağının bunu
+
+118
+00:06:04,382 --> 00:06:07,292
+okumayı öğrenmesi lazım. 
+Çünkü diğer türlü hiç açık değil.
+
+119
+00:06:07,292 --> 00:06:10,204
+Senin oldukça meşhur olduğun 
+ve derin öğrenme topluluğunun da 
+
+120
+00:06:10,204 --> 00:06:13,557
+sana minnettar olduğu bir 
+konu da senin anlattığın dersleri 
+
+121
+00:06:13,557 --> 00:06:17,115
+internette yayınlaman.
+
+122
+00:06:17,115 --> 00:06:20,049
+Biraz da bununla 
+alakalı anlatabilir misin?
+
+123
+00:06:20,049 --> 00:06:20,740
+>> Evet, kesinlikle.
+
+124
+00:06:20,740 --> 00:06:26,160
+Düşüncem bu teknolojinin
+ oldukça dönüştürücü 
+
+125
+00:06:26,160 --> 00:06:29,490
+bir şekilde kullanılabileceğiydi.
+
+126
+00:06:29,490 --> 00:06:30,700
+Sanki bir çekiç gibi.
+
+127
+00:06:30,700 --> 00:06:31,490
+Ben ise bu çekici insanlara
+
+128
+00:06:31,490 --> 00:06:36,170
+dağıtmak istedim.
+
+129
+00:06:36,170 --> 00:06:37,785
+Bence bu oldukça ilgi çekiciydi.
+
+130
+00:06:37,785 --> 00:06:40,501
+Aslında bir yüksek lisans öğrencisi
+ için çok da taviye edilecek bir durum değil.
+
+131
+00:06:40,501 --> 00:06:42,280
+Çünkü araştırmanızı bir 
+kenara koyuyorsunuz.
+
+132
+00:06:42,280 --> 00:06:44,940
+Zamanımın %120'si bu işe gidiyordu.
+
+133
+00:06:44,940 --> 00:06:46,480
+Tüm araştırmamı bir 
+kenara koymam gerekti.
+
+134
+00:06:46,480 --> 00:06:50,140
+Bir dersi iki kere alıyorum 
+ve her sömestr 4 ay.
+
+135
+00:06:50,140 --> 00:06:52,880
+Tüm bu süre tamamen 
+sınıfta geçiyor. Bu yüzden 
+
+136
+00:06:52,880 --> 00:06:56,570
+pek de tavsiye edilebilir değil.
+ Ama benim yüksek lisans sürecimi özetliyor.
+
+137
+00:06:56,570 --> 00:06:57,838
+Sadece araştırmayla da alakalı da değil.
+
+138
+00:06:57,838 --> 00:07:01,110
+Bir dersi öğretmek de 
+yüksek lisansımın temeliydi.
+
+139
+00:07:01,110 --> 00:07:02,350
+Sadece öğrencileri görmek,
+
+140
+00:07:02,350 --> 00:07:06,360
+ve gerçekten çok heyecanlanlılardı.
+ Çok farklı bir sınıftı.
+
+141
+00:07:06,360 --> 00:07:08,518
+Normalde derste 1800 lerde 
+bulunan şeyleri öğretirler.
+
+142
+00:07:08,518 --> 00:07:09,167
+Onun gibi şeyler.
+
+143
+00:07:09,167 --> 00:07:12,614
+Ama biz sınıfa gelip geçen 
+hafta hatta önceki gün yayınlanan bir 
+
+144
+00:07:12,614 --> 00:07:13,453
+makaleyi işleyebiliyoruz.
+
+145
+00:07:13,453 --> 00:07:16,112
+Ve yeni ortaya çıkan sonuçlar var. 
+Öğrencilerin dersin
+
+146
+00:07:16,112 --> 00:07:18,904
+bu yanını da çok 
+sevdiğini düşünüyorum.
+
+147
+00:07:18,904 --> 00:07:20,496
+Gerçekten anladıklarını.
+
+148
+00:07:20,496 --> 00:07:25,868
+Bu iş nükleer fizik 
+veya roket bilimi değil.
+
+149
+00:07:25,868 --> 00:07:28,454
+Eğer kalkülüsü ve cebiri biliyorsanız,
+
+150
+00:07:28,454 --> 00:07:31,860
+neler olduğunu anlayabiliyorsunuz.
+
+151
+00:07:31,860 --> 00:07:36,465
+Ayrıca hem çok güçlü ve 
+devamlı değişen bir alan.
+
+152
+00:07:36,465 --> 00:07:39,395
+Böylece insanlar önemli 
+bir işin ilklerinden olduklarını hissediyorlar.
+
+153
+00:07:39,395 --> 00:07:42,395
+Galiba bunun için de
+ insanlar dersi sevmişlerdi.
+
+154
+00:07:42,395 --> 00:07:47,695
+Yani birçok insana
+ çekiçle yardım ettin.
+
+155
+00:07:47,695 --> 00:07:48,892
+Evet.
+
+156
+00:07:48,892 --> 00:07:52,182
+Ben uzun zamandır derin öğrenmeyle
+ uğraşan biri olarak 
+
+157
+00:07:52,182 --> 00:07:56,712
+bu alanın hızlı bir evrim 
+içerisinde olduğunu düşünüyorum.
+
+158
+00:07:56,712 --> 00:07:59,222
+Derin öğrenmenin
+ yıllar içinde nasıl değiştiği hakkında 
+
+159
+00:07:59,222 --> 00:08:02,889
+senin neler düşündüğünü 
+de merak ediyorum.
+
+160
+00:08:02,889 --> 00:08:06,444
+Evet, aslında ilk defa
+ DIGITS veri setinde kısıtlanmış 
+
+161
+00:08:06,444 --> 00:08:07,599
+Boltzman Makinelerini gördüğümde,
+
+162
+00:08:08,620 --> 00:08:11,360
+Bu teknolojinin 
+nasıl kullanılabileceği ve 
+
+163
+00:08:11,360 --> 00:08:12,240
+nelere yol açabileceğini bilmiyordum.
+
+164
+00:08:12,240 --> 00:08:15,270
+Mesela ben bilgisayar görüşü'ne
+ başladığımda evrişimli sinir ağları vardı 
+
+165
+00:08:15,270 --> 00:08:18,240
+ancak bilgisayar görüşü 
+topluluğunun kısa vadede
+
+166
+00:08:18,240 --> 00:08:21,770
+ kullanmayı planladığı bir şey değildi.
+
+167
+00:08:21,770 --> 00:08:25,400
+Algılayıcı(perceptron) 
+küçük işler için kullanılıyordu ancak
+
+168
+00:08:25,400 --> 00:08:27,210
+büyük tarzda işler için düşünülmüyordu.
+
+169
+00:08:27,210 --> 00:08:28,820
+Tabii ki bu kesinlikle yanlıştı.
+
+170
+00:08:28,820 --> 00:08:34,283
+Sonuç olarak teknolojinin 
+şimdiki durumundan ve 
+
+171
+00:08:34,283 --> 00:08:36,139
+sonuçlardan oldukça memnunum.
+
+172
+00:08:36,139 --> 00:08:39,234
+En büyük sürpriz bu 
+olmuştu ama dahası da var.
+
+173
+00:08:39,234 --> 00:08:42,780
+Öreneğin bu şey ImageNet'de çalışıyor ama
+
+174
+00:08:42,780 --> 00:08:45,100
+eğittiğiniz bu ağı alıp farklı bir 
+
+175
+00:08:45,100 --> 00:08:48,310
+veri üstünde denemek için transfer edebilme
+
+176
+00:08:48,310 --> 00:08:49,290
+şansınız var.
+
+177
+00:08:49,290 --> 00:08:51,390
+Sonra parametrelerini diğer 
+işlere uygun olması için ayarlayabilirsiniz.
+
+178
+00:08:51,390 --> 00:08:52,806
+Çünkü şu an sadece ImagNet'le uğraşmıyoruz.
+
+179
+00:08:52,806 --> 00:08:53,648
+Milyonlarca öreneğe ihtiyacınız olabiliyor.
+
+180
+00:08:53,648 --> 00:08:56,748
+Bu çok genel bir 
+özelik çıkartma(feature extractor) da olabilir.
+
+181
+00:08:56,748 --> 00:09:00,349
+Bence bu da daha az 
+insanın öngörebildiği bir durumdu.
+
+182
+00:09:00,349 --> 00:09:04,340
+Bazı makaleler pek de uygulanabilir değillerdi.
+
+183
+00:09:04,340 --> 00:09:06,840
+İnsanların bilgisayar görüsünde
+ çalıştığı şeyler örneğin,
+
+184
+00:09:06,840 --> 00:09:10,900
+Senkronizasyon sınıflandırması,
+ gerçel tanıma ve 
+
+185
+00:09:10,900 --> 00:09:13,070
+obje tanıma gibi genel amaçlar
+
+186
+00:09:13,070 --> 00:09:16,900
+sadece daha önce eğitilmiş bir ağın ayarlanmasıyla ulaşılabiliyor.
+
+187
+00:09:16,900 --> 00:09:21,136
+Bu bana göre oldukça şaşırtıcıydı.
+
+188
+00:09:21,136 --> 00:09:25,665
+Evet bence de denetimli öğrenme 
+oldukça ilgi çekiyor ama 
+
+189
+00:09:25,665 --> 00:09:30,564
+daha önceden eğitilmiş ağlar ve
+ transfer öğrenmsi de gerçekten çalışıyor.
+
+190
+00:09:30,564 --> 00:09:34,528
+Ama insanlar pek hakkında konuşmuyorlar.
+
+191
+00:09:34,528 --> 00:09:35,460
+>> Doğru, kesinlikle.
+
+192
+00:09:36,560 --> 00:09:39,670
+Evet ama denetimsiz öğrenme(unsupervised learning) 
+için aynı şeyi söyleyemem.
+
+193
+00:09:39,670 --> 00:09:44,680
+Bir çok araştırmacı 2007 civarında çalışmalarına 
+
+194
+00:09:44,680 --> 00:09:48,310
+bu alanda başlamışlardı.
+
+195
+00:09:48,310 --> 00:09:52,350
+Galiba istenilen hala ulaşılabilmiş değil.
+
+196
+00:09:52,350 --> 00:09:56,090
+Ama denetimli öğrenme kısmı çok iyi çalışıyor.
+
+197
+00:09:56,090 --> 00:09:59,350
+Ve kurtuluş öğrenmesi(enterprise learning) 
+de henüz yeni ve
+
+198
+00:09:59,350 --> 00:10:03,600
+ hala hangi alanlarda
+ kullanılacağı belli değil.
+
+199
+00:10:03,600 --> 00:10:05,570
+Ama birçok insan bir şeylerin 
+olacağına inanıyorlar.
+
+200
+00:10:05,570 --> 00:10:10,525
+Derin öğrenme alanının uzun 
+vadede gelişimi hakkında
+
+201
+00:10:10,525 --> 00:10:14,495
+düşünen bir insansın.
+
+202
+00:10:14,495 --> 00:10:16,175
+Bu konudaki düşüncelerini
+ paylaşmak ister misin?
+
+203
+00:10:16,175 --> 00:10:18,902
+Son bir buçuk yılı OpenAI'da bu konularda 
+
+204
+00:10:18,902 --> 00:10:23,548
+düşünerek geçirdim ve bence 
+
+205
+00:10:23,548 --> 00:10:29,410
+alan ikiye ayrılıyor.
+
+206
+00:10:29,410 --> 00:10:34,010
+Birincisi uygulamalı yapay zeka ki bunlar 
+sinir ağları yapma ve onları 
+
+207
+00:10:34,010 --> 00:10:37,450
+(genellikle denetimli öğrenmeyle) eğitmeyle alakalı
+
+208
+00:10:37,450 --> 00:10:40,296
+ve görüntü tanıma gibi örnekler verilebilir.
+
+209
+00:10:40,296 --> 00:10:45,210
+Ve diğeri de genel yapay zeka yönü yani sinir 
+
+210
+00:10:45,210 --> 00:10:50,191
+ağları gibi tamamen dinamik
+ ve insanın düşünebildiği
+
+211
+00:10:50,191 --> 00:10:54,990
+ gibi düşünen bir sistem.
+
+212
+00:10:54,990 --> 00:10:58,550
+Ve bence ilginç olan şu ki 
+örneğin bilgisayar görüsünde bizim
+
+213
+00:10:58,550 --> 00:10:59,990
+ilk yaklaşımımız yanlıştı.
+
+214
+00:10:59,990 --> 00:11:02,990
+Çünkü parçalara ayırmaya çalışmıştık. 
+
+215
+00:11:02,990 --> 00:11:05,862
+Diyelimki insanlar diğer
+ insanları ve görüntüleri tanıyabilirler,
+
+216
+00:11:05,862 --> 00:11:06,910
+objeleri anlayabilirler.
+
+217
+00:11:06,910 --> 00:11:09,318
+Biz de insanların yaptığı her şeyi yapacağız
+
+218
+00:11:09,318 --> 00:11:12,740
+Bunları ayrı ayrı yaptıktan sonra 
+
+219
+00:11:12,740 --> 00:11:13,850
+hepsine sahip olduktan sonra 
+
+220
+00:11:13,850 --> 00:11:16,080
+Bunları nasıl 
+birleştireceğimize bakacağız.
+
+221
+00:11:16,080 --> 00:11:17,710
+Ve bence bu yanlış bir yaklaşımdı.
+
+222
+00:11:17,710 --> 00:11:21,120
+Zaten nasıl olduğunu da görük.
+
+223
+00:11:21,120 --> 00:11:24,173
+bence daha yüksek bir
+ yapay zekada da buna benzer
+
+224
+00:11:24,173 --> 00:11:24,737
+ bir şey var.
+
+225
+00:11:24,737 --> 00:11:28,363
+İnsanlar sorar, insanlar plan yapar 
+ve etrafı anlamak için deneyler yapar.
+
+226
+00:11:28,363 --> 00:11:32,463
+İnsanlar konuşur da. 
+Bunun için dile ihtiyacımız var.
+
+227
+00:11:32,463 --> 00:11:35,684
+Genelde bunlar ayrı fonksiyonlar
+ halinde düşünülüp sonra 
+
+228
+00:11:35,684 --> 00:11:37,522
+beyin benzeri bir şeyde
+ birleştirmeyi düşünüyorlar.
+
+229
+00:11:37,522 --> 00:11:40,490
+Bu da yanlış bir yaklaşım.
+
+230
+00:11:40,490 --> 00:11:45,111
+Ben bu yaklaşımdan 
+farklı bir yolun taraftarıyım.
+
+231
+00:11:45,111 --> 00:11:50,041
+O da tek bir dinamik sistem
+ olarak sinir ağının 
+
+232
+00:11:50,041 --> 00:11:53,690
+hep tek bir etkenle çalışması.
+
+233
+00:11:53,690 --> 00:11:54,760
+Şimdi soru şu:
+
+234
+00:11:54,760 --> 00:11:58,990
+nasıl bir obje yaratacaksınız
+ ki ağırlıkları(weight)
+
+235
+00:11:58,990 --> 00:12:02,330
+optimize ettiğinizde akıllı 
+bir davranış elde edeceksiniz.
+
+236
+00:12:02,330 --> 00:12:05,610
+OpenAI'da bununla
+ alakalı baya düşünüyorum.
+
+237
+00:12:05,610 --> 00:12:08,330
+Tabi insanların bu soruya bir çok 
+
+238
+00:12:08,330 --> 00:12:10,320
+farklı şekilde yaklaşıyorlar.
+
+239
+00:12:11,550 --> 00:12:12,050
+Örneğin,
+
+240
+00:12:12,050 --> 00:12:15,510
+İnternet üzerinde
+ denetimli öğrenme üzerine 
+
+241
+00:12:15,510 --> 00:12:17,750
+bir yazım var. Kısa bir hikaye 
+demek daha doğru olur.
+
+242
+00:12:17,750 --> 00:12:20,960
+Bu hikayede denetimli 
+öğrenmeyi aynı şekilde büyüterek 
+
+243
+00:12:20,960 --> 00:12:25,350
+kullanacağımız bir
+ dünyanın fantezisi şeklinde.
+
+244
+00:12:25,350 --> 00:12:27,270
+Çünkü şu anki haliyle bu çalışıyor.
+
+245
+00:12:27,270 --> 00:12:32,135
+Amazon Mechanical Türk tarzı bir şeye benziyor.
+
+246
+00:12:32,135 --> 00:12:35,310
+Bunda insanlar
+ insanlar robot bedenlerine 
+
+247
+00:12:35,310 --> 00:12:38,640
+girip bir şeyler yapıyorlar ve 
+
+248
+00:12:38,640 --> 00:12:39,790
+nasıl göründüğüne bakıyorlar.
+
+249
+00:12:39,790 --> 00:12:41,924
+Tabii başka yönler de var.
+
+250
+00:12:41,924 --> 00:12:46,511
+algoritmalı bilgi teorisi, denetimsiz
+ öğrenme ve AIXI gibi şeyler.
+
+251
+00:12:46,511 --> 00:12:50,872
+veya yapay yaşam yapay 
+evrim gibi görünen şeyler.
+
+252
+00:12:50,872 --> 00:12:54,804
+Ben de zamanımı bu tarz sorular 
+üzerinde düşünerek geçirdim.
+
+253
+00:12:54,804 --> 00:12:57,882
+Sanırım cevabı buldum 
+ama burda açıklamayayım.
+
+254
+00:12:57,882 --> 00:13:01,109
+ama blogunu okuyarak
+ daha çok öğrenebilirim 
+
+255
+00:13:01,109 --> 00:13:02,050
+en azından
+
+256
+00:13:02,050 --> 00:13:02,550
+>> Evet, kesinlikle.
+
+257
+00:13:03,670 --> 00:13:08,520
+Bugün senden birçok 
+tavsiye duyduk. ve bugün 
+
+258
+00:13:08,520 --> 00:13:13,280
+hala biçok insan Yapay zeka ve
+ derin öğrenme alanına girmek istiyorlar.
+
+259
+00:13:13,280 --> 00:13:17,340
+Senin bu insanlara 
+bir tavsiyen var mı?
+
+260
+00:13:17,340 --> 00:13:18,390
+>> Evet, kesinlikle.
+
+261
+00:13:18,390 --> 00:13:22,225
+İnsanlarla aldığımız CS231 kursu 
+hakkında konuştuğumda genelde 
+
+262
+00:13:22,225 --> 00:13:25,947
+herkesin derin detaylara girilmesinden
+
+263
+00:13:25,947 --> 00:13:29,054
+nasıl memnun olduğunu gördüm.
+
+264
+00:13:29,054 --> 00:13:31,946
+Örneğin kütüphanelerle çalışmıyorsunuz ve gerçek kodu görüyorsunuz.
+
+265
+00:13:31,946 --> 00:13:34,415
+herleyin nasıl 
+uygulandığını görüyorsunuz.
+
+266
+00:13:34,415 --> 00:13:36,750
+ve parça parça bunu kendiniz birleştiriyorsunuz.
+
+267
+00:13:36,750 --> 00:13:40,550
+Bu bence çok önemli ve
+ altta neler olduğunu anlamak için çok önemli.
+
+268
+00:13:42,140 --> 00:13:44,020
+Neler olduğunu 
+anlamadan geçmemek ve
+
+269
+00:13:44,020 --> 00:13:46,890
+her şeyi tam olarak
+ anlamak lazım.
+
+270
+00:13:46,890 --> 00:13:49,390
+Ben de bu şekilde
+ öğrenmiştim aslında. 
+
+271
+00:13:49,390 --> 00:13:52,470
+Her şeyi baştan 
+kendim uygulayarak.
+
+272
+00:13:52,470 --> 00:13:57,880
+Tamamen anlamak 
+için yaptığım önemli bir şey de
+
+273
+00:13:57,880 --> 00:13:59,450
+ki bana çok yardımı oldu.
+
+274
+00:13:59,450 --> 00:14:00,107
+ Kendi kütüphanemi yazdım.
+
+275
+00:14:00,107 --> 00:14:01,438
+Adı ConvNetJs
+
+276
+00:14:01,438 --> 00:14:03,663
+JavaScript ile yazdım. 
+Ve evrişimsel sinir ağlarını uyguladım.
+
+277
+00:14:03,663 --> 00:14:06,410
+Ben bu şekilde öğreniyorum.
+
+278
+00:14:06,410 --> 00:14:11,238
+Bunun için insanlara hep 
+zaten var olan şeylerle değil de 
+
+279
+00:14:11,238 --> 00:14:12,671
+akışla veya başka birşeyle çalışmalarını öneriyorum.
+
+280
+00:14:12,671 --> 00:14:15,763
+en alt seviyede kendi yazdığınız 
+bir şeyle çalışmanızı tavsiye ederim.
+
+281
+00:14:15,763 --> 00:14:19,066
+Eğer altta olanları anlarsanız
+ sonrasında çok daha rahat olursunuz.
+
+282
+00:14:19,066 --> 00:14:21,985
+Bundan sonra var olan
+ kütüphaneleri bile kullansanız
+
+283
+00:14:21,985 --> 00:14:23,766
+altta neler döndüğünü 
+biliyor olursunuz.
+
+284
+00:14:23,766 --> 00:14:26,444
+Ben bunun çok 
+yardımını gördüm.
+
+285
+00:14:26,444 --> 00:14:29,174
+CS231 dersini alan diğerleri de
+ bunu çok sevmişlerdi.
+
+286
+00:14:29,174 --> 00:14:30,691
+insanlara da bunu
+ tavsiye etmek isterim.
+
+287
+00:14:30,691 --> 00:14:35,540
+Bir sinir ağını çalıştırmaktan 
+daha farklı bu.
+
+288
+00:14:35,540 --> 00:14:38,390
+Evet, katmanlar var ve biraz daha 
+
+289
+00:14:38,390 --> 00:14:41,500
+katman eklersem iyi olabilir dersiniz.
+ Ama bu faydalı olmaz.
+
+290
+00:14:41,500 --> 00:14:45,320
+O şekilde iyi bir hata
+ ayıklaması yapamazsınız.
+
+291
+00:14:45,320 --> 00:14:47,610
+Modellerinizi etkili 
+bir biçimde geliştiremezsiniz.
+
+292
+00:14:48,630 --> 00:14:52,184
+Evet, ben de derin öğrenme kursunun
+ yapay zeka kursunu almasından çok memnunum.
+
+293
+00:14:52,184 --> 00:14:56,235
+İlk haftalarda Python 
+dersleriyle başlıyor.
+
+294
+00:14:56,235 --> 00:14:57,625
+Evet iyi, iyi.
+
+295
+00:14:57,625 --> 00:15:00,947
+Bizimle tavsiyelerini ve görüşlerini
+ paylaştığın için teşekkürler.
+
+296
+00:15:00,947 --> 00:15:04,355
+Derin öğrenme dünyasında
+ bir çok kişinin kahramanısın.
+
+297
+00:15:04,355 --> 00:15:07,598
+Bu yüzden bugün 
+bize katılmama minnettarım.
+
+298
+00:15:07,598 --> 00:15:09,585
+Evet, beni ağırladığınız için teşekkürler.

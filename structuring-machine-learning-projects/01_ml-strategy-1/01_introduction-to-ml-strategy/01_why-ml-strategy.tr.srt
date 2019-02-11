@@ -1,0 +1,203 @@
+1
+00:00:00,000 --> 00:00:05,550
+Merhaba, makine öğrenmesi projenizi nasıl yapılandıracağınızı öğreneceğiniz bu kursa hoş geldiniz.
+
+2
+00:00:05,550 --> 00:00:08,740
+Bu kurs makine öğrenmesi stratejisi üzerine olacak.
+
+3
+00:00:08,740 --> 00:00:11,490
+Umarım bu kurs boyunca makine öğrenmesi sistemlerinizi hızlı ve etkili bir biçimde
+
+4
+00:00:11,490 --> 00:00:15,235
+çalıştırmanın yollarını öğrenmiş olacaksınız.
+
+5
+00:00:15,235 --> 00:00:17,915
+Peki, makine öğrenmesi stratejisi nedir?
+
+6
+00:00:17,915 --> 00:00:20,640
+Motive edici bir örnekle başlayalım
+
+7
+00:00:20,640 --> 00:00:23,755
+Diyelim ki kedilerle ilgili çalışıyorsunuz.
+
+8
+00:00:23,755 --> 00:00:26,060
+Bir süre çalıştıktan sonra anlıyorsunuz ki
+
+9
+00:00:26,060 --> 00:00:29,013
+sisteminiz %90 doğruluğa sahip.
+
+10
+00:00:29,013 --> 00:00:31,985
+Ama bu uygulamanız için yeterli bir oran değil.
+
+11
+00:00:31,985 --> 00:00:34,980
+Bu oranı geliştirmek için birçok fikir yürütülebilir.
+
+12
+00:00:34,980 --> 00:00:39,060
+Örneğin daha fazla eğitme verisi toplamayı düşünebilirsiniz
+
+13
+00:00:39,060 --> 00:00:40,315
+veya eğitme
+
+14
+00:00:40,315 --> 00:00:42,880
+verinizin yeterince çeşitli olmadığını düşünebilirsiniz.
+
+15
+00:00:42,880 --> 00:00:46,050
+O zaman daha değişik pozlarda kedi fotoğrafları toplamalısınız.
+
+16
+00:00:46,050 --> 00:00:49,335
+ya da daha çeşitli negatif örnekler bulmalısınız.
+
+17
+00:00:49,335 --> 00:00:52,552
+Belki de algoritmanızı daha uzun gradient descent kullanarak eğitmelisiniz,
+
+18
+00:00:52,552 --> 00:00:54,923
+veya farklı bir optimizasyon algoritması denemek isteyebilirsiniz,
+
+19
+00:00:54,923 --> 00:00:57,455
+örneğin Adam optimizasyon algoritması.
+
+20
+00:00:57,455 --> 00:01:01,230
+Ya da ağınızın boyutunu değiştirirsiniz.
+
+21
+00:01:01,230 --> 00:01:05,160
+Dropout veya L2 düzenlemesi de deneyebilirsiniz.
+
+22
+00:01:05,160 --> 00:01:06,360
+Ağınızın mimarisini de
+
+23
+00:01:06,360 --> 00:01:09,660
+değiştirebilirsiniz. Bunu yapmak için aktivasyon fonksiyonlarını veya
+
+24
+00:01:09,660 --> 00:01:12,420
+gizli katmanların sayısını değiştirirsiniz.
+
+25
+00:01:12,420 --> 00:01:15,040
+Sonuçta, bir derin öğrenme sistemini geliştirken
+
+26
+00:01:15,040 --> 00:01:19,238
+deneyebileceğiniz birçok yöntem vardır.
+
+27
+00:01:19,238 --> 00:01:21,680
+Problem şu ki; eğer doğru bir tercih yapmazsanız,
+
+28
+00:01:21,680 --> 00:01:25,080
+6 ay boyunca hiç bir şey elde edemeden uğraşmanız oldukça mümkündür.
+
+29
+00:01:25,080 --> 00:01:29,785
+Bu altı ay tamamen boşa gitmiş olur.
+
+30
+00:01:29,785 --> 00:01:33,810
+Örneğin ben gerçekten de 6 ay boyunca daha fazla veri
+
+31
+00:01:33,810 --> 00:01:36,120
+topladıktan sonra
+
+32
+00:01:36,120 --> 00:01:40,260
+sistemlerini pek de geliştiremeyen takımlar biliyorum.
+
+33
+00:01:40,260 --> 00:01:43,355
+Sizin israf edeceğiniz 6 ayınız olmadığını göz önüne alırsak,
+
+34
+00:01:43,355 --> 00:01:46,290
+hangi yolları denemeniz gerektiğini ve
+
+35
+00:01:46,290 --> 00:01:50,070
+hangilerini eleyebileceğinizi anlayabilmek için bir yöntem olması
+
+36
+00:01:50,070 --> 00:01:54,365
+oldukça iyi olur.
+
+37
+00:01:54,365 --> 00:01:59,190
+Bu kursta, size öğreteceğim stratejileri kullanarak
+
+38
+00:01:59,190 --> 00:02:02,365
+bir makine öğrenmesi problemini analiz etmek için
+
+39
+00:02:02,365 --> 00:02:06,570
+en doğru yolları bulabilirsiniz.
+
+40
+00:02:06,570 --> 00:02:08,267
+Bu kursta ayrıca sizinle
+
+41
+00:02:08,267 --> 00:02:09,930
+çok sayıda derin öğrenme ürünü tasarlarken
+
+42
+00:02:09,930 --> 00:02:13,700
+elde ettiğim tecrübeleri de paylaşacağım.
+
+43
+00:02:13,700 --> 00:02:17,755
+Ve bence bu materyaller bu kurs için tam olarak uygun
+
+44
+00:02:17,755 --> 00:02:20,280
+Bu fikirlerin çoğu üniversitelerin
+
+45
+00:02:20,280 --> 00:02:23,970
+derin öğrenme derslerinde öğretilmiyor.
+
+46
+00:02:23,970 --> 00:02:26,880
+Önemli bir diğer nokta da şu ki;
+
+47
+00:02:26,880 --> 00:02:29,850
+makine öğrenmesi stratejisi derin öğrenme çağında değişiyor ve
+
+48
+00:02:29,850 --> 00:02:32,745
+önceki derin öğrenme algoritmalarından daha
+
+49
+00:02:32,745 --> 00:02:36,255
+farklı şeyler yapabilirsiniz.
+
+50
+00:02:36,255 --> 00:02:39,330
+Umarım bu fikirler sizin çok daha etkili derin öğrenme
+
+51
+00:02:39,330 --> 00:02:42,390
+sistemleri geliştirmenize yardımcı olur.

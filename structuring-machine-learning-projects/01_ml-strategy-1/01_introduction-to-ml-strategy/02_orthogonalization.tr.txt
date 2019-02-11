@@ -1,0 +1,46 @@
+Makine öğrenmesi sistemleri inşa ederken 
+karşılaşılan zorluklardan biri deneyebileceğiniz ve değiştirebileceğiniz çok şey olmasıdır. Örneğin, ayarlayabileceğiniz bir çok 
+aşırı değişken olması gibi. En etkin makine öğrenmesi insanları hakkında
+farkettiğim şeylerden biri onların neyin ayarlanması gerektiği konusunda
+keskin görüşlü olmalarıdır belli bir sonuç elde etmeye çalışırken. Bu, dikgenleştirme (orthogonalization) dediğimiz bir süreçtir. Ne demek istediğimi açıklayayım. Bu eski tip bir televizyonun resmi, üzerinde görüntüyü farklı şekillerde
+ayarlayabileceğiniz düğmeleri var. Böyle eski televizyonlarda belki
+bir düğme görüntünün dikey yüksekliğini ayarlamak için ve bir diğeri de
+genişliğini ayarlamak için vardı. Belki başka bir düğme
+yamukluğu ayarlamak için diğer bir düğme
+görüntüyü sola ve sağa kaydırmak için bir diğeri görüntünün ne kadar döndürüleceğini
+ayarlamak için olabilir. Ve TV tasarımcılarının bir sürü zaman harcayarak
+yaptıklarıysa devreleri yapmaktı, gerçekte o zamanlarda çoğunlukla analog devreydi, her bir düğmenin görece tahmin edilebilir bir fonksiyona
+sahip olmasının yolu. Bir düğmenin bunu ayarlaması, bir düğmenin bunu ayarlaması,
+bir düğmenin bunu ayarlaması gibi ve benzeri. Buna karşılık, düşününki bir düğmeniz olsun
+görüntünün yüksekliği x 0.1 +0.3 x görüntünün genişliği,
+-1.7 x görüntünün yamukluğu +0.8 yatay eksende görüntünün pozisyonu
+ ve benzeri ayarları yapsın. Eğer bu düğmeyi çevirirseniz, o zaman
+görüntünün yüksekliği, görüntünün genişliği ne kadar yamuk olduğu, ne kadar kaydığı
+hepsi aynı anda değişir. Eğer böyle bir düğmeniz olsaydı,
+neredeyse imkansız olurdu televizyonu görüntüsü ekranın ortasına gelecek şekilde ayarlamak. Bu bağlamda, dikgenleştirme (orthogonalization)
+TV tasarımcılarının düğmeleri, her bir düğme sadece tek bir şey yapacak
+şekilde tasarlamalarını ifade eder. Ve bu televizyonu ayarlamayı çok daha kolay yapar böylece görüntü istediğiniz yere konumlanır. Dikgenleştirmenin (orthogonalization)
+bir başka örneği de şudur. Eğer bir araba kullanmayı öğrenmeyi düşünürseniz,
+bir arabanın üç ana kontrolü vardır, bunlar, ne kadar sola ya da sağa gideceğinize
+karar veren direksiyon, hızlanma ve fren yapmadır. Yani bu üç kontrol ya da aslında
+bir kontrol direksiyon için ve hızınız için diğer iki kontrol. Bu da görece, sizin farklı kontroller üzerinden farklı davranışlarınızın arabanız üzerinde ne yapacağını tahmin edilebilir yapar. Ama şimdi düşünün, birisi öyle bir araba yapsa
+bir oyun kolu olan oyun kolunun bir ekseni
+0.3 x direksiyon açınızı, -0.8 x hızınızı kontrol etsin. Ve farklı bir kontrolünüz olsa
+2 x direksiyon açınızı + 0.9 x arabanızın hızını kontrol eden. Teoride, bu iki düğmeyi ayarlayarak arabanızı istediğiniz açıya ve
+istediğiniz hıza getirebilirsiniz. Ama bu, direksiyon açısını ayarlamak için
+tek bir kontrol ve hızı ayarlamak için ayrı bir grup kontrole sahip olduğunuz durumdan çok daha zordur. Yani dikgenleştirme kavramı şunu ifade eder, eğer yapmak istediğiniz işin
+bir boyutunu direksiyon açısının kontrolü ve diğer boyutu da
+hızınızın kontrolü olarak düşünürseniz O zaman bir düğmenin sadece
+direksiyon açısını etkilemesini istersiniz ve araba örneğinde, diğer bir düğmenin de
+hızınızı kontrol eden hızlanma ve frenlemeyi etkilemesini. Ama eğer bu ikisini birbirine
+karıştıran bir kontrolünüz olsaydı, hem direksiyon açınızı hem de hızınızı
+etkileyen bu kontrol gibi, her ikisini aynı anda değiştiren bir şey, o zaman arabayı istediğiniz hız ve açıya
+ayarlamak çok daha zor olurdu. Ve dikgen (orthogonal) olduğunda,
+dikgenlik bir biriyle 90 derece açı olması demektir. Gerçekten kontrol etmek istediğiniz şeyler ile
+uyumlu dikgen kontrolleriniz olduğunda, ayarlamanız gereken düğmeleri ayarlamak
+çok daha kolay olur. Direksiyon açısını ve gazınızı, freninizi
+arabaya istediğinizi yaptırmak için ayarlamak. Bu, makine öğrenmesi ile nasıl ilişkilendirilebilir? Denetimli bir öğrenme sisteminin iyi çalışması için,
+genelde siz dört şeyin doğru olduğundan emin olmak için
+sisteminizin düğmelerini ayarlamalısınız. İlk olarak yapmanız gereken, en azından eğitim verileri ile iyi çalıştığınızdan emin olmaktır. O yüzden eğitim verilerinin sonucunun
+bir kabul edilebilirlik değerlendirmesinden geçmesi gerekir. Bazı uygulamalar için bu insan seviyesine yakın bir performans anlamına gelebilir. Ama bu uygulamanıza bağlı olacaktır ve gelecek hafta insan seviyesinde performansla
+karşılaştırma hakkında daha çok konuşacağız. Fakat , ancak "Eğitim veri seti" ile iyi sonuç bir elde ettikten sonra , "Doğrulama veri setinin" üzerinde iyi bir sonuç elde etmeyi bekleyebilirsiniz, ve sonra "Test veri setinin" üzerinde , ve son olarak , gerçek veriler üzerinde "maliyet fonksiyonu" için iyi bir sonuç elde etmeyi bekleyebilirsiniz. Umarım bu mutlu kedi resmi kullanıcıları sorununu çözümleyebilir. TV örneğine geri dönecek olursak, eğer ki TV resminiz çok geniş ya da çok darsa, bir düğme ile bunu düzeltmek isteyebilirsiniz. Farklı farklı şeyleri etkileyen beş farklı düğüm ayarlamak için uğraşmak istemezsiniz. TV resminin genişliğini sadece bir düğme etkilesin istersiniz. Benzer şekilde, eğer algoritmanız eğitim setinde maliyet fonksiyonuna iyi oturmuyorsa bir düğme isteyebilirsiniz, evet, bu benim düğmeleri gösterme şeklim. Ya da bir düğme seti de kullanabilirsiniz. Bu da algoritmanızı eğitim setine uyacak şekilde düzeltebilmenize yarar. Düzeltmeler için kullandığınız düğmeler sayesinde daha büyük ağlar üzerinde çalışabilirsiniz. Ya da daha iyi bir optimizasyon algoritması kurabilirsiniz. Tıpkı "Adam optimizasyon algoritması" gibi. Bunları ve daha başka seçeneklerinizi ileri zamanlarda da konuşacağız zaten. Eğer algoritmanızın doğrulama veri setine uymadığını gördüyseniz burada da birbirinden ayrı düğüm setleri var demektir. Evet, bu da benim bir diğer pek afilli olmayan düğme gösterme şeklim Bağımsız düğüm setleri kullanmayı deneyebilirsiniz. Yani örneğin, algoritmaniz doğrulama veri setinde çok iyi çalışmamasına rağmen test veri setinde iyi çalışıyorsa, düzenleme yapabilmek için düğüm setiniz olması, ikinci kriteri de sağlamanıza yarar. Yani şimdi TV setinizin genişliğini ayarladınız diyelim. Ama eğer resmin yüksekliği doğru değilse yüksekliği düzeltmek için farklı bir düğme kullanmak istersiniz. Tabi bunu TV resminin genişliğini çok fazla bozmadan yapabilmeyi istersiniz. Daha büyük bir eğitim seti kullanmanız durumunda başka bir düğme daha kullanmak, algoritmanızı doğrulama setine genellemenizde faydalı olabilir. Şimdi, diyelim ki TV resminin genişliğini ve yüksekliğini ayarladık. Peki ya üçüncü kritere uymazsa? Ya eğitim veri setlerine uymasına rağmen test veri setine uymazsa? Eğer böyle bir şey olusa, muhtemelen daha büyük bir doğrulama setine ihtiyacınız var demektir. Çünkü eğer doğrulama setine uyup test setine uymuyorsa muhtemelen "overfitting" sorunu vardır. Daha büyük bir doğrulama seti bulmalısınız. Ve son olarak, bu size sonuç olarak mutlu kedi resmi getirmiyorsa ya doğrulama setini ya da maliyet fonksiyonunu değiştirin. Çünkü eğer test veri setinizde uyumlu çalışan bir algoritma gerçek hayatta ihtiyaç duyacağınız şeyi tam karşılamıyorsa ya doğrulama veri setinin dağılımını doğru seçmediniz demektir ya da maliyet fonksiyonunuz doğru şeyi hesaplamıyordur. Biliyorum bu örnekleri çok hızlı geçiyorum, ama detaylı olarak spesifik düğmeleri önümüzdeki haftalarda anlatacağım. Yani eğer tüm detayları takip edemediğinizi düşünüyorsanız endişelenmeyin. Ama dikgenleştirme süreci hakkında bir fikir oluşturmak istiyorum. Farklı konulara adreslemeye çalıştığınızda farklı şeyler ayarlamada daha net olmak isteyebilirsiniz. Bir yapay sinir ağı oluştururken çok çabuk durdurmayı tercih etmiyorum. Kötü bir teknik değil, çoğu kişi bu şekilde yapar ama kişisel olarak bu yöntemi zor buluyorum. Çünkü eğitim setinizin uyumunu da etkiler Eğer erken durdurursanız eğitim veri setinizden daha az verim alırsınız. Doğrulama setinin performansını geliştirmek için de yapılır bazen bu. Bakın, bu daha az dikgenleştirilmiş bir düğme çünkü aynı anda iki şeyi etkiliyor. Tıpkı TV resmi örneğinde bir düğümün hem genişliği hem de yüksekliği etkilediği gibi. Bu kötü olduğu anlamına gelmez, istiyorsanız kullanabilirsiniz. Ama daha fazla dikgenleştirme kontrolü tıpkı burada yazdığım diğerleri gibi bu düzeltme sürecini daha da kolaylaştıracaktır. Umarım bu dikgenleştirmenin ne anlama geldiği hakkında bir fikir oluşturmuştur. TV resmine bakıp benim resmim çok geniş, bunu düzeltmeliyim diyebilmeniz ya da bu TV resmi çok uzun, ya da çapraz duruyor bu hatayı düzeltmeliyim diyebilmeniz gerekli. Makine öğrenmesinde kurduğunuz sisteme bakıp bu parçası yanlış diyebiliyorsanız bu iyi bir şey. Eğitim setinde düzgün çalışmaz, doğrulama setinde doğru çalışmaz, test setinde çalışmaz veya çalışır, ama gerçek hayatta bu kabul edilmez. Tam olarak neyin yanlış olduğunu anlamak, belli bir düğmeyi veya düğme setini bulmak, makine öğrenmesi sisteminin performansını kısıtlayan bir sorunu çözmenize yardımcı olur. Bu hafta ve önümüzdeki hafta, sisteminizin performansını engelleyen sorunu nasıl tespit edeceğinizi öğreneceğiz. Spesifik düğüm setlerini belirlemekte olduğu kadar, bunları sisteminizin performansını arttırmak için de kullanabilirsiniz. Haydi bu sürecin biraz daha detaylarına girelim.

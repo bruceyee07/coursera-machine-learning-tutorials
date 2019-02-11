@@ -1,0 +1,180 @@
+Hoş geldin Rus. 
+Bugün aramıza katılabildiğin için çok memnunum. Teşekkür ederim, teşekkür ederim Andrew. Şu sıralarda Apple'da araştırma direktörüsün, ve aynı zamanda bir fakülte başında, 
+Carnegie Mellon Üniversitesi'nde bir profesörsün. Hikayeni bir de senden dinlemek isterim. Üzerinde çalıştığın derin öğrenme işiyle
+ilgilenmeye nasıl başladın? Evet, aslında, bu bir bakıma... Derin öğrenme konusuna girişim biraz şans eseri oldu. Yüksek lisans eğitimimi Toronto'da aldım ve
+ sonrasında bir sene ara verdim. Aslında finans sektöründe çalışıyordum. Bu biraz hayret verici. O zamanlar doktora yapmak istediğimden 
+emin değildim. Ve sonra bir şey oldu, şaşırtıcı bir şey oldu. Bir sabah işe gidiyordum ve 
+Geoff Hinton'a rastladım. Ve Geoff bana 'çok iyi bir fikrim var' dedi. Ofisime gel sana göstereyim. Bu şekilde birlikte yürümeye başladık ve 
+bana bütün bu Boltzmann makinaları ve contrasting divergence, 
+ve birtakım hilelerden bahsetmeye başladı O zaman tam olarak neden bahsettiğini anlamamıştım. Ama bu beni fazlasıyla heyecanlandırmıştı, 
+gerçekten çok heyecanlıydı, beni de heyecanlandırdı. Ve sonra, üç ay içerisinde Geoff ile 
+doktora yapmaya başladım. Yani bu aslında bir bakıma başlangıç oldu, 
+çünkü bu 2005, 2006 yıllarındaydı. Ve bu Kısıtlı Boltz Makinaları kullanan
+ bazı orijinal derin öğrenme algoritmalarının, gözetimiz ön eğitimlerin bir şekilde 
+ortaya çıkmaya başladığı zamanlardı. Ve aslında bu şekilde başladım. Özellikle Goeff'e rastladığım o sabah kariyerimin geleceğini tamamiyle değiştirdi. Ve aslında bu sinir ağları ve derin öğrenme 
+konularının dirilişine yardımcı olan... Kısıtlı Boltzmann Makinaları hakkında yayınlanan... ilk makalelerden birinde de ortak yazar olarak 
+yer aldınız. Bu konudan biraz daha bahseder misin, 
+bu taslak üzerinde çalışmak nasıldı?
+>>Evet, bu aslında gerçekten çok... heyecanlıydı, evet, ilk seneydi
+benim doktora öğrencisi olarak geçirdiğim ilk senemdi. Ve Geoff ile birlikte... çoklu katmanları (multiple layer) çalıştırmak için 
+Kısıtlı Boltz Makinaları ve ön eğitim hilelerini kullanma... fikirlerini keşfetmeye çalışıyorduk. Ve özellikle otomatik giz-yazarlara (auto-encoders)
+ odaklanmaya çalışıyorduk, doğrusal olmayan PCA uzatmasını nasıl 
+etkili bir şekilde yapabiliriz? Ve bu çok heyecan vericiydi, çünkü 
+bu sistemlerin .....digits ile 
+çalışmalarını sağladık, bu da çok heyecanlıydı, ancak 
+sonrasında bizim için sıradaki adım... gerçekten bu modelleri yüzlerle çalışmaya
+ yönlendirebilir miydik, bunu görmekti. Elimizde Olivetti yüzleri veri kümesi vardı. Sonrasında dokümanlar için sıkıştırma 
+yapabilir miyiz diye araştırmaya başladık. Ve bütün bu gerçek değer (real-value), 
+sayım (count), ikili (binary) gibi... değişik veri gruplarına bakmaya başladık
+ ve bir sene içerisinde... biliyorsunuz doktoramın birinci senesindeydim; 
+yani benim için çok büyük bir öğrenim deneyimi oldu. Ama gerçekten altı ya da yedi ay içerisinde... gerçekten ilgi çekici, ve gerçekten iyi sonuçlar 
+almayı başarmıştık. Bence bu çok derin 
+otomatik giz-yazarları eğitebilmiştik. Bu o zamanlar geleneksel 
+optimizasyon tekniklerini kullanarak yapamayacağınız bir şeydi. Ve böylece bizim için gerçekten 
+çok heyecanlı bir dönem haline geldi. Bu gerçekten çok heyecanlıydı,
+çünkü benim için çok şey öğrenmek anlamına geliyordu, ama aynı zamanda sonuçlar da 
+yapmak istediğimiz şey açısından... gerçekten etkileyici bir hal almıştı. >>Peki, bu bahsettiğiniz derin öğrenme
+araştırmalarının ilk evrelerinde... faaliyetlerin çoğu Kısıtlı Boltzmann Makinaları ve... sonrasında da Derin Boltzman Makinaları üzerinde yoğunlaşmaktaydı. Halihazırda yapılmakta olan, sizin ekibinizin de
+ parçası olduğu... çok heyecan verici araştırmalar var; 
+Peki Boltzmann Makinaları ve... Kısıtlı Boltzmann Makinaları ile neler yapılmakta? Evet, bu çok iyi bir soru. Bence, ilk zamanlarda Kısıtlı Boltzmann Makinalarını 
+kullanma şeklimizi... katmanları bir bir etkili olarak
+öğrenmenize yardımcı olacak şekilde... bir deste Kısıtlı Boltzmann Makinasını 
+eğitmek gibi düşünebilirsiniz. Ve arkasında iyi bir teori var;
+belirli bir katman eklediğinizde... bazı şartlar altında değişimli sınır (variational bound)
+ve benzeri durumları kanıtlayabilir. Yani teorik bir doğrulama mevcuttu,
+ve bu modeller... bu sistemlere ön-eğitm sağlayabilme açısından
+oldukça iyi çalışıyorlardı. Ve sonra 2009, 2010 civarı Compute'lar,
+GPU'lar ortaya çıkmaya başladığında... birçoğumuz fark etmeye başladık ki, bu 
+derin sinir ağlarını direkt olarak optimize etmek... benzer ve hatta daha iyi sonuçlar veriyordu. >>Yani, standart geri yayılım (backprop), ön eğitim veya... Kısıtlı Boltz Makinası olmadan. >> Bu doğru.
+Bu doğru. Ve bu üç ya da dört yıl içinde; ve 
+bütün topluluklar için çok heyecanlıydı... çünkü insanlar gerçekten şöyle hissetti... wow, bu derin modelleri bu ön eğitim mekanizmaların
+ı kullanarak gerçekten eğitebiliriz. Ve sonra, Compute'lar yaygınlaştıkça insanlar 
+standart geri yayılım (backpropagation)... yapabileceklerini fark ettiler; bu
+2005 ya da 2004'te yapamadığımız bir şeydi... çünkü bu CPU'lar üzreinde yapmak 
+aylarımızı alırdı. Yani, bu büyük bir değişimdi. Tam olarak çözemediğimizi düşündüğüm bir diğer şey de... Boltz Makinaları ve Derin Boltzmann Makinaları ile ne yapılacağı. Ben çok güçlü modeller olduklarına inanıyorum... çünkü onları üretici modeller olarak düşünebilirsiniz Veri içerisinde bağlama dağıtımlarını 
+(coupling distributions) 
+modellemeye çalışıyorlar, ancak... öğrenme algoritmalarına baktığımızda, 
+şimdiki öğrenme algoritmaları... geri yayılım algoritmaları kadar
+ölçeklenebilir olmayan... Markov Zinciri, Monte Carlo ve değişimsel 
+öğrenme gibi yöntemleri gerektiriyor. Yani, bizim hala bu modelleri eğitecek 
+daha etkili yöntemler bulmamız gerekiyor. Ve evrişim (convolution) kullanımını da... onu da bu tür modellere dahil etmek oldukça zor. Senin olasılıksal max pooling üzerine yaptığın 
+farklı objelerin üretici modellerini... inşa eden, ve bu tür evrişim (convolution)
+fikirlerini kullanan... çalışmaları hatırlıyorum;
+o da gerçekten çok heyecan vericiydi... ama aynı zamanda bu modelleri eğitmek hala çok zor. >>Olasılık başlı başına bir iş, değil mi? >>Evet, öyle aynen öyle değil mi! Yani hala nerede olduğunu bulmamız gerekiyor. Diğer taraftan, mesela son zamanlarda 
+değişimsel otomatik gizyazarları kullanarak 
+yapılan bazı çalışmalar... Boltzmann Makinalarının interaktif 
+versiyonları olarak görülebilir. Bu modülleri eğitmek için bazı yollar 
+bulduk. Max Welling ve Diederik Kingma'nın çalışması 
+tekrar parametrize etme (reparameterization) 
+hilelerini kullanmak üzerine. Ve artık rastgele sistemde 
+geri yayılımlı algoritma kullanabiliyoruz, bu da önemli bir ölçüde gelişim sağlamakta. Ama bunu Boltzmann Makinaları ile 
+nasıl yapacağımızı henüz tam anlamıyla bulamadık. >>Bu aslında benim de farkında olmadığım
+ gerçekten ilginç bir perspektif... şöyle ki, bilgisayarların 
+yavaş olduğu ilk zamanlarda... RBM (Kısıtlı Boltzmann Makinaları) ön eğitimi gerçekten çok önemliydi. Hesaplamanın hızlanması sayesinde
+ standart geri yayılıma dönüş sağlandı. Bu topluluğun derin öğrenme ve 
+diğer konular üzerindeki düşüncelerinin 
+evrilmesi açısından... bu konu üzerine düşünmek için 
+çok zaman harcadığınızı biliyorum... üretici, gözetimsize karşı 
+gözetimli bakış açıları. Bunun hakkındaki düşüncelerin 
+zaman içerisinde nasıl değişti 
+biraz bahseder misin? >>Evet, ben bunun gerçekten çok önemli 
+bir konu olduğunu düşünüyorum, özellikle gözetimsiz, yarı gözetimli 
+veya üretici modelleri düşünürsek... çünkü bir ölçüde, yakın zamanda 
+edindiğimiz bir çok başarı... gözetimli öğrenme sayesinde oldu. Ve ilk zamanlarda... gözetimsiz öğrenme öncelikli olarak 
+gözetimsiz ön eğitim gibi görülüyordu. Çünkü bu çok katmanlı sistemleri 
+nasıl eğiteceğimizi bilmiyorduk. Ve bugün bile, bu gözetimsiz 
+ön eğitim modellerinde, eğer bir sürü etiketsiz veri... ve küçük bir kısım etiketli örneklerin olduğu... bir ortamda çalışıyorsanız... üretici modelleri inşa etmek
+ gözetimli gözlere yardımcı olabilir. Yani bence bu toplulukta bir çoğumuz için 
+bu genel bir inançtı. Ben doktora yapmaya başladığımda,
+ bütün olay üretici modeller ve 
+bu model yığınlarını öğrenmekti... çünkü bu sistemleri eğitmemiz için
+ tek yol buydu. Günümüzde, üretici modelleme üzerine yapılan birçok çalışma var. Üretken Çekişmeli Ağlara (Generative Adversarial Networks) bakacak olursanız... Değişimsel otomatik gizyazarlara bakacak olursanız... derin enerji modelleri de benim laboratuvarımın halihazırda çalışmakta olduğu bir konu. Bu çok heyecanlı bir araştırma bence, ama belki de tam anlamıyla çözemedik, derin öğrenme alanına giriş yapmayı düşünen birçoğunuz için... bu bence fazlasıyla ilerleme kaydedebileceğimiz bir alan... ve umarım yakın gelecekte olacak. >>Yani denetimsiz öğrenim. >>Denetimsiz öğrenim, doğru. Ya da belki bunu denetimsiz öğrenim 
+veya size farklı şeylerin 
+ne anlama geldiğine yönelik... ipuçları veya bazı örnekler verdiğim 
+ve çok sayıda etiketsiz veri sağladığım bir... yarı denetimli öğrenim 
+olarak düşünebilirsiniz. >>Bu, bilgisayarların yavaş olduğu 
+derin öğrenimin erken bir döneminin... iç yüzüne yönelik önemli bir bilgi oldu. Bu dönemde sinir ağı ağırlıklarını 
+başlatabilmek için Kıstlı Boltzmann Makinaları
+ve Derin Boltzmann Makinalarına... ihtiyaç vardı. Ama, bilgisayarlar hızlandıkça... doğrudan geri yayılım daha iyi çalışmaya başladı. Üzerinde düşünmek için çok fazla zaman 
+harcadığınızı bildiğim bir başka konu da... denetimli öğrenmeye karşı üretici modeller 
+ve denetimsiz öğrenme yaklaşımları. Bize biraz bu tartışma hakkındaki... düşünme yolunun zaman içinde 
+nasıl evrildiğini anlatır mısın? >>Sanırım hepimiz bu noktada bir
+ilerleme sağlayabileceğimize inanıyoruz. Biliyorsun, Boltz Makinaları, değişimsel otomatik gizyazarlar, 
+GAN'lar (Üretken Çekişmeli Ağlar) üzerine yapılan tüm çalışmalar. Bu modellerin çoğunu üretici modeller 
+olarak düşünürsünüz, ancak... bunları gerçekten nasıl çalıştırabileceğimizi 
+ve büyük momentleri nasıl kullanabileceğimizi hala tam anlamıyla bulamadık. Ve BT sektöründe sıkça görüyorum, 
+şirketlerin elinde büyük miktarda veri, büyük miktarda etiketlenmemiş veri 
+bulunmakta ve açıklama notları üzerine fazlasıyla 
+efor sarf ediliyor... çünkü bu, şu anda ilerlemenin tek yolu. Ve bu etiketlenmemiş verileri... kullanabilmemiz gerekiyormuş gibi görünüyor 
+çünkü gerçekten bir bolluk var. Ve bunu yapmanın yolunu henüz 
+tam olarak bulabilmiş değiliz. Peki, diyorsunuz ki derin öğrenme 
+araştırmasına katılmak isteyenler için denetimsiz öğrenme heyecan verici bir alan. Günümüzde araştırma ya da uygulama olsun, 
+derin öğrenme araştırmasına dahil olmak isteyen... çok sayıda insan bulunmakta. 
+Peki, araştırmacı veya uygulama işlerinde... bu global topluluk için
+ne gibi tavsiyeleriniz olurdu? >>Bence, bu alanı değerlendiren kişilere
+ vermem gerektiğini düşündüğüm... önemli tavsiyelerden biri, onları farklı şeyler denemeye,
+yeni şeyler denemekten korkmamaya ve... yenilikçi olmaktan korkmamaya heveslendirirdim. Size bir örnek verebilirim... Ben yüksek lisans öğrencisiyken sinir ağları üzerine çalışıyorduk, ve... bunlar oldukça zor optimize edilen
+ konveks olmayan sistemler. Optimizasyon grubundaki arkadaşlarımla konuştuğumuzu hatırlıyorum. Ve geri dönüş hep şöyleydi: bu 
+problemleri çözmeniz mümkün değil... çünkü bunlar konveks değil ve
+biz henüz optimizasyonu anlamış değiliz... konveks optimizasyonu yapmayla 
+karşılaştırıldığında bunu nasıl yapabiliriz ki? Bu şaşırtıcı bir durumdu, 
+çünkü labımızda hiç bir zaman... bu tür belirli problemleri 
+fazlasıyla önemsemiyorduk. Düşündüğümüz nasıl 
+optimize ederiz ve... nasıl ilgi çekici sonuçlar elde edebiliriz gibiydi. Ve aslında tüm grubu sürükleyen şey
+buydu ve belki de... bir bakıma hiç korkmuyorduk, çünkü... optimizasyonun arkasındaki
+ gerçek teoriyi bilmiyorduk. Ama insanları sadece denemeye ve 
+zor sorunların... üstesinden gelmeye çalışmaktan 
+korkmamaya teşvik ederdim. >>Evet, bir seferinde şöyle dediğini 
+hatırlıyorum; sadece üst seviye 
+derin öğrenme çerçevesinde ... kod yazmayı öğrenmeyin, derin öğrenmeyi gerçekten anlayın. >> Evet.
+Bu doğru. Derin öğrenme dersleri verdiğim zaman
+yapmaya çalıştığım şeylerden biri de bu. Ödevlerden birinde, insanlardan kıvrımlı
+(convolutional) sinir ağları için... geri yayılımlı algoritma kodları
+yazmalarını istiyorum. Bu çok acı verici, ama aynı zamanda, bir kere yaparsanız... bu sistemlerin nasıl işlediğini ve nasıl
+çalıştığını gerçekten anlayacaksınız. Ve onları GPU'lar (Grafik İşleme Birimi) üzerinde
+nasıl etkili bir şekilde uygulayacağınızı da. Araştırmaya veya endüstriye girdiğinizde,
+bu sistemlerin ne yaptığını... iyice anlamış olmak sizin için çok önemli. Çok önemli olduğunu düşünüyorum. >>Hem bir profesör olarak akademik 
+hem de kurumsal deneyiminiz olduğundan... merak ediyorum derin öğrenme 
+alanına giriş yapmak isteyen biri için... doktora yapmaya karşılık bir şirkete 
+girmenin artı ve eksileri nelerdir? >>Evet, bence bu aslında çok iyi bir soru. Benim kendi laboratuvarımdaki
+öğrencilerin fikirleri birbirinden farklı. Bazı öğrenciler akademik 
+bir yola girmek istiyor. Bazı öğrenciler endüstride 
+bir yol izlemek istiyor. İşler oldukça zorlu olmaya başladı çünkü,
+endüstride çok iyi araştırma yapabilirsiniz, ama akademide de çok iyi
+araştırma yapabilirsiniz. Ama artı ve eksiler açısından
+bakacak olursak, akademide... uzun soluklu problemler üzerinde
+çalışmak için daha özgürsünüz gibi hissediyorum, veya aklınıza çılgın bir soru gelirse
+onun için çalışabilirsiniz, yani biraz daha özgürsünüz. Bir yandan da, endüstride yaptığınız
+araştırma da çok heyecan verici, çünkü birçok durumda, temel bir
+yapay zeka teknolojisi geliştirirseniz... araştırmanız milyonlarca
+kullanıcıyı etkileyecek. Açıkçası endüstride bilgi sayımı
+açısından ve gerçekten... mükemmel şeyler yapabilmek adına
+çok daha fazla kaynak olacak. Yani evet artılar ve eksiler var, ancak
+her şey gerçekten ne yapmak istediğinize bağlı. Şu sıralarda her şey ilginç, akademinin endüstriye yönelmeye başladığı
+ve o kadar olmasa da... endüstriden insanların akademiye kaydığı
+çok ilginç bir ortam var. Ve yani bunlar gerçekten çok heyecan verici zamanlar. >>Kulağa öyle geliyor ki, akademik
+makina öğrenimi harika ve kurumsal
+makina öğrenimi de harika... ve önemli olan sadece işin içine girmek, değil mi? Herhangi biri olur, sadece başlayın. >>Bu gerçekten tercihlerinize bağlı,
+çünkü her iki alanda da harika... araştırmalar yapabilirsiniz. >>Daha önce bahsettiğiniz gibi
+denetimsiz öğrenme araştırma için... heyecanlı bir sınır. Araştırma için heyecanlı sınırlar olarak
+değerlendirdiğiniz başka alanlar var mı? >> Evet, kesinlikle. Bence, şu sıralarda gördüğüm,
+tüm camia içerisinde olan... özellikle derin öğrenme camiasında
+birkaç yeni akım var. Gerçekten çok heyecanlı olduğunu
+düşündüğüm belirli alan ise... takviyeli öğrenme
+(reinforcement learning) alanı. Çünkü, sanal dünyalardaki ajanları
+nasıl eğitebileceğimizi bulduk. Ve bu da sadece son iki yıl içerisinde
+bir hayli ilerleme görebildiğiniz bir alan. Bu sistemleri nasıl ölçeklendirebiliriz,
+nasıl yeni algoritmalar geliştirebiliriz, ajanların birbirleriyle haberleşmesini
+nasıl sağlayabiliriz... ve bence bu alan, ve genel olarak... çevre ile etkileşim içinde olabildiğiniz
+ortamlar gerçekten çok heyecan verici. Yine çok heyecanlı olduğunu
+düşündüğüm bir diğer alan da... muhakeme ve doğal dili anlama alanı. Mesela, diyaloğa dayalı sistemler inşa edebilir miyiz? Muhakeme yapabilen ve metni
+okuyup sorulara akıllıca cevaplar verebilen... sistemler inşa edebilir miyiz? Bence bu, şu sıralar bir çok araştırmanın
+odaklandığı bir konu. Ve bir de başka bir
+yardımcı alan daha var... sadece birkaç örnekten
+öğrenim yapabilme konusu. Sıklıkla insanlar bunu tek adım öğrenme
+veya transfer öğrenme olarak düşünüyor... dünya hakkında bir şeyler öğrenebildiğin bir ortam... ve ben sana yeni bir görev atıyorum
+ve bu görevi çok hızlı çözebilirsin. İnsanların çok fazla tanımlanmış örnek 
+görmeye gerek duymadan yaptıkları gibi. Ve bu topluluk içinde birçoğumuzun
+nasıl yapabiliriz diye anlamaya çalıştığı... ve nasıl insana yakın öğrenme becerilerine
+yaklaşabiliriz diye düşündüğü bir konu. >>Rus, yorumlarını ve bildiklerini bizimle
+paylaştığın için teşekkür ederim. Özellikle bunu yapmaya başladığın... ilk zamanların hikayesini dinlemek çok güzeldi. >>Teşekkürler Andrew. Beni konuk ettiğiniz için teşekkür ederim

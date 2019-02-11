@@ -1,0 +1,891 @@
+1
+00:00:00,000 --> 00:00:02,880
+derin öğrenmenin en heyecan verici gelişmelerinden biri de
+
+2
+00:00:02,880 --> 00:00:05,765
+uçtan uca derin öğrenmenin yükselmesi olmuştur.
+
+3
+00:00:05,765 --> 00:00:07,570
+Sahi, uçtan uca derin öğrenme nedir?
+
+4
+00:00:07,570 --> 00:00:10,510
+Kısaca, bazı veri işleme sistemleri
+
+5
+00:00:10,510 --> 00:00:13,880
+veya öğrenme sistemleri, veri işlemenin çoklu aşamalarını gerektiren öğrenme sistemleri olmuştur.
+
+6
+00:00:13,880 --> 00:00:15,330
+ve uçtan uca derin öğrenme ne yapar,
+
+7
+00:00:15,330 --> 00:00:17,625
+tüm bu çoklu aşamaları alabilir mi
+
+8
+00:00:17,625 --> 00:00:20,968
+ve yalnız bir sinir ağı bunun yerini alabilir mi?
+
+9
+00:00:20,968 --> 00:00:24,170
+Bazı örneklere bakalım.
+
+10
+00:00:24,170 --> 00:00:26,460
+Konuşma tanımayı örnek alacak olursak,
+
+11
+00:00:26,460 --> 00:00:30,975
+Hedefimiz, ses kaydı olarak X girdisini almak,
+
+12
+00:00:30,975 --> 00:00:33,015
+ve Y çıktısına eşlemek,
+
+13
+00:00:33,015 --> 00:00:37,230
+ses kaydının dokümanı haline getirmektir.
+
+14
+00:00:37,230 --> 00:00:41,550
+Geleneksel olarak, konuşma tanıma, işlemin birçok aşamasında gereklidir.
+
+15
+00:00:41,550 --> 00:00:44,085
+Öncelikle, bazı özellikleri çıkaracaksınız,
+
+16
+00:00:44,085 --> 00:00:46,045
+sesin elle tasarlanmış bazı özelliklerini.
+
+17
+00:00:46,045 --> 00:00:48,885
+Bu yüzden, eğer MFCC'yi duyduysanız,
+
+18
+00:00:48,885 --> 00:00:53,570
+bu, sesteki elle tasarlanmış özelliklerin çıkarılması için yazılmış bir algoritmadır,
+
+19
+00:00:53,570 --> 00:00:55,845
+bazı düşük seviye özellikler ayıklandıktan sonra,
+
+20
+00:00:55,845 --> 00:00:58,260
+bir makine öğrenmesi algoritması uygulayabilir,
+
+21
+00:00:58,260 --> 00:01:01,530
+ses kaydındaki sesbirimlerini bulabilirsiniz.
+
+22
+00:01:01,530 --> 00:01:04,390
+Yani, sesbirimleri sesin basit birimleridir.
+
+23
+00:01:04,390 --> 00:01:07,810
+Örneğin, CAT kelimesi üç sesten oluşur.
+
+24
+00:01:07,810 --> 00:01:10,690
+"Ce", "A", "Te" sesleri çıkar.
+
+25
+00:01:10,690 --> 00:01:13,630
+Şimdi, birbirinden ayrı kelimeleri biçimlendirmek için ses birimlerini birlikte sıralayın
+
+26
+00:01:13,630 --> 00:01:19,356
+ve bunları ses klibinin çevriyazı oluşturmak için bir araya getirin.
+
+27
+00:01:19,356 --> 00:01:23,365
+Yani, bu birçok aşamalı iletişim hattının aksine,
+
+28
+00:01:23,365 --> 00:01:24,940
+uçtan uca derin öğrenmenin yaptığı şey,
+
+29
+00:01:24,940 --> 00:01:28,735
+girdi olarak sadece ses klibi girip, çok büyük sinirsel ağ eğitebilirsiniz,
+
+30
+00:01:28,735 --> 00:01:32,670
+ve çıktı olarak doğruca çevriyazıyı alırsınız.
+
+31
+00:01:32,670 --> 00:01:35,800
+Yapay Zeka'daki bir ilginç sosyolojik etki ise,
+
+32
+00:01:35,800 --> 00:01:39,085
+bu uçtan uca derin öğrenmenin daha iyi çalışmaya başlaması için,
+
+33
+00:01:39,085 --> 00:01:41,545
+bazı araştırmacılar kariyerlerinin uzun yıllarını,
+
+34
+00:01:41,545 --> 00:01:44,830
+ardışık dizinin özel adımlarını tasarlamaya ayırmışlardır
+
+35
+00:01:44,830 --> 00:01:50,249
+Yani sadece konuşma tanımada değil, farklı disiplinlerde de bazı araştırmacılar vardı.
+
+36
+00:01:50,249 --> 00:01:52,360
+Belki bilgisayar görüşünde ve diğer alanlarda,
+
+37
+00:01:52,360 --> 00:01:53,945
+oldukça fazla zaman harcanarak,
+
+38
+00:01:53,945 --> 00:01:57,332
+çok sayıda makaleler yazıldı, hatta belki de bunlar, kariyerlerinin, mühendislik özelliklerinin
+
+39
+00:01:57,332 --> 00:02:00,270
+iletişim hattının diğer mühendislik parçaları büyük bir kısmını oluşturdu.
+
+40
+00:02:00,270 --> 00:02:02,990
+Ve uçtan uca derin öğrenmeden alınan,
+
+41
+00:02:02,990 --> 00:02:06,475
+son eğitim seti ve direkt X ve Y'den fonksiyon eşlemesinin öğrenilmesi,
+
+42
+00:02:06,475 --> 00:02:09,720
+aradaki bir adımların birçoğunu gerçekten atlaması
+
+43
+00:02:09,720 --> 00:02:13,300
+Bazı disiplinler için zor olan,
+
+44
+00:02:13,300 --> 00:02:17,255
+Yapay Zeka sistemlerinin alternatif yolunun olduğunu kabul etmekti.
+
+45
+00:02:17,255 --> 00:02:20,110
+Çünkü, bazı örneklerde ara bileşenlerin bazıları,
+
+46
+00:02:20,110 --> 00:02:23,665
+yıllar boyu yapılan araştırmalarda gerçekten eskimiştir.
+
+47
+00:02:23,665 --> 00:02:27,070
+Uçtan uca derin öğrenmenin zorluklarından biri de,
+
+48
+00:02:27,070 --> 00:02:30,670
+algoritmanın iyi çalışması için çok fazla veriye ihtiyaç olmasıdır
+
+49
+00:02:30,670 --> 00:02:33,030
+Örneğin, eğer 3,000 saatlik veri eğiterek,
+
+50
+00:02:33,030 --> 00:02:35,935
+konuşma tanıma sistemi oluşturmayı amaçlıyorsanız,
+
+51
+00:02:35,935 --> 00:02:37,600
+bu iletişim hattı,
+
+52
+00:02:37,600 --> 00:02:40,675
+tam geleneksel iletişim hattı olarak gerçekten iyi şekilde çalışacaktır.
+
+53
+00:02:40,675 --> 00:02:42,745
+Sadece, çok büyük veri kümeniz olduğunda,
+
+54
+00:02:42,745 --> 00:02:45,290
+10,000 saatlik veri kullanırsanız,
+
+55
+00:02:45,290 --> 00:02:49,000
+belki 100,000 saatlik veriye kadar varan veri kümesiyle,
+
+56
+00:02:49,000 --> 00:02:53,350
+uçtan uca yaklaşım gerçekten iyi şekilde çalışmaya başlar.
+
+57
+00:02:53,350 --> 00:02:55,000
+Yani, data küçük veri kümesine sahipseniz,
+
+58
+00:02:55,000 --> 00:02:58,990
+daha geleneksel iletişim hattıyla aynı şekilde işe yarar.
+
+59
+00:02:58,990 --> 00:03:00,700
+Genelde daha iyi çalışır.
+
+60
+00:03:00,700 --> 00:03:06,855
+Uçtan uca yaklaşım gerçekten parlaması için öncelikle daha büyük veri kümesine ihtiyacın var.
+
+61
+00:03:06,855 --> 00:03:08,850
+Ve eğer verinin miktarı ortalamaysa,
+
+62
+00:03:08,850 --> 00:03:12,365
+aynı zamanda ses girdisi olarak kullanacağınız ara yaklaşımlarla
+
+63
+00:03:12,365 --> 00:03:16,420
+ve özellikleri de ezerek, sadece sinirsel ağın ses birimleri çıktısını,
+
+64
+00:03:16,420 --> 00:03:17,765
+ve sonra bazı diğer aşamaları eğitirsiniz.
+
+65
+00:03:17,765 --> 00:03:19,420
+Yani bu, uçtan uca öğrenmenin bir aşaması olacak,
+
+66
+00:03:19,420 --> 00:03:29,065
+ama hepsi bununla kalmıyor.
+
+67
+00:03:29,065 --> 00:03:34,855
+Test. Bu, bir araştırmacı tarafından geliştirilen yüz tanıma turnikesi resmi,
+
+68
+00:03:34,855 --> 00:03:36,600
+araştırmacının ismi Yuanqing Lin at Baidu,
+
+69
+00:03:36,600 --> 00:03:41,050
+kişi kamera alıcısının olduğu noktada belirdiğinde,
+
+70
+00:03:41,050 --> 00:03:43,135
+eğer kişiyi tanırsa,
+
+71
+00:03:43,135 --> 00:03:46,645
+turnike otomatik olarak kişiye izin verir.
+
+72
+00:03:46,645 --> 00:03:51,170
+Yani tesise girmek için RFID rozetini kaydıranıza gerek yok,
+
+73
+00:03:51,170 --> 00:03:53,410
+Çin'deki ofislerde giderek artıyor,
+
+74
+00:03:53,410 --> 00:03:56,270
+ve umarım diğer ülkelerde de daha fazla artar,
+
+75
+00:03:56,270 --> 00:03:59,485
+yalnızca turnikeye gözükmeniz ve eğer kamera yüzünüzü tanırsa,
+
+76
+00:03:59,485 --> 00:04:04,155
+RFID rozeti taşımanıza gerek olmadan girmenize izin verir.
+
+77
+00:04:04,155 --> 00:04:07,385
+Yani, böyle bir sistemi nasıl kurarsınız?
+
+78
+00:04:07,385 --> 00:04:12,590
+Sizce yalnızca bakacaksınız ve kamera resmi yakalayacak.
+
+79
+00:04:12,590 --> 00:04:14,645
+Yani, bence bu çizimim kötü,
+
+80
+00:04:14,645 --> 00:04:16,190
+ama bu bir kamera.
+
+81
+00:04:16,190 --> 00:04:19,390
+Sen turnikeye yaklaşan birisin.
+
+82
+00:04:19,390 --> 00:04:23,810
+Yani X resmi, kameranın yakalayacağı bir resim olabilir.
+
+83
+00:04:23,810 --> 00:04:26,950
+Yapacağın şey, işlev eşlemeyi öğrenmek,
+
+84
+00:04:26,950 --> 00:04:31,470
+X resminden doğrudan Y kişisinin kimliğine ulaşmak.
+
+85
+00:04:31,470 --> 00:04:34,580
+Bunun en iyi yaklaşım olmadığı ortaya çıkıyor.
+
+86
+00:04:34,580 --> 00:04:36,395
+Ve problemlerden biri de,
+
+87
+00:04:36,395 --> 00:04:39,835
+kişi turnikeye çok farklı yönlerden yaklaşabilir.
+
+88
+00:04:39,835 --> 00:04:41,945
+Yani yeşil pozisyonlarda olabilir,
+
+89
+00:04:41,945 --> 00:04:43,195
+mavi pozisyonda olabilir.
+
+90
+00:04:43,195 --> 00:04:45,245
+Anlayacağınız, bazen kameraya daha yakın olabilirler
+
+91
+00:04:45,245 --> 00:04:47,020
+yani resmin içinde daha büyük olarak belirebilirler.
+
+92
+00:04:47,020 --> 00:04:49,225
+Ve bazen kameraya aşırı yakın olurlar,
+
+93
+00:04:49,225 --> 00:04:51,600
+Yani yüz daha büyük olarak belirir.
+
+94
+00:04:51,600 --> 00:04:54,205
+Yani, aslında turnikeleri kurarken yapılacak şey,
+
+95
+00:04:54,205 --> 00:04:56,350
+sadece ham görüntüyü almak değil,
+
+96
+00:04:56,350 --> 00:04:59,315
+kişinin kimliğini tanıması için sinir ağını beslemek.
+
+97
+00:04:59,315 --> 00:05:02,005
+Bunun yerine, bugüne kadarki en iyi yaklaşım,
+
+98
+00:05:02,005 --> 00:05:05,140
+çok adımlı yaklaşım olarak gözüküyor, öncelikle,
+
+99
+00:05:05,140 --> 00:05:09,210
+yazılımın bir parçasını, kişinin yüzünü tanıtmak için çalıştıracaksınız.
+
+100
+00:05:09,210 --> 00:05:12,820
+Yani ilk tanıyıcı, kişinin yüzünün nerede olduğunu çözmeli.
+
+101
+00:05:12,820 --> 00:05:14,785
+Kişinin yüzü tanındığında,
+
+102
+00:05:14,785 --> 00:05:16,930
+resmin parçasına yaklaşacaksınız
+
+103
+00:05:16,930 --> 00:05:24,540
+kişinin yüzünün olduğu,
+
+104
+00:05:24,540 --> 00:05:29,340
+personelin yüzünün ortalandığı resmi keseceksiniz.
+
+105
+00:05:29,340 --> 00:05:34,757
+Sonra, bu resimde kırmızıyla çizdiğim yer,
+
+106
+00:05:34,757 --> 00:05:36,080
+bu, sinirsel ağı besler,
+
+107
+00:05:36,080 --> 00:05:38,010
+öğrenmeye çalışır
+
+108
+00:05:38,010 --> 00:05:40,485
+veya kişinin kimliğini tahmin eder.
+
+109
+00:05:40,485 --> 00:05:42,150
+Araştırmacıların bulduğu şey,
+
+110
+00:05:42,150 --> 00:05:45,615
+tek adımda her şeyi öğrenmeye çalışmak yerine,
+
+111
+00:05:45,615 --> 00:05:48,780
+bu problemi daha basit iki parçaya ayırarak,
+
+112
+00:05:48,780 --> 00:05:51,490
+ilk olarak yüzün nerede olduğunu anlamak.
+
+113
+00:05:51,490 --> 00:05:54,890
+İkinci olarak, yüze bakmak ve yüzün gerçekte kim olduğunu anlamak.
+
+114
+00:05:54,890 --> 00:05:58,010
+Bu ikinci yaklaşım öğrenme algoritmasına veya çok daha basit görevleri çözmek için 
+
+115
+00:05:58,010 --> 00:06:03,560
+gerçekten iki öğrenme algoritmasına izin verir ve genel olarak daha iyi performans sağlar.
+
+116
+00:06:03,560 --> 00:06:05,930
+Bu arada, eğer ikinci adımın nasıl çalıştığını,
+
+117
+00:06:05,930 --> 00:06:08,975
+öğrenmek isterseniz, olayı daha da basitleştirdim.
+
+118
+00:06:08,975 --> 00:06:11,865
+Bu arada ikinci aşamanın gerçekten nasıl işlediğini bilmek isterseniz,
+
+119
+00:06:11,865 --> 00:06:13,605
+açıklamayı biraz daha basitleştirdim.
+
+120
+00:06:13,605 --> 00:06:15,470
+İkinci adımın nasıl eğitildiği,
+
+121
+00:06:15,470 --> 00:06:16,730
+eğiteceğiniz ağda,
+
+122
+00:06:16,730 --> 00:06:18,920
+girdi olarak iki resim alınır,
+
+123
+00:06:18,920 --> 00:06:22,230
+ve sonra ağınızın yapacağı şey,
+
+124
+00:06:22,230 --> 00:06:29,553
+bu iki resim girdisiyle, iki resmin aynı kişi olup olmadığını söyleyecek.
+
+125
+00:06:29,553 --> 00:06:34,700
+Yani, eğer dosyada 10,000 personel bilgisi varsa,
+
+126
+00:06:34,700 --> 00:06:36,430
+Siz, kırmızıdaki resmi alabilirsiniz,
+
+127
+00:06:36,430 --> 00:06:38,545
+ve dosyadaki 10,000 personel bilgisini,
+
+128
+00:06:38,545 --> 00:06:41,795
+hızlıca karşılaştırabilirsiniz, eğer
+
+129
+00:06:41,795 --> 00:06:44,810
+kırmızı resim cidden 10,000 personelden biriyse,
+
+130
+00:06:44,810 --> 00:06:48,640
+personeli tesise veya ofis binanıza girmesine izin vermelisiniz.
+
+131
+00:06:48,640 --> 00:06:51,770
+Bu, personellerin işyerine erişim veren bir
+
+132
+00:06:51,770 --> 00:06:55,970
+turnike. Peki neden bu iki adımlı yaklaşım daha iyi çalışır?
+
+133
+00:06:55,970 --> 00:06:58,605
+Aslında bunun iki sebebi var.
+
+134
+00:06:58,605 --> 00:07:02,020
+Birincisi, çözüyor olduğunuz her iki problem daha da basitleşiyor.
+
+135
+00:07:02,020 --> 00:07:10,360
+Ama ikincisi, her iki alt görev için birçok veriye sahipsiniz.
+
+136
+00:07:10,360 --> 00:07:16,950
+Özellikle, buradaki birinci görev için aşama tespitinde 
+
+137
+00:07:16,950 --> 00:07:18,720
+bulabileceğiniz çok fazla veri vardır,
+
+138
+00:07:18,720 --> 00:07:20,820
+buradaki görev, resme bakmak ve kişinin yüzünün
+
+139
+00:07:20,820 --> 00:07:23,415
+nerede olduğunu çözmektir.
+
+140
+00:07:23,415 --> 00:07:25,695
+Burada çok fazla veri vardır.
+
+141
+00:07:25,695 --> 00:07:27,610
+Burada X verisinin birçok etiketi var,
+
+142
+00:07:27,610 --> 00:07:31,420
+bu X resminin ve kişinin yüzünün pozisyonunu göstererek ve X resminin Y'ye konumunu göstermesini sağlar.
+
+143
+00:07:31,420 --> 00:07:35,100
+Yani görevin gerçekten iyi çalışması için daha güzel bir sinirsel ağ kurabilirsiniz.
+
+144
+00:07:35,100 --> 00:07:37,440
+Bundan ayrı olarak, ikinci görevin iyi çalışması için birçok data var.
+
+145
+00:07:37,440 --> 00:07:41,710
+Bugün, yüz milyonlarca insanın yüzlerinin,
+
+146
+00:07:41,710 --> 00:07:44,525
+resimlerine sahip olan öncü şirketler var diyebiliriz.
+
+147
+00:07:44,525 --> 00:07:46,845
+Yani, kırmızı resimdeki gibi,
+
+148
+00:07:46,845 --> 00:07:49,275
+çok yakından kırpılmış bir görüntü verilince,
+
+149
+00:07:49,275 --> 00:07:51,555
+günümüzde, yüz milyonlarca resme sahip,
+
+150
+00:07:51,555 --> 00:07:53,880
+lider yüz tanıma ekibi, iki resme bakıp
+
+151
+00:07:53,880 --> 00:07:55,980
+kimlik tanımaya çalışmak,
+
+152
+00:07:55,980 --> 00:07:58,765
+veya bu kimliğin aynı kişiye ait olup olmadığını kontrol etmek.
+
+153
+00:07:58,765 --> 00:08:02,310
+Yani ikinci görevi yapmak için birçok veri vardır.
+
+154
+00:08:02,310 --> 00:08:07,155
+Buna karşın, eğer aynı anda her şeyi öğrenmeye çalışırsanız,
+
+155
+00:08:07,155 --> 00:08:10,680
+X'ten Y'ye giden çok daha az veri var.
+
+156
+00:08:10,680 --> 00:08:13,175
+X resmi, turnikeden alınan veri,
+
+157
+00:08:13,175 --> 00:08:16,390
+Y de, resminden kişinin kimliğine ulaşır.
+
+158
+00:08:16,390 --> 00:08:21,610
+Uçtan uca öğrenme problemini çözmek için yeterli veriye sahip değilsiniz,
+
+159
+00:08:21,610 --> 00:08:27,410
+ama birinci ve ikinci görevle birlikte alt problemleri çözmek için yeterli veriye sahipsiniz.
+
+160
+00:08:27,410 --> 00:08:29,740
+Bunu iki alt probleme ayırmak,
+
+161
+00:08:29,740 --> 00:08:34,260
+uçtan uca derin öğrenme yaklaşımından daha iyi performans almanızı sağlar.
+
+162
+00:08:34,260 --> 00:08:37,575
+Buna rağmen, eğer uçtan uca yaklaşım için yeterli veriye sahipseniz,
+
+163
+00:08:37,575 --> 00:08:40,470
+belki de uçtan uca yaklaşımı daha iyi çalışacak,
+
+164
+00:08:40,470 --> 00:08:44,240
+ancak bu, pratikte en iyi şekilde çalışacaktır diyemeyiz.
+
+165
+00:08:44,240 --> 00:08:46,886
+Birkaç örneğe daha bakalım.
+
+166
+00:08:46,886 --> 00:08:49,000
+Makine çevirmesini alalım.
+
+167
+00:08:49,000 --> 00:08:54,390
+Geleneksel olarak, makine çevirme sistemleri daha uzun ve karmaşık iletişim hattına sahiptir,
+
+168
+00:08:54,390 --> 00:08:56,230
+ilk olarak, İngilizce metin ve
+
+169
+00:08:56,230 --> 00:08:58,955
+metin analizini alalım.
+
+170
+00:08:58,955 --> 00:09:01,990
+Temel olarak, metnin bir sürü özelliği çıkarılır.
+
+171
+00:09:01,990 --> 00:09:04,630
+Daha sonra, çok fazla adımdan sonra,
+
+172
+00:09:04,630 --> 00:09:07,900
+İngilizce metni Fransızca'ya çevirecek.
+
+173
+00:09:07,900 --> 00:09:10,030
+Çünkü, makine çevirisi için,
+
+174
+00:09:10,030 --> 00:09:13,990
+Fransızca cümleleri çevirmek için çok fazla İngilizce çifti var.
+
+175
+00:09:13,990 --> 00:09:17,640
+Uçtan uca derin öğrenmeyle, makine öğrenmesi yeterince iyi çalışacaktır.
+
+176
+00:09:17,640 --> 00:09:20,140
+Çünkü bugünlerde,
+
+177
+00:09:20,140 --> 00:09:24,350
+büyük veri kümesinde X-Y çiftini bir araya toplamak,
+
+178
+00:09:24,350 --> 00:09:28,780
+İngilizce cümleleri ve bunların Fransızca çevirilerinin yerini tutması mümkündür.
+
+179
+00:09:28,780 --> 00:09:29,955
+Bu yüzden bu örnekte,
+
+180
+00:09:29,955 --> 00:09:32,320
+uçtan uca öğrenme iyi çalışacaktır.
+
+181
+00:09:32,320 --> 00:09:35,200
+Son örnek olarak, bu X-ray resmine,
+
+182
+00:09:35,200 --> 00:09:38,220
+bakarak çocuğun eli olduğunu söyleyebilir,
+
+183
+00:09:38,220 --> 00:09:40,215
+ve çocuğun yaşını tahmin edebilir.
+
+184
+00:09:40,215 --> 00:09:41,830
+Bilirsiniz, problemi ilk duyduğumda,
+
+185
+00:09:41,830 --> 00:09:45,460
+bunun çok kolay bir olay yeri inceleme görevi olduğunu düşündüm,
+
+186
+00:09:45,460 --> 00:09:48,610
+trajik bir şekilde çocuğun kemiğini buluyorsunuz,
+
+187
+00:09:48,610 --> 00:09:50,980
+ve çocuğun nasıl olduğunu çözmek istiyorsunuz.
+
+188
+00:09:50,980 --> 00:09:54,445
+Bu problemin tipik uygulaması olmaktan çıkıyor,
+
+189
+00:09:54,445 --> 00:09:57,010
+X-ray'den çocuğun yaşını tahmin ediyorsunuz,
+
+190
+00:09:57,010 --> 00:09:59,995
+bu benim resmettiğim suç mahalli araştırması senaryosundan daha az dramatik.
+
+191
+00:09:59,995 --> 00:10:02,890
+Bu, çocuk doktorlarının kullandığı,
+
+192
+00:10:02,890 --> 00:10:06,925
+çocuğun gelişiminin normal olup olmadığını sağlayan bir tahmine dönüşüyor.
+
+193
+00:10:06,925 --> 00:10:09,460
+Ama bu uçtan uca yaklaşım için,
+
+194
+00:10:09,460 --> 00:10:14,045
+resmi yerleştiriyor ve ayırıyorsunuz veya kemikleri tanıyorsunuz.
+
+195
+00:10:14,045 --> 00:10:16,730
+Yani, yalnızca bu kemik bölümlerini çözmeyi deneyemez miyiz?
+
+196
+00:10:16,730 --> 00:10:17,849
+Bu kemik bölümleri nerede?
+
+197
+00:10:17,849 --> 00:10:20,290
+Bu kemik bölümleri nerede? Ve bunun gibileri. Ve sonrası.
+
+198
+00:10:20,290 --> 00:10:22,285
+Farklı kemiklerin uzunlukları bilinir,
+
+199
+00:10:22,285 --> 00:10:26,380
+bunları ortalama kemik uzunluklarını gösteren bir tabloya girip sıralayabilirsiniz,
+
+200
+00:10:26,380 --> 00:10:30,615
+bir çocuğun elinden, çocuğun yaşını tahmin edebilirsiniz.
+
+201
+00:10:30,615 --> 00:10:32,800
+Şimdi bu yaklaşım daha da iyi çalışır.
+
+202
+00:10:32,800 --> 00:10:37,960
+Buna karşın, eğer resimden direkt çocuğun yaşına gidecekseniz,
+
+203
+00:10:37,960 --> 00:10:43,030
+bunu doğrudan yapmak için bildiğim kadarıyla daha çok veriye ihtiyacınız olacak,
+
+204
+00:10:43,030 --> 00:10:45,850
+bu yaklaşım şu an işe yaramaz,
+
+205
+00:10:45,850 --> 00:10:50,515
+çünkü eğitilecek veri uçtan uca modası içinde yeterli olmaz.
+
+206
+00:10:50,515 --> 00:10:56,326
+Oysa bunun aksine, bu problemi iki aşamaya bölerek düşünebilirsiniz.
+
+207
+00:10:56,326 --> 00:10:58,780
+Birinci adımda problem nispeten daha basittir.
+
+208
+00:10:58,780 --> 00:11:00,345
+Belki de fazla veriye ihtiyacınız yok.
+
+209
+00:11:00,345 --> 00:11:03,455
+Belki bir çok X-ray resmini alıp kemikleri ayrıştırmanıza gerek yok.
+
+210
+00:11:03,455 --> 00:11:08,225
+İkinci görevde, çocukların ellerinin numaralarının toplanma istatistiğinden,
+
+211
+00:11:08,225 --> 00:11:11,280
+çok fazla veriye ihtiyaç olmadan daha iyi tahminler yapabilirsiniz.
+
+212
+00:11:11,280 --> 00:11:14,125
+Yani çok adımlı yaklaşım daha işe yarar gözüküyor.
+
+213
+00:11:14,125 --> 00:11:16,420
+Belki uçtan uca yaklaşım için daha fazla veriyi
+
+214
+00:11:16,420 --> 00:11:20,635
+elde edene kadar bu yaklaşım ile daha işe yarar sonuçlar alabilirsiniz.
+
+215
+00:11:20,635 --> 00:11:22,840
+Böylece bir uçtan uca derin öğrenme çalışır.
+
+216
+00:11:22,840 --> 00:11:26,650
+Bu cidden iyi çalışabilir ve sistemi ciddi şekilde basitleştirebilir ve
+
+217
+00:11:26,650 --> 00:11:30,875
+tek tek elle tasarlanmış çok fazla bileşen yüklemenize ihtiyacınız olmaz.
+
+218
+00:11:30,875 --> 00:11:32,773
+Ancak bu tabii ki her derde deva olmaz,
+
+219
+00:11:32,773 --> 00:11:34,315
+her zaman işe yaramaz.
+
+220
+00:11:34,315 --> 00:11:35,650
+Bir sonraki videoda,
+
+221
+00:11:35,650 --> 00:11:39,530
+sizle daha sistematik açıklama paylaşmak istiyorum, bunlar
+
+222
+00:11:39,530 --> 00:11:42,820
+uçtan uca derin öğrenmeyi kullanmanız ve belki de kullanmamanız gereken zamanlar ve
+
+223
+00:11:42,820 --> 00:11:47,000
+karmaşık makine öğrenme sistemlerini nasıl bir araya getireceğiniz olacak.

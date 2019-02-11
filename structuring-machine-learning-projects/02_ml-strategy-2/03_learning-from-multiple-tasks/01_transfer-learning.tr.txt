@@ -1,0 +1,56 @@
+Derin öğrenmedeki en güçlü fikirlerden biri,
+bazen sinir ağının bir görevden öğrendiği bilgiyi almak
+ve o bilgiyi ayrı bir göreve uygulayabilmektir. Yani, örneğin, sinir ağınız kediler gibi nesneleri tanımayı öğrenmiş olabilir ve o bilgiyi ya da o bilginin bir parçasını size röntgen taramalarını daha iyi okumanızda
+yardım etmesi için kullanabilirsiniz Buna öğrenme aktarması denir. Bir inceleyelim. Diyelim ki sinir ağınızı
+görüntü tanıma üzerine eğitmiş olun. O halde önce bir sinir ağı alırsınız ve onu X in bir görüntü ve Y nin herhangi bir nesne olduğu
+X Y çiftleri üzerine eğitirsiniz. Görüntü bir kedi veya bir köpek veya bir kuş
+ya da başka bir şeydir. Eğer bu sinir ağını alır ve öğrenileni
+uyarlamak isterseniz ya da aktarmak diyelim, başka bir göreve, radyoloji tanısı gibi, gerçekten röntgen taramalarını incelemek anlamında, yapmanız gereken
+sinir ağının bu son çıktı katmanını almak ve onu silmek ve aynı zamanda o son çıktı katmanını
+besleyen ağırlıkları da silmektir ve sadece son katman için rastgele oluşturulmuş
+yeni bir ilk değer ağırlıklar dizisi oluşturmalısınız ve bunları yaptıktan sonra radyoloji tanısı çıkar. Yani somut olmak gerekirse, eğitimin
+ilk aşamasında görüntü tanıma görevi için eğitim yaparken, sinir ağının tüm genel parametreleri, tüm ağırlıkları için eğitirsiniz, tüm katmanları için ve sonunda görüntü tanıma tahmini yapmayı öğrenen
+bir şeyiniz olur. Sinir ağınızı eğittikten sonra, eğitim aktarmasını gerçekleştirmek için şimdi
+yapmanız gereken, radyoloji görüntülerinden oluşan, yeni bir X Y veri kümesini kullanmaktır. Y ler tahmin etmek istediğiniz tanılar ve yapmanız gereken son katmanların
+ağırlıklarının ilk değerlerini vermek. Bunu rastgele W.L. olarak ve P.L. olarak adlandıralım. Ve şimdi, bu yeni veri kümesi ile sinir ağını yeniden eğitelim, yeni radyoloji veri kümesi ile. Radyoloji verisiyle sinir ağınızı yeniden eğitmek için
+bir kaç seçeneğiniz var. Eğer küçük bir radyoloji veri kümeniz varsa, sadece son katmanın ağırlıklarını, sadece W.L., P.L.
+yeniden eğitmek isteyebilirsiniz ve diğer değişkenleri sabit tutmak isteyebilirsiniz. Eğer yeterince veriniz varsa, sinir ağının kalan tüm katmanlarını
+yeniden eğitebilirsiniz. Ve ana kural olarak eğer küçük bir veri kümeniz varsa o zaman sadece en son katmanı,
+çıktı katmanını eğitebilirsiniz. Veya belki son bir ya da iki katmanı. Ama, eğer bir çok veriniz varsa, o zaman belki ağdaki tüm değişkenleri
+yeniden eğitebilirsiniz. Ve eğer sinir ağındaki tüm değişkenleri yeniden eğitirseniz, o zaman görüntü tanıma üzerine olan eğitimin ilk aşaması bazen eğitim öncesi diye adlandırılır. çünkü görüntü tanımlama verilerini sinir ağının ilk ağırlık değerlerini vermede ya da
+aslında ilk eğitiminde kullanıyorsunuz. Ve daha sonra tüm ağırlıkları güncelliyorsanız, ondan sonra radyoloji verisiyle eğitim yaptığınızda
+o zaman bazen bu ince ayar diye adlandırılır. Böylece derin öğrenme bağlamında
+ön eğitim ve ince ayar kelimelerini duydunuz, yani öğrenme aktarması kaynağında ön eğitim ve ince ayarın neyi ifade ettiğini. Ve bu örnekte yaptığınız görüntü tanımadan öğrendiğiniz bilgiyi alıp onu radyoloji tanısına uygulamak ya da aktarmaktı. Ve bunun faydalı olabilmesinin nedeni köşeleri algılama, eğrileri algılama, pozitif nesneleri algılama gibi bir çok alt seviye özelliktir. Böyle büyük bir görüntü tanıma veri kümesinden öğrenmek öğrenme algoritmanızın radyoloji tanısında
+daha iyi olmasına yardım edebilir. Görüntülerin yapısının ve doğasının neye benzediği
+konusunda birçok bilgi öğrenmiş olur ve bu bilginin bir kısmı faydalı olacaktır. Yani görüntüleri tanımayı öğrenerek, farklı görüntülerin bazı parçalarının neye benzediğini öğrenmiş olabilir, ve çizgiler, noktalar, eğriler vb hakkındaki bilgiler, belki nesnelerin küçük parçaları olabilir, bu bilgi radyoloji tanı ağınızın biraz daha hızlı ya da daha az veri ile
+öğrenmesine yardımcı olabilir. Yeni bir örnek yapalım. Diyelim ki bir konuşma tanıma sistemi eğitmişsiniz o zaman X ses ya da ses parçacıkları girdisidir, ve Y bazı yazılı metinlerdir. Yani konuşma tanıma sisteminizi
+metin çıktısı vermek için eğittiniz. Ve diyelim ki şimdi " uyandırma kelimeleri" ya da "tetikleme kelimeleri" algılama sistemi yapmak istiyorsunuz. O zaman, uyandırma ya da tetikleme kelimelerinin evimizde
+konuşma kontrollü cihazları uyandırmak istediğimizde söylediğimiz kelimeler olduğunu düşünerek "Alexa" diyerek bir Amazon Echo'yu ya da
+"OK Google" diyerek bir Google cihazını veya "hey Siri" diyerek bir Apple cihazını veya
+"Ni hao baidu" diyerek bir baidu cihazını uyandırabiliriz. Bunu yapabilmek için sinir ağının son katmanını tekrar çıkarır ve yeni bir çıktı düğümü oluşturabilirsiniz. Ama bazen yapabileceğiniz diğer bir şey
+sadece tek bir yeni çıktı yaratmak değil, ama uyandırma kelimesi algılama sorununuz
+için Y etiketleri koymaya uğraşırken sinir ağınızda birkaç tane yeni katman yaratmaktır. Ondan sonra tekrar, ne kadar veriniz olduğuna bağlı olarak, sadece ağınızın yeni katmanlarını tekrar eğitebilirsiniz ya da bu sinir ağının daha da çok katmanını yeniden eğitebilirsiniz. O halde, öğrenme aktarması ne zaman bir anlam ifade ediyor? Öğrenme aktarması, aktardığınız (kaynak) sorununuz için birçok veriniz olduğunda ve genellikle aktarılan (hedef) sorun için göreceli olarak
+daha az veriniz olduğunda bir anlam ifade eder. Yani örneğin, bir görüntü tanıma görevi için bir milyon örneğiniz olsun diyelim. O zaman bu, sanal ağın ilk katmanlarında birçok alt seviye özelliği ya da birçok faydalı özelliğin öğrenilebileceği çok miktarda veri demektir. Ama radyoloji görevi için, belki sadece yüz tane örneğiniz olur. Yani radyoloji tanı sorunu için çok az veriniz var, belki sadece 100 tane röntgen taraması. Yani görüntü tanımadan öğrenebileceğiniz
+birçok bilgi aktarılabilir ve gerçekten radyoloji için tüm verileriniz olmasa bile size radyoloji tanımanızı yapmanızda yardım edebilir. Konuşma tanıma için, belki konuşma tanıma sisteminizi 10000 saatlik veriyle eğittiniz. Yani, insan sesinin nasıl bir ses olduğunu, gerçekten çok fazla olan, 10000 saatlik veriden öğrenmiştiniz. Ama tetikleme kelimesi algılamanız için, belki sadece bir saatlik veriniz var. Yani, bu birçok değişkeni ayarlamak için
+yeteri kadar çok değil. Bu durumda, insan sesleri hakkında öğrendiklerinizin bir çoğu, insan konuşmasının bileşenlerinin ne olduğu vb, iyi bir uyandırma kelimesi algılayıcısı yapmada
+gerçekten yardımcı olabilir, görece olarak küçük bir veri kümeniz ya da an azından uyandırma kelimesi algılama görevi için çok daha küçük bir veri kümeniz olsa bile. Yani bu durumların her ikisinde de birçok verisi olan bir sorundan görece daha az verisi olan bir soruna aktarıyorsunuz. Öğrenme aktarmasının bir anlam ifade etmediği bir durum, tersinin doğru olup olmadığıdır. Yani, görüntü tanıma için yüz tane görüntünüz varken ve radyoloji tanınız için 100 tane hatta bin tane görüntünüz olduğunda, radyoloji tanınızda iyi sonuç almak için, gerçekten radyoloji tanınızı iyi yapmak istediğinizi varsayarak, birisi radyoloji görüntüsü sahibi olmanın kedi, köpek vb
+görüntülere sahip olmaktan daha değerli olduğunu düşünebilir. Yani buradaki her örnek oradaki her bir örnekten
+daha değerlidir, an azından iyi bir radyoloji sistemi yapma amacı açısından. Yani, eğer radyoloji için zaten daha fazla veriniz varsa, bu durumda kediler, köpekler ya da arabalar vb rastgele nesnelerden 100 görüntünüzün olması o kadar yardımcı olmayacaktır, çünkü kediler ve köpekler için görüntü tanıma görevinizden
+bir örneğin değeri iyi bir radyoloji sistemi yapma görevinizdeki bir röntgen görüntüsü örneğininkinden daha az olacaktır. Yani, bu da öğrenme aktarması için bir örnektir, aslında zararı olmayabilir ama size anlamlı bir
+kazanç sağlamasını da beklemiyorum. Benzeri şekilde, eğer 10 saatlik veriyle konuşma tanıma
+sistemi yaptıysanız ve aslında 10 saatlik, belki de daha fazla, 50 saatlik uyandırma kelimesi algılaması veriniz varsa, biliyorsunuz, zarar verebilir ya da vermeyebilir, belki o 10 saatlik veriyi öğrenme aktarmanıza
+dahil etmek zarar vermeyecek, ama anlamlı bir kazanç ta beklememelisiniz. Özetlemek gerekirse, ne zaman öğrenme aktarması
+bir anlam ifade eder? Eğer bir A görevinden öğrenmeye çalışıyorsanız ve bilginin bir kısmını
+B görevine aktarmaya çalışıyorsanız, o zaman aynı girdi X e sahip A görevinden B görevine
+öğrenme aktarması bir anlam ifade eder. İlk örnekte, A ve B ikisinin de girdi olarak görüntüler var. İkinci örnekte her ikisinin de girdi olarak ses kayıtları var. A görevinde B görevinden daha fazla veri
+olduğunda bir anlam ifade etmeli. Tüm bunlar gerçekten iyi yapmak istediğinizin
+B görevi olduğu varsayımına bağlı. Ve B görevinin verisi, B görevi için
+daha değerli olduğundan genellikle A görevi için çok daha fazla
+veriye ihtiyacınız var, biliyorsunuz, A görevinden her bir örnek, B görevi için,
+B görevinin her bir örneğinden daha az değerlidir. Ve son olarak, öğrenme aktarması
+A görevinin alt seviye özelliklerinin B görevini öğrenmekte yardımcı olabileceğini düşünürseniz
+daha çok anlam ifade eder. Ve bu ilk örneklerin her ikisinde de belki görüntü tanımasını öğrenme size radyoloji tanısı yapacak kadar görüntüler hakkında bilgi verebilir ve belki konuşma tanımasını öğrenme size insan konuşmasını, tetikleme kelimesi ya da uyandırma kelimesi algılamada yardımcı olması için öğretebilir. Özetlemek gerekirse, öğrenme aktarması genellikle, görece olarak çok az verinizin olduğu, B görevinde başarılı olmaya çalıştığınızda en çok faydayı sağlar. Yani, örneğin, radyolojide biliyorsunuz, iyi bir radyoloji tanı sistemi yapmak için birçok röntgen taraması bulmak zordur. O zaman, bu durumda, ilgili ama farklı bir görev bulabilirsiniz, bir milyon görüntü alabileceğiniz ve bundan birçok farklı özelliği öğrenebileceğiniz,
+görüntü tanıma gibi, böylece B görevinde, sizin radyoloji görevinizde, çok fazla veriniz olmamasına rağmen
+başarılı olmaya çalışabilirsiniz. Öğrenme aktarması bir anlam ifade ettiği zaman öğrenme görevinizin başarısına önemli ölçüde yardımcı olur. Ama, bazen öğrenme aktarmasının A görevinin B görevinden daha az veriye sahip olduğu
+durumlarda da uygulandığını gördüm, bu durumlarda fazla bir kazanç beklemezsiniz. Bir görevden öğrenip farklı bir göreve aktarmaya çalıştığımız öğrenme aktarması bundan ibaret. Çoklu görevlerden öğrenmenin başka bir türü daha var, buna çoklu görev (multitask) öğrenmesi diyoruz, bunda bir görevden öğrenip sonra sırayla
+diğerlerinden öğrenmek yerine aynı anda birçok görevden öğrenmeye çalışıyorsunuz, ve ondan sonra, farklı bir göreve aktarmaya çalışıyorsunuz. Bir sonraki videoda çoklu görev öğrenmesini tartışalım.

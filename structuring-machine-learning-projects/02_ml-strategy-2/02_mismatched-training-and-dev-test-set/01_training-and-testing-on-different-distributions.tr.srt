@@ -1,0 +1,615 @@
+1
+00:00:00,560 --> 00:00:04,440
+Derin öğrenme algoritmaları, deneme verisine oldukça istek duymaktadır.
+
+2
+00:00:04,440 --> 00:00:06,970
+Derin öğrenme algoritmaları genellikle test verisine
+
+3
+00:00:06,970 --> 00:00:10,294
+yalnızca yeteri miktarda deneme verisi uygulayabildiğimizde en iyi çalışmaktadır.
+
+4
+00:00:10,294 --> 00:00:14,154
+Bu durum pek çok takımda, bulabileceği her türlü veriyi almak ve
+
+5
+00:00:14,154 --> 00:00:18,120
+yalnızca daha fazla deneme verisi elde etmek için onu deneme setinde göstermek ile sonuçlanmaktadır.
+
+6
+00:00:18,120 --> 00:00:21,720
+Gelişim ve test verisi gibi, bu verinin bazısı ya da hatta bu verinin belki pek çoğu
+
+7
+00:00:21,720 --> 00:00:25,870
+aynı dağılıma sahip olmasalar bile.
+
+8
+00:00:25,870 --> 00:00:30,330
+Bu nedenle bir derin öğrenme çağında takımlar, gelişim ve test setlerinin dağılımlarından farklı bir dağılıma sahip veri üzerinde
+
+9
+00:00:30,330 --> 00:00:34,325
+halen çok daha fazla deneme yapmaktadırlar.
+
+10
+00:00:34,325 --> 00:00:37,385
+Deneme ve test verisinin dağılımları birbirinden farklı olduğunda
+
+11
+00:00:37,385 --> 00:00:41,825
+bazı incelikler ve bazı en iyi uygulamalar vardır.
+
+12
+00:00:41,825 --> 00:00:43,315
+Hadi inceleyelim.
+
+13
+00:00:43,315 --> 00:00:48,630
+Diyelim ki kullanıcıların cep telefonlarından çekindiği fotoğrafları yükleyeceği bir mobil uygulama geliştiriyorsunuz
+
+14
+00:00:48,630 --> 00:00:51,970
+ve kullanıcılarınızın mobil uygulamadan yükledikleri fotoğrafların 
+
+15
+00:00:51,970 --> 00:00:56,470
+kedi olup olmadığını tanımak istiyorsunuz.
+
+16
+00:00:56,470 --> 00:00:59,580
+Bu durumda, iki veri kaynağı elde edebilirsiniz.
+
+17
+00:00:59,580 --> 00:01:03,940
+Birisi, daha az profesyonelce çekimiş sağdaki gibi mobil uygulamadan gelen,
+
+18
+00:01:03,940 --> 00:01:07,940
+amatör kullanıcılar tarafından çekildiği için
+
+19
+00:01:07,940 --> 00:01:12,800
+belki daha fazla bulanık, sizin gerçekten dikkate aldığınız verinin dağılımdır.
+
+20
+00:01:12,800 --> 00:01:16,760
+Diğer veri kaynağını elde etme yolu ise
+
+21
+00:01:16,760 --> 00:01:21,635
+internetten arama yapmak ve bu örneğin anlaşılması için farz edelim ki;
+
+22
+00:01:21,635 --> 00:01:27,250
+profesyonelce çerçevelenmiş, yüksek çözünürlükte ve profesyonelce çekilmiş pek çok kedi fotoğrafını sadece indirmektir.
+
+23
+00:01:27,250 --> 00:01:29,950
+Mobil uygulamanız için çok fazla sayıda kullanıcılarınızın olmadığını varsayalım.
+
+24
+00:01:29,950 --> 00:01:35,632
+Bu yüzden, mobil uygulamadan yüklenmiş 10,000 fotoğraf elde etmiş olabilirsiniz.
+
+25
+00:01:35,632 --> 00:01:40,320
+Ancak, internetten arama yaparak çok fazla sayıda kedi fotoğrafları indirebilirsiniz.
+
+26
+00:01:40,320 --> 00:01:45,322
+İnternetten indirerek 200,000 kedi fotoğrafı elde etmiş olabilirsiniz.
+
+27
+00:01:48,079 --> 00:01:53,296
+Bu yüzden dikkate alacağınız şey; son adımınızda,
+
+28
+00:01:53,296 --> 00:01:58,311
+fotoğrafların mobil uygulama dağılımının üzerinde iyi çalışıp çalışmadığıdır, değil mi?
+
+29
+00:01:58,311 --> 00:02:01,594
+Çünkü en son adımda, kullanıcılarınız sağdaki gibi fotoğrafları yükleyecek ve
+
+30
+00:02:01,594 --> 00:02:04,230
+sınıflayıcınızın bu fotoğraflar üzerinde iyi çalışmasına ihtiyaç duyacaksınız.
+
+31
+00:02:04,230 --> 00:02:08,500
+Ancak şuan küçük bir ikileme düşebilirsiniz. Çünkü, göreceli olarak daha az,
+
+32
+00:02:08,500 --> 00:02:12,970
+dağılımdan çekilmiş yalnızca 10,000 örnekli, bir veri setine sahip olabilirsiniz.
+
+33
+00:02:12,970 --> 00:02:16,754
+Öte yandan, farklı bir dağılımdan çekilmiş daha fazla sayıda, daha büyük bir veri setine sahipsiniz.
+
+34
+00:02:16,754 --> 00:02:19,986
+Sizin aslında istediğinizden daha farklı bir fotoğraf görüntüsü bulunmakta.
+
+35
+00:02:19,986 --> 00:02:24,505
+Bu durum göreceli olarak az sayıda eğitim seti almanız ile sonuçlanacağı için
+
+36
+00:02:24,505 --> 00:02:27,330
+sadece bu 10,000 fotoğrafı kullanmak istemezsiniz.
+
+37
+00:02:28,466 --> 00:02:31,724
+Bu 200,000 fotoğrafı kullanmak yardımcı gibi görünür.
+
+38
+00:02:31,724 --> 00:02:37,550
+Ancak, bu 200,000 fotoğrafın sizin tam olarak istediğiniz dağılımdan olmaması bir ikilemdir.
+
+39
+00:02:37,550 --> 00:02:38,496
+Bu durumda ne yapabilirsiniz?
+
+40
+00:02:38,496 --> 00:02:43,340
+Bir seçenek şu şekildedir.
+
+41
+00:02:43,340 --> 00:02:47,669
+Yapacağınız ilk şey bu iki veri setinin her ikisini de birlikte ele almaktır.
+
+42
+00:02:47,669 --> 00:02:50,910
+Bundan dolayı hali hazırda 210,000 fotoğrafınız olacaktır.
+
+43
+00:02:50,910 --> 00:02:56,835
+Daha sonra, bu 210,000 fotoğrafı ele alabilir ve 
+
+44
+00:02:56,835 --> 00:03:03,470
+bu fotoğrafları eğitim, gelişim ve test setine rastgele olarak dağıtabilirsiniz.
+
+45
+00:03:03,470 --> 00:03:07,020
+Farz edelim ki; gelişim ve test setlerinizin her birinde 
+
+46
+00:03:07,020 --> 00:03:11,380
+2,500 örnek yer alacak olsun.
+
+47
+00:03:11,380 --> 00:03:16,360
+Demek ki, 205,000 örnek eğitim setiniz olacaktır.
+
+48
+00:03:17,450 --> 00:03:23,520
+Bu durumda, verinizi bu şekilde düzenlemenin bazı avantajları olduğu gibi ve dezavantajları da olacaktır.
+
+49
+00:03:23,520 --> 00:03:26,910
+Eğitim, gelişim ve test setlerinizin hali hazırda aynı dağılıma sahip olacak olması avantajdır.
+
+50
+00:03:26,910 --> 00:03:30,400
+Dolayısı ile, bu durum düzenlemeyi kolaylaştırmaktadır.
+
+51
+00:03:30,400 --> 00:03:33,470
+Ancak dezavantajı ki bu büyük bir dezavantajdır;
+
+52
+00:03:33,470 --> 00:03:38,010
+2,500 örnekten oluşan gelişim veri setinize baktığınızda, 
+
+53
+00:03:38,010 --> 00:03:43,570
+asıl dikkate aldığınız olan fotoğrafların mobil uygulaması dağılımından ziyade,
+
+54
+00:03:43,570 --> 00:03:46,660
+bunun büyük bir kısmının fotoğrafların internet sayfası dağılımından gelecek olmasıdır.
+
+55
+00:03:48,520 --> 00:03:53,150
+Bunun sonucunda, web sayfasından gelen verinizin toplamı 200,000 olacaktır.
+
+56
+00:03:53,150 --> 00:03:57,309
+Bu yüzden 200k olarak kısaltacağım.
+
+57
+00:03:57,309 --> 00:04:01,169
+210,000 üzerinden, ve 210k olarak yazacağım.
+
+58
+00:04:01,169 --> 00:04:06,951
+Beklenildiği üzere bu 2,500 fotoğrafın
+
+59
+00:04:06,951 --> 00:04:13,430
+sanırım 2,381 tanesi web sayfasından gelecektir.
+
+60
+00:04:13,430 --> 00:04:17,580
+Bu beklenti üzerinedir, kesin sayı rastgele dağıtma işleminin 
+
+61
+00:04:17,580 --> 00:04:20,290
+nasıl olduğuna bağlı olarak değişecektir.
+
+62
+00:04:20,290 --> 00:04:25,250
+Fakat ortalama olarak, yalnızca 119 fotoğraf mobil uygulama yüklemelerinden gelecektir.
+
+63
+00:04:27,600 --> 00:04:32,630
+Bu yüzden gelişim setinizi ayarlamanın 
+
+64
+00:04:32,630 --> 00:04:33,800
+takımınızın nereye hedef olarak yöneleceğini söylediğini unutmayın
+
+65
+00:04:33,800 --> 00:04:35,150
+Hedefinize yöneliş yönteminiz, 
+
+66
+00:04:35,150 --> 00:04:38,080
+aslında hiç istemediğiniz şey olan,
+
+67
+00:04:38,080 --> 00:04:41,550
+zamanın büyük bir kısmını fotoğrafların internet sayfası dağılımı için optimize etmeye harcadığınızı söylüyorsunuz.
+
+68
+00:04:42,780 --> 00:04:45,430
+Birinci seçeneğe karşı olmayı tavsiye ederim,
+
+69
+00:04:45,430 --> 00:04:50,010
+çünkü bu takımınıza aslında dikkat etmeniz gereken şeyden ziyade 
+
+70
+00:04:50,010 --> 00:04:53,160
+verinin farklı bir dağılımını optimize etmek için gelişim setinde ayarlama yapmaktır.
+
+71
+00:04:54,210 --> 00:04:56,018
+Bu yüzden bunu yapmak yerine,
+
+72
+00:04:56,018 --> 00:05:01,704
+Takip eden diğer bir seçeneği ele almanızı tavsiye ederim.
+
+73
+00:05:01,704 --> 00:05:08,487
+Eğitim seti, farzedelim ki halen 205,000 fotoğraf,
+
+74
+00:05:08,487 --> 00:05:15,985
+Eğitim setini, internetten alınan tüm 200,000 fotoğraf olarak alırdım.
+
+75
+00:05:15,985 --> 00:05:21,970
+Daha sonra, eğer istersen, telefon uygulamasından alınan 5,000 fotoğrafı da ekleyebilirsin.
+
+76
+00:05:21,970 --> 00:05:24,344
+Sonrasında gelişim ve test setlerin için,
+
+77
+00:05:24,344 --> 00:05:27,599
+Tahminimce, benim veri setlerimin büyüklüğü ölçeklendirmek için çekilmezler.
+
+78
+00:05:27,599 --> 00:05:34,993
+Gelişim ve test setleriniz tüm telefon uygulaması fotoğrafları olabilir.
+
+79
+00:05:38,870 --> 00:05:44,405
+Bu yüzden, eğitim veri seti internetten gelen 200,000 
+
+80
+00:05:44,405 --> 00:05:46,560
+ve telefon uygulamasından gelen 5,0000 fotoğrafı. içerecektir.
+
+81
+00:05:46,560 --> 00:05:51,990
+Gelişim seti, telefon uygulamasından gelen 2,500 
+
+82
+00:05:51,990 --> 00:05:58,680
+ve test seti de telefon uygulamasından gelen 2,500 fotoğraf olacaktır.
+
+83
+00:05:58,680 --> 00:06:03,480
+Bu şekilde verinizi eğitim, gelişim ve test olarak bölmenin avantajı,
+
+84
+00:06:03,480 --> 00:06:07,410
+olmasını istediğiniz gibi hedefe yönelmiş olmanızdır.
+
+85
+00:06:07,410 --> 00:06:12,930
+Takımınıza, gelişim setim gerçekte dikkat etmeniz gereken fotoğrafların dağılımı olan
+
+86
+00:06:12,930 --> 00:06:15,570
+telefon uygulamasından yüklenen veriden oluşmaktadır,
+
+87
+00:06:15,570 --> 00:06:19,110
+bu yüzden fotoğrafların telefon uygulaması üzerinde 
+
+88
+00:06:19,110 --> 00:06:21,750
+gerçekten iyi olan bir makine öğrenmesi yöntemi geliştirelim diyorsunuz.
+
+89
+00:06:21,750 --> 00:06:25,190
+Tabi ki dezavantaj; hali hazırda eğitim veri setinizin dağılımı
+
+90
+00:06:25,190 --> 00:06:30,870
+gelişim ve test setlerinin dağılımlarından farklıdır.
+
+91
+00:06:30,870 --> 00:06:34,724
+Ancak, verinizi eğitim, gelişim ve test olarak bölmeniz 
+
+92
+00:06:34,724 --> 00:06:38,227
+uzun vadede daha iyi performans almanızı sağlar.
+
+93
+00:06:38,227 --> 00:06:42,475
+Gelişim ve test setlerinin dağılımlarından farklı dağılıma sahip eğitim setleriniz ile baş etmeniz için 
+
+94
+00:06:42,475 --> 00:06:47,160
+daha sonra bazı spesifik teknikleri tartışacağız.
+
+95
+00:06:47,160 --> 00:06:49,110
+Bir diğer örneğe birlikte bakalım.
+
+96
+00:06:49,110 --> 00:06:53,553
+Farz edelim ki; yeni bir ürün markası geliştiriyorsunuz,
+
+97
+00:06:53,553 --> 00:06:58,610
+bir araba için aktif konuşan bir dikiz aynası
+
+98
+00:06:58,610 --> 00:07:01,368
+Bu Çin' de gerçek bir üründür.
+
+99
+00:07:01,368 --> 00:07:05,668
+Diğer ülkelere gidiyor, ancak sen bu küçük şeyi orada yerine geçmesi için yeni bir dikiz aynası geliştirebilirsin,
+
+100
+00:07:05,668 --> 00:07:10,034
+Bu sayede, dikiz aynası ile konuşabilirsin
+
+101
+00:07:10,034 --> 00:07:13,488
+ve temel olarak, sevgili dikiz aynası, lütfen 
+
+102
+00:07:13,488 --> 00:07:17,760
+navigasyonel yönleri kullanarak en yakın benzin istasyonunu bulmama yardımcı olabilir misin diyebilirsiniz ve dikiz aynası gerekeni yapacaktır.
+
+103
+00:07:19,620 --> 00:07:22,750
+Dolayısı ile, bu gerçek bir üründür,
+
+104
+00:07:22,750 --> 00:07:23,530
+ve farz edelim ki sen bu ürünü kendi ülken için geliştirmeyi deneyeceksin.
+
+105
+00:07:27,160 --> 00:07:31,720
+Bu durumda,
+
+106
+00:07:31,720 --> 00:07:32,489
+bu ürün için bir ses tanıma sistemini eğitmede veriyi nasıl elde edeceksin?
+
+107
+00:07:32,489 --> 00:07:36,137
+Uzun bir süredir ses tanıma üzerine çalışıyor olabilirsin,
+
+108
+00:07:36,137 --> 00:07:39,785
+bu yüzden, yalnızca aktif konuşan bir dikiz aynasından gelmeyen 
+
+109
+00:07:39,785 --> 00:07:43,185
+diğer ses tanıma uygulamalarından çok sayıda veriye sahip olabilirsin.
+
+110
+00:07:43,185 --> 00:07:47,164
+Eğitim, gelişim ve test setlerini işte nasıl bölebileceğin.
+
+111
+00:07:47,164 --> 00:07:50,780
+Sahip olduğun, çeşitli ses tanıma verisi sağlayıcılarından yıllardır satın aldığın gibi 
+
+112
+00:07:50,780 --> 00:07:54,180
+diğer ses problemleri üzerinde çalışıyorken topladığın
+
+113
+00:07:54,180 --> 00:07:59,060
+tüm ses verisini eğitim setin için ele alabilirsin.
+
+114
+00:07:59,060 --> 00:08:03,410
+Aslında, x in bir ses klibi ve y nin bir transkript olduğu
+
+115
+00:08:03,410 --> 00:08:06,130
+x, y çiftlerinin sağlayıcılarından bu gün veri satın alabilirsin.
+
+116
+00:08:06,130 --> 00:08:10,832
+Ya da akıllı hoparlörler, akıllı ses aktif hoparlörler üzerine çalışıyor olabilirsin
+
+117
+00:08:10,832 --> 00:08:12,990
+bu yüzden, bunlardan bazı verilerin olabilir.
+
+118
+00:08:12,990 --> 00:08:17,040
+Ses ile aktif hale gelen klavyeler üzerine çalışıyor olabilirsin
+
+119
+00:08:17,040 --> 00:08:21,515
+İşlenen konu bakımından, tüm bu kaynaklardan
+
+120
+00:08:21,515 --> 00:08:25,330
+500,000 sese sahip olabilirsin.
+
+121
+00:08:25,330 --> 00:08:30,078
+Gelişim ve test setlerin için, aslında aktif konuşan bir dikiz aynasından gelen
+
+122
+00:08:30,078 --> 00:08:33,892
+daha az sayıda veri setin olabilir.
+
+123
+00:08:34,950 --> 00:08:38,316
+Çünkü kullanıcılar, navigasyonel sorguları için ya da
+
+124
+00:08:38,316 --> 00:08:41,590
+çeşitli yerlere yönleri bulmak için soru sorarlar.
+
+125
+00:08:41,590 --> 00:08:46,560
+Bu veri seti oldukça fazla cadde adresine sahip olabilir, değil mi?
+
+126
+00:08:46,560 --> 00:08:49,250
+Lütfen, bu caddeye gitmeme yardımcı ol, ya da 
+
+127
+00:08:49,250 --> 00:08:51,980
+lütfen, bu benzin istasyonuna gitmeme yardımcı ol.
+
+128
+00:08:51,980 --> 00:08:56,040
+Bundan dolayı, bu veri seti soldakinden oldukça farklı olacaktır.
+
+129
+00:08:58,140 --> 00:09:01,780
+Ancak, bu gerçekte dikkate aldığın veridir, çünkü bu ürününü daha iyi yapmak için ihtiyacın olan şeydir,
+
+130
+00:09:01,780 --> 00:09:08,082
+bu yüzden, bu senin gelişim ve test setin olarak ayarladığın veridir.
+
+131
+00:09:08,082 --> 00:09:12,868
+Bunun üzerine, bu örnekte yaptığın şey, soldaki 500,000 sesi 
+
+132
+00:09:12,868 --> 00:09:16,960
+eğitim setin olarak ayarlamaktır.
+
+133
+00:09:16,960 --> 00:09:21,847
+Daha sonra, D ve T olarak kısaltacağım gelişim ve test setlerin
+
+134
+00:09:21,847 --> 00:09:26,380
+herbirinde 10,000 ses olabilir.
+
+135
+00:09:26,380 --> 00:09:31,064
+Bunlar aktif konuşan dikiz aynasından alınmıştır.
+
+136
+00:09:31,064 --> 00:09:35,600
+Ya da alternatif olarak, eğer tüm 20,000 örneğini aktif konuşan dikiz aynasından 
+
+137
+00:09:35,600 --> 00:09:38,498
+gelişim ve test setlerine koyma ihtiyacı duymuyorsan,
+
+138
+00:09:38,498 --> 00:09:42,470
+bunun yarısını alıp eğitim setine koyabilirsin.
+
+139
+00:09:43,730 --> 00:09:49,085
+Böylelikle sonrasında, eğitim setin tüm 500,000 tanesi eğitim setini ve 10,000 tanesi de dikiz aynasını içeren
+
+140
+00:09:49,085 --> 00:09:55,662
+510,000 ses olabilir.
+
+141
+00:09:58,046 --> 00:10:04,500
+Daha sonra, gelişim ve test setlerinin her biri 5,000 olabilir.
+
+142
+00:10:04,500 --> 00:10:09,934
+Öyleyse 20,000 sesin, 10k tanesi eğitim setine
+
+143
+00:10:09,934 --> 00:10:14,490
+ve 5k tanesi gelişim setine ve 5,0000 tanesi de test setine ayrılabilir.
+
+144
+00:10:14,490 --> 00:10:18,870
+Bu verini eğitim, gelişim ve test olarak bölmek için 
+
+145
+00:10:18,870 --> 00:10:20,360
+makul diğer bir çözüm olabilir.
+
+146
+00:10:20,360 --> 00:10:26,258
+Daha sonra, eğitim setin için aktif konuşan dikiz aynası verisi kullandıysan.
+
+147
+00:10:26,258 --> 00:10:31,297
+Bu sana, çok daha büyük eğitim seti, 500,000 sesten daha fazla, verir.
+
+148
+00:10:31,297 --> 00:10:35,880
+Böylelikle bu videoda, daha fazla eğitim seti elde etmenizi sağlayan,
+
+149
+00:10:35,880 --> 00:10:38,790
+gelişim ve test setlerinizden farklı dağılımlara sahip eğitim seti verisini hesaba katan
+
+150
+00:10:38,790 --> 00:10:41,980
+birkaç örneği görmüş oldunuz.
+
+151
+00:10:41,980 --> 00:10:45,990
+Bu örneklerde, öğrenme algoritmanızın daha iyi performans göstermesine neden olacaktır.
+
+152
+00:10:45,990 --> 00:10:50,100
+Halen sormak isteyebileceğiniz bir soru, sahip olduğunuz tüm veriyi her zaman kullanmalı mısınız? olabilir.
+
+153
+00:10:50,100 --> 00:10:52,850
+Yanıt zordur, her zaman yanıt evet değildir.
+
+154
+00:10:52,850 --> 00:10:54,910
+Bir sonraki videodaki bir sayaç örneğine bakalım.

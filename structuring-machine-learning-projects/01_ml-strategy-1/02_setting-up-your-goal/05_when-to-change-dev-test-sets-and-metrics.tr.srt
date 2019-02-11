@@ -1,0 +1,667 @@
+1
+00:00:00,000 --> 00:00:03,505
+Bir geliştirme kümesi ve değerlendirme ölçevi oluşturmanın
+
+2
+00:00:03,505 --> 00:00:07,170
+bir nevi takımınız için bir yer hedeflemek olduğunu gördünüz
+
+3
+00:00:07,170 --> 00:00:09,330
+Ama bazen bir projenin bir noktasında,
+
+4
+00:00:09,330 --> 00:00:12,040
+hedefinizi yanlış yere koyduğunuzu fark edebilirsiniz.
+
+5
+00:00:12,040 --> 00:00:14,365
+Bu durumda hedefinizin yerini değiştirmelisiniz.
+
+6
+00:00:14,365 --> 00:00:16,156
+Gelin bir örnekle bunu inceleyelim.
+
+7
+00:00:16,156 --> 00:00:21,210
+Kedi seven kullanıcılara gösterilmek üzere çok sayıda kedi fotoğrafı bulmayı denemek için bir kedi sınıflandırıcısı hazırladığınızı ve
+
+8
+00:00:21,210 --> 00:00:26,850
+kullanmaya karar verdiğiniz ölçevin sınıflandırma hatası olduğunu varsayalım.
+
+9
+00:00:26,850 --> 00:00:29,655
+A ve B algoritmaları sırasıyla yüzde 3 hata
+
+10
+00:00:29,655 --> 00:00:32,025
+ve yüzde 5 hataya sahipler
+
+11
+00:00:32,025 --> 00:00:34,955
+Öyle görünüyor ki algoritma A daha iyi çalışıyor
+
+12
+00:00:34,955 --> 00:00:38,290
+Bu algoritmaları denediğinizi varsayalım, bu algoritmalara bakıyorsunuz ve
+
+13
+00:00:38,290 --> 00:00:43,760
+bir şekilde Algoritma A'nın bir çok pornografik görüntüye izin verdiğini görüyorsunuz.
+
+14
+00:00:43,760 --> 00:00:46,985
+Eğer Algoritma A'yı kaydırırsanız, kullanıcılar daha fazla kedi görüntüsü görecektir,
+
+15
+00:00:46,985 --> 00:00:51,185
+çünkü yüzde 3'lük bir hata göreceksiniz ve kedileri tanımlayabileceksiniz.
+
+16
+00:00:51,185 --> 00:00:53,280
+Ancak, aynı zamanda,
+
+17
+00:00:53,280 --> 00:00:57,465
+hem şirketiniz hem de kullanıcılarınız için kabul edilmesi mümkün olmayan bir durum olan
+
+18
+00:00:57,465 --> 00:00:59,455
+bazı pornografik görüntüleri de kullanıcılara gösterecektir.
+
+19
+00:00:59,455 --> 00:01:03,620
+Aksine, Algoritma B yüzde 5 hataya sahiptir,
+
+20
+00:01:03,620 --> 00:01:08,720
+bu yüzden daha az görüntü sınıflandırır, ancak pornografik görüntüleri içermemektedir.
+
+21
+00:01:08,720 --> 00:01:10,845
+Bu nedenle, hem şirketinizin açısından
+
+22
+00:01:10,845 --> 00:01:13,530
+hem de kullanıcı kabulü açısından,
+
+23
+00:01:13,530 --> 00:01:15,920
+herhangi bir pornografik görüntüye izin vermediği için
+
+24
+00:01:15,920 --> 00:01:19,305
+Algoritma B aslında çok daha iyi bir algoritmadır.
+
+25
+00:01:19,305 --> 00:01:22,165
+Yani, bu örnekten anladığımız şey,
+
+26
+00:01:22,165 --> 00:01:25,590
+Algoritma A'nın değerlendirme ölçevi hususunda daha iyi bir performans gösterdiğidir.
+
+27
+00:01:25,590 --> 00:01:29,990
+Yüzde 3 hata değerine sahip olmasına rağmen aslında daha kötü bir algoritma.
+
+28
+00:01:29,990 --> 00:01:33,150
+Değerlendirme ölçevi ve geliştirme kümesi
+
+29
+00:01:33,150 --> 00:01:38,460
+Algoritma A'yı tercih ediyorlar çünkü bir nevi diyorlar ki:
+
+30
+00:01:38,460 --> 00:01:43,860
+Bakın, kullandığınız ölçev olan algoritma A daha düşük bir hataya sahiptir
+
+31
+00:01:43,860 --> 00:01:51,010
+ancak siz ve kullanıcılarınız, pornografik görüntülere izin vermediği için Algoritma B'yi tercih ediyorsunuz.
+
+32
+00:01:51,010 --> 00:01:52,780
+Yani böyle bir durumda,
+
+33
+00:01:52,780 --> 00:01:55,785
+değerlendirme ölçeviniz algoritmalar arasındaki sıralanmış tercihleri
+
+34
+00:01:55,785 --> 00:01:59,530
+artık doğru bir şekilde dahil etmiyorsa
+
+35
+00:01:59,530 --> 00:02:04,020
+-ki bu durumda Algoritma A'nın daha iyi bir algoritma olduğu hakkında yanlış tahminde bulunuyor-
+
+36
+00:02:04,020 --> 00:02:05,970
+o zaman bu, değerlendirme ölçevinizi belki de geliştirme kümenizi veya sınama kümenizi
+
+37
+00:02:05,970 --> 00:02:13,500
+değiştirmeniz gerektiğine dair bir işarettir.
+
+38
+00:02:13,500 --> 00:02:16,840
+Bu durumda, kullandığınız yanlış sınıflandırma hatası metriği
+
+39
+00:02:16,840 --> 00:02:20,340
+şu şekilde yazılabilir: 1 bölü m_dev
+
+40
+00:02:20,340 --> 00:02:23,870
+"m_dev" geliştirme kümenizdeki örneklerin sayısıdır
+
+41
+00:02:23,870 --> 00:02:30,091
+toplam i=1'den m_dev'e kadar
+
+42
+00:02:30,091 --> 00:02:37,190
+Bu geliştirme kümesindeki örneklerin sayısı,
+
+43
+00:02:37,190 --> 00:02:44,995
+geliştirme kümenizdeki örnek i'nin tahmininin, tahmini değerini belirtmek için
+
+44
+00:02:44,995 --> 00:02:50,390
+kullandıkları notasyon olan "asıl etiket" i'ye eşit olup olmadığının göstergesidir.
+
+45
+00:02:50,390 --> 00:02:51,990
+Evet, bunlar sıfır.
+
+46
+00:02:51,990 --> 00:02:54,795
+Bu bir fonksiyon notasyonu.
+
+47
+00:02:54,795 --> 00:03:00,595
+bu fonksiyon parantez içinin doğru olduğu örneklerin sayısını sayar.
+
+48
+00:03:00,595 --> 00:03:06,533
+Yani bu formül sadece yanlış sınıflandırılmış örneklerin sayısını hesaplar.
+
+49
+00:03:06,533 --> 00:03:09,360
+Bu değerlendirme ölçevindeki sorun,
+
+50
+00:03:09,360 --> 00:03:13,957
+pornografik ve pornografik olmayan görüntüleri eşit şekilde ele almalarıdır.
+
+51
+00:03:13,957 --> 00:03:18,750
+Ancak siz, sınıflandırıcınızın pornografik görüntüleri yanlış etiketlemesini istemiyorsunuz.
+
+52
+00:03:18,750 --> 00:03:21,470
+Örneğin, kedi görüntüsündeki pornografik bir görüntünün
+
+53
+00:03:21,470 --> 00:03:24,605
+kuşkulanılmayan kullanıcıya gösterilmesi durumunda,
+
+54
+00:03:24,605 --> 00:03:31,727
+beklenmedik bir şekilde porno gösterilmesinden dolayı rahatsızlık duyarsınız.
+
+55
+00:03:31,727 --> 00:03:38,590
+Bu değerlendirme ölçevini değiştirmenin bir yolu şu olabilir. Eğer buraya ağırlık terimini eklerseniz,
+
+56
+00:03:38,590 --> 00:03:48,385
+-ki biz buna w^(i) diyoruz- x^(i) porno değilse, w^(i) 1'e,
+
+57
+00:03:48,385 --> 00:03:53,950
+x^(i) porno ise
+
+58
+00:03:53,950 --> 00:04:00,925
+w^(i) belki 10 ya da belki de 100 gibi büyük bir sayıya eşit olacak.
+
+59
+00:04:00,925 --> 00:04:05,095
+Bu şekilde pornografik olan örneklere
+
+60
+00:04:05,095 --> 00:04:09,220
+çok daha büyük bir ağırlık değeri atamış oluyorsunuz,
+
+61
+00:04:09,220 --> 00:04:12,800
+böylece algoritma bir pornografik görüntüyü bir kedi görüntüsü olarak sınıflandırırken
+
+62
+00:04:12,800 --> 00:04:16,931
+bir hata yaparsa hata terimi çok daha fazla artar.
+
+63
+00:04:16,931 --> 00:04:19,390
+Bu örnekte, pornografik görüntüleri
+
+64
+00:04:19,390 --> 00:04:25,355
+doğru şekilde sınıflandırmak için 10 kat büyüklükte ağırlık değeri verin.
+
+65
+00:04:25,355 --> 00:04:27,465
+Bu normalizasyon sabitini istiyorsanız,
+
+66
+00:04:27,465 --> 00:04:30,743
+-teknik olarak bu 1 bölü w^(i)'lerin toplamına eşittir-
+
+67
+00:04:30,743 --> 00:04:35,633
+bu durumda bu hata hala sıfır ile bir arasında olacaktır.
+
+68
+00:04:35,633 --> 00:04:40,630
+Bu ağırlık değeri atamanın detayı pek de önemli değil,
+
+69
+00:04:40,630 --> 00:04:43,690
+ancak bu değeri atamayı gerçekleştirmek için, geliştirme ve sınama kümelerinizi incelemeniz, ve bu geliştirme ve sınama kümelerindeki
+
+70
+00:04:43,690 --> 00:04:47,415
+pornografik görüntüleri etiketlemeniz gerekir.
+
+71
+00:04:47,415 --> 00:04:50,960
+böylece bu ağırlık atama fonksiyonunu uygulamaya koyabilirsiniz.
+
+72
+00:04:50,960 --> 00:04:53,095
+Altı çizilmesi gereken mesele şu ki:
+
+73
+00:04:53,095 --> 00:04:56,965
+Değerlendirme ölçevinin, aslında daha iyi bir algoritma için
+
+74
+00:04:56,965 --> 00:05:01,405
+doğru sıralama tercihlerini vermediğini tespit ederseniz,
+
+75
+00:05:01,405 --> 00:05:06,880
+o zaman yeni bir değerlendirme ölçevi tanımlamanın zamanı gelmiştir diye düşünmek gerekir.
+
+76
+00:05:06,880 --> 00:05:12,200
+Ve bu, bir değerlendirme ölçevi tanımlayabilmenizin sadece bir yolu.
+
+77
+00:05:12,200 --> 00:05:15,220
+Değerlendirme ölçütünün amacı,
+
+78
+00:05:15,220 --> 00:05:20,154
+iki sınıflandırıcı verildiğinde, uygulamanız için hangisinin daha iyi olduğunu size doğru bir şekilde bildirmektir.
+
+79
+00:05:20,154 --> 00:05:21,650
+Şimdilik bu video boyunca,
+
+80
+00:05:21,650 --> 00:05:25,863
+yeni bir hata ölçevini nasıl tanımladığımızın ayrıntıları konusunda düşünmenize gerek yok.
+
+81
+00:05:25,863 --> 00:05:29,255
+Önemli olan nokta şu ki, eğer eski hata ölçevinizden memnun değilseniz,
+
+82
+00:05:29,255 --> 00:05:33,050
+memnun olmadığınız bir hata ölçeviyle devam etmeye çalışmayın.
+
+83
+00:05:33,050 --> 00:05:36,260
+Bunun yerine, daha iyi bir algoritmanın ne olduğu açısından
+
+84
+00:05:36,260 --> 00:05:39,659
+tercihlerinizi daha iyi gösterdiğini düşündüğünüz yeni bir hata ölçevi tanımlamaya çalışın.
+
+85
+00:05:39,659 --> 00:05:42,890
+Fark edeceğiniz üzere, şimdiye kadar yalnızca
+
+86
+00:05:42,890 --> 00:05:46,255
+sınıflandırıcıları değerlendirmek için bir ölçevi nasıl tanımlayacağımız hakkında konuştuk.
+
+87
+00:05:46,255 --> 00:05:50,450
+Yani, pornografi akışı açısından
+
+88
+00:05:50,450 --> 00:05:53,780
+sıralama sınıflandırıcılarını, farklı seviyelerde performans gösterdiklerinde
+
+89
+00:05:53,780 --> 00:05:57,887
+daha iyi sıralamamıza yardımcı olan bir değerlendirme ölçevi belirledik.
+
+90
+00:05:57,887 --> 00:06:01,505
+Bu aslında bir makine öğrenimi problemini ele alırken
+
+91
+00:06:01,505 --> 00:06:05,480
+problemi önce farklı adımlara bölmenizi düşündüğüm bir ortogonalizasyon örneğidir.
+
+92
+00:06:05,480 --> 00:06:14,525
+Birinci adım, ne yapmak istediğinizi gösteren bir ölçevi tanımlamak olacaktır.
+
+93
+00:06:14,525 --> 00:06:21,677
+ve bu ölçev üzerinde nasıl daha iyi çalışılacağına dair olan meseleyi ayrı olarak ele alacağım.
+
+94
+00:06:21,677 --> 00:06:26,480
+Bu nedenle, makine öğrenimi görevini iki farklı adım olarak düşünün.
+
+95
+00:06:26,480 --> 00:06:28,145
+Hedef benzetmeyi kullanmak için,
+
+96
+00:06:28,145 --> 00:06:32,890
+ilk adım hedefi yerleştirmek olacaktır.
+
+97
+00:06:32,890 --> 00:06:37,777
+Hedeflemek istediğiniz yeri tanımlayın,
+
+98
+00:06:37,777 --> 00:06:40,340
+daha sonra tamamen ayrı bir adım olarak-ki siz bunu ayarlayabilirsiniz-
+
+99
+00:06:40,340 --> 00:06:44,005
+tamamen ayrı bir sorun olarak hedefi nasıl yerleştireceğinizi belirleyin.
+
+100
+00:06:44,005 --> 00:06:48,854
+Bunu, bu algoritmada nasıl iyi çalışılacağını, doğru bir şekilde nasıl hedef koyulacağını
+
+101
+00:06:48,854 --> 00:06:58,888
+ve hedefin tam 12'den nasıl vurulacağını belirlemek için ayrı bir adım olarak düşünün.
+
+102
+00:06:58,888 --> 00:07:06,200
+Ölçevi tanımlamak ilk yapmanız gerekendir ve başka bir şeyi ikinci adımınızda yaparsınız.
+
+103
+00:07:06,200 --> 00:07:08,140
+Hedefe ulaşma noktasında,
+
+104
+00:07:08,140 --> 00:07:11,910
+belki de öğrenme algoritmanız, eğitim kümenizde bazı kayıpları en aza indirdiğiniz
+
+105
+00:07:11,910 --> 00:07:21,907
+bunun gibi bazı maliyet fonksiyonlarını optimize eder.
+
+106
+00:07:21,907 --> 00:07:25,880
+Bu durumda yapabileceğiniz şeylerden biri,
+
+107
+00:07:25,880 --> 00:07:28,160
+bu ağırlıkları birleştirmeniz için bunu değiştirmeniz gerektiğidir.
+
+108
+00:07:28,160 --> 00:07:31,070
+ve belki bu normalleştirme sabitini de değiştirmeniz gerekebilir.
+
+109
+00:07:31,070 --> 00:07:34,240
+Bu da sadece 1 bölü w^(i)'lerin toplamıdır.
+
+110
+00:07:34,240 --> 00:07:36,990
+Yine, J'yi nasıl tanımladığınızın detayları önemli değil.
+
+111
+00:07:36,990 --> 00:07:42,050
+Ancak asıl nokta, -ortogonalizasyon felsefesi ile-
+
+112
+00:07:42,050 --> 00:07:48,456
+hedefi belirlemenin bir adım, hedefe ulaşmanın ve ona nişan almanın ayrı atmanız gereken başka bir adım olduğunu bilmeniz.
+
+113
+00:07:48,456 --> 00:07:49,975
+Başka bir deyişle, ölçevi ilk adım olarak tanımlamanızı
+
+114
+00:07:49,975 --> 00:07:55,225
+ve yalnızca ölçevi tanımladıktan sonra, sinir ağınızın optimize ettiği
+
+115
+00:07:55,225 --> 00:07:57,640
+J maliyet fonksiyonunu değiştirebilecek ölçevin
+
+116
+00:07:57,640 --> 00:08:00,745
+nasıl iyi çalışacağını anlamanızı öneririm.
+
+117
+00:08:00,745 --> 00:08:03,675
+Devam etmeden önce, sadece bir örneğe daha bakalım.
+
+118
+00:08:03,675 --> 00:08:08,135
+İki kedi sınıflandırıcılarınız olan A ve B'nin geliştirme kümenizde değerlendirildiği üzere
+
+119
+00:08:08,135 --> 00:08:13,300
+sırasıyla yüzde 3 ve yüzde 5 hataları olduğunu varsayalım.
+
+120
+00:08:13,300 --> 00:08:17,725
+Ya da belki internetten indirilmiş, yüksek kaliteli,
+
+121
+00:08:17,725 --> 00:08:19,615
+iyi çerçevelenmiş görüntüleri içeren sınama kümenizde.
+
+122
+00:08:19,615 --> 00:08:21,760
+Algoritma ürününüzü etkin biçimde kullandığınızda
+
+123
+00:08:21,760 --> 00:08:24,895
+B algoritmasının aslında daha iyi performans gösterdiğini sansanız da
+
+124
+00:08:24,895 --> 00:08:27,865
+geliştirme kümenizde A daha iyi çalışıyor.
+
+125
+00:08:27,865 --> 00:08:30,820
+Ve siz internetten indirilmiş, çok iyi,
+
+126
+00:08:30,820 --> 00:08:33,640
+yüksek kaliteli görüntüler üzerinde çalışmaya alıştığınızı farkediyorsunuz,
+
+127
+00:08:33,640 --> 00:08:36,985
+ancak bunları mobil uygulamaya aktardığınız zaman,
+
+128
+00:08:36,985 --> 00:08:39,620
+kullanıcılar her türlü resmi yüklüyorlar, çok daha az çerçeveli,
+
+129
+00:08:39,620 --> 00:08:42,835
+kedinin sadece bir kısmının göründüğü, komik yüz ifadelerinin olduğu,
+
+130
+00:08:42,835 --> 00:08:44,778
+bazen çok bulanık görüntüler.
+
+131
+00:08:44,778 --> 00:08:51,745
+ve algoritmalarınızı test ettiğinizde, Algoritma B'nin aslında daha iyi olduğunu görürsünüz.
+
+132
+00:08:51,745 --> 00:08:58,755
+Dolayısıyla bu, ölçevinizin ve geliştirme-sınama kümelerinizin işe yaramadığını gösteren bir başka örnek.
+
+133
+00:08:58,755 --> 00:09:01,140
+Mesele şu ki, siz geliştirme ve sınama kümeleriniz üzerinde
+
+134
+00:09:01,140 --> 00:09:04,265
+çok güzel, yüksek çözünürlüklü, iyi çerçeveli görüntüleri değerlendiriyorsunuz.
+
+135
+00:09:04,265 --> 00:09:06,830
+Ancak, kullanıcılarınızın gerçekten önemsedikleri şey,
+
+136
+00:09:06,830 --> 00:09:09,750
+yükledikleri pek profesyonel olmayan, bulanık ve daha az çerçeveli resimlerde dahi iyi performans sergileyebiliyor olmanız.
+
+137
+00:09:09,750 --> 00:09:15,935
+yükledikleri pek profesyonel olmayan, bulanık ve daha az çerçeveli resimlerde dahi iyi performans sergileyebiliyor olmanız.
+
+138
+00:09:15,935 --> 00:09:17,655
+Dolayısıyla kuralınız,
+
+139
+00:09:17,655 --> 00:09:20,030
+ölçevinizde ve geçerli geliştirme kümelerinizde
+
+140
+00:09:20,030 --> 00:09:23,455
+veya geliştirme ve sınama kümelerinizin dağılımında iyi performans göstermesine rağmen
+
+141
+00:09:23,455 --> 00:09:27,845
+sizin için asıl önemli olan uygulamada iyi performans göstermiyorsa,
+
+142
+00:09:27,845 --> 00:09:32,695
+ölçevinizi ve geliştirme-sınama kümelerinizi değiştirmek olmalıdır.
+
+143
+00:09:32,695 --> 00:09:38,490
+Başka bir deyişle, geliştirme-sınama kümenizin bu çok yüksek kaliteli görüntülere sahip olduğunu,
+
+144
+00:09:38,490 --> 00:09:41,960
+ancak bu geliştirme-sınama kümesinde yapılan değerlendirmenin
+
+145
+00:09:41,960 --> 00:09:45,915
+uygulamanızın gerçekte ne kadar iyi performans gösterdiğine dair öngörüde bulunamadığını farkederseniz,
+
+146
+00:09:45,915 --> 00:09:47,300
+-çünkü uygulamanızın daha düşük kaliteli resimlerle uğraşması gerekiyor-
+
+147
+00:09:47,300 --> 00:09:51,335
+o zaman geliştirme-sınama kümenizi değiştirmenin tam zamanıdır,
+
+148
+00:09:51,335 --> 00:09:56,875
+böylece verileriniz iyi bir şekilde çalışmasını istediğiniz veri türünü daha iyi yansıtmış olacaktır.
+
+149
+00:09:56,875 --> 00:10:00,560
+Ancak genel takip edeceğiniz yol şu olmalı: Şu anki ölçeviniz ve üzerinde değerlendirme yaptığınız veriler,
+
+150
+00:10:00,560 --> 00:10:04,905
+sizin asıl önem verdiğiniz şeyle uyumlu bir şekilde çalışmıyorsa,
+
+151
+00:10:04,905 --> 00:10:07,820
+daha iyi bir performans elde etmeniz açısından algoritmanıza gerekli gördüğünüz şeyi etkin kılmak için
+
+152
+00:10:07,820 --> 00:10:11,206
+ölçevlerinizi ve/veya geliştirme/sınama kümenizi değiştirin.
+
+153
+00:10:11,206 --> 00:10:14,690
+Bir değerlendirme ölçevine ve geliştirme kümesine sahip olmanız,
+
+154
+00:10:14,690 --> 00:10:18,685
+Algoritma A veya Algoritma B'den hangisinin daha iyi olduğu sonucuna çok daha hızlı bir şekilde varmanızı sağlar.
+
+155
+00:10:18,685 --> 00:10:22,485
+Bu, siz ve ekibinizin işlemi ne kadar hızlı bir şekilde tekrarlayabileceğinizi hızlandırıyor.
+
+156
+00:10:22,485 --> 00:10:24,110
+Benim tavsiyem,
+
+157
+00:10:24,110 --> 00:10:28,220
+her ne kadar mükemmel bir değerlendirme ölçevi ve geliştirme kümesi tanımlayamasanız bile,
+
+158
+00:10:28,220 --> 00:10:32,780
+sadece bir şeyleri hızlı bir şekilde kurun ve bunu ekibinizin tekrarlama hızını arttırmak için kullanın.
+
+159
+00:10:32,780 --> 00:10:36,060
+Ve eğer sürecin ilerleyen zamanlarında, bunun pek de iyi olmadığına karar verirseniz,
+
+160
+00:10:36,060 --> 00:10:39,675
+daha iyi bir fikriniz varsa, bunu hemen o zaman değiştirin, kesinlikle bunda bir sakınca yok.
+
+161
+00:10:39,675 --> 00:10:42,230
+Ama çoğu ekip için önerdiğim şey,
+
+162
+00:10:42,230 --> 00:10:45,800
+herhangi bir değerlendirme ölçevi ve geliştirme kümesi mevcut olmadan
+
+163
+00:10:45,800 --> 00:10:48,500
+çok uzun bir süre devam etmenizdir
+
+164
+00:10:48,500 --> 00:10:52,750
+çünkü bunlar, ekibinizin tekrarının ve algoritmanızı geliştirmesinin verimliliğini azaltabilirler.
+
+165
+00:10:52,750 --> 00:10:58,795
+Yani bu, değerlendirme ölçevinizi ve/veya geliştirme ve sınama kümelerini ne zaman değiştireceğinizi haber veriyor.
+
+166
+00:10:58,795 --> 00:11:02,480
+Umarım bu kılavuz kurallar; tüm ekibinizin, performansı iyileştirmek adına verimli bir şekilde tekrarlayabileceğiniz,
+
+167
+00:11:02,480 --> 00:11:07,370
+iyi tanımlanmış bir hedefe sahip olmasını sağlamanıza yardımcı olur.

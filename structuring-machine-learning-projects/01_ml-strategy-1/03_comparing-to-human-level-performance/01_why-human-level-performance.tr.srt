@@ -1,0 +1,372 @@
+1
+00:00:01,430 --> 00:00:05,280
+Son birkaç yıldır,
+ çok sayıda makine öğrenmesi takımı
+
+2
+00:00:05,280 --> 00:00:09,480
+makine öğrenme sistemlerinin insan seviyesindeki
+performans ile karşılaştırılması hakkında konuşuyor.
+
+3
+00:00:09,480 --> 00:00:10,260
+Peki neden?
+
+4
+00:00:10,260 --> 00:00:12,110
+Bence iki ana sebep var.
+
+5
+00:00:12,110 --> 00:00:15,130
+Birincisi,
+ derin öğrenmedeki gelişmeler sayesinde
+
+6
+00:00:15,130 --> 00:00:18,170
+makinesel öğrenme algoritmaları
+ birden çok daha iyi çalışmaya başladı
+
+7
+00:00:18,170 --> 00:00:22,170
+ve bu sayede makinesel öğrenme uygulamalarının kullanım,ı
+bir çok alanda çok daha kolaylaştı,
+
+8
+00:00:22,170 --> 00:00:26,560
+ve algoritmalar insan düzeyindeki performansla yarışır hale geldi.
+
+9
+00:00:26,560 --> 00:00:29,760
+İkinci olarak, 
+makinese öğrenme sistemlerini tasarlamak ve inşa etmek için
+
+10
+00:00:29,760 --> 00:00:33,500
+kullanılan iş akışının,
+ insanların yapabileceği bir işe oranla çok daha
+
+11
+00:00:33,500 --> 00:00:36,550
+verimli olduğu ortaya çıktı.
+
+12
+00:00:36,550 --> 00:00:40,450
+Yani bu şartlar altında,
+makineleri insanlarla karşılaştırmak 
+
+13
+00:00:40,450 --> 00:00:43,200
+veya insan düzeyindeki performansı taklit etmek oldukça doğal bir hal aldı.
+
+14
+00:00:43,200 --> 00:00:45,110
+Bunun ne anlama geldiğine dair birkaç örnek görelim.
+
+15
+00:00:46,250 --> 00:00:50,090
+Birçok makinese öğrenmesi çalışmasında gördüğüm üzere,
+zamanla bir problem üzerinde çalıştıkça,
+
+16
+00:00:50,090 --> 00:00:56,060
+x eksenini zaman olarak alırsak, 
+bu eksen bazı takımlar veya bazı araştırma
+
+17
+00:00:56,060 --> 00:00:59,965
+ekiplerinin üzerinde harcadığı aylara ve hatta yıllara eşit olabiliyor.
+
+18
+00:00:59,965 --> 00:01:07,540
+İnsan düzeyindeki performansa ulaşırken
+ilerleyiş nispeten daha hızlı oluyor,
+
+19
+00:01:07,540 --> 00:01:12,115
+ancak bir süre sonra algoritma
+ insan düzeyindeki performansı aşıyor ve
+
+20
+00:01:12,115 --> 00:01:14,998
+sonra ierleyiş ve tutarlılık gerçekten yavaşlıyor.
+
+21
+00:01:14,998 --> 00:01:17,140
+Belki de daha iyiye gidebilir, ancak
+
+22
+00:01:17,140 --> 00:01:21,560
+insan düzeyindeki performansı aştıktan sonra
+ daha da iyiye gidebilir, fakat performans,
+
+23
+00:01:21,560 --> 00:01:26,420
+tutarlılığın ne kadar hızlı yükseldiğini gösteren eğri,
+ işte yavaşlayan şey budur.
+
+24
+00:01:26,420 --> 00:01:31,450
+Ve umuyoruz ki bu,
+ teorik olarak optimum düzeyde bir performans seviyesine ulaşır.
+
+25
+00:01:32,730 --> 00:01:37,704
+Ve zamanla, siz bu algoritmayı 
+
+26
+00:01:37,704 --> 00:01:42,792
+daha büyük modeller ve daha fazla veri ile eğittikçe
+
+27
+00:01:42,792 --> 00:01:49,915
+performans teorik limite yaklaşıyor, ancak asla üzerine çıkamıyor,
+
+28
+00:01:49,915 --> 00:01:53,900
+buna da Bayes'in optimal hatası deniyor.
+
+29
+00:01:53,900 --> 00:01:57,048
+Yani, Bayes'in optimal hatasını
+mümkün olan en olası hata olarak düşünebiliriz.
+
+30
+00:01:59,946 --> 00:02:02,247
+Ve bu , X'den Y'ye belirli bir tutarlılık seviyesini aşmanın,
+
+31
+00:02:02,247 --> 00:02:08,258
+herhangi bir işlev eşleşmesiyle gidilen yoludur.
+
+32
+00:02:08,258 --> 00:02:14,678
+Yani konuşma algılama için örnek verirsek, 
+eğer X ses kaydı ise,
+
+33
+00:02:14,678 --> 00:02:20,022
+bazı sesler o kadar gürültülüdür ki
+, ses kaydında ne olduğunu anlamak imkansızdır.
+
+34
+00:02:20,022 --> 00:02:23,790
+Yani mükemmel hata seviyesi %100 olmayabilir.
+
+35
+00:02:23,790 --> 00:02:25,150
+Ya da görüntülerdeki kedileri algılamak için.
+
+36
+00:02:25,150 --> 00:02:29,945
+Bazı görüntüler o kadar bulanık olabilir ki,
+
+37
+00:02:29,945 --> 00:02:34,705
+birisi ya da bir şey için orada bir kedi olup olmadığını
+ söylemek tam anlamıyla imkansızlaşır.
+
+38
+00:02:34,705 --> 00:02:39,195
+Yani, mükemmel tutarlılık seviyesi %100 olmayabilir.
+
+39
+00:02:39,195 --> 00:02:44,655
+Bayes optimal hatası veya Bayesian optimal hatası, 
+ya da bazen kısaca Bayes hatası
+
+40
+00:02:44,655 --> 00:02:51,065
+X'den Y'ye haritalandırma yapmak için en iyi teorik işlevdir.
+
+41
+00:02:52,330 --> 00:02:53,770
+Ve bu asla aşılamaz.
+
+42
+00:02:56,180 --> 00:03:00,290
+Yani ne kadar uzun yıllar boyunca çalışırsanız çalışın,
+
+43
+00:03:00,290 --> 00:03:05,330
+bu mor çizginin sizin asla aşamayacağınız Bayes hatası,
+ Bayes optimal hatası olması sizi şaşırtmasın
+
+44
+00:03:05,330 --> 00:03:08,670
+Ve ortaya çıkıyor ki, ilerleme hızı genellikle
+ insan düzeyinde performans seviyesini
+
+45
+00:03:08,670 --> 00:03:10,910
+aşana dek oldukça hızlı oluyor.
+
+46
+00:03:12,010 --> 00:03:16,180
+Ve bazen ise insan düzeyinde performans seviyesi aşıldığında
+ ilerleme genellikle yavaşlıyor
+
+47
+00:03:16,180 --> 00:03:18,150
+Bence insan düzeyinde performans seviyesi aşıldığında
+
+48
+00:03:18,150 --> 00:03:22,490
+ilerleme hızında bir yavaşlama görülmesinin iki sebebi var.
+
+49
+00:03:22,490 --> 00:03:25,740
+Bir sebep şudur ki, insan düzeyindeki performans seviyesindeki görevler
+
+50
+00:03:25,740 --> 00:03:28,640
+Bayes'in optimal hatasından o kadar da uzak olmuyor.
+
+51
+00:03:28,640 --> 00:03:32,040
+İnsanlar görüntülere bakıp orada kedi olduğunu söyleme veya
+
+52
+00:03:32,040 --> 00:03:34,810
+bir ses kaydını dinleyip onu kaydetme konusunda oldukça iyi.
+
+53
+00:03:34,810 --> 00:03:38,920
+Yani, insan düzeyindeki performans seviyesini geçtiğiniz zaman
+
+54
+00:03:38,920 --> 00:03:41,030
+geriye geliştirilecek o kadar da çok şey kalmıyor.
+
+55
+00:03:42,390 --> 00:03:46,677
+İkinci sebepte ise, eğer performansınız
+ insan düzeyindeki performanstan kötü ise
+
+56
+00:03:46,677 --> 00:03:50,776
+performansınızı artırmanız için gerekli ekipmanları kullanmak
+
+57
+00:03:50,776 --> 00:03:55,340
+insan düzeyindeki performans seviyesini
+ aştığınız andan itibaren oldukça zorlaşıyor
+
+58
+00:03:55,340 --> 00:03:57,541
+Yani, demek istediğim şey
+
+59
+00:03:59,980 --> 00:04:02,407
+İnsanların oldukça iyi olduğu şeylerde,
+
+60
+00:04:02,407 --> 00:04:07,066
+Bunlar: resimlere bakmak ve bir şeyleri algılamak veya 
+ses kaydı dinlemek
+
+61
+00:04:07,066 --> 00:04:11,480
+veya okuma dili, oldukça doğal ve insanların
+ çok iyi olduğu konularda
+
+62
+00:04:11,480 --> 00:04:16,344
+makine öğrenmesi algoritmanız
+ insanlardan daha kötü olduğu sürece
+
+63
+00:04:16,344 --> 00:04:20,426
+insanlardan verileri sınıflandırmak için yardım alabilirsiniz.
+
+64
+00:04:20,426 --> 00:04:25,055
+Yani insanlara, daha üstün otoritelere 
+
+65
+00:04:25,055 --> 00:04:29,560
+öğrenme algoritmanızı beslemek için
+ sizin yerinize verileri sınıflandırmalarını isteyebilirsiniz.
+
+66
+00:04:29,560 --> 00:04:33,010
+Haftaya hakkında konuşacağımız başka bir şey de
+ manuel hata analizi.
+
+67
+00:04:33,010 --> 00:04:37,290
+Ancak insanlar algoritmanızdan daha iyi performans sergilediği sürece,
+
+68
+00:04:37,290 --> 00:04:41,010
+insanlardan algoritmanızın yanlış anladığı örneklere bakmalarını isteyebilirsiniz
+
+69
+00:04:41,010 --> 00:04:44,270
+ve bu sayede neden algoritmanın yanlış anlayıp da
+ insanların doğru anladığı konusunda bir görüş kazanmaya çalışabilirsiniz.
+
+70
+00:04:44,270 --> 00:04:47,130
+Haftaya bunun algoritmanızın öğrenme performansı için nasıl faydalı olduğunu göreceğiz.
+
+71
+00:04:48,230 --> 00:04:51,220
+Aynı zamanda, birazdan üzerinde kısaca duracağımız
+
+72
+00:04:51,220 --> 00:04:53,240
+daha iyi bir eğilim analizi ve değişkenlik hakkında bilgi edinebilirsiniz.
+
+73
+00:04:53,240 --> 00:04:56,810
+Ancak algoritmanız insanlardan halen daha kötü gittiği sürece,
+
+74
+00:04:56,810 --> 00:05:00,290
+elinizde algoritmanızı geliştirmek için bu önemli taktikler olacak.
+
+75
+00:05:00,290 --> 00:05:03,540
+Algoritmanız insanlardan daha iyi çalıştığı anda ise
+
+76
+00:05:03,540 --> 00:05:06,140
+bu üç taktiği uygulamak daha zor olacak.
+
+77
+00:05:07,250 --> 00:05:11,931
+Belki de bu özellikle insanların daha iyi olduğu alanlarda,
+ insan düzeyinde performansla karşılaştırma
+
+78
+00:05:11,931 --> 00:05:15,360
+yapmanın bize sağladığı faydalardan biridir.
+
+79
+00:05:17,665 --> 00:05:21,860
+Ve makine öğrenmesi algoritmalarının neden insanların yaptığı görevleri taklit etmekte
+
+80
+00:05:21,860 --> 00:05:25,590
+bu kadar iyi olduğunu, onları yakalayıp
+
+81
+00:05:25,590 --> 00:05:29,690
+ve hatta azıcıkta bile olsa insan düzeyinde performansın üzerine çıkabildiğini açıklıyor.
+
+82
+00:05:29,690 --> 00:05:34,129
+Bilhassa, eğilim ve değişkenlerin ne olduklarını bilmenize rağmen,
+
+83
+00:05:34,129 --> 00:05:38,373
+ortaya çıkıyor ki insanların bir görevi ne kadar iyi yapabildiğini bilmek
+
+84
+00:05:38,373 --> 00:05:43,430
+size eğilimi ve değişkenleri ne kadar azaltmanız gerektiğini anlamanıza yardımcı oluyor.
+
+85
+00:05:43,430 --> 00:05:45,810
+Size bir sonraki videoda 
+bununla ilgili bir örnek göstermek istiyorum.

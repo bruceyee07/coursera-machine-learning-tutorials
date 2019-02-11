@@ -1,0 +1,255 @@
+1
+00:00:00,360 --> 00:00:01,805
+Dikgenleştirmeyi duymuşsunuzdur.
+
+2
+00:00:01,805 --> 00:00:06,561
+Ayrıca, geliştirme ve test setlerinizi nasıl kurgulamanız gerektiğini ve insan-seviyesi performansını da
+
+3
+00:00:06,561 --> 00:00:11,110
+Ki insan-seviyesi performansı Bayes hatasını tespit ve önlenebilir ön yargı ve varyans tahmini için kullanılır.
+
+4
+00:00:11,110 --> 00:00:14,121
+Şimdi bunları ana hatlarıyla bir araya getirerek
+
+5
+00:00:14,121 --> 00:00:17,473
+öğrenme algoritmanızın performansını nasıl geliştireceğini görelim.
+
+6
+00:00:17,473 --> 00:00:22,149
+Bir gözetimli öğrenim algoritması seçmek sanıyorum ki doğru olacaktır
+
+7
+00:00:22,149 --> 00:00:24,656
+zira, bu yolla iki şeyi yapabileceğini umuyor ve varsayıyorsunuz.
+
+8
+00:00:24,656 --> 00:00:30,015
+Öncelikle, eğitme setinizi güzel bir şekilde oturtabileceğinizi varsayıyorsunuz ki 
+
+9
+00:00:30,015 --> 00:00:37,670
+bunu önlenebilir ön yargıyı minimize etmek olarak düşünebilirsiniz.
+
+10
+00:00:38,830 --> 00:00:42,992
+İkinci olarak da, eğitme setinde yakalanan iyi bir performansın
+
+11
+00:00:42,992 --> 00:00:47,369
+geliştirme ve test setine de iyi bir şekilde genellenebileceğini varsayıyorsunuz.
+
+12
+00:00:47,369 --> 00:00:50,488
+Ki bu da varyansın çok da kötü olmadığını söylemek gibi bir şey.
+
+13
+00:00:50,488 --> 00:00:53,717
+Ve dikgenleştirmenin ruhunda göreceğiniz şey,
+
+14
+00:00:53,717 --> 00:00:58,779
+önlenebilir yanlılığı düzeltmek için daha büyük bir ağ eğitmek veya
+
+15
+00:00:58,779 --> 00:01:03,245
+daha uzun süre eğitmek gibi kullanabileceğiniz bazı belirli kuralların olduğudur
+
+16
+00:01:03,245 --> 00:01:08,635
+ve bunlardan ayrı olarak Damien'in probleminde kullanabileceğiniz başka kurallar mevcuttur,
+
+17
+00:01:08,635 --> 00:01:12,369
+örneğin düzenlileştirme ya da daha fazla veri ile eğitme gibi.
+
+18
+00:01:12,369 --> 00:01:16,543
+Dolayısıyla son birkaç videodur gördüğünüz işlemleri özetlemek gerekirse,
+
+19
+00:01:16,543 --> 00:01:21,190
+eğer makine öğrenimi sisteminizin performansını artırmak istiyorsanız,
+
+20
+00:01:21,190 --> 00:01:26,234
+size eğitim hatanızla bayes hatası yerine kullanabileceğiniz hata arasındaki farka bakmanız gerektiğini söyleyebilirim,
+
+21
+00:01:26,234 --> 00:01:31,163
+bayes hatası yerine kullanabileceğiniz hata size önlenebilir yanlılık hakkında fikir verecektir.
+
+22
+00:01:31,163 --> 00:01:35,297
+Başka bir deyişle,eğitim setinizde ne kadar daha iyi yapmanız
+
+23
+00:01:35,297 --> 00:01:39,366
+gerektiğidir.Daha sonra geliştirme seti hatası ve eğitim seti hatası
+
+24
+00:01:39,366 --> 00:01:41,382
+arasındaki farka bakmalısınız ve bu size ne kadar
+
+25
+00:01:41,382 --> 00:01:43,871
+değişinti(varyans) probleminiz olduğu hakkında bilgi verecektir.
+
+26
+00:01:43,871 --> 00:01:44,711
+Diğer bir ifadeyle,
+
+27
+00:01:44,711 --> 00:01:48,671
+performansınızı eğitim setinden üzerinde açık olarak eğitim yapılmamış olan
+
+28
+00:01:48,671 --> 00:01:52,392
+geliştirme setine genelleştirebilmek için ne kadar çabalamanız gerektiğidir.
+
+29
+00:02:04,393 --> 00:02:09,201
+Daha büyük bir model uygulamak gibi bir taktik uygulayabilirsiniz,
+
+30
+00:02:09,201 --> 00:02:13,386
+bu sayede eğitim setinde daha iyi performans gösterebilirsiniz
+
+31
+00:02:13,386 --> 00:02:18,124
+ya da eniyileme algoritmaları ile daha uzun süre eğitim
+
+32
+00:02:18,124 --> 00:02:21,196
+sağlayabilirsiniz örneğin momentum eklemek
+
+33
+00:02:24,005 --> 00:02:27,433
+veya Rmsprop kullanmak ya da
+
+34
+00:02:27,433 --> 00:02:32,060
+Adam gibi bir algoritma kullanmak gibi
+
+35
+00:02:34,874 --> 00:02:39,894
+diğer deneyebileceğiniz birşey ise yeni ve daha iyi üst değişken seti bulmak olabilir ve bu aktivasyon fonksiyonlarını değiştirmekten
+
+36
+00:02:39,894 --> 00:02:45,220
+katman sayısını değiştirmeye kadar değişebilir ki katman sayısını değiştirmeye
+
+37
+00:02:45,220 --> 00:02:50,187
+karar verirseniz burada model büyüklüğünü artırmak yönünde adım atabilirsiniz
+
+38
+00:02:50,187 --> 00:02:55,341
+bunların dışında yine farklı modeller(algoritmalar) deneyebilirsiniz örneğin
+
+39
+00:02:55,341 --> 00:03:00,654
+özyineli sinir ağları(recurrent neural network)kullanmak veya
+
+40
+00:03:00,654 --> 00:03:06,500
+daha sonra göreceğimiz üzere evrişimli sinir ağları(convolutional neural networks) kullanmak gibi.
+
+41
+00:03:06,500 --> 00:03:09,520
+Bir ağ mimarisinin sisteminize daha iyi uyup uymayacağını önceden kestirmek çoğu zaman zordur,
+
+42
+00:03:09,520 --> 00:03:12,800
+fakat bazen daha iyi bir mimari size daha iyi sonuçlar sunabilir.
+
+43
+00:03:12,800 --> 00:03:16,570
+Bir diğer problem ise değişinti(varyans) problemidir.
+
+44
+00:03:18,500 --> 00:03:20,941
+Bu konuda kullanabileceğiniz birçok teknikten bazıları şunlardır;
+
+45
+00:03:20,941 --> 00:03:26,417
+Daha fazla veri toplayabilirsiniz çünkü daha fazla veri toplamak
+
+46
+00:03:26,417 --> 00:03:30,762
+daha önce görmemiş olduğunuz geliştirme setinde genelleme yapma imkanınızı artırır.
+
+47
+00:03:30,762 --> 00:03:35,437
+Düzenlileştirme(regularization) uygulayabilirsiniz örneğin
+
+48
+00:03:35,437 --> 00:03:37,759
+L2 düzenlileştirmesi, seyreltme düzenlileştirmesi,
+
+49
+00:03:37,759 --> 00:03:43,000
+veri artırma gibi ki bunun hakkında
+
+50
+00:03:43,000 --> 00:03:50,501
+önceki kursta konuşmuştuk. Ya da yine aynı şekilde probleminize
+
+51
+00:03:50,501 --> 00:03:55,187
+daha iyi uyum sağlayabilecek başka sinir ağı mimarileri deneyebilir
+
+52
+00:03:55,187 --> 00:03:58,467
+veya daha farklı üst değişkenleri arayabilirsiniz.
+
+53
+00:03:58,467 --> 00:04:02,390
+Bence yanlılık(bias) kavramı veya önlenebilir yanlılık kavramı ve
+
+54
+00:04:03,810 --> 00:04:07,430
+değişinti kavramları kolayca öğrenilen fakat ustalaşması
+
+55
+00:04:07,430 --> 00:04:12,150
+zor olan kavramlardır. Bu videodan öğrendiklerinizi kullanarak
+
+56
+00:04:12,150 --> 00:04:16,090
+probleme nasıl sistematik olarak yaklaşılacağı ve performansın
+
+57
+00:04:16,090 --> 00:04:20,244
+nasıl stratejik olarak geliştirileceği konusunda birçok makine
+
+58
+00:04:20,244 --> 00:04:24,734
+öğrenimi takımından daha iyi bir şekilde bu iki probleme yaklaşabilirsiniz.
+
+59
+00:04:24,734 --> 00:04:28,567
+Ve böylece, bu haftanın ev ödevi size pratik yapma ve bu konseptleri
+
+60
+00:04:28,567 --> 00:04:32,982
+daha iyi kavrama konusunda kendinizi geliştirmenizde yardımcı olacaktır.
+
+61
+00:04:32,982 --> 00:04:36,832
+Evödevinde size şanslar diliyorum ve sizi bir sonraki haftanın videolarında görmeyi umuyorum
+
+62
+00:04:36,832 --> 00:04:38,950
+Evödevinde size şanslar diliyorum ve sizi
+
+63
+00:04:38,950 --> 00:04:42,463
+bir sonraki haftanın videolarında görmeyi umuyorum.
+
+64
+00:06:19,757 --> 00:06:20,701
+görmeyi umuyorum

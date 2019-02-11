@@ -1,0 +1,34 @@
+Son birkaç yıldır,
+ çok sayıda makine öğrenmesi takımı makine öğrenme sistemlerinin insan seviyesindeki
+performans ile karşılaştırılması hakkında konuşuyor. Peki neden? Bence iki ana sebep var. Birincisi,
+ derin öğrenmedeki gelişmeler sayesinde makinesel öğrenme algoritmaları
+ birden çok daha iyi çalışmaya başladı ve bu sayede makinesel öğrenme uygulamalarının kullanım,ı
+bir çok alanda çok daha kolaylaştı, ve algoritmalar insan düzeyindeki performansla yarışır hale geldi. İkinci olarak, 
+makinese öğrenme sistemlerini tasarlamak ve inşa etmek için kullanılan iş akışının,
+ insanların yapabileceği bir işe oranla çok daha verimli olduğu ortaya çıktı. Yani bu şartlar altında,
+makineleri insanlarla karşılaştırmak veya insan düzeyindeki performansı taklit etmek oldukça doğal bir hal aldı. Bunun ne anlama geldiğine dair birkaç örnek görelim. Birçok makinese öğrenmesi çalışmasında gördüğüm üzere,
+zamanla bir problem üzerinde çalıştıkça, x eksenini zaman olarak alırsak, 
+bu eksen bazı takımlar veya bazı araştırma ekiplerinin üzerinde harcadığı aylara ve hatta yıllara eşit olabiliyor. İnsan düzeyindeki performansa ulaşırken
+ilerleyiş nispeten daha hızlı oluyor, ancak bir süre sonra algoritma
+ insan düzeyindeki performansı aşıyor ve sonra ierleyiş ve tutarlılık gerçekten yavaşlıyor. Belki de daha iyiye gidebilir, ancak insan düzeyindeki performansı aştıktan sonra
+ daha da iyiye gidebilir, fakat performans, tutarlılığın ne kadar hızlı yükseldiğini gösteren eğri,
+ işte yavaşlayan şey budur. Ve umuyoruz ki bu,
+ teorik olarak optimum düzeyde bir performans seviyesine ulaşır. Ve zamanla, siz bu algoritmayı daha büyük modeller ve daha fazla veri ile eğittikçe performans teorik limite yaklaşıyor, ancak asla üzerine çıkamıyor, buna da Bayes'in optimal hatası deniyor. Yani, Bayes'in optimal hatasını
+mümkün olan en olası hata olarak düşünebiliriz. Ve bu , X'den Y'ye belirli bir tutarlılık seviyesini aşmanın, herhangi bir işlev eşleşmesiyle gidilen yoludur. Yani konuşma algılama için örnek verirsek, 
+eğer X ses kaydı ise, bazı sesler o kadar gürültülüdür ki
+, ses kaydında ne olduğunu anlamak imkansızdır. Yani mükemmel hata seviyesi %100 olmayabilir. Ya da görüntülerdeki kedileri algılamak için. Bazı görüntüler o kadar bulanık olabilir ki, birisi ya da bir şey için orada bir kedi olup olmadığını
+ söylemek tam anlamıyla imkansızlaşır. Yani, mükemmel tutarlılık seviyesi %100 olmayabilir. Bayes optimal hatası veya Bayesian optimal hatası, 
+ya da bazen kısaca Bayes hatası X'den Y'ye haritalandırma yapmak için en iyi teorik işlevdir. Ve bu asla aşılamaz. Yani ne kadar uzun yıllar boyunca çalışırsanız çalışın, bu mor çizginin sizin asla aşamayacağınız Bayes hatası,
+ Bayes optimal hatası olması sizi şaşırtmasın Ve ortaya çıkıyor ki, ilerleme hızı genellikle
+ insan düzeyinde performans seviyesini aşana dek oldukça hızlı oluyor. Ve bazen ise insan düzeyinde performans seviyesi aşıldığında
+ ilerleme genellikle yavaşlıyor Bence insan düzeyinde performans seviyesi aşıldığında ilerleme hızında bir yavaşlama görülmesinin iki sebebi var. Bir sebep şudur ki, insan düzeyindeki performans seviyesindeki görevler Bayes'in optimal hatasından o kadar da uzak olmuyor. İnsanlar görüntülere bakıp orada kedi olduğunu söyleme veya bir ses kaydını dinleyip onu kaydetme konusunda oldukça iyi. Yani, insan düzeyindeki performans seviyesini geçtiğiniz zaman geriye geliştirilecek o kadar da çok şey kalmıyor. İkinci sebepte ise, eğer performansınız
+ insan düzeyindeki performanstan kötü ise performansınızı artırmanız için gerekli ekipmanları kullanmak insan düzeyindeki performans seviyesini
+ aştığınız andan itibaren oldukça zorlaşıyor Yani, demek istediğim şey İnsanların oldukça iyi olduğu şeylerde, Bunlar: resimlere bakmak ve bir şeyleri algılamak veya 
+ses kaydı dinlemek veya okuma dili, oldukça doğal ve insanların
+ çok iyi olduğu konularda makine öğrenmesi algoritmanız
+ insanlardan daha kötü olduğu sürece insanlardan verileri sınıflandırmak için yardım alabilirsiniz. Yani insanlara, daha üstün otoritelere öğrenme algoritmanızı beslemek için
+ sizin yerinize verileri sınıflandırmalarını isteyebilirsiniz. Haftaya hakkında konuşacağımız başka bir şey de
+ manuel hata analizi. Ancak insanlar algoritmanızdan daha iyi performans sergilediği sürece, insanlardan algoritmanızın yanlış anladığı örneklere bakmalarını isteyebilirsiniz ve bu sayede neden algoritmanın yanlış anlayıp da
+ insanların doğru anladığı konusunda bir görüş kazanmaya çalışabilirsiniz. Haftaya bunun algoritmanızın öğrenme performansı için nasıl faydalı olduğunu göreceğiz. Aynı zamanda, birazdan üzerinde kısaca duracağımız daha iyi bir eğilim analizi ve değişkenlik hakkında bilgi edinebilirsiniz. Ancak algoritmanız insanlardan halen daha kötü gittiği sürece, elinizde algoritmanızı geliştirmek için bu önemli taktikler olacak. Algoritmanız insanlardan daha iyi çalıştığı anda ise bu üç taktiği uygulamak daha zor olacak. Belki de bu özellikle insanların daha iyi olduğu alanlarda,
+ insan düzeyinde performansla karşılaştırma yapmanın bize sağladığı faydalardan biridir. Ve makine öğrenmesi algoritmalarının neden insanların yaptığı görevleri taklit etmekte bu kadar iyi olduğunu, onları yakalayıp ve hatta azıcıkta bile olsa insan düzeyinde performansın üzerine çıkabildiğini açıklıyor. Bilhassa, eğilim ve değişkenlerin ne olduklarını bilmenize rağmen, ortaya çıkıyor ki insanların bir görevi ne kadar iyi yapabildiğini bilmek size eğilimi ve değişkenleri ne kadar azaltmanız gerektiğini anlamanıza yardımcı oluyor. Size bir sonraki videoda 
+bununla ilgili bir örnek göstermek istiyorum.

@@ -1,0 +1,95 @@
+Öğrenme algoritmanızın yanlılık ve varyansını tahmin etmek, bir sonraki aşamada ne yapacağınıza öncelik vermenizde yardımcı olur. Ancak, eğitim setiniz, geliştirme ve test setlerinizden farklı bir dağılımdan geldiğinde, yanlılık ve varyansı analiz etme şekliniz değişir. Nasıl olduğunu görelim. Kedi sınıflandırma örneğimizi kullanmaya devam edelim ve diyelim ki insanlar bunun üzerinde mükemmele yakın bir performans sergiliyorlar. Yani Bayes hatası ya da Bayes ideal hatası, bu problemde yaklaşık% 0 olduğunu biliyoruz. Bu yüzden, hata analizi yapmak için genellikle eğitim hatasına bakarsınız ve ayrıca geliştirme setindeki hataya bakarsınız. Öyleyse, bu örnekte eğitiminizin hatasının % 1 olduğunu ve geliştirme hatasının% 10 olduğunu söyleyelim. Eğer geliştirme veriniz eğitim setiniz gibi aynı dağılımdan gelseydi, burada algoritmanızın daha önceden çok daha kötüye giden geliştirme kümesini daha iyiye götüren eğitim setinden genelleme yapmadığından büyük bir varyans probleminiz olduğunu söylerdiniz. Ancak, eğitim verinizin ve geliştirme verinizin farklı bir dağılımdan geldiği ortamda, artık bu sonucu güvenli bir şekilde çizemezsiniz. Özellikle, belki de geliştirme setinde gayet iyi çalışıyor, yüksek çözünürlük ve çok net görüntülerden dolayı eğitim seti gerçekten çok kolaydı ve belki de geliştirme seti çok daha zor. Yani belki bir varyans problemi yoktur ve bu sadece geliştirme kümesinin doğru sınıflandırılması çok daha zor olan görüntüler içerdiğini yansıtır. Yani bu analizdeki problem, eğitim hatasından geliştirme hatasına gittiğinizde, her seferinde iki şeyin değişmesidir. Birincisi, algoritmanın eğitim setindeki verileri gösterdiği, ancak geliştirme setinde bulunmadığıdır. İkincisi, geliştirme setindeki verilerin dağılımı farklıdır. Ve aynı anda iki şeyi değiştirdiğinizden dolayı, bu% 9'luk hata artışını bilmek zordur, ne kadarı algoritmanın veriyi geliştirme setinde göremediğinden dolayı, bu, problemin varyans bölümünün bir kısmı. Ve ne kadarı, çünkü geliştirme seti verileri sadece farklı. Yani, bu iki etkiyi ortaya çıkarmak için, ve bu iki farklı etkinin ne olduğunu tam olarak takip etmediyseniz, endişelenmeyin, bir saniye sonra tekrar ele alacağız. Ancak, bu iki etkiyi ortaya çıkarmak için, eğitim-geliştirme seti olarak adlandıracağımız yeni bir veri parçası tanımlamak faydalı olacaktır. Yani bu, eğitim setleriyle aynı dağılıma sahip olması gereken, oluşturduğumuz yeni bir veri alt setidir, ancak bu konuda ağınızı açık bir şekilde eğitmiyorsunuz. Yani, demek istediğim şey Daha önce bazı eğitim setleri ve bazı geliştirme setleri ve bazı test setleri oluşturmuştuk. Ve geliştirme ve test setleri aynı dağılıma sahiptir, ancak eğitim setleri biraz farklı dağılıma sahip olacaktır. Yapacağımız şey, eğitim setlerini rastgele karıştırmak ve daha sonra eğitim-geliştirme seti olarak eğitim setinin bir parçasını oluşturmak olacaktır. Yani, geliştirme ve test setinin aynı dağılımı olduğu gibi, eğitim seti ve eğitim-geliştirme seti de aynı dağılıma sahiptir. Ancak, fark şu ki, artık sadece uygun eğitim setinde sinir ağınızı eğitiyorsunuz. Sinir ağını bırakmayacaksınız, bu verinin eğitim-geliştirme kısmı üzerindeki yükümlülüğünü yerine getirmeyeceksiniz. Hata analizi yapmak için, şimdi yapmanız gereken şey, eğitim setindeki, eğitim-geliştirme setindekinin yanı sıra geliştirme setindeki sınıflandırıcınızın hatasını gözden geçirmektir. Öyleyse bu örnekte eğitim hatanızın % 1 olduğunu söyleyelim. Ve eğitim-geliştirme setindeki hatanın % 9 olduğunu, ve geliştirme setindeki hatanın daha önce olduğu gibi% 10 olduğunu söyleyelim. Bundan çıkaracağınız sonuç, eğitim verisinden geliştirme verisine geçtiğinizde, hatanın gerçekten çok arttığıdır. Ve eğitim verisi ile eğitim-geliştirme verisi arasındaki tek fark, sinir ağınızın bunun ilk bölümünü sıralamasıdır. Bu konuda açık bir şekilde eğitildi, ancak eğitim-geliştirme verisinin üzerinde açıkça eğitilmedi. Yani bu size bir varyans probleminiz olduğunu söyler. Çünkü eğitim-geliştirme hatası, eğitim setiniz gibi aynı dağılımdan gelen veriler üzerinde ölçülmüştür. Bu nedenle, sinir ağınızın bir
+eğitim setinde iyi bir performans göstermesine rağmen, aynı dağılımdan gelen
+eğitim-geliştirme setindeki veriler için iyi bir genelleme değil
+biliyorsunuz, ama sadece daha önce görmediği aynı dağılımdan veriyi
+genelleştirmiyor. Yani bu örnekte gerçekten bir varyans problemimiz var. Farklı bir örneğe bakalım. Eğitim hatasının% 1 ve eğitim-geliştirme hatasının % 1,5 olduğunu, ancak geliştirme setine gittiğinizde hatanızın % 10 olduğunu söyleyelim. Yani, aslında, oldukça düşük bir varyans
+probleminiz var, sinir ağının görmediği eğitim-geliştirme verisini gördüğünüz eğitim verisine gittiğinizden dolayı, hata sadece biraz artar, fakat o zaman geliştirme setine gittiğinizde gerçekten artar Yani bu, verilerin uyuşmadığı bir veri uyuşmazlığı sorunudur. Yani bu bir veri uyuşmazlığı problemidir, çünkü öğrenme algoritmanız eğitim-geliştirme ya da geliştirme verilerinden açıkça eğitilmemişti, ancak bu iki veri seti farklı dağılımdan geliyor. Ancak öğrendiği algoritma ne olursa olsun, eğitim-geliştirme seti üzerinde harika çalışır, ancak geliştirme seti üzerinde iyi çalışmaz. Öyleyse, algoritmanız bir şekilde gerçekten önemsediğinizden farklı bir dağılım üzerinde iyi öğrendi, dolayısıyla bunu veri uyuşmazlığı sorunu olarak adlandırıyoruz. Bir kaç örneğe bakalım. Bunu bir sonraki satırda yazacağım çünkü üst kısımda yerim bitiyor. Yani Eğitim hatası, Eğitim-Geliştirme hatası ve Geliştirme hatası. Eğitim hatasına % 10, eğitim-geliştirme hatasına % 11 ve geliştirme
+ hatasına %12 diyelim. Bayes hatası için insan
+seviyesi vekilinin kabaca% 0 olduğunu unutmayın. Öyleyse, eğer bu tür bir
+performansınız varsa,gerçekten yanlılık, önlenebilir bir yanlılık sorununa
+sahipsiniz, çünkü insan seviyesinden çok daha kötü bir performans
+sergiliyorsunuz. Yani bu gerçekten yüksek bir yanlılık
+ayarı. Ve son bir örnek. Eğer eğitim hatanız % 10, eğitim-geliştirme hatanız % 11 ve geliştirme
+hatanız % 20 ise, o zaman iki mesele var gibi görünüyor. Birincisi, önlenebilir yanlılık oldukça yüksektir, çünkü eğitim setinde bunu o kadar iyi yapmıyorsunuz. İnsanlar neredeyse % 0 oranında hata alıyor, ancak eğitim setinizde % 10
+hata alıyorsunuz. Buradaki varyans oldukça küçük görünüyor, ancak bu veri uyumsuzluğu
+oldukça büyük. Yani bu örnek için, bir veri
+uyumsuzluğu sorununun yanı sıra büyük bir yanlılık veya önlenebilir yanlılık
+probleminiz olduğunu söyleyeceğim. Bu slaytta yaptığımız şeyi alıp
+genel ilkeleri yazalım. genel ilkeleri yazalım. Bakacağım anahtar nicelikler insan seviyesi hatası, eğitim seti hatanız, eğitim-geliştirme set hatanız. Yani bu, eğitim seti gibi aynı dağılımdır, ancak üzerinde açık bir şekilde eğitmediniz. Geliştirme seti hatanız, ve bu hatalar arasındaki farklara bağlı olarak, önlenebilir yanlılık, varyans, veri uyumsuzluk problemlerinin ne kadar büyük olduğunu anlayabilirsiniz. Öyleyse insan seviyesi hatasını % 4 diyelim. Eğitiminizin hatası % 7 Ve eğitim-geliştirme hatanız % 10 Ve geliştirme hatası % 12 Yani bu size önlenebilir yanlılık
+hissi verir. Çünkü biliyorsunuz,
+algoritmanızın en azından aynı zamanda da insan düzeyindeki performansına belki
+de eğitim setine yaklaşmasını istersiniz. Bu bir varyans algısıdır. Peki eğitim setinden eğitim-geliştirme
+setine ne kadar iyi genelliyorsunuz? Bu ne kadar veri uyuşmazlığı sorununuzun olduğu algısıdır. Ve teknik olarak bir şey daha ekleyebilirsiniz, test seti performansı,ve test hatasını yazacağız. Test setiniz üzerinde geliştirme yapmamalısınız, çünkü test setinizde aşırı uyum istemezsiniz. Ama eğer buna da bakarsanız,
+buradaki boşluk, size geliştirme setine aşırı uyum olduğunu söyler. Bu nedenle, geliştirme seti
+performansınız ve test seti performansınız arasında büyük bir boşluk varsa,
+bu, geliştirme setine aşırı yüklenebileceğiniz anlamına gelir. Ve belki de daha büyük bir geliştirme seti bulmalısınız, değil mi? Öyleyse, geliştirme setinizin ve test setinizin aynı dağılımdan
+geldiğini unutmayın. Bu yüzden burada büyük bir
+boşluk olması için tek yol, test setinde geliştirme seti üzerinde yaptığından çok daha iyisini yapmak için, bir şekilde geliştirme setine aşırı uyumu halletiyseniz. Ve eğer durum böyleyse, yapmayı düşünebileceğiniz şey geri dönmek  ve sadece daha fazla geliştirme set verisi
+almak olacaktır. Şimdi, bu sayıları yazdım, siz sayılar listesinden aşağı giderken, her
+zaman devam edin. İşte her zaman artmayan
+sayıların bir örneği, belki insan seviyesi performansı % 4, eğitim hatası% 7, eğitim-geliştirme hatası % 10, ancak geliştirme setine gittiğimizi söyleyelim. Şaşırtıcı bir şekilde, geliştirme
+seti üzerinde çok daha iyisini yaptığını görüyorsun. Belki de bu% 6’ dır ,% 6'dır da . Böylece, örneğin eğitim verisinin
+geliştirme seti ve test setinden çok daha zor olduğu
+bir konuşma tanıma görevi üzerinde çalışma gibi etkiler gördünüz. Böylece bu ikisi eğitim  seti
+dağılımınızda değerlendirildi ve bu ikisi geliştirme / test seti dağılımınızda
+değerlendirildi. Böylece eğer bazen geliştirme / test seti dağılımınız, üzerinde
+çalıştığınız herhangi bir uygulama için çok daha kolay ise, o zaman bu rakamlar
+aslında düşebilir. Yani bunun gibi komik şeyler görürseniz, bu analizin faydalı olabilecek
+daha genel bir formülasyonu vardır. Bir sonraki slaytta bunu hemen açıklayayım. Bu yüzden konuşma etkin dikiz aynası örneğini kullanarak bunu motive
+edeyim. Yazmakta olduğumuz sayıların  yatay eksende bir tabloya yerleştirilebileceği
+ortaya çıkıyor, farklı veri setleri yerleştireceğim. Örneğin, genel konuşma tanıma görevinizden veriniz olabilir. Dolayısıyla, küçük
+hoparlörler, satın aldığınız veriler vb. gibi üzerinde çalıştığınız birçok
+konuşma tanıma probleminden yeni topladığınız bir sürü veriye sahip
+olabilirsiniz. Ve sonra hepiniz arabanın içine kaydedilmiş dikiz aynası özel konuşma
+verisine sahipsiniz. dikiz aynası özel konuşma
+verisine sahipsiniz. Tablodaki bu x ekseninde, veri
+setini değiştireceğim. Bu diğer eksende, verileri incelemek için farklı yollar veya
+algoritmalar etiketleyeceğim. Öncelikle, insan seviyesi performansı
+var, bu da bu veri setlerinin her birinde insanların ne kadar doğru olduğunu
+gösteriyor. O zaman sinir ağınızın eğittiği
+örnekler üzerinde hata var. Ve sonunda sinir ağınızın eğitmediği örneklerde hata var. Böylece, önceki slayttaki
+insan seviyesinde adlandırdığımız şeyin, bu kutuda yer alanların sayısı, yani
+bu veri kategorisinde insanların ne kadar iyi yaptıklarıdır. Her türlü konuşma tanıma
+görevinden elde edilen veriyi söyleyin, eğitim setinize ekleyebileceğiniz binlerce sözlük Ve önceki slayttaki örnekte bu % 4'dür. Buradaki numara  belki de bizim
+eğitim hatamızdı. Önceki slayttaki örnekte % 7 oldu Doğru, eğer bu örnekte
+gördüğünüz algoritmayı öğreniyorsanız, örnekte gradyan alçalma
+gerçekleştirdik ve bu örnek eğitim seti dağılımınızdan veya bazı genel konuşma
+tanıma dağılımından geldi. Algoritmanız, üzerinde çalıştığı örnekte ne kadar iyi? Sonra burada eğitim-geliştirme seti hatası. Bu dağılımdan, genel konuşmayı
+tanımadan elde edilen veriler, eğer algoritmanız bu dağılımdan bazı örnekleri açık bir şekilde eğitmediyse, ne kadar iyi? Ve işte buna eğitim geliştirme hatası diyoruz. Ve sonra sağa doğru hareket ederseniz, bu kutu burada geliştirme seti
+hatası veya belki de test seti hatasıdır. Örnekte şimdi % 6 olan. Ve geliştirme ve test hatası, aslında teknik olarak iki sayı, ama bu
+kutuya biri girebilir. Ve bu, eğer dikiz aynanızdan
+alınan veriye sahipseniz, aslında  aracın
+içinde dikiz aynası uygulamasından kaydedilen, ama sinir ağınız bu örnekte geri-yayılım
+göstermedi, hata nedir? Yani, önceki slayttaki
+analizde yaptığımız şey, bu iki sayı, bu iki sayı ve bu iki sayı arasındaki
+farklara bakmaktı. Ve buradaki boşluk,
+önlenebilir yanlılık ölçüsüdür. Buradaki boşluk, bir varyans
+ölçüsüdür ve bu boşluk, veri uyuşmazlığının bir ölçüsüdür. Ve bu tablodaki kalan iki
+girdiyi de atmanın yararlı olabileceği ortaya çıkıyor. Ve eğer bu da % 6 olacaksa ve
+bu sayıyı elde etme şekliniz, bazı insanlardan dikiz aynası konuşma verilerini
+etiketlemelerini istemek şeklinde olacaktır ve sadece isanların bu görevde ne kadar iyi olduklarını ölçün. Ve belki de bu da % 6 da çıkıyor. Ve yaptığınız şey, bazı dikiz aynası konuşma verilerini alıp, nöral
+ağın da öğrenmesini sağlayacak şekilde eğitim setine koymaktır ve sonra bu
+verilerin alt setindeki hatayı ölçersiniz. Ancak, eğer bu sizin elde edeceğiniz şey ise, o zaman, aslında bu dikiz
+aynası konuşma verisinde insan seviyesinde performans gösterdiğiniz ortaya
+çıkıyor, bu yüzden belki de bu verinin dağılımında oldukça iyisiniz. Bunu daha sonraki analizlerde yaptığınızda, her zaman ileriye doğru net
+bir yol göstermez, ancak bazen size sadece ek bilgiler verir. Örneğin, bu durumda bu iki sayıyı karşılaştırmak, insanlar için, dikiz
+aynası konuşma verilerinin aslında genel konuşma tanımadan daha zor olduğunu, çünkü insanların % 4 hata yerine% 6 hata aldığını söyler. Fakat sonra bu farklılıkları incelemek, farklı derecelerde yanlılık ve
+varyans ve veri uyumsuzluğu sorunlarını anlamanıza yardımcı olabilir. Yani bu daha genel olan formülasyon, şimdiye kadar birkaç kez kullandığım bir şey. Ben kullanmadım, ama birçok
+problemden dolayı bu giriş alt setini incelerken, bu farklılığa ve bu
+farklılığa ve bu farklılığa bakmak, sizi oldukça umut verici bir yönde
+göstermek için yeterli. Ancak bazen bu tüm tabloyu
+doldurmak size ek bilgiler verebilir. Son olarak, yanlılığı
+adresleyen fikirler hakkında daha önce çok konuştuk. Varyansı adresleme teknikleri
+hakkında konuştuk, ancak veri uyumsuzluğunu nasıl adreslersiniz? Özellikle, farklı dağılımlardan
+gelen verileri eğitmek, geliştirme ve test setinizin size daha fazla veri sağlaması ve öğrenme algoritmanızın performansı konusunda gerçekten yardımcı olabilir. Ancak, yalnızca yanlılık ve
+varyans problemlerinden ziyade, şimdi bu yeni potansiyel veri uyumsuzluğu problemine
+de sahipsiniz. Veri uyuşmazlığını gidermek için kullanabileceğiniz bazı iyi yollar nelerdir? Dürüst olacağım ve gerçekte veri uyumsuzluğunu ele almak için harika
+ya da en azından çok sistematik bir yol olmadığını söyleyeceğim. Ama size yardımcı olacak deneyebileceğiniz
+bazı şeyler var. Bir sonraki videoda onlara bir bakalım. Gördüğümüz şey, farklı bir
+dağılımdan gelebilecek eğitim verilerini geliştirme ve test seti olarak kullanmak,
+size çok daha fazla veri verebilir ve bu nedenle öğrenme algoritmanızın
+performansına yardımcı olabilir. Fakat sadece iki potansiyel
+problem olarak yanlılık ve varyansa sahip olmak yerine, artık üçüncü bir potansiyel
+probleminiz var, veri uyumsuzluğu. Yani, eğer hata analizi
+yaparsanız ve veri uyumsuzluğunun büyük bir hata kaynağı olduğu sonucuna
+varırsanız, bunu nasıl giderirsiniz? Ne yazık ki, veri uyumsuzluğunu gidermek için süper sistematik yollar vardır, ancak yardımcı olabilecek birkaç şey vardır. Bir sonraki videoda onlara bir bakalım.

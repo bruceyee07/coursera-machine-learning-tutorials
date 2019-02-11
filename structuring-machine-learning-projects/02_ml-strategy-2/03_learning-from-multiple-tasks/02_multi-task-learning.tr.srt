@@ -1,0 +1,795 @@
+1
+00:00:00,330 --> 00:00:03,705
+Transfer öğrenmesinde görev A'dan öğrenip bunu görev B'ye aktardığınız
+
+2
+00:00:03,705 --> 00:00:07,162
+ardışık bir süreciniz varken,
+
+3
+00:00:07,162 --> 00:00:10,520
+çoklu görev öğrenmesinde aynı anda başlıyor ve
+
+4
+00:00:10,520 --> 00:00:13,650
+bir sinir ağının aynı anda birden çok şey yapmasını sağlamaya çalışıyorsunuz.
+
+5
+00:00:13,650 --> 00:00:17,520
+Ve sonra bu görevlerden her biri umuyoruz ki tüm diğer görevlere yardımcı olyor.
+
+6
+00:00:17,520 --> 00:00:18,480
+Bir örneğe bakalım.
+
+7
+00:00:20,110 --> 00:00:24,140
+Diyelim ki, otonom bir araç inşa ediyorsunuz, bir sürücüsüz araba inşa ediyorsunuz.
+
+8
+00:00:24,140 --> 00:00:28,969
+O zaman sürücüsüz aracınızın yayalar, diğer araçlar, dur işaretleri gibi
+
+9
+00:00:28,969 --> 00:00:34,164
+birden fazla değişik şeyi tespit etmesi gerekecektir.
+
+10
+00:00:37,312 --> 00:00:42,410
+Ve aynı zamanda trafik ışıklarını ve diğer şeyleri de.
+
+11
+00:00:43,670 --> 00:00:47,330
+Yani örneğin, soldaki bu örnekte, bu görselde bir dur işareti var
+
+12
+00:00:47,330 --> 00:00:53,510
+ve bu görselde bir araba var ama trafik ışığı veya yaya yok.
+
+13
+00:00:53,510 --> 00:00:58,200
+Yani eğer bu görsel bir örnek için girdi ise, x(i),
+
+14
+00:00:58,200 --> 00:01:02,770
+o zaman bir tane y(i) etiketi yerine aslında 4 etikeniz olurdu.
+
+15
+00:01:02,770 --> 00:01:05,640
+Bu örnekte, yaya yok, bir araba var,
+
+16
+00:01:05,640 --> 00:01:08,850
+bir dur işareti var ve trafik lambası yok.
+
+17
+00:01:08,850 --> 00:01:10,580
+Ve eğer diğer şeyleri de sezimlemek isterseniz,
+
+18
+00:01:10,580 --> 00:01:12,634
+o zaman belki de y(i)nin daha da fazla boyutu olurdu.
+
+19
+00:01:12,634 --> 00:01:14,385
+Ama şimdilik bu dört ile kalalım.
+
+20
+00:01:14,385 --> 00:01:18,013
+Şimdi, y(i) 4e 1lik bir yöney.
+
+21
+00:01:18,013 --> 00:01:22,444
+Ve eğer eğitim test etiketlerine bir bütün olarak bakarsanız
+
+22
+00:01:22,444 --> 00:01:27,370
+o zaman daha önce olduğu gibi, eğitim verisinin etiketlerini
+
+23
+00:01:27,370 --> 00:01:32,116
+y(1) den y(m)ye olacak şekilde dikey olarak yığarız.
+
+24
+00:01:32,116 --> 00:01:39,470
+Ancak şimdi y(i) 4e 1lik bir yöney ve bunların her biri uzun bir kolon yöneyi.
+
+25
+00:01:39,470 --> 00:01:45,530
+Ve bu Y dizeyi şimdi 4e mlik bir dizey, halbuki daha önce
+
+26
+00:01:45,530 --> 00:01:49,810
+y tek bir sayı iken, bu 1e mlik bir dizey olurdu.
+
+27
+00:01:49,810 --> 00:01:55,122
+İşte şimdi yapabileceğiniz sinir ağınızı y'nin bu değerlerini öngörmek için eğitmektir.
+
+28
+00:01:55,122 --> 00:01:57,828
+Böylece bir sinir ağı girdiniz x ve şimdi dört boyutlu
+
+29
+00:01:57,828 --> 00:02:00,970
+bir değeri olan y çıktınız olabilir.
+
+30
+00:02:00,970 --> 00:02:04,590
+Dikkat edin ki burada çıktı için dört düğüm çizdim.
+
+31
+00:02:04,590 --> 00:02:09,000
+Ve böylece tahminlemeye çalıştığımızda ilk düğüm burada
+
+32
+00:02:09,000 --> 00:02:10,610
+bir yaya olup olmadığı.
+
+33
+00:02:10,610 --> 00:02:13,470
+İkinci çıktı orada bir araba olup olmadığını tahmin edecek,
+
+34
+00:02:13,470 --> 00:02:18,870
+orada bir dur levhası olup olmadığını tahmin edecek ve belki de orada bir trafik ışığı olup olmadığını tahmin edecek.
+
+35
+00:02:20,850 --> 00:02:23,950
+Yani buradaki şapkalı y dört boyutlu.
+
+36
+00:02:26,110 --> 00:02:30,575
+Yani bu sinir ağını eğitmek için, sinir ağındaki yitimi tanımlamanız gerekiyor.
+
+37
+00:02:30,575 --> 00:02:32,029
+sinir ağında uyumludur.
+
+38
+00:02:32,029 --> 00:02:39,190
+Ve böylece, tahmin edilmiş çıktı şapkalı y i, ki bu 4e 1 boyutludur, ile
+
+39
+00:02:39,190 --> 00:02:43,939
+tüm eğitim kümeniz üzerinden ortalama kayıp
+
+40
+00:02:43,939 --> 00:02:48,209
+i=1 den m'ye kadar 1 üzeri m'nin toplamının
+
+41
+00:02:48,209 --> 00:02:55,349
+münferit tahminlerin yitiminin j=1 den 4e kadar toplamı olacaktır.
+
+42
+00:02:59,030 --> 00:03:03,256
+Yani, sadece 4 bileşen olan yaya, araba, dur levhası ve trafik ışığı üzerinden
+
+43
+00:03:03,256 --> 00:03:04,253
+toplam.
+
+44
+00:03:04,253 --> 00:03:11,462
+Ve bu yazı L de olağan s biçimli kayıp.
+
+45
+00:03:14,493 --> 00:03:19,404
+Yani bunu yazmak için,
+
+46
+00:03:19,404 --> 00:03:24,314
+bu yj i log şapkalı y ji
+
+47
+00:03:24,314 --> 00:03:28,349
+1-y log şapkalı 1-y.
+
+48
+00:03:31,706 --> 00:03:36,018
+Ve daha önceki değer atama sınıflandırma örneğine kıyasla temel farkı
+
+49
+00:03:36,018 --> 00:03:38,760
+şimdi j eşittir 1 den 4e kadar toplamını alıyor olmanız.
+
+50
+00:03:40,570 --> 00:03:45,260
+Ve bu ve eşiksiz en büyük bağıntı arasındaki temel fark da, tek bir örneğe tek bir
+
+51
+00:03:45,260 --> 00:03:50,550
+etiket atayan eşiksiz en büyük bağıntıdan farklı olarak
+
+52
+00:03:50,550 --> 00:03:53,370
+bu bir görselin birden fazla etiketi olabilir.
+
+53
+00:03:55,350 --> 00:04:00,162
+Yani, her bir görselin bir yaya resmi veya araba resmi, stop levhası resmi
+
+54
+00:04:00,162 --> 00:04:04,780
+trafik ışığı resmi olup olmadığını söylemiyorsunuz.
+
+55
+00:04:04,780 --> 00:04:09,010
+Her bir resim için, yaya var mı veya araba veya stop levhası veya
+
+56
+00:04:09,010 --> 00:04:11,860
+trafik lambası var mı diye soruyorsunuz ve bir görselde birden fazla cisim bulunabiliyor.
+
+57
+00:04:11,860 --> 00:04:16,390
+Aslında, bir önceki slayttaki örnekte görselde hem bir arabamız hem de
+
+58
+00:04:16,390 --> 00:04:19,400
+bir dur levhamız vardı ama yaya ve trafik ışığı yoktu.
+
+59
+00:04:19,400 --> 00:04:22,580
+Yani görsele tek bir etiket atamıyorsunuz,
+
+60
+00:04:22,580 --> 00:04:25,800
+bütün sınıfların üzerinden, bu sınıf, bu tip bir nesne görselde 
+
+61
+00:04:25,800 --> 00:04:29,573
+yer alıyor mu diye sorarak geçiyorsunuz.
+
+62
+00:04:31,420 --> 00:04:34,839
+İşte bu yüzden bu ayarla diyorum ki,
+
+63
+00:04:34,839 --> 00:04:37,313
+bir görselin birden fazla etiketi olabilir.
+
+64
+00:04:37,313 --> 00:04:42,281
+Eğer bir sinir ağını yitim fonksiyonunu en aza indirmek için eğitiyorsanız,
+
+65
+00:04:42,281 --> 00:04:45,920
+çoklu görev öğrenme uyguluyorsunuz demektir.
+
+66
+00:04:45,920 --> 00:04:50,823
+Çünkü yaptığnız her bir görsele bakan ve basitçe dört sorunu çözen
+
+67
+00:04:50,823 --> 00:04:53,860
+tek bir sinir ağı inşa etmektir.
+
+68
+00:04:53,860 --> 00:04:58,910
+Size her bir görselin için bu dört nesneden her biri var mı bunu söylemeye çalışıyor.
+
+69
+00:05:00,250 --> 00:05:03,850
+Ve yapabileceğiniz bir şey de, bir sinir ağını dört şey yapmak için eğitmek yerine
+
+70
+00:05:03,850 --> 00:05:06,700
+4 ayrı sinir ağı eğitmektir.
+
+71
+00:05:06,700 --> 00:05:11,300
+Ama eğer sinir ağındaki daha önceki özelliklerden bazıları bu değişik tipteki
+
+72
+00:05:11,300 --> 00:05:13,790
+nesneler arasında paylaştırılabilirse, o zaman dört tamamen ayrı
+
+73
+00:05:13,790 --> 00:05:17,880
+sinir ağını ayrı ayrı dört görev yapmak için eğitmek yerine
+
+74
+00:05:17,880 --> 00:05:21,760
+bir sinir ağını dört şey yapmak için eğitmenin performans açısından daha iyi sonuç verdğini göreceksiniz.
+
+75
+00:05:23,040 --> 00:05:25,450
+İşte bu da çoklu görev öğrenmesinin gücüdür.
+
+76
+00:05:26,716 --> 00:05:28,127
+Ve bir detay daha,
+
+77
+00:05:28,127 --> 00:05:33,440
+Şimdiye kadar bu algoritmayı sanki her görselde her bir etiket varmış gibi tanımladım.
+
+78
+00:05:33,440 --> 00:05:37,754
+Ortaya çıkıyor ki, çoklu görev öğrenmeleri bazı görsellerde sadece bazı nesneleri etiketlesek
+
+79
+00:05:37,754 --> 00:05:39,452
+bile çalışıyor.
+
+80
+00:05:39,452 --> 00:05:43,078
+Şimdi, ilk eğitim örneği, diyelim ki biri, etiketleyiciniz, orada bir yaya olduğunu, bir araba olmadığını
+
+81
+00:05:43,078 --> 00:05:46,214
+ama bir dur levhası veya trafik ışığı olup olmadığını etiketlemekle
+
+82
+00:05:46,214 --> 00:05:49,072
+uğraşmadıklarını söyledi.
+
+83
+00:05:49,072 --> 00:05:52,691
+Ve belki ikinci bir örnek olarak, bir yaya var, bir araba var ama
+
+84
+00:05:52,691 --> 00:05:56,479
+yine etiketleyici bu görsele bakınca, bir dur levhası veya bir trafik
+
+85
+00:05:56,479 --> 00:05:59,790
+ışığı olup olmadığını etiketlememiş, bunun gibi.
+
+86
+00:05:59,790 --> 00:06:03,153
+Ve belki bazı örnekler tamamen etiketlenmiştir ve belki bazı örneklerde
+
+87
+00:06:03,153 --> 00:06:06,117
+onlar sadece arabaların varlığını ve yokluğunu etiketliyorlardır, böylece
+
+88
+00:06:06,117 --> 00:06:08,858
+bazı soru işaretleri var, ve buna benzer.
+
+89
+00:06:08,858 --> 00:06:13,050
+İşte buna benzer bir veri kümesi ile halen öğrenme algoritmanızı aynı anda
+
+90
+00:06:13,050 --> 00:06:16,870
+dört görev yapmak için eğitebilirsiniz, bazı görseller etiketlerin sadece bir
+
+91
+00:06:16,870 --> 00:06:21,300
+altkümesine sahip olsa ve bazıları soru işareti veya önemsememe içerse de.
+
+92
+00:06:21,300 --> 00:06:24,808
+Ve algoritmayı eğitme yolunuz,
+
+93
+00:06:24,808 --> 00:06:29,520
+bu etiketlerin bazıları soru işaretleri olsa veya gerçekten
+
+94
+00:06:29,520 --> 00:06:34,669
+etiketlenmemiş olsa da bu j 1den 4e kadar toplamdır,
+
+95
+00:06:34,669 --> 00:06:39,730
+sadece j nin 0 veya 1 etiketine sahip olduğu değerler üzerinden toplayacaksınız.
+
+96
+00:06:41,354 --> 00:06:46,850
+Yani, soru işareti olduğu durumlarda sadece bu terimi toplama dahil etmeyeceksiniz ama
+
+97
+00:06:46,850 --> 00:06:51,480
+sadece etiketin olduğu yerlerdeki değerler üzerinden toplayacaksınız.
+
+98
+00:06:51,480 --> 00:06:54,720
+Ve böylece bu durum bu şekildeki veri kümelerini kullanmanıza da müsaade eder.
+
+99
+00:06:54,720 --> 00:06:57,390
+O halde, çoklu görev öğrenmesi ne zaman bir anlam ifade ediyor?
+
+100
+00:06:57,390 --> 00:06:59,471
+O halde, çoklu görev öğrenmesi ne zaman bir anlam ifade ediyor?
+
+101
+00:06:59,471 --> 00:07:03,550
+Bence genelde üç şeyin doğru olduğu zamanlarda mantıklı olur.
+
+102
+00:07:03,550 --> 00:07:06,400
+Birincisi eğer düşük seviyeli özellikleri paylaşıyor olmaktan fayda sağlayacak
+
+103
+00:07:06,400 --> 00:07:08,470
+görevler kümesi üzerinde eğitiyorsanız.
+
+104
+00:07:08,470 --> 00:07:13,155
+Yani sürücüsüz araç örneği için, trafik ışıkları ve arabalar ve yayaları tanımak
+
+105
+00:07:13,155 --> 00:07:16,980
+mantıklıdır, bunların aynı zamanda dur levhalarını tanımanızı sağlayacak benzer
+
+106
+00:07:16,980 --> 00:07:21,653
+özellikleri de olmalıdır, çünkü tüm bunlar yolların özellikleridir.
+
+107
+00:07:23,120 --> 00:07:28,032
+İkincisi, bu pek de katı ve hızlı bir kural değildir bu yüzden her zaman doğru değildir.
+
+108
+00:07:28,032 --> 00:07:31,757
+Ama, birçok başarılı çoklu görev öğrenmesi ortamından gördüğüm kadarıyla
+
+109
+00:07:31,757 --> 00:07:35,310
+her bir görev için elinizde olan veri miktarı oldukça benzerdir.
+
+110
+00:07:35,310 --> 00:07:39,480
+Yani eğer transfer öğrenmesinden hatırlarsanız, bir A görevinden öğreniyor ve bir B
+
+111
+00:07:39,480 --> 00:07:41,930
+görevine aktarıyorsunuz.
+
+112
+00:07:41,930 --> 00:07:46,891
+Yani, eğer A görevinden bir milyon örnek varsa ve B örneği için
+
+113
+00:07:46,891 --> 00:07:51,611
+1.000 örnek varsa, o zaman bu bir milyon örnekten öğrendiğiniz tüm bilgi
+
+114
+00:07:51,611 --> 00:07:56,430
+B görevi için sahip olduğunuz daha küçük veri kümesini arttırmanıza yardımcı olabilir.
+
+115
+00:07:56,430 --> 00:07:58,652
+Peki ya Çoklu Görev Öğrenmesi(multi-tast learning)?
+
+116
+00:07:58,652 --> 00:08:01,520
+Çoklu görev öğrenmesinde, genellikle ikiden çok daha fazla görev vardır.
+
+117
+00:08:01,520 --> 00:08:07,678
+Öncesinde 4 görevimiz vardı fakat diyelim ki 100 göreviniz var
+
+118
+00:08:07,678 --> 00:08:11,452
+ve diyelim ki 100 farklı nesneyi aynı anda tanımlamak için
+
+119
+00:08:11,452 --> 00:08:12,580
+çoklu-görev öğrenmesini kullanacaksınız
+
+120
+00:08:12,580 --> 00:08:17,444
+Görev başı 1000 örneğe sahip olabilirsiniz ve
+
+121
+00:08:17,444 --> 00:08:20,660
+eğer sadece bir görevin performansına odaklanırsanız,
+
+122
+00:08:20,660 --> 00:08:25,775
+diyelim ki 100.görevin performansına odaklanalım
+
+123
+00:08:25,775 --> 00:08:28,899
+eğer bu 100.görevi tek başına yapmaya çalışırsanız,
+
+124
+00:08:28,899 --> 00:08:32,875
+bu örneği eğitmek için sadece 1000 örneğiniz olmuş olur,
+
+125
+00:08:32,875 --> 00:08:37,320
+-buradaki 100 örnekten biri-, fakat diğer 99 örnek üzerinde eğitirseniz
+
+126
+00:08:37,320 --> 00:08:42,810
+bunlar 99.000 eğitim örneği anlamına gelir ve bu da önemli bir artış sağlar,
+
+127
+00:08:42,810 --> 00:08:46,597
+bu A100 görevi için göreceli olarak küçük, 1000 örnekten oluşan
+
+128
+00:08:46,597 --> 00:08:52,040
+eğitim setini artırmak için önemli bilgi avantajı sağlayabilir
+
+129
+00:08:52,040 --> 00:08:57,080
+ve simetrik olarak 99 görevin her biri ,listedeki diğer
+
+130
+00:08:57,080 --> 00:09:01,197
+100 görev için veri ya da bilgi sağlayabilir
+
+131
+00:09:02,640 --> 00:09:07,940
+İkinci kural çok katı bir kural değil fakat benim burda baktığım şey,
+
+132
+00:09:07,940 --> 00:09:13,150
+eğer herhangi bir göreve odaklanırsanız, bu görev için çoklu görev öğrenmesinde önemli
+
+133
+00:09:13,150 --> 00:09:17,260
+artış kaydetmek istiyorsanız, diğer görevler toplandığında, sadece o görev için olan veriden
+
+134
+00:09:17,260 --> 00:09:18,220
+çok daha fazla veri oluşturmalıdır
+
+135
+00:09:18,220 --> 00:09:22,730
+ve bunu sağlamanın bir yolu bizim buradaki örneğimizde olduğu gibi
+
+136
+00:09:22,730 --> 00:09:27,030
+bütün görevlerdeki veri miktarının benzer miktarda olmasıdır
+
+137
+00:09:27,030 --> 00:09:31,558
+fakat buradaki asıl anahtar nokta ise eğer 1 görev için 1000 örneğiniz varsa
+
+138
+00:09:31,558 --> 00:09:36,360
+ve eğer diğer görevlerin bu görevde yardım etmesini hedefliyorsanız
+
+139
+00:09:36,360 --> 00:09:40,565
+diğer görevlerde 1000'den çok daha fazla örnek olması gerekir
+
+140
+00:09:40,565 --> 00:09:44,521
+Son olarak, çoklu-görev öğrenmesi tüm görevlerde iyi sonuç alabilmek için yeterli büyüklükte
+
+141
+00:09:44,521 --> 00:09:47,640
+sinir ağıyla eğitildiğinde daha fazla anlama sahip olmaktadır.
+
+142
+00:09:47,640 --> 00:09:50,259
+Çoklu-görev öğrenmesine olabilecek alternatif
+
+143
+00:09:50,259 --> 00:09:52,767
+her bir görev için ayrı sinir ağı eğitmek olacaktır.
+
+144
+00:09:52,767 --> 00:09:56,084
+Dolayısıyla, yaya,araba,dur işareti ve trafik ışıkları için sadece bir sinir ağı
+
+145
+00:09:56,084 --> 00:09:59,017
+eğitmek yerine yaya belirleme için bir sinir ağı,
+
+146
+00:09:59,017 --> 00:10:02,528
+araba belirleme için bir sinir ağı,dur işareti için bir sinir ağı,
+
+147
+00:10:02,528 --> 00:10:05,630
+trafik ışıkları için bir sinir ağı eğitebilirsiniz.
+
+148
+00:10:06,640 --> 00:10:10,895
+Bir araştırmacının, -Rich Carona, yıllar önce bulduğu şey
+
+149
+00:10:10,895 --> 00:10:14,920
+çoklu-görev öğrenmesinin ayrı sinir ağları eğitmeyle karşılaştırıldığında
+
+150
+00:10:14,920 --> 00:10:18,590
+performansı olumsuz etkilediği tek zaman sinir ağınızın büyüklüğünün yeterli olmadığı durumdur
+
+151
+00:10:18,590 --> 00:10:22,898
+fakat eğer yeteri kadar büyük bir sinir ağı eğitebilirseniz, çoklu-görev öğrenmesi
+
+152
+00:10:22,898 --> 00:10:26,476
+ya performansı olumsuz etkilemez ya da çok nadir olumsuz etkiler
+
+153
+00:10:26,476 --> 00:10:29,405
+ve sinir ağılarının bu görevleri ayrı ayrı yapması için eğitilmesine
+
+154
+00:10:29,405 --> 00:10:33,640
+nazaran daha iyi performans sergilemesini bekleriz.
+
+155
+00:10:33,640 --> 00:10:35,860
+Çoklu-görev öğrenmesi bu kadardı.
+
+156
+00:10:35,860 --> 00:10:40,410
+Pratikte çoklu-görev öğrenmesi, öğrenme transferinden(transfer learning) çok daha az kullanılmaktadır.
+
+157
+00:10:40,410 --> 00:10:43,450
+Bir probleminizin olduğu ve bunu az miktarda veriyle çözmeniz gerektiği durumlarda kullanılan
+
+158
+00:10:43,450 --> 00:10:46,150
+Öğrenme Transferinin kullanıldığı bir çok uygulama görüyorum
+
+159
+00:10:46,150 --> 00:10:49,580
+bu durumda birçok veriye sahip olan başka bir problem bulıyorsunuz ve bunu
+
+160
+00:10:49,580 --> 00:10:51,802
+yeni probleminize transfer ediyorsunuz
+
+161
+00:10:51,802 --> 00:10:56,084
+fakat birçok farklı göreve sahip olduğunuz, iyi bir performans vermesini istediğiniz
+
+162
+00:10:56,084 --> 00:10:57,820
+ve tüm görevleri aynı anda eğittiğiniz
+
+163
+00:10:57,820 --> 00:11:00,390
+çoklu-görev öğrenmesi daha nadir olarak kullanılmaktadır.
+
+164
+00:11:00,390 --> 00:11:02,254
+Belki bir örneği bilgisayarlı görüdür.
+
+165
+00:11:02,254 --> 00:11:05,778
+Nesne belirlemede, bir sinir ağının birçok nesneyi aynı anda belirlemeye
+
+166
+00:11:05,778 --> 00:11:09,533
+çalıştığı çoklu-görev öğrenmesi nesnelerin ayrı ayrı sinir
+
+167
+00:11:09,533 --> 00:11:13,700
+ağlarıyla belirlenmesinden daha iyi çalışmaktadır
+
+168
+00:11:13,700 --> 00:11:17,870
+fakat ortalama olarak diyebilirim ki Öğrenme Transferi, Çoklu-Görev Öğrenmesinden daha sık
+
+169
+00:11:17,870 --> 00:11:22,610
+kullanılmaktadır yine de ikisinin de cephanenizde yer etmesi faydalı olacaktır.
+
+170
+00:11:22,610 --> 00:11:23,685
+Dolayısıyla özetlemek gerekirse,
+
+171
+00:11:23,685 --> 00:11:28,270
+çoklu-görev öğrenmesi birçok görev için tek bir sinir ağı eğitmenize olanak sağlar
+
+172
+00:11:28,270 --> 00:11:32,630
+ve bu size görevleri ayrı ele almanızdan daha iyi performans getirir
+
+173
+00:11:32,630 --> 00:11:37,410
+Dikkat edilmesi gereken bir şey, pratikte öğrenme transferi,
+
+174
+00:11:37,410 --> 00:11:39,790
+çoklu-görev öğrenmesinden çok daha sık kullanılır.
+
+175
+00:11:39,790 --> 00:11:43,262
+Makine öğrenimi probleminizi çözmek istediğiniz fakat göreceli olarak az miktarda veriye sahip olduğunuz 
+
+176
+00:11:43,262 --> 00:11:47,197
+birçok durum mevcut ve bu durumda öğrenme transferi gerçekten yardımcı olabilir.
+
+177
+00:11:47,197 --> 00:11:50,172
+Burada çok daha büyük bir verisetine sahip olan benzer
+
+178
+00:11:50,172 --> 00:11:52,290
+bir probleminiz olduğunda buradan devralıp
+
+179
+00:11:52,290 --> 00:11:54,830
+az miktardaki verinizin olduğu probleminize transfer etmiş olursunuz.
+
+180
+00:11:54,830 --> 00:11:57,460
+Dolayısıyla öğrenme transferi günümüzde çok sık kullanılmakta.
+
+181
+00:11:57,460 --> 00:12:01,785
+Çoklu-görev öğrenmesinin de kullanıldığı bazı uygulamalar mevcut fakat
+
+182
+00:12:01,785 --> 00:12:05,730
+çoklu-görev öğrenmesi öğrenme transferinden çok daha nadir kullanılmakta
+
+183
+00:12:05,730 --> 00:12:09,230
+ve belki de bir istisna bilgisayarlı görüdüdeki nesne belirlemedir,
+
+184
+00:12:09,230 --> 00:12:12,180
+burada birçok farklı nesneyi tanımlamak için tek bir
+
+185
+00:12:12,180 --> 00:12:13,980
+sinir ağının eğitildiğini görürsünüz
+
+186
+00:12:13,980 --> 00:12:16,660
+ve bu ayrı ayrı eğitmekten ve görsel nesneleri tanımlamaktan
+
+187
+00:12:16,660 --> 00:12:18,150
+daha iyi çalışmaktadır
+
+188
+00:12:18,150 --> 00:12:21,385
+fakat genel olarak öğrenme transferi ve çoklu-görev öğrenmesi
+
+189
+00:12:21,385 --> 00:12:26,130
+benzer bir şekilde anlatılmasına rağmen, pratikte
+
+190
+00:12:26,130 --> 00:12:30,130
+öğrenme transferinin çoklu-görev öğrenmesinden çok daha fazla uygulaması mevcuttur.
+
+191
+00:12:30,130 --> 00:12:34,250
+Sanıyorum ki bence bu birçok farklı görevi aynı sinir ağında
+
+192
+00:12:34,250 --> 00:12:37,120
+eğitmek isteyeceğiniz görev sayısının azlığından kaynaklanmakta.
+
+193
+00:12:37,120 --> 00:12:39,050
+Tekrar etmek gerekirse, bazı bilgisayarlı görü ve nesne belirleme
+
+194
+00:12:39,050 --> 00:12:43,000
+uygulamaları örnekleri en göze çarpan örnekler arasında
+
+195
+00:12:43,000 --> 00:12:45,465
+Çoklu-görev öğrenmesi bu kadardı.
+
+196
+00:12:45,465 --> 00:12:46,310
+Çoklu-görev öğrenmesi
+
+197
+00:12:46,310 --> 00:12:50,350
+ve öğrenme transferinin ikisi de araç çantanızda bulunması gereken önemli araçlardır.
+
+198
+00:12:50,350 --> 00:12:54,730
+Ve son olarak, uçtan uca derin öğrenmeyi tartışmaya geiş yapmak istiyorum.
+
+199
+00:12:54,730 --> 00:12:57,620
+Hadi bir sonraki videoda uçtan uca derin öğrenmeyi tartışalım.

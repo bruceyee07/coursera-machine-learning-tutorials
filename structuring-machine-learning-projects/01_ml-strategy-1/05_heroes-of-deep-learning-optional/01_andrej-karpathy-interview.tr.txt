@@ -1,0 +1,149 @@
+Hoşgeldin Andrej, bugün gelmene çok memnun oldum. Hoşbulduk, beni ağırladığın için teşekkürler. Birçok insan senin derin öğrenme çalışmalarını biliyor ama, herkes kişisel hikayeni bilmeyebilir. Onun için bu derin öğrenme çalışmalarını nasıl yaptığını anlatarak başlayabilir misin? >> Evet, kesinlikle. İlk defa Toronto Üniversitesi'nde lisans eğitimi alırken derin öğrenmeyle alakam olmuştu. Orada Geoff Hinton derin öğrenme dersi veriyordu. O zaman ders eğitilen makineler ve rakamlarla alakalıydı. Ve Geoff'in ağı eğitmeyle alakalı konuşma 
+tarzını oldukça beğenmiştim. Ağın aklı gibi ifadeler kullanıyordu. İşte orada benim için bu rakamların 
+eğitimiyle alakalı sihirli bir şeyler olduğunu düşündüm. İşte bu benim ilk tanışmam oldu. Gene de o zaman çok detaya girmemiştim. Sonrasında University of British Columbia'da 
+yüksek lisansımı yaparken, makine öğrenmesiyle alakalı bir ders daha aldım. İşte o zaman sinir ağları üzerine daha
+ detaylı çalışma fırsatı buldum. İlginç olan şu ki yapay zekaya çok meraklıydım ve bununla ilgili dersler aldım ama derslerde gördüğüm şeyler
+ beni her zaman tatmin etmiyordu. Dersler hep derin öncelikli derin öğrenme, 
+alfa beta budaması tarzı ve bunun gibi şeylerle alakalıydı. Nasıl olduğunu pek anlamıyordum
+ ve tatmin olmamıştım. İlk kez sinir ağlarını gördüğümde ise ki yapay zeka konusunda
+ daha teknik bir terim olduğunu ve çok kişinin bilmediğini düşünüyorum. Makine öğrenmesi daha 
+teknik bir terim diyebillirim. Yani yapay zekadan
+ memnun kalmamıştım ama makine öğrenmesini gördüğümde, ilgimi çekenin bu olduğunu 
+ve zaman harcamaya eğer olduğunu anlamıştım. İşte bu şekilde yeni bir 
+hesaplama yöntemi olduğuna inandığım bu işe başlamış oldum. Çünkü normalde, insanlar kod yazar ama, burada optimizasyon kod yazıyor. Siz girdi/çıktı özelliklerini oluşturuyorsunuz, bir çok örnekle besliyorsunuz 
+ve optimizasyon kodu yazıyor. Bazen sizden de iyi yazıyor. Ben bunun programlamayla ilgili
+ yeni bir düşünme tarzı olduğunu hissettim. İlgimi çeken de bu oldu. Seninle alakalı şeylerden biri de şu ki;
+ sen ImageNet görüntü sınıflandırması yarışmasının insan referans noktası kabul ediliyorsun. Bu nerden çıktı? ImageNet yarışması aslında görüntü işlemenin Dünya Kupası olarak düşünülebilir. İnsanlar da bu hata oranıyla ilgileniyor. Hata oranı gittikçe azalıyor. Ben bir insanın nasıl bir performans
+ göstereceğini bilmiyordum. Daha öncesinde CIFAR-10 veriseti üzerinde 
+daha küçük bir deneme yapmıştım. Onu da şöyle yaptım: 
+32x32 görüntülere bakıyordum ve, kendim sınıflandırmaya çalışıyordum. O zaman sadece 10 kategori vardı ve bir arayüz oluşturmak daha basitti. Galiba %6 gibi bir hatayla tamamladım. Sonrasında anladım ki bu zor bir iş ve galiba yapabileceğimiz 
+en düşük hata oranını yakalamıştım. Tamam, kesin rakamları hatırlayamam ama %10 gibiydi ve biz
+ %3 %2 gibi çok iyi oranları yakalamıştık. bu benim insan değerlendirmesinde 
+yaptığım ilk eğlenceli deneyimimdi. Ve bence bu sizin de bazı derslerinizde değindiğiniz sebepler için önemli bir işti. Çünkü bu oran gerçekten insanların 
+bu işte nasıl olduğunu anlamak için önemlidir. Böylece algoritmalarla insanları kıyaslayabiliriz. ImageNet açısından baktığımızda ise
+ ortada bir hata oranıyla ilgili tutarsızlık ortaya çıkıyor. Devamlı olarak hata oranını düşürmeye
+ çalışıyoruz ve insanların ne kadar iyi yaptığını anlamaya çalışmıyoruz bile. Ben de kendimi görüntülerle test etmek için
+ bir JavaScript arayüzünü yazdım. Problem şu ki, ImageNet'de 10 kategori yok. 1000 tane var. Kullanıcı arayüzü yarışı gibiydi. Tabii ki 1000 kategoriyi 
+hatırlayamam. Bunun için ne yapmam lazım? Ben de bütün kategorileri listeledim
+ ve örnekler hazırladım. Sonrasında her tek bir görüntü için 
+1000 kategoriyi de baştan aşağı kontol ediyordum. Böylece tahmin yapmaya ve 
+görüntünün ne olabileceğini anlamaya çalışıyordum. Aslında bu önemli bir egzersizdi. ImageNet görüntülerinin üçte birinin 
+köpeklerden oluştuğunu kendim bile anlamamıştım. Ama sinir ağı köpeklerle
+ alakalı çok vakit harcıyordu. Böyle düşünmüştüm. Performansının üçte biri 
+köpeklerden geliyordu. Böylece bir iki hafta boyunca 
+sadece bununla uğraşmıştım. Geri kalan herşeyi bir kenara koydum. Oldukça eğlenceli gelimişti. Bir sonuç elde ettim ama 
+şunu düşünmüştüm: Tek kişi yeterli değil. Bir kaç kişiden daha 
+yardım almak istedim. Laboratuvardaki diğer insanları da bunu yapmaları için organize etmeye çalıştım. Galiba insanlar çok da katkı 
+yapmaya istekli değillerdi. Sonuçta bir iki hafta günde 5 saat oturup resimlerin hangi köpek türüne ait olduğunu bulmaya çalışacaklardı. Bu yüzden çok veri 
+toplayamadım diyebilirim. En azından yaklaşık bir 
+performans elde ettik ve eğlenceliydi. Sonrasında bu haberim 
+olmadan popüler olmuş. Sadece oranı bilmek istemiştim ve birden yayılmıştı. İnsanlar bunun gerçekten yaşanmasına bayılmıştı ve benden referans insan diye bahsetmeye başladılar. Oldukça komik tabi. Yazılım en sonunda seni geçtiğinde şaşırmış mıydın? >> Kesinlikle. Evet kesinlikle. Özellikle bazen gerçekten de 
+resimde ne olduğunu çözmek zor. Sadece bir parça
+ siyah nokta var. Ve bir şey göremiyorum. Benim aklıma 20 farklı kategori geliyor ama
+ sinir ağı bunu hemen yapabiliyor. Nasıl oluyor anlayamıyorum. İnsanüstü bir şeyler var bunda. Ama sinir ağı bu gibi
+ istatistikle alakalı işlerde oldukça iyi. Bu açıdan bakınca ağın 
+böyle istatistikle alakalı bir işi daha iyi 
+yapmasına şaşırmamıştım. Aslında şaşırtıcı olan bazı 
+resimlerde okumanız gereken yerler olmasıydı. Örneğin bir şişe var,
+ göremiyorsunuz ama üstünde ne olduğu yazıyor. Ben bir insan olarak bunu 
+okuyabilirim ama sinir ağının bunu okumayı öğrenmesi lazım. 
+Çünkü diğer türlü hiç açık değil. Senin oldukça meşhur olduğun 
+ve derin öğrenme topluluğunun da sana minnettar olduğu bir 
+konu da senin anlattığın dersleri internette yayınlaman. Biraz da bununla 
+alakalı anlatabilir misin? >> Evet, kesinlikle. Düşüncem bu teknolojinin
+ oldukça dönüştürücü bir şekilde kullanılabileceğiydi. Sanki bir çekiç gibi. Ben ise bu çekici insanlara dağıtmak istedim. Bence bu oldukça ilgi çekiciydi. Aslında bir yüksek lisans öğrencisi
+ için çok da taviye edilecek bir durum değil. Çünkü araştırmanızı bir 
+kenara koyuyorsunuz. Zamanımın %120'si bu işe gidiyordu. Tüm araştırmamı bir 
+kenara koymam gerekti. Bir dersi iki kere alıyorum 
+ve her sömestr 4 ay. Tüm bu süre tamamen 
+sınıfta geçiyor. Bu yüzden pek de tavsiye edilebilir değil.
+ Ama benim yüksek lisans sürecimi özetliyor. Sadece araştırmayla da alakalı da değil. Bir dersi öğretmek de 
+yüksek lisansımın temeliydi. Sadece öğrencileri görmek, ve gerçekten çok heyecanlanlılardı.
+ Çok farklı bir sınıftı. Normalde derste 1800 lerde 
+bulunan şeyleri öğretirler. Onun gibi şeyler. Ama biz sınıfa gelip geçen 
+hafta hatta önceki gün yayınlanan bir makaleyi işleyebiliyoruz. Ve yeni ortaya çıkan sonuçlar var. 
+Öğrencilerin dersin bu yanını da çok 
+sevdiğini düşünüyorum. Gerçekten anladıklarını. Bu iş nükleer fizik 
+veya roket bilimi değil. Eğer kalkülüsü ve cebiri biliyorsanız, neler olduğunu anlayabiliyorsunuz. Ayrıca hem çok güçlü ve 
+devamlı değişen bir alan. Böylece insanlar önemli 
+bir işin ilklerinden olduklarını hissediyorlar. Galiba bunun için de
+ insanlar dersi sevmişlerdi. Yani birçok insana
+ çekiçle yardım ettin. Evet. Ben uzun zamandır derin öğrenmeyle
+ uğraşan biri olarak bu alanın hızlı bir evrim 
+içerisinde olduğunu düşünüyorum. Derin öğrenmenin
+ yıllar içinde nasıl değiştiği hakkında senin neler düşündüğünü 
+de merak ediyorum. Evet, aslında ilk defa
+ DIGITS veri setinde kısıtlanmış Boltzman Makinelerini gördüğümde, Bu teknolojinin 
+nasıl kullanılabileceği ve nelere yol açabileceğini bilmiyordum. Mesela ben bilgisayar görüşü'ne
+ başladığımda evrişimli sinir ağları vardı ancak bilgisayar görüşü 
+topluluğunun kısa vadede kullanmayı planladığı bir şey değildi. Algılayıcı(perceptron) 
+küçük işler için kullanılıyordu ancak büyük tarzda işler için düşünülmüyordu. Tabii ki bu kesinlikle yanlıştı. Sonuç olarak teknolojinin 
+şimdiki durumundan ve sonuçlardan oldukça memnunum. En büyük sürpriz bu 
+olmuştu ama dahası da var. Öreneğin bu şey ImageNet'de çalışıyor ama eğittiğiniz bu ağı alıp farklı bir veri üstünde denemek için transfer edebilme şansınız var. Sonra parametrelerini diğer 
+işlere uygun olması için ayarlayabilirsiniz. Çünkü şu an sadece ImagNet'le uğraşmıyoruz. Milyonlarca öreneğe ihtiyacınız olabiliyor. Bu çok genel bir 
+özelik çıkartma(feature extractor) da olabilir. Bence bu da daha az 
+insanın öngörebildiği bir durumdu. Bazı makaleler pek de uygulanabilir değillerdi. İnsanların bilgisayar görüsünde
+ çalıştığı şeyler örneğin, Senkronizasyon sınıflandırması,
+ gerçel tanıma ve obje tanıma gibi genel amaçlar sadece daha önce eğitilmiş bir ağın ayarlanmasıyla ulaşılabiliyor. Bu bana göre oldukça şaşırtıcıydı. Evet bence de denetimli öğrenme 
+oldukça ilgi çekiyor ama daha önceden eğitilmiş ağlar ve
+ transfer öğrenmsi de gerçekten çalışıyor. Ama insanlar pek hakkında konuşmuyorlar. >> Doğru, kesinlikle. Evet ama denetimsiz öğrenme(unsupervised learning) 
+için aynı şeyi söyleyemem. Bir çok araştırmacı 2007 civarında çalışmalarına bu alanda başlamışlardı. Galiba istenilen hala ulaşılabilmiş değil. Ama denetimli öğrenme kısmı çok iyi çalışıyor. Ve kurtuluş öğrenmesi(enterprise learning) 
+de henüz yeni ve hala hangi alanlarda
+ kullanılacağı belli değil. Ama birçok insan bir şeylerin 
+olacağına inanıyorlar. Derin öğrenme alanının uzun 
+vadede gelişimi hakkında düşünen bir insansın. Bu konudaki düşüncelerini
+ paylaşmak ister misin? Son bir buçuk yılı OpenAI'da bu konularda düşünerek geçirdim ve bence alan ikiye ayrılıyor. Birincisi uygulamalı yapay zeka ki bunlar 
+sinir ağları yapma ve onları (genellikle denetimli öğrenmeyle) eğitmeyle alakalı ve görüntü tanıma gibi örnekler verilebilir. Ve diğeri de genel yapay zeka yönü yani sinir ağları gibi tamamen dinamik
+ ve insanın düşünebildiği gibi düşünen bir sistem. Ve bence ilginç olan şu ki 
+örneğin bilgisayar görüsünde bizim ilk yaklaşımımız yanlıştı. Çünkü parçalara ayırmaya çalışmıştık. Diyelimki insanlar diğer
+ insanları ve görüntüleri tanıyabilirler, objeleri anlayabilirler. Biz de insanların yaptığı her şeyi yapacağız Bunları ayrı ayrı yaptıktan sonra hepsine sahip olduktan sonra Bunları nasıl 
+birleştireceğimize bakacağız. Ve bence bu yanlış bir yaklaşımdı. Zaten nasıl olduğunu da görük. bence daha yüksek bir
+ yapay zekada da buna benzer bir şey var. İnsanlar sorar, insanlar plan yapar 
+ve etrafı anlamak için deneyler yapar. İnsanlar konuşur da. 
+Bunun için dile ihtiyacımız var. Genelde bunlar ayrı fonksiyonlar
+ halinde düşünülüp sonra beyin benzeri bir şeyde
+ birleştirmeyi düşünüyorlar. Bu da yanlış bir yaklaşım. Ben bu yaklaşımdan 
+farklı bir yolun taraftarıyım. O da tek bir dinamik sistem
+ olarak sinir ağının hep tek bir etkenle çalışması. Şimdi soru şu: nasıl bir obje yaratacaksınız
+ ki ağırlıkları(weight) optimize ettiğinizde akıllı 
+bir davranış elde edeceksiniz. OpenAI'da bununla
+ alakalı baya düşünüyorum. Tabi insanların bu soruya bir çok farklı şekilde yaklaşıyorlar. Örneğin, İnternet üzerinde
+ denetimli öğrenme üzerine bir yazım var. Kısa bir hikaye 
+demek daha doğru olur. Bu hikayede denetimli 
+öğrenmeyi aynı şekilde büyüterek kullanacağımız bir
+ dünyanın fantezisi şeklinde. Çünkü şu anki haliyle bu çalışıyor. Amazon Mechanical Türk tarzı bir şeye benziyor. Bunda insanlar
+ insanlar robot bedenlerine girip bir şeyler yapıyorlar ve nasıl göründüğüne bakıyorlar. Tabii başka yönler de var. algoritmalı bilgi teorisi, denetimsiz
+ öğrenme ve AIXI gibi şeyler. veya yapay yaşam yapay 
+evrim gibi görünen şeyler. Ben de zamanımı bu tarz sorular 
+üzerinde düşünerek geçirdim. Sanırım cevabı buldum 
+ama burda açıklamayayım. ama blogunu okuyarak
+ daha çok öğrenebilirim en azından >> Evet, kesinlikle. Bugün senden birçok 
+tavsiye duyduk. ve bugün hala biçok insan Yapay zeka ve
+ derin öğrenme alanına girmek istiyorlar. Senin bu insanlara 
+bir tavsiyen var mı? >> Evet, kesinlikle. İnsanlarla aldığımız CS231 kursu 
+hakkında konuştuğumda genelde herkesin derin detaylara girilmesinden nasıl memnun olduğunu gördüm. Örneğin kütüphanelerle çalışmıyorsunuz ve gerçek kodu görüyorsunuz. herleyin nasıl 
+uygulandığını görüyorsunuz. ve parça parça bunu kendiniz birleştiriyorsunuz. Bu bence çok önemli ve
+ altta neler olduğunu anlamak için çok önemli. Neler olduğunu 
+anlamadan geçmemek ve her şeyi tam olarak
+ anlamak lazım. Ben de bu şekilde
+ öğrenmiştim aslında. Her şeyi baştan 
+kendim uygulayarak. Tamamen anlamak 
+için yaptığım önemli bir şey de ki bana çok yardımı oldu. Kendi kütüphanemi yazdım. Adı ConvNetJs JavaScript ile yazdım. 
+Ve evrişimsel sinir ağlarını uyguladım. Ben bu şekilde öğreniyorum. Bunun için insanlara hep 
+zaten var olan şeylerle değil de akışla veya başka birşeyle çalışmalarını öneriyorum. en alt seviyede kendi yazdığınız 
+bir şeyle çalışmanızı tavsiye ederim. Eğer altta olanları anlarsanız
+ sonrasında çok daha rahat olursunuz. Bundan sonra var olan
+ kütüphaneleri bile kullansanız altta neler döndüğünü 
+biliyor olursunuz. Ben bunun çok 
+yardımını gördüm. CS231 dersini alan diğerleri de
+ bunu çok sevmişlerdi. insanlara da bunu
+ tavsiye etmek isterim. Bir sinir ağını çalıştırmaktan 
+daha farklı bu. Evet, katmanlar var ve biraz daha katman eklersem iyi olabilir dersiniz.
+ Ama bu faydalı olmaz. O şekilde iyi bir hata
+ ayıklaması yapamazsınız. Modellerinizi etkili 
+bir biçimde geliştiremezsiniz. Evet, ben de derin öğrenme kursunun
+ yapay zeka kursunu almasından çok memnunum. İlk haftalarda Python 
+dersleriyle başlıyor. Evet iyi, iyi. Bizimle tavsiyelerini ve görüşlerini
+ paylaştığın için teşekkürler. Derin öğrenme dünyasında
+ bir çok kişinin kahramanısın. Bu yüzden bugün 
+bize katılmama minnettarım. Evet, beni ağırladığınız için teşekkürler.

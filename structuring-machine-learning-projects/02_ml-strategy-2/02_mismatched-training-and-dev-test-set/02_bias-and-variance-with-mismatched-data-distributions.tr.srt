@@ -1,0 +1,1109 @@
+1
+00:00:00,760 --> 00:00:01,970
+Öğrenme algoritmanızın yanlılık ve varyansını tahmin etmek,
+
+2
+00:00:01,970 --> 00:00:06,650
+bir sonraki aşamada ne yapacağınıza öncelik vermenizde yardımcı olur.
+
+3
+00:00:06,650 --> 00:00:11,220
+Ancak, eğitim setiniz, geliştirme ve test setlerinizden farklı bir dağılımdan geldiğinde,
+
+4
+00:00:11,220 --> 00:00:14,570
+yanlılık ve varyansı analiz etme şekliniz değişir.
+
+5
+00:00:14,570 --> 00:00:15,140
+Nasıl olduğunu görelim.
+
+6
+00:00:16,480 --> 00:00:19,650
+Kedi sınıflandırma örneğimizi kullanmaya devam edelim ve diyelim ki
+
+7
+00:00:19,650 --> 00:00:22,880
+insanlar bunun üzerinde mükemmele yakın bir performans sergiliyorlar.
+
+8
+00:00:22,880 --> 00:00:28,620
+Yani Bayes hatası ya da Bayes ideal hatası, bu problemde yaklaşık% 0 olduğunu biliyoruz.
+
+9
+00:00:28,620 --> 00:00:33,530
+Bu yüzden, hata analizi yapmak için genellikle eğitim hatasına bakarsınız
+
+10
+00:00:33,530 --> 00:00:37,030
+ve ayrıca geliştirme setindeki hataya bakarsınız.
+
+11
+00:00:37,030 --> 00:00:41,490
+Öyleyse, bu örnekte eğitiminizin hatasının % 1 olduğunu
+
+12
+00:00:41,490 --> 00:00:45,040
+ve geliştirme hatasının% 10 olduğunu söyleyelim.
+
+13
+00:00:45,040 --> 00:00:49,725
+Eğer geliştirme veriniz eğitim setiniz gibi aynı dağılımdan gelseydi,
+
+14
+00:00:49,725 --> 00:00:53,125
+burada algoritmanızın daha önceden
+
+15
+00:00:53,125 --> 00:00:56,615
+çok daha kötüye giden geliştirme kümesini daha iyiye götüren
+
+16
+00:00:56,615 --> 00:01:01,795
+eğitim setinden genelleme yapmadığından büyük bir varyans probleminiz olduğunu söylerdiniz.
+
+17
+00:01:01,795 --> 00:01:05,335
+Ancak, eğitim verinizin ve geliştirme verinizin farklı bir dağılımdan geldiği ortamda,
+
+18
+00:01:05,335 --> 00:01:09,658
+artık bu sonucu güvenli bir şekilde çizemezsiniz.
+
+19
+00:01:09,658 --> 00:01:13,820
+Özellikle, belki de geliştirme setinde gayet iyi çalışıyor,
+
+20
+00:01:13,820 --> 00:01:18,250
+yüksek çözünürlük ve çok net görüntülerden dolayı eğitim seti gerçekten çok kolaydı
+
+21
+00:01:18,250 --> 00:01:21,880
+ve belki de geliştirme seti çok daha zor.
+
+22
+00:01:23,492 --> 00:01:27,610
+Yani belki bir varyans problemi yoktur ve bu sadece geliştirme kümesinin
+
+23
+00:01:27,610 --> 00:01:32,030
+doğru sınıflandırılması çok daha zor olan görüntüler içerdiğini yansıtır.
+
+24
+00:01:33,610 --> 00:01:38,220
+Yani bu analizdeki problem, eğitim hatasından geliştirme hatasına gittiğinizde,
+
+25
+00:01:38,220 --> 00:01:41,980
+her seferinde iki şeyin değişmesidir.
+
+26
+00:01:41,980 --> 00:01:47,450
+Birincisi, algoritmanın eğitim setindeki verileri gösterdiği, ancak geliştirme setinde bulunmadığıdır.
+
+27
+00:01:47,450 --> 00:01:51,080
+İkincisi, geliştirme setindeki verilerin dağılımı farklıdır.
+
+28
+00:01:51,080 --> 00:01:55,158
+Ve aynı anda iki şeyi değiştirdiğinizden dolayı, bu% 9'luk hata artışını bilmek zordur,
+
+29
+00:01:55,158 --> 00:02:00,120
+ne kadarı algoritmanın veriyi geliştirme setinde göremediğinden dolayı,
+
+30
+00:02:00,120 --> 00:02:04,660
+bu, problemin varyans bölümünün bir kısmı.
+
+31
+00:02:04,660 --> 00:02:07,670
+Ve ne kadarı, çünkü geliştirme seti verileri sadece farklı.
+
+32
+00:02:09,300 --> 00:02:14,150
+Yani, bu iki etkiyi ortaya çıkarmak için, ve bu iki farklı etkinin ne
+
+33
+00:02:14,150 --> 00:02:17,610
+olduğunu tam olarak takip etmediyseniz, endişelenmeyin,
+
+34
+00:02:17,610 --> 00:02:19,490
+bir saniye sonra tekrar ele alacağız.
+
+35
+00:02:19,490 --> 00:02:23,702
+Ancak, bu iki etkiyi ortaya çıkarmak için,
+
+36
+00:02:23,702 --> 00:02:26,970
+eğitim-geliştirme seti olarak adlandıracağımız yeni bir veri parçası tanımlamak faydalı olacaktır.
+
+37
+00:02:26,970 --> 00:02:29,430
+Yani bu, eğitim setleriyle aynı dağılıma sahip olması gereken,
+
+38
+00:02:29,430 --> 00:02:34,080
+oluşturduğumuz yeni bir veri alt setidir, ancak
+
+39
+00:02:34,080 --> 00:02:37,630
+bu konuda ağınızı açık bir şekilde eğitmiyorsunuz.
+
+40
+00:02:37,630 --> 00:02:38,690
+Yani, demek istediğim şey
+
+41
+00:02:40,330 --> 00:02:45,220
+Daha önce bazı eğitim setleri ve bazı geliştirme setleri ve
+
+42
+00:02:45,220 --> 00:02:50,920
+bazı test setleri oluşturmuştuk.
+
+43
+00:02:50,920 --> 00:02:53,403
+Ve geliştirme ve test setleri aynı dağılıma sahiptir, ancak
+
+44
+00:02:53,403 --> 00:02:56,710
+eğitim setleri biraz farklı dağılıma sahip olacaktır.
+
+45
+00:02:56,710 --> 00:03:01,640
+Yapacağımız şey, eğitim setlerini rastgele karıştırmak ve daha sonra
+
+46
+00:03:01,640 --> 00:03:09,180
+eğitim-geliştirme seti olarak eğitim setinin bir parçasını oluşturmak olacaktır.
+
+47
+00:03:09,180 --> 00:03:14,830
+Yani, geliştirme ve test setinin aynı dağılımı olduğu gibi,
+
+48
+00:03:14,830 --> 00:03:18,750
+eğitim seti ve eğitim-geliştirme seti de aynı dağılıma sahiptir.
+
+49
+00:03:21,290 --> 00:03:24,940
+Ancak, fark şu ki, artık sadece uygun eğitim setinde
+
+50
+00:03:24,940 --> 00:03:27,920
+sinir ağınızı eğitiyorsunuz.
+
+51
+00:03:27,920 --> 00:03:29,330
+Sinir ağını bırakmayacaksınız,
+
+52
+00:03:29,330 --> 00:03:34,660
+bu verinin eğitim-geliştirme kısmı üzerindeki yükümlülüğünü yerine getirmeyeceksiniz.
+
+53
+00:03:34,660 --> 00:03:36,290
+Hata analizi yapmak için,
+
+54
+00:03:36,290 --> 00:03:39,310
+şimdi yapmanız gereken şey, eğitim setindeki,
+
+55
+00:03:39,310 --> 00:03:43,320
+eğitim-geliştirme setindekinin yanı sıra geliştirme setindeki sınıflandırıcınızın hatasını gözden geçirmektir.
+
+56
+00:03:44,500 --> 00:03:51,281
+Öyleyse bu örnekte eğitim hatanızın % 1 olduğunu söyleyelim.
+
+57
+00:03:53,020 --> 00:04:00,695
+Ve eğitim-geliştirme setindeki hatanın % 9 olduğunu,
+
+58
+00:04:00,695 --> 00:04:07,910
+ve geliştirme setindeki hatanın daha önce olduğu gibi% 10 olduğunu söyleyelim.
+
+59
+00:04:08,910 --> 00:04:13,460
+Bundan çıkaracağınız sonuç, eğitim verisinden geliştirme verisine geçtiğinizde,
+
+60
+00:04:13,460 --> 00:04:17,680
+hatanın gerçekten çok arttığıdır.
+
+61
+00:04:17,680 --> 00:04:22,460
+Ve eğitim verisi ile eğitim-geliştirme verisi arasındaki tek fark,
+
+62
+00:04:22,460 --> 00:04:27,280
+sinir ağınızın bunun ilk bölümünü sıralamasıdır.
+
+63
+00:04:27,280 --> 00:04:30,610
+Bu konuda açık bir şekilde eğitildi, ancak
+
+64
+00:04:30,610 --> 00:04:34,840
+eğitim-geliştirme verisinin üzerinde açıkça eğitilmedi.
+
+65
+00:04:34,840 --> 00:04:38,320
+Yani bu size bir varyans probleminiz olduğunu söyler.
+
+66
+00:04:40,006 --> 00:04:44,230
+Çünkü eğitim-geliştirme hatası,
+
+67
+00:04:44,230 --> 00:04:46,290
+eğitim setiniz gibi aynı dağılımdan gelen veriler üzerinde ölçülmüştür.
+
+68
+00:04:46,290 --> 00:04:50,490
+Bu nedenle, sinir ağınızın bir
+eğitim setinde iyi bir performans göstermesine rağmen,
+
+69
+00:04:50,490 --> 00:04:53,980
+aynı dağılımdan gelen
+eğitim-geliştirme
+
+70
+00:04:53,980 --> 00:04:58,280
+setindeki veriler için iyi bir genelleme değil
+biliyorsunuz,
+
+71
+00:04:58,280 --> 00:05:02,530
+ama sadece daha önce görmediği aynı dağılımdan veriyi
+genelleştirmiyor.
+
+72
+00:05:04,020 --> 00:05:07,200
+Yani bu örnekte gerçekten bir varyans problemimiz var.
+
+73
+00:05:09,680 --> 00:05:11,510
+Farklı bir örneğe bakalım.
+
+74
+00:05:11,510 --> 00:05:17,613
+Eğitim hatasının% 1 ve eğitim-geliştirme hatasının % 1,5 olduğunu,
+
+75
+00:05:17,613 --> 00:05:21,360
+ancak geliştirme setine gittiğinizde hatanızın % 10 olduğunu söyleyelim.
+
+76
+00:05:21,360 --> 00:05:24,805
+Yani, aslında, oldukça düşük bir varyans
+probleminiz var,
+
+77
+00:05:24,805 --> 00:05:29,798
+sinir ağının görmediği eğitim-geliştirme verisini gördüğünüz eğitim verisine gittiğinizden dolayı,
+
+78
+00:05:29,798 --> 00:05:34,579
+hata sadece biraz artar, fakat
+
+79
+00:05:34,579 --> 00:05:37,550
+o zaman geliştirme setine gittiğinizde gerçekten artar
+
+80
+00:05:37,550 --> 00:05:43,100
+Yani bu, verilerin uyuşmadığı bir veri uyuşmazlığı sorunudur.
+
+81
+00:05:44,810 --> 00:05:51,840
+Yani bu bir veri uyuşmazlığı problemidir,
+
+82
+00:05:51,840 --> 00:05:55,838
+çünkü öğrenme algoritmanız eğitim-geliştirme ya da geliştirme verilerinden açıkça eğitilmemişti,
+
+83
+00:05:55,838 --> 00:06:00,610
+ancak bu iki veri seti farklı dağılımdan geliyor.
+
+84
+00:06:00,610 --> 00:06:01,850
+Ancak öğrendiği algoritma ne olursa olsun,
+
+85
+00:06:01,850 --> 00:06:06,230
+eğitim-geliştirme seti üzerinde harika çalışır, ancak geliştirme seti üzerinde iyi çalışmaz.
+
+86
+00:06:06,230 --> 00:06:10,407
+Öyleyse, algoritmanız bir şekilde gerçekten önemsediğinizden farklı bir dağılım
+
+87
+00:06:10,407 --> 00:06:14,462
+üzerinde iyi öğrendi, dolayısıyla bunu veri uyuşmazlığı sorunu olarak adlandırıyoruz.
+
+88
+00:06:17,505 --> 00:06:20,112
+Bir kaç örneğe bakalım.
+
+89
+00:06:20,112 --> 00:06:24,663
+Bunu bir sonraki satırda yazacağım çünkü üst kısımda yerim bitiyor.
+
+90
+00:06:24,663 --> 00:06:31,326
+Yani Eğitim hatası, Eğitim-Geliştirme hatası ve Geliştirme hatası.
+
+91
+00:06:33,618 --> 00:06:37,254
+Eğitim hatasına % 10, eğitim-geliştirme hatasına % 11
+
+92
+00:06:37,254 --> 00:06:42,210
+ve geliştirme
+ hatasına %12 diyelim.
+
+93
+00:06:42,210 --> 00:06:46,507
+Bayes hatası için insan
+seviyesi vekilinin
+
+94
+00:06:46,507 --> 00:06:50,100
+kabaca% 0 olduğunu unutmayın.
+
+95
+00:06:50,100 --> 00:06:56,020
+Öyleyse, eğer bu tür bir
+performansınız varsa,gerçekten yanlılık, önlenebilir bir yanlılık sorununa
+sahipsiniz,
+
+96
+00:06:56,020 --> 00:07:02,920
+çünkü insan seviyesinden çok daha kötü bir performans
+sergiliyorsunuz.
+
+97
+00:07:02,920 --> 00:07:05,810
+Yani bu gerçekten yüksek bir yanlılık
+ayarı.
+
+98
+00:07:07,440 --> 00:07:08,830
+Ve son bir örnek.
+
+99
+00:07:08,830 --> 00:07:14,211
+Eğer eğitim hatanız % 10, eğitim-geliştirme hatanız % 11 ve geliştirme
+hatanız % 20 ise,
+
+100
+00:07:14,211 --> 00:07:19,706
+o zaman iki mesele var gibi görünüyor.
+
+101
+00:07:19,706 --> 00:07:24,070
+Birincisi, önlenebilir yanlılık oldukça yüksektir,
+
+102
+00:07:24,070 --> 00:07:26,940
+çünkü eğitim setinde bunu o kadar iyi yapmıyorsunuz.
+
+103
+00:07:26,940 --> 00:07:31,860
+İnsanlar neredeyse % 0 oranında hata alıyor, ancak eğitim setinizde % 10
+hata alıyorsunuz.
+
+104
+00:07:31,860 --> 00:07:36,710
+Buradaki varyans oldukça küçük görünüyor,
+
+105
+00:07:38,110 --> 00:07:43,910
+ancak bu veri uyumsuzluğu
+oldukça büyük.
+
+106
+00:07:43,910 --> 00:07:48,839
+Yani bu örnek için, bir veri
+uyumsuzluğu sorununun yanı sıra
+
+107
+00:07:48,839 --> 00:07:54,001
+büyük bir yanlılık veya önlenebilir yanlılık
+probleminiz olduğunu söyleyeceğim.
+
+108
+00:07:56,479 --> 00:07:59,462
+Bu slaytta yaptığımız şeyi alıp
+genel ilkeleri yazalım.
+
+109
+00:07:59,462 --> 00:08:01,710
+genel ilkeleri yazalım.
+
+110
+00:08:02,810 --> 00:08:09,909
+Bakacağım anahtar nicelikler insan seviyesi hatası,
+
+111
+00:08:09,909 --> 00:08:14,931
+eğitim seti hatanız,
+
+112
+00:08:14,931 --> 00:08:19,620
+eğitim-geliştirme set hatanız.
+
+113
+00:08:21,630 --> 00:08:23,891
+Yani bu, eğitim seti gibi aynı dağılımdır, ancak
+
+114
+00:08:23,891 --> 00:08:25,880
+üzerinde açık bir şekilde eğitmediniz.
+
+115
+00:08:25,880 --> 00:08:30,798
+Geliştirme seti hatanız, ve bu hatalar arasındaki farklara bağlı olarak,
+
+116
+00:08:30,798 --> 00:08:35,034
+önlenebilir yanlılık, varyans, veri uyumsuzluk problemlerinin
+
+117
+00:08:35,034 --> 00:08:36,940
+ne kadar büyük olduğunu anlayabilirsiniz.
+
+118
+00:08:38,840 --> 00:08:40,880
+Öyleyse insan seviyesi hatasını % 4 diyelim.
+
+119
+00:08:40,880 --> 00:08:43,573
+Eğitiminizin hatası % 7
+
+120
+00:08:43,573 --> 00:08:46,660
+Ve eğitim-geliştirme hatanız % 10
+
+121
+00:08:46,660 --> 00:08:50,112
+Ve geliştirme hatası % 12
+
+122
+00:08:50,112 --> 00:08:54,100
+Yani bu size önlenebilir yanlılık
+hissi verir.
+
+123
+00:08:55,170 --> 00:08:58,032
+Çünkü biliyorsunuz,
+algoritmanızın en azından
+
+124
+00:08:58,032 --> 00:09:01,420
+aynı zamanda da insan düzeyindeki performansına belki
+de eğitim setine yaklaşmasını istersiniz.
+
+125
+00:09:01,420 --> 00:09:04,460
+Bu bir varyans algısıdır.
+
+126
+00:09:04,460 --> 00:09:08,790
+Peki eğitim setinden eğitim-geliştirme
+setine ne kadar iyi genelliyorsunuz?
+
+127
+00:09:10,540 --> 00:09:15,550
+Bu ne kadar veri uyuşmazlığı sorununuzun olduğu algısıdır.
+
+128
+00:09:15,550 --> 00:09:18,180
+Ve teknik olarak bir şey daha ekleyebilirsiniz,
+
+129
+00:09:18,180 --> 00:09:21,410
+test seti performansı,ve test hatasını yazacağız.
+
+130
+00:09:21,410 --> 00:09:24,790
+Test setiniz üzerinde geliştirme yapmamalısınız,
+
+131
+00:09:24,790 --> 00:09:25,625
+çünkü test setinizde aşırı uyum istemezsiniz.
+
+132
+00:09:25,625 --> 00:09:31,490
+Ama eğer buna da bakarsanız,
+buradaki boşluk,
+
+133
+00:09:31,490 --> 00:09:36,212
+size geliştirme setine aşırı uyum olduğunu söyler.
+
+134
+00:09:36,212 --> 00:09:41,460
+Bu nedenle, geliştirme seti
+performansınız ve test seti performansınız arasında büyük bir boşluk varsa,
+bu,
+
+135
+00:09:41,460 --> 00:09:45,820
+geliştirme setine aşırı yüklenebileceğiniz anlamına gelir.
+
+136
+00:09:45,820 --> 00:09:49,450
+Ve belki de daha büyük bir geliştirme seti bulmalısınız, değil mi?
+
+137
+00:09:49,450 --> 00:09:53,450
+Öyleyse, geliştirme setinizin ve test setinizin aynı dağılımdan
+geldiğini unutmayın.
+
+138
+00:09:53,450 --> 00:09:57,170
+Bu yüzden burada büyük bir
+boşluk olması için tek yol, test setinde geliştirme seti üzerinde
+
+139
+00:09:57,170 --> 00:10:01,304
+yaptığından çok daha iyisini yapmak için, bir şekilde geliştirme setine aşırı uyumu halletiyseniz.
+
+140
+00:10:01,304 --> 00:10:04,630
+Ve eğer durum böyleyse, yapmayı düşünebileceğiniz şey geri dönmek  ve
+
+141
+00:10:04,630 --> 00:10:06,650
+sadece daha fazla geliştirme set verisi
+almak olacaktır.
+
+142
+00:10:06,650 --> 00:10:08,760
+Şimdi, bu sayıları yazdım, 
+
+143
+00:10:08,760 --> 00:10:13,830
+siz sayılar listesinden aşağı giderken, her
+zaman devam edin.
+
+144
+00:10:13,830 --> 00:10:17,650
+İşte her zaman artmayan
+sayıların bir örneği,
+
+145
+00:10:17,650 --> 00:10:22,166
+belki insan seviyesi performansı % 4, eğitim hatası% 7,
+
+146
+00:10:22,166 --> 00:10:26,080
+eğitim-geliştirme hatası % 10, ancak geliştirme setine gittiğimizi söyleyelim.
+
+147
+00:10:26,080 --> 00:10:30,430
+Şaşırtıcı bir şekilde, geliştirme
+seti üzerinde çok daha iyisini yaptığını görüyorsun.
+
+148
+00:10:30,430 --> 00:10:34,052
+Belki de bu% 6’ dır ,% 6'dır da .
+
+149
+00:10:36,500 --> 00:10:41,110
+Böylece, örneğin eğitim verisinin
+geliştirme seti
+
+150
+00:10:41,110 --> 00:10:45,430
+ve test setinden çok daha zor olduğu
+bir konuşma tanıma görevi
+
+151
+00:10:45,430 --> 00:10:48,740
+üzerinde çalışma gibi etkiler gördünüz.
+
+152
+00:10:48,740 --> 00:10:53,840
+Böylece bu ikisi eğitim  seti
+dağılımınızda değerlendirildi
+
+153
+00:10:53,840 --> 00:10:57,960
+ve bu ikisi geliştirme / test seti dağılımınızda
+değerlendirildi.
+
+154
+00:10:57,960 --> 00:11:02,445
+Böylece eğer bazen geliştirme / test seti dağılımınız, üzerinde
+çalıştığınız herhangi bir uygulama için
+
+155
+00:11:02,445 --> 00:11:07,062
+çok daha kolay ise, o zaman bu rakamlar
+aslında düşebilir.
+
+156
+00:11:07,062 --> 00:11:08,768
+Yani bunun gibi komik şeyler görürseniz,
+
+157
+00:11:08,768 --> 00:11:13,350
+bu analizin faydalı olabilecek
+daha genel bir formülasyonu vardır.
+
+158
+00:11:13,350 --> 00:11:15,129
+Bir sonraki slaytta bunu hemen açıklayayım.
+
+159
+00:11:17,420 --> 00:11:21,785
+Bu yüzden konuşma etkin dikiz aynası örneğini
+
+160
+00:11:21,785 --> 00:11:26,900
+kullanarak bunu motive
+edeyim.
+
+161
+00:11:26,900 --> 00:11:31,575
+Yazmakta olduğumuz sayıların  yatay eksende bir tabloya
+
+162
+00:11:31,575 --> 00:11:36,935
+yerleştirilebileceği
+ortaya çıkıyor, farklı veri setleri yerleştireceğim.
+
+163
+00:11:36,935 --> 00:11:42,119
+Örneğin, genel konuşma tanıma görevinizden veriniz olabilir.
+
+164
+00:11:43,570 --> 00:11:48,210
+Dolayısıyla, küçük
+hoparlörler, satın aldığınız veriler vb. gibi üzerinde
+
+165
+00:11:48,210 --> 00:11:51,646
+çalıştığınız birçok
+konuşma tanıma probleminden yeni topladığınız
+
+166
+00:11:51,646 --> 00:11:53,740
+bir sürü veriye sahip
+olabilirsiniz.
+
+167
+00:11:53,740 --> 00:12:00,970
+Ve sonra hepiniz arabanın içine kaydedilmiş dikiz aynası özel konuşma
+verisine sahipsiniz.
+
+168
+00:12:00,970 --> 00:12:02,120
+dikiz aynası özel konuşma
+verisine sahipsiniz.
+
+169
+00:12:04,450 --> 00:12:09,890
+Tablodaki bu x ekseninde, veri
+setini değiştireceğim.
+
+170
+00:12:09,890 --> 00:12:16,250
+Bu diğer eksende, verileri incelemek için farklı yollar
+
+171
+00:12:16,250 --> 00:12:18,470
+veya
+algoritmalar etiketleyeceğim.
+
+172
+00:12:18,470 --> 00:12:21,350
+Öncelikle, insan seviyesi performansı
+var,
+
+173
+00:12:21,350 --> 00:12:25,980
+bu da bu veri setlerinin her birinde insanların ne kadar doğru olduğunu
+gösteriyor.
+
+174
+00:12:27,010 --> 00:12:31,948
+O zaman sinir ağınızın eğittiği
+örnekler
+
+175
+00:12:31,948 --> 00:12:36,210
+üzerinde hata var.
+
+176
+00:12:38,870 --> 00:12:43,686
+Ve sonunda sinir ağınızın eğitmediği
+
+177
+00:12:43,686 --> 00:12:47,412
+örneklerde hata var.
+
+178
+00:12:50,036 --> 00:12:55,796
+Böylece, önceki slayttaki
+insan seviyesinde adlandırdığımız şeyin,
+
+179
+00:12:55,796 --> 00:12:59,036
+bu kutuda yer alanların sayısı,
+
+180
+00:12:59,036 --> 00:13:03,320
+yani
+bu veri kategorisinde insanların ne kadar iyi yaptıklarıdır.
+
+181
+00:13:03,320 --> 00:13:06,304
+Her türlü konuşma tanıma
+görevinden elde edilen veriyi söyleyin,
+
+182
+00:13:06,304 --> 00:13:10,832
+eğitim setinize ekleyebileceğiniz binlerce sözlük
+
+183
+00:13:10,832 --> 00:13:13,490
+Ve önceki slayttaki örnekte bu % 4'dür.
+
+184
+00:13:13,490 --> 00:13:20,670
+Buradaki numara  belki de bizim
+eğitim hatamızdı.
+
+185
+00:13:23,320 --> 00:13:26,922
+Önceki slayttaki örnekte % 7 oldu
+
+186
+00:13:29,705 --> 00:13:33,430
+Doğru, eğer bu örnekte
+gördüğünüz algoritmayı öğreniyorsanız,
+
+187
+00:13:33,430 --> 00:13:37,315
+örnekte gradyan alçalma
+gerçekleştirdik ve bu örnek eğitim seti dağılımınızdan
+
+188
+00:13:37,315 --> 00:13:39,800
+veya bazı genel konuşma
+tanıma dağılımından geldi.
+
+189
+00:13:39,800 --> 00:13:43,980
+Algoritmanız, üzerinde çalıştığı örnekte ne kadar iyi?
+
+190
+00:13:45,114 --> 00:13:53,122
+Sonra burada eğitim-geliştirme seti hatası.
+
+191
+00:13:53,122 --> 00:13:58,040
+Bu dağılımdan, genel konuşmayı
+tanımadan elde edilen veriler,
+
+192
+00:13:58,040 --> 00:14:02,950
+eğer algoritmanız bu dağılımdan bazı örnekleri
+
+193
+00:14:02,950 --> 00:14:05,870
+açık bir şekilde eğitmediyse, ne kadar iyi?
+
+194
+00:14:05,870 --> 00:14:08,520
+Ve işte buna eğitim geliştirme hatası diyoruz.
+
+195
+00:14:10,700 --> 00:14:14,660
+Ve sonra sağa doğru hareket ederseniz, bu kutu burada
+
+196
+00:14:14,660 --> 00:14:19,200
+geliştirme seti
+hatası veya belki de test seti hatasıdır.
+
+197
+00:14:20,548 --> 00:14:25,310
+Örnekte şimdi % 6 olan.
+
+198
+00:14:25,310 --> 00:14:28,260
+Ve geliştirme ve test hatası, aslında teknik olarak iki sayı,
+
+199
+00:14:28,260 --> 00:14:30,890
+ama bu
+kutuya biri girebilir.
+
+200
+00:14:32,870 --> 00:14:37,220
+Ve bu, eğer dikiz aynanızdan
+alınan veriye sahipseniz, 
+
+201
+00:14:37,220 --> 00:14:41,270
+aslında  aracın
+içinde dikiz aynası uygulamasından kaydedilen,
+
+202
+00:14:41,270 --> 00:14:45,350
+ama sinir ağınız bu örnekte geri-yayılım
+göstermedi, hata nedir?
+
+203
+00:14:46,940 --> 00:14:51,230
+Yani, önceki slayttaki
+analizde yaptığımız şey, 
+
+204
+00:14:51,230 --> 00:14:55,940
+bu iki sayı, bu iki sayı ve bu iki sayı arasındaki
+farklara bakmaktı.
+
+205
+00:14:57,380 --> 00:15:01,880
+Ve buradaki boşluk,
+önlenebilir yanlılık ölçüsüdür.
+
+206
+00:15:03,630 --> 00:15:08,020
+Buradaki boşluk, bir varyans
+ölçüsüdür
+
+207
+00:15:08,020 --> 00:15:12,580
+ve bu boşluk, veri uyuşmazlığının bir ölçüsüdür.
+
+208
+00:15:13,920 --> 00:15:17,540
+Ve bu tablodaki kalan iki
+girdiyi de
+
+209
+00:15:17,540 --> 00:15:20,010
+atmanın yararlı olabileceği ortaya çıkıyor.
+
+210
+00:15:21,340 --> 00:15:25,270
+Ve eğer bu da % 6 olacaksa ve
+bu sayıyı elde etme şekliniz,
+
+211
+00:15:25,270 --> 00:15:30,146
+bazı insanlardan dikiz aynası konuşma verilerini
+etiketlemelerini istemek şeklinde olacaktır
+
+212
+00:15:30,146 --> 00:15:33,390
+ve sadece isanların bu görevde ne kadar iyi olduklarını ölçün.
+
+213
+00:15:33,390 --> 00:15:35,180
+Ve belki de bu da % 6 da çıkıyor.
+
+214
+00:15:35,180 --> 00:15:39,260
+Ve yaptığınız şey, bazı dikiz aynası konuşma verilerini alıp,
+
+215
+00:15:39,260 --> 00:15:42,650
+nöral
+ağın da öğrenmesini sağlayacak şekilde eğitim setine koymaktır
+
+216
+00:15:42,650 --> 00:15:46,060
+ve sonra bu
+verilerin alt setindeki hatayı ölçersiniz.
+
+217
+00:15:46,060 --> 00:15:50,090
+Ancak, eğer bu sizin elde edeceğiniz şey ise, o zaman, aslında bu dikiz
+aynası konuşma
+
+218
+00:15:50,090 --> 00:15:54,620
+verisinde insan seviyesinde performans gösterdiğiniz ortaya
+çıkıyor,
+
+219
+00:15:54,620 --> 00:15:58,550
+bu yüzden belki de bu verinin dağılımında oldukça iyisiniz.
+
+220
+00:15:58,550 --> 00:16:03,740
+Bunu daha sonraki analizlerde yaptığınızda, her zaman ileriye doğru net
+bir yol göstermez,
+
+221
+00:16:03,740 --> 00:16:07,190
+ancak bazen size sadece ek bilgiler verir.
+
+222
+00:16:07,190 --> 00:16:12,000
+Örneğin, bu durumda bu iki sayıyı karşılaştırmak,
+
+223
+00:16:12,000 --> 00:16:16,240
+insanlar için, dikiz
+aynası konuşma verilerinin aslında genel konuşma tanımadan daha zor olduğunu,
+
+224
+00:16:16,240 --> 00:16:21,550
+çünkü insanların % 4 hata yerine% 6 hata aldığını söyler.
+
+225
+00:16:21,550 --> 00:16:25,840
+Fakat sonra bu farklılıkları incelemek, farklı derecelerde yanlılık ve
+varyans ve
+
+226
+00:16:25,840 --> 00:16:30,865
+veri uyumsuzluğu sorunlarını anlamanıza yardımcı olabilir.
+
+227
+00:16:30,865 --> 00:16:35,760
+Yani bu daha genel olan formülasyon, şimdiye kadar birkaç kez kullandığım bir şey.
+
+228
+00:16:35,760 --> 00:16:41,020
+Ben kullanmadım, ama birçok
+problemden dolayı
+
+229
+00:16:41,020 --> 00:16:46,040
+bu giriş alt setini incelerken, bu farklılığa ve bu
+farklılığa ve
+
+230
+00:16:46,040 --> 00:16:51,230
+bu farklılığa bakmak, sizi oldukça umut verici bir yönde
+göstermek için yeterli.
+
+231
+00:16:51,230 --> 00:16:54,840
+Ancak bazen bu tüm tabloyu
+doldurmak size ek bilgiler verebilir.
+
+232
+00:16:55,910 --> 00:17:02,535
+Son olarak, yanlılığı
+adresleyen fikirler hakkında daha önce çok konuştuk.
+
+233
+00:17:02,535 --> 00:17:05,910
+Varyansı adresleme teknikleri
+hakkında konuştuk,
+
+234
+00:17:05,910 --> 00:17:08,720
+ancak veri uyumsuzluğunu nasıl adreslersiniz?
+
+235
+00:17:08,720 --> 00:17:12,600
+Özellikle, farklı dağılımlardan
+gelen verileri eğitmek,
+
+236
+00:17:12,600 --> 00:17:15,330
+geliştirme ve test setinizin size daha fazla veri sağlaması
+
+237
+00:17:15,330 --> 00:17:17,760
+ve öğrenme algoritmanızın performansı konusunda gerçekten yardımcı olabilir.
+
+238
+00:17:17,760 --> 00:17:20,310
+Ancak, yalnızca yanlılık ve
+varyans problemlerinden ziyade,
+
+239
+00:17:20,310 --> 00:17:24,210
+şimdi bu yeni potansiyel veri uyumsuzluğu problemine
+de sahipsiniz.
+
+240
+00:17:24,210 --> 00:17:28,460
+Veri uyuşmazlığını gidermek için kullanabileceğiniz bazı iyi yollar nelerdir?
+
+241
+00:17:28,460 --> 00:17:30,690
+Dürüst olacağım ve gerçekte veri uyumsuzluğunu ele almak için harika
+ya da en azından
+
+242
+00:17:30,690 --> 00:17:34,130
+çok sistematik bir yol olmadığını söyleyeceğim.
+
+243
+00:17:34,130 --> 00:17:36,540
+Ama size yardımcı olacak deneyebileceğiniz
+bazı şeyler var.
+
+244
+00:17:36,540 --> 00:17:38,790
+Bir sonraki videoda onlara bir bakalım.
+
+245
+00:17:38,790 --> 00:17:43,200
+Gördüğümüz şey, farklı bir
+dağılımdan gelebilecek
+
+246
+00:17:43,200 --> 00:17:47,690
+eğitim verilerini geliştirme ve test seti olarak kullanmak,
+size çok daha fazla veri verebilir
+
+247
+00:17:47,690 --> 00:17:50,630
+ve bu nedenle öğrenme algoritmanızın
+performansına yardımcı olabilir.
+
+248
+00:17:50,630 --> 00:17:55,070
+Fakat sadece iki potansiyel
+problem olarak yanlılık ve varyansa sahip olmak yerine,
+
+249
+00:17:55,070 --> 00:17:58,518
+artık üçüncü bir potansiyel
+probleminiz var, veri uyumsuzluğu.
+
+250
+00:17:58,518 --> 00:18:02,200
+Yani, eğer hata analizi
+yaparsanız ve veri uyumsuzluğunun
+
+251
+00:18:02,200 --> 00:18:05,840
+büyük bir hata kaynağı olduğu sonucuna
+varırsanız, bunu nasıl giderirsiniz?
+
+252
+00:18:05,840 --> 00:18:09,730
+Ne yazık ki, veri uyumsuzluğunu gidermek için süper sistematik yollar vardır,
+
+253
+00:18:09,730 --> 00:18:14,120
+ancak yardımcı olabilecek birkaç şey vardır.
+
+254
+00:18:14,120 --> 00:18:15,820
+Bir sonraki videoda onlara bir bakalım.

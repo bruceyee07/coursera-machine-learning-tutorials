@@ -1,0 +1,30 @@
+Eğer çok yeni bir makine öğrenmesi uygulaması
+üzerine çalışıyorsanız, insanlara sıklıkla verdiğim tavsiyelerden bir tanesi, bence ilk sisteminizi hızlıca kurmalısınız
+ve sonra tekrarlamalısınız. Ne anlatmak istediğimi göstereyim. 
+Yıllardır konuşma tanıma uygulaması üzerine çalıştım. Ve eğer yeni bir konuşma tanıma sistemi
+kurmayı düşünüyorsanız, aslında izleyebileceğiniz birçok yol vardır ve önceliklendirebileceğiniz bir çok şey vardır. Örneğin, konuşma tanıma sistemini gürültülü arka plana daha dirençli yapmak için bazı spesifik teknikler vardır. Gürültülü arka plan ile kastedilen; kafe gürültüsü, arka planda konuşan bir çok insan ya da araba gürültüsü, otoyoldaki arabaların sesleri ya da diğer tip gürültülerdir. Aksanlı konuşmalara karşı konuşma tanıma sistemini
+daha dirençli hale getirmenin yolları vardır. Mikrofondan uzakta olunması gibi
+konuşmacıyla ilgili bazı spesifik problemler vardır, buna uzak alan konuşma tanıma denir. Küçük çocukların konuşması özel zorluklar ortaya çıkarır, bunlar hem kullanmayı seçtikleri kişisel kelimeler kadar
+o kelimeleri nasıl telaffuz ettikleri, hem de kullanmaya eğilimli oldukları
+kelime dağarcıkları olabilir. Ve eğer konuşmacı bazen kekelerse
+ya da oh, ah, um gibi anlamsız ifadeler kullanırsa, farklı seçenekler ve farklı teknikler vardır çıktınız olan transkripti yapmak için. Yine de daha akıcı okuyun. Yani, konuşma tanıma sistemini geliştirmek için yapabileceğiniz bunlar ve daha pek çok başka şeyler var. Ve daha genel olarak, neredeyse bütün
+makine öğrenimi uygulamaları için, girebileceğiniz 50 farklı yol olabilir ve bu yolların her biri makul olacak
+ve sisteminizi daha iyi hale getirecektir. Ama zor olan, bunlardan hangisine odaklanacağınızı nasıl seçeceğiniz. Ve uzun yıllardır konuşma tanımada çalışmış olsam da, yeni bir uygulama alanı için yeni bir sistem geliştirirsem, problem üzerinde düşünmek için biraz zaman harcamadan seçim yapmak
+benim için hala biraz zor olabilir. Size tavsiye edeceğimiz şey şu olur, yepyeni bir makine öğrenimi uygulaması oluşturmaya başlıyorsanız, ilk sisteminizi hızlı bir şekilde geliştirin ve sonra tekrarlayın. Bununla demek istediğim, öncelikle bir dev / test kümesi ve ölçevi
+hızlı bir şekilde ayarlamanızı öneririm. Yani, bu aslında
+hedefini nereye yerleştireceğine karar vermek. Ve eğer yanlış anladıysanız,
+daha sonra her zaman taşıyabilirsiniz, ancak bir yerde bir hedef oluşturun. Ve sonra hızlı bir şekilde bir
+ilk makine öğrenme sistemi oluşturmanızı öneriyorum. Eğitim setini bul, sistemini eğit ve gör. Dev / test setinize ve değerlerinize ve ölçevinize karşı ne kadar iyi çalıştığınızı görmeye ve anlamaya başlayın. İlk sisteminizi kurduğunuzda, daha önce bahsettiğimiz bias/variance analizinin yanı sıra son birkaç videoda bahsettiğimiz hata analizini bir sonraki adımları önceliklendirmek için kullanabileceksiniz. Özellikle, eğer hata analizi hatalarının çoğunun konuşmacının mikrofondan uzakta olmasından kaynaklandığını anlamanızı sağlıyorsa, ki bu konuşma tanımada özel zorluklara sebep olur, bu size uzak alan konuşma tanıma tekniklerine
+odaklanmanız için iyi bir sebep sunar basitçe, konuşmacı mikrofondan çok uzaktayken
+durumu yönetebilmenizi sağlar. Bu ilk sistemi geliştirmenin önemi üzerine, ki bu çabuk ve çok temiz olmayan bir uygulama olabilir, çok fazla düşünmeyin. Fakat ilk sisteminizin önemi,
+bir şeyleri öğrenmiş bir sistem olmasıdır, biraz eğitilmiş bir sistem bias/variance'ı yerelleştirmenizi, sıradaki yapacağınız işleri önceliklendirmenizi, hata analizleri yapabilmenizi, bazı hataları görebilmenizi, gidebileceğiniz farklı yolları keşfetmenizi sağlar, ki aslında değerli olanlar bunlardır. Özetlemek gerekirse, size önerdiğim şey,
+ilk sisteminizi hızlıca oluşturmak, sonra tekrarlamak. Bu öneri, önemli bir ön deneyime sahip olduğunuz bir uygulama alanında çalışıyorsanız daha az uygulanmaktadır. Daha az zor bir şekilde inşa etmek anlamına da gelir eğer güçlü bir üzerine çizebileceğiniz önemli bir akademik literatür var ise, hemen hemen aynı problem için Örneğin, yüz tanıma üzerine geniş bir akademik literatür var. Ve eğer bir yüz tanıma geliştirmeye çalışıyorsanız, başından itibaren bu geniş akademik literatürün
+üzerine inşa ederek, daha karmaşık bir sistemi kurmak iyi bir şey olabilir. Ancak, ilk kez yeni bir problemle uğraşıyorsanız, ilk sisteminizi çok karmaşık hale getirmemenizi ya da üzerine aşırı düşünmemenizi tavsiye ederim. Sadece hızlı ve çok temiz olmayan bir şey yapın ve sisteminizi nasıl geliştireceğiniz konusunda
+size yardım etmesi için bunu kullanın. Bir çok makine öğrenimi projesini gördüm ve bazı ekiplerin çözüm üzerine aşırı düşündüğünü ve
+çok karmaşık bir şey geliştirdiklerini gördüm. Ayrıca bazı takımların yetersiz düşündüklerini gördüm ve
+sonra belki de çok basit bir şey geliştirdiklerini. Ortalama olarak, daha çok ekiplerin aşırı düşündüklerini ve
+çok karmaşık bir şey geliştirdiklerini gördüm. Ve ekiplerin çok basit bir şey geliştirdiklerini gördüm. Umarım bu yardımcı olur, ve eğer makine öğrenim algoritmalarınıza
+yeni bir uygulama için başvuruyorsanız, ve ana hedefiniz çalışan bir şey geliştirmekse, ya da tam tersi, ana hedefiniz farklı bir amaç için yeni bir makine öğrenmesi
+algoritması yaratmaksa, o zaman ana hedefiniz gerçekten iyi çalışan
+bir şey elde etmektir. Hızlı ve çok temiz olmayan bir şey yapmanızı öneririm. Bunu Bias/variance analizinde kullanabilirsiniz, Hata analizinde kullanabilirsiniz. bu analizlerin sonuçlarını bir sonraki atacağınız
+adımı önceliklendirmek için kullanabilirsiniz.

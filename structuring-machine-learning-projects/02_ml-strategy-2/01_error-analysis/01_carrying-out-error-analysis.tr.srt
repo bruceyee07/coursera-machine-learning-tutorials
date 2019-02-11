@@ -1,0 +1,683 @@
+1
+00:00:00,350 --> 00:00:02,080
+Merhaba, tekrar hoş geldiniz.
+
+2
+00:00:02,080 --> 00:00:06,550
+İnsanların yapabileceği bir işi yapmak için bir öğrenme algoritması elde etmeye çalışıyorsanız
+
+3
+00:00:06,550 --> 00:00:10,490
+ve eğer öğrenme algoritmanız henüz bir insanın performansında değilse
+
+4
+00:00:10,490 --> 00:00:13,790
+o zaman algoritmanızın yaptığı hataları manuel olarak incelemek
+
+5
+00:00:13,790 --> 00:00:16,240
+bir sonraki adımda ne yapacağınız konusunda size fikir verebilir.
+
+6
+00:00:16,240 --> 00:00:19,040
+Bu sürece hata analizi denir.
+
+7
+00:00:19,040 --> 00:00:20,890
+Bir örnek ile başlayalım.
+
+8
+00:00:20,890 --> 00:00:24,520
+Kedi sınıflandırıcınız üzerinde çalıştığınızı ve
+
+9
+00:00:24,520 --> 00:00:29,390
+geliştirme kümenizde %90 doğruluk veya eşdeğerde %10 hata elde ettiğinizi varsayalım.
+
+10
+00:00:29,390 --> 00:00:32,820
+Ve diyelim ki bu yapmayı umduğunuzdan çok daha kötü.
+
+11
+00:00:32,820 --> 00:00:36,740
+Belki de takım arkadaşlarınızdan biri algoritmanın yanlış sınıflandırdığı bazı örneklere bakar
+
+12
+00:00:36,740 --> 00:00:42,340
+ve bazı köpekleri kediler olarak yanlış kategorize ettiğini fark eder.
+
+13
+00:00:42,340 --> 00:00:46,080
+Ve eğer bu iki köpeğe bakarsanız, belki de
+
+14
+00:00:46,080 --> 00:00:47,628
+en azından ilk bakışta bir kediye benziyorlar.
+
+15
+00:00:47,628 --> 00:00:51,160
+Bu yüzden, takım arkadaşınız algoritmanın nasıl daha iyi,
+
+16
+00:00:51,160 --> 00:00:56,110
+özellikle köpeklerde nasıl daha iyi çalışacağına dair bir teklifle size gelebilir, değil mi?
+
+17
+00:00:56,110 --> 00:01:01,080
+Belki daha fazla köpek fotoğrafı toplamak, ya da belki köpeklere özel bir şeyler tasarlamak üzere
+
+18
+00:01:01,080 --> 00:01:04,680
+odaklanma çabası yaratmayı hayal edebilirsiniz
+
+19
+00:01:04,680 --> 00:01:07,833
+Böylelikle kedi sınıflandırıcınızın köpekler üzerinde daha iyi olmasını sağlar
+
+20
+00:01:07,833 --> 00:01:11,070
+ve bu köpekleri yanlışlıkla kediler olarak tanımasını engellersiniz.
+
+21
+00:01:11,070 --> 00:01:13,980
+Öyleyse soru şu ki, devam etmeli
+
+22
+00:01:13,980 --> 00:01:18,080
+ve köpek problemine odaklanmaya başlamalı mısınız?
+
+23
+00:01:19,325 --> 00:01:23,740
+Algoritmanızın köpek resimlerinde çok az hata ile çalışmasını sağlamak için
+
+24
+00:01:23,740 --> 00:01:25,890
+birkaç ay çalışmanız gerekebilir.
+
+25
+00:01:27,280 --> 00:01:29,550
+Peki bu çabalarınıza değer mi?
+
+26
+00:01:29,550 --> 00:01:32,475
+Sonunda bu kadar yardımcı olmadığına karar vereceğiniz
+
+27
+00:01:32,475 --> 00:01:36,175
+bir riski almak için birkaç ay harcamak yerine,
+
+28
+00:01:36,175 --> 00:01:40,605
+çabanıza değip değmeyeceğini çabucak anlamanızı sağlayan
+
+29
+00:01:40,605 --> 00:01:43,055
+bir hata analizi prosedürü var
+
+30
+00:01:43,055 --> 00:01:45,180
+İşte tavsiye ettiğim şey:
+
+31
+00:01:45,180 --> 00:01:51,860
+Öncelikle, 100 tane yanlış etiketlenmiş geliştirme kümesi örneği alın, sonra bunları manuel olarak inceleyin.
+
+32
+00:01:51,860 --> 00:01:56,380
+Bu geliştirme kümenizdeki yanlış etiketlenmiş örneklerin kaç tanesinin aslında köpek resimleri olduğunu görmek için
+
+33
+00:01:56,380 --> 00:01:59,338
+her defasında birer birer sayın.
+
+34
+00:01:59,338 --> 00:02:02,160
+Şimdi, 100 yanlış etiketlenmiş geliştirme kümesi örneklerinizin
+
+35
+00:02:02,160 --> 00:02:07,700
+%5'inin köpek resimleri olduğunu varsayın.
+
+36
+00:02:07,700 --> 00:02:12,740
+Yani, eğer bu yanlış etiketlenmiş geliştirme kümesi örneklerinden 100'ünün 5'i köpek ise,
+
+37
+00:02:12,740 --> 00:02:18,231
+Bunun anlamı, 100 örnekten oluşan tipik bir kümenin
+
+38
+00:02:18,231 --> 00:02:23,217
+100 örneğini yanlış anlamanızdır.
+
+39
+00:02:23,217 --> 00:02:28,807
+köpek problemini tamamen çözdüyseniz bile, sadece 100'ün 5'ini daha doğru elde edebilirsiniz.
+
+40
+00:02:28,807 --> 00:02:33,802
+Diğer bir deyişle, eğer hatalarınızın sadece % 5'i köpek resimleri ise
+
+41
+00:02:33,802 --> 00:02:38,076
+yapabileceğiniz en iyi şey, köpek problemine çok fazla zaman harcadığınız takdirde,
+
+42
+00:02:38,076 --> 00:02:43,256
+Hatanız % 10 hatadan % 9,5 hataya düşebilir,
+
+43
+00:02:43,256 --> 00:02:46,635
+değil mi?
+
+44
+00:02:46,635 --> 00:02:53,455
+Yani bu % 10'luk bir nispi düşüş hatası,% 10'dan % 9.5'e düştü.
+
+45
+00:02:53,455 --> 00:02:58,220
+Ve bu şekilde zamanınızı en iyi şekilde kullanmadığınıza kanaat getirebilirsiniz
+
+46
+00:02:58,220 --> 00:03:02,743
+en iyi şekilde kullanıyorsanız bile, en azından bu size en üst sınırı veriyor, değil mi?
+
+47
+00:03:02,743 --> 00:03:08,566
+Köpek problemi üzerinde çalışarak performansı nasıl artırabileceğinize dair üst sınır,
+
+48
+00:03:08,566 --> 00:03:09,150
+değil mi?
+
+49
+00:03:10,800 --> 00:03:15,870
+Makine öğrenmesinde bazen buna performanstaki tavan diyoruz.
+
+50
+00:03:15,870 --> 00:03:17,818
+Bu da en iyi durumun ne olduğu,
+
+51
+00:03:17,818 --> 00:03:20,720
+köpek problemi üzerinde çalışmanın size ne kadar yardımcı olabileceği demektir.
+
+52
+00:03:22,690 --> 00:03:25,310
+Ama şimdi, başka bir şey olduğunu varsayalım.
+
+53
+00:03:25,310 --> 00:03:28,590
+100 yanlış etiketlenmiş geliştirme kümesi örneğine baktığımızı varsayalım
+
+54
+00:03:28,590 --> 00:03:32,340
+bunların 50'sinin aslında köpek resimleri olduğunu görüyorsunuz.
+
+55
+00:03:32,340 --> 00:03:35,620
+Yani % 50'si köpek resimleri.
+
+56
+00:03:35,620 --> 00:03:39,760
+Artık köpek sorununa zaman ayırma konusunda daha iyimser olabilirsiniz.
+
+57
+00:03:39,760 --> 00:03:42,807
+Bu durumda, eğer köpek problemini gerçekten çözüyorsanız,
+
+58
+00:03:42,807 --> 00:03:47,158
+hatanızın % 10'dan aşağıya % 5'lik bir hataya düşmesine sebep olabilirsiniz.
+
+59
+00:03:47,158 --> 00:03:52,260
+Ve hatanızın yarıya indirilmesinin çok çaba gerektireceğini görebilirsiniz
+
+60
+00:03:52,260 --> 00:03:56,150
+Yanlış etiketlenmiş köpeklerin sorununu azaltmaya odaklanın.
+
+61
+00:03:56,150 --> 00:04:00,446
+Biliyorum ki, makine öğrenmesinde, bazen el işçiliğiyle ilgili şeylerden
+
+62
+00:04:00,446 --> 00:04:03,660
+ya da çok fazla değer içgörüsünden bahsediyoruz.
+
+63
+00:04:03,660 --> 00:04:09,280
+Ancak, uygulanmış sistemler oluşturuyorsanız, bu basit sayım prosedürü,
+
+64
+00:04:09,280 --> 00:04:12,120
+-hata analizi- size çok fazla zaman kazandırabilir.
+
+65
+00:04:12,120 --> 00:04:14,740
+Neyin en önemli olduğuna ya da
+
+66
+00:04:14,740 --> 00:04:17,309
+odaklanmak için en umut verici yönün ne olduğuna karar verme açısından.
+
+67
+00:04:19,739 --> 00:04:24,263
+Aslında, 100 yanlış etiketlenmiş geliştirme kümesi örneklerine baktığınızda,
+
+68
+00:04:24,263 --> 00:04:27,620
+Manuel olarak, 100 örneği kontrol etmek
+
+69
+00:04:27,620 --> 00:04:29,930
+ve hangilerinin köpek olduğunu belirlemek,
+
+70
+00:04:29,930 --> 00:04:32,860
+-sonuca bağlı olarak, % 5 veya % 50 veya başka bir oran daha fazla olsun-
+
+71
+00:04:32,860 --> 00:04:36,212
+belki de 5 ila 10 dakikalık bir çabadır.
+
+72
+00:04:36,212 --> 00:04:37,570
+belki de 5 ila 10 dakikalık bir çabadır.
+
+73
+00:04:37,570 --> 00:04:39,580
+Bu, sadece 5 ila 10 dakika içinde,
+
+74
+00:04:39,580 --> 00:04:44,310
+bu yönün ne kadar değerli olduğunun bir tahminini verir.
+
+75
+00:04:44,310 --> 00:04:46,430
+Yanlış işaretlenmiş köpeklerin sorununu çözmek için çözümler bulmaya çalışırken,
+
+76
+00:04:46,430 --> 00:04:51,470
+gelecek birkaç ayı harcayacağınız veya harcamayacağınız konusunda
+
+77
+00:04:51,470 --> 00:04:54,180
+daha iyi bir karar vermenize yardımcı olabilir.
+
+78
+00:04:54,180 --> 00:04:58,120
+Bu slaytta, tek bir fikrin -bu durumda köpeklerin- üzerinde çalışılmaya değer olup olmadığını değerlendirmek için
+
+79
+00:04:58,120 --> 00:05:02,380
+hata analizini kullanarak açıklama yapacağız.
+
+80
+00:05:02,380 --> 00:05:08,260
+Bazen paralel olarak birden fazla fikri hata analizi yaparak değerlendirebilirsiniz.
+
+81
+00:05:08,260 --> 00:05:12,920
+Örneğin, kedi dedektörünüzü geliştirmek için birkaç fikriniz olduğunu varsayalım.
+
+82
+00:05:12,920 --> 00:05:16,460
+Belki köpekler üzerindeki performansı artırabilirsiniz?
+
+83
+00:05:16,460 --> 00:05:19,785
+Ya da bazen; kediler, panterler, çitalar gibi
+
+84
+00:05:19,785 --> 00:05:22,332
+büyük kediler olarak adlandırılan kedilerin
+
+85
+00:05:22,332 --> 00:05:25,758
+küçük kediler veya ev kedileri olarak kabul edildiğini fark edebilirsiniz.
+
+86
+00:05:25,758 --> 00:05:28,031
+Belki bunun üzerinde çalışmanın bir yolunu bulabilirsiniz.
+
+87
+00:05:28,031 --> 00:05:32,632
+Ya da belki bazı resimlerinizin bulanık olduğunu fark ediyorsunuz
+
+88
+00:05:32,632 --> 00:05:36,489
+ve bulanık görüntülerde daha iyi çalışan bir şey tasarlarsanız iyi olur.
+
+89
+00:05:37,560 --> 00:05:39,280
+Ve belki bunun nasıl yapılacağı hakkında bazı fikirleriniz vardır
+
+90
+00:05:41,480 --> 00:05:45,430
+Bu üç düşünceyi değerlendirmek için hata analizi yaparsak,
+
+91
+00:05:45,430 --> 00:05:48,430
+yapacağım şey böyle bir tablo oluşturmaktır.
+
+92
+00:05:50,760 --> 00:05:53,940
+Ve genellikle bunu bir e-tabloda yaparım,
+
+93
+00:05:53,940 --> 00:05:56,520
+ancak sıradan bir metin dosyası kullanmak da işe yarayacaktır.
+
+94
+00:05:57,610 --> 00:05:58,605
+Ve sol tarafta,
+
+95
+00:05:58,605 --> 00:06:02,430
+Bu, manuel olarak bakmayı düşündüğünüz görüntüler kümesinden geçer.
+
+96
+00:06:02,430 --> 00:06:06,010
+Yani 100 resme bakarsanız bu belki 1'den 100'e kadar gider.
+
+97
+00:06:06,010 --> 00:06:09,910
+E-tablodaki bu tablonun sütunları,
+
+98
+00:06:09,910 --> 00:06:12,570
+değerlendirmekte olduğunuz fikirlere karşılık gelecektir.
+
+99
+00:06:12,570 --> 00:06:18,490
+Köpek problemi, büyük kediler sorunu ve bulanık görüntüler.
+
+100
+00:06:18,490 --> 00:06:23,870
+Ayrıca genellikle e-tabloya yorum yazmak için boşluk bırakırım.
+
+101
+00:06:23,870 --> 00:06:25,724
+Hatırlarsanız, hata analizi sırasında sadece
+
+102
+00:06:25,724 --> 00:06:29,610
+algoritmanızın yanlış tanıdığı geliştirme kümesi örneklerine bakıyorsunuz.
+
+103
+00:06:30,670 --> 00:06:34,640
+Eğer ilk yanlış tanınan görüntünün bir köpeğin resmi olduğunu görürseniz,
+
+104
+00:06:34,640 --> 00:06:36,550
+o zaman ben oraya bir onay işareti koyardım.
+
+105
+00:06:36,550 --> 00:06:39,540
+Ve bu görüntüleri hatırlamama yardımcı olması için,
+
+106
+00:06:39,540 --> 00:06:41,830
+bazen yorumlarda not alacağım.
+
+107
+00:06:41,830 --> 00:06:44,380
+Yani belki bu bir pitbull resmiydi.
+
+108
+00:06:44,380 --> 00:06:48,110
+İkinci resim bulanıksa, o zaman not edin.
+
+109
+00:06:48,110 --> 00:06:53,317
+Üçüncüsü, yağmurlu bir günde, hayvanat bahçesinde, yanlış tanınan bir aslan olsaydı.
+
+110
+00:06:53,317 --> 00:06:56,030
+O zaman bu harika bir kedi ve bulanık veriler demektir
+
+111
+00:06:56,030 --> 00:07:00,920
+Yorum bölümüne not alın. Hayvanat bahçesindeki yağmurlu bir gündü,
+
+112
+00:07:00,920 --> 00:07:03,620
+ve onu bulanık yapan yağmurdu, vb.
+
+113
+00:07:05,670 --> 00:07:08,616
+Son olarak, bir dizi görüntüden geçtikten sonra,
+
+114
+00:07:08,616 --> 00:07:11,508
+bu algoritmaların yüzde kaçının
+
+115
+00:07:11,508 --> 00:07:16,951
+veya bu hata kategorilerinin her birinin yüzde kaçının
+
+116
+00:07:16,951 --> 00:07:19,360
+köpeklere veya büyük kedilere, bulanık kategorisine atfedildiğini hesaplardım.
+
+117
+00:07:19,360 --> 00:07:26,484
+Belki incelediğiniz bu görüntülerin % 8'i köpekler,
+
+118
+00:07:26,484 --> 00:07:32,390
+% 43'ü büyük kediler, % 61'i bulanıktı.
+
+119
+00:07:32,390 --> 00:07:34,720
+Yani bu sadece her bir sütundan aşağı inip
+
+120
+00:07:34,720 --> 00:07:39,290
+ve görüntülerin yüzde kaçının bu sütunda bir onay işaretinin olduğunu saymak demektir.
+
+121
+00:07:39,290 --> 00:07:41,567
+Bu sürecin bir kısmında,
+
+122
+00:07:41,567 --> 00:07:44,420
+bazen diğer hata kategorilerini görürsünüz.
+
+123
+00:07:44,420 --> 00:07:50,240
+Örneğin, Instagram stili filtrelerin -bu fantezi görüntü filtrelerinin- bile
+
+124
+00:07:50,240 --> 00:07:55,420
+sınıflandırıcınızı karıştırdığını görebilirsiniz.
+
+125
+00:07:55,420 --> 00:07:55,940
+İlginç birkaç nokta daha var.
+
+126
+00:07:55,940 --> 00:08:00,240
+Sürecin bir yerinde başka bir sütun eklemenin bir sakıncası yoktur.
+
+127
+00:08:00,240 --> 00:08:03,125
+Çok renkli filtreler, Instagram filtreleri
+
+128
+00:08:03,125 --> 00:08:04,650
+ve Snapchat filtreleri için.
+
+129
+00:08:04,650 --> 00:08:07,900
+Ve sonra devam edin ve bunları da sayın
+
+130
+00:08:07,900 --> 00:08:11,050
+ve bu yeni hata kategorisinden yüzde kaçının geldiğini öğrenin.
+
+131
+00:08:12,170 --> 00:08:16,640
+Bu sürecin sonucu size, bu farklı hata kategorilerinin her biri üzerinde çalışmanın
+
+132
+00:08:16,640 --> 00:08:19,880
+ne kadar değerli olabileceğine dair bir tahmin sunar.
+
+133
+00:08:19,880 --> 00:08:23,820
+Örneğin, mesela bu örnekte, bulanık görüntüler üzerinde birçok hata
+
+134
+00:08:23,820 --> 00:08:28,780
+ve büyük kedi görüntülerinde yine çok fazla hata yapıldı.
+
+135
+00:08:28,780 --> 00:08:35,750
+Bu analizin sonucu, bulanık görüntüler üzerinde çalışmanız gerektiği değildir.
+
+136
+00:08:35,750 --> 00:08:39,360
+Bu size ne yapacağınızı söyleyen kesin bir matematiksel formül vermez,
+
+137
+00:08:39,360 --> 00:08:43,140
+ancak takip etmeniz için size en iyi seçenekleri sunar.
+
+138
+00:08:43,140 --> 00:08:44,650
+Örneğin, köpek resimlerinde
+
+139
+00:08:44,650 --> 00:08:50,490
+veya Instagram resimlerinde ne kadar iyi olursanız olun,
+
+140
+00:08:50,490 --> 00:08:55,130
+bu örneklerde performansı en fazla % 8 veya % 12 oranında artırabileceğinizi söyler.
+
+141
+00:08:55,130 --> 00:08:57,700
+Büyük kedi görüntülerinde veya bulanık görüntülerde,
+
+142
+00:08:57,700 --> 00:09:00,246
+potansiyel iyileştirmede daha iyi olabilirsiniz.
+
+143
+00:09:00,246 --> 00:09:03,730
+Şimdi bu, performansı ne kadar artırabileceğinizi gösteren tavan
+
+144
+00:09:03,730 --> 00:09:05,390
+çok daha yüksektir.
+
+145
+00:09:05,390 --> 00:09:09,010
+Bu nedenle; büyük kedilerdeki, bulanık görüntülerdeki performansı artırmak için
+
+146
+00:09:09,010 --> 00:09:10,320
+ne kadar fikriniz olduğuna bağlı olarak,
+
+147
+00:09:10,320 --> 00:09:13,856
+belki ikisinden birini seçebilirsiniz, ya da takımınızda yeterli personel varsa,
+
+148
+00:09:13,856 --> 00:09:15,630
+belki iki farklı takımınız olabilir.
+
+149
+00:09:15,630 --> 00:09:18,629
+Bir ekibin büyük kedilerdeki hataları düzeltmek için çalışmasını sağlayın
+
+150
+00:09:18,629 --> 00:09:22,120
+ve bulanık görüntülerdeki hataları düzeltmeye yönelik ise farklı bir ekip çalışması yapın.
+
+151
+00:09:27,184 --> 00:09:31,280
+Ancak, genellikle az bir sürede yapabileceğiniz
+
+152
+00:09:31,280 --> 00:09:33,130
+bu hızlı sayım prosedürü,
+
+153
+00:09:33,130 --> 00:09:36,200
+gerçekten çok daha iyi önceliklendirme kararları vermenize
+
+154
+00:09:36,200 --> 00:09:39,410
+farklı yaklaşımların üzerinde çalışmanın ne kadar umut verici olduğunu anlamanıza yardımcı olabilir.
+
+155
+00:09:40,940 --> 00:09:44,670
+Özetlemek gerekirse, hata analizi yapmak için,
+
+156
+00:09:44,670 --> 00:09:48,731
+geliştirme kümenizde yanlış etiketlenmiş örnekler bulmalısınız.
+
+157
+00:09:48,731 --> 00:09:53,420
+yanlış pozitif ve yanlış negatifler için yanlış etiketlenmiş örneklere bakmanız gerekir
+
+158
+00:09:53,420 --> 00:09:56,378
+ve farklı kategorilere giren hataların sayısını
+
+159
+00:09:56,378 --> 00:09:57,629
+sayın sadece.
+
+160
+00:09:57,629 --> 00:10:01,916
+Bu süreçte, gördüğümüz gibi yeni hata kategorileri oluşturmak için
+
+161
+00:10:01,916 --> 00:10:02,597
+ilham almış olabilirsiniz.
+
+162
+00:10:02,597 --> 00:10:06,016
+Örnekleri inceliyorsanız, görüyorsunuzdur ki
+
+163
+00:10:06,016 --> 00:10:09,071
+çok fazla Instagram filtresi veya Snapchat filtresi var ve bunlar da sınıflandırıcımı karıştırıyor.
+
+164
+00:10:09,071 --> 00:10:11,600
+Bu süreçte yeni kategoriler oluşturabilirsiniz.
+
+165
+00:10:11,600 --> 00:10:14,740
+Ancak, farklı şekillerde yanlış etiketlenmiş örneklerin sayısını hesaplamak,
+
+166
+00:10:14,740 --> 00:10:17,375
+çoğu zaman bu öncelikleri belirlemenize yardımcı olacak
+
+167
+00:10:17,375 --> 00:10:21,140
+ya da yeni fırsatları denemeniz için size bir ilham kaynağı olacaktır.
+
+168
+00:10:21,140 --> 00:10:23,074
+Şimdi siz hata analizi yaparken,
+
+169
+00:10:23,074 --> 00:10:27,600
+bazen geliştirme kümelerinizdeki bazı örneklerin yanlış etiketlendiğini fark ediyorsunuz.
+
+170
+00:10:27,600 --> 00:10:29,380
+Peki bu konuda ne yapıyorsunuz?
+
+171
+00:10:29,380 --> 00:10:31,020
+Hadi bunu bir sonraki videoda tartışalım.

@@ -1,0 +1,515 @@
+1
+00:00:00,050 --> 00:00:03,050
+Eğitim dev ya da bir başka deyişle geliştirme kümelerinizi 
+
+2
+00:00:03,050 --> 00:00:04,195
+ve test kümelerinizi nasıl kurduğunuz,
+
+3
+00:00:04,195 --> 00:00:06,810
+sizin ya da ekibinizin makine öğrenme uygulaması inşa ederken
+
+4
+00:00:06,810 --> 00:00:09,985
+ne kadar seri bir şekilde ilerleme kaydedilebileceği üzerinde büyük etkisi olabilir.
+
+5
+00:00:09,985 --> 00:00:12,895
+Aynı takımlar, hatta çok büyük şirketlerdeki takımlar bile
+
+6
+00:00:12,895 --> 00:00:15,540
+bu veri kümelerini, ekibin ilerleyişini hızlandırmak yerine
+
+7
+00:00:15,540 --> 00:00:18,125
+gerçekten yavaşlatacak şekilde kurarlar.
+
+8
+00:00:18,125 --> 00:00:20,130
+Haydi bu veri kümelerini takımınızın verimini maksimuma 
+
+9
+00:00:20,130 --> 00:00:23,433
+çıkaracak şekilde nasıl kurabilirsiniz bakalım.
+
+10
+00:00:23,433 --> 00:00:28,325
+Bu videoda, geliştirme ve eğitim kümelerinizi nasıl kuracağınıza odaklanmak istiyorum.
+
+11
+00:00:28,325 --> 00:00:33,020
+"Dev kümesi", geliştirme kümesi ya da bazen
+
+12
+00:00:33,020 --> 00:00:36,940
+çapraz doğrulama kümesi olarak da adlandırılır.
+
+13
+00:00:36,940 --> 00:00:42,265
+Makine öğrenmede iş akışı pek çok fikri denemek,
+
+14
+00:00:42,265 --> 00:00:44,200
+eğitim setinde farklı modeller eğitmek ve sonrasında 
+
+15
+00:00:44,200 --> 00:00:47,950
+farklı fikirleri değerlendirmek için geliştirme setini kullanıp birini seçmektir.
+
+16
+00:00:47,950 --> 00:00:51,280
+Sonunda sizi memnun eden bir durum elde edinceye kadar geliştirme kümesinin performansını
+
+17
+00:00:51,280 --> 00:00:56,240
+iyileştirmek için yeniliklere devam edin ve sonra bu durumu test kümenizde değerlendirin.
+
+18
+00:00:56,240 --> 00:00:59,800
+Şimdi, örnek olarak diyelim ki
+
+19
+00:00:59,800 --> 00:01:01,995
+bir kedi sınıflandırıcı kuruyorsunuz
+
+20
+00:01:01,995 --> 00:01:05,500
+ve siz aşağıdaki bölgelerde çalışıyorsunuz; Amerika,
+
+21
+00:01:05,500 --> 00:01:07,720
+Birleşik Krallık, diğer Avrupa ülkeleri, Güney Amerika, 
+
+22
+00:01:07,720 --> 00:01:10,490
+Hindistan, Çin, diğer Asya ülkeleri ve Avustralya.
+
+23
+00:01:10,490 --> 00:01:14,529
+Peki, siz geliştirme ve test kümelerinizi nasıl kurarsınız?
+
+24
+00:01:14,529 --> 00:01:19,285
+Bunu yapmanın bir yolu, bu bölgelerden dördünü seçmek.
+
+25
+00:01:19,285 --> 00:01:22,555
+Bu dördünü kullanacağım ama dört rastgele seçilmiş bölge olabilir.
+
+26
+00:01:22,555 --> 00:01:25,705
+Ve diyelim ki, bu dört bölgeden gelen veriler geliştirme kümesine gidecek.
+
+27
+00:01:25,705 --> 00:01:28,580
+Ve diğer dört bölge, bu dörtü kullanacağım,
+
+28
+00:01:28,580 --> 00:01:30,530
+dört tane rastgele de seçilebilir,
+
+29
+00:01:30,530 --> 00:01:33,350
+bunlar test kümesine gidiyor.
+
+30
+00:01:33,350 --> 00:01:36,940
+Bunun kötü bir fikir olduğu ortaya çıkıyor çünkü bu örnekte
+
+31
+00:01:36,940 --> 00:01:40,780
+geliştirme ve test kümeleriniz farklı dağılımlardan geliyor. 
+
+32
+00:01:40,780 --> 00:01:44,345
+Ben bunun yerine, geliştirme ve test kümelerinizin aynı dağılımdan gelmesini
+
+33
+00:01:44,345 --> 00:01:49,555
+sağlamanın bir yolunu bulmayı öneririm. Yani şunu demek istiyorum.
+
+34
+00:01:49,555 --> 00:01:51,590
+Akılda tutulması gereken bir resim, bence,
+
+35
+00:01:51,590 --> 00:01:54,530
+geliştirme kümenizi artı
+
+36
+00:01:54,530 --> 00:01:57,662
+tek rol numarası değerlendirme metriğinizi,
+
+37
+00:01:57,662 --> 00:01:59,840
+bir hedef koyar ve ekibinize 
+
+38
+00:01:59,840 --> 00:02:03,395
+hedeflemek istediğiniz boğanın gözünün nerede olduğunu anlatır gibi kurmaktır. 
+
+39
+00:02:03,395 --> 00:02:07,165
+Çünkü, bir kez bu geliştirme setini ve metriği kurduktan sonra olacak olan
+
+40
+00:02:07,165 --> 00:02:09,925
+ekibinizin hızlıca yenilemeye gitmesi, farkli fikirler denemesi,
+
+41
+00:02:09,925 --> 00:02:13,100
+deneyler yapması ve çok hızlı bir şekilde geliştirme kümesini
+
+42
+00:02:13,100 --> 00:02:16,997
+ve bu metriği sınıflandırıcıları değerlendirmek için kullanıp en iyisini seçmesidir. 
+
+43
+00:02:16,997 --> 00:02:21,720
+Bu nedenle, makine öğrenimi ekipleri, farklı okları hedeflere fırlatmak 
+
+44
+00:02:21,720 --> 00:02:26,732
+ve boğanın gözünü vurana kadar adım adım yenilenmede çok iyidirler. 
+
+45
+00:02:26,732 --> 00:02:30,173
+Bu yüzden metrikleriniz ve geliştirme kümelerinizde iyi işler çıkarın. 
+
+46
+00:02:30,173 --> 00:02:32,040
+Ve soldaki örnekte geliştirme ve test kümelerini 
+
+47
+00:02:32,040 --> 00:02:34,680
+nasıl kurduğumuzla ilgili sorun şu ki,
+
+48
+00:02:34,680 --> 00:02:39,450
+ekibiniz geliştirme kümesinde yenilikler yapmak için aylar harcayabilir ama sonunda onları 
+
+49
+00:02:39,450 --> 00:02:41,570
+deneme kümesinde test ettiğiniz zaman farkına varacakları tek şey
+
+50
+00:02:41,570 --> 00:02:45,900
+bu dört ülkeden ya da alttaki bu dört bölgeden gelen verinin
+
+51
+00:02:45,900 --> 00:02:49,520
+gelişim kümesindeki veriden çok farklı olabileceğidir.
+
+52
+00:02:49,520 --> 00:02:51,765
+Öyleyse, kötü bir sürpriziniz olabilir ve
+
+53
+00:02:51,765 --> 00:02:54,690
+geliştirme kümesinde iyileştirme yaparak harcadığınız tüm iş aylarının
+
+54
+00:02:54,690 --> 00:02:58,800
+test kümesinde size iyi bir performans vermediğini fark edebilirsiniz.
+
+55
+00:02:58,800 --> 00:03:03,180
+Dolayısıyla, farklı dağıtımlardan gelen geliştirme ve test kümeleri, bir hedef belirleyip
+
+56
+00:03:03,180 --> 00:03:06,525
+ekibinizin boğanın gözüne daha da yaklaşmayı hedefleyerek 
+
+57
+00:03:06,525 --> 00:03:08,865
+aylar harcamasından sonra farkına varıp,
+
+58
+00:03:08,865 --> 00:03:10,550
+"Oo, bekleyin, bunu denemek için,
+
+59
+00:03:10,550 --> 00:03:12,005
+hedefi buraya taşıyacağım." demek gibidir.
+
+60
+00:03:12,005 --> 00:03:14,160
+Ekibiniz de muhtemelen: "Peki,
+
+61
+00:03:14,160 --> 00:03:18,320
+birdenbire boğanın gözünü başka bir yerdeki farklı bir bölgeye taşıyabileceksen
+
+62
+00:03:18,320 --> 00:03:21,950
+neden bize farklı bir boğa gözü için aylarımızı harcattın?"
+
+63
+00:03:21,950 --> 00:03:23,010
+Bundan kaçınmak için,
+
+64
+00:03:23,010 --> 00:03:24,510
+benim önerim bunun yerine
+
+65
+00:03:24,510 --> 00:03:29,985
+tüm bu rastgele karıştırılmış verileri geliştirme ve test kümesine almanızdır.
+
+66
+00:03:29,985 --> 00:03:33,917
+Böylece, geliştirme ve test kümelerinin her sekiz bölgeden veriye sahip olması ve
+
+67
+00:03:33,917 --> 00:03:38,205
+geliştirme ve test kümelerinin gerçekten aynı dağılımdan gelmesi,
+
+68
+00:03:38,205 --> 00:03:41,490
+yani tüm verilerinizin birbirine karıştırılmasıdır.
+
+69
+00:03:41,490 --> 00:03:43,766
+İşte başka bir örnek, bu aslında 
+
+70
+00:03:43,766 --> 00:03:46,200
+gerçek bir hikaye ama bazı detaylar değişti.
+
+71
+00:03:46,200 --> 00:03:48,210
+Orta gelirli zip kodları için kredi onaylarından
+
+72
+00:03:48,210 --> 00:03:50,610
+oluşan bir geliştirme setinde iyileme yapmak için
+
+73
+00:03:50,610 --> 00:03:55,400
+aylarını harcayan bir makine öğrenme ekibi biliyorum.
+
+74
+00:03:55,400 --> 00:03:57,465
+Özgül makine öğrenme problemleri şuydu;
+
+75
+00:03:57,465 --> 00:04:00,805
+"Bir kredi başvurusu hakkında verilen bir X girdisiyle
+
+76
+00:04:00,805 --> 00:04:02,820
+krediyi neden geri ödeyip ödemeyeceklerini
+
+77
+00:04:02,820 --> 00:04:04,907
+tahmin edebilir misin?"
+
+78
+00:04:04,907 --> 00:04:07,760
+Yani, bu bir krediyi onaylayıp onaylamamaya karar vermenize yardımcı olur.
+
+79
+00:04:07,760 --> 00:04:11,370
+Ve böylece, geliştirme kümesi kredi başvurularından geldi.
+
+80
+00:04:11,370 --> 00:04:13,565
+Orta seviyeli gelir zip kodlarından geldi.
+
+81
+00:04:13,565 --> 00:04:16,870
+Zip kodları bizim Amerika'da posta kodu dediğimiz kodlardır. 
+
+82
+00:04:16,870 --> 00:04:18,990
+Bunun üzerinde birkaç ay çalıştıktan sonra ekip
+
+83
+00:04:18,990 --> 00:04:21,555
+birdenbire bunu düşük seviyeli gelir zip kodları
+
+84
+00:04:21,555 --> 00:04:24,650
+ya da düşük gelir seviyeli posta kodları üzerinde denemeye karar verdi. 
+
+85
+00:04:24,650 --> 00:04:27,595
+Ve tabi ki, orta seviyeli gelir ve düşük seviyeli gelir
+
+86
+00:04:27,595 --> 00:04:30,900
+zip kodlarının dağılım verisi çok farklıydı. 
+
+87
+00:04:30,900 --> 00:04:34,810
+Ve ilk durumda iyileştirme için çok fazla zaman harcadıkları sınıflandırıcı
+
+88
+00:04:34,810 --> 00:04:39,165
+ikinci durumda iyi çalışmadı.
+
+89
+00:04:39,165 --> 00:04:42,750
+Ve böylece, bu belirli ekip aslında üç ayını boşa harcadı,
+
+90
+00:04:42,750 --> 00:04:47,053
+geri dönmek ve gerçekten çok fazla iş yapmak zorunda kaldı.
+
+91
+00:04:47,053 --> 00:04:48,540
+Ve burada olan şey,
+
+92
+00:04:48,540 --> 00:04:52,035
+ekip bir hedefe yönelik üç ay harcadı,
+
+93
+00:04:52,035 --> 00:04:54,060
+üç aydan sonra,
+
+94
+00:04:54,060 --> 00:04:55,490
+yönetici sordu: " Oo,
+
+95
+00:04:55,490 --> 00:04:57,750
+diğer hedefi vurma konusunda neler yapıyorsunuz?"
+
+96
+00:04:57,750 --> 00:04:59,340
+Bu tamamen farklı bir yer.
+
+97
+00:04:59,340 --> 00:05:02,306
+Ve bu takım için çok sinir bozucu bir deneyim oldu.
+
+98
+00:05:02,306 --> 00:05:05,530
+Yani, bir geliştirme kümesi ve test kümesi kurmak için önerdiğim şey,
+
+99
+00:05:05,530 --> 00:05:08,520
+ileride almayı beklediğiniz verileri yansıtacak şekilde bir gelişim ve test kümesi seçin,
+
+100
+00:05:08,520 --> 00:05:11,535
+iyi yapılmasının önemli olduğunu göz önünde bulundurun.
+
+101
+00:05:11,535 --> 00:05:14,850
+ve,özellikle, geliştirme ve test seti
+
+102
+00:05:14,850 --> 00:05:20,338
+aynı dağılımdan gelmelidir
+
+103
+00:05:20,338 --> 00:05:23,660
+Dolayısıyla, ileride iyi performans vermesini istediğiniz
+
+104
+00:05:23,660 --> 00:05:25,415
+ne tarz bir veri belkiyor olursanız olun,
+
+105
+00:05:25,415 --> 00:05:27,745
+buna benzeyen şekilde veri elde etmeye çalışın,
+
+106
+00:05:27,745 --> 00:05:29,050
+ve, bu veri her ne ise,
+
+107
+00:05:29,050 --> 00:05:32,245
+bunu hem geliştirme hem de test setinize koyun,
+
+108
+00:05:32,245 --> 00:05:33,920
+çünkü bu şekilde,hedefi
+
+109
+00:05:33,920 --> 00:05:36,440
+vurmak istediğiniz yere yerleştirmiş oluyorsunuz ve
+
+110
+00:05:36,440 --> 00:05:40,705
+takımın aynı hedefi burmaya çalışırken verimli bir
+
+111
+00:05:40,705 --> 00:05:41,826
+şekilde çalışmasını sağlamış oluyorsunuz.
+
+112
+00:05:41,826 --> 00:05:45,965
+Eğitim setini nasıl kurduğumuzla alakalı olarak henüz konuşmadığımız farketmişssinizdir,
+
+113
+00:05:45,965 --> 00:05:48,790
+eğitim seti ile ilgili olarak sonraki bir videoda konuşacağız.
+
+114
+00:05:48,790 --> 00:05:51,335
+Bu videodan alacağımız önemli mesaj ise,
+
+115
+00:05:51,335 --> 00:05:53,690
+geliştirm setini nasıl kurduğunuz
+
+116
+00:05:53,690 --> 00:05:56,300
+ve aynı zamanda değerlendirme ölçeğini nasıl kurduğunuz
+
+117
+00:05:56,300 --> 00:05:59,780
+hangi hedefe yöneleceğinizi belirleyen asıl şeylerdir.
+
+118
+00:05:59,780 --> 00:06:04,145
+Ve geliştirme setini ve test setinin aynı dağılımdan gelmesini sağlayarak,
+
+119
+00:06:04,145 --> 00:06:08,659
+makine öğrenimi takımınızın yöneleceği hedefin umduğunuz hedef olmasını sağlıyorsunuz.
+
+120
+00:06:08,659 --> 00:06:10,870
+Eğitim setini nasıl seçtiğiniz hedefinizi
+
+121
+00:06:10,870 --> 00:06:14,510
+ne kadar iyi vurduğunuzu etkileyecektir
+
+122
+00:06:14,510 --> 00:06:18,400
+fakat bununla ilgili olarak başka bir videoda konuşacağız.
+
+123
+00:06:18,400 --> 00:06:20,830
+Bu videodaki kılavuzları takip ederek kendilerini aylar sürecek olan
+
+124
+00:06:20,830 --> 00:06:23,825
+işlerden kurtaran birçok makine öğrenimi takımı biliyorum.
+
+125
+00:06:23,825 --> 00:06:26,235
+Umarım bu kılavuzlar size de yardımcı olur.
+
+126
+00:06:26,235 --> 00:06:29,666
+Görünen o ki geliştirme ve test setlerinizin boyutları
+
+127
+00:06:29,666 --> 00:06:31,015
+ve bu boyutları nasıl belirlediğiniz
+
+128
+00:06:31,015 --> 00:06:33,391
+derin öğrenme çağında değişen şeylerden bir diğeridir.
+
+129
+00:06:33,391 --> 00:06:35,290
+Sonraki videomuzda bunun hakkında biraz konuşalım.

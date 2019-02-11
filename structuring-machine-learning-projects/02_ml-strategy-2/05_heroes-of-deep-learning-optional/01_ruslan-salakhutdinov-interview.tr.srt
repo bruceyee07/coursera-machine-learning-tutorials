@@ -1,0 +1,1218 @@
+1
+00:00:03,182 --> 00:00:06,580
+Hoş geldin Rus. 
+Bugün aramıza katılabildiğin için çok memnunum.
+
+2
+00:00:06,580 --> 00:00:08,370
+Teşekkür ederim, teşekkür ederim Andrew.
+
+3
+00:00:08,370 --> 00:00:11,696
+Şu sıralarda Apple'da araştırma direktörüsün, ve
+
+4
+00:00:11,696 --> 00:00:16,720
+aynı zamanda bir fakülte başında, 
+Carnegie Mellon Üniversitesi'nde bir profesörsün.
+
+5
+00:00:16,720 --> 00:00:20,050
+Hikayeni bir de senden dinlemek isterim.
+
+6
+00:00:20,050 --> 00:00:24,350
+Üzerinde çalıştığın derin öğrenme işiyle
+ilgilenmeye nasıl başladın?
+
+7
+00:00:24,350 --> 00:00:27,930
+Evet, aslında, bu bir bakıma...
+
+8
+00:00:27,930 --> 00:00:32,040
+Derin öğrenme konusuna girişim biraz şans eseri oldu.
+
+9
+00:00:32,040 --> 00:00:35,710
+Yüksek lisans eğitimimi Toronto'da aldım ve
+ sonrasında bir sene ara verdim.
+
+10
+00:00:35,710 --> 00:00:37,860
+Aslında finans sektöründe çalışıyordum.
+
+11
+00:00:37,860 --> 00:00:40,161
+Bu biraz hayret verici.
+
+12
+00:00:40,161 --> 00:00:44,047
+O zamanlar doktora yapmak istediğimden 
+emin değildim.
+
+13
+00:00:44,047 --> 00:00:46,110
+Ve sonra bir şey oldu, şaşırtıcı bir şey oldu.
+
+14
+00:00:46,110 --> 00:00:50,641
+Bir sabah işe gidiyordum ve 
+Geoff Hinton'a rastladım.
+
+15
+00:00:50,641 --> 00:00:55,153
+Ve Geoff bana 'çok iyi bir fikrim var' dedi.
+
+16
+00:00:55,153 --> 00:00:56,810
+Ofisime gel sana göstereyim.
+
+17
+00:00:56,810 --> 00:01:01,205
+Bu şekilde birlikte yürümeye başladık ve 
+bana bütün bu
+
+18
+00:01:01,205 --> 00:01:06,400
+Boltzmann makinaları ve contrasting divergence, 
+ve birtakım hilelerden bahsetmeye başladı
+
+19
+00:01:06,400 --> 00:01:09,080
+O zaman tam olarak neden bahsettiğini anlamamıştım.
+
+20
+00:01:10,300 --> 00:01:15,320
+Ama bu beni fazlasıyla heyecanlandırmıştı, 
+gerçekten çok heyecanlıydı, beni de heyecanlandırdı.
+
+21
+00:01:15,320 --> 00:01:20,340
+Ve sonra, üç ay içerisinde Geoff ile 
+doktora yapmaya başladım.
+
+22
+00:01:21,410 --> 00:01:28,743
+Yani bu aslında bir bakıma başlangıç oldu, 
+çünkü bu 2005, 2006 yıllarındaydı.
+
+23
+00:01:28,743 --> 00:01:32,766
+Ve bu Kısıtlı Boltz Makinaları kullanan
+ bazı orijinal derin öğrenme algoritmalarının,
+
+24
+00:01:32,766 --> 00:01:37,810
+gözetimiz ön eğitimlerin bir şekilde 
+ortaya çıkmaya başladığı zamanlardı.
+
+25
+00:01:37,810 --> 00:01:41,969
+Ve aslında bu şekilde başladım.
+
+26
+00:01:41,969 --> 00:01:46,181
+Özellikle Goeff'e rastladığım o sabah
+
+27
+00:01:46,181 --> 00:01:48,990
+kariyerimin geleceğini tamamiyle değiştirdi.
+
+28
+00:01:48,990 --> 00:01:52,374
+Ve aslında bu sinir ağları ve derin öğrenme 
+konularının dirilişine yardımcı olan...
+
+29
+00:01:52,374 --> 00:01:55,070
+Kısıtlı Boltzmann Makinaları hakkında yayınlanan...
+
+30
+00:01:55,070 --> 00:02:00,430
+ilk makalelerden birinde de ortak yazar olarak 
+yer aldınız.
+
+31
+00:02:00,430 --> 00:02:03,359
+Bu konudan biraz daha bahseder misin, 
+bu taslak üzerinde çalışmak
+
+32
+00:02:03,359 --> 00:02:06,217
+nasıldı?
+>>Evet, bu aslında gerçekten çok...
+
+33
+00:02:06,217 --> 00:02:10,992
+heyecanlıydı, evet, ilk seneydi
+benim doktora öğrencisi olarak geçirdiğim ilk senemdi.
+
+34
+00:02:10,992 --> 00:02:11,960
+Ve Geoff ile birlikte...
+
+35
+00:02:11,960 --> 00:02:17,505
+çoklu katmanları (multiple layer) çalıştırmak için 
+Kısıtlı Boltz Makinaları ve ön eğitim hilelerini kullanma...
+
+36
+00:02:17,505 --> 00:02:21,680
+fikirlerini keşfetmeye çalışıyorduk.
+
+37
+00:02:21,680 --> 00:02:25,934
+Ve özellikle otomatik giz-yazarlara (auto-encoders)
+ odaklanmaya çalışıyorduk,
+
+38
+00:02:25,934 --> 00:02:29,880
+doğrusal olmayan PCA uzatmasını nasıl 
+etkili bir şekilde yapabiliriz?
+
+39
+00:02:29,880 --> 00:02:34,416
+Ve bu çok heyecan vericiydi, çünkü 
+bu sistemlerin .....digits ile 
+çalışmalarını sağladık,
+
+40
+00:02:34,416 --> 00:02:37,296
+bu da çok heyecanlıydı, ancak 
+sonrasında bizim için sıradaki adım...
+
+41
+00:02:37,296 --> 00:02:42,062
+gerçekten bu modelleri yüzlerle çalışmaya
+ yönlendirebilir miydik, bunu görmekti.
+
+42
+00:02:42,062 --> 00:02:45,069
+Elimizde Olivetti yüzleri veri kümesi vardı.
+
+43
+00:02:45,069 --> 00:02:48,000
+Sonrasında dokümanlar için sıkıştırma 
+yapabilir miyiz diye araştırmaya başladık.
+
+44
+00:02:48,000 --> 00:02:52,576
+Ve bütün bu gerçek değer (real-value), 
+sayım (count), ikili (binary) gibi...
+
+45
+00:02:52,576 --> 00:02:57,152
+değişik veri gruplarına bakmaya başladık
+ ve bir sene içerisinde...
+
+46
+00:02:57,152 --> 00:03:03,672
+biliyorsunuz doktoramın birinci senesindeydim; 
+yani benim için çok büyük bir öğrenim deneyimi oldu.
+
+47
+00:03:03,672 --> 00:03:06,310
+Ama gerçekten altı ya da yedi ay içerisinde...
+
+48
+00:03:06,310 --> 00:03:11,079
+gerçekten ilgi çekici, ve gerçekten iyi sonuçlar 
+almayı başarmıştık.
+
+49
+00:03:11,079 --> 00:03:14,765
+Bence bu çok derin 
+otomatik giz-yazarları eğitebilmiştik.
+
+50
+00:03:14,765 --> 00:03:19,195
+Bu o zamanlar geleneksel 
+optimizasyon tekniklerini kullanarak
+
+51
+00:03:19,195 --> 00:03:22,077
+yapamayacağınız bir şeydi.
+
+52
+00:03:22,077 --> 00:03:26,965
+Ve böylece bizim için gerçekten 
+çok heyecanlı bir dönem haline geldi.
+
+53
+00:03:27,970 --> 00:03:33,520
+Bu gerçekten çok heyecanlıydı,
+çünkü benim için çok şey öğrenmek anlamına geliyordu,
+
+54
+00:03:33,520 --> 00:03:38,230
+ama aynı zamanda sonuçlar da 
+yapmak istediğimiz şey açısından...
+
+55
+00:03:38,230 --> 00:03:40,710
+gerçekten etkileyici bir hal almıştı.
+
+56
+00:03:42,210 --> 00:03:45,360
+>>Peki, bu bahsettiğiniz derin öğrenme
+araştırmalarının ilk evrelerinde...
+
+57
+00:03:45,360 --> 00:03:49,760
+faaliyetlerin çoğu Kısıtlı Boltzmann Makinaları ve...
+
+58
+00:03:49,760 --> 00:03:52,340
+sonrasında da Derin Boltzman Makinaları üzerinde yoğunlaşmaktaydı.
+
+59
+00:03:52,340 --> 00:03:54,842
+Halihazırda yapılmakta olan, sizin ekibinizin de
+ parçası olduğu...
+
+60
+00:03:54,842 --> 00:03:58,228
+çok heyecan verici araştırmalar var; 
+Peki Boltzmann Makinaları ve...
+
+61
+00:03:58,228 --> 00:03:59,663
+Kısıtlı Boltzmann Makinaları ile neler yapılmakta?
+
+62
+00:03:59,663 --> 00:04:00,900
+Evet, bu çok iyi bir soru.
+
+63
+00:04:00,900 --> 00:04:01,710
+Bence,
+
+64
+00:04:01,710 --> 00:04:07,032
+ilk zamanlarda Kısıtlı Boltzmann Makinalarını 
+kullanma şeklimizi...
+
+65
+00:04:07,032 --> 00:04:10,940
+katmanları bir bir etkili olarak
+öğrenmenize yardımcı olacak şekilde...
+
+66
+00:04:10,940 --> 00:04:14,715
+bir deste Kısıtlı Boltzmann Makinasını 
+eğitmek gibi düşünebilirsiniz.
+
+67
+00:04:14,715 --> 00:04:17,928
+Ve arkasında iyi bir teori var;
+belirli bir katman eklediğinizde...
+
+68
+00:04:17,928 --> 00:04:21,010
+bazı şartlar altında değişimli sınır (variational bound)
+ve benzeri durumları kanıtlayabilir.
+
+69
+00:04:21,010 --> 00:04:24,414
+Yani teorik bir doğrulama mevcuttu,
+ve bu modeller...
+
+70
+00:04:24,414 --> 00:04:28,697
+bu sistemlere ön-eğitm sağlayabilme açısından
+oldukça iyi çalışıyorlardı.
+
+71
+00:04:28,697 --> 00:04:35,013
+Ve sonra 2009, 2010 civarı Compute'lar,
+GPU'lar ortaya çıkmaya başladığında...
+
+72
+00:04:35,013 --> 00:04:41,618
+birçoğumuz fark etmeye başladık ki, bu 
+derin sinir ağlarını direkt olarak optimize etmek...
+
+73
+00:04:41,618 --> 00:04:47,760
+benzer ve hatta daha iyi sonuçlar veriyordu.
+
+74
+00:04:47,760 --> 00:04:50,336
+>>Yani, standart geri yayılım (backprop), ön eğitim veya...
+
+75
+00:04:50,336 --> 00:04:51,824
+Kısıtlı Boltz Makinası olmadan.
+
+76
+00:04:51,824 --> 00:04:52,700
+>> Bu doğru.
+Bu doğru.
+
+77
+00:04:52,700 --> 00:04:56,180
+Ve bu üç ya da dört yıl içinde; ve 
+bütün topluluklar için çok heyecanlıydı...
+
+78
+00:04:56,180 --> 00:04:58,050
+çünkü insanlar gerçekten şöyle hissetti...
+
+79
+00:04:58,050 --> 00:05:02,460
+wow, bu derin modelleri bu ön eğitim mekanizmaların
+ı kullanarak gerçekten eğitebiliriz.
+
+80
+00:05:02,460 --> 00:05:06,930
+Ve sonra, Compute'lar yaygınlaştıkça insanlar 
+standart geri yayılım (backpropagation)...
+
+81
+00:05:06,930 --> 00:05:10,580
+yapabileceklerini fark ettiler; bu
+2005 ya da 2004'te yapamadığımız bir şeydi...
+
+82
+00:05:11,660 --> 00:05:17,240
+çünkü bu CPU'lar üzreinde yapmak 
+aylarımızı alırdı.
+
+83
+00:05:17,240 --> 00:05:20,330
+Yani, bu büyük bir değişimdi.
+
+84
+00:05:20,330 --> 00:05:24,050
+Tam olarak çözemediğimizi düşündüğüm bir diğer şey de...
+
+85
+00:05:24,050 --> 00:05:28,108
+Boltz Makinaları ve Derin Boltzmann Makinaları ile ne yapılacağı.
+
+86
+00:05:28,108 --> 00:05:29,650
+Ben çok güçlü modeller olduklarına inanıyorum...
+
+87
+00:05:29,650 --> 00:05:32,010
+çünkü onları üretici modeller olarak düşünebilirsiniz
+
+88
+00:05:32,010 --> 00:05:36,200
+Veri içerisinde bağlama dağıtımlarını 
+(coupling distributions) 
+modellemeye çalışıyorlar, ancak...
+
+89
+00:05:36,200 --> 00:05:40,440
+öğrenme algoritmalarına baktığımızda, 
+şimdiki öğrenme algoritmaları...
+
+90
+00:05:40,440 --> 00:05:45,000
+geri yayılım algoritmaları kadar
+ölçeklenebilir olmayan...
+
+91
+00:05:45,000 --> 00:05:50,170
+Markov Zinciri, Monte Carlo ve değişimsel 
+öğrenme gibi yöntemleri gerektiriyor.
+
+92
+00:05:50,170 --> 00:05:55,480
+Yani, bizim hala bu modelleri eğitecek 
+daha etkili yöntemler bulmamız gerekiyor.
+
+93
+00:05:55,480 --> 00:05:57,920
+Ve evrişim (convolution) kullanımını da...
+
+94
+00:05:57,920 --> 00:06:02,830
+onu da bu tür modellere dahil etmek oldukça zor.
+
+95
+00:06:02,830 --> 00:06:07,500
+Senin olasılıksal max pooling üzerine yaptığın 
+farklı objelerin üretici modellerini...
+
+96
+00:06:07,500 --> 00:06:12,020
+inşa eden, ve bu tür evrişim (convolution)
+fikirlerini kullanan...
+
+97
+00:06:12,020 --> 00:06:16,970
+çalışmaları hatırlıyorum;
+o da gerçekten çok heyecan vericiydi...
+
+98
+00:06:16,970 --> 00:06:20,630
+ama aynı zamanda bu modelleri eğitmek hala çok zor.
+
+99
+00:06:20,630 --> 00:06:21,488
+>>Olasılık başlı başına bir iş, değil mi?
+
+100
+00:06:21,488 --> 00:06:22,720
+>>Evet, öyle aynen öyle değil mi!
+
+101
+00:06:22,720 --> 00:06:24,990
+Yani hala nerede olduğunu bulmamız gerekiyor.
+
+102
+00:06:27,750 --> 00:06:31,185
+Diğer taraftan, mesela son zamanlarda 
+değişimsel otomatik gizyazarları kullanarak 
+yapılan bazı çalışmalar...
+
+103
+00:06:31,185 --> 00:06:35,260
+Boltzmann Makinalarının interaktif 
+versiyonları olarak görülebilir.
+
+104
+00:06:35,260 --> 00:06:40,491
+Bu modülleri eğitmek için bazı yollar 
+bulduk. Max Welling ve
+
+105
+00:06:40,491 --> 00:06:44,800
+Diederik Kingma'nın çalışması 
+tekrar parametrize etme (reparameterization) 
+hilelerini kullanmak üzerine.
+
+106
+00:06:44,800 --> 00:06:50,720
+Ve artık rastgele sistemde 
+geri yayılımlı algoritma kullanabiliyoruz,
+
+107
+00:06:50,720 --> 00:06:53,630
+bu da önemli bir ölçüde gelişim sağlamakta.
+
+108
+00:06:53,630 --> 00:06:59,199
+Ama bunu Boltzmann Makinaları ile 
+nasıl yapacağımızı henüz tam anlamıyla bulamadık.
+
+109
+00:06:59,199 --> 00:07:04,606
+>>Bu aslında benim de farkında olmadığım
+ gerçekten ilginç bir perspektif...
+
+110
+00:07:04,606 --> 00:07:09,382
+şöyle ki, bilgisayarların 
+yavaş olduğu ilk zamanlarda...
+
+111
+00:07:09,382 --> 00:07:11,969
+RBM (Kısıtlı Boltzmann Makinaları) ön eğitimi gerçekten çok önemliydi.
+
+112
+00:07:11,969 --> 00:07:17,920
+Hesaplamanın hızlanması sayesinde
+ standart geri yayılıma dönüş sağlandı.
+
+113
+00:07:17,920 --> 00:07:21,370
+Bu topluluğun derin öğrenme ve 
+diğer konular üzerindeki düşüncelerinin 
+evrilmesi açısından...
+
+114
+00:07:21,370 --> 00:07:24,712
+bu konu üzerine düşünmek için 
+çok zaman harcadığınızı biliyorum...
+
+115
+00:07:24,712 --> 00:07:28,870
+üretici, gözetimsize karşı 
+gözetimli bakış açıları.
+
+116
+00:07:28,870 --> 00:07:32,718
+Bunun hakkındaki düşüncelerin 
+zaman içerisinde nasıl değişti 
+biraz bahseder misin?
+
+117
+00:07:32,718 --> 00:07:37,407
+>>Evet, ben bunun gerçekten çok önemli 
+bir konu olduğunu düşünüyorum,
+
+118
+00:07:37,407 --> 00:07:41,727
+özellikle gözetimsiz, yarı gözetimli 
+veya üretici modelleri düşünürsek...
+
+119
+00:07:41,727 --> 00:07:46,493
+çünkü bir ölçüde, yakın zamanda 
+edindiğimiz bir çok başarı...
+
+120
+00:07:46,493 --> 00:07:50,812
+gözetimli öğrenme sayesinde oldu. Ve ilk zamanlarda...
+
+121
+00:07:50,812 --> 00:07:55,803
+gözetimsiz öğrenme öncelikli olarak 
+gözetimsiz ön eğitim gibi görülüyordu.
+
+122
+00:07:55,803 --> 00:07:59,850
+Çünkü bu çok katmanlı sistemleri 
+nasıl eğiteceğimizi bilmiyorduk.
+
+123
+00:07:59,850 --> 00:08:04,320
+Ve bugün bile, bu gözetimsiz 
+ön eğitim modellerinde, eğer bir sürü etiketsiz veri...
+
+124
+00:08:04,320 --> 00:08:08,488
+ve küçük bir kısım etiketli örneklerin olduğu...
+
+125
+00:08:08,488 --> 00:08:11,371
+bir ortamda çalışıyorsanız...
+
+126
+00:08:11,371 --> 00:08:15,721
+üretici modelleri inşa etmek
+ gözetimli gözlere yardımcı olabilir.
+
+127
+00:08:15,721 --> 00:08:20,863
+Yani bence bu toplulukta bir çoğumuz için 
+bu genel bir inançtı.
+
+128
+00:08:20,863 --> 00:08:25,838
+Ben doktora yapmaya başladığımda,
+ bütün olay üretici modeller ve 
+bu model yığınlarını öğrenmekti...
+
+129
+00:08:25,838 --> 00:08:30,900
+çünkü bu sistemleri eğitmemiz için
+ tek yol buydu.
+
+130
+00:08:30,900 --> 00:08:35,720
+Günümüzde, üretici modelleme üzerine yapılan birçok çalışma var.
+
+131
+00:08:35,720 --> 00:08:38,530
+Üretken Çekişmeli Ağlara (Generative Adversarial Networks) bakacak olursanız...
+
+132
+00:08:38,530 --> 00:08:40,397
+Değişimsel otomatik gizyazarlara bakacak olursanız...
+
+133
+00:08:40,397 --> 00:08:45,620
+derin enerji modelleri de benim laboratuvarımın halihazırda çalışmakta olduğu bir konu.
+
+134
+00:08:45,620 --> 00:08:50,660
+Bu çok heyecanlı bir araştırma bence, ama belki de tam anlamıyla çözemedik,
+
+135
+00:08:50,660 --> 00:08:55,420
+derin öğrenme alanına giriş yapmayı düşünen birçoğunuz için...
+
+136
+00:08:55,420 --> 00:08:59,340
+bu bence fazlasıyla ilerleme kaydedebileceğimiz bir alan...
+
+137
+00:08:59,340 --> 00:09:01,187
+ve umarım yakın gelecekte olacak.
+
+138
+00:09:01,187 --> 00:09:02,214
+>>Yani denetimsiz öğrenim.
+
+139
+00:09:02,214 --> 00:09:04,281
+>>Denetimsiz öğrenim, doğru.
+
+140
+00:09:04,281 --> 00:09:07,751
+Ya da belki bunu denetimsiz öğrenim 
+veya size farklı şeylerin 
+ne anlama geldiğine yönelik...
+
+141
+00:09:07,751 --> 00:09:12,886
+ipuçları veya bazı örnekler verdiğim 
+ve çok sayıda etiketsiz veri sağladığım bir...
+
+142
+00:09:12,886 --> 00:09:18,240
+yarı denetimli öğrenim 
+olarak düşünebilirsiniz.
+
+143
+00:09:18,240 --> 00:09:21,506
+>>Bu, bilgisayarların yavaş olduğu 
+derin öğrenimin erken bir döneminin...
+
+144
+00:09:21,506 --> 00:09:23,929
+iç yüzüne yönelik önemli bir bilgi oldu.
+
+145
+00:09:23,929 --> 00:09:27,763
+Bu dönemde sinir ağı ağırlıklarını 
+başlatabilmek için Kıstlı Boltzmann Makinaları
+ve Derin Boltzmann Makinalarına...
+
+146
+00:09:27,763 --> 00:09:31,257
+ihtiyaç vardı. Ama, bilgisayarlar hızlandıkça...
+
+147
+00:09:31,257 --> 00:09:34,700
+doğrudan geri yayılım daha iyi çalışmaya başladı.
+
+148
+00:09:34,700 --> 00:09:39,220
+Üzerinde düşünmek için çok fazla zaman 
+harcadığınızı bildiğim bir başka konu da...
+
+149
+00:09:39,220 --> 00:09:45,342
+denetimli öğrenmeye karşı üretici modeller 
+ve denetimsiz öğrenme yaklaşımları.
+
+150
+00:09:45,342 --> 00:09:46,619
+Bize biraz bu tartışma hakkındaki...
+
+151
+00:09:46,619 --> 00:09:51,920
+düşünme yolunun zaman içinde 
+nasıl evrildiğini anlatır mısın?
+
+152
+00:09:51,920 --> 00:09:56,780
+>>Sanırım hepimiz bu noktada bir
+ilerleme sağlayabileceğimize inanıyoruz.
+
+153
+00:09:56,780 --> 00:10:03,990
+Biliyorsun, Boltz Makinaları, değişimsel otomatik gizyazarlar, 
+GAN'lar (Üretken Çekişmeli Ağlar) üzerine yapılan tüm çalışmalar.
+
+154
+00:10:03,990 --> 00:10:08,556
+Bu modellerin çoğunu üretici modeller 
+olarak düşünürsünüz, ancak...
+
+155
+00:10:08,556 --> 00:10:13,595
+bunları gerçekten nasıl çalıştırabileceğimizi 
+ve büyük momentleri nasıl kullanabileceğimizi
+
+156
+00:10:13,595 --> 00:10:16,654
+hala tam anlamıyla bulamadık.
+
+157
+00:10:16,654 --> 00:10:21,797
+Ve BT sektöründe sıkça görüyorum, 
+şirketlerin elinde büyük miktarda veri,
+
+158
+00:10:21,797 --> 00:10:26,463
+büyük miktarda etiketlenmemiş veri 
+bulunmakta ve
+
+159
+00:10:26,463 --> 00:10:30,848
+açıklama notları üzerine fazlasıyla 
+efor sarf ediliyor...
+
+160
+00:10:30,848 --> 00:10:33,350
+çünkü bu, şu anda ilerlemenin tek yolu.
+
+161
+00:10:33,350 --> 00:10:36,400
+Ve bu etiketlenmemiş verileri...
+
+162
+00:10:36,400 --> 00:10:40,200
+kullanabilmemiz gerekiyormuş gibi görünüyor 
+çünkü gerçekten bir bolluk var.
+
+163
+00:10:40,200 --> 00:10:42,190
+Ve bunu yapmanın yolunu henüz 
+tam olarak bulabilmiş değiliz.
+
+164
+00:10:44,020 --> 00:10:48,300
+Peki, diyorsunuz ki derin öğrenme 
+araştırmasına katılmak isteyenler için
+
+165
+00:10:48,300 --> 00:10:50,920
+denetimsiz öğrenme heyecan verici bir alan.
+
+166
+00:10:50,920 --> 00:10:54,240
+Günümüzde araştırma ya da uygulama olsun, 
+derin öğrenme araştırmasına dahil olmak isteyen...
+
+167
+00:10:54,240 --> 00:10:57,688
+çok sayıda insan bulunmakta. 
+Peki, araştırmacı veya uygulama işlerinde...
+
+168
+00:10:57,688 --> 00:11:01,490
+bu global topluluk için
+ne gibi tavsiyeleriniz olurdu?
+
+169
+00:11:01,490 --> 00:11:06,680
+>>Bence, bu alanı değerlendiren kişilere
+ vermem gerektiğini düşündüğüm...
+
+170
+00:11:06,680 --> 00:11:10,620
+önemli tavsiyelerden biri,
+
+171
+00:11:10,620 --> 00:11:14,210
+onları farklı şeyler denemeye,
+yeni şeyler denemekten korkmamaya ve...
+
+172
+00:11:14,210 --> 00:11:18,280
+yenilikçi olmaktan korkmamaya heveslendirirdim.
+
+173
+00:11:18,280 --> 00:11:20,135
+Size bir örnek verebilirim...
+
+174
+00:11:20,135 --> 00:11:24,975
+Ben yüksek lisans öğrencisiyken sinir ağları üzerine çalışıyorduk, ve...
+
+175
+00:11:24,975 --> 00:11:29,680
+bunlar oldukça zor optimize edilen
+ konveks olmayan sistemler.
+
+176
+00:11:29,680 --> 00:11:33,780
+Optimizasyon grubundaki arkadaşlarımla konuştuğumuzu hatırlıyorum.
+
+177
+00:11:33,780 --> 00:11:38,350
+Ve geri dönüş hep şöyleydi: bu 
+problemleri çözmeniz mümkün değil...
+
+178
+00:11:38,350 --> 00:11:41,600
+çünkü bunlar konveks değil ve
+biz henüz optimizasyonu anlamış değiliz...
+
+179
+00:11:41,600 --> 00:11:46,470
+konveks optimizasyonu yapmayla 
+karşılaştırıldığında bunu nasıl yapabiliriz ki?
+
+180
+00:11:46,470 --> 00:11:51,225
+Bu şaşırtıcı bir durumdu, 
+çünkü labımızda hiç bir zaman...
+
+181
+00:11:51,225 --> 00:11:55,520
+bu tür belirli problemleri 
+fazlasıyla önemsemiyorduk.
+
+182
+00:11:55,520 --> 00:11:58,005
+Düşündüğümüz nasıl 
+optimize ederiz ve...
+
+183
+00:11:58,005 --> 00:11:59,960
+nasıl ilgi çekici sonuçlar elde edebiliriz gibiydi.
+
+184
+00:11:59,960 --> 00:12:04,150
+Ve aslında tüm grubu sürükleyen şey
+buydu ve belki de...
+
+185
+00:12:04,150 --> 00:12:09,038
+bir bakıma hiç korkmuyorduk, çünkü...
+
+186
+00:12:09,038 --> 00:12:13,444
+optimizasyonun arkasındaki
+ gerçek teoriyi bilmiyorduk.
+
+187
+00:12:13,444 --> 00:12:16,123
+Ama insanları sadece denemeye ve 
+zor sorunların...
+
+188
+00:12:16,123 --> 00:12:19,200
+üstesinden gelmeye çalışmaktan 
+korkmamaya teşvik ederdim.
+
+189
+00:12:19,200 --> 00:12:22,616
+>>Evet, bir seferinde şöyle dediğini 
+hatırlıyorum; sadece üst seviye 
+derin öğrenme çerçevesinde ...
+
+190
+00:12:22,616 --> 00:12:25,740
+kod yazmayı öğrenmeyin, derin öğrenmeyi gerçekten anlayın.
+
+191
+00:12:25,740 --> 00:12:26,370
+>> Evet.
+Bu doğru.
+
+192
+00:12:26,370 --> 00:12:30,992
+Derin öğrenme dersleri verdiğim zaman
+yapmaya çalıştığım şeylerden biri de bu.
+
+193
+00:12:30,992 --> 00:12:35,182
+Ödevlerden birinde, insanlardan kıvrımlı
+(convolutional) sinir ağları için...
+
+194
+00:12:35,182 --> 00:12:39,323
+geri yayılımlı algoritma kodları
+yazmalarını istiyorum.
+
+195
+00:12:39,323 --> 00:12:43,379
+Bu çok acı verici, ama aynı zamanda, bir kere yaparsanız...
+
+196
+00:12:43,379 --> 00:12:48,510
+bu sistemlerin nasıl işlediğini ve nasıl
+çalıştığını gerçekten anlayacaksınız.
+
+197
+00:12:49,540 --> 00:12:53,223
+Ve onları GPU'lar (Grafik İşleme Birimi) üzerinde
+nasıl etkili bir şekilde uygulayacağınızı da.
+
+198
+00:12:53,223 --> 00:12:58,266
+Araştırmaya veya endüstriye girdiğinizde,
+bu sistemlerin ne yaptığını...
+
+199
+00:12:58,266 --> 00:13:03,013
+iyice anlamış olmak sizin için çok önemli.
+
+200
+00:13:03,013 --> 00:13:05,450
+Çok önemli olduğunu düşünüyorum.
+
+201
+00:13:05,450 --> 00:13:09,160
+>>Hem bir profesör olarak akademik 
+hem de kurumsal deneyiminiz olduğundan...
+
+202
+00:13:09,160 --> 00:13:13,730
+merak ediyorum derin öğrenme 
+alanına giriş yapmak isteyen biri için...
+
+203
+00:13:13,730 --> 00:13:18,290
+doktora yapmaya karşılık bir şirkete 
+girmenin artı ve eksileri nelerdir?
+
+204
+00:13:18,290 --> 00:13:21,290
+>>Evet, bence bu aslında çok iyi bir soru.
+
+205
+00:13:22,660 --> 00:13:25,780
+Benim kendi laboratuvarımdaki
+öğrencilerin fikirleri birbirinden farklı.
+
+206
+00:13:25,780 --> 00:13:28,850
+Bazı öğrenciler akademik 
+bir yola girmek istiyor.
+
+207
+00:13:28,850 --> 00:13:32,041
+Bazı öğrenciler endüstride 
+bir yol izlemek istiyor.
+
+208
+00:13:32,041 --> 00:13:38,290
+İşler oldukça zorlu olmaya başladı çünkü,
+endüstride çok iyi araştırma yapabilirsiniz,
+
+209
+00:13:38,290 --> 00:13:41,910
+ama akademide de çok iyi
+araştırma yapabilirsiniz.
+
+210
+00:13:41,910 --> 00:13:46,480
+Ama artı ve eksiler açısından
+bakacak olursak, akademide...
+
+211
+00:13:46,480 --> 00:13:53,180
+uzun soluklu problemler üzerinde
+çalışmak için daha özgürsünüz gibi hissediyorum,
+
+212
+00:13:53,180 --> 00:13:59,150
+veya aklınıza çılgın bir soru gelirse
+onun için çalışabilirsiniz, yani biraz daha özgürsünüz.
+
+213
+00:13:59,150 --> 00:14:03,940
+Bir yandan da, endüstride yaptığınız
+araştırma da çok heyecan verici,
+
+214
+00:14:03,940 --> 00:14:08,920
+çünkü birçok durumda, temel bir
+yapay zeka teknolojisi geliştirirseniz...
+
+215
+00:14:08,920 --> 00:14:14,470
+araştırmanız milyonlarca
+kullanıcıyı etkileyecek.
+
+216
+00:14:14,470 --> 00:14:19,473
+Açıkçası endüstride bilgi sayımı
+açısından ve gerçekten...
+
+217
+00:14:19,473 --> 00:14:26,120
+mükemmel şeyler yapabilmek adına
+çok daha fazla kaynak olacak.
+
+218
+00:14:26,120 --> 00:14:30,260
+Yani evet artılar ve eksiler var, ancak
+her şey gerçekten ne yapmak istediğinize bağlı.
+
+219
+00:14:30,260 --> 00:14:32,630
+Şu sıralarda her şey ilginç,
+
+220
+00:14:32,630 --> 00:14:36,860
+akademinin endüstriye yönelmeye başladığı
+ve o kadar olmasa da...
+
+221
+00:14:36,860 --> 00:14:40,450
+endüstriden insanların akademiye kaydığı
+çok ilginç bir ortam var.
+
+222
+00:14:40,450 --> 00:14:45,756
+Ve yani bunlar gerçekten çok heyecan verici zamanlar.
+
+223
+00:14:45,756 --> 00:14:49,244
+>>Kulağa öyle geliyor ki, akademik
+makina öğrenimi harika ve kurumsal
+makina öğrenimi de harika...
+
+224
+00:14:49,244 --> 00:14:52,800
+ve önemli olan sadece işin içine girmek, değil mi?
+
+225
+00:14:52,800 --> 00:14:54,070
+Herhangi biri olur, sadece başlayın.
+
+226
+00:14:54,070 --> 00:14:58,870
+>>Bu gerçekten tercihlerinize bağlı,
+çünkü her iki alanda da harika...
+
+227
+00:14:58,870 --> 00:14:59,800
+araştırmalar yapabilirsiniz.
+
+228
+00:14:59,800 --> 00:15:03,301
+>>Daha önce bahsettiğiniz gibi
+denetimsiz öğrenme araştırma için...
+
+229
+00:15:03,301 --> 00:15:04,260
+heyecanlı bir sınır.
+
+230
+00:15:04,260 --> 00:15:08,850
+Araştırma için heyecanlı sınırlar olarak
+değerlendirdiğiniz başka alanlar var mı?
+
+231
+00:15:08,850 --> 00:15:09,700
+>> Evet, kesinlikle.
+
+232
+00:15:09,700 --> 00:15:12,520
+Bence, şu sıralarda gördüğüm,
+tüm camia içerisinde olan...
+
+233
+00:15:12,520 --> 00:15:16,010
+özellikle derin öğrenme camiasında
+birkaç yeni akım var.
+
+234
+00:15:17,400 --> 00:15:20,390
+Gerçekten çok heyecanlı olduğunu
+düşündüğüm belirli alan ise...
+
+235
+00:15:20,390 --> 00:15:22,909
+takviyeli öğrenme
+(reinforcement learning) alanı.
+
+236
+00:15:24,110 --> 00:15:28,940
+Çünkü, sanal dünyalardaki ajanları
+nasıl eğitebileceğimizi bulduk.
+
+237
+00:15:28,940 --> 00:15:33,633
+Ve bu da sadece son iki yıl içerisinde
+bir hayli ilerleme görebildiğiniz bir alan.
+
+238
+00:15:33,633 --> 00:15:38,251
+Bu sistemleri nasıl ölçeklendirebiliriz,
+nasıl yeni algoritmalar geliştirebiliriz,
+
+239
+00:15:38,251 --> 00:15:42,643
+ajanların birbirleriyle haberleşmesini
+nasıl sağlayabiliriz...
+
+240
+00:15:42,643 --> 00:15:46,731
+ve bence bu alan, ve genel olarak...
+
+241
+00:15:46,731 --> 00:15:52,004
+çevre ile etkileşim içinde olabildiğiniz
+ortamlar gerçekten çok heyecan verici.
+
+242
+00:15:52,004 --> 00:15:55,230
+Yine çok heyecanlı olduğunu
+düşündüğüm bir diğer alan da...
+
+243
+00:15:55,230 --> 00:16:00,720
+muhakeme ve doğal dili anlama alanı.
+
+244
+00:16:00,720 --> 00:16:03,810
+Mesela, diyaloğa dayalı sistemler inşa edebilir miyiz?
+
+245
+00:16:03,810 --> 00:16:09,120
+Muhakeme yapabilen ve metni
+okuyup sorulara akıllıca cevaplar verebilen...
+
+246
+00:16:09,120 --> 00:16:12,730
+sistemler inşa edebilir miyiz?
+
+247
+00:16:12,730 --> 00:16:17,670
+Bence bu, şu sıralar bir çok araştırmanın
+odaklandığı bir konu.
+
+248
+00:16:17,670 --> 00:16:21,832
+Ve bir de başka bir
+yardımcı alan daha var...
+
+249
+00:16:21,832 --> 00:16:26,382
+sadece birkaç örnekten
+öğrenim yapabilme konusu.
+
+250
+00:16:26,382 --> 00:16:31,210
+Sıklıkla insanlar bunu tek adım öğrenme
+veya transfer öğrenme olarak düşünüyor...
+
+251
+00:16:31,210 --> 00:16:36,970
+dünya hakkında bir şeyler öğrenebildiğin bir ortam...
+
+252
+00:16:36,970 --> 00:16:41,500
+ve ben sana yeni bir görev atıyorum
+ve bu görevi çok hızlı çözebilirsin.
+
+253
+00:16:41,500 --> 00:16:46,770
+İnsanların çok fazla tanımlanmış örnek 
+görmeye gerek duymadan yaptıkları gibi.
+
+254
+00:16:46,770 --> 00:16:52,051
+Ve bu topluluk içinde birçoğumuzun
+nasıl yapabiliriz diye anlamaya çalıştığı...
+
+255
+00:16:52,051 --> 00:16:58,010
+ve nasıl insana yakın öğrenme becerilerine
+yaklaşabiliriz diye düşündüğü bir konu.
+
+256
+00:16:58,010 --> 00:17:00,790
+>>Rus, yorumlarını ve bildiklerini bizimle
+paylaştığın için teşekkür ederim.
+
+257
+00:17:00,790 --> 00:17:02,205
+Özellikle bunu yapmaya başladığın...
+
+258
+00:17:02,205 --> 00:17:04,870
+ilk zamanların hikayesini dinlemek çok güzeldi.
+
+259
+00:17:04,870 --> 00:17:05,660
+>>Teşekkürler Andrew.
+
+260
+00:17:07,100 --> 00:17:07,800
+Beni konuk ettiğiniz için teşekkür ederim

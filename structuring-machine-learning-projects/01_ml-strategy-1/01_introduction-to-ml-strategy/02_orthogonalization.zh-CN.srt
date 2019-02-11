@@ -1,0 +1,795 @@
+1
+00:00:00,340 --> 00:00:03,520
+建立机器学习系统的挑战之一是
+One of the challenges with building
+machine learning systems is that there's
+
+2
+00:00:03,520 --> 00:00:06,250
+有太多可以尝试和改变的东西
+so many things you could try, so
+many things you could change.
+
+3
+00:00:06,250 --> 00:00:09,840
+包括 例如很多需要调整的超参数
+Including, for example, so many
+hyperparameters you could tune.
+
+4
+00:00:10,960 --> 00:00:14,210
+我注意到 最高效的机器学习人员
+One of the things I've noticed is about
+the most effective machine learning people
+
+5
+00:00:14,210 --> 00:00:17,440
+都非常清楚需要调整什么
+is they're very clear-eyed about what to tune
+
+6
+00:00:17,440 --> 00:00:20,200
+来实习一个预期效果
+in order to try to achieve one effect.
+
+7
+00:00:20,200 --> 00:00:22,842
+我们称这一过程为正交化
+This is a process we call orthogonalization.
+
+8
+00:00:22,842 --> 00:00:24,120
+接下来 我来详细讲解下
+Let me tell you what I mean.
+
+9
+00:00:25,490 --> 00:00:28,560
+这里有一张老式电视机的图片
+
+10
+00:00:28,560 --> 00:00:33,820
+上面有很多用于调整图像的旋钮
+with a lot of knobs that you could tune
+to adjust the picture in various ways.
+
+11
+00:00:35,050 --> 00:00:39,880
+因此 有可能某个旋钮可以调整
+So for these old TV sets,
+maybe there was one knob to adjust how
+
+12
+00:00:39,880 --> 00:00:45,160
+图像的垂直高度 另一个可以调整图像的宽度
+tall vertically your image is and
+another knob to adjust how wide it is.
+
+13
+00:00:45,160 --> 00:00:49,310
+也许 一个旋钮能调整梯形化程度
+Maybe another knob to adjust how trapezoidal it is,
+
+14
+00:00:49,310 --> 00:00:52,370
+另一个可以左右移动图像
+another knob to adjust how much
+to move the picture left and right,
+
+15
+00:00:52,370 --> 00:00:57,090
+还有一个可以调整图像的旋转程度 等等
+another one to adjust howmuch the picture's rotated, and so on.
+
+16
+00:00:58,740 --> 00:01:03,719
+而实际上电视设计者将大量的时间
+花在了电路系统的设计上
+And what TV designers had spent a lot of
+time doing was to build the circuitry,
+
+17
+00:01:03,719 --> 00:01:06,477
+其实与当时的电路系统类似
+really often analog circuitry back then,
+
+18
+00:01:06,477 --> 00:01:11,170
+就是为了确保每个旋钮都有一个实际的功能
+to make sure each of the knobs had
+a relatively interpretable function.
+
+19
+00:01:11,170 --> 00:01:15,358
+就好像其中一个旋钮控制这个
+一个旋钮控制这个 一个旋钮来控制这个
+Such as one knob to tune this, one knob
+to tune this, one knob to tune this,
+
+20
+00:01:15,358 --> 00:01:15,960
+等等很多项等等很多项
+
+21
+00:01:17,840 --> 00:01:24,488
+相反 想象一下如果你有一个旋钮
+可以控制0.1倍的图像高度
+In contrast, imagine if you had a knob
+that tunes 0.1 x how tall the image is,
+
+22
+00:01:24,488 --> 00:01:32,002
+加上0.3倍的图像宽度 减去1.7倍的图像梯形化程度
++ 0.3 x how wide the image is,-1.7x
+how trapezoidal the image is,
+
+23
+00:01:32,002 --> 00:01:39,010
+再加上0.8倍的图像在横坐标上的位置 诸如此类
++ 0.8 times the position of the image
+on the horizontal axis, and so on.
+
+24
+00:01:39,010 --> 00:01:42,330
+如果你对这个旋钮进行调整 那么这个图像的高度 宽度
+If you tune this knob, then the height
+of the image, the width of the image,
+
+25
+00:01:42,330 --> 00:01:46,350
+梯形化程度 和它横移的位置
+这些变量）都会同时发生改变
+how trapezoidal it is, how much
+it shifts, it all changes all at the same time.
+
+26
+00:01:46,350 --> 00:01:51,211
+如果你真的有这样的一个旋钮
+那用户几乎不可能通过对电视荧幕进行调整 所以
+If you have a knob like that, it'd be
+almost impossible to tune the TV so
+
+27
+00:01:51,211 --> 00:01:54,790
+来实现将画面在电视屏幕位置居中的功能
+that the picture gets
+centered in the display area.
+
+28
+00:01:54,790 --> 00:02:00,569
+所以在这个情境中 正交化就是指电视设计师
+So in this context, orthogonalization
+refers to that the TV designers
+
+29
+00:02:00,569 --> 00:02:06,076
+在进行设计的时候
+确保每个旋钮只能进行一个参数的调整
+had designed the knobs so that each
+knob kind of does only one thing
+
+30
+00:02:06,076 --> 00:02:09,118
+而这让电视屏幕的调整变得更加容易
+And this makes it much easier to tune the TV, so
+
+31
+00:02:09,118 --> 00:02:12,712
+使得电视画面能够显示在你希望的位置上
+that the picture gets centered
+where you want it to be.
+
+32
+00:02:14,032 --> 00:02:17,075
+再来讲另一个正交化的例子
+Here's another example of orthogonalization.
+
+33
+00:02:17,075 --> 00:02:22,736
+比如说想象一个学习开车的过程
+一辆车主要有三个可控制的主体
+If you think about learning to drive
+a car, a car has three main controls,
+
+34
+00:02:22,736 --> 00:02:28,124
+分别是方向盘
+which are steering, the steering
+wheel decides how much you go left or
+
+35
+00:02:28,124 --> 00:02:31,170
+方向盘可以决定你向左或者向右转的程度
+(另外两个操作是)加速和减速
+
+36
+00:02:31,170 --> 00:02:35,560
+所以有三个操控 或者说
+So these three controls, or 
+really one control for steering and
+
+37
+00:02:35,560 --> 00:02:38,810
+一个对方向盘的操控 和另外两个对速度的操控
+another two controls for your speed.
+
+38
+00:02:38,810 --> 00:02:42,150
+这让指令相对可以解读
+It makes it relatively interpretable
+
+39
+00:02:42,150 --> 00:02:46,770
+你的不同动作能对车子产生不同的操控
+what your different actions through
+different controls will do to your car.
+
+40
+00:02:46,770 --> 00:02:51,940
+现在试想下 有人想设计一辆带有操纵杆的汽车
+But now imagine if someone were to build
+a car so that there was a joystick,
+
+41
+00:02:51,940 --> 00:02:56,560
+操纵杆的一个轴 只控制
+where one axis of the joystick 
+controls 0.3 x your steering
+
+42
+00:02:56,560 --> 00:03:00,910
+(0.3*转向角-0.8*时速)
+angle,- 0.8 x your speed.
+
+43
+00:03:00,910 --> 00:03:05,957
+另一个不同的控制杆控制
+And you had a different control that controls 2
+
+44
+00:03:05,957 --> 00:03:12,530
+(2*转向角+0.9*汽车时速)
+x the steering angle, + 0.9 x the speed of your car.
+
+45
+00:03:12,530 --> 00:03:15,140
+理论上 转动这两个旋钮
+In theory, by tuning these two knobs,
+
+46
+00:03:15,140 --> 00:03:19,072
+可以让汽车转到既定方向 达到既定时速
+you could get your car to steer at the
+angle and at the speed you want.
+
+47
+00:03:19,072 --> 00:03:22,840
+但比起一个操纵杆控制转向角
+But it's much harder than if
+you had just one single control for
+
+48
+00:03:22,840 --> 00:03:26,980
+另一个单独的控制杆控制速度
+controlling the steering angle, and
+a separate, distinct set of controls for
+
+49
+00:03:26,980 --> 00:03:28,750
+这样的设计更困难
+controlling the speed.
+
+50
+00:03:28,750 --> 00:03:31,913
+因此 正交化的概念在这个例子中指
+So the concept of orthogonalization refers to that,
+
+51
+00:03:31,913 --> 00:03:35,707
+把一个维度看作控制转向角
+if you think of one dimension of
+what you want to do as controlling
+
+52
+00:03:35,707 --> 00:03:39,877
+把另一个维度看作控制车速
+a steering angle, and another
+dimension as controlling your speed.
+
+53
+00:03:39,877 --> 00:03:44,756
+那么 你需要一个尽可能影响转向角的旋钮
+Then you want one knob to just
+affect the steering angle as much as possible,
+
+54
+00:03:44,756 --> 00:03:49,179
+另一个旋钮 在汽车的例子中指油门和刹车
+and another knob, in the case of the car,
+is really acceleration and
+
+55
+00:03:49,179 --> 00:03:51,634
+以控制车速
+braking, that controls your speed.
+
+56
+00:03:51,634 --> 00:03:54,564
+但是 如果你有一个能同时影响这两者的操纵杆
+But if you had a control that mixes the two together,
+
+57
+00:03:54,564 --> 00:03:59,156
+像这个可以同时影响转向角和速度的操纵杆
+like a control like this one that affects
+both your steering angle and your speed,
+
+58
+00:03:59,156 --> 00:04:01,752
+能使两者同时变化
+something that changes both at the same time,
+
+59
+00:04:01,752 --> 00:04:06,570
+那么 汽车在转向和变速时会很困难
+then it becomes much harder to set
+the car to the speed and angle you want.
+
+60
+00:04:06,570 --> 00:04:11,933
+通过使用正交化 正交化指(两个变量)成90度角
+And by having orthogonal, orthogonal
+means at 90 degrees to each other.
+
+61
+00:04:11,933 --> 00:04:16,309
+通过正交控制 能与你真正想要控制的事物保持一致
+By having orthogonal controls that
+are ideally aligned with the things you
+
+62
+00:04:16,309 --> 00:04:21,251
+它使调整相应旋钮变得更简便
+actually want to control, it makes it much
+easier to tune the knobs you have to tune.
+
+63
+00:04:21,251 --> 00:04:23,939
+改变方向盘角度
+To tune the steering wheel angle, and
+
+64
+00:04:23,939 --> 00:04:28,813
+(控制)油门 刹车 让汽车完成你的各项指令
+your accelerator, your braking,
+to get the car to do what you want.
+
+65
+00:04:28,813 --> 00:04:31,090
+这与机器学习又有什么关系呢
+So how does this relate to machine learning?
+
+66
+00:04:32,260 --> 00:04:35,980
+为保证有监督机制的的学习系统良好地运行 通常你需要
+For a supervised learning system
+to do well, you usually need to
+
+67
+00:04:35,980 --> 00:04:40,080
+调整系统旋钮 保证四件事准确无误
+tune the knobs of your system to make
+sure that four things hold true.
+
+68
+00:04:40,080 --> 00:04:43,930
+第一 通常确保至少训练组
+First, is that you usually have to make
+sure that you're at least doing well
+
+69
+00:04:43,930 --> 00:04:45,210
+运行良好
+on the training set.
+
+70
+00:04:45,210 --> 00:04:50,327
+因此 训练组的运行情况需要进行一些可行性评估
+So performance on the training set needs
+to pass some acceptability assessment.
+
+71
+00:04:50,327 --> 00:04:52,458
+对于一些应用
+For some applications,
+
+72
+00:04:52,458 --> 00:04:57,841
+这个能需要与人类的一些性能进行比较
+this might mean doing comparably
+to human level performance.
+
+73
+00:04:57,841 --> 00:05:00,005
+但这取决于你的应用
+But this will depend on your application, and
+
+74
+00:05:00,005 --> 00:05:03,400
+下周我们将讨论更多关于与人类性能比较的内容
+we'll talk more about comparing to
+human level performance next week.
+
+75
+00:05:04,520 --> 00:05:07,689
+如果训练组表现良好
+But after doing well on the training sets,
+
+76
+00:05:07,689 --> 00:05:12,281
+你将希望这能使开发组运行良好
+you then hope that this leads to
+also doing well on the dev set.
+
+77
+00:05:12,281 --> 00:05:16,520
+同时 你也会希望测试组运行良好
+And you then hope that thisalso does well on the test set.
+
+78
+00:05:16,520 --> 00:05:20,025
+最终 你希望能在成本函数的测试组里运行良好
+And finally, you hope that doingwell on the test set on the cost
+
+79
+00:05:20,025 --> 00:05:23,544
+因为结果会影响系统在实际情况中的表现
+function results in your system
+performing in the real world.
+
+80
+00:05:23,544 --> 00:05:28,481
+因此 希望这能顺利地实现
+So you hope that this resolves in happy cat
+
+81
+00:05:28,481 --> 00:05:32,590
+举个例子 图片应用程序的使用者
+picture app users, for example.
+
+82
+00:05:32,590 --> 00:05:37,990
+回到电视图像调整的例子 如果图像
+So to relate back to the TV tuning
+example, if the picture of your TV was
+
+83
+00:05:37,990 --> 00:05:43,040
+过宽或过窄 你需要一个旋钮来调整它
+either too wide or too narrow, youwanted one knob to tune in order to adjust that.
+
+84
+00:05:43,040 --> 00:05:45,680
+你应该不希望仔细调整五个不同的旋钮
+You don't want to have to carefullyadjust five different knobs,
+
+85
+00:05:45,680 --> 00:05:47,720
+而他们又会影响不同的参数
+which also affect different things.
+
+86
+00:05:47,720 --> 00:05:52,510
+你只需要一个控制电视画面宽度的旋钮
+You want one knob to just affect
+the width of your TV image.
+
+87
+00:05:52,510 --> 00:05:57,500
+同理 如果你的算法不适合训练集的成本函数
+So in a similar way, if your algorithmis not fitting the training set well on
+
+88
+00:05:57,500 --> 00:06:02,540
+你需要一个旋钮 是的 这是我画的一个旋钮
+the cost function, you want one knob,
+yes, that's my attempt to draw a knob.
+
+89
+00:06:02,540 --> 00:06:05,540
+或一组可以使用的旋钮
+Or maybe one specific setof knobs that you can use,
+
+90
+00:06:05,540 --> 00:06:10,960
+以确保你可以优化算法 使其适用于训练组
+to make sure you can tune your algorithmto make it fit well on the training set.
+
+91
+00:06:10,960 --> 00:06:15,560
+这些旋钮，可能用来训练一个更大的网络
+
+92
+00:06:16,730 --> 00:06:20,740
+或者，你可能需要换一种更好的优化算法
+
+93
+00:06:20,740 --> 00:06:24,270
+比如Adam优化算法等
+
+94
+00:06:24,270 --> 00:06:27,410
+其他选择，我们本周后半节和下周继续讨论
+
+95
+00:06:28,440 --> 00:06:33,588
+相反，如果你发现算法对dev集的拟合结果不太好
+
+96
+00:06:33,588 --> 00:06:36,251
+那么 就需要另一套独立的旋钮
+
+97
+00:06:36,251 --> 00:06:40,976
+是的，这就是我画的不太好的，另一套旋钮
+
+98
+00:06:40,976 --> 00:06:44,465
+你需要有一套不同的旋钮 来调整(开发集的拟合结果)
+
+99
+00:06:44,465 --> 00:06:49,196
+举例来说 如果你的算法在开发集上拟合效果不好
+
+100
+00:06:49,196 --> 00:06:53,455
+但是在训练集上效果很好 那么你需要一套旋钮
+
+101
+00:06:53,455 --> 00:06:57,938
+使用（这个旋钮）调整，使结果满足第二个条件
+
+102
+00:06:57,938 --> 00:07:01,786
+类比（电视的例子），既然你已经适配了电视的宽度
+
+103
+00:07:01,786 --> 00:07:04,467
+如果图像的高度不太对
+
+104
+00:07:04,467 --> 00:07:08,680
+那么你需要一个不同的旋钮去调整图像的高度
+
+105
+00:07:08,680 --> 00:07:13,429
+你希望这个调整，对图像的宽度，
+
+106
+00:07:13,429 --> 00:07:14,563
+不要产生太大的影响
+
+107
+00:07:14,563 --> 00:07:20,655
+用一个更大的训练集，是另一个可以用的旋钮
+
+108
+00:07:20,655 --> 00:07:26,758
+来帮助你的学习算法，在dev集上普及得更好
+
+109
+00:07:26,758 --> 00:07:30,248
+现在，我们已经调整了图像的宽度和高度
+
+110
+00:07:30,248 --> 00:07:32,587
+如果图像不满足第三个标准呢？
+
+111
+00:07:32,587 --> 00:07:36,880
+如果（算法）在dev集上表现很好
+但是在测试集上不行呢？
+
+112
+00:07:36,880 --> 00:07:37,840
+如果这样，
+
+113
+00:07:37,840 --> 00:07:42,880
+你可能想要一个调整的旋钮
+用来获取一个更大的dev集
+
+114
+00:07:42,880 --> 00:07:47,452
+因为如果（算法）在dev集上表现很好
+但测试集上不行，这可能意味着，
+
+115
+00:07:47,452 --> 00:07:51,010
+你过度调节了dev集
+你需要返回去，寻找一个更大的dev集
+
+116
+00:07:52,590 --> 00:07:57,630
+最后，如果（算法）在测试集上表现也很好
+但是依然不能给你
+
+117
+00:07:57,630 --> 00:08:04,020
+愉快的用户体验，这意味着你需要返回去
+
+118
+00:08:04,020 --> 00:08:10,270
+调整你的dev集或者成本函数
+
+119
+00:08:13,600 --> 00:08:18,230
+因为如果在测试中成本函数上的优异表现
+
+120
+00:08:18,230 --> 00:08:21,870
+并不符合现实世界对算法的需求
+
+121
+00:08:21,870 --> 00:08:27,260
+就意味着你的验证数据或者测试数据有错误
+
+122
+00:08:27,260 --> 00:08:30,230
+或者你的成本函数所衡量的东西不正确
+
+123
+00:08:30,230 --> 00:08:34,260
+我知道我现在对这些例子讲得比较快，不过我们会
+
+124
+00:08:34,260 --> 00:08:39,770
+在这周和下周的课里细讲这些调整方式
+
+125
+00:08:39,770 --> 00:08:42,870
+因此，如果你感觉现在对具体操作还不清楚
+不要担心
+
+126
+00:08:42,870 --> 00:08:46,429
+但我想给你一个正交过程的基本认识
+
+127
+00:08:46,429 --> 00:08:50,184
+就是你要清楚的知道大概这四个结果中
+
+128
+00:08:50,184 --> 00:08:53,569
+你可以调整的不同的东西，哪些在试图解决问题
+
+129
+00:08:53,569 --> 00:08:57,809
+当我训练神经网络的时候，我倾向于不提前停止训练
+
+130
+00:08:57,809 --> 00:09:00,845
+这不是一个不好的技巧，
+有很多人都在用这个技巧
+
+131
+00:09:00,845 --> 00:09:04,450
+但我个人发现提前
+停止训练很难想
+
+132
+00:09:04,450 --> 00:09:09,530
+因为这是一个同时会影响你拟合训练集的效果的操作
+
+133
+00:09:09,530 --> 00:09:13,370
+因为如果你提前停止训练，你就不是能很好的拟合训练集
+
+134
+00:09:13,370 --> 00:09:18,610
+它也同时经常被用来提高你的开发集的执行效果
+
+135
+00:09:18,610 --> 00:09:21,973
+所以这是一个更少正交化的旋钮
+
+136
+00:09:21,973 --> 00:09:25,343
+因为它同时影响了两件事情
+
+137
+00:09:25,343 --> 00:09:28,691
+它就像是一个旋钮，同时影响了你的电视图像的宽度和
+
+138
+00:09:28,691 --> 00:09:30,900
+电视图像的高度
+
+139
+00:09:30,900 --> 00:09:34,285
+这不意味着这不好，不能用，如果你想的话你可以用它
+
+140
+00:09:34,285 --> 00:09:37,400
+但你有更多正则化控制时
+
+141
+00:09:37,400 --> 00:09:40,020
+像是我写在这里的其他的这些（正则化控制）
+
+142
+00:09:40,020 --> 00:09:44,260
+然后, 它只是使调整您的网络的过程更容易。
+
+143
+00:09:44,260 --> 00:09:47,655
+所以我希望这部分的讲解可以给你一个正则化含义的大致认识
+
+144
+00:09:47,655 --> 00:09:51,645
+就像是你看电视图像时，
+你可以说，我的电视图像
+
+145
+00:09:51,645 --> 00:09:55,343
+太宽，所以我要去调整这个旋钮，或者它太高，所以我要
+
+146
+00:09:55,343 --> 00:09:59,390
+调整那个旋钮，或者它太像梯形
+所以我必须要去调整那个旋钮
+
+147
+00:09:59,390 --> 00:10:01,710
+在机器学习中，很不错的是如果你能看着你的系统然后
+
+148
+00:10:01,710 --> 00:10:03,430
+说，它的这部分错了
+
+149
+00:10:03,430 --> 00:10:06,088
+它在训练集上表现的不是很好，
+在开发环境里也表现的不是很好
+
+150
+00:10:06,088 --> 00:10:08,702
+它在测试集上也表现的不太好，
+或者说它在某些特定的测试集上表现的好一些
+
+151
+00:10:08,702 --> 00:10:09,720
+但是这些表现的好的特定测试集都不是在现实中的
+
+152
+00:10:09,720 --> 00:10:13,309
+但找出究竟是什么错了, 然后有完全一个旋钮, 或
+
+153
+00:10:13,309 --> 00:10:17,310
+一组特定的旋钮, 有助于解决这个问题
+
+154
+00:10:17,310 --> 00:10:20,770
+但这些解决问题的方法都限制着整个机器学期系统的性能
+
+155
+00:10:20,770 --> 00:10:24,643
+所以我们这周要做的和之后要学的就是如何诊断
+
+156
+00:10:24,643 --> 00:10:28,025
+诊断到底是遇到了什么瓶颈限制了系统的性能
+
+157
+00:10:28,025 --> 00:10:32,386
+同时也找到控着这些特定方面的旋钮，
+以通过调节他们来调整个系统
+
+158
+00:10:32,386 --> 00:10:34,715
+从而提升这个方面的性能
+
+159
+00:10:34,715 --> 00:10:37,900
+于是让我们开始更细致地了解这个调参的过程吧。
+GTC字幕组翻译

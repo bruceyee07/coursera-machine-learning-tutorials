@@ -1,0 +1,416 @@
+1
+00:00:00,000 --> 00:00:04,182
+Eğer çok yeni bir makine öğrenmesi uygulaması
+üzerine çalışıyorsanız,
+
+2
+00:00:04,182 --> 00:00:06,840
+insanlara sıklıkla verdiğim tavsiyelerden bir tanesi,
+
+3
+00:00:06,840 --> 00:00:11,005
+bence ilk sisteminizi hızlıca kurmalısınız
+ve sonra tekrarlamalısınız.
+
+4
+00:00:11,005 --> 00:00:14,895
+Ne anlatmak istediğimi göstereyim. 
+Yıllardır konuşma tanıma uygulaması üzerine çalıştım.
+
+5
+00:00:14,895 --> 00:00:18,385
+Ve eğer yeni bir konuşma tanıma sistemi
+kurmayı düşünüyorsanız,
+
+6
+00:00:18,385 --> 00:00:20,430
+aslında izleyebileceğiniz birçok yol vardır
+
+7
+00:00:20,430 --> 00:00:22,976
+ve önceliklendirebileceğiniz bir çok şey vardır.
+
+8
+00:00:22,976 --> 00:00:25,590
+Örneğin, konuşma tanıma sistemini gürültülü arka plana
+
+9
+00:00:25,590 --> 00:00:29,235
+daha dirençli yapmak için bazı spesifik teknikler vardır.
+
+10
+00:00:29,235 --> 00:00:32,340
+Gürültülü arka plan ile kastedilen; kafe gürültüsü,
+
+11
+00:00:32,340 --> 00:00:35,430
+arka planda konuşan bir çok insan ya da araba gürültüsü,
+
+12
+00:00:35,430 --> 00:00:38,930
+otoyoldaki arabaların sesleri ya da diğer tip gürültülerdir.
+
+13
+00:00:38,930 --> 00:00:43,440
+Aksanlı konuşmalara karşı konuşma tanıma sistemini
+daha dirençli hale getirmenin yolları vardır.
+
+14
+00:00:43,440 --> 00:00:48,311
+Mikrofondan uzakta olunması gibi
+konuşmacıyla ilgili bazı spesifik problemler vardır,
+
+15
+00:00:48,311 --> 00:00:50,705
+buna uzak alan konuşma tanıma denir.
+
+16
+00:00:50,705 --> 00:00:53,610
+Küçük çocukların konuşması özel zorluklar ortaya çıkarır,
+
+17
+00:00:53,610 --> 00:00:56,535
+bunlar hem kullanmayı seçtikleri kişisel kelimeler kadar
+o kelimeleri nasıl telaffuz ettikleri,
+
+18
+00:00:56,535 --> 00:00:59,820
+hem de kullanmaya eğilimli oldukları
+kelime dağarcıkları olabilir.
+
+19
+00:00:59,820 --> 00:01:07,130
+Ve eğer konuşmacı bazen kekelerse
+ya da oh, ah, um gibi anlamsız ifadeler kullanırsa,
+
+20
+00:01:07,130 --> 00:01:09,960
+farklı seçenekler ve farklı teknikler vardır
+
+21
+00:01:09,960 --> 00:01:12,940
+çıktınız olan transkripti yapmak için.
+
+22
+00:01:12,940 --> 00:01:15,310
+Yine de daha akıcı okuyun.
+
+23
+00:01:15,310 --> 00:01:17,880
+Yani, konuşma tanıma sistemini geliştirmek
+
+24
+00:01:17,880 --> 00:01:22,710
+için yapabileceğiniz bunlar ve daha pek çok başka şeyler var.
+
+25
+00:01:22,710 --> 00:01:26,693
+Ve daha genel olarak, neredeyse bütün
+makine öğrenimi uygulamaları için,
+
+26
+00:01:26,693 --> 00:01:30,030
+girebileceğiniz 50 farklı yol olabilir
+
+27
+00:01:30,030 --> 00:01:34,650
+ve bu yolların her biri makul olacak
+ve sisteminizi daha iyi hale getirecektir.
+
+28
+00:01:34,650 --> 00:01:35,955
+Ama zor olan,
+
+29
+00:01:35,955 --> 00:01:38,990
+bunlardan hangisine odaklanacağınızı nasıl seçeceğiniz.
+
+30
+00:01:38,990 --> 00:01:42,970
+Ve uzun yıllardır konuşma tanımada çalışmış olsam da,
+
+31
+00:01:42,970 --> 00:01:46,075
+yeni bir uygulama alanı için yeni bir sistem geliştirirsem,
+
+32
+00:01:46,075 --> 00:01:48,730
+problem üzerinde düşünmek için
+
+33
+00:01:48,730 --> 00:01:52,625
+biraz zaman harcamadan seçim yapmak
+benim için hala biraz zor olabilir.
+
+34
+00:01:52,625 --> 00:01:54,550
+Size tavsiye edeceğimiz şey şu olur,
+
+35
+00:01:54,550 --> 00:01:58,570
+yepyeni bir makine öğrenimi uygulaması oluşturmaya başlıyorsanız,
+
+36
+00:01:58,570 --> 00:02:02,277
+ilk sisteminizi hızlı bir şekilde geliştirin ve sonra tekrarlayın.
+
+37
+00:02:02,277 --> 00:02:04,720
+Bununla demek istediğim,
+
+38
+00:02:04,720 --> 00:02:08,470
+öncelikle bir dev / test kümesi ve ölçevi
+hızlı bir şekilde ayarlamanızı öneririm.
+
+39
+00:02:08,470 --> 00:02:12,360
+Yani, bu aslında
+hedefini nereye yerleştireceğine karar vermek.
+
+40
+00:02:12,360 --> 00:02:14,560
+Ve eğer yanlış anladıysanız,
+daha sonra her zaman taşıyabilirsiniz,
+
+41
+00:02:14,560 --> 00:02:16,695
+ancak bir yerde bir hedef oluşturun.
+
+42
+00:02:16,695 --> 00:02:20,920
+Ve sonra hızlı bir şekilde bir
+ilk makine öğrenme sistemi oluşturmanızı öneriyorum.
+
+43
+00:02:20,920 --> 00:02:23,248
+Eğitim setini bul, sistemini eğit ve gör.
+
+44
+00:02:23,248 --> 00:02:25,180
+Dev / test setinize ve değerlerinize ve ölçevinize karşı
+
+45
+00:02:25,180 --> 00:02:29,475
+ne kadar iyi çalıştığınızı görmeye ve anlamaya başlayın.
+
+46
+00:02:29,475 --> 00:02:32,633
+İlk sisteminizi kurduğunuzda,
+
+47
+00:02:32,633 --> 00:02:37,180
+daha önce bahsettiğimiz bias/variance analizinin yanı sıra
+
+48
+00:02:37,180 --> 00:02:42,470
+son birkaç videoda bahsettiğimiz hata analizini
+
+49
+00:02:42,470 --> 00:02:45,260
+bir sonraki adımları önceliklendirmek için kullanabileceksiniz.
+
+50
+00:02:45,260 --> 00:02:49,320
+Özellikle, eğer hata analizi
+
+51
+00:02:49,320 --> 00:02:52,780
+hatalarının çoğunun konuşmacının mikrofondan
+
+52
+00:02:52,780 --> 00:02:55,675
+uzakta olmasından kaynaklandığını anlamanızı sağlıyorsa,
+
+53
+00:02:55,675 --> 00:02:58,342
+ki bu konuşma tanımada özel zorluklara sebep olur,
+
+54
+00:02:58,342 --> 00:03:03,990
+bu size uzak alan konuşma tanıma tekniklerine
+odaklanmanız için
+
+55
+00:03:03,990 --> 00:03:06,640
+iyi bir sebep sunar
+
+56
+00:03:06,640 --> 00:03:10,865
+basitçe, konuşmacı mikrofondan çok uzaktayken
+durumu yönetebilmenizi sağlar.
+
+57
+00:03:10,865 --> 00:03:14,693
+Bu ilk sistemi geliştirmenin önemi üzerine,
+
+58
+00:03:14,693 --> 00:03:16,737
+ki bu çabuk ve çok temiz olmayan bir uygulama olabilir,
+
+59
+00:03:16,737 --> 00:03:18,120
+çok fazla düşünmeyin.
+
+60
+00:03:18,120 --> 00:03:22,690
+Fakat ilk sisteminizin önemi,
+bir şeyleri öğrenmiş bir sistem olmasıdır,
+
+61
+00:03:22,690 --> 00:03:26,497
+biraz eğitilmiş bir sistem bias/variance'ı yerelleştirmenizi,
+
+62
+00:03:26,497 --> 00:03:28,255
+sıradaki yapacağınız işleri önceliklendirmenizi,
+
+63
+00:03:28,255 --> 00:03:30,270
+hata analizleri yapabilmenizi,
+
+64
+00:03:30,270 --> 00:03:31,480
+bazı hataları görebilmenizi,
+
+65
+00:03:31,480 --> 00:03:34,630
+gidebileceğiniz farklı yolları keşfetmenizi sağlar,
+
+66
+00:03:34,630 --> 00:03:37,822
+ki aslında değerli olanlar bunlardır.
+
+67
+00:03:37,822 --> 00:03:44,125
+Özetlemek gerekirse, size önerdiğim şey,
+ilk sisteminizi hızlıca oluşturmak, sonra tekrarlamak.
+
+68
+00:03:44,125 --> 00:03:47,050
+Bu öneri, önemli bir ön deneyime sahip olduğunuz
+
+69
+00:03:47,050 --> 00:03:52,300
+bir uygulama alanında çalışıyorsanız daha az uygulanmaktadır.
+
+70
+00:03:52,300 --> 00:03:56,080
+Daha az zor bir şekilde inşa etmek anlamına da gelir eğer güçlü bir
+
+71
+00:03:56,080 --> 00:03:58,480
+üzerine çizebileceğiniz önemli bir akademik literatür var ise,
+
+72
+00:03:58,480 --> 00:04:01,425
+hemen hemen aynı problem için
+
+73
+00:04:01,425 --> 00:04:05,810
+Örneğin, yüz tanıma üzerine geniş bir akademik literatür var.
+
+74
+00:04:05,810 --> 00:04:08,185
+Ve eğer bir yüz tanıma geliştirmeye çalışıyorsanız,
+
+75
+00:04:08,185 --> 00:04:11,725
+başından itibaren bu geniş akademik literatürün
+üzerine inşa ederek,
+
+76
+00:04:11,725 --> 00:04:16,595
+daha karmaşık bir sistemi kurmak iyi bir şey olabilir.
+
+77
+00:04:16,595 --> 00:04:19,990
+Ancak, ilk kez yeni bir problemle uğraşıyorsanız,
+
+78
+00:04:19,990 --> 00:04:23,235
+ilk sisteminizi çok karmaşık hale getirmemenizi
+
+79
+00:04:23,235 --> 00:04:27,010
+ya da üzerine aşırı düşünmemenizi tavsiye ederim.
+
+80
+00:04:27,010 --> 00:04:30,070
+Sadece hızlı ve çok temiz olmayan bir şey yapın ve
+
+81
+00:04:30,070 --> 00:04:33,447
+sisteminizi nasıl geliştireceğiniz konusunda
+size yardım etmesi için bunu kullanın.
+
+82
+00:04:33,447 --> 00:04:36,670
+Bir çok makine öğrenimi projesini gördüm ve
+
+83
+00:04:36,670 --> 00:04:40,465
+bazı ekiplerin çözüm üzerine aşırı düşündüğünü ve
+çok karmaşık bir şey geliştirdiklerini gördüm.
+
+84
+00:04:40,465 --> 00:04:44,335
+Ayrıca bazı takımların yetersiz düşündüklerini gördüm ve
+sonra belki de çok basit bir şey geliştirdiklerini.
+
+85
+00:04:44,335 --> 00:04:46,240
+Ortalama olarak, daha çok
+
+86
+00:04:46,240 --> 00:04:49,315
+ekiplerin aşırı düşündüklerini ve
+çok karmaşık bir şey geliştirdiklerini gördüm.
+
+87
+00:04:49,315 --> 00:04:52,275
+Ve ekiplerin çok basit bir şey geliştirdiklerini gördüm.
+
+88
+00:04:52,275 --> 00:04:53,920
+Umarım bu yardımcı olur,
+
+89
+00:04:53,920 --> 00:04:58,583
+ve eğer makine öğrenim algoritmalarınıza
+yeni bir uygulama için başvuruyorsanız,
+
+90
+00:04:58,583 --> 00:05:01,840
+ve ana hedefiniz çalışan bir şey geliştirmekse,
+
+91
+00:05:01,840 --> 00:05:04,720
+ya da tam tersi, ana hedefiniz
+
+92
+00:05:04,720 --> 00:05:08,020
+farklı bir amaç için yeni bir makine öğrenmesi
+algoritması yaratmaksa,
+
+93
+00:05:08,020 --> 00:05:11,075
+o zaman ana hedefiniz gerçekten iyi çalışan
+bir şey elde etmektir.
+
+94
+00:05:11,075 --> 00:05:13,360
+Hızlı ve çok temiz olmayan bir şey yapmanızı öneririm.
+
+95
+00:05:13,360 --> 00:05:14,600
+Bunu Bias/variance analizinde kullanabilirsiniz,
+
+96
+00:05:14,600 --> 00:05:17,890
+Hata analizinde kullanabilirsiniz.
+
+97
+00:05:17,890 --> 00:05:23,510
+bu analizlerin sonuçlarını bir sonraki atacağınız
+adımı önceliklendirmek için kullanabilirsiniz.
