@@ -1,0 +1,451 @@
+1
+00:00:02,026 --> 00:00:06,778
+Evrişim işleminin dikey kenar belirleyiciyi uygulamada nasıl yardımcı
+
+2
+00:00:06,778 --> 00:00:07,800
+olduğunu görmüştünüz.
+
+3
+00:00:07,800 --> 00:00:12,285
+Bu videoda, pozitif ve negatif kenarların farkını yani
+
+4
+00:00:12,285 --> 00:00:16,432
+parlaktan karanlığa veya karanlıktan parlağa geçişlerdeki farkı öğreneceksiniz
+
+5
+00:00:16,432 --> 00:00:19,384
+ve aynı zamanda diğer kenar belirleyici tiplerini,
+
+6
+00:00:19,384 --> 00:00:21,731
+ve kenarları elle kodlamamızdan
+
+7
+00:00:21,731 --> 00:00:26,500
+ziyade kendisinin öğrenmesini nasıl sağlayacağımızı göreceksiniz
+
+8
+00:00:26,500 --> 00:00:28,456
+Öyleyse, başlayalım.
+
+9
+00:00:31,612 --> 00:00:36,050
+Burada bir önceki videoda kulladığımız örnek mevcut yani
+
+10
+00:00:36,050 --> 00:00:39,377
+solda ışık olan ve sağda karanlık olan ve dikey kenar belirleme
+
+11
+00:00:39,377 --> 00:00:43,752
+filtresiyle evrilen ve dikey kenarı görüntünün ortasından
+
+12
+00:00:43,752 --> 00:00:46,390
+aşağıya doğru belirleyen 6 x 6 matrix mevcut.
+
+13
+00:00:47,710 --> 00:00:51,400
+Peki renkler yer değiştirseydi görüntüye ne olur?
+
+14
+00:00:51,400 --> 00:00:55,108
+Yani solda karanlık ve sağda aydınlık olsaydı?
+
+15
+00:00:55,108 --> 00:00:59,930
+Dolayısıyla 10 lar artık matriksin sağ yarısında ve 0 lar sol yarısında,
+
+16
+00:00:59,930 --> 00:01:03,240
+Eğer bunu aynı kenar belirleme filtresiyle evirirseniz,
+
+17
+00:01:03,240 --> 00:01:07,835
+ortada 30 lar yerine -30 ların görürsünüz
+
+18
+00:01:07,835 --> 00:01:12,820
+ve bunu buradaki olduğu gibi görebilirsiniz.
+
+19
+00:01:12,820 --> 00:01:15,566
+Geçişlerin yerleri tersine döndüğünden dolayı,
+
+20
+00:01:15,566 --> 00:01:18,290
+30 larda aynı zamanda tersine dönmüş olur
+
+21
+00:01:18,290 --> 00:01:21,160
+ve -30 lar
+
+22
+00:01:21,160 --> 00:01:26,790
+bunun parlaktan karanlığa olmasından ziyade karanlıktan parlaklığa bir geçiş olduğunu gösterir
+
+23
+00:01:26,790 --> 00:01:30,689
+ve eğer bu iki durumdan hangisi olduğunu önemsemiyorsanız,
+
+24
+00:01:30,689 --> 00:01:34,780
+çıktı matriksinin mutlak değerini alabilirsiniz
+
+25
+00:01:34,780 --> 00:01:39,364
+fakat şu andaki filtre karanlıktan aydınlığa mı yoksa aydınlıktan karanlığa mı
+
+26
+00:01:39,364 --> 00:01:41,340
+olduğu konusunda fark oluşturur.
+
+27
+00:01:42,500 --> 00:01:45,190
+Hadi kenar belirleme ile ilgili daha fazla örnek görelim
+
+28
+00:01:45,190 --> 00:01:49,640
+Burada gördüğümüz 3 x 3 filtre dikey kenarları belirlemede yardımcı oluyor.
+
+29
+00:01:49,640 --> 00:01:53,470
+Dolayısıyla bu 3 x 3 filtre size yatay çizgileri belirlemede
+
+30
+00:01:53,470 --> 00:01:58,160
+yardımcı olur desem herhalde çok fazla şaşırmazsınız.
+
+31
+00:01:58,160 --> 00:02:02,450
+Dolayısıyla bir hatırlatıcı olarak söylemek gerekirse, bu filtreye göre bir dikey kenar,
+
+32
+00:02:02,450 --> 00:02:06,130
+piksellerin solda göreceli olarak parlak olduğu ve sağda göreceli olarak
+
+33
+00:02:06,130 --> 00:02:08,580
+karanlık olduğu 3 x 3 lük bir bölgedir
+
+34
+00:02:08,580 --> 00:02:13,080
+Dolayısıyla benzer şekilde, bir yatay kenar,
+
+35
+00:02:13,080 --> 00:02:18,510
+piksellerin yukarıda parlak olduğu ve aşağıda karanlık olduğu 3 x 3 lük bir bölgedir
+
+36
+00:02:18,510 --> 00:02:22,392
+Bir örnek verecek olursak, bu 10 ların
+
+37
+00:02:22,392 --> 00:02:27,967
+sol üst ve sağ alt köşelerde olduğu daha karmaşık bir örnek olacak.
+
+38
+00:02:27,967 --> 00:02:32,559
+Eğer bunu bir görüntü olarak çizecek olursanız, bu görüntü 0 ların olduğu yerde
+
+39
+00:02:32,559 --> 00:02:37,379
+daha karanlık,-bundan dolayı burayı boyayacağım- , ve 10 ların
+
+40
+00:02:37,379 --> 00:02:41,459
+olduğu sol üstte ve sağ altta daha aydınlık olacaktır
+
+41
+00:02:41,459 --> 00:02:47,190
+ve eğer bunu bir yatay kenar belirleyici ile evirirseniz şu sonuca ulaşırsınız.
+
+42
+00:02:48,470 --> 00:02:51,462
+Ve birkaç örnek vermek gerekirse,
+
+43
+00:02:51,462 --> 00:02:55,774
+buradaki 30 , üstte parlak altta koyu piksellerin
+
+44
+00:02:55,774 --> 00:03:01,407
+olduğu bu 3 x 3 lük bölgeye tekabül eder
+
+45
+00:03:01,407 --> 00:03:04,110
+Yaklaşık olarak buraya,
+
+46
+00:03:04,110 --> 00:03:08,391
+ve orada güçü bir pozitif kenar bulmakta
+
+47
+00:03:08,391 --> 00:03:12,309
+ve bu -30 altta aydınlık piksellerin olduğu
+
+48
+00:03:12,309 --> 00:03:16,987
+üstte koyu piksellerin olduğu bu bölgeye tekabül eder.
+
+49
+00:03:16,987 --> 00:03:21,210
+Dolayısıyla bu da bu örnekte nagatif kenara bir örnektir
+
+50
+00:03:21,210 --> 00:03:26,124
+ve bu göreceli olarak küçük resimlerle çalıştığımız için bir artefakt olarak karşımıza çıkmaktadır
+
+51
+00:03:26,124 --> 00:03:31,300
+çünkü çalıştığımız görüntü 6 x 6 lik bir görüntü
+
+52
+00:03:31,300 --> 00:03:34,210
+fakat bu ara değerler örneğin buradaki -10 gibi,
+
+53
+00:03:34,210 --> 00:03:39,150
+soldaki pozitif kenardan bir kısım ve sağdaki negatif kenardan bir
+
+54
+00:03:39,150 --> 00:03:44,020
+kısım aldığından ve bunların ikisini birleştirdiğinden burada
+
+55
+00:03:44,020 --> 00:03:47,120
+olduğu gibi size ara bir değer vermektedir
+
+56
+00:03:47,120 --> 00:03:49,050
+fakat eğer bu çok büyük olsaydı diyelim ki, buna
+
+57
+00:03:49,050 --> 00:03:54,160
+benzer dama tahtası görünümünde 1000 x 1000 bir görüntü olsaydı
+
+58
+00:03:54,160 --> 00:03:58,176
+10ların olduğu bu geçiş bölgelerini görmeyecektiniz
+
+59
+00:03:58,176 --> 00:04:02,950
+Ara değerler görüntünün boyutuna göre oldukça küçük değerler alırdı
+
+60
+00:04:02,950 --> 00:04:10,220
+Özetlemek gerekirse, farklı filtreler yatay ve dikey olarak farklı kenarlar bulmaya yaramaktadır
+
+61
+00:04:10,220 --> 00:04:15,320
+Görünen o ki kullandığımız 3 x 3 dikey kenar belirleme filtresi
+
+62
+00:04:15,320 --> 00:04:17,870
+sadece bir muhtemel seçimdir
+
+63
+00:04:17,870 --> 00:04:20,470
+ve tarihsel olarak, bilgisayarlı görü literatüründe,
+
+64
+00:04:20,470 --> 00:04:24,750
+kullanılması gereken en iyi numaraların hangileri olduğu ile alakalı epey tartışma vardır.
+
+65
+00:04:24,750 --> 00:04:29,513
+Örneğin kullanabileceğiniz başka bir şey 1,2,1 0,0,0
+
+66
+00:04:29,513 --> 00:04:32,840
+-1,-2,-1 olabilir.
+
+67
+00:04:32,840 --> 00:04:35,670
+Buna Sobel filtresi denir
+
+68
+00:04:35,670 --> 00:04:40,981
+ve bunun avatajı merkezdeki sıraya daha fazla ağırlık koymasıdır
+
+69
+00:04:40,981 --> 00:04:46,620
+merkezdeki pikselllere , ve bu bir miktar daha dayanıklı olmasına yarar
+
+70
+00:04:46,620 --> 00:04:50,711
+fakat bilgisayarlı görü araştırmacıları başka numaralarda kullanacaktır
+
+71
+00:04:50,711 --> 00:04:54,950
+örneğin 1,2,1 yerine 3,10,3 0,0,0
+
+72
+00:04:54,950 --> 00:04:59,330
+ve -3,-10,-3
+
+73
+00:04:59,330 --> 00:05:01,931
+ve buna Scharr filtresi denir
+
+74
+00:05:01,931 --> 00:05:06,752
+ve bu yine bir miktar farklı özelliklere sahiptir
+
+75
+00:05:06,752 --> 00:05:10,235
+ve bu sadece dikey kenar belirleme içindir
+
+76
+00:05:10,235 --> 00:05:13,043
+ve eğer bunu 90 derece döndürürseniz, yatay kenar belirleyici elde etmiş olursunuz
+
+77
+00:05:13,043 --> 00:05:18,350
+ve derin öğrenmenin yükselişiyle, öğrendiğimiz şeylerden biri ise karmaşık bir
+
+78
+00:05:18,350 --> 00:05:23,743
+görüntüdeki kenarları belirlemek istediğiniz zaman belki de bilgisayarlı görü
+
+79
+00:05:23,743 --> 00:05:29,319
+uzmanının bu 9 numarayı seçmesine ihtiyacınız yoktur
+
+80
+00:05:29,319 --> 00:05:33,855
+belki de onları öğrenir ve bu 9 numaraya daha sonra geri yayılım
+
+81
+00:05:33,855 --> 00:05:37,745
+aşamasında öğreneceğiniz parametreler gibi davranabilirsiniz
+
+82
+00:05:37,745 --> 00:05:42,095
+ve amaç ise 6 x 6 görüntüyü aldığınız ve , ve 3 x 3 filtreyle
+
+83
+00:05:42,095 --> 00:05:46,373
+evirdiğiniz zaman bunun size iyi bir kenar
+
+84
+00:05:46,373 --> 00:05:48,935
+belirleyici vermesi olacaktır
+
+85
+00:05:50,030 --> 00:05:54,840
+ve daha sonraki videolarda göreceğiniz şey bu 9 numaraya parametre gözüyle bakarak,
+
+86
+00:05:54,840 --> 00:05:59,571
+geri yayılım 1,1,1 0,0,0 -1,-1,-1 şeklinde öğrenmeyi seçebilir
+
+87
+00:05:59,571 --> 00:06:04,680
+ya da Sobel filtresi ya da Scharr filtresi ya da verinin istatistiğini daha iyi
+
+88
+00:06:04,680 --> 00:06:08,364
+yakalamaya yönelik bu elle kodlanmış filtrelerin herhangi
+
+89
+00:06:08,364 --> 00:06:13,210
+birinden daha iyi bir filtre öğrenmeyi seçebilir.
+
+90
+00:06:13,210 --> 00:06:17,005
+Ve sadece dikey ya da yatay kenarlardan ziyade
+
+91
+00:06:17,005 --> 00:06:21,219
+belki de 45 derece ya da 70 derece veya 73 derece
+
+92
+00:06:21,219 --> 00:06:26,127
+yani seçtiği herhangi bir açıda kenarları belirlemeyi öğrenebilir.
+
+93
+00:06:26,127 --> 00:06:30,597
+Ve bütün bu numaraların paramatre olmasına izin vererek, ve veriden otomatik
+
+94
+00:06:30,597 --> 00:06:35,356
+olarak öğrenmesine izin vererek, sinir ağlarının düşük seviye özellikleri
+
+95
+00:06:35,356 --> 00:06:39,970
+gerçekten öğrendiğini göreceğiz, ve bilgisayarlı görü araştırmacılarının
+
+96
+00:06:39,970 --> 00:06:45,467
+bunları elle kodladığından daha iyi bir şekilde kenarları öğrenebilir
+
+97
+00:06:45,467 --> 00:06:51,404
+fakat altta yatan tüm bu işlemler, geri yayılıma belirlemeye çalıştığı özelliği belirlemesi için,
+
+98
+00:06:51,404 --> 00:06:56,773
+istediği 3 x 3 filtreyi öğrenmesine ve belirlemeye çalıştığı herhangi bir özelliği
+
+99
+00:06:56,773 --> 00:07:02,788
+öğrenmesine ve daha sonra bunu bütün görüntüye uygulamasına bu konumda,
+
+100
+00:07:02,788 --> 00:07:08,266
+bu konumda, bu konumda izin veren evrişim işlemidir
+
+101
+00:07:08,266 --> 00:07:13,296
+Her ne özelliği belirlemeye çalışırsanız çalısın dikey kenarlar olsun, yatay kenarlar
+
+102
+00:07:13,296 --> 00:07:18,260
+olsun, ya da bir başka açıda hatta ingilizce'de ismi olmayan bir filtre dahi olsun.
+
+103
+00:07:19,370 --> 00:07:22,945
+Bu 9 numaraya öğrenilmesi gereken parametreler gözüyle bakmak fikri
+
+104
+00:07:22,945 --> 00:07:26,890
+bilgisayarlı görüdeki en güçlü fikirlerden biridir
+
+105
+00:07:26,890 --> 00:07:31,654
+ve bu kursun ilerleyen bölümlerinde, bu haftanın ilerleyen kısımlarında,
+
+106
+00:07:31,654 --> 00:07:36,034
+geri yayılımı bu 9 numarayı öğrenmek için nasıl kullanacağınızı öğreneceksiniz
+
+107
+00:07:36,034 --> 00:07:39,638
+fakat ilk olarak, temel evrişim işlemindeki diğer detaylar
+
+108
+00:07:39,638 --> 00:07:41,890
+ve diğer varyasyonlar hakkında konuşalım.
+
+109
+00:07:41,890 --> 00:07:46,219
+Sonraki iki videoda, sizinle evrişimler için dolgulama(padding)'nın ve farklı kaydırma(strides)'ların nasıl
+
+110
+00:07:46,219 --> 00:07:48,510
+kullanılacağı hakkında konuşmak istiyorum
+
+111
+00:07:48,510 --> 00:07:52,943
+ve bu iki terim evrişimli sinir ağlarının yapı bloklarının önemli birer
+
+112
+00:07:52,943 --> 00:07:55,130
+parçası haline gelecek
+
+113
+00:07:55,130 --> 00:07:56,420
+Haydi bir sonraki videoya geçelim.

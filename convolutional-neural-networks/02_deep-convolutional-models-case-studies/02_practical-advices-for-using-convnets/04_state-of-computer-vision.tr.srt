@@ -1,0 +1,803 @@
+1
+00:00:00,000 --> 00:00:01,650
+Derin öğrenme teknikleri
+
+2
+00:00:01,650 --> 00:00:03,850
+bilgisayarlı görü uygulamalarında, doğal diş işlemede,
+
+3
+00:00:03,850 --> 00:00:05,990
+konuşma tanımada, online reklamcılıkta,
+
+4
+00:00:05,990 --> 00:00:08,550
+lojistik, ve daha birçok sorunda başarılı olarak kullanılmıştır.
+
+5
+00:00:08,550 --> 00:00:10,470
+Derin öğrenmenin bilgisayarlı görüye uygulanmasına, ve
+
+6
+00:00:10,470 --> 00:00:12,990
+bilgisayarlı görünün bugün bulunduğu duruma özgün
+
+7
+00:00:12,990 --> 00:00:15,570
+bazı özel hususlar var.
+
+8
+00:00:15,570 --> 00:00:20,160
+Bu videoda sizinle derin öğrenmenin bilgisayarlı görüde uygulanması hakkında
+
+9
+00:00:20,160 --> 00:00:25,335
+izlenimlerimi paylaşacağım. Umarım bu sizin literatürde ve başka yerlerde
+
+10
+00:00:25,335 --> 00:00:27,270
+karşılaşacağınız fikirleri değerlendirmenizde ve
+
+11
+00:00:27,270 --> 00:00:31,880
+kendi bilgisayarlı görü sistemleri oluşturmanızda yardımcı olur.
+
+12
+00:00:31,880 --> 00:00:38,180
+Makine öğrenme problemlerinin çoğunu, elinizde
+
+13
+00:00:38,180 --> 00:00:40,730
+çok az miktarda veri olanlardan ve çok fazla miktarda verinin
+
+14
+00:00:40,730 --> 00:00:45,585
+olduğu problemlere uzanan bir spektruma oturtabilirsiniz.
+
+15
+00:00:45,585 --> 00:00:50,840
+Mesela bugün konuşma tanıma problemleri için gayet yeterli miktarda
+
+16
+00:00:50,840 --> 00:00:57,230
+verimiz var. Yani an azından problemin zorluğuna göre yeterli diyebiliriz.
+
+17
+00:00:57,230 --> 00:00:59,540
+Ama görüntü tanıma ve sınıflandırma problemleri,
+
+18
+00:00:59,540 --> 00:01:05,315
+bir resimdeki bütün imge noktalarına bakıp ne olduğunu anlamayı gerektiren
+
+19
+00:01:05,315 --> 00:01:07,460
+hakikaten zor problemler olduğu için,
+
+20
+00:01:07,460 --> 00:01:11,222
+bugün elimizde gayet büyük veri kümeleri olmasına ve
+
+21
+00:01:11,222 --> 00:01:16,250
+ve hatta 1 milyon görüntüyü aşan çevrimiçi veri kümelerinin olmasına rağmen,
+
+22
+00:01:16,250 --> 00:01:20,098
+hala daha çok veriye ihtiyacımız olduğunu hissediyoruz.
+
+23
+00:01:20,098 --> 00:01:28,006
+Ve nesne algılama gibi bazı problemlerde elimizdeki veri miktarı bundan bile daha az.
+
+24
+00:01:28,006 --> 00:01:31,340
+Bir hatırlatma: görüntü tanıma bir resme bakıp sadece
+
+25
+00:01:31,340 --> 00:01:34,912
+o resimde kedi olup olmadığını belirlemek iken,
+
+26
+00:01:34,912 --> 00:01:39,590
+nense algılamada ise bundan ayrı olarak o nesnenin
+
+27
+00:01:39,590 --> 00:01:41,948
+resmin tam olarak neresinde olduğunu yani sınırlarını belirleyen
+
+28
+00:01:41,948 --> 00:01:44,935
+bir kutu şeklinin çizilmesi gerekiyor.
+
+29
+00:01:44,935 --> 00:01:46,760
+İşte bu nesnenin yerini ve sınırları gösteren kutu şeklinin çizilmesinin
+
+30
+00:01:46,760 --> 00:01:52,470
+bedeli dolayısıyla nesne algılamada nesneleri etiketlemek daha masraflı oluyor.
+
+31
+00:01:52,470 --> 00:01:57,905
+Sonuçta elde nesne algılamak için görüntü tanımadan daha az veri oluyor.
+
+32
+00:01:57,905 --> 00:02:02,083
+Nesne algılama gelecek hafta bahsedeceğimiz bir konu.
+
+33
+00:02:02,083 --> 00:02:06,605
+Makine öğrenme problemlerinin tamamına kuş-bakışı olarak bakınca görülüyor ki
+
+34
+00:02:06,605 --> 00:02:12,095
+genellikle çok fazla veri olduğu zaman insanlar daha basit algoritmalar
+
+35
+00:02:12,095 --> 00:02:18,300
+kullanarak ve fazla el mühendisliği yapmadan idare edebiliyorlar.
+
+36
+00:02:18,300 --> 00:02:23,480
+Eğer çok verimiz varsa, problemin özniteliklerini dikkatlice belirlemek icin uğraşmaya
+
+37
+00:02:23,480 --> 00:02:25,910
+pek gerek olmuyor. Yerine basit bir yapısı olan koskocaman bir sinir ağı
+
+38
+00:02:25,910 --> 00:02:28,507
+kullanılıyor, o sinir ağı da kendi kendine
+
+39
+00:02:28,507 --> 00:02:32,415
+elimizdeki veriden ne öğrenmek istersek öğreniyor.
+
+40
+00:02:32,415 --> 00:02:36,560
+Ama elimizde çok fazla verimiz yoksa o zaman genellikle
+
+41
+00:02:36,560 --> 00:02:41,713
+insanlar kendi eliyle dizayn etmeye çalışıyor.
+
+42
+00:02:41,713 --> 00:02:46,660
+Belki küçümseyici bir ifadeyle el yapımı kurnaz taktikler kullanılıyor.
+
+43
+00:02:46,660 --> 00:02:49,880
+Ama elinizde fazla veri olmadığında
+
+44
+00:02:49,880 --> 00:02:54,809
+bu tip elle tasarlama aslında iyi sonuç almanın en iyi yolu.
+
+45
+00:02:54,809 --> 00:02:59,435
+Makine öğrenme uygulamalarına baktığımda
+
+46
+00:02:59,435 --> 00:03:04,595
+öğrenme algoritmalarının iki bilgi kaynağı olduğunu görüyorum.
+
+47
+00:03:04,595 --> 00:03:07,430
+Bir bilgi kaynağı etiketli veri
+
+48
+00:03:07,430 --> 00:03:11,525
+gözetimli öğrenimde kullanılan (x,y) çiftleri.
+
+49
+00:03:11,525 --> 00:03:14,652
+İkinci bilgi kaynağı da elle tasarlama (el mühendisliği).
+
+50
+00:03:14,652 --> 00:03:17,045
+Bir sistemi el mühendisliği ile tasarlamanın bir çok yolu var.
+
+51
+00:03:17,045 --> 00:03:20,435
+Öznitelikleri dikkatli bir şekilde elle dizayn etmekten,
+
+52
+00:03:20,435 --> 00:03:22,281
+yine elle ve özenli bir şekilde
+
+53
+00:03:22,281 --> 00:03:26,485
+ağın yapısını ya da sisteminizin diğer parçalarını tasarlamaya kadar.
+
+54
+00:03:26,485 --> 00:03:28,880
+Fazla etiketli veriniz olmadığında
+
+55
+00:03:28,880 --> 00:03:32,270
+daha fazla elle tasarlama yapmak gerekiyor.
+
+56
+00:03:32,270 --> 00:03:38,165
+Bilgisayarlı görü, çok zor ve karmaşık bir fonksiyonu öğrenmeye çalışıyor.
+
+57
+00:03:38,165 --> 00:03:42,815
+Ve neredeyse hep yeteri kadar verimizin olmadığını hissediyoruz.
+
+58
+00:03:42,815 --> 00:03:45,362
+Veri kümeleri her ne kadar her geçen gün büyüse de
+
+59
+00:03:45,362 --> 00:03:48,845
+çoğu zaman hala yeterli kalmıyor.
+
+60
+00:03:48,845 --> 00:03:52,100
+Bu yüzden bilgisayarlı görünün geçmişinde, daha fazla
+
+61
+00:03:52,100 --> 00:03:57,178
+el mühendisliği kullanıldı ve bu durum bugün de devam ediyor.
+
+62
+00:03:57,178 --> 00:04:00,425
+İşte yine bu yüzden bilgisayarlı görüntü
+
+63
+00:04:00,425 --> 00:04:05,040
+baya karmaşık ağ yapılarının geliştirilmesine sebep oldu.
+
+64
+00:04:05,040 --> 00:04:08,720
+Çünkü yeteri kadar veri olmayınca
+
+65
+00:04:08,720 --> 00:04:13,400
+daha iyi sonuç almanın tek yolu, daha iyi ağ yapısı geliştirmek ve
+
+66
+00:04:13,400 --> 00:04:17,130
+dizayn etmeye çalışmaktan geçiyor.
+
+67
+00:04:17,130 --> 00:04:19,340
+El mühendisliğinden küçümseyici şekilde bahsettiğimi sanmayın,
+
+68
+00:04:19,340 --> 00:04:23,525
+amacım kesinlikle bu değil.
+
+69
+00:04:23,525 --> 00:04:27,830
+El mühendisliği yeteri kadar veriniz olmadığında kullanılan, çok uğraşlı,
+
+70
+00:04:27,830 --> 00:04:32,135
+hem yetenek ve hem de konuyu sağlam kavramayı gerektiren bir iş.
+
+71
+00:04:32,135 --> 00:04:36,875
+Bilgili ve konuya hakim birisi el tasarımı ile daha iyi sonuçlar elde eder.
+
+72
+00:04:36,875 --> 00:04:39,590
+Yeteri kadar veri bulunmadığında
+
+73
+00:04:39,590 --> 00:04:43,085
+ağı elle dizayn etmek bir projeye çok büyük katkıdır.
+
+74
+00:04:43,085 --> 00:04:47,150
+Ama elinizde yeteri kadar çok veri varsa, el mühendisliğiyle pek vakit geçirilmemeli.
+
+75
+00:04:47,150 --> 00:04:52,588
+Onun yerine öğrenme sistemini kurmaya konsantre olmak daha iyi.
+
+76
+00:04:52,588 --> 00:04:57,610
+Ama bilgisayarlı görü alanı tarihinde hep çok küçük veri kümeleri kullandı,
+
+77
+00:04:57,610 --> 00:04:59,965
+ve dolayısıyla literaturünde de çok fazla
+
+78
+00:04:59,965 --> 00:05:02,700
+elle tasarımı kullandığını görüyoruz.
+
+79
+00:05:02,700 --> 00:05:06,640
+Bilgisayarlı görü işleri için kullanılan
+
+80
+00:05:06,640 --> 00:05:10,540
+veri miktarında son birkaç yıl çok dramatik
+
+81
+00:05:10,540 --> 00:05:12,580
+bir artış oldu, bu da el mühendisliğinin (elle yapılan tasarımın)
+
+82
+00:05:12,580 --> 00:05:17,185
+kullanımında gerçekten baya azalmaya neden oldu.
+
+83
+00:05:17,185 --> 00:05:21,480
+Ancak, ağ yapılarının elle tasarlanması bilgisayarlı görüde hala karşımıza çıkan bir durum.
+
+84
+00:05:21,480 --> 00:05:26,890
+İşte bu yüzden bilgisayarlı görüde, diğer alanlara göre,
+
+85
+00:05:26,890 --> 00:05:31,294
+daha karmaşık hiper parametre ayaları oluyor.
+
+86
+00:05:31,294 --> 00:05:33,550
+Genellikle nesne algılama veri kümeleri genellikle
+
+87
+00:05:33,550 --> 00:05:38,050
+görüntü tanımlama veri kümelerinden daha küçük olduğu içinö
+
+88
+00:05:38,050 --> 00:05:43,360
+haftaya bunun gibi nesne algılama grevlerinden bahsedince
+
+89
+00:05:43,360 --> 00:05:48,280
+göreceğiniz gibi algoritmalar
+
+90
+00:05:48,280 --> 00:05:54,040
+daha da karmaşık, uzmanlaşan özel olarak dizayn edilmiş parçalarla karşımıza çıkacaklar.
+
+91
+00:05:54,040 --> 00:06:00,100
+Neyse ki transfer öğrenme diye adlandırılan bir teknik fazla veri olmadığında işimizi bayağı kolaylaştırıyor.
+
+92
+00:06:00,100 --> 00:06:10,395
+Örnek olarak bir önceki slaytta bahsedilen 'tiger/misty' ya da hiçbiri
+
+93
+00:06:10,395 --> 00:06:13,850
+probleminde o kadar az veri var ki,
+
+94
+00:06:13,850 --> 00:06:18,666
+transfer öğrenme tekniği kullanmak gerekli ve çok faydalı olur.
+
+95
+00:06:18,666 --> 00:06:21,120
+İşte bu da elde olan veri çok az olduğunda
+
+96
+00:06:21,120 --> 00:06:24,255
+kullanılan tekniklerden bir çeşidi.
+
+97
+00:06:24,255 --> 00:06:27,100
+Eğer bilgisayarlı görü literatürüne ve
+
+98
+00:06:27,100 --> 00:06:29,243
+bahsi geçen fikirlere bakarsanız
+
+99
+00:06:29,243 --> 00:06:32,293
+insanların bu konuda çok heyecanlı olduğunu görürsünüz.
+
+100
+00:06:32,293 --> 00:06:34,800
+Denek veri kümelerinde ve yarışmalarda
+
+101
+00:06:34,800 --> 00:06:38,730
+başarılı olmanın çok üstüne düşüyorlar.
+
+102
+00:06:38,730 --> 00:06:41,925
+Bilgisayarlı görü araştırmacıları, bu standart denek veri kümelerinde
+
+103
+00:06:41,925 --> 00:06:45,395
+başarılı olurlarsa makale yayınlamaları daha kolay oluyor.
+
+104
+00:06:45,395 --> 00:06:49,155
+Dolayısıyla bu denek kümelerde başarılı olmak icin çok çalışılıyor.
+
+105
+00:06:49,155 --> 00:06:51,615
+Bunun iyi yönü, en gelişmiş algoritmanın
+
+106
+00:06:51,615 --> 00:06:56,125
+toplum tarafından bulmasını sağlamaları.
+
+107
+00:06:56,125 --> 00:07:02,475
+Ancak bazen makalelerde, denek veri setlerinde
+
+108
+00:07:02,475 --> 00:07:04,310
+performansı arttıran, fakat gerçek bir üretimde ya da
+
+109
+00:07:04,310 --> 00:07:08,665
+uygulamada pek kullanılmayacak tekniklere başvurulduğunu görebilirsiniz.
+
+110
+00:07:08,665 --> 00:07:11,379
+Peki denek veri kümelerinde başarılı olmanın bazı teknik püf noktaları neler.
+
+111
+00:07:11,379 --> 00:07:15,960
+Bu bahsedeceğim teknikleri ben, gerçek müşterilerin kullanacağı,
+
+112
+00:07:15,960 --> 00:07:20,940
+gerçekten üretimde kullanılacak bir sistem geliştirirken, neredeyse hiç kullanmıyorum.
+
+113
+00:07:20,940 --> 00:07:23,105
+Birincisi kümeleme ("ensemble" oluşturma)
+
+114
+00:07:23,105 --> 00:07:24,870
+Bunun anlamı şu:
+
+115
+00:07:24,870 --> 00:07:27,410
+Ne tür bir sinir ağı gerektiğini anladıktan sonra,
+
+116
+00:07:27,410 --> 00:07:33,120
+birkaç tanesini bağımsız olarak eğitip çıktılarının ortalamasını almak.
+
+117
+00:07:33,120 --> 00:07:35,610
+Mesela, 3, ya da 5,
+
+118
+00:07:35,610 --> 00:07:40,095
+ya da 7 sinir ağını rastgele başlatıp, hepsini eğitiyorsunuz,
+
+119
+00:07:40,095 --> 00:07:41,890
+sonra sonuçlarının ortalamasını alıyorsunuz.
+
+120
+00:07:41,890 --> 00:07:44,943
+Bu arada sonuçların ortalamasını alırken şapkalı y kullanmak önemli.
+
+121
+00:07:44,943 --> 00:07:47,660
+Ağırlıklarını ortalamasını almayınız, bu yalnış olur.
+
+122
+00:07:47,660 --> 00:07:50,410
+Mesela 7 tane olan sinir ağlarınıza bakın, onların
+
+123
+00:07:50,410 --> 00:07:53,348
+yaptığı 7 tahminin ortalamasını alın.
+
+124
+00:07:53,348 --> 00:07:57,725
+Bu şekilde %1, ya da %2 daha doğru sonuç alabilirsiniz.
+
+125
+00:07:57,725 --> 00:08:02,015
+Yani bir denek veri kümesinde önceki sonuçlara
+
+126
+00:08:02,015 --> 00:08:04,569
+biraz daha başarılı olmanıza sebep olur.
+
+127
+00:08:04,569 --> 00:08:11,544
+Bazen %1 ya da %2 daha doğru sonuç almak bir yarışmayı kazanmayı sağlayabilir.
+
+128
+00:08:11,544 --> 00:08:15,200
+Ama kümelemek çoğunlukla bir
+
+129
+00:08:15,200 --> 00:08:17,810
+görüntünün 3'ten 15'e kadar bir çok sayıda ağdan
+
+130
+00:08:17,810 --> 00:08:21,965
+geçirilmesini gerektirir.
+
+131
+00:08:21,965 --> 00:08:25,570
+Bu da sizin programınızın işleyiş hızını 3 ya da 15 kat,
+
+132
+00:08:25,570 --> 00:08:26,885
+hatta bazen daha da fazla yavaşlatır.
+
+133
+00:08:26,885 --> 00:08:29,655
+Kümelemek denek kümelerde başarılı olmak ve yarışma kazanmak
+
+134
+00:08:29,655 --> 00:08:33,111
+için kullanılan tekniklerden birisi.
+
+135
+00:08:33,111 --> 00:08:38,275
+Ama gerçek anlamda müşterilerin kullandığı bir ürün için neredeyse hiç kullanılmaz.
+
+136
+00:08:38,275 --> 00:08:41,400
+Özellikle çok büyük bir bilişimsel bütçenizin olmadığını ve
+
+137
+00:08:41,400 --> 00:08:44,996
+bir görüntü için normalden çok daha fazlasını harcama istemediğinizi varsayarsak.
+
+138
+00:08:44,996 --> 00:08:50,195
+Makalelerde görülen ve denek kümelerde performansı arttıran diğer
+
+139
+00:08:50,195 --> 00:08:52,690
+Bir diğer teknik: sınama zamanında yapılan çoklu kırpma yöntemi.
+
+140
+00:08:52,690 --> 00:08:58,055
+Açıklamak gerekirse: Veri çoğaltmanın nasıl yapıldığını görmüştünüz
+
+141
+00:08:58,055 --> 00:09:04,910
+Çoklu kırpma, veri çoğaltma tekniğinin sınama görüntülerine uygulanması.
+
+142
+00:09:04,910 --> 00:09:07,470
+Mesela bir kedi resmine bakalım.
+
+143
+00:09:07,470 --> 00:09:12,155
+Resmin 4 nüshasını alalım, bunlardan 2'si orijinalinin yansıtılmış hali olsun.
+
+144
+00:09:12,155 --> 00:09:14,585
+10'lu kırpma diye bir yöntem var. Bu yöntemde yapılan şu:
+
+145
+00:09:14,585 --> 00:09:19,460
+Bu merkezi bölgeyi kırpalım
+
+146
+00:09:19,460 --> 00:09:22,097
+ve bu veriyi sınıflandırıcı ağa algoritmaya girdi olarak verelim.
+
+147
+00:09:22,097 --> 00:09:24,830
+Sonra şu sol üst köşedeki bölgeyi kırpalım, onu da sınıflandırıcıdan geçirelim.
+
+148
+00:09:24,830 --> 00:09:27,145
+Sağ üstte yeşille gösterilen bölgeyi de kırpalım
+
+149
+00:09:27,145 --> 00:09:30,980
+Sol alt köşedeki sarı bölgeyi de kırpalım
+
+150
+00:09:30,980 --> 00:09:33,162
+Sağ alt köşedeki portakal renkli bölgeyi de kırpalım.
+
+151
+00:09:33,162 --> 00:09:34,950
+Ve sınıflandırıcı algoritmaya girdi olarak verelim.
+
+152
+00:09:34,950 --> 00:09:37,060
+Sonra da bunun aynısını yansıtılmış resimde de yapalım.
+
+153
+00:09:37,060 --> 00:09:38,743
+Ortadaki bölgeyi kırpıp alalım.
+
+154
+00:09:38,743 --> 00:09:41,670
+Sonra da 4 köşeyi kırpalım.
+
+155
+00:09:41,670 --> 00:09:44,165
+Yani, bir merkezi kırpma burda, bir diğeri şurada
+
+156
+00:09:44,165 --> 00:09:46,210
+4 köşeden yapılan kırpma, bir burada ve şurada
+
+157
+00:09:46,210 --> 00:09:49,540
+Bütün bunları toplarsak 10 tane kırpmamız oluyor.
+
+158
+00:09:49,540 --> 00:09:51,600
+İşte bu sebeple tekniğin adı 10 kırpma.
+
+159
+00:09:51,600 --> 00:09:54,980
+Yani yapacağınız bu 10 resmi sınıflandırıcı
+
+160
+00:09:54,980 --> 00:09:59,360
+algoritmaya girdi olarak sunup, sonuçların ortalamasını almak.
+
+161
+00:09:59,360 --> 00:10:02,660
+Eger bütçeniz izin veriyorsa bunu siz de yapabilirsiniz.
+
+162
+00:10:02,660 --> 00:10:04,530
+Belki 10 kez kırpmanıza gerek yoktur,
+
+163
+00:10:04,530 --> 00:10:05,900
+daha az miktarda kırpmayla da deneyebilirsiniz.
+
+164
+00:10:05,900 --> 00:10:10,960
+Bu üretimdeki bir sistemde performansı biraz da olsa arttırabilir.
+
+165
+00:10:10,960 --> 00:10:16,190
+Üretimde derken demek istediğim gerçek kullanıcılara sunduğunuz bir sistem.
+
+166
+00:10:16,190 --> 00:10:19,760
+Ama bu teknik te diğerleri gibi daha sık olarak üretimde değil
+
+167
+00:10:19,760 --> 00:10:24,110
+denek veri kümelerinde performansı arttırmak için kullanılan bir yöntem.
+
+168
+00:10:24,110 --> 00:10:27,550
+Kümelemede yaşanan sıkıntılardan bir tanesi
+
+169
+00:10:27,550 --> 00:10:30,575
+bir sürü sinir ağına sahip olmak zorunda kalmanız.
+
+170
+00:10:30,575 --> 00:10:33,835
+Bu da bilgisayarda tabi çok fazla hafıza harcıyor.
+
+171
+00:10:33,835 --> 00:10:37,600
+Çok kırpma tekniğinde ise sadece bir tane ağınız var.
+
+172
+00:10:37,600 --> 00:10:41,155
+Ve dolayısıyla o kadar çok hafıza tüketmiyor.
+
+173
+00:10:41,155 --> 00:10:46,235
+Ama yine de programınızın hızınızı baya azaltıyor.
+
+174
+00:10:46,235 --> 00:10:52,240
+İşte genellikle kullanılan, makalelerde de bahsedilen taktikler bunlar.
+
+175
+00:10:52,240 --> 00:10:56,940
+Her ne kadar denek kümelerde ve yarışmalarda başarılı olmayı
+
+176
+00:10:56,940 --> 00:10:59,535
+sağlasalar da kişisel olarak ben bu taktikleri üretim amaçlı
+
+177
+00:10:59,535 --> 00:11:03,205
+sistemler geliştirirken kullanmıyorum.
+
+178
+00:11:03,205 --> 00:11:08,345
+Bilgisayarlı görü problemlerinin çoğunda az miktarda veri olduğu için
+
+179
+00:11:08,345 --> 00:11:12,620
+başkaları elle birçok ağ yapıları tasarladı.
+
+180
+00:11:12,620 --> 00:11:17,400
+Bilgisayarli görü problemlerinin birisinde işe yarayan bir sinir ağı bazen
+
+181
+00:11:17,400 --> 00:11:21,010
+belki de şaşırtıcı bir şekilde başka görü problemlerin de işe yarayabiliyor.
+
+182
+00:11:21,010 --> 00:11:25,295
+Sonuç olarak, pratik bir sistem oluşturmak icin genellikle
+
+183
+00:11:25,295 --> 00:11:29,796
+başkasının geliştirdiği bir ağ yapısı ile başlanılır.
+
+184
+00:11:29,796 --> 00:11:32,810
+Eğer mümkünse açık kaynak olarak yazılmış bir yapıyı kullanabilirsiniz,
+
+185
+00:11:32,810 --> 00:11:35,770
+çünkü açık kaynak bir program öğrenme katsayısı, "case scheduler"
+
+186
+00:11:35,770 --> 00:11:39,120
+ve diğer gerekli hiper-parametreler gibi bütün titizlik gerektiren detayları düşünüp,
+
+187
+00:11:39,120 --> 00:11:42,478
+en yüksek performans alacak haline getirmiş (optimize etmiş) olabilir.
+
+188
+00:11:42,478 --> 00:11:46,350
+Son olarak, başka birisi haftalarca uğraşıp bir modeli
+
+189
+00:11:46,350 --> 00:11:51,926
+yarım düzine GPU ve bir milyon resim kullanarak eğitmiş olabilir.
+
+190
+00:11:51,926 --> 00:11:56,565
+Başkasının önceden eğittiği modeli kendi veri kümeniz için ince ayarlarla uyarlayıp
+
+191
+00:11:56,565 --> 00:12:00,610
+kullanırsanız, uygulamaya çok daha hızlı geçmiş olursunuz.
+
+192
+00:12:00,610 --> 00:12:05,048
+Ama gerekli bilişim altyapınız ve isteğiniz de varsa
+
+193
+00:12:05,048 --> 00:12:09,840
+tabi ki kendi sinir ağınızı eğitip sıfırdan yaratabilirsiniz.
+
+194
+00:12:09,840 --> 00:12:14,326
+Hele kendi bilgisayarlı görü algoritmanizi icat etmek istiyorsanız,
+
+195
+00:12:14,326 --> 00:12:16,840
+bunu yapmak zorunda olabilirsiniz.
+
+196
+00:12:16,840 --> 00:12:18,920
+Evet, bu haftanın da sonuna geldik.
+
+197
+00:12:18,920 --> 00:12:20,960
+Umarım bu farklı bilgisayarlı görü yapılarını görmek size
+
+198
+00:12:20,960 --> 00:12:24,605
+ne tip tekniklerin işe yaradığı hakkında fikir vermiştir.
+
+199
+00:12:24,605 --> 00:12:28,055
+Bu haftanın programlama ödevlerinde
+
+200
+00:12:28,055 --> 00:12:32,740
+başka bir programlama çerçevesi öğrenip onunla ResNet'i kodlayacaksınız.
+
+201
+00:12:32,740 --> 00:12:37,970
+Umarım o ödevi yapmaktan zevk alırsınız. Görüşmek üzere.

@@ -1,0 +1,42 @@
+Eğer bir bilgisayarlı görü uygulaması geliştiriyorsanız, ağırlıkları rastgele belirleyip sıfırdan eğitmek yerine başkasının daha önceden bir sinir ağır üzerinde eğittiği ağırlıkları indirip ön eğitim olarak kullanırsanız ve bunları ilgilendiğiniz yeni bir probleme transfer ederek genelde çok daha hızlı bir şekilde ilerleme kaydedersiniz. Bilgisayarlı görü araştırma topluluğu,
+internet üzerinde birçok veri setini paylaşma konusunda bayağı iyi, bu sebeple eğer ImageNet, MS COCO veya PASCAL gibi şeyler duyarsanız bunlar birçok kişinin internette paylaştığı ve algoritmalarını eğitirken
+kullandıkları veri setlerinin isimleridir. Bazen eğitim haftalarca sürebilmekte ve
+birden çok ekran kartına (GPU) ihtiyaç duyulabilmekte. Başka bir kişinin, oldukça zahmetli olan
+üst parametre (hyperparameter) arama sürecini gerçekleştirerek haftalarca veya aylarca süren bu eğitim sürecini tamamlaması, bu ağırlıkları indirebileceğiniz ve kendi sinir ağınız için oldukça güzel bir başlangıç olarak kullanabileceğiniz anlamına gelir ve transfer öğrenmesini kullanarak
+bu oldukça büyük ve herkese açık veri setlerinden kendi probleminize
+bir nevi bilgi transfer edin. Bunu nasıl yapabileceğimize daha yakından bakalım. Bir örnek ile başlayalım. Diyelim ki kendi kedinizi tanımak için
+bir kedi dedektörü geliştiriyorsunuz. İnternete göre Tigger, yaygın bir kedi ismiymiş. Misty de öyle. Diyelim ki sizin kedilerinizin ismi Tigger ve Misty
+ve ayrıca hiçbiri de var. Yani 3 sınıflı bir sınıflandırma probleminiz var. Bu fotoğraftaki Tigger mı, yoksa Misty mi, yoksa hiçbiri mi? Aynı zamanda iki kedinizin de
+aynı fotoğrafta olma durumu da var. Muhtemelen elinizde Tigger'ın veya Misty'nin
+çok sayıda fotoğrafı bulunmamaktadır, bu sebeple eğitim setiniz küçük olacaktır. Bunun için ne yapabilirsiniz? İnternete girip bir sinir ağının
+açık kaynak kodlu uygulamasını bulup hem kodları hem de ağırlıkları indirmenizi öneririm. İnternette indirebileceğiniz, örneğin 1000 farklı sınıfa
+sahip olan ImageNet veri seti ile eğitilmiş birçok sinir ağı bulunmakta ve böyle bir sinir ağında 1000 olası sınıf arasından birini çıktı olarak veren
+eşiksiz en büyük işlevi (softmax) katmanı bulunabilir. Burada yapabileceğiniz şey, bu katmanı çıkarıp Tigger, Misty veya hiçbiri olarak çıktı verebilen eşiksiz en büyük işlevi
+katmanınızı kendiniz oluşturabilirsiniz. Olaya ağ açısından bakarsak, bütün bu katmanları donmuş gibi
+düşünmenizi öneririm. Yani ağın bu katmanlarındaki parametreleri dondurur ve kendi eşiksiz en büyük işlevi katmanınız ile ilişkili parametreleri eğitirsiniz. Bu da Tigger, Misty veya hiçbiri olmak üzere 3 olası çıktıya sahip olan bir katmandır. Başkasının önceden eğitilmiş ağırlıklarını kullanarak küçük bir veri seti kullanmanıza rağmen
+güzel bir sonuç elde edebilirsiniz. Neyse ki birçok derin öğrenme çatıları böyle bir işlemi desteklemekte ve hatta çatıya bağlı olarak trainableParameter = 0 gibi
+şeylere de sahip olabilmektedirler. Belki önceki katmanlar için böyle bir şey yapabilirsiniz. Diğerlerinde ise bu ağırlıkları eğitme veya bazen freeze = 1 gibi bir parametre vardır. Bunlar, herhangi bir katman ile ilişkili
+ağırlıkları eğitip eğitmeyeceğinizi belirlemenizi sağlayan farklı yollar ve
+farklı derin öğrenme çatılarıdır. Bu durumda, yalnızca eşiksiz en büyük işlevi katmanının ağırlıklarını
+eğitip geri kalanları dondurursunuz. Bazı uygulamalarda yardımcı olabilecek güzel bir püf noktası, önceki katmanlar dondurulduğu için burada siz değiştirmediğiniz ve eğitmediğiniz
+için değişmeyen fonksiyonlar vardır ve bu fonksiyonlar, girdi imgesi x'i alıp o katmandaki bazı etkilenimlere eşler. Eğitimi hızlandıracak başka bir püf noktası ise
+o katmanı önceden hesaplayarak o katmandaki etkilenimlerin özniteliklerini buluruz
+ve doğrudan diske kaydederiz. Burada yaptığınız şey, sinir ağının bu kısmındaki sabit fonksiyonu kullanarak herhangi bir girdi imgesi X'i alıp bunun için
+bir öznitelik vektörü hesaplarsınız ve ardından bu vektörü kullanarak bir sığ eşiksiz
+en büyük işlevi modeli eğiterek tahmin yaparsınız. Eğitim setindeki her örnek için
+bu katmandaki etkilenimleri önceden hesaplayıp diske kaydetmek ve ardından eşiksiz
+en büyük işlevi sınıflandırıcısını eğitmek hesaplama kısmında yardımcı olabilecek işlemlerden birisidir. Diske kaydetme veya önceden hesaplama yönteminin avantajı, eğitm seti üzerindeki her geçişte etkilenimleri tekrardan hesaplamak zorunda olmamanızdır. Probleminiz için oldukça küçük bir veri setine
+sahip olduğunuzda yapacağınız şey budur. Peki ya daha büyük bir veri setiniz varsa? Tercih edilen yöntemlerden birisi, eğer Tigger'ın ve Misty'nin olduğu ve hiçbirinin
+olmadığı çok sayıda fotoğraf içeren etiketlenmiş büyük bir veri setiniz varsa, bu durumda daha az sayıda katmanı dondurmaktır. Örneğin bu katmanları dondurup, bu katmanları eğitirsiniz. Ancak eğer çıktı katmanı farklı sınıflara sahip ise çıktısı Tigger, Misty veya hiçbiri olacak şekilde kendi çıktı
+katmanınızı geliştirmeniz gerekmektedir. Bunu yapmak için birkaç farklı yol vardır. Son birkaç katmanın ağırlıklarını alıp başlangıç olarak kullanabilir ve buradan itibaren gradyan inişi yaparsınız veya bu son birkaç katmanı yok ederek kendi gizli birimlerinizi kullanıp kendi eşiksiz en büyük işlevi çıktınızı kullanırsınız. Bu yöntemlerin hepsi denemeye değer. Ancak eğer daha çok veriye sahipseniz, dondurabileceğiniz katmanların sayısı daha küçük olabilir ve eğitebileceğiniz katmanların sayısı daha büyük olabilir. Buradaki ana fikir, eğer daha büyük bir veri setiniz varsa yalnızca tek bir eşiksiz en büyük işlevi birimi eğitmek değil, aynı zamanda kullandığınız sinir ağının
+sonundaki birkaç katmanı içeren modern boyutlardaki bir sinir ağını eğitmektir. Son olarak, eğer çok fazla veriye sahipseniz yapabileceğiniz şeylerden birisi, açık kaynaklı
+ağlardan birini ve onun ağırlıklarını alıp bunların tamamını başlangıç olarak kullanabilir
+ve tüm sinir ağını eğitebilirsiniz. Ancak eğer bu, 1000 olası çıktıya
+sahip bir eşiksiz en büyük işlevi katmanına sahipse ve sizin yalnızca 3 olası çıktınız varsa, kendi
+eşiksiz en büyük işlevi katmanınızı oluşturmanız gerekir. İlgilendiğiniz etiketlerin çıktısı. Ancak probleminiz için daha çok
+etiketlenmiş veriye sahipseniz yani Tigger'ın ve Misty'nin olduğu ve
+hiçbirinin olmadığı daha çok fotoğrafa sahipseniz, daha çok katman eğitebilirsiniz ve hatta daha da aşırı durumda indirdiğiniz ağırlıkları, rastgele belirlemek yerine başlangıç ağırlıkları olarak kullanırsınız. Ardından gradyan inişini uygulayıp sinir ağının tüm katmanlarını ve ağırlıklarını güncelleyerek eğitirsiniz. Bu evrişimli sinir ağları için transfer öğrenmesidir. İnternetteki indirdiğiniz veri setleri
+oldukça büyük olduğu için ve başkasının haftalarca üzerinde uğraştığı bu
+indirebileceğiniz ağırlıklar, çok fazla veriden öğrendiği için birçok bilgisayarlı görü uygulamasında bu ağırlıkları indirip kendi probleminiz için başlangıç olarak kullandığınızda daha iyi sonuçlar aldığınızı göreceksiniz. Tüm diğer uygulama alanları arasında, derin öğrenmenin diğer alanları arasında, bence bilgisayarlı görü, transfer öğrenmesinin neredeyse her durumda kullanıldığı alanlardan birisidir. Tek istisna, her şeyi sıfırdan eğitebilecek kadar
+büyük bir veri setine sahip olduğunuz durumdur. Ancak transfer öğrenmesi, her şeyi sıfırdan eğitecek kadar oldukça büyük bir veri setine ve
+kaynağa sahip olduğunuz durum dışında kesinlikle denemeye değer şeylerden birisidir.

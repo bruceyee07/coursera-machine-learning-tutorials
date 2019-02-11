@@ -1,0 +1,552 @@
+1
+00:00:00,630 --> 00:00:04,090
+Kaydırılmış evrişimler,
+
+2
+00:00:04,090 --> 00:00:09,550
+Evrişimsel Sinir Ağları'nda kullanılan evrişimlerin
+temel yapı bloklarının bir başka parçasıdır.
+
+3
+00:00:09,550 --> 00:00:11,156
+Size bir örnek göstereyim.
+
+4
+00:00:11,156 --> 00:00:16,709
+Diyelim ki bu yediye yedilik resmi
+bu üçe üçlük filtre ile evriştirmek istiyoruz,
+
+5
+00:00:16,709 --> 00:00:19,290
+alışılagelmiş şekilde yapmak yerine,
+
+6
+00:00:19,290 --> 00:00:23,795
+biz bunu değeri iki olan kaydırma adımı(stride)
+ile yapacağız.
+
+7
+00:00:23,795 --> 00:00:29,260
+Bu şu anlama geliyor ki; eleman odaklı
+çarpımı her zamanki gibi sol
+
+8
+00:00:29,260 --> 00:00:35,725
+üstteki üçe üçlük bölgeden alırız ve sonra
+çarparız ve ekleriz ve bu bize 91'i verir.
+
+9
+00:00:35,725 --> 00:00:39,010
+Ama sonra mavi kutuyu
+bir adım atlatmak yerine,
+
+10
+00:00:39,010 --> 00:00:41,545
+iki adım atlatacağız.
+
+11
+00:00:41,545 --> 00:00:45,996
+Böylece, kutuyu bu şekilde
+iki adım atlatmış oluruz.
+
+12
+00:00:45,996 --> 00:00:51,130
+Sol üst köşenin bu noktadan bu noktaya
+bir pozisyonun üstünden atlayarak
+
+13
+00:00:51,130 --> 00:00:52,825
+nasıl gittiğine dikkat edelim.
+
+14
+00:00:52,825 --> 00:00:59,290
+Ve sonra her zamanki gibi eleman odaklı çarpımı
+alır ve toplarız, sonuç 100 olur.
+
+15
+00:00:59,290 --> 00:01:00,580
+Ve şimdi bunu tekrar yapacağız,
+
+16
+00:01:00,580 --> 00:01:04,390
+ve mavi kutuyu iki adım atlatacağız.
+
+17
+00:01:04,390 --> 00:01:08,105
+Burada bitiriyoruz, ve bu bize 83'ü verir.
+
+18
+00:01:08,105 --> 00:01:11,125
+Şimdi, sonraki satıra geçtiğimizde,
+
+19
+00:01:11,125 --> 00:01:13,810
+aslında bir adım yerine
+iki adım atmış oluruz,
+
+20
+00:01:13,810 --> 00:01:17,870
+yani mavi kutuyu buraya taşıyacağız.
+
+21
+00:01:17,870 --> 00:01:24,953
+Pozisyonlardan birine nasıl gittiğimize
+dikkat edelim ve bu bize 69'u verir,
+
+22
+00:01:24,953 --> 00:01:27,740
+ve şimdi tekrar iki adım gideriz,
+
+23
+00:01:27,740 --> 00:01:31,775
+bu bize 91'i verir ve bunun gibi yani 127.
+
+24
+00:01:31,775 --> 00:01:38,250
+Ve sonra son satır için 44, 72 ve 74.
+
+25
+00:01:38,250 --> 00:01:43,615
+Bu örnekte, bu üçe üçlük matriksi
+yediye yedilik bir matriks ile
+
+26
+00:01:43,615 --> 00:01:49,530
+evriştiririz ve üçe üçlük
+çıktılar elde ederiz.
+
+27
+00:01:49,530 --> 00:01:54,207
+Girdi ve çıktı boyutları,
+sıradaki formülü takip edersek ortaya çıkar.
+
+28
+00:01:54,207 --> 00:01:56,080
+eğer N'e N'lik bir resmimiz varsa,
+
+29
+00:01:56,080 --> 00:02:00,202
+bu, F'e F'lik bir filtre ile bu evrişir.
+
+30
+00:02:00,202 --> 00:02:09,835
+Ve eğer P dolgulamasını(padding) ve
+S kaydırma adımını kullanırsak, bu örnekte,
+
+31
+00:02:09,835 --> 00:02:17,633
+S ikiye eşit olduğuna göre çıktıyı
+N artı iki P eksi F ile sonlandırırız,
+
+32
+00:02:17,633 --> 00:02:20,755
+ve şimdi bir seferde S adım attığımız için,
+
+33
+00:02:20,755 --> 00:02:22,455
+bir seferde sadece bir adım atarız,
+
+34
+00:02:22,455 --> 00:02:29,423
+şimdi S'e böleriz, artı bir,
+ve sonra aynısını uygulayabiliriz.
+
+35
+00:02:29,423 --> 00:02:37,165
+Örneğimizde, yedi artı sıfır, eksi üç,
+
+36
+00:02:37,165 --> 00:02:44,920
+bölü S, yani 2, artı bir eşittir, bakalım,
+
+37
+00:02:44,920 --> 00:02:49,705
+dört bölü iki, artı bir eşittir üç,
+
+38
+00:02:49,705 --> 00:02:54,062
+işte bu yüzden üçe üçlük çıktının sonucu budur.
+
+39
+00:02:54,062 --> 00:03:02,115
+Şimdi, son bir detay daha var,
+peki ya bu küsurat tam sayı değilse?
+
+40
+00:03:02,115 --> 00:03:04,405
+O zaman bunu yuvarlarız ki,
+
+41
+00:03:04,405 --> 00:03:10,775
+böylece bu gösterim,
+bir şeylerin tabanını gösterir.
+
+42
+00:03:10,775 --> 00:03:14,395
+Buna aynı zamanda Z'nin tabanı deriz.
+
+43
+00:03:14,395 --> 00:03:18,075
+Bu, Z'yi alıp en yakın tam sayıya
+yuvarlamamız anlamına gelir.
+
+44
+00:03:18,075 --> 00:03:21,640
+Bunun uygulanma yolu, biz
+
+45
+00:03:21,640 --> 00:03:26,230
+bu tip mavi kutu çarpımını alırız eğer
+sadece mavi kutu şunlarla doluysa
+
+46
+00:03:26,230 --> 00:03:29,740
+görüntü ile veya görüntü artı dolgulama ile,
+
+47
+00:03:29,740 --> 00:03:32,590
+ve eğer bu kutulardan herhangi biri dışarı
+
+48
+00:03:32,590 --> 00:03:35,935
+sarkmışsa o zaman bu hesaplamayı yapmayız.
+
+49
+00:03:35,935 --> 00:03:41,080
+O zaman üçe üçlük filtremizin
+uygulanmasıyla ilgili şu çıkarıma varırız,
+
+50
+00:03:41,080 --> 00:03:44,955
+filtre tamamıyla görüntümüz veya görüntü
+
+51
+00:03:44,955 --> 00:03:47,110
+artı dolgulama bölgemizde kalmalı,
+yerini tutan
+
+52
+00:03:47,110 --> 00:03:50,020
+bir çıktı üretilmeden önce, bu şekilde uygulanır.
+
+53
+00:03:50,020 --> 00:03:55,670
+Çıktının boyutunu
+hesaplamak için yapmamız gereken
+
+54
+00:03:55,670 --> 00:04:01,990
+yuvarlamaktır; bu N artı iki P eksi F bölü S'nin
+tam sayı olmama ihtimaline karşı.
+
+55
+00:04:01,990 --> 00:04:04,205
+Boyutları özetlemek için söylüyorum ki,
+
+56
+00:04:04,205 --> 00:04:07,780
+Eğer N'e N'lik bir matrisimiz veya
+N'e N'lik bir resmimiz varsa ve
+
+57
+00:04:07,780 --> 00:04:12,620
+F'e F'lik bir matrisle veya P dolgulamalı ve
+S kaydırma adımlı F'e F'lik bir filtre ile
+
+58
+00:04:12,620 --> 00:04:16,993
+evriştireceksek o zaman çıktının boyutu,
+bu boyutu kapsayacaktır.
+
+59
+00:04:16,993 --> 00:04:21,000
+Bunun iyi yanı, bu sayıların hepsini seçebiliriz,
+zaten hepsi tam sayı olduğu için
+
+60
+00:04:21,000 --> 00:04:27,660
+bazen tamsayı olmayabilirdi de,
+bu yüzden sayıları yuvarlamak işimize yarıyor.
+
+61
+00:04:27,660 --> 00:04:32,900
+Ama kendiniz, N, F, P ve S'in değerleriyle
+
+62
+00:04:32,900 --> 00:04:35,850
+birkaç örnek yapabilirsiniz, böylece bu formülün
+
+63
+00:04:35,850 --> 00:04:41,331
+çıktı boyutu için doğru olduğunu
+daha iyi anlarsınız.
+
+64
+00:04:41,331 --> 00:04:45,880
+Şimdi, konuda ilerlemeden önce
+bazı teknik yorumlarda bulunacağım,
+
+65
+00:04:45,880 --> 00:04:49,480
+çapraz ilinti'ye karşı evrişimler ile ilgili, ve ayrıca
+
+66
+00:04:49,480 --> 00:04:53,735
+evrişimli sinir ağlarını uygulamak için
+ne yapmamız gerektiğiyle ilgili. Ama
+
+67
+00:04:53,735 --> 00:04:59,790
+Bu değişir, eğer farklı matematik kitapları
+veya sinyal işleme kitapları okuyorsanız
+
+68
+00:04:59,790 --> 00:05:05,690
+gösterimde başka bir tutarsızlık olması mümkün;
+şöyle ki,
+
+69
+00:05:05,690 --> 00:05:07,850
+eğer tipik matematik kitaplarına bakarsak,
+
+70
+00:05:07,850 --> 00:05:12,650
+evrişimin nasıl yapıldığı,
+öğesel çarpım ve toplamlardan önce tanımlanır,
+
+71
+00:05:12,650 --> 00:05:16,370
+aslında bir başka adım daha var ki,
+ilk olarak yapacağımız;
+
+72
+00:05:16,370 --> 00:05:20,550
+altıya altılık matrisi,
+üçe üçlük filtre ile evriştirmek.
+
+73
+00:05:20,550 --> 00:05:24,980
+İlk olarak üçe üçlük filtreyi alırız ve onu hem yatay
+
+74
+00:05:24,980 --> 00:05:30,280
+hem de dikey eksende çeviririz
+ve böylece 3,4,5,1,0,2,-1,
+
+75
+00:05:30,280 --> 00:05:38,580
+9,7 şuna dönüşecek,
+üç buraya gider, dört oraya gider
+
+76
+00:05:38,580 --> 00:05:43,070
+beş oraya gider ve ikinci satır
+
+77
+00:05:43,070 --> 00:05:49,660
+böyle olur, 1,0,2,-1,9,7.
+
+78
+00:05:49,660 --> 00:05:53,120
+Peki, burada üçe üçlük filtreyi alıyoruz ve
+
+79
+00:05:53,120 --> 00:05:58,218
+hem dikey hem de yatay eksenlerde
+sınırlandırıyoruz.
+
+80
+00:05:58,218 --> 00:06:04,225
+Ve sonra, buraya kopyalayacağımız
+çevrilmiş matris buydu.
+
+81
+00:06:04,225 --> 00:06:06,175
+Çıktıyı hesaplamak için;
+
+82
+00:06:06,175 --> 00:06:08,650
+iki kere yediyi alacağız,
+
+83
+00:06:08,650 --> 00:06:10,045
+artı üç kere iki,
+
+84
+00:06:10,045 --> 00:06:15,275
+artı yedi kere beş vesaire.
+
+85
+00:06:15,275 --> 00:06:19,910
+Bu çevrilmiş matrisin elemanlarını çarpmalıyız ki,
+
+86
+00:06:19,910 --> 00:06:25,415
+dörde dörtlük çıktının sol üst
+tarafındaki satırın elemanlarını hesaplayalım.
+
+87
+00:06:25,415 --> 00:06:31,425
+Sonra bu dokuz sayıyı alırız
+
+88
+00:06:31,425 --> 00:06:35,916
+ve bunları bir adım kaydırırız, bir adım kaydırırız vesaire.
+
+89
+00:06:35,916 --> 00:06:38,990
+Bu videodaki evrişim işlemini tanımlama şeklimiz
+
+90
+00:06:38,990 --> 00:06:43,495
+bu sınırlandırma işlemini içermiyor.
+
+91
+00:06:43,495 --> 00:06:45,930
+Teknik olarak, aslında biz şunu yapıyoruz,
+
+92
+00:06:45,930 --> 00:06:49,360
+son birkaç videodur kullandığımız işlem,
+
+93
+00:06:49,360 --> 00:06:54,180
+bazen, evrişim yerine çapraz ilintidir.
+
+94
+00:06:54,180 --> 00:06:57,645
+Ama normalde derin öğrenme literatüründe,
+
+95
+00:06:57,645 --> 00:07:01,760
+biz buna bir evrişimsel işlem deriz.
+
+96
+00:07:01,760 --> 00:07:06,215
+Dolayısıyla özetleyecek olursak,
+normalde makine öğrenmesinde,
+
+97
+00:07:06,215 --> 00:07:10,730
+genelde bu çevirme işlemiyle uğraşmayız
+ve teknik olarak
+
+98
+00:07:10,730 --> 00:07:15,200
+belki bu işleme çapraz ilinti desek
+daha iyi olurdu ama çoğu
+
+99
+00:07:15,200 --> 00:07:20,165
+derin öğrenme literatürü
+buna sadece evrişimsel işlem der.
+
+100
+00:07:20,165 --> 00:07:23,430
+Ve böylece ben de bu videolarda
+aynı şekilde kullanacağım,
+
+101
+00:07:23,430 --> 00:07:28,155
+ve eğer pek çok
+makine öğrenmesi literatürünü okursak
+
+102
+00:07:28,155 --> 00:07:30,320
+göreceğiz ki insanların çoğu buna
+
+103
+00:07:30,320 --> 00:07:35,490
+bu çevrimlerle uğraşmadan evrişimsel işlem diyor.
+
+104
+00:07:35,490 --> 00:07:40,120
+Bu durum şu hale geliyor, sinyal işlemede
+veya matematiğin belirli dallarında
+
+105
+00:07:40,120 --> 00:07:43,615
+evrişimin tanımında çevirme yapmak
+
+106
+00:07:43,615 --> 00:07:49,870
+evrişim operatörüne şu hakları tanır, A evrişim B
+
+107
+00:07:49,870 --> 00:07:53,320
+evrişim C eşittir A evrişim B
+
+108
+00:07:53,320 --> 00:07:58,505
+evşirim C, ve buna matematikte,
+birleşme özelliği denir.
+
+109
+00:07:58,505 --> 00:08:02,080
+Bu, bazı sinyal işleme uygulamaları için iyidir, ama
+
+110
+00:08:02,080 --> 00:08:05,860
+derin sinir ağları için önemli değildir ve bu
+
+111
+00:08:05,860 --> 00:08:08,680
+çift aynalama işlemini ihmal etmek sadece
+
+112
+00:08:08,680 --> 00:08:14,450
+kodu kolaylaştırır ve
+sinir ağlarının iyi çalışmasını sağlar.
+
+113
+00:08:14,450 --> 00:08:18,380
+Ve normalde, çoğumuz buna evrişim deriz
+
+114
+00:08:18,380 --> 00:08:24,240
+hatta matematikçiler buna bazen
+çapraz ilinti demeyi tercih etseler bile.
+
+115
+00:08:24,240 --> 00:08:28,352
+Ama bu, problem alıştırmalarındaki
+uygulamak zorunda olduğumuz hiçbir şeyi
+
+116
+00:08:28,352 --> 00:08:31,860
+etkilememeli ve derin öğrenme literatürünü
+
+117
+00:08:31,860 --> 00:08:38,222
+okuma ve yazma kabiliyetlerimizi etkilememeli.
+
+118
+00:08:38,222 --> 00:08:41,600
+Artık evrişimlerin nasıl uygulanacağını gördük ve
+
+119
+00:08:41,600 --> 00:08:45,715
+evrişimler için dolgulama'nın ve kaydırma
+adımı'nın nasıl kullanılacağını gördük.
+
+120
+00:08:45,715 --> 00:08:49,795
+Ama bu zamana kadar, evrişimleri,
+matrisler üzerinde kullandık,
+
+121
+00:08:49,795 --> 00:08:51,545
+mesela altıya altılık matris üzerinde.
+
+122
+00:08:51,545 --> 00:08:55,670
+Sonraki videoda evrişimlerin yığınlar(volume)
+üzerinde uygulanmasını göreceğiz
+
+123
+00:08:55,670 --> 00:08:59,730
+ve belki bu, evrişimlerin çok daha güçlü olduğunu bize gösterebilir.
+
+124
+00:08:59,730 --> 00:09:01,580
+Haydi bir sonraki videoya geçelim.

@@ -1,0 +1,290 @@
+1
+00:00:01,040 --> 00:00:05,360
+Artık birçok yüksek etkili sinir ağını ve
+
+2
+00:00:05,360 --> 00:00:07,750
+ConvNet mimarilerini öğrendiniz.
+
+3
+00:00:07,750 --> 00:00:12,040
+Önümüzdeki birkaç videoda sizlerle
+bunları nasıl kullanacağınıza dair pratik tavsiyeler 
+paylaşmayı istiyorum
+
+4
+00:00:12,040 --> 00:00:17,056
+ilk olarak açık kaynak uygulamalarını
+kullanmakla başlayalım.
+
+5
+00:00:17,056 --> 00:00:21,870
+Birçok sinir ağının kopyalaması zor ve kopyalanırken titizlik gerektirdiği anlaşıldı
+
+6
+00:00:21,870 --> 00:00:26,660
+çünkü sönümü öğrenmek gibi üst değişkenlerin ayarlanması konusundaki
+
+7
+00:00:26,660 --> 00:00:31,430
+bir çok detay ve diğer şeyler performansa bazı değişiklikler yapıyor.
+
+8
+00:00:31,430 --> 00:00:34,890
+Ve bu nedenle söyleyebilirim ki en iyi üniversitelerdeki
+
+9
+00:00:34,890 --> 00:00:40,140
+Derin Öğrenme doktora öğrencileri için bile 
+
+10
+00:00:40,140 --> 00:00:45,130
+bir başkasının iyi hazırlanmış çalışmasını kağıt üzerinden okuyarak takip etmek zordur.
+
+11
+00:00:45,130 --> 00:00:47,860
+Neyse ki pek çok derin öğrenme araştırmacısı
+
+12
+00:00:47,860 --> 00:00:52,880
+rutin olarak çalışmalarını internet üzerinde açık kaynak kod olarak Github gibi platformlara ekliyorlar.
+
+13
+00:00:52,880 --> 00:00:55,680
+Ve kendiniz çalıştıkça kendi kodlarınızla açık kaynak topluluğuna
+
+14
+00:00:55,680 --> 00:01:00,420
+katkıda bulunmanızı tavsiye ederim.
+
+15
+00:01:00,420 --> 00:01:04,930
+Ama eğer temel almak istediğiniz bir araştırma kağıdı bulursanız
+
+16
+00:01:04,930 --> 00:01:06,500
+yapmanız gereken şey
+
+17
+00:01:06,500 --> 00:01:11,770
+benim sıklıkla yaptığım bir şey, sadece çevrimiçi açık kaynak uygulama aramak.
+
+18
+00:01:11,770 --> 00:01:16,284
+Çünkü eğer yazarın uygulamasını edinirsen sıfırdan uygulamayı 
+
+19
+00:01:16,284 --> 00:01:20,000
+denemekten daha hızlı ilerleyebilirsin.
+
+20
+00:01:20,000 --> 00:01:23,414
+Yine de bazen sıfırdan uygulamak da
+
+21
+00:01:23,414 --> 00:01:24,350
+iyi bir egzersiz olabilir.
+
+22
+00:01:24,350 --> 00:01:27,800
+GitHub kullanmakla zaten aşina iseniz,
+
+23
+00:01:27,800 --> 00:01:32,080
+Bu video sizin için daha az gerekli veya daha az önemli olabilir.
+
+24
+00:01:32,080 --> 00:01:35,960
+Fakat daha önce GitHubtan açık kaynak kod indirmediyseniz,
+
+25
+00:01:35,960 --> 00:01:38,300
+hızlı bir şekilde ne kadar kolay olduğunu göstereyim.
+
+26
+00:01:42,589 --> 00:01:46,270
+Diyelim ki artık ağlarına ilgi duyuyorsunuz ve bunu kullanmak istiyorsunuz.
+
+27
+00:01:46,270 --> 00:01:49,700
+Öyleyse GitHub üzerinde Resnet'i arayalım.
+
+28
+00:01:50,880 --> 00:01:55,870
+GitHubtaki pek çok farklı Resnet uygulamaları göreceksiniz.
+
+29
+00:01:55,870 --> 00:01:58,840
+Ve buradaki ilk URL'ye tıklıyorum.
+
+30
+00:01:58,840 --> 00:02:02,760
+Burada Resnet ile ilgili bir github uygulaması açıldı.
+
+31
+00:02:02,760 --> 00:02:06,346
+Github web sayfaları ile birlikte eğer aşağıya doğru kaydırırsanız
+
+32
+00:02:06,346 --> 00:02:09,840
+çalışmayı yada özel uygulamayı tarif eden birkaç yazı karşımıza çıkıyor.
+
+33
+00:02:09,840 --> 00:02:13,980
+Bu belirli depoda, bu belirli GitHub deposu
+
+34
+00:02:13,980 --> 00:02:19,090
+aslında ResNet'in orijinal yazarları tarafından yazılmıştır.
+
+35
+00:02:19,090 --> 00:02:22,940
+Ve bu kod, MIT lisansı altındaki 
+
+36
+00:02:22,940 --> 00:02:27,110
+bu lisansın etkilerine göz atmak için tıklayabilirsin.
+
+37
+00:02:27,110 --> 00:02:29,454
+MIT Lisansı en serbest veya en açık 
+
+38
+00:02:29,454 --> 00:02:32,420
+açık-kaynak lisanslarından biridir.
+
+39
+00:02:32,420 --> 00:02:37,650
+Yani devam edeceğim ve kodu indireceğim, ve bunu yapmak için bu linke tıklıyorum.
+
+40
+00:02:37,650 --> 00:02:41,327
+Bu size kodu indirebilmeniz için bir URL linki verir.
+
+41
+00:02:41,327 --> 00:02:45,455
+Buradaki butona tıklayarak panoma URL'yi kopyalıyorum
+
+42
+00:02:45,455 --> 00:02:46,527
+sonra buraya geçiyorum.
+
+43
+00:02:46,527 --> 00:02:53,100
+Sonra tek yapmanız gereken git klonunu yazmak ve URL için Ctrl+V ve Giriş'e tıklamak.
+
+44
+00:02:53,100 --> 00:02:55,450
+Ve birkaç saniye içinde yüklenmiş,
+
+45
+00:02:55,450 --> 00:02:58,726
+bu depoyu benim yerel hard diskime klonlamış oluyor.
+
+46
+00:02:58,726 --> 00:03:03,290
+Rehbere gidelim ve bir göz atalım.
+
+47
+00:03:03,290 --> 00:03:09,900
+Mac'e Windows'tan daha alışkınım ama sanırım göreceğiz, prototxt'e gidelim ve
+
+48
+00:03:09,900 --> 00:03:15,450
+sanırım burası ağı belirleyen dosyaları içeren yer.
+
+49
+00:03:15,450 --> 00:03:21,722
+Bu dosyaya göz atalım, çünkü bu ResNet'in detay gruplaşmalarını  
+
+50
+00:03:21,722 --> 00:03:28,030
+101 katmanla belirleyen uzun bir dosya, anlaşıldı mı?
+
+51
+00:03:28,030 --> 00:03:32,640
+Bu websitede gördüğüm kadarıyla 
+
+52
+00:03:32,640 --> 00:03:36,830
+bu belirli uygulama Caffe framework'ü kullanıyor.
+
+53
+00:03:39,112 --> 00:03:42,516
+Ama eğer başka bir programlama framework'ü kullanarak bu kodun
+
+54
+00:03:42,516 --> 00:03:45,930
+uygulamasını istiyorsanız, onu da bulabilirsiniz.
+
+55
+00:03:48,198 --> 00:03:51,752
+Yani eğer bir bilgisayar vizyon uygulaması geliştiriyorsanız
+
+56
+00:03:51,752 --> 00:03:56,030
+yaygın bir iş akışı olarak sevdiğiniz bir mimariyi
+
+57
+00:03:56,030 --> 00:03:59,405
+belki bu kursta öğrendikleriniz seçmek olur.
+
+58
+00:03:59,405 --> 00:04:03,415
+Yada belki de bir arkadaşınızdan veya bir yazından öğrendiğiniz bir tane olabilir.
+
+59
+00:04:03,415 --> 00:04:06,035
+Ve açık kaynak uygulaması arayın ve
+
+60
+00:04:06,035 --> 00:04:09,655
+oradan kurmak için GitHub'tan indirin.
+
+61
+00:04:09,655 --> 00:04:14,300
+Bunu çok yapmanın avantajlarından biri ise bazen bu ağlar öğrenmek için 
+
+62
+00:04:14,300 --> 00:04:18,380
+uzun zaman alıyor ve bazıları birden çok GPU ve bu ağlardan bazılarını
+
+63
+00:04:18,380 --> 00:04:22,110
+önceden eğitmek için çok büyük veri tabanı kullanıyor.
+
+64
+00:04:22,110 --> 00:04:25,410
+Ve bu sizin bu ağları kullanarak öğrenmeyi aktarmanızı 
+
+65
+00:04:25,410 --> 00:04:28,930
+sağlar kı bunu da bir sonraki videoda tartışacağız.
+
+66
+00:04:28,930 --> 00:04:33,679
+Tabiki eğer bu şeyleri sıfırdan uygulayan bir bilgisayar vizyon araştırmacısı
+
+67
+00:04:33,679 --> 00:04:36,623
+iseniz, sizin iş akışınız farklı olacaktır.
+
+68
+00:04:36,623 --> 00:04:37,615
+Ve eğer bunu yaparsanız,
+
+69
+00:04:37,615 --> 00:04:40,969
+çalışmanız ile açık kaynak topluluğuna katkıda bulunun.
+
+70
+00:04:40,969 --> 00:04:46,037
+Çünkü bir sürü vizyon araştırmacıları bu mimarileri uygulamak için
+
+71
+00:04:46,037 --> 00:04:51,183
+çok şey yaptı. Yeni bir projeye başlamak için açık-kaynak uygulamalarıyla başlamayı
+
+72
+00:04:51,183 --> 00:04:55,820
+daha iyi veya kesinlikle daha hızlı bir yol olarak görüyorum.

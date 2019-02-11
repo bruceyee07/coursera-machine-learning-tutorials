@@ -1,0 +1,211 @@
+1
+00:00:00,380 --> 00:00:01,980
+Merhaba, tekrar hoş geldiniz.
+
+2
+00:00:01,980 --> 00:00:06,560
+Bu hafta ilk olarak evrişimli sinir ağları ile ilgili bir dizi vaka analizini
+
+3
+00:00:06,560 --> 00:00:08,570
+gözden geçireceğiz.
+
+4
+00:00:08,570 --> 00:00:10,330
+Peki neden vaka analizi inceliyoruz?
+
+5
+00:00:10,330 --> 00:00:13,480
+Geçen hafta; evrişimli katmanlar, tam bağlı evrişim ağları katmanlar,
+
+6
+00:00:13,480 --> 00:00:17,220
+tam bağlı evrişim ağları ve havuzlama katmanları gibi temel yapı taşlarını öğrenmiştik.
+
+7
+00:00:17,220 --> 00:00:21,320
+Son bir kaç yıldır süregelen bilgisayarlı görü araştırmalarına bakıldığında
+
+8
+00:00:21,320 --> 00:00:23,910
+araştırmalar bu temel yapı taşlarını nasıl
+
+9
+00:00:23,910 --> 00:00:26,770
+etkin evrişimli sinir ağları formuna getirebileceği üzerineydi.
+
+10
+00:00:26,770 --> 00:00:27,990
+Bu konuda kendinize
+
+11
+00:00:27,990 --> 00:00:32,220
+sezgi kazandırabilmeniz için en iyi yollardan biri bunların bazı örneklerini incelemektir.
+
+12
+00:00:32,220 --> 00:00:36,753
+Bence, bir çoğunuz kod yazmayı başkalarının kodlarını inceleyerek öğrenmiştir,
+
+13
+00:00:36,753 --> 00:00:41,210
+evrişimli ağların nasıl kurulacağıyla ilgili sezgi kazanmak için
+
+14
+00:00:41,210 --> 00:00:46,140
+çeşitli etkin evrişimli ağ örneklerini incelemek kanaatimce iyi bir yol.
+
+15
+00:00:46,140 --> 00:00:50,270
+Ve, bir bilgisayarlı görü görevinde iyi çalışan yapay sinir ağı mimarisinin
+
+16
+00:00:50,270 --> 00:00:54,740
+diğer görevlerde de sıklıkla bu kadar iyi olduğu ortaya çıkabilir, sizin görevinizde de
+
+17
+00:00:54,740 --> 00:00:55,750
+olabileceği gibi.
+
+18
+00:00:55,750 --> 00:00:59,530
+Öyleyse, yapay sinir ağı geliştiren başka biri sizin ağ mimarinizin
+
+19
+00:00:59,530 --> 00:01:03,012
+kedi, köpek veya insanları tanımlamada iyi olduğunu söyleyebilir ama
+
+20
+00:01:03,012 --> 00:01:06,792
+ siz daha farklı bir bilgisayarlı görü görevini gerçekleştiriyor olabilirsiniz 
+
+21
+00:01:06,792 --> 00:01:07,900
+örneğin sürücüsüz araba.
+
+22
+00:01:07,900 --> 00:01:11,867
+Başkasının sinir ağı mimarisini alıp kendi probleminize uygulayabilecek 
+
+23
+00:01:11,867 --> 00:01:14,070
+yetide olabilirsiniz.
+
+24
+00:01:14,070 --> 00:01:18,130
+Ve nihayet, önümüzdeki bir kaç videodan sonra
+
+25
+00:01:18,130 --> 00:01:21,630
+*the theater computer vision'dan araştırma makalelerini okuyabileceksiniz
+
+26
+00:01:21,630 --> 00:01:24,515
+ve umarım bunu da tatmin edici bulursunuz.
+
+27
+00:01:24,515 --> 00:01:28,545
+Bunu sınıf olarak yapmak zorunda değilsiniz ama
+
+28
+00:01:28,545 --> 00:01:32,141
+umarım bu ufuk açıcı bilgisayarlı görü makalelerini okuyabilmeyi tatmin edici bulursunuz
+
+29
+00:01:32,141 --> 00:01:34,191
+ve kendinizi onları anlıyorken görebilirsiniz.
+
+30
+00:01:34,191 --> 00:01:36,634
+Böylece bununla başlayalım.
+
+31
+00:01:36,634 --> 00:01:40,711
+Ana hatlarıyla önümüzdeki videolarda neler yapacağımıza gelirsek
+
+32
+00:01:40,711 --> 00:01:44,256
+size bir kaç klasik ağ göstereceğiz:
+
+33
+00:01:44,256 --> 00:01:48,663
+The LeNEt-5 ağı, sanırım 1980'lere dayananıyor
+
+34
+00:01:48,663 --> 00:01:52,108
+sıkça alıntı yapılan AlexNet ve VGG ağı,
+
+35
+00:01:52,108 --> 00:01:56,050
+-bunlar oldukça etkili sinir ağlarının örnekleridir-
+
+36
+00:01:56,050 --> 00:02:00,550
+Ardından modern bilgisayarlı görünün kuruluşunun altında yatan bazı fikirleri
+
+37
+00:02:00,550 --> 00:02:05,640
+ve bu araştırmalarda sizin için de kullanışlı olabilecek fikirleri göreceksiniz.
+
+38
+00:02:06,820 --> 00:02:10,340
+ve bu araştırmalarda sizin için de kullanışlı olabilecek fikirleri göreceksiniz.
+
+39
+00:02:10,340 --> 00:02:12,520
+ve bu araştırmalarda sizin için de kullanışlı olabilecek fikirleri göreceksiniz.
+
+40
+00:02:12,520 --> 00:02:17,960
+Ardından, size ResNet'i (Conv Residual Network) göstermek istiyorum 
+
+41
+00:02:17,960 --> 00:02:21,190
+Sinir ağlarının derinleştikçe derinleştiğini duymuş olabilirsiniz
+
+42
+00:02:21,190 --> 00:02:23,698
+The Resnet sinir ağı 152 katmanlı oldukça derin
+
+43
+00:02:23,698 --> 00:02:28,439
+ilginç numaraları barındıran bir sinir ağıdır,
+
+44
+00:02:28,439 --> 00:02:32,070
+nasıl böyle etkili çalışabildiğiyle ilginç iddialar vardır.
+
+45
+00:02:32,070 --> 00:02:38,720
+Tüm bunların ardından Inception sinir ağıyla ilgili vaka analizi göreceksiniz.
+
+46
+00:02:38,720 --> 00:02:43,436
+Bu sinir ağlarını gördükten sonra, bence
+
+47
+00:02:43,436 --> 00:02:46,745
+etkili evrişimli sinir ağlarının nasıl kuralacağı hakkında daha iyi bir sezgiye sahip olacaksınız.
+
+48
+00:02:46,745 --> 00:02:49,947
+Bilgisayarlı görü üzerine kendiniz çalışma yapmıyor olsanız bile
+
+49
+00:02:49,947 --> 00:02:53,295
+bu örneklerden bir çok fikir elde edeceksiniz,
+
+50
+00:02:53,295 --> 00:02:57,665
+Tıpkı ResNet Inception ağların da ki gibi, bu fikirlerin bir çoğu diğer disiplinlere doğru
+
+51
+00:02:57,665 --> 00:03:00,105
+bir yol oluşturmak üzere birbiriyle çaprazlanıyor.
+
+52
+00:03:00,105 --> 00:03:03,715
+Bu yüzden, bilgisayarlı görü uygulamalarının inşaası sizin tarafınızdan yapılmamış olsa bile,
+
+53
+00:03:03,715 --> 00:03:06,925
+bu fikirlerikendi çalışmanız için oldukça ilginç ve yardım edici bulacaksınız.

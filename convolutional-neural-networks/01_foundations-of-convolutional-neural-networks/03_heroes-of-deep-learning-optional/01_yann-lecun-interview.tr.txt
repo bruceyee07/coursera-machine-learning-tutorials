@@ -1,0 +1,303 @@
+Yann merhaba, Derin Öğrenme konusunda
+uzun süre bize sen liderlik ettin şu an da bizimle olduğun için
+teşekkür ederim. davet için ben teşekkür ederim.
+Çok uzun, bir süredir (yapay) sinir ağları
+üzerinde çalışıyorsun. Kendi hikayeni senden dinlemeyi çok isterim.
+Yapay Zeka konusuna nasıl girdin, sinir ağlarıyla ilişkin nasıl başladı?
+ Aslında genel anlamıyla zekayla ve insan zekasının
+temeliyle hep ilgiliydim. Çocukken insanın evrimi
+ilgimi çekmeye başladı. Fransa'da mıydı? Evet Fransa'daydı. Ortaokul zamanlarımdı sanirim ve teknoloji, uzay gibi
+konulara da ilgiliydim. En sevdiğim film 2001: A Space Odyssey
+(2001: Bir Uzay Destanı) idi. akıllı makineler,
+uzay yolculuğu ve insan evriminin bir temsili vardı ki
+benim hayranı olduğum şeydi. Akıllı makineler fikri sanırım
+bana çok çekici geldi. ve böylece, elektrik mühendisliği
+okumaya başladım. üniversitedeyken, elektrik mühendisliğinde
+sanırım ikinci yılımdı, bir kitaba denk geldim ki aslında
+bir felsefe kitabıydı. MIT'de hesaplamalı dil bilimi bölümünden
+Noam Chomsky ve İsviçre'de çocuk gelişimi üzerine
+çalışan bilişsel psikolog: Jean Piaget arasında
+bir tartışma vardı. Bu temelde doğa ve yetiştirilme
+arasındaki bir tartışmaydı. burada Chomsky, dilin doğuştan
+bir yapıya sahip olduğunu savunurken, Piaget birçoğunun öğrenilen
+şeyler olduğunu söylüyordu. Piaget'in yanında
+öyle kişiler vardı ki her biri kendi taraflarını savunmak
+için fikirler geliştirdiler. Piaget taraftarlarından biri de
+MIT'den Seymour Papert'ti. Kendisi, makinede ilk defa çalışabilen
+perceptron modelini yaptı. Ben daha perceptronun adını bile 
+duymamıştım Sonrasında okuduğum
+bu makalede diyordu ki: çalışabilen bir makine.
+Kulağa müthiş geliyordu. Ben de üniversitein bir çok
+kütüphanesine gidip perceptron ve onun gerçeklenmesi hakkında bulabildiğim
+her şeyi araştırmaya başladım. 50'lerde bu konuda çokça makale vardı 
+fakat Seymour Papert'in de yazarı olduğu bir kitap ile 60'larda bu konudaki
+makaleler birden kesiliyordu. Hangi seneydi? 1980 kabaca.
+Evet Ve böylece okuldakimatematik profesörü birkaç arkadaşımla sinir ağları
+konusunda bir kaç proje yaptık. Ama ortada bu konularda
+konuşabileceğim kimse yoktu çünkü sonuçta yok olmaya yüz tutmuş
+bir alandan bahsediyoruz. 1980'den beri kimse bu alanda çalışmamış. Bu arada bazı simülasyon kodları yazma ve sinirbilim üzerine
+okuma tecrübelerim oldu. Mühendislik eğitimimi bitirdiğimde
+çip tasarımı üzerine çalışmaya başladım. Bu konuda da iyiydim ama
+tabi bambaşka bir alan. Ve bitirirdiğimde gerçekten bu alanda
+araştırma yapmak istiyordum ve farkettim ki asıl önemli
+mesele çok katmanlı sinir ağının nasıl eğitileceğiydi. Açıkça görülüyor ki 60'ların
+literatüründe bu mühim mesele -hiyerarşi fikri filan-
+çözülmeden bırakılmış. Fukushima'nın neocognitron
+üzerine olan makalesini okudum. Bu da şu an "evrişimsel sinir ağı"
+olarak tanımladığımız hiyerarşik (katmanlı) ağ mimarisinine çok benzerdi.
+Fakat geriye yayılım benzeri
+bir öğrenmeden bahsedilmiyordu. Ve Fransada küçük bağımsız bir
+kulüple bazı insanlarla tanıştım. Oradakiler o zamanki tabirle
+"Robot Ağlar" ile ilgileniyorlardı. Bana bir kaç tane yayın verdiler. şu an da çok da populer olmayan
+fonkisyonel ağlar ile ilgili kişilerdi. Ama sonuçta sinir ağları ve
+bellek arasındaki ilk ilişkilerdi ve bu makale 80'lerin başlarında, araştırma
+gruplarının sinir ağlarına olan ilgisini
+canlandırabilirdi. çoğunlukla fizikçilerin ve madde
+fiziğine yoğunlaşmış kişilerin ve bir kaç psikoloğun olduğu bir ortam,
+hala mühendisler ve bilgisayar bilimcilerinin sinir ağları ile
+ilgili konuşmaları için uygun değildi. Ve sonrasında ön baskı olarak ismi
+"Optimal Algısal Çıkarım" olan başka bir makale
+daha yayımladılar. Bu, Geoff Hinton ve Terry Senjnowski'nin
+Boltzman makinesi üzerine yayımladıkları ilk makaleydi. "Saklı Birimler"den bahsediyordu. Temelde öğrenmen ile ilgiydi ve çok katmanlı sinir ağlarının sınıflamadan
+işlevinden daha etkili olduğundan bahsediyordu ve dedim ki; bu insanlarla tanışmam lazım!
+Wow. Çünkü esas problem ile ilgilenen tek kişiler onlardı. Birkaç sene sonra, doktoraya başlayınca,
+Le Juch'ta beraber çalıştığım kişilerin organize
+ettiği bir workshop'a katıldım. Terry de o workshopta
+konuşmacılardan biriydi. Böylece onunla tanıştım.
+ 80'lerin başındayız sanırım 1985 idi. 1985'in başı. Terry Sejnowski ile Fransa'nın Le Juc
+ kentinde 1985'te tanışmış oldum. O kadar çok insan vardı ki orada,
+sinir ağlarını bulan, geliştiren, teorik olarak çalışan sinir bilimciler,
+herkes vardı. Çok etkileyici bir workshoptu. Orada Bell Laboratuvar'larından birkaç kişiyle
+tanıştım ve ilerleyen zamanlarda
+Bell Labovatuvar'ında çalışmaya başladım; ama bu doktoramı bitirmeden
+birkaç sene öncesi. Neyse, Terry Sejnowski ile konuşmaya
+başladım ve ne üzerine çalıştığımı anlattım, geri yayılım algorithmasının
+bi çeşidi üzerineydi. Bu geri yayılımın makale
+olmasından önceydi ve Terry o zamanlar ağ üzerine
+üzerine çalışıyordu. Yani Rumelhart, Hilton, Williams geri yayılım ile iligli makalelerini
+daha yayımlamamışlar. ama Geoff onun arkadaşıydı ve bilirsin
+bu konuda bazı şeyler ortalarda dolaşıyordu, yani aslında zaten ağ için
+bunu yapmaya çalışıyorlardı, ama bana söylemedi o zaman.
+Anladım ABD'ye geri gidince Geoff'a demiş ki:
+Fransa'da bir çocuk var bizimle aynı konuları çalışıyor.
+Ah anlıyorum. Ve birkaç ay sonra, haziranda, Geoff'un açılış konuşmacısı
+olduğu bir konferans düzenlendi Fransa'da. ve Boltzmann Makineleri ile ilgili bir konuşma yaptı. Tabii geri yayılım ile ilgili
+bir yayın üzerinde çalışıyordu. Bu konuda konuştu ve çevresini onunla konuşmak isteyen
+50 kadar insan sarmıştı. organizatöre söylediği ilk şey: Yann LeCun diye biri varmış,
+tanıyor musun? Çünkü benim
+Fransızca yazıdığım makalemi okumuş. Bir şekilde Fransızca okuyabiliyor.
+Makaledeki matematiği görüyor ve geri yayılım algorithmasını farkediyor.
+Ve böylece beraber öğle yemeği yedik. Böylece arkadaş olduk.
+Çok iyiymiş. [GÜLME] Tabii bunun nedeni ikinizin de birbirinizden bağımsız geri yayılım
+algoritmaları bulmanızdan kaynaklanıyor Aslında, ikimiz de zincir kuralı ya da optimal
+kontrolcülerin deyimiyle kesişim durumu yöntemini ki
+geri yayılımın temel icadı bu bağlamdadır,
+fark ettik. Bu optimal kontrolün 60'lardaki
+çalışma alanıydı. Fikir temelde gradient descent'in çoklu
+yapılar üzerinde kullanımına dayanıyordu Bu geri yayılımın gerçekte ne olduğu ve
+farklı bağlamlarda ve çeşitli zamanlarda
+nasıl ortaya çıktığı idi. Ama inanıyorum ki Hinton, Williams'ın makaleleri
+bunu populer yapan işti.
+Keslinlikle. Birkaç yıl ileri gidersek, AT&T Bell
+Labovatuvar'larında çalışlamaya başladın Burada da derslerde de bahsettiğimiz
+bir çok buluşa imza attın. Hatta ne zaman geldiğini de hatırlıyorum,
+o sıralar AT&T Bell Lab'da yaz stajındaydım. orada Micheal Kerns ve birkaç
+kişiyle daha çalıştım. O zamanlarda bile senin
+işlerin konuşulurdu. AT&T günlerinden biraz
+bahsedebilir misin? Tamam. söyle oldu: Aslında evrişimsel sinir ağları üzerinde,
+Toronto Üniversitesinde doktora sonrası araştırmamı
+yaparken çalışıyordum. İlk denememde bir kod yazdım ve daha ilk denememde gösterdim ki çok küçük bir veri kümsesi üzerinde çalışıyorum. Öncesinde buna benzer bir veri seti yoktu. Bu nedenle, bilgisayarın faresi ile bir sürü karakter çizdim. gelmiş geçmiş en iyi bilgisayar olan Amiga üzeirnde çalışıyordum. Ve bir sürü karakter çizip, onları kullandım. veri setini arttırmak için bazı yöntemler kullandım ve bunalrı da performans testleri içn kullandım tam bağlı, yerel bağlı ama ağırlık paylaşımsız ve paylaşımlı ağırlıklı ağ yapılarını karşılaştırdım Temelde-- Temelde ilk yorumum bunun üzerine oldu. görece küçük veri kümesi üzerinde çok iyi çalıştı. Evrişimsel ağ yapısında aşırı öğrenme olmuyor ve daha iyi performans veriyordu. ve ekim 1988 de Bell Lab'a gittiğimde ilk yaptığım şey ağın boyutlarını büyütmek oldu ağın boyutlarını büyütmek oldu. bizim bilgisayarlarımız daha hızlı olduğu için Bell Lab'a gitmeden birkaç ay önce yöneticim Larry Jackal sen gelmeden bilgisayar sipariş etmeliyiz, hangisinden istersin dedi. Ben de Toronto'da kullandığımızdan olursa çok iyi olur dedim. ve böylece bir tane sipariş ettiler ve kendime ait bir bilgisayarım oldu. Toronto Üniversitesinde de vardı ama tüm bölüme aitti bu sadece bana aitti, anlıyor musun? Larry dedi ki: biliyorsun Bell Labs'ın ünlü olduğu konu tutumluluk değildir -->bu gerçekten harikaydı Onlar zaten bir süredir karakter tanıma üzerine çalışıyorlardı. Çok büyük bir veri kümeleri varı ki 5000 örnekli eğitim kümesi demek bu. Hemen bir evrişimsel sinir ağı tasarladım ve bu veri kümesi ile eğittim. ve gerçekten çok iyi sonuçlar elde ettik, diğer yöntemlere göre Onlar da denedi, başka kişiler de denedi sonrasında. Yani bunun çok erken bir sonuç olduğunu biliyorduk. Bell Labs'e katılalı daha 3 ay olmuştu. Böylece evrişimsel ağın ilk versiyonu adımlamalı evrişim ile yarattık ve
+pooling katmanlarını ayırmadık. Yani, tüm evrişim katmanları direkt bağlıydı. Bunun nedeni de her bölgede evrişim yapamayışımızdı. Çok fazla işlem yükü gerektiriyordu. İkinci versiyonda, evrişim ve pooling katmanlarını ayırdık. Sanırım bu gerçek anlamda
+Conv Net (Evrişimsel Ağ) idi. Böylece NIPS yarılmasında
+birkaç makale yayınladık. Bak bu hikaye enteresandır. NIPS'te bu
+çalışma hakkında konuştum. Geoffrey Hinton da dinleyiciler arasındaydı. Konuşmam bitince, yanına oturdum. Bana dedi ki, "Konuşmandaki can alıcı nokta şu: eğer bu mantıklı şeyleri yapabilirsen, gerçekten çalışır." -->ve bu çalışma bittikten kısa bir süre sonra -->tarihe geçti çünkü, geniş kabul gördü Bu fikirler dünyaca kabul gördü. Evet. büyükçe bir kısmı AT&T'de kabul gördü fakat dışarıda durum pek öyle değildi. Sanırım bunun nedenlerini benim için biraz zordu. Ama bunu basitçe 80'lerde internetin olmamasına bağlıyorum. Evet e-posta ve FTP vardı ama gerçek analmda internet henüz yoktu. Aynı yazılım ya da donanımı kullanan iki tane bile lab yoktu. Kimileri belli bir makinede çalışıyordu, diğerleri bambaşka bir tanesinde. Bazıları PC kullanıyordu filan. Python ya da MATLAB gibi bir şey yoktu. İnsanlar kendi kodlarını yazıyor. Ben ve iki kişi, yaklaşık bir buçuk senemizi temel anlamda kodu
+yazmaya zaman harcadık. Beraber çalışıyorduk ve
+ buna rağmen sinir ağı simülatörü yazmak
+bir buçuk yılımızı aldı. O zamanlar tabii Python,
+MATLAB gibi bir şey yok. Yazılımı kontrol etmek için bir şekilde kendi yorumlayıcınızı
+yazmanız gerekiyordu. Kendi tip
+yorumlayıcımızı yazmak istedik. Böylece listeye yazılı bütün ağlar
+numerik altyapıya sahip olacaktı. Şu an birbirine bağladığımız
+bloklar gibi düşünebiliriz. bir sürü diferansiyelle filan
+uğraşmak yerine şu an aşina olduğumuz Torch, PyTorch, Tensorflow
+benzeri yapılar aslında. Sonrasında birkaç tane
+uygulama geliştirdik. Bir mühendis grubuyla bir araya geldik. Çok zeki insanlardı. Aralarında Bell Labs'da
+mühendise dönmüş fizikçiler de vardı. Chris Dodgers onlardan biriydi ki kariyerine devamında
+Microsoft'ta devam etti. ve Krieg Nolan. Biz beraberce bunu nasıl
+teknolojik bir pratiğe dökeriz üzerinde çalıştık. Böylece, hepbirlikte, "karakterleştirme"
+sistemini geliştirdik. Yani, evişimsel ağı şu an CRF diye tabir ettiğimiz ardışıl karakterleri yorumlama
+ile entegre ettik. makale biraz sinir ağları biraz da otomata alanında diyebilir miyiz? Evet, diyebiliriz. Zaten makalenin ilk yarısı
+evrişimsel sinir ağları üzerine ve en çok da bu özelliği ile atıf aldı ikinci kısmı ise çok az kişi okudu o kısım ise daha çok ardışıllık
+seviyesi, ayrışımsal çalışma ve normalizasyon kullanılmayan 
+yapı tahmini üzerineydi. Yani, aslında CRF'e çok benziyordu. Yıllardır da PTCRFS ile tanınıyor. Çok da başarılı oldu diyebiliriz 
+önemli bir bankanın ürününü canlıya aktardığı 
+ gün hariç. Biz bu grupla sistemin
+inşası üzerine aslında beraber çalışıyorduk. Ve ülkenin başka bir yerindeki
+bir ürün grubu vardı. Bu AT&T nin alt kuruluşu olan NCR idi. Bu da National Cash Register (NCR) Onlar büyük ATM makineleri yapıyorlardı. Bankalar için büyük okuma/kontrol
+makineleri üretiyorlardı. Yani müşterimizdiler ve isterlerse bizim para kontrol sistemlerimizi
+kullanabilirlerdi. Ve nihayetide bir banka
+için bunu hayat geçirdiler. Hangi banka olduğunu
+şimdi hatırlamıyorum Bir Fransız bankası
+için yapmışlardı. Böylece makine yatırılan parayı 
+okuyup kontrol edebilecekti. Biz departmancak şık bir
+restoranda kutlama yaparken şirketin ikiye ayrıldığını
+duyuruldu. bu mevzu 1995 senesindeydi. AT&T kendini iki farklı şirkete
+ayırmak istediğini duyurdu. Böylece AT&T;
+Lucent Tekonoloji ve NCR olarak bölündü. Böylece NCR da Lucent Teknoloji de
+AT&T'den kopmuş oldular Mühendilsik ekibi Lucent Teknoloji'ye ve ürün grubu da NCR'a geçti. Üzücü olan AT&T'nin
+avukatları üstün tecrübeleri ile patenti üzerlerine aldılar.
+Evrişimsel ağ ile iglili bir patent vardı yani. Neyse ki süresi geçti 2007'de bitti aslında. Yaklaşık on sene evvel. Patenti NCR üzerinden aldılar almasına
+ama evrişimsel ağın ne olduğunu NCR'da bilen
+tek kişi bile yoktu. Yani patent konuyu hiç bilmeyen
+kimselerin elindeydi. Ve artık başka şirketlerdeydik
+ve teknolojisini geliştiremiyorduk çünkü
+dediğim gibi mühendislik ekibi Lucent Teknoloji'ye geçerken, ürün eklibi NCR şirketinde sayılıyordu. E tabi biraz moral bozucu olmuştu.
+Ilk zamanlarki çalışmalarınıza ek olarak sizin ağınız da bir yol iken
+sinir ağlarında ısrar ettiniz hem de sinir ağlarının
+en durağan zamanında Bu nasıl oluyor?
+Aslında bir anlamda ısrarcıyken bir anlamda da değildim. Önünde sonunda bu yöntemlerin
+geri geleceğine inanıyordum. Birileri de bunun pratik uygulamalarda
+nasıl kullanılacağını keyfettiler ve böylece kullanışlı olabildi. Yani evet aklımdaki buydu; ama 1996'da, AT&T bölündüğünde, tüm karakter tanıma çalışmalarımız
+bir anlamda, bozuntuya uğradı çünkü
+ekip bölünmüştü. Ben de bu arada bölümün başına getirilmiştim ve üzerinde çalışılacak bir şeyler bulmalıydım. İnternetin ilk zamanları
+bu bahsettiğim. Yani 1995 senesi. Ben de internetin ortaya çıkmasından
+doğan bir probleme yönelik bir çözüm ortaya attım.
+Bu da internette dolaşan bilginin dijital bir dökümana aktarılması idi. Böylece DjVu
+ D-J-V-U projesine başladım Bu esasında taratılan dosyaların
+sıkıştırılması ile ilgili idi. İnternet üzerinden
+her yere yayıldı. Proje bir süreliğine eğlenceli
+ve kendi çapında başarılıydı. AT&T bununla tam ne yapıalacağını
+bilmemesine karşın
+Evet, hatırlıyorum. internette bilimsel makalelerin
+yayılmasını kolaylaştırmıştı. Aynen. Hatta NIPS'in tüm işlemlerini taradık
+ve internetten erişilebilir hale getirdik- Evet hatırlıyorum. -nasıl çalıştığını göstermek için. Böylece çok yüksek çözünürlüklü dosyaları
+bir kaç kilobyte a indirgeyebiliyorduk. Böylece Covn Net Senin çok önceki
+çalışmalarından başlayarak "Bilgisayarla Görü"de
+çok fazla yol kat etti. Hatta diğer alanlara da
+önemli ölçüde girmeye başladı Tüm bu süreci nasıl
+öngördüğünü anlatır mısın? Pekala, bunu nasıl
+öngördüğümü anlatayım. İlk olarak bunun çalışacağına inandım. Çok hızlı bilgisarlar ve büyük miktarda 
+veri gerekiyordu ama bir şekilde bunun olması gereken
+olduğuna inandım. Bell Labs'ta çalışırken
+düşündüğüm şuydu: bu sonuça makinelerin gücünün gittikçe
+arttığı sürekliliği olan bir süreç. Hatta ervişimsel ağı çalıştırabilecek
+çip bile tasarlamıştık Bell Labs'ta. Şu an bunlar iki ayrı çip
+olarak etkin bir şekilde kullanılıyor. Ve böylece bunun bir şekilde
+yükseleceğini düşündük. ilgi artacaktı ve işlemin sürekliliğinin
+bir parçası olarak yerini alacaktı Ama gerçekte, sinir ağlarına
+olan tavırdan dolayı az daha 90'ların ortalarında
+kaybolup gidecekti, ama öyle olmadı. Bilindiği üzere 1995-2002 arası,
+kimsenin bu konuda çalışmadığı, 6-7 senelik bir karanlık dönem var Yani aslında birkaç çalışma vardı. Microsoft'da 2000'lerin başında
+evrişimsel ağı Çince karakterleri tanımak için kullanan
+bir çalışma olmuştu. Evet. Ve yüz tanıma ile ilgili bazı
+küçük çalışmalar oldu. Bunlar Fransa'da ve çeşitli yerlerde
+oldu ama çok küçük çaplıydılar. Şu günlerde aslında
+küçük bir grupla tanıştım. Temelinde evrişimsel ağa çok
+benzeyen bir fikirle çıkageldiler ama medikal görüntü işleme ile ilgili
+hiç yayımlanmamış bir şey. Ve bunlar çoğunlukla
+ticari sistemlerin içeriğiydi. Bu sebepten popülasyona ulaşamadı. Demek istediğim, evrişimli ağlardaki
+ilk işimizin sonrasındaydı ve tam olarak farkında değillerdi; ama
+bir şekilde bu işlere paralel olarak gelişti. Sonrasında da insanlar yıllar
+içerisinde benzer fikirler geliştirdiler. Ama sonrasında ImageNet'e
+olan ilginin bu kadar hızlı şekilde artmasına şaşırmıştım.
+2012'de. 2012'de.
+2012'nin sonlarına doğru. ECCV,Floransa'da çok
+enteresan bir etkinlik oldu ImageNet ile ilgili
+bir workshop'tu bu. Büyük çapta ilgi
+topladığını zaten biliyorlardı. Herkes konuşma için bekliyordu. Bilgisayarlı görü topluluğundan çoğu kişinin
+ evrişim ağlar hakkında hiçbir fikri yoktu. Beni, bunun hakkında
+konuşurken dinlediler. Esasen ben 2000 senesinde
+CVPR konferansında da konuşmacı olarak
+davetliydim ve bunları anlatmıştım. Ancak çok fazla kimse
+ilgi göstermemişti. Uzmanı olan kişiler evet;
+ama onlar zaten işi biliyorlardı. Oradaki gençlerin bu konu hakkında hiçbir fikirler yoktu. Yani düşünün, biri evrişimsel ağlar ile ilgili
+konuşma yapıyor ama evrişimsel ağın
+ne olduğunu anlatmıyor; çünkü sanıyor ki herkes zaten biliyor. Çünkü makine öğrenmesinden gelmiş.
+Sonrasında her şeyin nasıl bağlantılı olduğunu, veriyi nasıl dönüştürdüğümüzü ve
+ne sonuçlar elde ettiğimizi gösterdim. Hala, insanların anlattığım
+şeyi anladığını farzediyordum. Ve insanlar inanılmaz
+derecede şaşırdılar Anlatırken, alanında uzman
+insanların fikirlerinin değiştiğini gözlemleyebiliyorsunuz.
+Yani bu workshop bilgisayarla görü dünyasını
+sarsan andı, öyle mi? Evet, kesinlikle. Doğru. Aynen, orada olan
+tam da buydu. Şu an,
+hem NYU'da akademisyensin hem de FAIR (Facebook AI Research)
+liderliğini yürütüyorsun. Kurumsal araştırma çalışmalarının
+nasıl koordine edilmesi gerektiği ile ilgili
+oldukça farklı bir bakış açının olduğunu biliyorum. Bu konudaki düşüncelerini
+ paylaşmak ister misin? Tabii, şöyle oldu: En güzel yanlarından biri FAIR'de
+yönettiğim 4 senede çok fazla özgür çalışma
+yapabilmiş olmamız. Bu aslında en değerli
+gördüğüm kısım. Çünkü bu Facebook'un
+ilk research çalışmasıydı. Bildiğin üzere Facebook bir çeşit
+mühendislik&yazılım şirketi. Daha çok piyasada ayakta kalmak,
+kısa vadede sonuç almak gibi hedefleri vardı. Facebook 10 seneyi devirdiğinde
+iyi bir hisse değerine kavuşmuştu. Artık bundan sonra önündkei
+10 seneyi düşünmesi gerekiyordu. Yani Mark Zuckerberg önümüzdeki
+10 senede neyin önemli olabileceğini düşünmüş. Sonuçta, şirketin ayakta kalması
+artık mevzu bahis değildi. Tabi bu da büyük şirketlerin dönüşüm
+düşüncesiydi bir nevi; ama büyük bir şirket değildi o zamanlar. Sadece 5000 çalışanı vardı ama önündeki 10 seneyi ve önemli olabilecek
+teknolojileri düşünme lüksü vardı. Mark ve takımı, Yapay Zeka(AI)'nın
+insanları birbirine bağlamakta çok önemli bir rol olnayacağında hemfikir
+olmuşlar ki bu da Facebook'un temel
+amacına hizmet edecek bir olgu. Böylece AI'da neler yapılabilir
+diye bir çok deneme yapıldı. Küçük bir iç grupları, mühendislik grupları,
+evrişimsel ağ ile ilgili çalışma yaptılar ve gerçekten
+güzel sonuçlar aldılar. Özellikle yüz tanıma gibi
+ilgilerini çeken alanlarda. Sonrasında büyüyerek genç
+araştırmacıları işe almaya ve bu konuda başka şirketleri
+satın almaya filan karar verdiler. Ve nihayetinde, araştırma grubunu
+kurabilecek bu konuda uzman birini işe almaya karar vermişler. Bu ilk anda bir kültür şoku yaşattı, çünkü mühendislik çalışmaları ile
+kurumsal bir firmada araştırma çalışmaları
+çok farklı şeyler. (Akademide) Uzun süreli planlarınız
+ve geniş bir ufkunuz var. Ve araştırmacılar çalışacakları konuları
+seçme ve nerede çalışmak istedikleri konusunda daha katılar. Bu nedenle daha en başta konuştum.
+Araştırmalar çok açık olmalı, araştırmacılar makale yayımlamaya
+cesaretlendirilmekle kalmamalı, yayın yapmak zorunlu olmalı. Aynı akademideki gibi bu yayınlar da araştırmacılara performans
+kriteri olarak eklenmeli Mark ve Mike Schroepfer,
+şirketin CTO'su, şu anda benim patronum olur, şöyle söyledi: 
+Facebook çok açık fikirli bir şirket Çok fazla açık kaynak da yayınladık. Schroepfer, CTO, açık kaynak dünyasından geliyor.
+Mozilla Burdan önce Mozilla'daydı ve bir çok insan da bu dünyadan geliyor. Bu, şirketin DNA'sında var.
+Bu da beni şirket bünyesinde bir araştırma
+ekibi kurmaya ikna etti. Yani şirket IP konusunda
+diğer bazı şirketler gibi takıntılı değildi; bu da üniversite işbirliğini
+daha kolay kılıyordu ve bir ayağının endüstride
+bir ayağının endüstride olan kişileri idare edebiliyordu.
+Ve sen de bunu kendin için değerli budun.
+Kesinlikle öyle. Benim son 4 senelik
+yayınlarıma bakarsanız, bunların büyük çoğunluğu
+NYU'daki öğrencilerim ile olanlardır. Çünkü Facebook'ta, çok fazla lab organizasyonu, işe alım, yönlendirme, danışmanlık ve
+buna benzer birçok şey yaptım. Fakat, bireysel olan hiçbir
+araştırma projesinde ismimi geçirmedim. Yani, artık yayınlarda ismimin
+geçmesiyle çok ilgilenmiyorum. --bu başkasını muhteşem işler yapması için gönderirken kendin sıkıcı işleri yapmak gibi mi? Aynen öyle. artık kendinizi
+öne atmak istemiyorsunuz. Kamera arkasında
+kalmayı tercih ediyorsunuz. Lan içindeki yarışa dahil
+olmak istemiyorsunuz bu durumda.
+Eminim çok kez sorulmuştur ama umarım bu videoyu
+izleyenler için de cevaplarsın: Yapay Zeka alanına girmek
+isteyen insanlar için ne tavsiye edersin? Şu an bu dünya benim
+başladığımkinden çok daha farklı. Ama inanıyorum ki girmek
+birçok seviyeden kimse için çok kolay. tensorflow, pytorch gibi erişimi
+çok kolay olan çok fazla araç var. Uygun fiyatlı bir bilgisayar ile
+kendi odanızda bile çalıştırabilirsiniz artık. yani temel anlamda evrişimsel ağ
+ya da mevcut ağları ya da her ne ise eğitebilirsiniz ve bunun için çok fazla araç var. İnternetteki kaynaklardan özellikle
+çok fazla şey öğrenebilirsiniz ve bu çok da zor değil. Şu an lise öğrencileirnin dahi
+bunlarla uğraştığını görüyorsunuz. Ki bu müthiş ve öğrenciler arasında
+makine öğrenmesi ve yapay zekaya ilgi artarak büyüyor. Bu gençler için çok heyecan verici
+ve bunu harikulade buluyorum. Özetle tavsiyem şu olabilir:
+Eğer bu işler ile uğraşacaksanız, 
+kullanılabilir bir şeyler yapun. Bir açık kaynak projeye
+destek verin mesela. Ya da internette kodu yayınlanmamış
+algoritmaların kodunu yazıp yayımlayın ve başka insanların
+kullanımına açın. önemli olduğunu düşündüğünüz
+makaleleri inceleyin, algoritmaları kendiniz de gerçekleyin
+ve açık kaynak olarak paylaşın. Yahut var olan açık kaynaklara
+katkıyı yapın. Sonunda yaptıklarınız ilgi çekici ve
+kullanışlıysa fark edileceksinizdir. Belki çok isteidğiniz bir şirkette
+güzel bir iş bulursunuz ya da belki arzuladığınız doktora
+programına kabul alacaksınız. Bence bu iyi bir başlangıç olacaktır. Yani açık kaynak çalışmalara katkı
+yapmak bu dünyaya girmek için iyi bir yol. Evet aynen. Çok teşekkür ederim Yann.
+Bu çok etkileyiciydi. Seni yıllardır tanıyorum ve senden
+tüm hikayeyi baştan sona duymak hala büyüleyici. Birçok hikaye böyledir, bazı şeyler olduğu anda fark edemezsin
+ve ne kadar önemli olduğunu anlaman
+10 ya da 20 yıl alabilir. Teşekkürler. >> Teşekkürler.

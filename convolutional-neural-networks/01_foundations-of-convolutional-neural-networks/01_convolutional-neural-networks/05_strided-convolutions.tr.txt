@@ -1,0 +1,58 @@
+Kaydırılmış evrişimler, Evrişimsel Sinir Ağları'nda kullanılan evrişimlerin
+temel yapı bloklarının bir başka parçasıdır. Size bir örnek göstereyim. Diyelim ki bu yediye yedilik resmi
+bu üçe üçlük filtre ile evriştirmek istiyoruz, alışılagelmiş şekilde yapmak yerine, biz bunu değeri iki olan kaydırma adımı(stride)
+ile yapacağız. Bu şu anlama geliyor ki; eleman odaklı
+çarpımı her zamanki gibi sol üstteki üçe üçlük bölgeden alırız ve sonra
+çarparız ve ekleriz ve bu bize 91'i verir. Ama sonra mavi kutuyu
+bir adım atlatmak yerine, iki adım atlatacağız. Böylece, kutuyu bu şekilde
+iki adım atlatmış oluruz. Sol üst köşenin bu noktadan bu noktaya
+bir pozisyonun üstünden atlayarak nasıl gittiğine dikkat edelim. Ve sonra her zamanki gibi eleman odaklı çarpımı
+alır ve toplarız, sonuç 100 olur. Ve şimdi bunu tekrar yapacağız, ve mavi kutuyu iki adım atlatacağız. Burada bitiriyoruz, ve bu bize 83'ü verir. Şimdi, sonraki satıra geçtiğimizde, aslında bir adım yerine
+iki adım atmış oluruz, yani mavi kutuyu buraya taşıyacağız. Pozisyonlardan birine nasıl gittiğimize
+dikkat edelim ve bu bize 69'u verir, ve şimdi tekrar iki adım gideriz, bu bize 91'i verir ve bunun gibi yani 127. Ve sonra son satır için 44, 72 ve 74. Bu örnekte, bu üçe üçlük matriksi
+yediye yedilik bir matriks ile evriştiririz ve üçe üçlük
+çıktılar elde ederiz. Girdi ve çıktı boyutları,
+sıradaki formülü takip edersek ortaya çıkar. eğer N'e N'lik bir resmimiz varsa, bu, F'e F'lik bir filtre ile bu evrişir. Ve eğer P dolgulamasını(padding) ve
+S kaydırma adımını kullanırsak, bu örnekte, S ikiye eşit olduğuna göre çıktıyı
+N artı iki P eksi F ile sonlandırırız, ve şimdi bir seferde S adım attığımız için, bir seferde sadece bir adım atarız, şimdi S'e böleriz, artı bir,
+ve sonra aynısını uygulayabiliriz. Örneğimizde, yedi artı sıfır, eksi üç, bölü S, yani 2, artı bir eşittir, bakalım, dört bölü iki, artı bir eşittir üç, işte bu yüzden üçe üçlük çıktının sonucu budur. Şimdi, son bir detay daha var,
+peki ya bu küsurat tam sayı değilse? O zaman bunu yuvarlarız ki, böylece bu gösterim,
+bir şeylerin tabanını gösterir. Buna aynı zamanda Z'nin tabanı deriz. Bu, Z'yi alıp en yakın tam sayıya
+yuvarlamamız anlamına gelir. Bunun uygulanma yolu, biz bu tip mavi kutu çarpımını alırız eğer
+sadece mavi kutu şunlarla doluysa görüntü ile veya görüntü artı dolgulama ile, ve eğer bu kutulardan herhangi biri dışarı sarkmışsa o zaman bu hesaplamayı yapmayız. O zaman üçe üçlük filtremizin
+uygulanmasıyla ilgili şu çıkarıma varırız, filtre tamamıyla görüntümüz veya görüntü artı dolgulama bölgemizde kalmalı,
+yerini tutan bir çıktı üretilmeden önce, bu şekilde uygulanır. Çıktının boyutunu
+hesaplamak için yapmamız gereken yuvarlamaktır; bu N artı iki P eksi F bölü S'nin
+tam sayı olmama ihtimaline karşı. Boyutları özetlemek için söylüyorum ki, Eğer N'e N'lik bir matrisimiz veya
+N'e N'lik bir resmimiz varsa ve F'e F'lik bir matrisle veya P dolgulamalı ve
+S kaydırma adımlı F'e F'lik bir filtre ile evriştireceksek o zaman çıktının boyutu,
+bu boyutu kapsayacaktır. Bunun iyi yanı, bu sayıların hepsini seçebiliriz,
+zaten hepsi tam sayı olduğu için bazen tamsayı olmayabilirdi de,
+bu yüzden sayıları yuvarlamak işimize yarıyor. Ama kendiniz, N, F, P ve S'in değerleriyle birkaç örnek yapabilirsiniz, böylece bu formülün çıktı boyutu için doğru olduğunu
+daha iyi anlarsınız. Şimdi, konuda ilerlemeden önce
+bazı teknik yorumlarda bulunacağım, çapraz ilinti'ye karşı evrişimler ile ilgili, ve ayrıca evrişimli sinir ağlarını uygulamak için
+ne yapmamız gerektiğiyle ilgili. Ama Bu değişir, eğer farklı matematik kitapları
+veya sinyal işleme kitapları okuyorsanız gösterimde başka bir tutarsızlık olması mümkün;
+şöyle ki, eğer tipik matematik kitaplarına bakarsak, evrişimin nasıl yapıldığı,
+öğesel çarpım ve toplamlardan önce tanımlanır, aslında bir başka adım daha var ki,
+ilk olarak yapacağımız; altıya altılık matrisi,
+üçe üçlük filtre ile evriştirmek. İlk olarak üçe üçlük filtreyi alırız ve onu hem yatay hem de dikey eksende çeviririz
+ve böylece 3,4,5,1,0,2,-1, 9,7 şuna dönüşecek,
+üç buraya gider, dört oraya gider beş oraya gider ve ikinci satır böyle olur, 1,0,2,-1,9,7. Peki, burada üçe üçlük filtreyi alıyoruz ve hem dikey hem de yatay eksenlerde
+sınırlandırıyoruz. Ve sonra, buraya kopyalayacağımız
+çevrilmiş matris buydu. Çıktıyı hesaplamak için; iki kere yediyi alacağız, artı üç kere iki, artı yedi kere beş vesaire. Bu çevrilmiş matrisin elemanlarını çarpmalıyız ki, dörde dörtlük çıktının sol üst
+tarafındaki satırın elemanlarını hesaplayalım. Sonra bu dokuz sayıyı alırız ve bunları bir adım kaydırırız, bir adım kaydırırız vesaire. Bu videodaki evrişim işlemini tanımlama şeklimiz bu sınırlandırma işlemini içermiyor. Teknik olarak, aslında biz şunu yapıyoruz, son birkaç videodur kullandığımız işlem, bazen, evrişim yerine çapraz ilintidir. Ama normalde derin öğrenme literatüründe, biz buna bir evrişimsel işlem deriz. Dolayısıyla özetleyecek olursak,
+normalde makine öğrenmesinde, genelde bu çevirme işlemiyle uğraşmayız
+ve teknik olarak belki bu işleme çapraz ilinti desek
+daha iyi olurdu ama çoğu derin öğrenme literatürü
+buna sadece evrişimsel işlem der. Ve böylece ben de bu videolarda
+aynı şekilde kullanacağım, ve eğer pek çok
+makine öğrenmesi literatürünü okursak göreceğiz ki insanların çoğu buna bu çevrimlerle uğraşmadan evrişimsel işlem diyor. Bu durum şu hale geliyor, sinyal işlemede
+veya matematiğin belirli dallarında evrişimin tanımında çevirme yapmak evrişim operatörüne şu hakları tanır, A evrişim B evrişim C eşittir A evrişim B evşirim C, ve buna matematikte,
+birleşme özelliği denir. Bu, bazı sinyal işleme uygulamaları için iyidir, ama derin sinir ağları için önemli değildir ve bu çift aynalama işlemini ihmal etmek sadece kodu kolaylaştırır ve
+sinir ağlarının iyi çalışmasını sağlar. Ve normalde, çoğumuz buna evrişim deriz hatta matematikçiler buna bazen
+çapraz ilinti demeyi tercih etseler bile. Ama bu, problem alıştırmalarındaki
+uygulamak zorunda olduğumuz hiçbir şeyi etkilememeli ve derin öğrenme literatürünü okuma ve yazma kabiliyetlerimizi etkilememeli. Artık evrişimlerin nasıl uygulanacağını gördük ve evrişimler için dolgulama'nın ve kaydırma
+adımı'nın nasıl kullanılacağını gördük. Ama bu zamana kadar, evrişimleri,
+matrisler üzerinde kullandık, mesela altıya altılık matris üzerinde. Sonraki videoda evrişimlerin yığınlar(volume)
+üzerinde uygulanmasını göreceğiz ve belki bu, evrişimlerin çok daha güçlü olduğunu bize gösterebilir. Haydi bir sonraki videoya geçelim.

@@ -1,0 +1,611 @@
+1
+00:00:00,000 --> 00:00:02,385
+Bu haftanın son videosu için,
+
+2
+00:00:02,385 --> 00:00:05,520
+hadi biraz konvolüsyonların sinir ağlarına eklediğinde ‑
+
+3
+00:00:05,520 --> 00:00:08,990
+niçin daha kullanışlı olduğundan bahsedelim.
+
+4
+00:00:08,990 --> 00:00:13,890
+Ve son olarak, kısaca bir etiket eğitim setin varken bir konvolüsyonel sinir ağına -
+
+5
+00:00:13,890 --> 00:00:20,160
+hep birlikte nasıl eklendiğini ve nasıl eğitildiğinden bahsedelim.
+
+6
+00:00:20,160 --> 00:00:23,610
+Bence sadece tamamen bağlı katmanların kullanımı-
+
+7
+00:00:23,610 --> 00:00:29,091
+kıvrımsal katmanların üzerinde iki temel avantajı olduğunu düşünüyorum.
+
+8
+00:00:29,091 --> 00:00:34,075
+Avantajları parametre paylaşımı ve bağlantıların seyrekliğidir.
+
+9
+00:00:34,075 --> 00:00:36,097
+Bir örnekle göstermeme izin verin.
+
+10
+00:00:36,097 --> 00:00:42,915
+Diyelim ki, 32x32 bir 3-boyutlu resmin olsun,
+
+11
+00:00:42,915 --> 00:00:49,040
+aslında bu örnek bir önceki videodan geliyor-
+
+12
+00:00:49,040 --> 00:00:54,945
+ama 6 filtre ile 5'e 5 filtre kullanıyorsunuz.
+
+13
+00:00:54,945 --> 00:01:04,887
+Ve böylece, bu size 28 x 28 6-boyutlu çıktı verir.
+
+14
+00:01:04,887 --> 00:01:07,938
+Yani 32x32x3, 3,072'dir,
+
+15
+00:01:07,938 --> 00:01:17,320
+ve bu sayıları çoğaltırsanız, 28x28x6 ise 4,704'tür.
+
+16
+00:01:17,320 --> 00:01:24,049
+Ve böylece, eğer bir katmanda 3,072 birimle bir sinir ağı yaptıysan,-
+
+17
+00:01:24,049 --> 00:01:27,995
+sonraki katmanda 4,074 birimle-
+
+18
+00:01:27,995 --> 00:01:31,205
+ve eğer her bir nöronu birbirine bağlarsanız,-
+
+19
+00:01:31,205 --> 00:01:32,650
+daha sonra ağırlık matrisi-
+
+20
+00:01:32,650 --> 00:01:35,624
+bir ağırlık matrisindeki sayıların parametresi yaklaşık 14 milyon olan-
+
+21
+00:01:35,624 --> 00:01:42,175
+3,072x4,704 olacaktır.
+
+22
+00:01:42,175 --> 00:01:44,950
+Yani, sadece eğitmek için bu kadar çok parametre var.
+
+23
+00:01:44,950 --> 00:01:49,455
+Ve bugün, 14 milyondan daha fazla parametreyi sinir ağı ile eğitebilirsiniz,
+
+24
+00:01:49,455 --> 00:01:52,543
+ama bunun sadece çok küçük bir resim olduğunu düşünün,
+
+25
+00:01:52,543 --> 00:01:54,985
+bu, bir çok parametreyi eğitmek içindir.
+
+26
+00:01:54,985 --> 00:02:00,030
+Ve tabiiki, eğer resim 1000x1000 olsaydı, 
+
+27
+00:02:00,030 --> 00:02:04,920
+o zaman görüntü matrisiniz görünmez büyüklükte olurdu.
+
+28
+00:02:04,920 --> 00:02:10,020
+Ama eğer bu konvolüsyonel katmandaki sayıların parametresine bakarsan,
+
+29
+00:02:10,020 --> 00:02:12,710
+her bir filtre 5x5'tir.
+
+30
+00:02:12,710 --> 00:02:15,385
+Yani, her filtrenin 25 parametresi
+
+31
+00:02:15,385 --> 00:02:19,120
+her bir filtre başına 26 hata parametresi artı bir bayes parametresi, 
+
+32
+00:02:19,120 --> 00:02:21,280
+ve 6 filtreniz var,
+
+33
+00:02:21,280 --> 00:02:23,800
+yani toplam parametre sayısı-
+
+34
+00:02:23,800 --> 00:02:26,605
+156 parametre sayısına eşittir.
+
+35
+00:02:26,605 --> 00:02:31,360
+Ve bu yüzden, sayıların parametresi bu konvolüsyonel katmanda oldukça küçük kalır.
+
+36
+00:02:31,360 --> 00:02:37,965
+Ve bu ünsüzün çalışabilmesi için bu küçük parametrelerin iki nedeni vardır.
+
+37
+00:02:37,965 --> 00:02:40,110
+Bir parametre paylaşımı.
+
+38
+00:02:40,110 --> 00:02:43,915
+Ve parametre paylaşımı, görüntünün bir bölümünde -
+
+39
+00:02:43,915 --> 00:02:47,575
+yararlı olan kenar dedektörü gibi özellikli dedektörün-
+
+40
+00:02:47,575 --> 00:02:51,098
+muhtemelen görüntünün başka bir bölümünde motive ettiği gözlemlenir.
+
+41
+00:02:51,098 --> 00:02:52,435
+Ve bunun anlamı şudur;
+
+42
+00:02:52,435 --> 00:02:56,635
+dikey kenarları tespit etmek için 3x3 dediyseniz,–
+
+43
+00:02:56,635 --> 00:03:01,765
+daha sonra aynı 3x3 filtreyi buraya uygulayabilirsiniz,–
+
+44
+00:03:01,765 --> 00:03:03,755
+ve daha sonra,bir sonraki pozisyon,–
+
+45
+00:03:03,755 --> 00:03:06,220
+ve bir sonraki pozisyon, vb.
+
+46
+00:03:06,220 --> 00:03:09,040
+Ve böylece, bu özellik tespitlerinden her biri,
+
+47
+00:03:09,040 --> 00:03:13,510
+Bu aqua'arın her biri dikey bir kenar veya başka bir özellik-
+
+48
+00:03:13,510 --> 00:03:17,140
+algılamak için aynı parametreleri—
+
+49
+00:03:17,140 --> 00:03:21,825
+giriş resminizde birçok farklı pozisyonda kullanabilir.
+
+50
+00:03:21,825 --> 00:03:25,885
+Ve bunun, kenarlar gibi düşük seviyeli-
+
+51
+00:03:25,885 --> 00:03:28,990
+özelliklerin yanı sıra, belki de—
+
+52
+00:03:28,990 --> 00:03:32,865
+bir yüzün veya bir kedinin ya da bir şeyin olduğunu gösteren gözün algılanması gibi daha yüksek seviyeli özellikler için de geçerli.
+
+53
+00:03:32,865 --> 00:03:34,640
+Ama bu durumda bi payla,
+
+54
+00:03:34,640 --> 00:03:39,455
+Bu aquaların 16'sını hesaplamak için aynı dokuz parametre,
+
+55
+00:03:39,455 --> 00:03:43,620
+parametre sayılarının azaltılmasının yollarından biridir.
+
+56
+00:03:43,620 --> 00:03:47,590
+Ve aynı zamanda bir özellik tespiti sezgisel görünüyor–
+
+57
+00:03:47,590 --> 00:03:52,075
+Dikey kenar dedektörü gibi, görüntünün sol üst köşesi için hesaplar.
+
+58
+00:03:52,075 --> 00:03:55,476
+Aynı özellik muhtemelen yararlı olacak gibi görünüyor–
+
+59
+00:03:55,476 --> 00:03:59,280
+görüntünün sağ alt köşesinde kullanılma şansı var.
+
+60
+00:03:59,280 --> 00:04:00,910
+Yani, belki de resmin sol üst ve sağ alt köşelerini —
+
+61
+00:04:00,910 --> 00:04:02,320
+için ayrı özellik dedektörleri—
+
+62
+00:04:02,320 --> 00:04:05,140
+öğrenmeniz gerekmez.
+
+63
+00:04:05,140 --> 00:04:07,435
+Ve belki de sahip olduğunuz bir veri kümeniz var‑
+
+64
+00:04:07,435 --> 00:04:12,087
+sol üst köşede ve sağ alt köşede farklı dağılımlar var, yani
+
+65
+00:04:12,087 --> 00:04:15,660
+belki bu yüzden biraz farklılar ama yeterince benzer olabilirler–
+
+66
+00:04:15,660 --> 00:04:20,185
+Görüntü boyunca tüm özellik tespitlerini paylaşıyorlar, gayet iyi çalışıyorlar.
+
+67
+00:04:20,185 --> 00:04:23,800
+Ünsüzler ile kaçmak ikinci yolu–
+
+68
+00:04:23,800 --> 00:04:27,485
+nispeten az sayıda parametre olması seyrek bağlantılara sahip olmaktır.
+
+69
+00:04:27,485 --> 00:04:28,779
+Yani, demek istediğim şey–
+
+70
+00:04:28,779 --> 00:04:30,400
+eğer sıfıra bakarsan–
+
+71
+00:04:30,400 --> 00:04:32,980
+bu 3x3 konvolüsyonla hesaplanır.
+
+72
+00:04:32,980 --> 00:04:38,350
+Ve böylece, sadece bu üç giriş sistem veya hücreye bağlıdır.
+
+73
+00:04:38,350 --> 00:04:43,900
+Yani, sağdaki bu çıkış birimi sadece bağlı–
+
+74
+00:04:43,900 --> 00:04:50,155
+bu 6x6, 36 giriş özelliği.
+
+75
+00:04:50,155 --> 00:04:54,015
+Ve özellikle, bu piksel değerlerin geri kalanı,–
+
+76
+00:04:54,015 --> 00:05:02,395
+Tüm bu piksel değerlerinin diğer çıktılarda herhangi bir etkisi yoktur.
+
+77
+00:05:02,395 --> 00:05:04,945
+Demek istediğim, bağlantıların seyrekliği.
+
+78
+00:05:04,945 --> 00:05:15,585
+Başka bir örnek olarak, bu çıktı sadece bu dokuz giriş özelliklerine bağlıdır.
+
+79
+00:05:15,585 --> 00:05:20,293
+Yani, bu çıktıya sadece dokuz giriş özelliği bağlıysa,–
+
+80
+00:05:20,293 --> 00:05:23,431
+ve diğer pikseller bu çıkışı hiç etkilemez.
+
+81
+00:05:23,431 --> 00:05:25,825
+Ve böylece, bu iki mekanizma aracılığıyla,–
+
+82
+00:05:25,825 --> 00:05:30,310
+Bir sinir ağının buna izin veren çok daha az parametresi vardır–
+
+83
+00:05:30,310 --> 00:05:35,380
+Daha küçük antrenman hücresi ile eğitilmek ve 30 yaşın üzerinde olmaya daha az eğilimlidir.
+
+84
+00:05:35,380 --> 00:05:37,445
+Ve böylece, bazen de duyuyorsunuz–
+
+85
+00:05:37,445 --> 00:05:42,245
+konvolüsyonel sinir ağları, çeviri değişmezliğini yakalamada çok iyi.
+
+86
+00:05:42,245 --> 00:05:44,725
+Ve bu kadar gözlem–
+
+87
+00:05:44,725 --> 00:05:48,170
+Bir kedinin resmi bir çift piksel sağa kaydırdı.
+
+88
+00:05:48,170 --> 00:05:50,735
+hala oldukça açık bir kedi.
+
+89
+00:05:50,735 --> 00:05:58,715
+Ve konvolüsyonel yapı, sinir ağının, bir görüntünün gerçeğini şifrelemesine yardımcı olur–
+
+90
+00:05:58,715 --> 00:06:02,600
+birkaç piksel kaydırılmış olması oldukça benzer özelliklere ve–
+
+91
+00:06:02,600 --> 00:06:07,515
+muhtemelen aynı oval etikete atamalıdır.
+
+92
+00:06:07,515 --> 00:06:10,468
+Ve aynı filtreye uyguladığınız bu durumu–
+
+93
+00:06:10,468 --> 00:06:13,130
+resmin bütün konumlarını bilir.
+
+94
+00:06:13,130 --> 00:06:16,255
+hem erken katmanlarda hem de geç katmanlarda–
+
+95
+00:06:16,255 --> 00:06:20,060
+bir sinir ağının otomatik olarak daha fazla öğrenmesine yardımcı olur–
+
+96
+00:06:20,060 --> 00:06:28,320
+ötelenme değişmezliğinin arzu edilen özelliğini sağlamlaştırmak veya daha iyi yakalamak için.
+
+97
+00:06:28,320 --> 00:06:32,415
+Yani ,belki de bir kaç nedenle–
+
+98
+00:06:32,415 --> 00:06:37,320
+bilgisayar görmesinde, kıvrımlar ya da kıvrımsal sinir ağları çok iyi çalışır.
+
+99
+00:06:37,320 --> 00:06:43,150
+Ve son olarak, hepsini bir araya getirelim ve ve nasıl sinir ağlarının eğitildiğini görelim.
+
+100
+00:06:43,150 --> 00:06:45,980
+Diyelim ki bir kedi dedektörü inşa etmek istiyorsun ve sen–
+
+101
+00:06:45,980 --> 00:06:48,715
+aşağıdaki gibi etiketli eğitim setleri var,–
+
+102
+00:06:48,715 --> 00:06:52,180
+şimdi, X bir görüntüdür.
+
+103
+00:06:52,180 --> 00:06:54,650
+Ve y, ikili etiketler olabilir–
+
+104
+00:06:54,650 --> 00:06:57,645
+ya da K nedenlerinden biri.
+
+105
+00:06:57,645 --> 00:07:02,090
+Ve diyelim ki, bir kıvrımsal sinir ağı yapısı seçtiniz–
+
+106
+00:07:02,090 --> 00:07:06,468
+görüntü eklenebilir ve daha sonra noral kıvrımlı ve çekili katmanlar olabilir–
+
+107
+00:07:06,468 --> 00:07:09,310
+ve daha sonra tamamen bağlı bazı katmanlar–
+
+108
+00:07:09,310 --> 00:07:13,880
+Ardından Y şapka çalışan bir yazılım çıktısı.–
+
+109
+00:07:13,880 --> 00:07:20,165
+Konvolüsyon katmanları ve tamamen bağlı katmanların çeşitli parametreleri olacaktır.
+
+110
+00:07:20,165 --> 00:07:23,213
+aynı şekilde W ve bayes'in B'si.
+
+111
+00:07:23,213 --> 00:07:26,780
+Ve böylece, bu yüzden parametrelerin herhangi bir ayarı–
+
+112
+00:07:26,780 --> 00:07:32,540
+Önceki derslerde gördüklerimize benzer bir maliyet fonksiyonu tanımlamanızı sağlar,–
+
+113
+00:07:32,540 --> 00:07:37,648
+W ve B parametrelerini rastgele başlattığımız yer.
+
+114
+00:07:37,648 --> 00:07:40,237
+J'yi hesaplayabilirsiniz–
+
+115
+00:07:40,237 --> 00:07:46,645
+tüm eğitim setinizde sinir ağları tahminlerinin kaybı toplamı olarak,–
+
+116
+00:07:46,645 --> 00:07:50,880
+belki de M.'ye bölebilir.
+
+117
+00:07:50,880 --> 00:07:52,555
+bu sinir ağını eğitmek için–
+
+118
+00:07:52,555 --> 00:07:56,210
+yapman gereken şey o zaman gradient descents( dereceli alçalma) kullanmak veya bazı–
+
+119
+00:07:56,210 --> 00:07:59,795
+algoritma gibi, gradient descents momenti–
+
+120
+00:07:59,795 --> 00:08:03,447
+veya RSMProp, Adam veya başka bir şey–
+
+121
+00:08:03,447 --> 00:08:05,900
+tüm parametrelerini optimize etmek için–
+
+122
+00:08:05,900 --> 00:08:09,220
+sinir ağı, maliyet fonksiyonunu J azaltmaya çalışacaktır.
+
+123
+00:08:09,220 --> 00:08:11,110
+Ve eğer bunu yaparsan–
+
+124
+00:08:11,110 --> 00:08:18,759
+Çok etkili bir kedi dedektörü veya başka bir dedektör inşa edebilirsiniz.
+
+125
+00:08:18,759 --> 00:08:21,700
+Böylece, bu haftaki videoları bitirdiğiniz için tebrikler.
+
+126
+00:08:21,700 --> 00:08:25,550
+Artık bir konvolüsyonel sinir ağının tüm temel yapı taşlarını gördünüz.
+
+127
+00:08:25,550 --> 00:08:30,415
+ve bunları etkili bir görüntü tanıma sistemine nasıl dahil edecekler.
+
+128
+00:08:30,415 --> 00:08:32,095
+ Bu haftaki program çalışmaları–
+
+129
+00:08:32,095 --> 00:08:34,310
+Bütün bu şeylerin daha somut olacağını düşünüyorum–
+
+130
+00:08:34,310 --> 00:08:36,610
+ve uygulama yapmak için şansınız olacak–
+
+131
+00:08:36,610 --> 00:08:39,805
+bu şeyleri kendiniz görün ve çalışın.
+
+132
+00:08:39,805 --> 00:08:43,835
+Gelecek hafta, konvolüsyonel sinir ağlarına daha derin gitmeye devam edeceğiz.
+
+133
+00:08:43,835 --> 00:08:45,730
+Daha önce bahsettim,sadece bir sürü –
+
+134
+00:08:45,730 --> 00:08:48,115
+konvolüsyon sinir ağlarında hiperparametreler var.
+
+135
+00:08:48,115 --> 00:08:49,420
+Yani, önümüzdeki hafta yapmak istediğim şey,–
+
+136
+00:08:49,420 --> 00:08:52,000
+bazı somut örnekler göstereceğim–
+
+137
+00:08:52,000 --> 00:08:54,680
+en etkili konvolüsyonel sinir ağları,
+
+138
+00:08:54,680 --> 00:08:57,010
+böylece kalıpları tanımaya başlayabilirsiniz–
+
+139
+00:08:57,010 --> 00:09:00,055
+Ne tür ağ mimarileri etkilidir.
+
+140
+00:09:00,055 --> 00:09:04,360
+Ve insanların sık sık yaptığı bir şey sadece mimariyi almak–
+
+141
+00:09:04,360 --> 00:09:05,885
+başka biri buldu ve yayınladı–
+
+142
+00:09:05,885 --> 00:09:08,995
+Bir araştırma makalesi ve sadece uygulamanız için kullanın.
+
+143
+00:09:08,995 --> 00:09:12,055
+Ve önümüzdeki hafta biraz daha somut örnekler görerek,–
+
+144
+00:09:12,055 --> 00:09:15,470
+Bunu daha iyi nasıl yapacağınızı da öğrenirsiniz.
+
+145
+00:09:15,470 --> 00:09:16,690
+Ve bunun ötesinde, gelecek hafta–
+
+146
+00:09:16,690 --> 00:09:21,520
+Aynı zamanda kendinden emin bir şekilde çalışmayı sağlayan şey hakkında sezgiyi de alacağız,–
+
+147
+00:09:21,520 --> 00:09:23,160
+ve sonra dersin geri kalanında–
+
+148
+00:09:23,160 --> 00:09:27,475
+Ayrıca, diğer bilgisayar görme uygulamalarını da göreceğiz–
+
+149
+00:09:27,475 --> 00:09:30,170
+nesne algılama ve sinir deposu aktarımı.
+
+150
+00:09:30,170 --> 00:09:34,070
+Bu algoritma setini kullanarak yeni sanat formlarını nasıl yaratırlar.
+
+151
+00:09:34,070 --> 00:09:35,564
+Yani, bu hafta bitti,–
+
+152
+00:09:35,564 --> 00:09:37,530
+ödevlerinizde iyi şanslar,
+
+153
+00:09:37,530 --> 00:09:39,660
+ve önümüzdeki hafta seni görmeyi umuyorum.

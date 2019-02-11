@@ -1,0 +1,1222 @@
+1
+00:00:00,000 --> 00:00:02,470
+Bu videoda, bazı klasik yapay sinir ağı mimarisini
+
+2
+00:00:02,470 --> 00:00:05,418
+LeNet-5'den başlayarak sonra
+
+3
+00:00:05,418 --> 00:00:10,122
+AlexNet son olarak VGGNet ile öğreneceksiniz.
+Hadi bakalım.
+
+4
+00:00:10,122 --> 00:00:12,935
+İşte LeNet-5 mimarisi.
+
+5
+00:00:12,935 --> 00:00:15,700
+Bir resim ile başlıyorsun diyelim ki,
+
+6
+00:00:15,700 --> 00:00:17,540
+32,32,1.
+
+7
+00:00:17,540 --> 00:00:21,520
+Ve LeNet-5'in amacı el yazısı ile yazılmış
+ rakamları tanımaktı,
+
+8
+00:00:21,520 --> 00:00:25,490
+belki bunun gibi bir rakamın görüntüsü.
+
+9
+00:00:25,490 --> 00:00:28,815
+Ve LeNet-5 gri ölçek görüntü üzerinde eğitim gördü,
+
+10
+00:00:28,815 --> 00:00:32,180
+32,32,1 olmasının sebebi bu.
+
+11
+00:00:32,180 --> 00:00:34,400
+Aslında bu yapay sinir ağı mimarisi
+
+12
+00:00:34,400 --> 00:00:38,315
+geçen hafta gördüğünüz son örneğe oldukça benziyor
+
+13
+00:00:38,315 --> 00:00:39,847
+İlk adımda,
+
+14
+00:00:39,847 --> 00:00:41,765
+6 tane 5x5 
+
+15
+00:00:41,765 --> 00:00:45,220
+kullanırsın çünkü 
+
+16
+00:00:45,220 --> 00:00:50,218
+6 tane filtre kullandın. Orada 20x20x6 ile bitirirsin.
+
+17
+00:00:50,218 --> 00:00:52,730
+2 adım kullandığımızı ve dolgulama (padding) olmadığını
+ varsayalım.
+
+18
+00:00:52,730 --> 00:00:58,640
+Görüntü boyutları 32x32'den 28x28'e azalır.
+
+19
+00:00:58,640 --> 00:01:02,295
+Sonra LeNet yapay sinir ağı ortaklama uygular.
+
+20
+00:01:02,295 --> 00:01:04,970
+Ve o zaman bu yazı yazıldığı zaman,
+
+21
+00:01:04,970 --> 00:01:07,576
+insanlar ortalama ortaklamayı daha fazla kullanırlar.
+
+22
+00:01:07,576 --> 00:01:09,290
+Modern bir değişken inşa ediyorsanız,
+
+23
+00:01:09,290 --> 00:01:12,145
+Muhtemelen yerine maksimum ortaklamayı kullanırsınız.
+
+24
+00:01:12,145 --> 00:01:13,360
+Şimdilik, sizin
+
+25
+00:01:13,360 --> 00:01:17,825
+Ortalama havuz ve filtre genişliği iki ve iki adımı ile,
+
+26
+00:01:17,825 --> 00:01:20,780
+Boyutları, yüksekliği ve genişliği
+
+27
+00:01:20,780 --> 00:01:22,730
+iki kat azaltarak dödürüyorsun.
+
+28
+00:01:22,730 --> 00:01:28,784
+Böylece 14x14x6 hacmiyle bitiriyoruz.
+
+29
+00:01:28,784 --> 00:01:32,180
+Sanırım bu hacimlerin yüksekliği ve genişliği tamamen
+ ölçeklendirilmiyor.
+
+30
+00:01:32,180 --> 00:01:35,210
+Şimdi teknik olarak, eğer bu hacimleri
+ ölçeklendiriyor olsaydım,
+
+31
+00:01:35,210 --> 00:01:38,150
+yükseklik ve genişlik iki kat daha güçlü olacaktı.
+
+32
+00:01:38,150 --> 00:01:41,180
+Sonraki, Başka bir evrişimli katman uygulayın.
+
+33
+00:01:41,180 --> 00:01:44,070
+Bu sefer 16 filtreli 5x5'lik küme kullanın,
+
+34
+00:01:44,070 --> 00:01:48,515
+Böylece bir sonraki hacime 16 kanalla son verirsin.
+
+35
+00:01:48,515 --> 00:01:52,355
+Ve bu yazı 1998’de yazıldığı zaman
+
+36
+00:01:52,355 --> 00:01:57,200
+İnsanlar gerçekten dolgulama kullanmıyordu ya da her 
+zaman geçerli evrişimleri uyguluyorsunuz,
+
+37
+00:01:57,200 --> 00:01:59,635
+o yüzden evrişimli katman kullanıyorsunuz her zaman,
+
+38
+00:01:59,635 --> 00:02:01,965
+onlar güçlü yönleriyle büyüdüler.
+
+39
+00:02:01,965 --> 00:02:03,380
+İşte bu nedenle, burada,
+
+40
+00:02:03,380 --> 00:02:06,393
+14x14'den 10x10'a gidiyorsun.
+
+41
+00:02:06,393 --> 00:02:08,580
+Başka bir ortaklama katmanı,
+
+42
+00:02:08,580 --> 00:02:11,060
+yüksekliği ve genişliği iki kat azaltması için.
+
+43
+00:02:11,060 --> 00:02:13,715
+Sonra 5x5 ile burada bitiriyorsun.
+
+44
+00:02:13,715 --> 00:02:16,640
+Ve eğer tüm bu sayıları 5x5x16 boyutunda çarptığınızda,
+
+45
+00:02:16,640 --> 00:02:20,375
+bu 400'e kadar çoğalır.
+
+46
+00:02:20,375 --> 00:02:24,020
+25x16=400
+
+47
+00:02:24,020 --> 00:02:29,900
+Ve bir sonraki katman bu 400 düğümün herbirini 120 
+nöronun herbiriyle
+
+48
+00:02:29,900 --> 00:02:36,840
+tamamen birbirine bağlayan tam bağlantılı katmandır.
+
+49
+00:02:36,840 --> 00:02:38,385
+Bu yüzden burada tam bağlantılı katman var.
+
+50
+00:02:38,385 --> 00:02:41,955
+Ve bazen, sadece 400 düğümlü bir katman 
+görevlendirecektim.
+
+51
+00:02:41,955 --> 00:02:46,080
+Bunu atlıyorum.
+
+52
+00:02:46,080 --> 00:02:49,590
+İşte tamamen bağlı bir katman ve başka bir
+ tamamen bağlı katman.
+
+53
+00:02:49,590 --> 00:02:51,690
+Ve sonra son adım
+
+54
+00:02:51,690 --> 00:02:57,280
+gerekli 84 özelliği kullanır ve onu bir son çıktı ile kullanır.
+
+55
+00:02:57,280 --> 00:03:01,375
+Tahminimce, y^ 'e bir tahmin yapmak için
+ bir tane daha düğüm çiziceksin.
+
+56
+00:03:01,375 --> 00:03:04,560
+Ve y^ 0'dan 9'a kadar olan rakamların
+ her birinin tanınmasına
+
+57
+00:03:04,560 --> 00:03:09,090
+karşılık gelen 10 olası değer aldı.
+
+58
+00:03:09,090 --> 00:03:11,100
+Bu yapay sinir ağının modern bir versiyonu
+
+59
+00:03:11,100 --> 00:03:17,300
+10 yollu sınıflandırma çıktısı ile birlikte yumuşatılmış 
+maksimum(softmax) katman kullanacağız.
+
+60
+00:03:17,300 --> 00:03:23,385
+O zamanlara rağmen, LeNet-5 aslında çıkış
+ katmanında farklı bir sınıflandırıcı kullanıyor, 
+
+61
+00:03:23,385 --> 00:03:25,633
+bugün işe yaramayan.
+
+62
+00:03:25,633 --> 00:03:29,220
+Bu yapay sinir ağı modern standartlara göre küçüktü,
+
+63
+00:03:29,220 --> 00:03:32,645
+yaklaşık 60.000 parametresi vardı.
+
+64
+00:03:32,645 --> 00:03:35,934
+Ve bugün, sıklıkla sinir ağlarını herhangi bir yerde
+
+65
+00:03:35,934 --> 00:03:39,690
+10 milyondan 100 milyona kadar olan
+ parametrelerle görürsünüz,
+
+66
+00:03:39,690 --> 00:03:41,850
+ve gerçekten bu ağlardan 1000 kat büyük 
+
+67
+00:03:41,850 --> 00:03:45,295
+olan ağları görmek olağan dışı değildir.
+
+68
+00:03:45,295 --> 00:03:49,600
+Ama gördüğünüz bir şey, bir ağda 
+daha derine gittiğinizde
+
+69
+00:03:49,600 --> 00:03:51,790
+soldan sağa gittiğinizde, 
+
+70
+00:03:51,790 --> 00:03:55,360
+yüksekliğin ve genişliğin aşağı inme eğiliminde olduğudur.
+
+71
+00:03:55,360 --> 00:03:57,690
+Yani 32x32'den 28x28'e 14x14'e 10x10'a
+
+72
+00:03:57,690 --> 00:04:03,100
+5x5'e gittiniz, halbuki kanal sayısı artar.
+
+73
+00:04:03,100 --> 00:04:11,250
+Ağın katmanlarına daha derine indiğinizde, 
+1'den 6'ya 16'ya gider.
+
+74
+00:04:11,250 --> 00:04:15,400
+Bugün hala tekrarlanan bu sinir ağında
+ gördüğünüz bir diğer model,
+
+75
+00:04:15,400 --> 00:04:20,500
+ortaklama katmanını takip eden bir ya da daha fazla
+ evrişimli katmana sahip olmanız olabilir.
+
+76
+00:04:20,500 --> 00:04:25,758
+ve sonra ortaklama katmanı tarafından takip edilen
+ bir ya da bazen daha fazla evrişimli katman,
+
+77
+00:04:25,758 --> 00:04:29,940
+ve sonra tamamen bağlı katmanlar ve çıktılar.
+
+78
+00:04:29,940 --> 00:04:34,090
+Yani bu tipte katman düzeni oldukça yaygındır.
+
+79
+00:04:34,090 --> 00:04:39,515
+Şimdi son olarak, bu belkide sadece makaleyi
+ okumayı denemek isteyenler için.
+
+80
+00:04:39,515 --> 00:04:41,880
+Farklı olan birkaç başka şeyler var.
+
+81
+00:04:41,880 --> 00:04:43,690
+Bu slaytın geri kalanında,
+
+82
+00:04:43,690 --> 00:04:47,065
+birkaç tane ileri yorum yapacağım,
+
+83
+00:04:47,065 --> 00:04:52,265
+sadece bu klasik makaleyi okumak isteyenler için.
+
+84
+00:04:52,265 --> 00:04:54,903
+Ve bunun gibi, kırmızı ile yazacağım her şeyi
+
+85
+00:04:54,903 --> 00:04:57,490
+Slayt üzerinde güvenli bir şekilde atlayabilirsiniz,
+
+86
+00:04:57,490 --> 00:05:00,520
+ve belki ilginç bir tarihsel dipnot vardır,
+
+87
+00:05:00,520 --> 00:05:04,350
+Tamamen takip etmezseniz sorun yok.
+
+88
+00:05:04,350 --> 00:05:07,990
+Eğer orijinal makaleleri okuyorsanız ortaya çıkıyor ki
+, o zamanlar
+
+89
+00:05:07,990 --> 00:05:12,453
+insanlar sigmoid ve tanh doğrusal olmayanları kullandılar,
+
+90
+00:05:12,453 --> 00:05:16,330
+Ve o zamanlar ReLu doğrusal olmayanları kullanmadılar.
+
+91
+00:05:16,330 --> 00:05:20,065
+Eğer makaleye bakarsanız, sigmoid ve tanh'a atıfta 
+bulunulduğunu göreceksiniz.
+
+92
+00:05:20,065 --> 00:05:23,260
+Ayrıca burada bazı komik yollar var bu ağ hakkında
+
+93
+00:05:23,260 --> 00:05:26,835
+modern standartlara göre komikti.
+
+94
+00:05:26,835 --> 00:05:33,775
+Örnek olarak, (nh)x(nw)x(nc) nc kanallı ağı gördünüz
+
+95
+00:05:33,775 --> 00:05:40,985
+sonra fxfxnc boyutlu filtre kullandınız,
+
+96
+00:05:40,985 --> 00:05:44,480
+herşeyin bu kanalların her birine baktığı yerde.
+
+97
+00:05:44,480 --> 00:05:47,195
+Fakat o zamanlar, bilgisayarlar çok yavaştı.
+
+98
+00:05:47,195 --> 00:05:50,230
+Ve bazı parametrelerle birlikte hesaplamayı 
+kaydetmek için
+
+99
+00:05:50,230 --> 00:05:53,785
+LeNet-5'in bazı çılgın karmaşık yolları vardı,
+
+100
+00:05:53,785 --> 00:05:58,040
+Farklı filtrelerin giriş bloğunun farklı kanallarına baktığı yerde.
+
+101
+00:05:58,040 --> 00:06:00,343
+Böylece makale bu detaylardan bahsediyor,
+
+102
+00:06:00,343 --> 00:06:07,090
+ama bu günlerde daha modern uygulama bu tarz 
+karmaşıklığa sahip olmayacaktı.
+
+103
+00:06:07,090 --> 00:06:12,280
+Ve son olarak yapılmış son birşey. O zamanlar sanırım
+ şu an bitmedi,
+
+104
+00:06:12,280 --> 00:06:19,705
+orijinal LeNet-5 ortaklamadan sonra doğrusal olmayanlığa 
+sahip oluyordu
+
+105
+00:06:19,705 --> 00:06:25,005
+ve sanırım ortaklama katmanından sonra
+ sigmoid doğrusal olmayan kullanıyor.
+
+106
+00:06:25,005 --> 00:06:27,130
+Eğer makaleyi okursanız,
+
+107
+00:06:27,130 --> 00:06:29,345
+ve bu okumak için zor olanlardan bir tanesi
+
+108
+00:06:29,345 --> 00:06:32,100
+önümüzdeki birkaç videoda gözden geçireceğimiz olanlardan.
+
+109
+00:06:32,100 --> 00:06:34,670
+Sıradaki başlamak için kolay olabilir.
+
+110
+00:06:34,670 --> 00:06:40,135
+Slayt üzerindeki fikirlerin çoğunu, makalenin iki ve üçüncü bölümlerinde denedim,
+
+111
+00:06:40,135 --> 00:06:44,485
+ve makalenin sonraki bölümleri diğer fikirler hakkında bahsediyor.
+
+112
+00:06:44,485 --> 00:06:47,260
+Çizge dönüştürücü ağ(graph transformer network)
+ hakkında bahsediyor.
+
+113
+00:06:47,260 --> 00:06:49,215
+Bugün yaygın olarak kullanılmıyor.
+
+114
+00:06:49,215 --> 00:06:50,935
+Eğer bu kağıdı okumayı denerseniz,
+
+115
+00:06:50,935 --> 00:06:55,660
+Bu mimari hakkında bahseden ikinci bölüme
+ odaklanmanızı tavsiye ederim.
+
+116
+00:06:55,660 --> 00:06:58,165
+ve belki üçüncü bölüme hızlı bir bakış atabilirsiniz,
+
+117
+00:06:58,165 --> 00:07:01,720
+oldukça ilginç olan bir dizi deney ve sonuçlara sahip.
+
+118
+00:07:01,720 --> 00:07:06,155
+Size göstermek istediğim ikinci yapay sinir ağı ise AlexNet
+
+119
+00:07:06,155 --> 00:07:12,510
+Bu çalışmayı tanımlayan makaleyi yazan ilk yazar
+ Alex Krizhevsky'den ismi geliyor.
+
+120
+00:07:12,510 --> 00:07:13,725
+Diğer yazarlar ise Ilya Sutskever ve Geoffrey Hinton.
+
+121
+00:07:13,725 --> 00:07:21,048
+AlexNet girdileri 227x227x3 görüntü ile başlar.
+
+122
+00:07:21,048 --> 00:07:22,525
+Ve eğer makaleyi okursanız,
+
+123
+00:07:22,525 --> 00:07:27,010
+Makale 224x224x3 görüntüye değinir.
+
+124
+00:07:27,010 --> 00:07:28,120
+Fakat eğer sayılara bakarsanız,
+
+125
+00:07:28,120 --> 00:07:33,100
+Sayıların sadece 227x227 olduğunda anlamlı
+ olduğunu düşünüyorum
+
+126
+00:07:33,100 --> 00:07:40,230
+İlk katman dört adımlı 96 kümeli 11x11 filtreler uygular.
+
+127
+00:07:40,230 --> 00:07:42,740
+Ve dörtlü büyük adım attığı için,
+
+128
+00:07:42,740 --> 00:07:45,574
+boyutlar 55x55'e küçülür.
+
+129
+00:07:45,574 --> 00:07:50,930
+Yani kabaca, büyük bir adım nedeniyle 4 kat düşüyor.
+
+130
+00:07:50,930 --> 00:07:55,110
+Ve sonra 3x3 filtre ile maksimum ortaklama uygular.
+
+131
+00:07:55,110 --> 00:07:57,925
+Böylece f=3 ve s=2 olur.
+
+132
+00:07:57,925 --> 00:08:04,570
+Böylece hacim 27x27x96 ya indirgenir,
+
+133
+00:08:04,570 --> 00:08:08,530
+ve sonra 5x5 aynı evrişim, aynı dolgulamayı yapar.
+
+134
+00:08:08,530 --> 00:08:14,730
+böylece 27x27x276 ile biter.
+
+135
+00:08:14,730 --> 00:08:20,025
+Tekrardan maksimum ortaklama, bu yüksekliği ve
+ genişliği 13' e indirger.
+
+136
+00:08:20,025 --> 00:08:23,860
+Ve sonra aynı evrişim, bu yüzden de aynı dolgulama.
+
+137
+00:08:23,860 --> 00:08:29,805
+Yani 13x13x384 filtre.
+
+138
+00:08:29,805 --> 00:08:35,275
+Ve sonra 3x3, aynı evrişim yeniden, size bunu verir.
+
+139
+00:08:35,275 --> 00:08:39,680
+Sonra 3x3, aynı evrişim yeniden, size bunu verir.
+
+140
+00:08:39,680 --> 00:08:45,285
+Sonra maksimum ortaklama, 6x6x256 ya getirir.
+
+141
+00:08:45,285 --> 00:08:52,020
+Eğer tüm bu sayıları 6x6x256 ile çarparsan sonuç 9216.
+
+142
+00:08:52,020 --> 00:08:56,947
+Yani bunu 9216 düğüme sericeğiz.
+
+143
+00:08:56,947 --> 00:09:00,790
+Ve sonra sonunda, bir kaç tane tamamen bağlı 
+katmana sahip olur.
+
+144
+00:09:00,790 --> 00:09:04,250
+Ve sonra sonunda, bir tane
+ yumuşatılmış maksimum kullanır,
+
+145
+00:09:04,250 --> 00:09:09,515
+nesnenin olabiliceği 1000 sınıftan hangisinin
+ çıktısını almak için.
+
+146
+00:09:09,515 --> 00:09:16,920
+Yani bu yapay sinir ağı aslında LeNet'e çok fazla benziyordu,
+
+147
+00:09:16,920 --> 00:09:20,210
+ama daha büyüktü.
+
+148
+00:09:20,210 --> 00:09:27,740
+Oysaki önceki slaytta LeNet-5 60.000 parametreye sahipti,
+
+149
+00:09:27,740 --> 00:09:31,935
+Bu AlexNet 60 milyon parametreye sahip.
+
+150
+00:09:31,935 --> 00:09:34,024
+Ve oldukça benzer temel yapı taşlarını alabildikleri,
+
+151
+00:09:34,024 --> 00:09:36,925
+ancak çok daha fazla gizli birime
+
+152
+00:09:36,925 --> 00:09:40,270
+ve çok daha fazla veri üzerinde eğitim alabildikleri
+ gerçeğine dayanarak
+
+153
+00:09:40,270 --> 00:09:42,820
+ görüntü üzerinde sadece dikkate değer bir performansa
+
+154
+00:09:42,820 --> 00:09:46,255
+sahip olmasına izin veren veri setini eğitmişlerdir.
+
+155
+00:09:46,255 --> 00:09:49,810
+Bu mimarinin bir başka özelliği de
+
+156
+00:09:49,810 --> 00:09:53,575
+LeNet'de kullanılan ReLu aktivasyon
+ fonksiyonundan daha iyi.
+
+157
+00:09:53,575 --> 00:09:56,425
+Ve tekrardan, eğer makaleyi okuduysanız,
+
+158
+00:09:56,425 --> 00:09:59,020
+makaleyi okumamış olmamanız için endişelenmenize
+
+159
+00:09:59,020 --> 00:10:01,840
+gerek olmayan bazı ileri detaylar, bunlardan biri,
+
+160
+00:10:01,840 --> 00:10:03,445
+Makale yazıldığı zaman,
+
+161
+00:10:03,445 --> 00:10:06,197
+GPU'lar hala birar yavaştı,
+
+162
+00:10:06,197 --> 00:10:11,135
+bu yüzden iki tane GPU üzerinde eğitimin
+ karmaşık yolu vardı.
+
+163
+00:10:11,135 --> 00:10:13,310
+Ve temel fikri şuydu,
+
+164
+00:10:13,310 --> 00:10:18,250
+Bu katmanların çoğu aslında iki farklı GPU'ya bölünmüştü,
+
+165
+00:10:18,250 --> 00:10:23,497
+ve iki GPU'nun birbiriyle iletişim kuracağı zaman
+ için düşünceli bir yol vardı.
+
+166
+00:10:23,497 --> 00:10:25,360
+Ve makale de,
+
+167
+00:10:25,360 --> 00:10:29,650
+Orijinal AlexNet mimarisi Local Response Normalization adında
+
+168
+00:10:29,650 --> 00:10:34,125
+başka bir katman kümesine sahipti.
+
+169
+00:10:34,125 --> 00:10:36,820
+Ve bu tip katman gerçekten çok fazla kullanılmadı,
+
+170
+00:10:36,820 --> 00:10:38,830
+bu yüzden bundan çok fazla bahsetmedim.
+
+171
+00:10:38,830 --> 00:10:42,220
+Fakat Local Response Normalization'un temel fikri,
+
+172
+00:10:42,220 --> 00:10:44,845
+eğer bu bloklardan bir tanesine baktıysanız,
+
+173
+00:10:44,845 --> 00:10:46,940
+Üstte sahip olduğumuz bu hacimlerden biri,
+
+174
+00:10:46,940 --> 00:10:49,360
+ve argümanlar uğruna diyelim ki,
+
+175
+00:10:49,360 --> 00:10:52,380
+13x13x256
+
+176
+00:10:52,380 --> 00:10:54,765
+Local Response Normalization ne yapar,
+
+177
+00:10:54,765 --> 00:10:57,805
+hangi pozisyona bakarsınız.
+
+178
+00:10:57,805 --> 00:10:59,570
+Yani bir pozisyon yükseklik ve genişlik,
+
+179
+00:10:59,570 --> 00:11:02,935
+ve tüm kanallara bakarsak,
+
+180
+00:11:02,935 --> 00:11:07,195
+tüm 256 sayılarına bak ve onları normalleştir.
+
+181
+00:11:07,195 --> 00:11:10,750
+Ve bu Local Response Normalization için motivasyon
+
+182
+00:11:10,750 --> 00:11:14,934
+13x13 görüntüdeki her bir pozisyon içindi.
+
+183
+00:11:14,934 --> 00:11:20,123
+Belki çok fazla aktivasyonu olan çok fazla nöron istemezsin.
+
+184
+00:11:20,123 --> 00:11:25,730
+Fakat sonradan, pek çok araştırmacı bunun
+ çok fazla işe yaramadığını buldu.
+
+185
+00:11:25,730 --> 00:11:27,995
+Sanırım kırmızıyla çizdiğim bunlardan biri.
+
+186
+00:11:27,995 --> 00:11:31,880
+Çünkü bunu anlaman senin için daha az önemli.
+
+187
+00:11:31,880 --> 00:11:33,940
+Ve pratikte, gerçekten
+
+188
+00:11:33,940 --> 00:11:38,760
+eğitilen ağ dilinde local response normalization'u kullanmıyorum.
+
+189
+00:11:38,760 --> 00:11:41,380
+Yani eğer derin öğrenme tarihi ile ilgileniyorsanız,
+
+190
+00:11:41,380 --> 00:11:43,395
+AlexNet'ten bile önce düşünüyorum,
+
+191
+00:11:43,395 --> 00:11:48,978
+derin öğrenme konuşma tanımada ve diğer birkaç
+ alanda çekişmeye başlıyordu,
+
+192
+00:11:48,978 --> 00:11:52,690
+ama bilgisayar bilimi topluluğunun birçoğunu,
+
+193
+00:11:52,690 --> 00:11:56,350
+derin öğrenmenin bilgisayar ortamında gerçekten
+ işe yarayacağına inandırmak için 
+
+194
+00:11:56,350 --> 00:12:00,280
+derin bir öğrenmeye ciddi bir bakış atmaya ikna
+ eden gerçek bir yazıydı.
+
+195
+00:12:00,280 --> 00:12:02,710
+Ve sonra sadece bilgisayar görüşünde değil
+
+196
+00:12:02,710 --> 00:12:05,508
+bilgisayar görüşünün ötesinde büyük bir
+ etki yaratmaya başladı.
+
+197
+00:12:05,508 --> 00:12:08,170
+Ve eğer bu makalelerden bazıların kendi başınıza okumayı
+ denemek istiyorsanız
+
+198
+00:12:08,170 --> 00:12:11,635
+gerçekten bu kursa gerek yok,
+
+199
+00:12:11,635 --> 00:12:14,200
+Fakat eğer bu makalelerden bazılarını okumayı
+ denemek istiyorsanız
+
+200
+00:12:14,200 --> 00:12:19,354
+Bu, okumak için daha kolay olanlardan biridir,
+ bu yüzden, bakmak iyi olabilir.
+
+201
+00:12:19,354 --> 00:12:23,257
+Yani AlexNet nispeten karmaşık bir mimariye sahipken,
+
+202
+00:12:23,257 --> 00:12:25,585
+bir sürü hiperparametre var, doğru mu?
+
+203
+00:12:25,585 --> 00:12:28,255
+Bütün bu sayılara sahip olduğunuz yerde,
+
+204
+00:12:28,255 --> 00:12:33,240
+Alex Krizhevsky ve yazarlarının ortaya çıkması gerekiyordu.
+
+205
+00:12:33,240 --> 00:12:39,765
+VGG ya da VGG-16 olarak adlandırılan bu videoda ki
+ üçüncü ve son örneği göstermeme izin verin.
+
+206
+00:12:39,765 --> 00:12:44,820
+Ve VGG-16 ağıyla ilgili dikkate değer bir şey,
+
+207
+00:12:44,820 --> 00:12:46,966
+çok fazla hiperparametreye sahip olmak yerine
+
+208
+00:12:46,966 --> 00:12:52,495
+sadece evrişimli katmanlara odaklandığımız 
+çok daha basit bir ağ kullanalım.
+
+209
+00:12:52,495 --> 00:12:58,690
+3x3 filtre,bir adım ve her zaman aynı dolgulamayı kullanın.
+
+210
+00:12:58,690 --> 00:13:03,640
+İki adım ile birlikte tüm maksimum ortaklama
+ katmanlarını 2x2 yapın
+
+211
+00:13:03,640 --> 00:13:06,250
+Ve böylece, VGG ağı ile ilgili çok güzel bir şey,
+
+212
+00:13:06,250 --> 00:13:12,224
+bu yapay sinir ağı mimarilerini gerçekten basitleştirmekti.
+
+213
+00:13:12,224 --> 00:13:14,494
+Hadi mimariye göz atalım.
+
+214
+00:13:14,494 --> 00:13:19,660
+Onlar için bir görüntü ile başlarsın ve sonra ilk iki katman 
+
+215
+00:13:19,660 --> 00:13:24,315
+bu 3x3 filtreler olan evrişimlerdir.
+
+216
+00:13:24,315 --> 00:13:27,930
+Ve ilk iki katman 64 filtre kullanır.
+
+217
+00:13:27,930 --> 00:13:35,830
+224x244 ile bitirirsin çünkü aynı evrişimler
+ ve 64 kanal ile birlikte.
+
+218
+00:13:35,830 --> 00:13:39,345
+Bu yüzden VGG-16 nispeten daha derin bir ağdır.
+
+219
+00:13:39,345 --> 00:13:42,335
+Burada tüm hacimleri çizmeyeceğim.
+
+220
+00:13:42,335 --> 00:13:46,270
+Yani bu ham görüntü,daha önce 224x224x3 olarak 
+
+221
+00:13:46,270 --> 00:13:50,890
+çizdiğimiz görüntüyü ifade eder.
+
+222
+00:13:50,890 --> 00:13:55,362
+Ve sonra tahminimce 224x224x64 sonuçlu bir evrişim,
+
+223
+00:13:55,362 --> 00:14:00,535
+daha derin hacim olarak çizilecek.
+
+224
+00:14:00,535 --> 00:14:07,227
+ve sonra başka bir katman 224x224x64 sonucunda.
+
+225
+00:14:07,227 --> 00:14:15,730
+Yani bu CONV64 X 2, 64 filtre ile birlikte iki evrişimli
+ katman yapacağınızı gösterir.
+
+226
+00:14:15,730 --> 00:14:17,380
+Daha önce de bahsettiğim gibi,
+
+227
+00:14:17,380 --> 00:14:20,555
+filtreler her zaman 3x3,
+
+228
+00:14:20,555 --> 00:14:24,455
+bir adım ile birlikte ve her zaman aynı evrişimlerdir.
+
+229
+00:14:24,455 --> 00:14:26,395
+Tüm hacimleri çizmek yerine,
+
+230
+00:14:26,395 --> 00:14:28,400
+bu ağı tanımlamak için metin kullanacağım.
+
+231
+00:14:28,400 --> 00:14:31,413
+Ardından, kullanılan ortaklama katmanıdır,
+
+232
+00:14:31,413 --> 00:14:33,580
+böylece ortaklama katmanı azaltacaktır.
+
+233
+00:14:33,580 --> 00:14:36,725
+Sanırım 224x224'ten nereye iniyor?
+
+234
+00:14:36,725 --> 00:14:40,755
+Doğru.112x112x64'e gidiyor.
+
+235
+00:14:40,755 --> 00:14:44,339
+Ve sonra bir çift fazla evrişimli katman var.
+
+236
+00:14:44,339 --> 00:14:50,426
+Bunun anlamı 128 filtreye sahip olması 
+çünkü bunlar aynı evrişimli katman.
+
+237
+00:14:50,426 --> 00:14:52,365
+Yeni boyut ne hadi görelim.
+
+238
+00:14:52,365 --> 00:14:57,020
+112x112x128 olucak ve sonra,
+
+239
+00:14:57,020 --> 00:15:02,205
+ortaklama katmanı böylece bunun yeni boyutunun
+ ne olduğunu anlayabilirsiniz.
+
+240
+00:15:02,205 --> 00:15:07,210
+Ve şimdi, ortaklama katmanı için 256 filtre ile birlikte
+ üç evrişimli katman
+
+241
+00:15:07,210 --> 00:15:14,300
+ve sonra bir kaç tane daha evrişimli katman,
+
+242
+00:15:14,300 --> 00:15:18,945
+ortaklama katmanı, daha fazla evrişimli katman,
+ortaklama katmanı
+
+243
+00:15:18,945 --> 00:15:26,345
+Ve sonra, son 7x7x5122 yi tamane bağlı katmanı
+ beslemek için alır.
+
+244
+00:15:26,345 --> 00:15:30,230
+4096 birimle beraber tamamen bağlı katman
+
+245
+00:15:30,230 --> 00:15:36,080
+ve sonra bin tane sınıfın yumuşatılmış maksimum çıktısı.
+
+246
+00:15:36,080 --> 00:15:39,875
+Bu arada, VGG-16 içindeki 16
+
+247
+00:15:39,875 --> 00:15:45,080
+ağırlıkları olan 16 katmanın olduğunu temsil eder.
+
+248
+00:15:45,080 --> 00:15:47,470
+Ve bu oldukça geniş bir ağ,
+
+249
+00:15:47,470 --> 00:15:52,415
+bu ağ toplamda yaklaşık olarak 138 milyon 
+parametreye sahip.
+
+250
+00:15:52,415 --> 00:15:55,615
+Ve modern standartlarda bile oldukça büyük.
+
+251
+00:15:55,615 --> 00:16:00,673
+Fakat VGG-16 mimarisinin sadeliği onu
+ oldukça çekici kılıyordu.
+
+252
+00:16:00,673 --> 00:16:03,935
+Onun mimarisinin gerçekten çok düzgün 
+olduğunu söyleyebilirsin.
+
+253
+00:16:03,935 --> 00:16:07,130
+Yüksekliği ve genişliği azaltan bir ortaklama 
+katmanı tarafından
+
+254
+00:16:07,130 --> 00:16:09,590
+takip edilen bir kaç tane evrişimli katman var, değil mi?
+
+255
+00:16:09,590 --> 00:16:13,396
+Böylece ortaklama katmanı yüksekliği ve genişliği azaltır.
+
+256
+00:16:13,396 --> 00:16:15,570
+Burada bir kaç tane var.
+
+257
+00:16:15,570 --> 00:16:20,260
+Ama sonra da, eğer evrişimli katman içindeki
+ filtre sayılarına bakarsanız,
+
+258
+00:16:20,260 --> 00:16:28,675
+burada 64 filtreniz var ve sonra 128i ikiye katla 256,
+ ikiye katla 512.
+
+259
+00:16:28,675 --> 00:16:33,160
+Ve sonra tahminimce yazarlar 512'nin yeterince büyük bir 
+sayı olduğunu düşündü ve burada
+ tekrardan ikiye katlamadılar.
+
+260
+00:16:33,160 --> 00:16:36,410
+Fakat biliyorsunuz bu her adımda kabaca ikiye katlanıyor
+
+261
+00:16:36,410 --> 00:16:39,915
+ya da evrişimli katmanın her yığımını iki katına çıkarmak
+
+262
+00:16:39,915 --> 00:16:45,040
+bu ağın mimarisini tasarlamak için kullanılan başka
+ basit bir ilkedir.
+
+263
+00:16:45,040 --> 00:16:48,230
+Ve bu yüzden sanırım bu mimarinin göreceli tekdüzeliği
+
+264
+00:16:48,230 --> 00:16:52,460
+araştırmacılar için onu çekici yaptı.
+
+265
+00:16:52,460 --> 00:16:54,680
+Eğitmen gereken parametre sayısı açısından
+
+266
+00:16:54,680 --> 00:16:58,910
+oldukça büyük bir ağ olması esas dezavantajdı.
+
+267
+00:16:58,910 --> 00:17:00,995
+Ve eğer literatürü okuduysanız,
+
+268
+00:17:00,995 --> 00:17:04,700
+Bazen bu ağın daha büyük sürümü olan VGG-19
+
+269
+00:17:04,700 --> 00:17:08,600
+hakkında konuşan insanları görebilirsiniz.
+
+270
+00:17:08,600 --> 00:17:11,780
+Ve en altta Karen Simonyan ve Andrew Zisserman tarafından
+
+271
+00:17:11,780 --> 00:17:16,595
+alıntılanan makalede ayrıntıları görebilirsiniz.
+
+272
+00:17:16,595 --> 00:17:20,875
+Fakat VGG-16 hemen hemen VGG-19 kadar iyi.
+
+273
+00:17:20,875 --> 00:17:23,570
+Çoğu insan VGG-16'yı kullanacak.
+
+274
+00:17:23,570 --> 00:17:26,090
+Ama bunun hakkında en sevdiğim şey,
+
+275
+00:17:26,090 --> 00:17:28,540
+bu bu modeli nasıl yaptı?,
+
+276
+00:17:28,540 --> 00:17:31,100
+daha derine gittikçe yükseklik ve genişlik azalır,
+
+277
+00:17:31,100 --> 00:17:33,540
+Kanal sayısı arttıkça ortaklama katmanları için
+
+278
+00:17:33,540 --> 00:17:36,890
+her seferinde iki kat azalır.
+
+279
+00:17:36,890 --> 00:17:42,855
+Ve burada kabaca iki kat artar.Her zaman yeni bir
+ evrişimli katman kümesine sahip olursun.
+
+280
+00:17:42,855 --> 00:17:49,155
+Azalma oranını yaparak bu sistematik olarak artar,
+
+281
+00:17:49,155 --> 00:17:54,410
+Bu makalenin bu açıdan çok çekici olduğunu düşündüm.
+
+282
+00:17:54,410 --> 00:17:57,845
+Böylece bu üç klasik mimari için bu kadar.
+
+283
+00:17:57,845 --> 00:18:00,931
+Eğer isterseniz, gerçekten bu makalelerden bazılarını 
+okumalısınız.
+
+284
+00:18:00,931 --> 00:18:05,270
+Ben AlexNet makalesi ile başlayıp
+ VGG ağı makalesini takip etmenizi öneririm.
+
+285
+00:18:05,270 --> 00:18:07,460
+ve sonra LeNet makalesi okumak için biraz zor
+
+286
+00:18:07,460 --> 00:18:09,984
+fakat bir kez baktığınızda güzel bir klasik.
+
+287
+00:18:09,984 --> 00:18:14,725
+Fakat sıradaki, bu klasik ağların ötesine gidelim 
+ve biraz daha fazla ileri olanlara,
+
+288
+00:18:14,725 --> 00:18:18,040
+biraz daha güçlü yapay sinir ağı mimarilerine bakalım. 
+Bir sonraki videoya gidelim.

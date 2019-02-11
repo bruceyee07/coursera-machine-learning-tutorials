@@ -1,0 +1,27 @@
+Oldukça derin yapay ağları eğitmek zordur çünkü eğim değerleri çok küçük veya çok büyük değerlere ulaşabilir. Bu videoda öğreneceksiniz: Bağlantıları atlamak ve bu sayede etkilenmiş değerleri bir katmandan alıp aniden çok daha derinde
+ bulunan diğer bir katmanı besleyebileceğiz ve bunu kullanarak, inşa edeceğimiz ResNet'ler
+ oldukça derin ağları eğitmenize olanak sağlayacaktır. Bazen bu ağlar 100 katmandan bile fazla olabilir. 
+Hadi inceleyelim. ResNet'ler artık bölümlerden meydana gelmektedir. İlk önce bunun ne anlama geldiğini anlatalım. Burada bir ağın iki katmanını görmekteyiz başlangıç olarak a[l] katmanında etkilenmiş değerler a[l+1] katmanına gider ve sonra 2 katman sonra 
+etkilenmemiş a[l+2] oluşur. Buradaki işlemleri adım adım inceleyelim.
+Elimizde a[l] var. İlk yapacağımız bu değere doğrusal işlem uygulamak, o da bu işleme göre yapılmıştır. a[l]'den z[l+1]'i hesaplarken ağırılık matrisi ile çarpılır ve ek girdi vektörü eklenir. Daha sonra, doğrusal olmayan ReLu fonksiyonunu uygulayarak,
+ a[l+1] elde edilir. Bu değer ise şu denklem ile hesaplanır a[l+1] = g(z[l+1]) Sonraki katmanda ise, Bu doğrusal adımı tekrar uygulanır, Bu değer de bu denklem üzerinden hesaplanır. Bu denklem ise sol tarafta gördüğümüz
+ denkleme oldukça benzerdir. Ve son olarak bir kez daha ReLu fonksiyonunu uygularız şimdi ise bu denklem tarafından kullanılır
+ burada g() ise ReLu doğrusal olmayan fonksiyonudur. Ve bu denkle bize a[l+2]'yi verir. Diğer bir deyişle, a[l] değerinden a[l+2] değerine ulaşmak için bütün bu adımları geçmek zorundadır. Ben buna bu katman setlerinin ana yolu diyeceğim. Artık ağda bunu değiştireceğiz a[l]'yi alacağız, ve sadece ileri sarıp, yapay ağda daha ileriye kopyalayacağız bu a[l]'yi doğrusal olmayan fonksiyonumuzu kullanmadan ekleyeceğiz,
+ReLu fonksiyonunu ve buna kısa yol diyeceğim. Ana yolu takip etmek yerine, a[l] değeri artık kısa yolu takip ederek yapay ağda daha derine inebilir. Ve bu şu demek ki bu son denklem kullanılmaz ve bunun yerine sonuç olarak daha önceki gibi a[l+2], z[l+2] değerinin ReLu doğrusal olmayan
+ denklemine uygulanmış değeridir ama artık a[l] eklenir. Buraya eklenen bu a[l], artık bölümü oluşturur. Ve fotoğrafı düzeltmek gerekirse üstten buraya giden kısayolu çizeriz. ve bunu ikinci katmana gidecek şekilde çizeriz. çünkü kısayol aslında ReLu doğrusal olmayan fonksiyondan
+önce eklenir. Buradaki her bir düğüm, doğrusal fonksiyon ve ReLu uygular. Yani a[l] doğrusal fonksiyondan sonra ama ReLu'dan önce eklenir. Bazen buna kısayol terimi yerine bağlantı atlama dendiğini de duyabilirsiniz. Bu tabir a[l]'nin bir katman atlamasını veya hatta veriyi ağda daha derinde işlemek için takriben iki katman atlamasını ifade eder. ResNet'i bulanlar Kaiming He, Xiangyu Zhang, Shaoqing Ren ve Jian Sun. Buldukları şey ise artık bölümlerin bize çok daha derin ağları eğitebilme olanağı vermesidir. ResNet'i oluşturma yolu ise
+ bu artık bölümlerden bir sürü almak, Buna benzer bölümler ve bunları bir araya getirip
+derin ağı şekillendirilebilir. Hadi bu ağa bakalım Bu artık bir ağ değil, buna "sade ağ" denir. Bu terim ResNet bildirisinde bu şekilde kullanılmıştır. Bunu ResNet'e çevirmek için, yapacağınız şey bütün bu bağlantı atlamalarını bu şekilde eklemek Her iki katman sonunda olan bir önceki slaytta gördüğümüz bu ek değişiklik ile artık bölüm haline gelir. Bu fotoğrafta 5 adet artık bölüm bir araya gelmiştir, ve bu bir artık ağdır. ve sonunda anlaşıldı ki eğer standart bir iyileme algoritması kullanırsanız örneğin gradyan eğimi veya daha havalı bir iyileme algoritması ile yalın ağı, ekstra artık bölüm olmadan eğitirseniz. Bütün o daha önce çizdiğim
+kısa yollar veya bağlantı atlamalar olmadan Deneysel olarak baktığımızda görürüz ki
+artan katman sayısı, eğitim sırasındaki hata bir süre düşme eğilimindedir fakat sonra eğilim artış yönüne döner. Teoride ağı daha derin yaptıkça Eğitim kümesinde de daha iyi olmalı. Yani teoride, sadece teoride daha derin ağa sahip olmak yardım etmeli. Ama pratikte ya da gerçekte, yalın ağa sahip olmak, yani ResNet olmayan ağ yalın ve oldukça derin ağa sahip olmak demektir ki bütün iyileme algoritmalarınız 
+eğitim süresince daha zor zamanlar geçirecektir. Gerçek hayatta, eğitim hatanız çok derin ağ seçerseniz daha kötüye gider. Ama ResNetlerde olan ise katman sayısı derinleştikçe, eğitim hatasının düşerek devam ettiği
+ performansını görebiliriz. Hatta 100'ün üzerinde bir ağ eğitsek bile. Ve şuan bazı insanlar, 1000'in üzerinde katmanlı ağları deniyorlar
+ ama bunun çok yaygın olarak kullanıldığını gömüyorum. Bu etkilenimleri alarak X veya orta seviye etkilenimler ve bunların 
+ağda çok derinlere gitmelerine izin vermek, değerlerin çok küçülmesi veya çok büyümesi
+ problemlerine yardımcı olur ve çok daha derin ağı fark edilir bir performans kaybı olmadan
+ eğitmemize olanak sağlar. Belki bir noktada plato olacak, düzleşecek ve oldukça çok derin ağlarda çok fazla yardımı olmayacak. Ama ResNet'ler derin ağları eğitmede
+ efektif bir şekilde yardımcıdır. Artık ResNet'lerin çalışmasıyla ilgili 
+genel bir fikir elde ettiniz. Aslında bu haftanın programlama alıştırmasında, bu fikirleri uygulayabilecek ve
+ çalıştığını kendiniz görebileceksiniz. Ama öncelikle, sizinle paylaşmak istediğim 
+daha fazla bilgiler ve hatta ResNet'lerin neden bu kadar iyi 
+çalıştığına dair bilgiler paylaşmak isterim. Hadi sıradaki videoya geçelim.

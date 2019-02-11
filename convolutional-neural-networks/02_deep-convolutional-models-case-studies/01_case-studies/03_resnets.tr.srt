@@ -1,0 +1,485 @@
+1
+00:00:00,000 --> 00:00:03,390
+Oldukça derin yapay ağları eğitmek zordur çünkü
+
+2
+00:00:03,390 --> 00:00:07,215
+eğim değerleri çok küçük veya çok büyük değerlere ulaşabilir.
+
+3
+00:00:07,215 --> 00:00:08,790
+Bu videoda öğreneceksiniz:
+
+4
+00:00:08,790 --> 00:00:12,150
+Bağlantıları atlamak ve bu sayede etkilenmiş değerleri
+
+5
+00:00:12,150 --> 00:00:17,498
+bir katmandan alıp aniden çok daha derinde
+ bulunan diğer bir katmanı besleyebileceğiz
+
+6
+00:00:17,498 --> 00:00:22,600
+ve bunu kullanarak, inşa edeceğimiz ResNet'ler
+ oldukça derin ağları eğitmenize olanak sağlayacaktır.
+
+7
+00:00:22,600 --> 00:00:26,865
+Bazen bu ağlar 100 katmandan bile fazla olabilir. 
+Hadi inceleyelim.
+
+8
+00:00:26,865 --> 00:00:30,390
+ResNet'ler artık bölümlerden meydana gelmektedir.
+
+9
+00:00:30,390 --> 00:00:33,185
+İlk önce bunun ne anlama geldiğini anlatalım.
+
+10
+00:00:33,185 --> 00:00:35,370
+Burada bir ağın iki katmanını görmekteyiz
+
+11
+00:00:35,370 --> 00:00:38,005
+başlangıç olarak a[l] katmanında etkilenmiş değerler
+
+12
+00:00:38,005 --> 00:00:43,940
+a[l+1] katmanına gider ve sonra 2 katman sonra 
+etkilenmemiş a[l+2] oluşur.
+
+13
+00:00:43,940 --> 00:00:48,798
+Buradaki işlemleri adım adım inceleyelim.
+Elimizde a[l] var.
+
+14
+00:00:48,798 --> 00:00:54,459
+İlk yapacağımız bu değere doğrusal işlem uygulamak,
+
+15
+00:00:54,459 --> 00:00:57,660
+o da bu işleme göre yapılmıştır.
+
+16
+00:00:57,660 --> 00:01:01,690
+a[l]'den z[l+1]'i hesaplarken
+
+17
+00:01:01,690 --> 00:01:07,975
+ağırılık matrisi ile çarpılır ve ek girdi vektörü eklenir.
+
+18
+00:01:07,975 --> 00:01:17,945
+Daha sonra, doğrusal olmayan ReLu fonksiyonunu uygulayarak,
+ a[l+1] elde edilir.
+
+19
+00:01:17,945 --> 00:01:24,750
+Bu değer ise şu denklem ile hesaplanır a[l+1] = g(z[l+1])
+
+20
+00:01:24,750 --> 00:01:26,280
+Sonraki katmanda ise,
+
+21
+00:01:26,280 --> 00:01:30,540
+Bu doğrusal adımı tekrar uygulanır,
+
+22
+00:01:30,540 --> 00:01:33,432
+Bu değer de bu denklem üzerinden hesaplanır.
+
+23
+00:01:33,432 --> 00:01:38,040
+Bu denklem ise sol tarafta gördüğümüz
+ denkleme oldukça benzerdir.
+
+24
+00:01:38,040 --> 00:01:43,890
+Ve son olarak bir kez daha ReLu fonksiyonunu uygularız
+
+25
+00:01:43,890 --> 00:01:52,105
+şimdi ise bu denklem tarafından kullanılır
+ burada g() ise ReLu doğrusal olmayan fonksiyonudur.
+
+26
+00:01:52,105 --> 00:01:56,880
+Ve bu denkle bize a[l+2]'yi verir.
+
+27
+00:01:56,880 --> 00:01:57,900
+Diğer bir deyişle,
+
+28
+00:01:57,900 --> 00:02:03,035
+a[l] değerinden a[l+2] değerine ulaşmak için
+
+29
+00:02:03,035 --> 00:02:07,455
+bütün bu adımları geçmek zorundadır. Ben buna
+
+30
+00:02:07,455 --> 00:02:13,140
+bu katman setlerinin ana yolu diyeceğim.
+
+31
+00:02:13,140 --> 00:02:14,550
+Artık ağda
+
+32
+00:02:14,550 --> 00:02:16,900
+bunu değiştireceğiz
+
+33
+00:02:16,900 --> 00:02:18,495
+a[l]'yi alacağız,
+
+34
+00:02:18,495 --> 00:02:22,805
+ve sadece ileri sarıp,
+
+35
+00:02:22,805 --> 00:02:26,200
+yapay ağda daha ileriye kopyalayacağız
+
+36
+00:02:26,200 --> 00:02:28,860
+bu a[l]'yi
+
+37
+00:02:28,860 --> 00:02:34,080
+doğrusal olmayan fonksiyonumuzu kullanmadan ekleyeceğiz,
+ReLu fonksiyonunu
+
+38
+00:02:34,080 --> 00:02:37,730
+ve buna kısa yol diyeceğim.
+
+39
+00:02:37,730 --> 00:02:40,725
+Ana yolu takip etmek yerine,
+
+40
+00:02:40,725 --> 00:02:43,335
+a[l] değeri artık
+
+41
+00:02:43,335 --> 00:02:46,910
+kısa yolu takip ederek yapay ağda daha derine inebilir.
+
+42
+00:02:46,910 --> 00:02:49,680
+Ve bu şu demek ki bu son denklem
+
+43
+00:02:49,680 --> 00:02:52,760
+kullanılmaz ve bunun yerine sonuç olarak
+
+44
+00:02:52,760 --> 00:03:00,810
+daha önceki gibi a[l+2], z[l+2] değerinin ReLu doğrusal olmayan
+ denklemine uygulanmış değeridir
+
+45
+00:03:00,810 --> 00:03:02,830
+ama artık a[l] eklenir.
+
+46
+00:03:02,830 --> 00:03:05,515
+Buraya eklenen bu a[l],
+
+47
+00:03:05,515 --> 00:03:07,355
+artık bölümü oluşturur.
+
+48
+00:03:07,355 --> 00:03:11,070
+Ve fotoğrafı düzeltmek gerekirse
+
+49
+00:03:11,070 --> 00:03:15,945
+üstten buraya giden kısayolu çizeriz.
+
+50
+00:03:15,945 --> 00:03:20,805
+ve bunu ikinci katmana gidecek şekilde çizeriz.
+
+51
+00:03:20,805 --> 00:03:26,220
+çünkü kısayol aslında ReLu doğrusal olmayan fonksiyondan
+önce eklenir.
+
+52
+00:03:26,220 --> 00:03:27,570
+Buradaki her bir düğüm,
+
+53
+00:03:27,570 --> 00:03:30,560
+doğrusal fonksiyon ve ReLu uygular.
+
+54
+00:03:30,560 --> 00:03:34,320
+Yani a[l] doğrusal fonksiyondan sonra ama ReLu'dan önce eklenir.
+
+55
+00:03:34,320 --> 00:03:37,815
+Bazen buna kısayol terimi yerine
+
+56
+00:03:37,815 --> 00:03:40,485
+bağlantı atlama dendiğini de duyabilirsiniz.
+
+57
+00:03:40,485 --> 00:03:44,835
+Bu tabir a[l]'nin bir katman atlamasını veya
+
+58
+00:03:44,835 --> 00:03:51,090
+hatta veriyi ağda daha derinde işlemek için takriben iki katman atlamasını ifade eder.
+
+59
+00:03:51,090 --> 00:03:54,030
+ResNet'i bulanlar
+
+60
+00:03:54,030 --> 00:03:55,950
+Kaiming He, Xiangyu Zhang,
+
+61
+00:03:55,950 --> 00:03:58,925
+Shaoqing Ren ve Jian Sun.
+
+62
+00:03:58,925 --> 00:04:02,010
+Buldukları şey ise artık bölümlerin
+
+63
+00:04:02,010 --> 00:04:05,920
+bize çok daha derin ağları eğitebilme olanağı vermesidir.
+
+64
+00:04:05,920 --> 00:04:10,785
+ResNet'i oluşturma yolu ise
+ bu artık bölümlerden bir sürü almak,
+
+65
+00:04:10,785 --> 00:04:15,695
+Buna benzer bölümler ve bunları bir araya getirip
+derin ağı şekillendirilebilir.
+
+66
+00:04:15,695 --> 00:04:18,150
+Hadi bu ağa bakalım
+
+67
+00:04:18,150 --> 00:04:19,730
+Bu artık bir ağ değil,
+
+68
+00:04:19,730 --> 00:04:22,950
+buna "sade ağ" denir.
+
+69
+00:04:22,950 --> 00:04:26,830
+Bu terim ResNet bildirisinde bu şekilde kullanılmıştır.
+
+70
+00:04:26,830 --> 00:04:28,675
+Bunu ResNet'e çevirmek için,
+
+71
+00:04:28,675 --> 00:04:31,050
+yapacağınız şey bütün bu
+
+72
+00:04:31,050 --> 00:04:36,475
+bağlantı atlamalarını bu şekilde eklemek
+
+73
+00:04:36,475 --> 00:04:39,875
+Her iki katman sonunda olan
+
+74
+00:04:39,875 --> 00:04:44,710
+bir önceki slaytta gördüğümüz bu ek değişiklik
+
+75
+00:04:44,710 --> 00:04:49,520
+ile artık bölüm haline gelir.
+
+76
+00:04:49,520 --> 00:04:53,770
+Bu fotoğrafta 5 adet artık bölüm bir araya gelmiştir,
+
+77
+00:04:53,770 --> 00:04:56,565
+ve bu bir artık ağdır.
+
+78
+00:04:56,565 --> 00:04:59,615
+ve sonunda anlaşıldı ki eğer
+
+79
+00:04:59,615 --> 00:05:02,620
+standart bir iyileme algoritması kullanırsanız
+
+80
+00:05:02,620 --> 00:05:04,120
+örneğin gradyan eğimi veya daha havalı
+
+81
+00:05:04,120 --> 00:05:07,340
+bir iyileme algoritması ile yalın ağı,
+
+82
+00:05:07,340 --> 00:05:10,270
+ekstra artık bölüm olmadan eğitirseniz.
+
+83
+00:05:10,270 --> 00:05:14,030
+Bütün o daha önce çizdiğim
+kısa yollar veya bağlantı atlamalar olmadan
+
+84
+00:05:14,030 --> 00:05:18,965
+Deneysel olarak baktığımızda görürüz ki
+artan katman sayısı,
+
+85
+00:05:18,965 --> 00:05:21,100
+eğitim sırasındaki hata bir süre düşme eğilimindedir
+
+86
+00:05:21,100 --> 00:05:24,240
+fakat sonra eğilim artış yönüne döner.
+
+87
+00:05:24,240 --> 00:05:29,170
+Teoride ağı daha derin yaptıkça
+
+88
+00:05:29,170 --> 00:05:32,935
+Eğitim kümesinde de daha iyi olmalı.
+
+89
+00:05:32,935 --> 00:05:35,155
+Yani teoride, sadece teoride
+
+90
+00:05:35,155 --> 00:05:37,815
+daha derin ağa sahip olmak yardım etmeli.
+
+91
+00:05:37,815 --> 00:05:40,435
+Ama pratikte ya da gerçekte,
+
+92
+00:05:40,435 --> 00:05:42,925
+yalın ağa sahip olmak, yani ResNet olmayan ağ
+
+93
+00:05:42,925 --> 00:05:45,890
+yalın ve oldukça derin ağa sahip olmak demektir ki
+
+94
+00:05:45,890 --> 00:05:50,220
+bütün iyileme algoritmalarınız 
+eğitim süresince daha zor zamanlar geçirecektir.
+
+95
+00:05:50,220 --> 00:05:51,685
+Gerçek hayatta,
+
+96
+00:05:51,685 --> 00:05:55,865
+eğitim hatanız çok derin ağ seçerseniz daha kötüye gider.
+
+97
+00:05:55,865 --> 00:06:01,530
+Ama ResNetlerde olan ise katman sayısı derinleştikçe,
+
+98
+00:06:01,530 --> 00:06:06,120
+eğitim hatasının düşerek devam ettiği
+ performansını görebiliriz.
+
+99
+00:06:06,120 --> 00:06:10,030
+Hatta 100'ün üzerinde bir ağ eğitsek bile.
+
+100
+00:06:10,030 --> 00:06:12,820
+Ve şuan bazı insanlar,
+
+101
+00:06:12,820 --> 00:06:17,845
+1000'in üzerinde katmanlı ağları deniyorlar
+ ama bunun çok yaygın olarak kullanıldığını gömüyorum.
+
+102
+00:06:17,845 --> 00:06:20,230
+Bu etkilenimleri alarak
+
+103
+00:06:20,230 --> 00:06:24,950
+X veya orta seviye etkilenimler ve bunların 
+ağda çok derinlere gitmelerine izin vermek,
+
+104
+00:06:24,950 --> 00:06:30,355
+değerlerin çok küçülmesi veya çok büyümesi
+ problemlerine yardımcı olur
+
+105
+00:06:30,355 --> 00:06:31,930
+ve çok daha derin ağı
+
+106
+00:06:31,930 --> 00:06:36,220
+fark edilir bir performans kaybı olmadan
+ eğitmemize olanak sağlar.
+
+107
+00:06:36,220 --> 00:06:39,370
+Belki bir noktada plato olacak, düzleşecek
+
+108
+00:06:39,370 --> 00:06:43,090
+ve oldukça çok derin ağlarda çok fazla yardımı olmayacak.
+
+109
+00:06:43,090 --> 00:06:49,120
+Ama ResNet'ler derin ağları eğitmede
+ efektif bir şekilde yardımcıdır.
+
+110
+00:06:49,120 --> 00:06:52,645
+Artık ResNet'lerin çalışmasıyla ilgili 
+genel bir fikir elde ettiniz.
+
+111
+00:06:52,645 --> 00:06:55,495
+Aslında bu haftanın programlama alıştırmasında,
+
+112
+00:06:55,495 --> 00:06:59,205
+bu fikirleri uygulayabilecek ve
+ çalıştığını kendiniz görebileceksiniz.
+
+113
+00:06:59,205 --> 00:07:02,350
+Ama öncelikle, sizinle paylaşmak istediğim 
+daha fazla bilgiler ve
+
+114
+00:07:02,350 --> 00:07:06,160
+hatta ResNet'lerin neden bu kadar iyi 
+çalıştığına dair bilgiler paylaşmak isterim.
+
+115
+00:07:06,160 --> 00:07:07,730
+Hadi sıradaki videoya geçelim.

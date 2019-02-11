@@ -1,0 +1,2161 @@
+1
+00:00:03,576 --> 00:00:06,447
+Yann merhaba, Derin Öğrenme konusunda
+uzun süre bize sen liderlik ettin
+
+2
+00:00:06,447 --> 00:00:08,730
+şu an da bizimle olduğun için
+teşekkür ederim.
+
+3
+00:00:08,730 --> 00:00:09,852
+davet için ben teşekkür ederim.
+Çok uzun,
+
+4
+00:00:09,852 --> 00:00:12,820
+bir süredir (yapay) sinir ağları
+üzerinde çalışıyorsun.
+
+5
+00:00:12,820 --> 00:00:17,260
+Kendi hikayeni senden dinlemeyi çok isterim.
+Yapay Zeka konusuna nasıl girdin,
+
+6
+00:00:17,260 --> 00:00:22,097
+sinir ağlarıyla ilişkin nasıl başladı?
+ Aslında genel anlamıyla
+
+7
+00:00:22,097 --> 00:00:27,957
+zekayla ve insan zekasının
+temeliyle hep ilgiliydim.
+
+8
+00:00:27,957 --> 00:00:32,127
+Çocukken insanın evrimi
+ilgimi çekmeye başladı.
+
+9
+00:00:32,127 --> 00:00:33,060
+Fransa'da mıydı?
+
+10
+00:00:33,060 --> 00:00:33,862
+Evet Fransa'daydı.
+
+11
+00:00:33,862 --> 00:00:37,690
+Ortaokul zamanlarımdı sanirim ve
+
+12
+00:00:37,690 --> 00:00:42,484
+teknoloji, uzay gibi
+konulara da ilgiliydim.
+
+13
+00:00:42,484 --> 00:00:44,840
+En sevdiğim film 2001: A Space Odyssey
+(2001: Bir Uzay Destanı) idi.
+
+14
+00:00:44,840 --> 00:00:48,438
+akıllı makineler,
+uzay yolculuğu ve
+
+15
+00:00:48,438 --> 00:00:53,495
+insan evriminin bir temsili vardı ki
+benim hayranı olduğum şeydi.
+
+16
+00:00:53,495 --> 00:00:57,160
+Akıllı makineler fikri sanırım
+bana çok çekici geldi.
+
+17
+00:00:57,160 --> 00:01:00,820
+ve böylece, elektrik mühendisliği
+okumaya başladım.
+
+18
+00:01:00,820 --> 00:01:05,086
+üniversitedeyken, elektrik mühendisliğinde
+sanırım ikinci yılımdı,
+
+19
+00:01:05,086 --> 00:01:08,554
+bir kitaba denk geldim ki aslında
+bir felsefe kitabıydı.
+
+20
+00:01:08,554 --> 00:01:14,181
+MIT'de hesaplamalı dil bilimi bölümünden
+Noam Chomsky ve
+
+21
+00:01:14,181 --> 00:01:18,112
+İsviçre'de çocuk gelişimi üzerine
+çalışan bilişsel psikolog:
+
+22
+00:01:18,112 --> 00:01:22,210
+Jean Piaget arasında
+bir tartışma vardı.
+
+23
+00:01:22,210 --> 00:01:25,934
+Bu temelde doğa ve yetiştirilme
+arasındaki bir tartışmaydı.
+
+24
+00:01:25,934 --> 00:01:31,026
+burada Chomsky, dilin doğuştan
+bir yapıya sahip olduğunu savunurken,
+
+25
+00:01:31,026 --> 00:01:34,220
+Piaget birçoğunun öğrenilen
+şeyler olduğunu söylüyordu.
+
+26
+00:01:34,220 --> 00:01:40,218
+Piaget'in yanında
+öyle kişiler vardı ki
+
+27
+00:01:40,218 --> 00:01:48,670
+her biri kendi taraflarını savunmak
+için fikirler geliştirdiler.
+
+28
+00:01:48,670 --> 00:01:53,280
+Piaget taraftarlarından biri de
+MIT'den Seymour Papert'ti.
+
+29
+00:01:53,280 --> 00:01:57,382
+Kendisi, makinede ilk defa çalışabilen
+perceptron modelini yaptı.
+
+30
+00:01:57,382 --> 00:02:00,273
+Ben daha perceptronun adını bile 
+duymamıştım Sonrasında okuduğum
+bu makalede diyordu ki:
+
+31
+00:02:00,273 --> 00:02:02,535
+çalışabilen bir makine.
+Kulağa müthiş geliyordu.
+
+32
+00:02:02,535 --> 00:02:07,011
+Ben de üniversitein bir çok
+kütüphanesine gidip perceptron
+
+33
+00:02:07,011 --> 00:02:11,926
+ve onun gerçeklenmesi hakkında bulabildiğim
+her şeyi araştırmaya başladım.
+
+34
+00:02:11,926 --> 00:02:16,615
+50'lerde bu konuda çokça makale vardı 
+fakat Seymour Papert'in de yazarı olduğu
+
+35
+00:02:16,615 --> 00:02:20,480
+bir kitap ile 60'larda bu konudaki
+makaleler birden kesiliyordu.
+
+36
+00:02:20,480 --> 00:02:21,490
+Hangi seneydi?
+
+37
+00:02:21,490 --> 00:02:22,792
+1980
+
+38
+00:02:22,792 --> 00:02:23,920
+kabaca.
+Evet
+
+39
+00:02:23,920 --> 00:02:28,470
+Ve böylece okuldakimatematik profesörü 
+
+40
+00:02:28,470 --> 00:02:32,060
+birkaç arkadaşımla sinir ağları
+konusunda bir kaç proje yaptık.
+
+41
+00:02:32,060 --> 00:02:35,118
+Ama ortada bu konularda
+konuşabileceğim kimse yoktu
+
+42
+00:02:35,118 --> 00:02:38,596
+çünkü sonuçta yok olmaya yüz tutmuş
+bir alandan bahsediyoruz.
+
+43
+00:02:38,596 --> 00:02:40,616
+1980'den beri kimse bu alanda çalışmamış.
+
+44
+00:02:42,791 --> 00:02:45,363
+Bu arada bazı simülasyon
+
+45
+00:02:45,363 --> 00:02:50,740
+kodları yazma ve sinirbilim üzerine
+okuma tecrübelerim oldu.
+
+46
+00:02:52,090 --> 00:02:58,120
+Mühendislik eğitimimi bitirdiğimde
+çip tasarımı üzerine çalışmaya başladım.
+
+47
+00:02:58,120 --> 00:03:01,710
+Bu konuda da iyiydim ama
+tabi bambaşka bir alan.
+
+48
+00:03:01,710 --> 00:03:05,340
+Ve bitirirdiğimde gerçekten bu alanda
+araştırma yapmak istiyordum ve
+
+49
+00:03:05,340 --> 00:03:09,442
+farkettim ki asıl önemli
+mesele çok katmanlı
+
+50
+00:03:09,442 --> 00:03:10,630
+sinir ağının nasıl eğitileceğiydi.
+
+51
+00:03:10,630 --> 00:03:15,152
+Açıkça görülüyor ki 60'ların
+literatüründe bu mühim mesele
+
+52
+00:03:15,152 --> 00:03:20,040
+-hiyerarşi fikri filan-
+çözülmeden bırakılmış. 
+
+53
+00:03:20,040 --> 00:03:24,152
+Fukushima'nın neocognitron
+üzerine olan makalesini okudum.
+
+54
+00:03:24,152 --> 00:03:29,951
+Bu da şu an "evrişimsel sinir ağı"
+olarak tanımladığımız hiyerarşik (katmanlı) 
+
+55
+00:03:29,951 --> 00:03:36,765
+ağ mimarisinine çok benzerdi.
+Fakat geriye yayılım benzeri
+bir öğrenmeden bahsedilmiyordu.
+
+56
+00:03:36,765 --> 00:03:43,822
+Ve Fransada küçük bağımsız bir
+kulüple bazı insanlarla tanıştım.
+
+57
+00:03:43,822 --> 00:03:47,796
+Oradakiler o zamanki tabirle
+"Robot Ağlar" ile ilgileniyorlardı.
+
+58
+00:03:47,796 --> 00:03:50,040
+Bana bir kaç tane yayın verdiler.
+
+59
+00:03:50,040 --> 00:03:54,782
+şu an da çok da populer olmayan
+fonkisyonel ağlar ile ilgili kişilerdi.
+
+60
+00:03:54,782 --> 00:03:59,888
+Ama sonuçta sinir ağları ve
+bellek arasındaki ilk ilişkilerdi ve
+
+61
+00:03:59,888 --> 00:04:04,715
+bu makale 80'lerin başlarında, araştırma
+gruplarının sinir ağlarına olan ilgisini
+canlandırabilirdi.
+
+62
+00:04:04,715 --> 00:04:09,732
+çoğunlukla fizikçilerin ve madde
+fiziğine yoğunlaşmış kişilerin ve 
+
+63
+00:04:09,732 --> 00:04:14,558
+bir kaç psikoloğun olduğu bir ortam,
+hala mühendisler ve
+
+64
+00:04:14,558 --> 00:04:18,464
+bilgisayar bilimcilerinin sinir ağları ile
+ilgili konuşmaları için uygun değildi.
+
+65
+00:04:18,464 --> 00:04:23,566
+Ve sonrasında ön baskı olarak ismi
+"Optimal Algısal Çıkarım"
+
+66
+00:04:23,566 --> 00:04:28,590
+olan başka bir makale
+daha yayımladılar.
+
+67
+00:04:28,590 --> 00:04:32,675
+Bu, Geoff Hinton ve Terry Senjnowski'nin
+Boltzman makinesi üzerine yayımladıkları
+
+68
+00:04:32,675 --> 00:04:33,811
+ilk makaleydi.
+
+69
+00:04:33,811 --> 00:04:34,801
+"Saklı Birimler"den bahsediyordu.
+
+70
+00:04:34,801 --> 00:04:40,401
+Temelde öğrenmen ile ilgiydi ve
+
+71
+00:04:40,401 --> 00:04:46,702
+çok katmanlı sinir ağlarının sınıflamadan
+işlevinden daha etkili olduğundan
+
+72
+00:04:46,702 --> 00:04:47,697
+bahsediyordu ve dedim ki;
+
+73
+00:04:47,697 --> 00:04:51,350
+bu insanlarla tanışmam lazım!
+Wow.
+
+74
+00:04:51,350 --> 00:04:52,093
+Çünkü esas problem ile
+
+75
+00:04:52,093 --> 00:04:53,230
+ilgilenen tek kişiler onlardı.
+
+76
+00:04:54,756 --> 00:05:00,330
+Birkaç sene sonra, doktoraya başlayınca,
+Le Juch'ta
+
+77
+00:05:00,330 --> 00:05:06,020
+beraber çalıştığım kişilerin organize
+ettiği bir workshop'a katıldım.
+
+78
+00:05:06,020 --> 00:05:10,630
+Terry de o workshopta
+konuşmacılardan biriydi.
+
+79
+00:05:10,630 --> 00:05:13,216
+Böylece onunla tanıştım.
+ 80'lerin başındayız sanırım
+
+80
+00:05:13,216 --> 00:05:15,862
+1985 idi. 1985'in başı.
+
+81
+00:05:15,862 --> 00:05:19,777
+Terry Sejnowski ile Fransa'nın Le Juc
+ kentinde 1985'te tanışmış oldum.
+
+82
+00:05:19,777 --> 00:05:23,881
+O kadar çok insan vardı ki orada,
+sinir ağlarını bulan, geliştiren,
+
+83
+00:05:23,881 --> 00:05:27,820
+teorik olarak çalışan sinir bilimciler,
+herkes vardı.
+
+84
+00:05:27,820 --> 00:05:29,930
+Çok etkileyici bir workshoptu.
+
+85
+00:05:29,930 --> 00:05:36,260
+Orada Bell Laboratuvar'larından birkaç kişiyle
+tanıştım ve ilerleyen zamanlarda
+Bell Labovatuvar'ında çalışmaya başladım;
+
+86
+00:05:36,260 --> 00:05:38,590
+ama bu doktoramı bitirmeden
+birkaç sene öncesi.
+
+87
+00:05:38,590 --> 00:05:42,821
+Neyse, Terry Sejnowski ile konuşmaya
+başladım ve ne üzerine çalıştığımı anlattım,
+
+88
+00:05:42,821 --> 00:05:45,479
+geri yayılım algorithmasının
+bi çeşidi üzerineydi.
+
+89
+00:05:45,479 --> 00:05:49,559
+Bu geri yayılımın makale
+olmasından önceydi ve
+
+90
+00:05:49,559 --> 00:05:54,030
+Terry o zamanlar ağ üzerine
+üzerine çalışıyordu.
+
+91
+00:05:55,430 --> 00:05:57,212
+Yani Rumelhart, Hilton, Williams
+
+92
+00:05:57,212 --> 00:06:00,453
+geri yayılım ile iligli makalelerini
+daha yayımlamamışlar.
+
+93
+00:06:00,453 --> 00:06:04,158
+ama Geoff onun arkadaşıydı ve bilirsin
+bu konuda bazı şeyler ortalarda dolaşıyordu,
+
+94
+00:06:04,158 --> 00:06:07,733
+yani aslında zaten ağ için
+bunu yapmaya çalışıyorlardı,
+
+95
+00:06:07,733 --> 00:06:10,804
+ama bana söylemedi o zaman.
+Anladım
+
+96
+00:06:10,804 --> 00:06:11,848
+ABD'ye geri gidince
+
+97
+00:06:11,848 --> 00:06:14,882
+Geoff'a demiş ki:
+Fransa'da bir çocuk var bizimle
+
+98
+00:06:14,882 --> 00:06:16,672
+aynı konuları çalışıyor.
+Ah anlıyorum.
+
+99
+00:06:16,672 --> 00:06:19,117
+Ve birkaç ay sonra,
+
+100
+00:06:19,117 --> 00:06:25,120
+haziranda, Geoff'un açılış konuşmacısı
+olduğu bir konferans düzenlendi Fransa'da.
+
+101
+00:06:26,160 --> 00:06:28,250
+ve Boltzmann Makineleri ile ilgili bir konuşma yaptı.
+
+102
+00:06:28,250 --> 00:06:30,920
+Tabii geri yayılım ile ilgili
+bir yayın üzerinde çalışıyordu.
+
+103
+00:06:32,060 --> 00:06:34,230
+Bu konuda konuştu ve
+
+104
+00:06:34,230 --> 00:06:37,520
+çevresini onunla konuşmak isteyen
+50 kadar insan sarmıştı.
+
+105
+00:06:37,520 --> 00:06:40,210
+organizatöre söylediği ilk şey:
+
+106
+00:06:40,210 --> 00:06:41,380
+Yann LeCun diye biri varmış,
+tanıyor musun?
+
+107
+00:06:41,380 --> 00:06:45,025
+Çünkü benim
+Fransızca yazıdığım makalemi
+
+108
+00:06:45,025 --> 00:06:45,900
+okumuş.
+
+109
+00:06:45,900 --> 00:06:47,890
+Bir şekilde Fransızca okuyabiliyor.
+Makaledeki matematiği görüyor
+
+110
+00:06:47,890 --> 00:06:51,600
+ve geri yayılım algorithmasını farkediyor.
+Ve böylece beraber öğle yemeği yedik.
+
+111
+00:06:51,600 --> 00:06:53,496
+Böylece arkadaş olduk.
+Çok iyiymiş.
+
+112
+00:06:53,496 --> 00:06:54,319
+[GÜLME]
+
+113
+00:06:54,319 --> 00:06:56,583
+Tabii bunun nedeni ikinizin de
+
+114
+00:06:56,583 --> 00:07:00,700
+birbirinizden bağımsız geri yayılım
+algoritmaları bulmanızdan kaynaklanıyor
+
+115
+00:07:00,700 --> 00:07:02,906
+Aslında, ikimiz de
+
+116
+00:07:02,906 --> 00:07:06,878
+zincir kuralı ya da optimal
+kontrolcülerin deyimiyle 
+
+117
+00:07:06,878 --> 00:07:10,870
+kesişim durumu yöntemini ki
+geri yayılımın temel icadı bu bağlamdadır,
+fark ettik.
+
+118
+00:07:10,870 --> 00:07:14,105
+Bu optimal kontrolün 60'lardaki
+çalışma alanıydı.
+
+119
+00:07:14,105 --> 00:07:19,649
+Fikir temelde gradient descent'in çoklu
+yapılar üzerinde kullanımına dayanıyordu
+
+120
+00:07:19,649 --> 00:07:26,160
+Bu geri yayılımın gerçekte ne olduğu ve
+farklı bağlamlarda ve çeşitli zamanlarda
+nasıl ortaya çıktığı idi.
+
+121
+00:07:26,160 --> 00:07:30,849
+Ama inanıyorum ki
+
+122
+00:07:30,849 --> 00:07:35,560
+Hinton, Williams'ın makaleleri
+bunu populer yapan işti.
+Keslinlikle.
+
+123
+00:07:35,560 --> 00:07:39,800
+Birkaç yıl ileri gidersek, AT&T Bell
+Labovatuvar'larında çalışlamaya başladın
+
+124
+00:07:39,800 --> 00:07:45,865
+Burada da derslerde de bahsettiğimiz
+bir çok buluşa imza attın.
+
+125
+00:07:45,865 --> 00:07:49,301
+Hatta ne zaman geldiğini de hatırlıyorum,
+o sıralar AT&T Bell Lab'da yaz stajındaydım.
+
+126
+00:07:49,301 --> 00:07:51,981
+orada Micheal Kerns ve birkaç
+kişiyle daha çalıştım.
+
+127
+00:07:51,981 --> 00:07:54,093
+O zamanlarda bile senin
+işlerin konuşulurdu.
+
+128
+00:07:54,093 --> 00:07:57,509
+AT&T günlerinden biraz
+bahsedebilir misin?
+
+129
+00:07:57,509 --> 00:07:58,810
+Tamam. söyle oldu:
+
+130
+00:07:58,810 --> 00:08:04,400
+Aslında evrişimsel sinir ağları üzerinde,
+Toronto Üniversitesinde
+
+131
+00:08:04,400 --> 00:08:06,090
+doktora sonrası araştırmamı
+yaparken çalışıyordum.
+
+132
+00:08:07,180 --> 00:08:09,075
+İlk denememde bir kod yazdım ve
+
+133
+00:08:09,075 --> 00:08:10,849
+daha ilk denememde gösterdim ki
+
+134
+00:08:10,849 --> 00:08:11,953
+çok küçük bir veri kümsesi üzerinde çalışıyorum.
+
+135
+00:08:11,953 --> 00:08:16,995
+Öncesinde buna benzer bir veri seti yoktu.
+
+136
+00:08:16,995 --> 00:08:20,195
+Bu nedenle, bilgisayarın faresi ile bir sürü karakter çizdim.
+
+137
+00:08:20,195 --> 00:08:23,285
+gelmiş geçmiş en iyi bilgisayar olan Amiga üzeirnde çalışıyordum.
+
+138
+00:08:23,285 --> 00:08:27,425
+Ve bir sürü karakter çizip, onları kullandım.
+
+139
+00:08:27,425 --> 00:08:30,345
+veri setini arttırmak için bazı yöntemler kullandım ve
+
+140
+00:08:30,345 --> 00:08:32,635
+bunalrı da performans testleri içn kullandım
+
+141
+00:08:32,635 --> 00:08:35,125
+tam bağlı, yerel bağlı ama ağırlık paylaşımsız
+
+142
+00:08:35,125 --> 00:08:36,935
+ve paylaşımlı ağırlıklı ağ yapılarını
+
+143
+00:08:36,935 --> 00:08:38,190
+karşılaştırdım Temelde--
+
+144
+00:08:38,190 --> 00:08:40,000
+Temelde ilk yorumum bunun üzerine oldu.
+
+145
+00:08:40,000 --> 00:08:46,090
+görece küçük veri kümesi üzerinde çok iyi çalıştı.
+
+146
+00:08:46,090 --> 00:08:50,320
+Evrişimsel ağ yapısında aşırı öğrenme olmuyor ve daha iyi performans veriyordu.
+
+147
+00:08:50,320 --> 00:08:53,481
+ve ekim 1988 de Bell Lab'a gittiğimde
+
+148
+00:08:53,481 --> 00:08:57,212
+ilk yaptığım şey ağın boyutlarını büyütmek oldu
+
+149
+00:08:57,212 --> 00:09:01,935
+ağın boyutlarını büyütmek oldu. bizim bilgisayarlarımız daha hızlı olduğu için Bell Lab'a gitmeden
+
+150
+00:09:01,935 --> 00:09:06,501
+birkaç ay önce yöneticim Larry Jackal 
+
+151
+00:09:06,501 --> 00:09:09,920
+sen gelmeden bilgisayar sipariş etmeliyiz,
+
+152
+00:09:09,920 --> 00:09:10,450
+hangisinden istersin dedi.
+
+153
+00:09:10,450 --> 00:09:15,860
+Ben de Toronto'da kullandığımızdan olursa
+
+154
+00:09:15,860 --> 00:09:17,432
+çok iyi olur dedim.
+
+155
+00:09:17,432 --> 00:09:21,450
+ve böylece bir tane sipariş ettiler ve kendime ait bir bilgisayarım oldu.
+
+156
+00:09:21,450 --> 00:09:24,660
+Toronto Üniversitesinde de vardı ama tüm bölüme aitti
+
+157
+00:09:24,660 --> 00:09:25,840
+bu sadece bana aitti, anlıyor musun?
+
+158
+00:09:25,840 --> 00:09:30,030
+Larry dedi ki: biliyorsun Bell Labs'ın ünlü olduğu konu
+
+159
+00:09:30,030 --> 00:09:30,866
+tutumluluk değildir
+
+160
+00:09:30,866 --> 00:09:34,483
+-->bu gerçekten harikaydı
+
+161
+00:09:34,483 --> 00:09:39,810
+Onlar zaten bir süredir karakter tanıma üzerine çalışıyorlardı.
+
+162
+00:09:39,810 --> 00:09:44,883
+Çok büyük bir veri kümeleri varı ki 5000 örnekli eğitim kümesi demek bu.
+
+163
+00:09:44,883 --> 00:09:51,700
+Hemen bir evrişimsel sinir ağı tasarladım
+
+164
+00:09:51,700 --> 00:09:53,645
+ve bu veri kümesi ile eğittim.
+
+165
+00:09:53,645 --> 00:09:58,320
+ve gerçekten çok iyi sonuçlar elde ettik, diğer yöntemlere göre
+
+166
+00:09:58,320 --> 00:10:04,150
+Onlar da denedi, başka kişiler de denedi sonrasında.
+
+167
+00:10:04,150 --> 00:10:07,430
+Yani bunun çok erken bir sonuç olduğunu biliyorduk.
+
+168
+00:10:07,430 --> 00:10:11,420
+Bell Labs'e katılalı daha 3 ay olmuştu.
+
+169
+00:10:11,420 --> 00:10:14,690
+Böylece evrişimsel ağın ilk versiyonu
+
+170
+00:10:14,690 --> 00:10:19,580
+adımlamalı evrişim ile yarattık ve
+pooling katmanlarını
+
+171
+00:10:19,580 --> 00:10:21,240
+ayırmadık.
+
+172
+00:10:21,240 --> 00:10:23,690
+Yani, tüm evrişim katmanları 
+
+173
+00:10:23,690 --> 00:10:24,390
+direkt bağlıydı.
+
+174
+00:10:24,390 --> 00:10:25,050
+Bunun nedeni de
+
+175
+00:10:25,050 --> 00:10:30,130
+her bölgede evrişim yapamayışımızdı.
+
+176
+00:10:30,130 --> 00:10:32,299
+Çok fazla işlem yükü gerektiriyordu.
+
+177
+00:10:32,299 --> 00:10:35,839
+İkinci versiyonda,
+
+178
+00:10:35,839 --> 00:10:42,040
+evrişim ve pooling katmanlarını ayırdık.
+
+179
+00:10:43,720 --> 00:10:47,070
+Sanırım bu gerçek anlamda
+Conv Net (Evrişimsel Ağ) idi.
+
+180
+00:10:47,070 --> 00:10:53,380
+Böylece NIPS yarılmasında
+birkaç makale yayınladık.
+
+181
+00:10:53,380 --> 00:10:57,270
+Bak bu hikaye enteresandır. NIPS'te bu
+çalışma hakkında konuştum.
+
+182
+00:10:58,460 --> 00:11:01,580
+Geoffrey Hinton da dinleyiciler arasındaydı. Konuşmam bitince,
+
+183
+00:11:01,580 --> 00:11:05,920
+yanına oturdum. Bana dedi ki,
+
+184
+00:11:05,920 --> 00:11:08,570
+"Konuşmandaki can alıcı nokta şu: eğer bu mantıklı şeyleri yapabilirsen,
+
+185
+00:11:08,570 --> 00:11:10,503
+gerçekten çalışır."
+
+186
+00:11:10,503 --> 00:11:12,871
+-->ve bu çalışma bittikten kısa bir süre sonra
+
+187
+00:11:12,871 --> 00:11:16,820
+-->tarihe geçti çünkü, geniş kabul gördü
+
+188
+00:11:16,820 --> 00:11:18,540
+Bu fikirler dünyaca kabul gördü.
+
+189
+00:11:18,540 --> 00:11:20,570
+Evet.
+
+190
+00:11:20,570 --> 00:11:26,200
+büyükçe bir kısmı AT&T'de kabul gördü fakat dışarıda durum pek öyle değildi.
+
+191
+00:11:26,200 --> 00:11:29,368
+Sanırım bunun nedenlerini benim için
+
+192
+00:11:29,368 --> 00:11:34,560
+biraz zordu.
+
+193
+00:11:34,560 --> 00:11:40,360
+Ama bunu basitçe 80'lerde internetin olmamasına bağlıyorum.
+
+194
+00:11:40,360 --> 00:11:45,110
+Evet e-posta ve FTP vardı ama gerçek analmda internet henüz yoktu.
+
+195
+00:11:45,110 --> 00:11:48,450
+Aynı yazılım ya da donanımı kullanan iki tane bile lab yoktu.
+
+196
+00:11:48,450 --> 00:11:51,270
+Kimileri belli bir makinede çalışıyordu, diğerleri bambaşka bir tanesinde.
+
+197
+00:11:51,270 --> 00:11:52,980
+Bazıları PC kullanıyordu filan.
+
+198
+00:11:52,980 --> 00:11:56,360
+Python ya da MATLAB gibi bir şey yoktu.
+
+199
+00:11:56,360 --> 00:11:58,430
+İnsanlar kendi kodlarını yazıyor.
+
+200
+00:11:58,430 --> 00:12:01,510
+Ben ve iki kişi, yaklaşık bir buçuk senemizi
+
+201
+00:12:01,510 --> 00:12:04,442
+temel anlamda kodu
+yazmaya zaman harcadık.
+
+202
+00:12:04,442 --> 00:12:07,330
+Beraber çalışıyorduk ve
+ buna rağmen 
+
+203
+00:12:07,330 --> 00:12:10,580
+sinir ağı simülatörü yazmak
+bir buçuk yılımızı aldı.
+
+204
+00:12:12,030 --> 00:12:14,360
+O zamanlar tabii Python,
+MATLAB gibi bir şey yok.
+
+205
+00:12:14,360 --> 00:12:16,040
+Yazılımı kontrol etmek için
+
+206
+00:12:16,040 --> 00:12:16,920
+bir şekilde kendi yorumlayıcınızı
+yazmanız gerekiyordu.
+
+207
+00:12:16,920 --> 00:12:19,070
+Kendi tip
+yorumlayıcımızı yazmak istedik.
+
+208
+00:12:19,070 --> 00:12:24,160
+Böylece listeye yazılı bütün ağlar
+numerik altyapıya sahip olacaktı.
+
+209
+00:12:24,160 --> 00:12:27,830
+Şu an birbirine bağladığımız
+bloklar gibi düşünebiliriz.
+
+210
+00:12:27,830 --> 00:12:31,380
+bir sürü diferansiyelle filan
+uğraşmak yerine şu an aşina 
+
+211
+00:12:31,380 --> 00:12:36,250
+olduğumuz Torch, PyTorch, Tensorflow
+benzeri yapılar aslında.
+
+212
+00:12:37,400 --> 00:12:41,160
+Sonrasında birkaç tane
+uygulama geliştirdik.
+
+213
+00:12:41,160 --> 00:12:45,110
+Bir mühendis grubuyla bir araya geldik.
+
+214
+00:12:46,460 --> 00:12:47,440
+Çok zeki insanlardı.
+
+215
+00:12:48,880 --> 00:12:52,230
+Aralarında Bell Labs'da
+mühendise dönmüş
+
+216
+00:12:52,230 --> 00:12:56,186
+fizikçiler de vardı.
+
+217
+00:12:57,280 --> 00:13:00,070
+Chris Dodgers onlardan biriydi ki
+
+218
+00:13:01,900 --> 00:13:04,095
+kariyerine devamında
+Microsoft'ta devam etti.
+
+219
+00:13:04,095 --> 00:13:04,766
+ve Krieg Nolan.
+
+220
+00:13:04,766 --> 00:13:09,447
+Biz beraberce bunu nasıl
+teknolojik bir pratiğe dökeriz
+
+221
+00:13:09,447 --> 00:13:12,300
+üzerinde çalıştık.
+
+222
+00:13:12,300 --> 00:13:12,830
+Böylece,
+
+223
+00:13:12,830 --> 00:13:17,840
+hepbirlikte, "karakterleştirme"
+sistemini geliştirdik.
+
+224
+00:13:17,840 --> 00:13:22,614
+Yani, evişimsel ağı
+
+225
+00:13:22,614 --> 00:13:27,471
+şu an CRF diye tabir ettiğimiz ardışıl 
+
+226
+00:13:27,471 --> 00:13:30,830
+karakterleri yorumlama
+ile entegre ettik.
+
+227
+00:13:30,830 --> 00:13:33,710
+makale biraz sinir ağları biraz da
+
+228
+00:13:33,710 --> 00:13:37,630
+otomata alanında diyebilir miyiz?
+
+229
+00:13:37,630 --> 00:13:38,230
+Evet, diyebiliriz.
+
+230
+00:13:38,230 --> 00:13:41,310
+Zaten makalenin ilk yarısı
+evrişimsel sinir ağları üzerine
+
+231
+00:13:41,310 --> 00:13:43,080
+ve en çok da bu özelliği ile atıf aldı
+
+232
+00:13:43,080 --> 00:13:45,205
+ikinci kısmı ise çok az kişi okudu
+
+233
+00:13:45,205 --> 00:13:49,530
+o kısım ise daha çok ardışıllık
+seviyesi, ayrışımsal çalışma ve
+
+234
+00:13:49,530 --> 00:13:53,900
+normalizasyon kullanılmayan 
+yapı tahmini üzerineydi.
+
+235
+00:13:53,900 --> 00:13:57,060
+Yani, aslında CRF'e çok benziyordu.
+
+236
+00:13:57,060 --> 00:14:00,790
+Yıllardır da PTCRFS ile tanınıyor.
+
+237
+00:14:00,790 --> 00:14:06,770
+Çok da başarılı oldu diyebiliriz 
+önemli bir bankanın
+
+238
+00:14:08,290 --> 00:14:12,300
+ürününü canlıya aktardığı 
+ gün hariç.
+
+239
+00:14:13,450 --> 00:14:17,708
+Biz bu grupla sistemin
+inşası üzerine aslında
+
+240
+00:14:17,708 --> 00:14:19,640
+beraber çalışıyorduk.
+
+241
+00:14:19,640 --> 00:14:23,650
+Ve ülkenin başka bir yerindeki
+bir ürün grubu vardı.
+
+242
+00:14:23,650 --> 00:14:25,940
+Bu AT&T nin alt kuruluşu olan NCR idi.
+
+243
+00:14:25,940 --> 00:14:26,480
+Bu da 
+
+244
+00:14:26,480 --> 00:14:29,280
+National Cash Register (NCR)
+
+245
+00:14:29,280 --> 00:14:32,610
+Onlar büyük ATM makineleri yapıyorlardı.
+
+246
+00:14:32,610 --> 00:14:36,250
+Bankalar için büyük okuma/kontrol
+makineleri üretiyorlardı.
+
+247
+00:14:36,250 --> 00:14:38,220
+Yani müşterimizdiler ve isterlerse
+
+248
+00:14:38,220 --> 00:14:41,100
+bizim para kontrol sistemlerimizi
+kullanabilirlerdi.
+
+249
+00:14:41,100 --> 00:14:43,570
+Ve nihayetide bir banka
+için bunu hayat geçirdiler.
+
+250
+00:14:43,570 --> 00:14:45,300
+Hangi banka olduğunu
+şimdi hatırlamıyorum
+
+251
+00:14:45,300 --> 00:14:47,490
+Bir Fransız bankası
+için yapmışlardı.
+
+252
+00:14:47,490 --> 00:14:51,979
+Böylece makine yatırılan parayı 
+okuyup kontrol edebilecekti.
+
+253
+00:14:51,979 --> 00:14:56,804
+Biz departmancak şık bir
+restoranda kutlama yaparken
+
+254
+00:14:56,804 --> 00:15:00,982
+şirketin ikiye ayrıldığını
+duyuruldu.
+
+255
+00:15:00,982 --> 00:15:02,311
+bu mevzu 1995 senesindeydi.
+
+256
+00:15:02,311 --> 00:15:06,970
+AT&T kendini iki farklı şirkete
+ayırmak istediğini duyurdu.
+
+257
+00:15:06,970 --> 00:15:11,370
+Böylece AT&T;
+Lucent Tekonoloji ve NCR olarak bölündü.
+
+258
+00:15:11,370 --> 00:15:14,670
+Böylece NCR da Lucent Teknoloji de
+AT&T'den kopmuş oldular
+
+259
+00:15:14,670 --> 00:15:17,090
+Mühendilsik ekibi Lucent Teknoloji'ye ve 
+
+260
+00:15:17,090 --> 00:15:18,210
+ürün grubu da NCR'a geçti.
+
+261
+00:15:19,770 --> 00:15:24,620
+Üzücü olan AT&T'nin
+avukatları üstün tecrübeleri ile
+
+262
+00:15:24,620 --> 00:15:29,090
+patenti üzerlerine aldılar.
+Evrişimsel ağ ile iglili bir patent vardı yani.
+
+263
+00:15:29,090 --> 00:15:31,991
+Neyse ki süresi geçti
+
+264
+00:15:31,991 --> 00:15:33,650
+2007'de bitti aslında.
+
+265
+00:15:33,650 --> 00:15:36,370
+Yaklaşık on sene evvel.
+
+266
+00:15:36,370 --> 00:15:41,100
+Patenti NCR üzerinden aldılar almasına
+ama evrişimsel ağın
+
+267
+00:15:41,100 --> 00:15:44,710
+ne olduğunu NCR'da bilen
+tek kişi bile yoktu.
+
+268
+00:15:44,710 --> 00:15:48,470
+Yani patent konuyu hiç bilmeyen
+kimselerin elindeydi.
+
+269
+00:15:48,470 --> 00:15:51,254
+Ve artık başka şirketlerdeydik
+ve teknolojisini
+
+270
+00:15:51,254 --> 00:15:54,187
+geliştiremiyorduk çünkü
+dediğim gibi mühendislik ekibi
+
+271
+00:15:54,187 --> 00:15:56,724
+Lucent Teknoloji'ye geçerken, ürün eklibi
+
+272
+00:15:56,724 --> 00:15:58,140
+NCR şirketinde sayılıyordu.
+
+273
+00:15:58,140 --> 00:16:04,190
+E tabi biraz moral bozucu olmuştu.
+Ilk zamanlarki çalışmalarınıza ek olarak
+
+274
+00:16:04,190 --> 00:16:08,980
+sizin ağınız da bir yol iken
+sinir ağlarında ısrar ettiniz
+
+275
+00:16:08,980 --> 00:16:12,020
+hem de sinir ağlarının
+en durağan zamanında
+
+276
+00:16:12,020 --> 00:16:15,126
+Bu nasıl oluyor?
+Aslında bir anlamda ısrarcıyken
+
+277
+00:16:15,126 --> 00:16:16,884
+bir anlamda da değildim.
+
+278
+00:16:16,884 --> 00:16:21,555
+Önünde sonunda bu yöntemlerin
+geri geleceğine inanıyordum.
+
+279
+00:16:21,555 --> 00:16:26,369
+Birileri de bunun pratik uygulamalarda
+nasıl kullanılacağını keyfettiler ve
+
+280
+00:16:26,369 --> 00:16:27,650
+böylece kullanışlı olabildi.
+
+281
+00:16:27,650 --> 00:16:30,901
+Yani evet aklımdaki buydu;
+
+282
+00:16:30,901 --> 00:16:33,661
+ama 1996'da, AT&T bölündüğünde, 
+
+283
+00:16:33,661 --> 00:16:36,750
+tüm karakter tanıma çalışmalarımız
+bir anlamda,
+
+284
+00:16:36,750 --> 00:16:40,627
+bozuntuya uğradı çünkü
+ekip bölünmüştü.
+
+285
+00:16:40,627 --> 00:16:45,490
+Ben de bu arada bölümün başına getirilmiştim ve üzerinde çalışılacak bir şeyler bulmalıydım.
+
+286
+00:16:45,490 --> 00:16:49,597
+İnternetin ilk zamanları
+bu bahsettiğim. Yani 1995 senesi.
+
+287
+00:16:49,597 --> 00:16:53,836
+Ben de internetin ortaya çıkmasından
+doğan bir probleme
+
+288
+00:16:53,836 --> 00:16:58,175
+yönelik bir çözüm ortaya attım.
+Bu da internette dolaşan bilginin 
+
+289
+00:16:58,175 --> 00:17:03,120
+dijital bir dökümana aktarılması idi.
+
+290
+00:17:03,120 --> 00:17:07,193
+Böylece DjVu
+ D-J-V-U projesine başladım
+
+291
+00:17:07,193 --> 00:17:10,694
+Bu esasında taratılan dosyaların
+sıkıştırılması ile ilgili idi.
+
+292
+00:17:10,694 --> 00:17:13,635
+İnternet üzerinden
+her yere yayıldı.
+
+293
+00:17:13,635 --> 00:17:17,528
+Proje bir süreliğine eğlenceli
+ve kendi çapında başarılıydı.
+
+294
+00:17:17,528 --> 00:17:21,443
+AT&T bununla tam ne yapıalacağını
+bilmemesine karşın
+Evet, hatırlıyorum.
+
+295
+00:17:21,443 --> 00:17:24,790
+internette bilimsel makalelerin
+yayılmasını kolaylaştırmıştı.
+
+296
+00:17:24,790 --> 00:17:28,830
+Aynen. Hatta NIPS'in tüm işlemlerini taradık
+ve internetten erişilebilir hale getirdik-
+
+297
+00:17:28,830 --> 00:17:30,110
+Evet hatırlıyorum.
+
+298
+00:17:30,110 --> 00:17:31,590
+-nasıl çalıştığını göstermek için.
+
+299
+00:17:31,590 --> 00:17:35,736
+Böylece çok yüksek çözünürlüklü dosyaları
+bir kaç kilobyte a indirgeyebiliyorduk.
+
+300
+00:17:35,736 --> 00:17:36,502
+Böylece Covn Net
+
+301
+00:17:36,502 --> 00:17:39,988
+Senin çok önceki
+çalışmalarından başlayarak
+
+302
+00:17:39,988 --> 00:17:43,336
+"Bilgisayarla Görü"de
+çok fazla yol kat etti.
+
+303
+00:17:43,336 --> 00:17:46,980
+Hatta diğer alanlara da
+önemli ölçüde girmeye başladı
+
+304
+00:17:46,980 --> 00:17:50,407
+Tüm bu süreci nasıl
+öngördüğünü anlatır mısın?
+
+305
+00:17:50,407 --> 00:17:51,446
+Pekala,
+
+306
+00:17:51,446 --> 00:17:55,150
+bunu nasıl
+öngördüğümü anlatayım.
+
+307
+00:17:55,150 --> 00:17:59,178
+İlk olarak bunun çalışacağına inandım.
+
+308
+00:17:59,178 --> 00:18:04,074
+Çok hızlı bilgisarlar ve büyük miktarda 
+veri gerekiyordu ama bir şekilde 
+
+309
+00:18:04,074 --> 00:18:07,160
+bunun olması gereken
+olduğuna inandım.
+
+310
+00:18:07,160 --> 00:18:11,695
+Bell Labs'ta çalışırken
+düşündüğüm şuydu:
+
+311
+00:18:11,695 --> 00:18:16,392
+bu sonuça makinelerin gücünün gittikçe
+arttığı sürekliliği olan bir süreç. 
+
+312
+00:18:16,392 --> 00:18:20,874
+Hatta ervişimsel ağı çalıştırabilecek
+çip bile tasarlamıştık Bell Labs'ta. 
+
+313
+00:18:20,874 --> 00:18:25,566
+Şu an bunlar iki ayrı çip
+olarak etkin bir
+
+314
+00:18:25,566 --> 00:18:28,593
+şekilde kullanılıyor.
+
+315
+00:18:28,593 --> 00:18:33,186
+Ve böylece bunun bir şekilde
+yükseleceğini düşündük.
+
+316
+00:18:33,186 --> 00:18:37,882
+ilgi artacaktı ve işlemin sürekliliğinin
+bir parçası olarak yerini alacaktı
+
+317
+00:18:37,882 --> 00:18:41,860
+Ama gerçekte, sinir ağlarına
+olan tavırdan dolayı
+
+318
+00:18:41,860 --> 00:18:45,470
+az daha 90'ların ortalarında
+kaybolup gidecekti, ama öyle olmadı.
+
+319
+00:18:45,470 --> 00:18:51,444
+Bilindiği üzere 1995-2002 arası,
+kimsenin bu konuda çalışmadığı,
+
+320
+00:18:51,444 --> 00:18:55,351
+6-7 senelik bir karanlık dönem var
+
+321
+00:18:55,351 --> 00:18:57,192
+Yani aslında birkaç çalışma vardı.
+
+322
+00:18:57,192 --> 00:19:01,971
+Microsoft'da 2000'lerin başında
+evrişimsel ağı Çince karakterleri 
+
+323
+00:19:01,971 --> 00:19:06,401
+tanımak için kullanan
+bir çalışma olmuştu.
+
+324
+00:19:08,676 --> 00:19:11,676
+Evet.
+
+325
+00:19:11,676 --> 00:19:14,844
+Ve yüz tanıma ile ilgili bazı
+küçük çalışmalar oldu.
+
+326
+00:19:14,844 --> 00:19:19,780
+Bunlar Fransa'da ve çeşitli yerlerde
+oldu ama çok küçük çaplıydılar.
+
+327
+00:19:19,780 --> 00:19:24,400
+Şu günlerde aslında
+küçük bir grupla tanıştım.
+
+328
+00:19:24,400 --> 00:19:27,320
+Temelinde evrişimsel ağa çok
+benzeyen bir fikirle çıkageldiler ama
+
+329
+00:19:27,320 --> 00:19:31,370
+medikal görüntü işleme ile ilgili
+hiç yayımlanmamış bir şey.
+
+330
+00:19:31,370 --> 00:19:33,880
+Ve bunlar çoğunlukla
+ticari sistemlerin içeriğiydi.
+
+331
+00:19:33,880 --> 00:19:37,310
+Bu sebepten popülasyona ulaşamadı.
+
+332
+00:19:37,310 --> 00:19:42,343
+Demek istediğim, evrişimli ağlardaki
+ilk işimizin sonrasındaydı ve
+
+333
+00:19:42,343 --> 00:19:47,475
+tam olarak farkında değillerdi; ama
+bir şekilde bu işlere paralel olarak gelişti.
+
+334
+00:19:47,475 --> 00:19:52,764
+Sonrasında da insanlar yıllar
+içerisinde benzer fikirler geliştirdiler.
+
+335
+00:19:52,764 --> 00:19:56,950
+Ama sonrasında ImageNet'e
+olan ilginin bu kadar hızlı
+
+336
+00:19:56,950 --> 00:20:01,250
+şekilde artmasına şaşırmıştım.
+2012'de.
+
+337
+00:20:01,250 --> 00:20:03,646
+2012'de.
+2012'nin sonlarına doğru.
+
+338
+00:20:03,646 --> 00:20:07,707
+ECCV,Floransa'da çok
+enteresan bir etkinlik oldu
+
+339
+00:20:07,707 --> 00:20:12,389
+ImageNet ile ilgili
+bir workshop'tu bu.
+
+340
+00:20:12,389 --> 00:20:19,552
+Büyük çapta ilgi
+topladığını zaten biliyorlardı.
+
+341
+00:20:19,552 --> 00:20:21,004
+Herkes konuşma için bekliyordu.
+
+342
+00:20:21,004 --> 00:20:25,717
+Bilgisayarlı görü topluluğundan çoğu kişinin
+ evrişim ağlar hakkında hiçbir
+
+343
+00:20:25,717 --> 00:20:26,281
+fikri yoktu.
+
+344
+00:20:26,281 --> 00:20:27,210
+Beni, bunun hakkında
+konuşurken dinlediler.
+
+345
+00:20:27,210 --> 00:20:32,181
+Esasen ben 2000 senesinde
+CVPR konferansında da konuşmacı olarak
+davetliydim ve bunları anlatmıştım.
+
+346
+00:20:32,181 --> 00:20:35,560
+Ancak çok fazla kimse
+ilgi göstermemişti.
+
+347
+00:20:35,560 --> 00:20:37,822
+Uzmanı olan kişiler evet;
+ama onlar zaten işi biliyorlardı.
+
+348
+00:20:37,822 --> 00:20:41,607
+Oradaki gençlerin bu konu hakkında hiçbir fikirler yoktu.
+
+349
+00:20:41,607 --> 00:20:45,654
+Yani düşünün, biri evrişimsel ağlar ile ilgili
+konuşma yapıyor ama evrişimsel ağın
+ne olduğunu anlatmıyor;
+
+350
+00:20:45,654 --> 00:20:47,824
+çünkü sanıyor ki herkes zaten biliyor.
+
+351
+00:20:47,824 --> 00:20:53,093
+Çünkü makine öğrenmesinden gelmiş.
+Sonrasında her şeyin nasıl bağlantılı olduğunu,
+
+352
+00:20:53,093 --> 00:20:56,753
+veriyi nasıl dönüştürdüğümüzü ve
+ne sonuçlar elde ettiğimizi gösterdim.
+
+353
+00:20:56,753 --> 00:20:59,450
+Hala, insanların anlattığım
+şeyi anladığını farzediyordum.
+
+354
+00:20:59,450 --> 00:21:02,198
+Ve insanlar inanılmaz
+derecede şaşırdılar
+
+355
+00:21:02,198 --> 00:21:07,112
+Anlatırken, alanında uzman
+insanların fikirlerinin değiştiğini 
+
+356
+00:21:07,112 --> 00:21:11,946
+gözlemleyebiliyorsunuz.
+Yani bu workshop
+
+357
+00:21:11,946 --> 00:21:16,058
+bilgisayarla görü dünyasını
+sarsan andı, öyle mi?
+
+358
+00:21:16,058 --> 00:21:16,724
+Evet, kesinlikle.
+
+359
+00:21:16,724 --> 00:21:17,572
+Doğru.
+
+360
+00:21:17,572 --> 00:21:18,874
+Aynen, orada olan
+tam da buydu.
+
+361
+00:21:18,874 --> 00:21:23,370
+Şu an,
+hem NYU'da akademisyensin
+
+362
+00:21:23,370 --> 00:21:27,998
+hem de FAIR (Facebook AI Research)
+liderliğini yürütüyorsun.
+
+363
+00:21:27,998 --> 00:21:32,241
+Kurumsal araştırma çalışmalarının
+nasıl koordine edilmesi gerektiği ile ilgili
+oldukça farklı bir bakış açının
+
+364
+00:21:32,241 --> 00:21:33,230
+olduğunu biliyorum.
+
+365
+00:21:33,230 --> 00:21:34,530
+Bu konudaki düşüncelerini
+ paylaşmak ister misin?
+
+366
+00:21:34,530 --> 00:21:37,688
+Tabii, şöyle oldu:
+
+367
+00:21:37,688 --> 00:21:44,105
+En güzel yanlarından biri FAIR'de
+yönettiğim 4 senede çok fazla özgür çalışma
+yapabilmiş olmamız. 
+
+368
+00:21:44,105 --> 00:21:50,128
+Bu aslında en değerli
+gördüğüm kısım.
+
+369
+00:21:50,128 --> 00:21:56,010
+Çünkü bu Facebook'un
+ilk research çalışmasıydı.
+
+370
+00:21:56,010 --> 00:21:58,910
+Bildiğin üzere Facebook bir çeşit
+mühendislik&yazılım şirketi.
+
+371
+00:21:58,910 --> 00:22:03,007
+Daha çok piyasada ayakta kalmak,
+kısa vadede sonuç almak gibi hedefleri vardı. 
+
+372
+00:22:03,007 --> 00:22:10,714
+Facebook 10 seneyi devirdiğinde
+iyi bir hisse değerine kavuşmuştu.
+
+373
+00:22:10,714 --> 00:22:14,220
+Artık bundan sonra önündkei
+10 seneyi düşünmesi gerekiyordu.
+
+374
+00:22:14,220 --> 00:22:18,188
+Yani Mark Zuckerberg önümüzdeki
+10 senede neyin önemli olabileceğini
+
+375
+00:22:18,188 --> 00:22:19,341
+düşünmüş.
+
+376
+00:22:19,341 --> 00:22:21,917
+Sonuçta, şirketin ayakta kalması
+artık mevzu bahis değildi.
+
+377
+00:22:21,917 --> 00:22:26,343
+Tabi bu da büyük şirketlerin dönüşüm
+düşüncesiydi bir nevi; ama
+
+378
+00:22:26,343 --> 00:22:28,846
+büyük bir şirket değildi o zamanlar.
+
+379
+00:22:28,846 --> 00:22:34,003
+Sadece 5000 çalışanı vardı ama önündeki
+
+380
+00:22:34,003 --> 00:22:39,837
+10 seneyi ve önemli olabilecek
+teknolojileri düşünme lüksü vardı.
+
+381
+00:22:39,837 --> 00:22:45,069
+Mark ve takımı, Yapay Zeka(AI)'nın
+insanları birbirine bağlamakta
+
+382
+00:22:45,069 --> 00:22:52,372
+çok önemli bir rol olnayacağında hemfikir
+olmuşlar ki bu da Facebook'un temel
+amacına hizmet edecek bir olgu.
+
+383
+00:22:52,372 --> 00:22:55,303
+Böylece AI'da neler yapılabilir
+diye bir çok deneme yapıldı.
+
+384
+00:22:55,303 --> 00:22:57,808
+Küçük bir iç grupları, mühendislik grupları,
+evrişimsel ağ ile ilgili
+
+385
+00:22:57,808 --> 00:23:01,459
+çalışma yaptılar ve gerçekten
+güzel sonuçlar aldılar.
+
+386
+00:23:01,459 --> 00:23:05,450
+Özellikle yüz tanıma gibi
+ilgilerini çeken alanlarda.
+
+387
+00:23:05,450 --> 00:23:08,724
+Sonrasında büyüyerek genç
+araştırmacıları işe almaya ve
+
+388
+00:23:08,724 --> 00:23:10,820
+bu konuda başka şirketleri
+satın almaya filan karar verdiler.
+
+389
+00:23:10,820 --> 00:23:14,200
+Ve nihayetinde, araştırma grubunu
+kurabilecek bu konuda uzman birini
+
+390
+00:23:14,200 --> 00:23:18,097
+işe almaya karar vermişler.
+
+391
+00:23:20,210 --> 00:23:23,340
+Bu ilk anda bir kültür şoku yaşattı, çünkü
+
+392
+00:23:23,340 --> 00:23:26,750
+mühendislik çalışmaları ile
+kurumsal bir firmada araştırma çalışmaları
+çok farklı şeyler.
+
+393
+00:23:26,750 --> 00:23:29,250
+(Akademide) Uzun süreli planlarınız
+ve geniş bir ufkunuz var.
+
+394
+00:23:29,250 --> 00:23:32,672
+Ve araştırmacılar çalışacakları konuları
+seçme ve nerede çalışmak istedikleri
+
+395
+00:23:32,672 --> 00:23:33,821
+konusunda daha katılar.
+
+396
+00:23:33,821 --> 00:23:38,552
+Bu nedenle daha en başta konuştum.
+Araştırmalar çok açık olmalı,
+
+397
+00:23:38,552 --> 00:23:43,034
+araştırmacılar makale yayımlamaya
+cesaretlendirilmekle kalmamalı,
+
+398
+00:23:43,034 --> 00:23:45,110
+yayın yapmak zorunlu olmalı.
+
+399
+00:23:45,110 --> 00:23:50,970
+Aynı akademideki gibi bu yayınlar da
+
+400
+00:23:50,970 --> 00:23:56,440
+araştırmacılara performans
+kriteri olarak eklenmeli
+
+401
+00:23:56,440 --> 00:24:01,644
+Mark ve Mike Schroepfer,
+şirketin CTO'su,
+
+402
+00:24:01,644 --> 00:24:07,140
+şu anda benim patronum olur, şöyle söyledi: 
+Facebook çok açık fikirli bir şirket
+
+403
+00:24:07,140 --> 00:24:09,890
+Çok fazla açık kaynak da yayınladık.
+
+404
+00:24:13,188 --> 00:24:14,799
+Schroepfer, CTO,
+
+405
+00:24:14,799 --> 00:24:17,910
+açık kaynak dünyasından geliyor.
+Mozilla
+
+406
+00:24:17,910 --> 00:24:19,890
+Burdan önce Mozilla'daydı
+
+407
+00:24:19,890 --> 00:24:21,260
+ve bir çok insan da bu dünyadan geliyor.
+
+408
+00:24:21,260 --> 00:24:24,440
+Bu, şirketin DNA'sında var.
+Bu da beni
+
+409
+00:24:24,440 --> 00:24:28,390
+şirket bünyesinde bir araştırma
+ekibi kurmaya ikna etti.
+
+410
+00:24:28,390 --> 00:24:34,941
+Yani şirket IP konusunda
+diğer bazı şirketler gibi
+
+411
+00:24:34,941 --> 00:24:41,397
+takıntılı değildi; bu da üniversite işbirliğini
+daha kolay kılıyordu
+
+412
+00:24:41,397 --> 00:24:46,774
+ve bir ayağının endüstride
+bir ayağının endüstride olan
+
+413
+00:24:46,774 --> 00:24:49,555
+kişileri idare edebiliyordu.
+Ve sen de bunu kendin için
+
+414
+00:24:49,555 --> 00:24:52,630
+değerli budun.
+Kesinlikle öyle.
+
+415
+00:24:52,630 --> 00:24:56,261
+Benim son 4 senelik
+yayınlarıma bakarsanız,
+
+416
+00:24:56,261 --> 00:24:59,696
+bunların büyük çoğunluğu
+NYU'daki öğrencilerim ile
+
+417
+00:24:59,696 --> 00:25:01,170
+olanlardır.
+
+418
+00:25:01,170 --> 00:25:03,190
+Çünkü Facebook'ta,
+
+419
+00:25:03,190 --> 00:25:07,016
+çok fazla lab organizasyonu, işe alım,
+
+420
+00:25:07,016 --> 00:25:12,029
+yönlendirme, danışmanlık ve
+buna benzer birçok şey yaptım.
+
+421
+00:25:12,029 --> 00:25:16,345
+Fakat, bireysel olan hiçbir
+araştırma projesinde ismimi
+
+422
+00:25:16,345 --> 00:25:16,910
+geçirmedim.
+
+423
+00:25:16,910 --> 00:25:20,478
+Yani, artık yayınlarda ismimin
+geçmesiyle çok ilgilenmiyorum.
+
+424
+00:25:20,478 --> 00:25:21,666
+--bu başkasını muhteşem işler yapması için gönderirken
+
+425
+00:25:21,666 --> 00:25:23,580
+kendin sıkıcı işleri yapmak gibi mi?
+
+426
+00:25:23,580 --> 00:25:24,590
+Aynen öyle. artık kendinizi
+öne atmak istemiyorsunuz.
+
+427
+00:25:24,590 --> 00:25:27,390
+Kamera arkasında
+kalmayı tercih ediyorsunuz.
+
+428
+00:25:27,390 --> 00:25:30,539
+Lan içindeki yarışa dahil
+olmak istemiyorsunuz
+
+429
+00:25:30,539 --> 00:25:32,721
+bu durumda.
+Eminim çok kez sorulmuştur ama
+
+430
+00:25:32,721 --> 00:25:35,760
+umarım bu videoyu
+izleyenler için de cevaplarsın:
+
+431
+00:25:36,830 --> 00:25:40,719
+Yapay Zeka alanına girmek
+isteyen insanlar için ne
+
+432
+00:25:40,719 --> 00:25:42,459
+tavsiye edersin?
+
+433
+00:25:42,459 --> 00:25:46,470
+Şu an bu dünya benim
+başladığımkinden çok daha farklı.
+
+434
+00:25:46,470 --> 00:25:51,820
+Ama inanıyorum ki girmek
+birçok seviyeden kimse için çok kolay.
+
+435
+00:25:51,820 --> 00:25:57,030
+tensorflow, pytorch gibi erişimi
+çok kolay olan çok fazla araç var.
+
+436
+00:25:57,030 --> 00:26:01,928
+Uygun fiyatlı bir bilgisayar ile
+kendi odanızda bile çalıştırabilirsiniz artık.
+
+437
+00:26:01,928 --> 00:26:06,905
+yani temel anlamda evrişimsel ağ
+ya da mevcut ağları ya da her ne ise eğitebilirsiniz
+
+438
+00:26:06,905 --> 00:26:09,140
+ve bunun için çok fazla araç var.
+
+439
+00:26:09,140 --> 00:26:16,190
+İnternetteki kaynaklardan özellikle
+çok fazla şey öğrenebilirsiniz ve bu çok da zor değil.
+
+440
+00:26:16,190 --> 00:26:19,860
+Şu an lise öğrencileirnin dahi
+bunlarla uğraştığını görüyorsunuz.
+
+441
+00:26:19,860 --> 00:26:24,930
+Ki bu müthiş ve öğrenciler arasında
+makine öğrenmesi ve yapay zekaya 
+
+442
+00:26:24,930 --> 00:26:29,730
+ilgi artarak büyüyor.
+
+443
+00:26:29,730 --> 00:26:36,820
+Bu gençler için çok heyecan verici
+ve bunu harikulade buluyorum.
+
+444
+00:26:36,820 --> 00:26:42,430
+Özetle tavsiyem şu olabilir:
+Eğer bu işler ile uğraşacaksanız, 
+kullanılabilir bir şeyler yapun.
+
+445
+00:26:42,430 --> 00:26:45,260
+Bir açık kaynak projeye
+destek verin mesela.
+
+446
+00:26:45,260 --> 00:26:49,810
+Ya da internette kodu yayınlanmamış
+algoritmaların kodunu yazıp
+
+447
+00:26:49,810 --> 00:26:54,600
+yayımlayın ve başka insanların
+kullanımına açın.
+
+448
+00:26:54,600 --> 00:26:56,610
+önemli olduğunu düşündüğünüz
+makaleleri inceleyin,
+
+449
+00:26:56,610 --> 00:27:01,080
+algoritmaları kendiniz de gerçekleyin
+ve açık kaynak olarak paylaşın.
+
+450
+00:27:01,080 --> 00:27:04,260
+Yahut var olan açık kaynaklara
+katkıyı yapın.
+
+451
+00:27:04,260 --> 00:27:09,132
+Sonunda yaptıklarınız ilgi çekici ve
+kullanışlıysa fark edileceksinizdir.
+
+452
+00:27:09,132 --> 00:27:14,030
+Belki çok isteidğiniz bir şirkette
+güzel bir iş bulursunuz
+
+453
+00:27:14,030 --> 00:27:18,580
+ya da belki arzuladığınız doktora
+programına kabul alacaksınız.
+
+454
+00:27:18,580 --> 00:27:19,950
+Bence bu iyi bir başlangıç
+
+455
+00:27:19,950 --> 00:27:20,962
+olacaktır.
+
+456
+00:27:20,962 --> 00:27:24,973
+Yani açık kaynak çalışmalara katkı
+yapmak bu dünyaya girmek için iyi bir yol.
+
+457
+00:27:24,973 --> 00:27:26,368
+Evet aynen.
+
+458
+00:27:26,368 --> 00:27:29,651
+Çok teşekkür ederim Yann.
+Bu çok etkileyiciydi.
+
+459
+00:27:29,651 --> 00:27:32,520
+Seni yıllardır tanıyorum ve senden
+tüm hikayeyi baştan sona
+
+460
+00:27:32,520 --> 00:27:34,813
+duymak hala büyüleyici.
+
+461
+00:27:34,813 --> 00:27:37,248
+Birçok hikaye böyledir,
+
+462
+00:27:37,248 --> 00:27:41,895
+bazı şeyler olduğu anda fark edemezsin
+ve ne kadar önemli 
+
+463
+00:27:41,895 --> 00:27:45,380
+olduğunu anlaman
+10 ya da 20 yıl alabilir.
+
+464
+00:27:45,380 --> 00:27:47,113
+Teşekkürler.
+
+465
+00:27:47,113 --> 00:27:48,678
+>> Teşekkürler.

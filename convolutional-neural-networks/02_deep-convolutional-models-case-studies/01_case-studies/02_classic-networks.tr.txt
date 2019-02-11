@@ -1,0 +1,72 @@
+Bu videoda, bazı klasik yapay sinir ağı mimarisini LeNet-5'den başlayarak sonra AlexNet son olarak VGGNet ile öğreneceksiniz.
+Hadi bakalım. İşte LeNet-5 mimarisi. Bir resim ile başlıyorsun diyelim ki, 32,32,1. Ve LeNet-5'in amacı el yazısı ile yazılmış
+ rakamları tanımaktı, belki bunun gibi bir rakamın görüntüsü. Ve LeNet-5 gri ölçek görüntü üzerinde eğitim gördü, 32,32,1 olmasının sebebi bu. Aslında bu yapay sinir ağı mimarisi geçen hafta gördüğünüz son örneğe oldukça benziyor İlk adımda, 6 tane 5x5 kullanırsın çünkü 6 tane filtre kullandın. Orada 20x20x6 ile bitirirsin. 2 adım kullandığımızı ve dolgulama (padding) olmadığını
+ varsayalım. Görüntü boyutları 32x32'den 28x28'e azalır. Sonra LeNet yapay sinir ağı ortaklama uygular. Ve o zaman bu yazı yazıldığı zaman, insanlar ortalama ortaklamayı daha fazla kullanırlar. Modern bir değişken inşa ediyorsanız, Muhtemelen yerine maksimum ortaklamayı kullanırsınız. Şimdilik, sizin Ortalama havuz ve filtre genişliği iki ve iki adımı ile, Boyutları, yüksekliği ve genişliği iki kat azaltarak dödürüyorsun. Böylece 14x14x6 hacmiyle bitiriyoruz. Sanırım bu hacimlerin yüksekliği ve genişliği tamamen
+ ölçeklendirilmiyor. Şimdi teknik olarak, eğer bu hacimleri
+ ölçeklendiriyor olsaydım, yükseklik ve genişlik iki kat daha güçlü olacaktı. Sonraki, Başka bir evrişimli katman uygulayın. Bu sefer 16 filtreli 5x5'lik küme kullanın, Böylece bir sonraki hacime 16 kanalla son verirsin. Ve bu yazı 1998’de yazıldığı zaman İnsanlar gerçekten dolgulama kullanmıyordu ya da her 
+zaman geçerli evrişimleri uyguluyorsunuz, o yüzden evrişimli katman kullanıyorsunuz her zaman, onlar güçlü yönleriyle büyüdüler. İşte bu nedenle, burada, 14x14'den 10x10'a gidiyorsun. Başka bir ortaklama katmanı, yüksekliği ve genişliği iki kat azaltması için. Sonra 5x5 ile burada bitiriyorsun. Ve eğer tüm bu sayıları 5x5x16 boyutunda çarptığınızda, bu 400'e kadar çoğalır. 25x16=400 Ve bir sonraki katman bu 400 düğümün herbirini 120 
+nöronun herbiriyle tamamen birbirine bağlayan tam bağlantılı katmandır. Bu yüzden burada tam bağlantılı katman var. Ve bazen, sadece 400 düğümlü bir katman 
+görevlendirecektim. Bunu atlıyorum. İşte tamamen bağlı bir katman ve başka bir
+ tamamen bağlı katman. Ve sonra son adım gerekli 84 özelliği kullanır ve onu bir son çıktı ile kullanır. Tahminimce, y^ 'e bir tahmin yapmak için
+ bir tane daha düğüm çiziceksin. Ve y^ 0'dan 9'a kadar olan rakamların
+ her birinin tanınmasına karşılık gelen 10 olası değer aldı. Bu yapay sinir ağının modern bir versiyonu 10 yollu sınıflandırma çıktısı ile birlikte yumuşatılmış 
+maksimum(softmax) katman kullanacağız. O zamanlara rağmen, LeNet-5 aslında çıkış
+ katmanında farklı bir sınıflandırıcı kullanıyor, bugün işe yaramayan. Bu yapay sinir ağı modern standartlara göre küçüktü, yaklaşık 60.000 parametresi vardı. Ve bugün, sıklıkla sinir ağlarını herhangi bir yerde 10 milyondan 100 milyona kadar olan
+ parametrelerle görürsünüz, ve gerçekten bu ağlardan 1000 kat büyük olan ağları görmek olağan dışı değildir. Ama gördüğünüz bir şey, bir ağda 
+daha derine gittiğinizde soldan sağa gittiğinizde, yüksekliğin ve genişliğin aşağı inme eğiliminde olduğudur. Yani 32x32'den 28x28'e 14x14'e 10x10'a 5x5'e gittiniz, halbuki kanal sayısı artar. Ağın katmanlarına daha derine indiğinizde, 
+1'den 6'ya 16'ya gider. Bugün hala tekrarlanan bu sinir ağında
+ gördüğünüz bir diğer model, ortaklama katmanını takip eden bir ya da daha fazla
+ evrişimli katmana sahip olmanız olabilir. ve sonra ortaklama katmanı tarafından takip edilen
+ bir ya da bazen daha fazla evrişimli katman, ve sonra tamamen bağlı katmanlar ve çıktılar. Yani bu tipte katman düzeni oldukça yaygındır. Şimdi son olarak, bu belkide sadece makaleyi
+ okumayı denemek isteyenler için. Farklı olan birkaç başka şeyler var. Bu slaytın geri kalanında, birkaç tane ileri yorum yapacağım, sadece bu klasik makaleyi okumak isteyenler için. Ve bunun gibi, kırmızı ile yazacağım her şeyi Slayt üzerinde güvenli bir şekilde atlayabilirsiniz, ve belki ilginç bir tarihsel dipnot vardır, Tamamen takip etmezseniz sorun yok. Eğer orijinal makaleleri okuyorsanız ortaya çıkıyor ki
+, o zamanlar insanlar sigmoid ve tanh doğrusal olmayanları kullandılar, Ve o zamanlar ReLu doğrusal olmayanları kullanmadılar. Eğer makaleye bakarsanız, sigmoid ve tanh'a atıfta 
+bulunulduğunu göreceksiniz. Ayrıca burada bazı komik yollar var bu ağ hakkında modern standartlara göre komikti. Örnek olarak, (nh)x(nw)x(nc) nc kanallı ağı gördünüz sonra fxfxnc boyutlu filtre kullandınız, herşeyin bu kanalların her birine baktığı yerde. Fakat o zamanlar, bilgisayarlar çok yavaştı. Ve bazı parametrelerle birlikte hesaplamayı 
+kaydetmek için LeNet-5'in bazı çılgın karmaşık yolları vardı, Farklı filtrelerin giriş bloğunun farklı kanallarına baktığı yerde. Böylece makale bu detaylardan bahsediyor, ama bu günlerde daha modern uygulama bu tarz 
+karmaşıklığa sahip olmayacaktı. Ve son olarak yapılmış son birşey. O zamanlar sanırım
+ şu an bitmedi, orijinal LeNet-5 ortaklamadan sonra doğrusal olmayanlığa 
+sahip oluyordu ve sanırım ortaklama katmanından sonra
+ sigmoid doğrusal olmayan kullanıyor. Eğer makaleyi okursanız, ve bu okumak için zor olanlardan bir tanesi önümüzdeki birkaç videoda gözden geçireceğimiz olanlardan. Sıradaki başlamak için kolay olabilir. Slayt üzerindeki fikirlerin çoğunu, makalenin iki ve üçüncü bölümlerinde denedim, ve makalenin sonraki bölümleri diğer fikirler hakkında bahsediyor. Çizge dönüştürücü ağ(graph transformer network)
+ hakkında bahsediyor. Bugün yaygın olarak kullanılmıyor. Eğer bu kağıdı okumayı denerseniz, Bu mimari hakkında bahseden ikinci bölüme
+ odaklanmanızı tavsiye ederim. ve belki üçüncü bölüme hızlı bir bakış atabilirsiniz, oldukça ilginç olan bir dizi deney ve sonuçlara sahip. Size göstermek istediğim ikinci yapay sinir ağı ise AlexNet Bu çalışmayı tanımlayan makaleyi yazan ilk yazar
+ Alex Krizhevsky'den ismi geliyor. Diğer yazarlar ise Ilya Sutskever ve Geoffrey Hinton. AlexNet girdileri 227x227x3 görüntü ile başlar. Ve eğer makaleyi okursanız, Makale 224x224x3 görüntüye değinir. Fakat eğer sayılara bakarsanız, Sayıların sadece 227x227 olduğunda anlamlı
+ olduğunu düşünüyorum İlk katman dört adımlı 96 kümeli 11x11 filtreler uygular. Ve dörtlü büyük adım attığı için, boyutlar 55x55'e küçülür. Yani kabaca, büyük bir adım nedeniyle 4 kat düşüyor. Ve sonra 3x3 filtre ile maksimum ortaklama uygular. Böylece f=3 ve s=2 olur. Böylece hacim 27x27x96 ya indirgenir, ve sonra 5x5 aynı evrişim, aynı dolgulamayı yapar. böylece 27x27x276 ile biter. Tekrardan maksimum ortaklama, bu yüksekliği ve
+ genişliği 13' e indirger. Ve sonra aynı evrişim, bu yüzden de aynı dolgulama. Yani 13x13x384 filtre. Ve sonra 3x3, aynı evrişim yeniden, size bunu verir. Sonra 3x3, aynı evrişim yeniden, size bunu verir. Sonra maksimum ortaklama, 6x6x256 ya getirir. Eğer tüm bu sayıları 6x6x256 ile çarparsan sonuç 9216. Yani bunu 9216 düğüme sericeğiz. Ve sonra sonunda, bir kaç tane tamamen bağlı 
+katmana sahip olur. Ve sonra sonunda, bir tane
+ yumuşatılmış maksimum kullanır, nesnenin olabiliceği 1000 sınıftan hangisinin
+ çıktısını almak için. Yani bu yapay sinir ağı aslında LeNet'e çok fazla benziyordu, ama daha büyüktü. Oysaki önceki slaytta LeNet-5 60.000 parametreye sahipti, Bu AlexNet 60 milyon parametreye sahip. Ve oldukça benzer temel yapı taşlarını alabildikleri, ancak çok daha fazla gizli birime ve çok daha fazla veri üzerinde eğitim alabildikleri
+ gerçeğine dayanarak görüntü üzerinde sadece dikkate değer bir performansa sahip olmasına izin veren veri setini eğitmişlerdir. Bu mimarinin bir başka özelliği de LeNet'de kullanılan ReLu aktivasyon
+ fonksiyonundan daha iyi. Ve tekrardan, eğer makaleyi okuduysanız, makaleyi okumamış olmamanız için endişelenmenize gerek olmayan bazı ileri detaylar, bunlardan biri, Makale yazıldığı zaman, GPU'lar hala birar yavaştı, bu yüzden iki tane GPU üzerinde eğitimin
+ karmaşık yolu vardı. Ve temel fikri şuydu, Bu katmanların çoğu aslında iki farklı GPU'ya bölünmüştü, ve iki GPU'nun birbiriyle iletişim kuracağı zaman
+ için düşünceli bir yol vardı. Ve makale de, Orijinal AlexNet mimarisi Local Response Normalization adında başka bir katman kümesine sahipti. Ve bu tip katman gerçekten çok fazla kullanılmadı, bu yüzden bundan çok fazla bahsetmedim. Fakat Local Response Normalization'un temel fikri, eğer bu bloklardan bir tanesine baktıysanız, Üstte sahip olduğumuz bu hacimlerden biri, ve argümanlar uğruna diyelim ki, 13x13x256 Local Response Normalization ne yapar, hangi pozisyona bakarsınız. Yani bir pozisyon yükseklik ve genişlik, ve tüm kanallara bakarsak, tüm 256 sayılarına bak ve onları normalleştir. Ve bu Local Response Normalization için motivasyon 13x13 görüntüdeki her bir pozisyon içindi. Belki çok fazla aktivasyonu olan çok fazla nöron istemezsin. Fakat sonradan, pek çok araştırmacı bunun
+ çok fazla işe yaramadığını buldu. Sanırım kırmızıyla çizdiğim bunlardan biri. Çünkü bunu anlaman senin için daha az önemli. Ve pratikte, gerçekten eğitilen ağ dilinde local response normalization'u kullanmıyorum. Yani eğer derin öğrenme tarihi ile ilgileniyorsanız, AlexNet'ten bile önce düşünüyorum, derin öğrenme konuşma tanımada ve diğer birkaç
+ alanda çekişmeye başlıyordu, ama bilgisayar bilimi topluluğunun birçoğunu, derin öğrenmenin bilgisayar ortamında gerçekten
+ işe yarayacağına inandırmak için derin bir öğrenmeye ciddi bir bakış atmaya ikna
+ eden gerçek bir yazıydı. Ve sonra sadece bilgisayar görüşünde değil bilgisayar görüşünün ötesinde büyük bir
+ etki yaratmaya başladı. Ve eğer bu makalelerden bazıların kendi başınıza okumayı
+ denemek istiyorsanız gerçekten bu kursa gerek yok, Fakat eğer bu makalelerden bazılarını okumayı
+ denemek istiyorsanız Bu, okumak için daha kolay olanlardan biridir,
+ bu yüzden, bakmak iyi olabilir. Yani AlexNet nispeten karmaşık bir mimariye sahipken, bir sürü hiperparametre var, doğru mu? Bütün bu sayılara sahip olduğunuz yerde, Alex Krizhevsky ve yazarlarının ortaya çıkması gerekiyordu. VGG ya da VGG-16 olarak adlandırılan bu videoda ki
+ üçüncü ve son örneği göstermeme izin verin. Ve VGG-16 ağıyla ilgili dikkate değer bir şey, çok fazla hiperparametreye sahip olmak yerine sadece evrişimli katmanlara odaklandığımız 
+çok daha basit bir ağ kullanalım. 3x3 filtre,bir adım ve her zaman aynı dolgulamayı kullanın. İki adım ile birlikte tüm maksimum ortaklama
+ katmanlarını 2x2 yapın Ve böylece, VGG ağı ile ilgili çok güzel bir şey, bu yapay sinir ağı mimarilerini gerçekten basitleştirmekti. Hadi mimariye göz atalım. Onlar için bir görüntü ile başlarsın ve sonra ilk iki katman bu 3x3 filtreler olan evrişimlerdir. Ve ilk iki katman 64 filtre kullanır. 224x244 ile bitirirsin çünkü aynı evrişimler
+ ve 64 kanal ile birlikte. Bu yüzden VGG-16 nispeten daha derin bir ağdır. Burada tüm hacimleri çizmeyeceğim. Yani bu ham görüntü,daha önce 224x224x3 olarak çizdiğimiz görüntüyü ifade eder. Ve sonra tahminimce 224x224x64 sonuçlu bir evrişim, daha derin hacim olarak çizilecek. ve sonra başka bir katman 224x224x64 sonucunda. Yani bu CONV64 X 2, 64 filtre ile birlikte iki evrişimli
+ katman yapacağınızı gösterir. Daha önce de bahsettiğim gibi, filtreler her zaman 3x3, bir adım ile birlikte ve her zaman aynı evrişimlerdir. Tüm hacimleri çizmek yerine, bu ağı tanımlamak için metin kullanacağım. Ardından, kullanılan ortaklama katmanıdır, böylece ortaklama katmanı azaltacaktır. Sanırım 224x224'ten nereye iniyor? Doğru.112x112x64'e gidiyor. Ve sonra bir çift fazla evrişimli katman var. Bunun anlamı 128 filtreye sahip olması 
+çünkü bunlar aynı evrişimli katman. Yeni boyut ne hadi görelim. 112x112x128 olucak ve sonra, ortaklama katmanı böylece bunun yeni boyutunun
+ ne olduğunu anlayabilirsiniz. Ve şimdi, ortaklama katmanı için 256 filtre ile birlikte
+ üç evrişimli katman ve sonra bir kaç tane daha evrişimli katman, ortaklama katmanı, daha fazla evrişimli katman,
+ortaklama katmanı Ve sonra, son 7x7x5122 yi tamane bağlı katmanı
+ beslemek için alır. 4096 birimle beraber tamamen bağlı katman ve sonra bin tane sınıfın yumuşatılmış maksimum çıktısı. Bu arada, VGG-16 içindeki 16 ağırlıkları olan 16 katmanın olduğunu temsil eder. Ve bu oldukça geniş bir ağ, bu ağ toplamda yaklaşık olarak 138 milyon 
+parametreye sahip. Ve modern standartlarda bile oldukça büyük. Fakat VGG-16 mimarisinin sadeliği onu
+ oldukça çekici kılıyordu. Onun mimarisinin gerçekten çok düzgün 
+olduğunu söyleyebilirsin. Yüksekliği ve genişliği azaltan bir ortaklama 
+katmanı tarafından takip edilen bir kaç tane evrişimli katman var, değil mi? Böylece ortaklama katmanı yüksekliği ve genişliği azaltır. Burada bir kaç tane var. Ama sonra da, eğer evrişimli katman içindeki
+ filtre sayılarına bakarsanız, burada 64 filtreniz var ve sonra 128i ikiye katla 256,
+ ikiye katla 512. Ve sonra tahminimce yazarlar 512'nin yeterince büyük bir 
+sayı olduğunu düşündü ve burada
+ tekrardan ikiye katlamadılar. Fakat biliyorsunuz bu her adımda kabaca ikiye katlanıyor ya da evrişimli katmanın her yığımını iki katına çıkarmak bu ağın mimarisini tasarlamak için kullanılan başka
+ basit bir ilkedir. Ve bu yüzden sanırım bu mimarinin göreceli tekdüzeliği araştırmacılar için onu çekici yaptı. Eğitmen gereken parametre sayısı açısından oldukça büyük bir ağ olması esas dezavantajdı. Ve eğer literatürü okuduysanız, Bazen bu ağın daha büyük sürümü olan VGG-19 hakkında konuşan insanları görebilirsiniz. Ve en altta Karen Simonyan ve Andrew Zisserman tarafından alıntılanan makalede ayrıntıları görebilirsiniz. Fakat VGG-16 hemen hemen VGG-19 kadar iyi. Çoğu insan VGG-16'yı kullanacak. Ama bunun hakkında en sevdiğim şey, bu bu modeli nasıl yaptı?, daha derine gittikçe yükseklik ve genişlik azalır, Kanal sayısı arttıkça ortaklama katmanları için her seferinde iki kat azalır. Ve burada kabaca iki kat artar.Her zaman yeni bir
+ evrişimli katman kümesine sahip olursun. Azalma oranını yaparak bu sistematik olarak artar, Bu makalenin bu açıdan çok çekici olduğunu düşündüm. Böylece bu üç klasik mimari için bu kadar. Eğer isterseniz, gerçekten bu makalelerden bazılarını 
+okumalısınız. Ben AlexNet makalesi ile başlayıp
+ VGG ağı makalesini takip etmenizi öneririm. ve sonra LeNet makalesi okumak için biraz zor fakat bir kez baktığınızda güzel bir klasik. Fakat sıradaki, bu klasik ağların ötesine gidelim 
+ve biraz daha fazla ileri olanlara, biraz daha güçlü yapay sinir ağı mimarilerine bakalım. 
+Bir sonraki videoya gidelim.

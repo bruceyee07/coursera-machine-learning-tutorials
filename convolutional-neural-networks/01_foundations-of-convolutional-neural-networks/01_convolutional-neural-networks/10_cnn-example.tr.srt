@@ -1,0 +1,691 @@
+1
+00:00:00,021 --> 00:00:02,721
+Şuan, bir evrişimsel sinir ağı kurmanın temel taşlarını
+
+2
+00:00:02,721 --> 00:00:04,509
+büyük ölçüde biliyorsunuz.
+
+3
+00:00:04,509 --> 00:00:07,336
+Bir örneğe bakalım.
+
+4
+00:00:07,336 --> 00:00:12,436
+Diyelim ki, girdi olarak 32x32x3 boyutlarında bir görüntü<br />kullanıyorsunuz
+
+5
+00:00:12,436 --> 00:00:18,855
+yani bu bir RGB(kırmızı-yeşil-mavi) görüntü ve<br /> siz de bir "el yazısı rakam tanıma" yapmaya çalışıyorsunuz.
+
+6
+00:00:18,855 --> 00:00:24,396
+Örneğin, 32x32 boyutlarında RGB(kırmızı-yeşil-mavi) bir <br />7 rakamını,
+
+7
+00:00:24,396 --> 00:00:30,495
+ 0'dan 9'a hangi rakam olduğunu<br /> bulmak için verelim.
+
+8
+00:00:30,495 --> 00:00:32,791
+Bunu yapması için bir sinir ağı kullanalım.
+
+9
+00:00:32,791 --> 00:00:35,827
+Ve bu slaytta kullanacağım şey, yıllar önce 
+
+10
+00:00:35,827 --> 00:00:41,106
+Yann LeCun tarafından oluşturulmuş LeNet-5 adlı 
+
+11
+00:00:41,106 --> 00:00:43,942
+klasik sinir ağlarına oldukça benzer.
+
+12
+00:00:43,942 --> 00:00:47,680
+Burada göstereceğim şey tam olarak LeNet-5 değil
+
+13
+00:00:47,680 --> 00:00:53,024
+ancak çoğu katsayı seçimleri ondan esinlenmiş.
+
+14
+00:00:53,024 --> 00:00:58,524
+32x32x3 boyutunda bi girdi ile, diyelim ki;
+
+15
+00:00:58,524 --> 00:01:04,770
+katman 5x5 boyutunda filtre, 1 birimlik adım<br /> (stride) kullanılıyor ve dolgulama(padding) yok.
+
+16
+00:01:04,770 --> 00:01:08,240
+Eğer 6 filtre kullanıyorsanız
+
+17
+00:01:08,240 --> 00:01:13,732
+bu katmanın çıktısı 28x28x6 boyutunda olacak
+
+18
+00:01:13,732 --> 00:01:18,803
+ve bu katmana "conv 1" adını vereceğiz.
+
+19
+00:01:18,803 --> 00:01:23,660
+Eğer 6 filtre, yanlılık(bias) ve<br /> doğrusal olmama (non-linearity) 
+
+20
+00:01:23,660 --> 00:01:28,356
+eklersek, ki bu "relu" olabilir, <br />"conv1"in çıktısını elde ederiz.
+
+21
+00:01:28,356 --> 00:01:32,678
+Şimdi bir örnekleme katmanı uygulayalım.
+
+22
+00:01:32,678 --> 00:01:40,280
+Burada maksimum örnekleme (max pooling) <br />uygulayacağım. f=2, s=2 diyelim.
+
+23
+00:01:40,280 --> 00:01:44,101
+Dolgulama kullanmadığım zaman dolgulamayı<br /> sıfıra eşitleyin. (padding=0)
+
+24
+00:01:44,101 --> 00:01:48,895
+Şimdi bir örnekleme katmanı uygulayalım, 
+
+25
+00:01:48,895 --> 00:01:54,975
+2'ye 2 filtreli bir maksimum örnekleme ve <br />2 birimlik adım (stride) kullanacağım
+
+26
+00:01:54,975 --> 00:01:57,064
+Bu, görselin yüksekliğini ve genişliğini 
+
+27
+00:01:57,064 --> 00:01:59,614
+2 kat azaltacaktır.
+
+28
+00:01:59,614 --> 00:02:04,138
+Yani 28 x 28 boyutu 14 x 14 olacak,
+
+29
+00:02:04,138 --> 00:02:10,472
+kanal sayısı aynı kalacak (14 x 14 x 14)
+
+30
+00:02:10,472 --> 00:02:15,536
+ve buna Pool 1'in çıktısı diyeceğiz.
+
+31
+00:02:15,536 --> 00:02:20,111
+Literatürde, evrişimsel ağlarda neye "katman" denileceği
+
+32
+00:02:20,111 --> 00:02:25,562
+hakkında iki farklı eğilim var.
+
+33
+00:02:25,562 --> 00:02:30,918
+Biri, bu bir katmandır diyor.
+
+34
+00:02:30,918 --> 00:02:35,900
+Yani bu sinir ağının ilk katmanı oluyor,
+
+35
+00:02:35,900 --> 00:02:40,980
+diğeri ise buradaki "Conv" ve "Pool" katmanlarını <br />ayrı ayrı katmanlar olarak kabul ediyor.
+
+36
+00:02:40,980 --> 00:02:45,223
+İnsanlar sinir ağındaki katman sayısını <br />raporlayacaklarında genellikle
+
+37
+00:02:45,223 --> 00:02:49,025
+ağırlık (weight) ve katsayısı olan katmanları raporlarlar.
+
+38
+00:02:49,025 --> 00:02:53,043
+Örnekleme katmanının ağırlığı ve birkaç üst-değişkenden <br />başka katsayısı olmadığından;
+
+39
+00:02:53,043 --> 00:02:57,418
+Conv1 ve Pool1 katmanlarını tek katman
+
+40
+00:02:57,418 --> 00:02:59,015
+olarak kabul edeceğim.
+
+41
+00:02:59,015 --> 00:03:03,551
+Ona "Katman 1" diyeceğim, ama <br />siz eğer bazı makaleleri
+
+42
+00:03:03,551 --> 00:03:08,447
+okursanız, evrişim katmanı ve örnekleme katmanının
+
+43
+00:03:08,447 --> 00:03:11,703
+ayrı ayrı ele alındığını görebilirsiniz.
+
+44
+00:03:11,703 --> 00:03:16,788
+Bunlar birbirlerinden biraz farklı gösterimler olabilir
+
+45
+00:03:16,788 --> 00:03:22,053
+ancak ben katmanları sayarken, <br />sadece ağırlığı olan katmanları sayacağım.
+
+46
+00:03:22,053 --> 00:03:25,614
+Böylece bu ikisi birlikte bir katman olmuş oluyor.
+
+47
+00:03:25,614 --> 00:03:30,822
+Ve burada isimlendirdiğim "Conv1" ve "Pool1" 
+
+48
+00:03:30,822 --> 00:03:37,961
+sinir ağımızın Katman 1(Layer 1)'deki parçaları oluyor.
+
+49
+00:03:37,961 --> 00:03:42,665
+"Pool1", Katman 1'in içinde gruplandı<br /> çünkü kendine ait ağırlıkları yok.
+
+50
+00:03:42,665 --> 00:03:47,585
+Şimdi, elimizdeki 14x14x6 boyutundaki girdiye,
+
+51
+00:03:47,585 --> 00:03:53,181
+başka bir evrişimsel katman uygulayalım ve<br />bu sefer 5 x 5 boyutunda bir filtre,
+
+52
+00:03:53,181 --> 00:03:58,796
+adım olarak 1 ve 10 adet filtre kullanalım.
+
+53
+00:03:58,796 --> 00:04:04,350
+10x10x10'lik bir boyut elde etmiş olduk.
+
+54
+00:04:04,350 --> 00:04:09,786
+Buna "Conv1" diyelim ve
+
+55
+00:04:09,786 --> 00:04:14,467
+ve bu ağın içinde f=2, s=2 olan 
+
+56
+00:04:14,467 --> 00:04:19,008
+bir maksimum örnekleme yapalım.
+
+57
+00:04:19,008 --> 00:04:23,456
+f=2 ve s=2 olduğu için yüksekliğin ve genişliğin 
+
+58
+00:04:23,456 --> 00:04:26,769
+2 kat azalacağını ve çıktının boyutunun 5x5x10 
+
+59
+00:04:26,769 --> 00:04:31,425
+olacağını muhtemelen tahmin ediyorsunuzdur.
+
+60
+00:04:31,425 --> 00:04:34,773
+Ve şimdi buna "Pool2" diyeceğim 
+
+61
+00:04:34,773 --> 00:04:39,652
+ve kuralımıza göre buna da sinir ağımızın <br />Katman 2'si (Layer 2) diyeceğim.
+
+62
+00:04:39,652 --> 00:04:42,293
+Şimdi buna başka bir evrişimsel katman uygulayalım.
+
+63
+00:04:42,293 --> 00:04:47,113
+5x5'lik bir filtre kullanacağım yani f=5 olacak,
+
+64
+00:04:47,113 --> 00:04:51,962
+adım 1 olacak ve dolgulama için bir şey<br /> yazmayacağım yani dolgulama olamayacak.
+
+65
+00:04:51,962 --> 00:04:58,254
+Ve bu size "Conv2" çıktısını ve 16 filtreyi vermiş olacak.
+
+66
+00:04:58,254 --> 00:05:03,860
+Böylece 10x10x16 boyutunda bir çıktımız olacak.
+
+67
+00:05:03,860 --> 00:05:10,380
+Gördüğünüz üzere bu "Conv2" katmanı.
+
+68
+00:05:10,380 --> 00:05:17,356
+Ve şimdi f=2, s=2 olan bir maksimum<br /> örnekleme katmanı uygulayalım.
+
+69
+00:05:17,356 --> 00:05:20,227
+Muhtemelen bunun çıktısını tahmin edebiliyorsunuz.
+
+70
+00:05:20,227 --> 00:05:24,555
+10x10x16 boyutunda bir girdimiz var ve f ve s 2'ye eşit.
+
+71
+00:05:24,555 --> 00:05:26,667
+Bu yükseklik ve genişliği yarıya indirecek.
+
+72
+00:05:26,667 --> 00:05:31,075
+Sonucu tahmin edebiliyorsunuz değil mi?
+
+73
+00:05:31,075 --> 00:05:32,463
+f=2 ve s=2 olan bir maksimum örnekleme.
+
+74
+00:05:32,463 --> 00:05:37,663
+Bu yüksekliği ve genişliği yarıya indirmeli ve 
+
+75
+00:05:37,663 --> 00:05:43,214
+5x5x16 boyutunda, kanal sayısı öncekine <br />eşit olan bir çıktı elde etmeliyiz.
+
+76
+00:05:43,214 --> 00:05:47,166
+Buna "Pool 2" diyeceğiz.
+
+77
+00:05:47,166 --> 00:05:52,429
+Ve kuralımıza göre buna Katman 2 diyeceğim 
+
+78
+00:05:52,429 --> 00:05:57,203
+çünkü "Conv2" katmanında bir ağırlık kümesi var.
+
+79
+00:05:57,203 --> 00:06:03,306
+Şuan 5x5x16 olan boyut hesapladığımızda 400 ediyor.
+
+80
+00:06:03,306 --> 00:06:10,895
+Şimdi "Pool 2"yi 400 x 1'lik tek boyutlu<br /> bir vektör olarak düzleştirelim
+
+81
+00:06:10,895 --> 00:06:16,686
+Bunu bir nöron kümesi olacak şekilde<br /> düzleştirdiğimizi düşünebilirsiniz.
+
+82
+00:06:16,686 --> 00:06:22,373
+Şimdi bu 400 birim ile yapacağımız şey, bunları alıp
+
+83
+00:06:22,373 --> 00:06:30,070
+120 birimden oluşan yeni bir katman oluşturmak.
+
+84
+00:06:30,070 --> 00:06:33,243
+Açıkçası bu bizim ilk tam bağlı katmanımız.
+
+85
+00:06:33,243 --> 00:06:38,392
+Buna "FC3" diyeceğim çünkü,
+
+86
+00:06:38,392 --> 00:06:44,410
+400 birim 120 birime ağırlıklı olarak bağlı.
+
+87
+00:06:46,245 --> 00:06:51,628
+Bu tam bağlı katman aynı Kurs 1 ve 2'de gördüğünüz
+
+88
+00:06:51,628 --> 00:06:56,660
+tek sinir ağı katmanı gibi.
+
+89
+00:06:56,660 --> 00:07:01,710
+Bu, 120 x 400 boyutundaki ağırlık matrisini<br /> "W3" olarak adlandırdığımız
+
+90
+00:07:01,710 --> 00:07:08,044
+standart bir sinir ağı.
+
+91
+00:07:08,044 --> 00:07:13,406
+Ve buna tam bağlı diyoruz çünkü buradaki her 400 birim 
+
+92
+00:07:13,406 --> 00:07:18,354
+buradaki 120 birime bağlı, ve ayrıca 120 boyutlu 
+
+93
+00:07:18,354 --> 00:07:23,655
+yanlılık katsayıları var.
+
+94
+00:07:23,655 --> 00:07:28,715
+Ve son olarak 120 birimi alalım ve<br /> başka bir katman ekleyelim
+
+95
+00:07:28,715 --> 00:07:33,119
+ancak bu sefer daha küçük, 84 birimimiz var diyelim,
+
+96
+00:07:33,119 --> 00:07:36,883
+buna tam bağlı katman 4 (FC4) adını vereceğim
+
+97
+00:07:36,883 --> 00:07:44,435
+Ve sonunda bir softmax fonksiyonuna koyabileceğiniz <br />84 reel sayımız var.
+
+98
+00:07:44,435 --> 00:07:48,215
+Ve eğer 0'dan 9'a rakamları tanımak için
+
+99
+00:07:48,215 --> 00:07:51,794
+el yazısı rakam tanıma yapmaya çalışıyorsanız;
+
+100
+00:07:51,794 --> 00:07:56,680
+Bu 10 çıktılı bir softmax olmalı.
+
+101
+00:07:56,680 --> 00:08:00,969
+Bu makul derecede bir evrişimsel sinir ağının 
+
+102
+00:08:00,969 --> 00:08:05,482
+nasıl görünebileceğinin tipi bir örneği.
+
+103
+00:08:05,482 --> 00:08:09,367
+Ve bunun çok fazla üst-katsayı içeriyor<br /> gibi göründüğünün farkındayım
+
+104
+00:08:09,367 --> 00:08:12,919
+Daha sonra bu üst-katsayıları nasıl belirleyeceğiniz hakkında
+
+105
+00:08:12,919 --> 00:08:15,882
+tavsiyeler vereceğim.
+
+106
+00:08:15,882 --> 00:08:20,388
+Belki bir prensip olarak, kendi üst-katsayı <br />ayarlarımızı icat etmektense
+
+107
+00:08:20,388 --> 00:08:22,802
+literatürü inceleyip
+
+108
+00:08:22,802 --> 00:08:27,887
+başkalarının üst-katsayı seçimlerinin<br /> nasıl çalıştığını görebilirsiniz
+
+109
+00:08:27,887 --> 00:08:30,963
+Ve sonra, daha önce başkasının iyi<br /> çalışmış bir mimarisini seçin
+
+110
+00:08:30,963 --> 00:08:35,316
+bunun sizin uygulamanızda çalışması da muhtemel olacaktır.
+
+111
+00:08:35,316 --> 00:08:38,321
+Gelecek hafta bunun hakkında daha çok şey göreceğiz.
+
+112
+00:08:38,321 --> 00:08:43,715
+Ama şimdilik şuna dikkat çekmek istiyorum; <br />bir sinir ağında derine gittiğinizde
+
+113
+00:08:43,715 --> 00:08:47,493
+nh ve nw yani yükseklik ve genişlik azalır.
+
+114
+00:08:47,493 --> 00:08:52,432
+Bundan daha önce bahsetmiştim. 32x32'den<br /> 20x20'ye sonra 14x14'e
+
+115
+00:08:52,432 --> 00:08:53,934
+sonra 10x10'a ve 5x5'e.
+
+116
+00:08:53,934 --> 00:08:57,870
+Yani derinleştikçe genellikle yükseklik ve genişlik azalacaktır
+
+117
+00:08:57,870 --> 00:09:00,852
+ve kanal sayısı artacaktır.
+
+118
+00:09:00,852 --> 00:09:07,277
+3'ten 6'ya oradan da 16'ya ve <br />en son olarak da tam bağlı katmana.
+
+119
+00:09:07,277 --> 00:09:13,135
+Sinir ağlarında bir başka oldukça sık görülen bir model ise
+
+120
+00:09:13,135 --> 00:09:17,426
+bir veya birden fazla evrişim katmanı ve<br /> onu takip eden örnekleme katmanı
+
+121
+00:09:17,426 --> 00:09:21,329
+ve sonra bir veya daha fazla evrişim katmanı ve<br /> onu takip eden örnekleme katmanı.
+
+122
+00:09:21,329 --> 00:09:24,731
+Ve en sonda birkaç tam bağlı katman 
+
+123
+00:09:24,731 --> 00:09:26,756
+ve son olarak da bir softmax olabilir.
+
+124
+00:09:26,756 --> 00:09:32,378
+Bu da sinir ağlarında bir başka oldukça sık rastlanan model.
+
+125
+00:09:32,378 --> 00:09:33,956
+Şimdi de bu sinir ağınının başka detaylarını;
+
+126
+00:09:33,956 --> 00:09:37,968
+aktivasyon şeklini, aktivasyon boyutunu ve 
+
+127
+00:09:37,968 --> 00:09:41,799
+bu ağdaki katsayıların miktarını inceleyelim.
+
+128
+00:09:41,799 --> 00:09:44,181
+Girdimiz 32x30x3 ve bu sayıları çarparsak
+
+129
+00:09:44,181 --> 00:09:48,324
+3072 elde ederiz.
+
+130
+00:09:48,324 --> 00:09:54,313
+Böylece aktivasyon a0 3072 boyutlu olur.
+
+131
+00:09:54,313 --> 00:09:58,005
+Bu gerçekten 32x32x32.
+
+132
+00:09:58,005 --> 00:10:02,562
+Ve girdi katmanında hiç katsayı yok.
+
+133
+00:10:02,562 --> 00:10:05,672
+Ve diğer katmanlara bakarsanız,
+
+134
+00:10:05,672 --> 00:10:09,068
+detayları kendi kendinize çalışmakta rahat olun.
+
+135
+00:10:09,068 --> 00:10:10,975
+Bunlar diğer katmanların aktivasyon şekli
+
+136
+00:10:10,975 --> 00:10:13,743
+ve aktivasyon boyutları.
+
+137
+00:10:15,422 --> 00:10:16,957
+Bir kaç şeye dikkat çekmem gerekirse
+
+138
+00:10:16,957 --> 00:10:23,352
+İlk olarak; maksimum örnekleme <br />katmanlarının katsayıları yok,
+
+139
+00:10:23,352 --> 00:10:28,202
+İkinci olarak, diğer videolarda bahsettiğimiz üzere 
+
+140
+00:10:28,202 --> 00:10:32,302
+evrişim katmanları göreli olarak daha<br /> az katsayıya sahip olma eğiliminde.
+
+141
+00:10:32,302 --> 00:10:36,414
+Ve aslına bakılırsa birçok katsayı da sinir ağının tam bağlı
+
+142
+00:10:36,414 --> 00:10:39,426
+katmanlarında olma eğiliminde.
+
+143
+00:10:39,426 --> 00:10:44,584
+Eğer dikkat ettiyseniz aktivasyon boyutu da 
+
+144
+00:10:44,584 --> 00:10:50,289
+sinir ağında derine inildikçe gitgide azalma eğiliminde.
+
+145
+00:10:50,289 --> 00:10:55,198
+Eğer çok çabuk azalırsa genellikle iyi performans göstermez.
+
+146
+00:10:55,198 --> 00:11:00,349
+Yani burada ilk olarak 6000'den başlıyor sonra 1600'e
+
+147
+00:11:00,349 --> 00:11:06,405
+ve sonra yavaşça 84'e iniyor ve son <br />olarak da softmax çıktımız var.
+
+148
+00:11:06,405 --> 00:11:10,683
+Buna benzer özellikler ve 
+
+149
+00:11:10,683 --> 00:11:13,293
+kalıplar bulabilirsiniz.
+
+150
+00:11:13,293 --> 00:11:16,455
+Sinir ağlarının, evrişimsel sinir ağlarının <br />temel yapı taşlarından
+
+151
+00:11:16,455 --> 00:11:20,068
+olan evrişim katmanı, örnekleme katmanı ve 
+
+152
+00:11:20,068 --> 00:11:21,601
+tam bağlı katmanı görmüş oldunuz.
+
+153
+00:11:21,601 --> 00:11:25,693
+Birçok araştırmacı daha etkili bir sinir ağı kurabilmek için
+
+154
+00:11:25,693 --> 00:11:29,078
+bu temel yapı taşlarının nasıl bir <br />araya geleceğini bulmaya çalışıyor.
+
+155
+00:11:29,078 --> 00:11:33,379
+Bunları bir araya koymak aslında biraz sezgi gerektiriyor.
+
+156
+00:11:33,379 --> 00:11:35,213
+Bence sezgi kazanmanın en iyi yollarından biri
+
+157
+00:11:35,213 --> 00:11:39,323
+başka somut örnekler görmek ve başkalarının
+
+158
+00:11:39,323 --> 00:11:41,804
+onları nasıl yaptığını öğrenmektir.
+
+159
+00:11:41,804 --> 00:11:46,268
+Bu yüzden önümüzdeki hafta bundan başka somut örneklerle 
+
+160
+00:11:46,268 --> 00:11:50,183
+insanların nasıl başarılı bir şekilde bu parçaları birleştirip
+
+161
+00:11:50,183 --> 00:11:53,637
+etkili bir sinir ağı kurduğunu göstereceğim.
+
+162
+00:11:53,637 --> 00:11:58,532
+Ve umuyorum ki bu videolarla birlikte bunları oluşturmak
+
+163
+00:11:58,532 --> 00:12:00,098
+için gereken sezgilerinizi geliştireceksiniz.
+
+164
+00:12:00,098 --> 00:12:05,068
+Ve verilen somut örneklerdeki mimarileri <br />olduğu gibi kullanabilirsiniz
+
+165
+00:12:05,068 --> 00:12:09,120
+ya da kendi uygulamanızı kullanabilirsiniz.
+
+166
+00:12:09,120 --> 00:12:10,971
+Bunu önümüzdeki hafta yapacağız ama
+
+167
+00:12:10,971 --> 00:12:15,499
+bu haftanın videosunu kapamadan önce
+
+168
+00:12:15,499 --> 00:12:19,840
+neden evrişime ihtiyaç duyabileceğimiz<br /> hakkında konuşmak istiyorum.
+
+169
+00:12:19,840 --> 00:12:20,869
+Evrişimi kullanmanın bazı yararları 
+
+170
+00:12:20,869 --> 00:12:25,133
+ve avantajları ve onları nasıl bir araya getirebileceğimiz
+
+171
+00:12:25,133 --> 00:12:29,021
+ve az önce gördüğümüz gibi bir sinir ağını nasıl eğitiriz
+
+172
+00:12:29,021 --> 00:12:32,735
+ve bir görüntü tanıma işinde kullabiliriz.
+
+173
+00:12:32,735 --> 00:12:35,700
+Şimdi bu haftanın son videosuyla devam edelim.

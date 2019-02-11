@@ -1,0 +1,403 @@
+1
+00:00:00,010 --> 00:00:03,935
+Evrişim ağı(ConvNet) mimarileri tasarlarken,
+
+2
+00:00:03,935 --> 00:00:09,140
+gerçekten yardımcı olan fikirlerden birisi, 1x1 evrişim(convolution) kullanmaktır.
+
+3
+00:00:09,140 --> 00:00:10,685
+Şimdi, merak edebilirsiniz
+
+4
+00:00:10,685 --> 00:00:13,035
+1x1 evrişim ne yapıyor?
+
+5
+00:00:13,035 --> 00:00:15,170
+Bu yalnızca sayılarla çarpmak değil mi?
+
+6
+00:00:15,170 --> 00:00:17,150
+Bunu yapmak komik bir şey gibi görünüyor.
+
+7
+00:00:17,150 --> 00:00:18,680
+Aslında öyle değil
+
+8
+00:00:18,680 --> 00:00:20,223
+Hadi inceleyelim.
+
+9
+00:00:20,223 --> 00:00:22,740
+Burada 1x1 bir filtre var
+
+10
+00:00:22,740 --> 00:00:24,970
+buraya 2 koyalım,
+
+11
+00:00:24,970 --> 00:00:27,460
+ve bu 6x6 görüntüyü alırsanız
+
+12
+00:00:27,460 --> 00:00:31,310
+6x6x1 ve bunu 1x1 filtre ile evriştirirseniz
+
+13
+00:00:31,310 --> 00:00:33,940
+sadece görüntüyü alıp 2 ile çarpmış olursunuz
+
+14
+00:00:33,940 --> 00:00:37,580
+Yani, bir, iki, üç
+
+15
+00:00:37,580 --> 00:00:40,190
+iki, dört ve altı olur
+
+16
+00:00:40,190 --> 00:00:43,940
+1x1 filtre ile evrişim uygulamak
+
+17
+00:00:43,940 --> 00:00:45,350
+özellikle faydalı görünmüyor.
+
+18
+00:00:45,350 --> 00:00:47,615
+Yalnızca bir sayı ile çarpıyorsunuz
+
+19
+00:00:47,615 --> 00:00:53,635
+Ancak bu 6x6x(1) kanallı görüntüler için geçerli
+
+20
+00:00:53,635 --> 00:00:58,415
+1 yerine 6x6x(32) olsaydı,
+
+21
+00:00:58,415 --> 00:01:04,995
+1x1 filtre ile evriştirmek daha mantıklı bir şey yapabilir.
+
+22
+00:01:04,995 --> 00:01:08,945
+Ve özellikle, 1x1 evrişimin ne yapacağı,
+
+23
+00:01:08,945 --> 00:01:13,620
+buradaki 36 farklı pozisyona bakarak,
+
+24
+00:01:13,620 --> 00:01:16,720
+soldaki 32 sayı ile filtrenin içindeki
+
+25
+00:01:16,720 --> 00:01:21,185
+32 sayıyı eleman eleman çarpacak
+
+26
+00:01:21,185 --> 00:01:26,230
+ve sonra da ReLU aktivasyon fonksiyonu uygulayacak
+
+27
+00:01:26,230 --> 00:01:29,405
+Bu 36 pozisyondan bir tanesine bakarsak
+
+28
+00:01:29,405 --> 00:01:32,840
+belki bu yığından(volume) bir dilim,
+
+29
+00:01:32,840 --> 00:01:41,525
+bu 32 sayıyı alıyorsunuz ve bu yığındaki 1x1'lik bir dilim ile çarpıyorsunuz
+
+30
+00:01:41,525 --> 00:01:43,535
+ve en sonunda
+
+31
+00:01:43,535 --> 00:01:49,945
+çıktının içine yazılan 1 rakam elde ediyorsunuz
+
+32
+00:01:49,945 --> 00:01:52,535
+Aslında, 1x1x32'lik filtrenin
+
+33
+00:01:52,535 --> 00:01:56,645
+içindeki 32 sayıyı düşünmenin bir yolu
+
+34
+00:01:56,645 --> 00:02:01,020
+girdi olarak alan bir nöron varmış gibi
+
+35
+00:02:01,020 --> 00:02:06,770
+32 sayının her birini bu dilimdeki 32 sayıyla çarparak
+
+36
+00:02:06,770 --> 00:02:12,285
+aynı pozisyondaki, yükseklik genişlik, 32 farklı kanalla
+
+37
+00:02:12,285 --> 00:02:15,665
+32 ağırlıkla/parametreyle çarpar ve sonra da
+
+38
+00:02:15,665 --> 00:02:22,115
+ReLU aktivasyon fonksiyonunu uygulayarak, buradaki ilgili çıktıyı üretir
+
+39
+00:02:22,115 --> 00:02:28,875
+Ve daha genel olarak, eğer sadece 1 filtreniz yoksa
+
+40
+00:02:28,875 --> 00:02:31,020
+birçok filtreniz varsa
+
+41
+00:02:31,020 --> 00:02:36,240
+o zaman sadece bir birim varmış gibi değil, birçok birim varmış gibi
+
+42
+00:02:36,240 --> 00:02:40,950
+bir dilimdeki bütün sayıları girdi olarak alır
+
+43
+00:02:40,950 --> 00:02:49,530
+ve sonra 6x6xn_f filtre sayısı kadar çıktıyı oluşturur
+
+44
+00:02:49,530 --> 00:02:53,260
+1x1 evrişimin düşünmenin yollarından biri
+
+45
+00:02:53,260 --> 00:02:59,115
+basitçe tam-bağlantılı sinir ağını alıp
+
+46
+00:02:59,115 --> 00:03:04,015
+bu 62 pozisyonun her birine uygulamak.
+
+47
+00:03:04,015 --> 00:03:05,920
+Peki bu tam-bağlantılı sinir ağı ne yapıyor?
+
+48
+00:03:05,920 --> 00:03:13,210
+32 sayıyı girdi olarak alıyor ve n_filters çıktı üretiyor.
+
+49
+00:03:13,210 --> 00:03:14,555
+Sanırım bu notasyonda
+
+50
+00:03:14,555 --> 00:03:15,910
+bu aslında nc(l+1)
+
+51
+00:03:15,910 --> 00:03:19,440
+eğer bu bir sonraki katman ise
+
+52
+00:03:19,440 --> 00:03:22,710
+Ve bunu 36 pozisyonun her birine yapmak,
+
+53
+00:03:22,710 --> 00:03:24,160
+6 x 6 pozisyonun her birine,
+
+54
+00:03:24,160 --> 00:03:29,850
+6x6xn_f(filtre sayısı) boyutlu bir çıktı elde edersiniz.
+
+55
+00:03:29,850 --> 00:03:35,830
+Ve bu girdi yığınınızda(volume) oldukça önemli bir hesaplamaya yol açabilir.
+
+56
+00:03:35,830 --> 00:03:40,755
+Bu fikir genelde 1x1 evrişim olarak biliniyor
+
+57
+00:03:40,755 --> 00:03:46,655
+ama bazende ağ içinde ağ olarakta adlandırılıyor,
+
+58
+00:03:46,655 --> 00:03:49,468
+ve Min Lin, Qiang Chen, ve Schuicheng Yan.
+
+59
+00:03:49,468 --> 00:03:53,485
+tarafından bu makalede anlatılmış.
+
+60
+00:03:53,485 --> 00:03:58,400
+Ve makaledeki bu mimarinin detayları çok fazla kullanılmasada
+
+61
+00:03:58,400 --> 00:04:01,460
+bu 1x1 evrişim fikri veya
+
+62
+00:04:01,460 --> 00:04:05,300
+ağ içinde ağ fikri çok etkili olmuştur,
+
+63
+00:04:05,300 --> 00:04:08,090
+diğer birçok sinir ağı mimarisi etkilemiştir
+
+64
+00:04:08,090 --> 00:04:11,860
+Bir sonraki videoda göreceğimiz Inception Ağı(Network)'da dahil olmak üzere.
+
+65
+00:04:11,860 --> 00:04:16,180
+1x1 evrişimin nerelerde faydalı olduğu görmek adına bir örnek vermek için,
+
+66
+00:04:16,180 --> 00:04:18,443
+burada yapabileceğiniz bir şey var.
+
+67
+00:04:18,443 --> 00:04:23,070
+Diyelim ki 28x28x192'lik bir yığınınız var.
+
+68
+00:04:23,070 --> 00:04:25,715
+Eğer yükseklik ve genişliği küçültmek isterseniz
+
+69
+00:04:25,715 --> 00:04:27,310
+örnekleme(pooling) katmanı kullanabilirsiniz.
+
+70
+00:04:27,310 --> 00:04:28,800
+Bunun nasıl yapılacağını biliyoruz.
+
+71
+00:04:28,800 --> 00:04:34,265
+Ancak kanal sayısı çok büyük ve bunu küçültmek istiyoruz.
+
+72
+00:04:34,265 --> 00:04:40,260
+Bunu 28x28x32 boyutlu bir yığına nasıl küçültebiliriz?
+
+73
+00:04:40,260 --> 00:04:48,058
+Yapabileceğiniz şey 1x1'lik 32 tane filtre kullanmak
+
+74
+00:04:48,058 --> 00:04:52,700
+Ve teknik olarak, her filtre 1x1x192 boyutlu olur,
+
+75
+00:04:52,700 --> 00:04:55,440
+çünkü filtrenizdeki kanal sayısı
+
+76
+00:04:55,440 --> 00:04:58,570
+girdideki yığının kanal sayısıyla eşleşmek zorunda.
+
+77
+00:04:58,570 --> 00:05:08,035
+Ancak 32 filtre kullanıyorsunuz ve bu işlemin çıktısı 28x28x32'lik bir yığın olur.
+
+78
+00:05:08,035 --> 00:05:12,850
+Yani bu nc'yi küçültmenin bir yolu, 
+
+79
+00:05:12,850 --> 00:05:17,750
+nH ve nW'yi küçültmek için kullandığımız örnekleme katmanlarının aksine.
+
+80
+00:05:17,750 --> 00:05:20,436
+Bu yığınların yüksekliği ve genişliği.
+
+81
+00:05:20,436 --> 00:05:23,510
+Ve daha sonra bu 1x1 
+
+82
+00:05:23,510 --> 00:05:28,670
+evrişimlerin, kanal sayısını küçültmeye yardımcı olduklarını ve böylece
+
+83
+00:05:28,670 --> 00:05:31,450
+bazı ağlarda hesaplamadan tasarruf edildiğini göreceğiz
+
+84
+00:05:31,450 --> 00:05:37,165
+Ve tabiki, kanal sayısını 192 tutmak isterseniz bu da mümkün
+
+85
+00:05:37,165 --> 00:05:41,470
+ve 1x1 evrişimin etkisi sadece doğrusalsızlık(non-linearity) eklemek olur.
+
+86
+00:05:41,470 --> 00:05:45,740
+Bu da ağınıza 28x28x192'lik girdi alan ve 28x28x192'lik çıktı üreten
+
+87
+00:05:45,740 --> 00:05:52,423
+ve daha karmaşık bir fonksiyon öğrenmenize yardımcı olan bir katman eklemenize izin verir.
+
+88
+00:05:52,423 --> 00:05:54,620
+İşte, 1x1'lik evrişim
+
+89
+00:05:54,620 --> 00:05:58,280
+katmanının oldukça önemli bir şey yaptığını
+
+90
+00:05:58,280 --> 00:06:01,190
+ve sinir ağlarına doğrusalsızlık(non-linearity) eklediğini ve
+
+91
+00:06:01,190 --> 00:06:04,525
+kanal sayısını isterseniz düşürmeye veya aynı tutmaya,
+
+92
+00:06:04,525 --> 00:06:08,565
+veya isterseniz arttırmaya kullanılabileceğini gördük.
+
+93
+00:06:08,565 --> 00:06:13,960
+Sonra, bunun Inception Ağını(Network) oluşturmak için ne kadar yararlı olacağını göreceksiniz.
+
+94
+00:06:13,960 --> 00:06:16,860
+Buna bir sonraki videoda bakalım
+
+95
+00:06:16,860 --> 00:06:22,145
+1x1 evrişim işleminin aslında oldukça önemli
+
+96
+00:06:22,145 --> 00:06:26,255
+bir işlem yaptığını ve yığınlarınızdaki kanal sayısını
+
+97
+00:06:26,255 --> 00:06:28,640
+düşürebileceğinizi veya aynı tutabileceğinizi
+
+98
+00:06:28,640 --> 00:06:31,270
+ve hatta isterseniz arttırabileceğiniz gördük.
+
+99
+00:06:31,270 --> 00:06:33,077
+Bir sonraki videoda,
+
+100
+00:06:33,077 --> 00:06:36,140
+Bunun Inception Ağlarını oluşturmak için
+
+101
+00:06:36,140 --> 00:06:39,670
+nasıl kullanılabileceğini göreceksiniz. Hadi bir sonraki videoya geçelim.
