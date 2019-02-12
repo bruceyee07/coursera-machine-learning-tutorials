@@ -1,0 +1,299 @@
+1
+00:00:00,000 --> 00:00:03,490
+Merhaba, Evrişimsel Sinir Ağları kursunun 
+
+2
+00:00:03,490 --> 00:00:06,374
+dördüncü ve son haftasına hoşgeldiniz.
+
+3
+00:00:06,374 --> 00:00:08,930
+Bu zamana kadar 'güven' hakkında çok şey öğrendiniz.
+
+4
+00:00:08,930 --> 00:00:11,590
+Bu hafta size göstermek isteğim şeyler ise
+
+5
+00:00:11,590 --> 00:00:15,481
+bazı önemli özel 'güven' uygulamaları.
+
+6
+00:00:15,481 --> 00:00:17,286
+Yüz tanıma ile başlayacağız
+
+7
+00:00:17,286 --> 00:00:21,135
+ve haftanın ilerleyen günlerinde <br />kendi sanat eserinizi oluşturmanızı 
+
+8
+00:00:21,135 --> 00:00:26,015
+sağlayacak olan "sinirsel tarz aktarımı" <br />problem alıştırmasına geçeceğiz.
+
+9
+00:00:26,015 --> 00:00:30,095
+Ama önce, yüz tanıma ile başlayalım ve 
+
+10
+00:00:30,095 --> 00:00:31,395
+eğlenmeniz için size bir örnek göstermek istiyorum.
+
+11
+00:00:31,395 --> 00:00:33,730
+Bir yapay zeka grubunun başında olduğum zamanlarda
+
+12
+00:00:33,730 --> 00:00:37,120
+Yuanqing Lin'in başında olduğu takımlardan biri
+
+13
+00:00:37,120 --> 00:00:41,405
+bence çok iyi olan bir yüz tanıma sistemi geliştirdi.<br /> Hadi bir göz atalım.
+
+14
+00:00:41,405 --> 00:00:43,360
+Şimdi buradaki videoyu oynatacağım ama,
+
+15
+00:00:43,360 --> 00:00:48,690
+bu videoyu kim düzenliyorsa orijinal videoyu ya da
+
+16
+00:00:48,690 --> 00:00:55,630
+benim burada oynattığımı eklerse iyi olur.
+
+17
+00:00:55,630 --> 00:00:57,110
+Sizlere bir yüz tanıma örneği göstermek istiyorum.
+
+18
+00:00:57,110 --> 00:00:58,975
+Şuan Baidu'nun Çin'deki merkezindeyim.
+
+19
+00:00:58,975 --> 00:01:01,740
+Çoğu şirket, içeri girebilmeniz için böyle bir kartı
+
+20
+00:01:01,740 --> 00:01:04,799
+geçirmenizi ister ama burada böyle bir şeye ihtiyacınız yok.
+
+21
+00:01:04,799 --> 00:01:07,355
+Yüz tanıma kullanarak ne yapabildiğime bakın.
+
+22
+00:01:07,355 --> 00:01:09,580
+Yürümeye başladığımda, yüzümü tanıyıp, <br />"Hoşgeldin Andrew" diyor 
+
+23
+00:01:09,580 --> 00:01:15,030
+ve ben de kimlik kartımı kullanmadan doğrudan geçiyorum.
+
+24
+00:01:15,030 --> 00:01:16,530
+Başka bir şey göstermeme izin verin.
+
+25
+00:01:16,530 --> 00:01:17,730
+Şuan, buradaki yüz tanıma teknolojisini geliştiren
+
+26
+00:01:17,730 --> 00:01:22,530
+IDL'in yöneticisi olan Lin Yuanqing ile birlikteyim.
+
+27
+00:01:22,530 --> 00:01:24,530
+Ona kendi fotoğrafımın olduğu 
+
+28
+00:01:24,530 --> 00:01:26,230
+kimlik kartımı vereceğim ve
+
+29
+00:01:26,230 --> 00:01:30,820
+o da bunu kullanarak içeriye gizlice girmeye çalışacak.
+
+30
+00:01:30,820 --> 00:01:37,698
+Şimdi Andrew'in kartını kullanarak içeriye girmeye çalışıyorum bakalım ne olacak.
+
+31
+00:01:37,698 --> 00:01:43,400
+Sistem tanımıyor,
+
+32
+00:01:43,400 --> 00:01:47,271
+evet tanımlamayı reddediyor.
+
+33
+00:01:47,271 --> 00:01:53,280
+Tamam, Şimdi kendi yüzümü kullanacağım.
+
+34
+00:01:53,330 --> 00:01:59,000
+Çin'de, bunun gibi yüz tanıma teknolojileri <br />çok hızlı bir şekilde gelişim gösteriyor
+
+35
+00:01:59,000 --> 00:02:04,710
+umuyorum ki bunun gibi teknolojiler diğer ülkelerde de gelişir.
+
+36
+00:02:04,710 --> 00:02:07,075
+Bu harika değil mi?
+
+37
+00:02:07,075 --> 00:02:12,323
+Az önce izlediğiniz videoda hem yüz tanıma<br /> hem de canlılık tespitinin denendiğini gördünüz.
+
+38
+00:02:12,323 --> 00:02:16,010
+Bir diğer anlamı, sizin canlı bir insan olduğunuza emin olunması.
+
+39
+00:02:16,010 --> 00:02:20,240
+Canlılık tespitinin gözetimli öğrenme kullanılarak<br /> canlı insan/canlı insan değil tahmini yapılabileceği
+
+40
+00:02:20,240 --> 00:02:25,201
+ortaya çıkıyor ama ben bunun üzerinde<br /> daha az durmak istiyorum.
+
+41
+00:02:25,201 --> 00:02:28,160
+Onun yerine, sistemin yüz tanıma kısmını 
+
+42
+00:02:28,160 --> 00:02:31,365
+nasıl yapabileceğimize odaklanmak istiyorum.
+
+43
+00:02:31,365 --> 00:02:36,071
+İlk olarak, yüz tanımada kullanılan terimlerin <br />üzerinden geçerek başlayalım.
+
+44
+00:02:36,071 --> 00:02:38,200
+Yüz tanıma literatüründe,
+
+45
+00:02:38,200 --> 00:02:42,605
+insanlar sık sık yüz tanıma ve <br />yüz doğrulama hakkında konuşur.
+
+46
+00:02:42,605 --> 00:02:45,845
+Bu, bir kişinin resminin ve isminin girdisi olduğu 
+
+47
+00:02:45,845 --> 00:02:49,835
+ve belirtilen kişinin
+
+48
+00:02:49,835 --> 00:02:53,300
+resimdeki kişi olup olmadığını doğrulayan
+
+49
+00:02:53,300 --> 00:02:57,080
+bir yüz doğrulama problemi.
+
+50
+00:02:57,080 --> 00:03:00,170
+Buna bazen, verilen kişinin doğru kişi olup olmadığını
+
+51
+00:03:00,170 --> 00:03:04,435
+bilmemizi sağlayan 1'e 1 problem de denir.
+
+52
+00:03:04,435 --> 00:03:09,485
+Tanıma problemi, doğrulama probleminden<br /> çok daha zor bir problemdir.
+
+53
+00:03:09,485 --> 00:03:11,090
+Neden olduğunu görmek için, diyelim ki,
+
+54
+00:03:11,090 --> 00:03:15,140
+yüzde 99 doğru çalışan bir yüz doğrulama sisteminiz var.
+
+55
+00:03:15,140 --> 00:03:19,040
+Yüzde 99 çok kötü olmayabilir ama diyelim ki
+
+56
+00:03:19,040 --> 00:03:23,606
+bir yüz tanıma sisteminde K 100'e eşit olsun.
+
+57
+00:03:23,606 --> 00:03:30,290
+Eğer bu sistemi, 100 kişinin bulunduğu bir veritabanı ile<br />bir yüz tanıma görevinde kullanırsanız,
+
+58
+00:03:30,290 --> 00:03:33,710
+ve her kişide hata yapma şansınız %1 olsa
+
+59
+00:03:33,710 --> 00:03:38,030
+yüz kat daha fazla hata yapma şansınız olur.
+
+60
+00:03:38,030 --> 00:03:39,860
+Eğer 100 kişilik bir veritabanınız varsa ve
+
+61
+00:03:39,860 --> 00:03:45,530
+ve kabul edilebilir bir hata oranı istiyorsanız,
+
+62
+00:03:45,530 --> 00:03:48,755
+%99.9 veya daha fazla bir doğrulukla çalışan bir 
+
+63
+00:03:48,755 --> 00:03:52,520
+yüz tanıma sistemine ihtiyacınız var ve hala
+
+64
+00:03:52,520 --> 00:03:55,430
+100 kişilik veritabanınız için 
+
+65
+00:03:55,430 --> 00:03:59,840
+yüksek bir hata oranı elde etme ihtimaliniz olacaktır.
+
+66
+00:03:59,840 --> 00:04:03,440
+Aslına bakılırsa, eğer 100 kişilik bir veritabanınız varsa
+
+67
+00:04:03,440 --> 00:04:07,330
+iyi çalışması için muhtemelen %99'dan<br /> daha yüksek bir doğruluğa ihtiyacınız olacak.
+
+68
+00:04:07,330 --> 00:04:11,645
+Ancak biz, önümüzdeki birkaç videoda
+
+69
+00:04:11,645 --> 00:04:17,720
+yüz doğrulama sistemini temel olarak kullanacağız ve eğer 
+
+70
+00:04:17,720 --> 00:04:21,984
+doğruluk yeterince yüksekse, yüz tanıma<br /> sisteminde de kullanabileceksiniz.
+
+71
+00:04:21,984 --> 00:04:23,150
+Bir sonraki videoda 
+
+72
+00:04:23,150 --> 00:04:27,395
+nasıl bir yüz doğrulama sistemi yapabileceğinizi anlatacağız.
+
+73
+00:04:27,395 --> 00:04:29,630
+Zor bir problem olmasının sebebi ve bir
+
+74
+00:04:29,630 --> 00:04:34,125
+tek atış öğrenme (one shot learning) problemi <br />çözmeniz gerektiği ortaya çıkıyor olacak.
+
+75
+00:04:34,125 --> 00:04:37,000
+Bunun ne anlama geldiğine bir sonraki videoda bakalım.

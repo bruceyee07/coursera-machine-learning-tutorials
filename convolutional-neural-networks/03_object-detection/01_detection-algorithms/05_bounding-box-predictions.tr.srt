@@ -1,0 +1,1086 @@
+1
+00:00:00,000 --> 00:00:01,380
+Son videoda,
+
+2
+00:00:01,380 --> 00:00:06,300
+kayan pencerelerin evrişimli uygulamasının nasıl kullanıldığını öğrendiniz.
+
+3
+00:00:06,300 --> 00:00:08,780
+Bu hesaplama açısından daha verimli,
+
+4
+00:00:08,780 --> 00:00:14,130
+fakat bunun (bu yöntemin) hala, en uygun sınırlayıcı kutuyu tam olarak çıktı vermemesi (olumsuz) gibi bir problemi var.
+
+5
+00:00:14,130 --> 00:00:16,710
+Bu videoda, sınırlayıcı kutu tahminlerinizi nasıl daha doğru elde edebileceğinizi birlikte görelim.
+
+6
+00:00:16,710 --> 00:00:19,520
+Bu videoda, sınırlayıcı kutu tahminlerinizi nasıl daha doğru elde edebileceğinizi birlikte görelim.
+
+7
+00:00:19,520 --> 00:00:21,495
+Kayan pencereler ile, siz, yerlerden oluşan 3 set alıyorsunuz ve çapraz ateşe alıyorsunuz onları.
+
+8
+00:00:21,495 --> 00:00:26,190
+Kayan pencereler ile, siz, yerlerden oluşan 3 set alıyorsunuz ve çapraz ateşe alıyorsunuz onları.
+
+9
+00:00:26,190 --> 00:00:27,825
+Ve bu durumda
+
+10
+00:00:27,825 --> 00:00:32,636
+hiçbir kutu, gerçekten arabanın pozisyonu ile tam anlamıyla uyuşmuyor.
+
+11
+00:00:32,636 --> 00:00:35,900
+Yani, belki o kutu en iyi uyandır.
+
+12
+00:00:35,900 --> 00:00:38,465
+Ve de, içinden çizilmiş gibi görünüyor,
+
+13
+00:00:38,465 --> 00:00:41,585
+tam sınırlayıcı kutu tam bir kare bile değil,
+
+14
+00:00:41,585 --> 00:00:48,750
+o aslında biraz daha geniş bir dikdörtgene veya hafif bir yatay görünüş oranına sahip.
+
+15
+00:00:48,750 --> 00:00:53,975
+Acaba, bu algoritmanın daha doğru çıktılar vermesini sağlayacak bir yol var mıdır ?
+
+16
+00:00:53,975 --> 00:00:59,275
+Bu çıktıyı daha doğru sınırlayıcı kutu olarak elde etmenin iyi bir yolu YOLO algoritmasıdır.
+
+17
+00:00:59,275 --> 00:01:03,225
+YOLO, "Siz Sadece Bir defa Bakarsınız" ((Tek Bakışta) Gerçek Zamanlı Nesne Tepiti) demektir.
+
+18
+00:01:03,225 --> 00:01:06,195
+Ve Joseph Redmon, Santosh Divvala, Ross Girshick
+ ile Ali Farhadi tarafından geliştirilmiş bir algoritmadır.
+
+19
+00:01:06,195 --> 00:01:07,975
+Ve Joseph Redmon, Santosh Divvala, Ross Girshick
+ ile Ali Farhadi tarafından geliştirilmiş bir algoritmadır.
+
+20
+00:01:07,975 --> 00:01:10,735
+Yapmanız gereken şudur.
+
+21
+00:01:10,735 --> 00:01:14,230
+Üzerinde 100 x 100 birimlik (birim karelik) ızgara (tipinde bir) (ölçeklendirme) sistemi oturtacağınız 
+bir resim girdiniz olduğunu varsayalım.
+
+22
+00:01:14,230 --> 00:01:17,175
+Üzerinde 100 x 100 birimlik (birim karelik) ızgara (tipinde bir) (ölçeklendirme) sistemi oturtacağınız 
+bir resim girdiniz olduğunu varsayalım.
+
+23
+00:01:17,175 --> 00:01:19,425
+Gerçek bir uygulamada sizin, belki 19 x 19 birim kareliğe benzer,
+daha iyi bir örneklem kullanacak olmanıza rağmen, ben, 
+örnekleme amacıyla, 3x3 birim karelik bir örneklem kullanacağım.
+
+24
+00:01:19,425 --> 00:01:21,780
+Gerçek bir uygulamada sizin, belki 19 x 19 birim kareliğe benzer,
+daha iyi bir örneklem kullanacak olmanıza rağmen, ben, 
+örnekleme amacıyla, 3x3 birim karelik bir örneklem kullanacağım.
+
+25
+00:01:21,780 --> 00:01:23,640
+Gerçek bir uygulamada sizin, belki 19 x 19 birim kareliğe benzer,
+daha iyi bir örneklem kullanacak olmanıza rağmen, ben, 
+örnekleme amacıyla, 3x3 birim karelik bir örneklem kullanacağım.
+
+26
+00:01:23,640 --> 00:01:24,840
+Gerçek bir uygulamada sizin, belki 19 x 19 birim kareliğe benzer,
+daha iyi bir örneklem kullanacak olmanıza rağmen, ben, 
+örnekleme amacıyla, 3x3 birim karelik bir örneklem kullanacağım.
+
+27
+00:01:24,840 --> 00:01:27,880
+Gerçek bir uygulamada sizin, belki 19 x 19 birim kareliğe benzer,
+daha iyi bir örneklem kullanacak olmanıza rağmen, ben, 
+örnekleme amacıyla, 3x3 birim karelik bir örneklem kullanacağım.
+
+28
+00:01:27,880 --> 00:01:30,660
+Ve buradaki temel fikir, 
+bir kaç video öncesinde gördüğünüz resmin sınıflandırılması ve yerinin saptanması algoritmasını almanız 
+ve bunu 9 adet hücreden oluşan örneklemin her bir hücresine uygulamanızdır.
+
+29
+00:01:30,660 --> 00:01:36,345
+Ve buradaki temel fikir, 
+bir kaç video öncesinde gördüğünüz resmin sınıflandırılması ve yerinin saptanması algoritmasını almanız 
+ve bunu 9 adet hücreden oluşan örneklemin her bir hücresine uygulamanızdır.
+
+30
+00:01:36,345 --> 00:01:40,165
+Ve buradaki temel fikir, 
+bir kaç video öncesinde gördüğünüz resmin sınıflandırılması ve yerinin saptanması algoritmasını almanız 
+ve bunu 9 adet hücreden oluşan örneklemin her bir hücresine uygulamanızdır.
+
+31
+00:01:40,165 --> 00:01:47,910
+Buradaki temel fikir, 
+bu haftanın ilk videosunda gördüğünüz resmin sınıflandırılması ve yerinin saptanması algoritmasını almanız ve
+ onu bu resmin 9 adet hücreden oluşan örneklemin her bir hücresine uygulamanızdır. 
+
+32
+00:01:47,910 --> 00:01:52,170
+Buradaki temel fikir, 
+bu haftanın ilk videosunda gördüğünüz resmin sınıflandırılması ve yerinin saptanması algoritmasını almanız ve
+ onu bu resmin 9 adet hücreden oluşan örneklemin her bir hücresine uygulamanızdır. 
+
+33
+00:01:52,170 --> 00:01:58,440
+Buradaki temel fikir, 
+bu haftanın ilk videosunda gördüğünüz resmin sınıflandırılması ve yerinin saptanması algoritmasını almanız ve
+ onu bu resmin 9 adet hücreden oluşan örneklemin her bir hücresine uygulamanızdır. 
+
+34
+00:01:58,440 --> 00:01:59,851
+Daha somut (elle tutulur) olması için, 
+eğitim amacıyla kullanacağınız etiketleri nasıl tanımlayacağınızı şimdi göstereceğim.
+
+35
+00:01:59,851 --> 00:02:05,171
+Daha somut (elle tutulur) olması için, 
+eğitim amacıyla kullanacağınız etiketleri nasıl tanımlayacağınızı şimdi göstereceğim.
+
+36
+00:02:05,171 --> 00:02:08,070
+9 kareden oluşan her bir hücre için, 
+daha önce gördüğünüz gibi, her bir Y etiketinin 8 boyutlu vektörden oluştuğu, 
+bir adet Y etiketi tanımlarsınız.
+
+37
+00:02:08,070 --> 00:02:14,561
+9 kareden oluşan her bir hücre için, 
+daha önce gördüğünüz gibi, her bir Y etiketinin 8 boyutlu vektörden oluştuğu, 
+bir adet Y etiketi tanımlarsınız.
+
+38
+00:02:14,561 --> 00:02:16,470
+9 kareden oluşan her bir hücre için, 
+daha önce gördüğünüz gibi, her bir Y etiketinin 8 boyutlu vektörden oluştuğu, 
+bir adet Y etiketi tanımlarsınız.
+
+39
+00:02:16,470 --> 00:02:19,610
+Önce o (birim kare ızgara) örneklem hücresinde bir resmin var olup olmadığına bağlı olarak
+ ilk önce PC 01 çıktısını verirsiniz, daha sonra eğer sınırlayıcı kutunun içersinde bir resim var ise, BX, BY, BH, BW değerlerini 
+(anlaşıldığı kadarıyla (muhtemelen) kutunun X,Y koordinatları ile (H) yükseklik ve (W) genişlik boyutlarını)
+ çıktı olarak verirsiniz.
+
+40
+00:02:19,610 --> 00:02:24,170
+Önce o (birim kare ızgara) örneklem hücresinde bir resmin var olup olmadığına bağlı olarak
+ ilk önce PC 01 çıktısını verirsiniz, daha sonra eğer sınırlayıcı kutunun içersinde bir resim var ise, BX, BY, BH, BW değerlerini 
+(anlaşıldığı kadarıyla (muhtemelen) kutunun X,Y koordinatları ile (H) yükseklik ve (W) genişlik boyutlarını)
+ çıktı olarak verirsiniz.
+
+41
+00:02:24,170 --> 00:02:30,800
+Önce o (birim kare ızgara) örneklem hücresinde bir resmin var olup olmadığına bağlı olarak
+ ilk önce PC 01 çıktısını verirsiniz, daha sonra eğer sınırlayıcı kutunun içersinde bir resim var ise, BX, BY, BH, BW değerlerini 
+(anlaşıldığı kadarıyla (muhtemelen) kutunun X,Y koordinatları ile (H) yükseklik ve (W) genişlik boyutlarını)
+ çıktı olarak verirsiniz.
+
+42
+00:02:30,800 --> 00:02:33,348
+Önce o (birim kare ızgara) örneklem hücresinde bir resmin var olup olmadığına bağlı olarak
+ ilk önce PC 01 çıktısını verirsiniz, daha sonra eğer sınırlayıcı kutunun içersinde bir resim var ise, BX, BY, BH, BW değerlerini 
+(anlaşıldığı kadarıyla (muhtemelen) kutunun X,Y koordinatları ile (H) yükseklik ve (W) genişlik boyutlarını)
+ çıktı olarak verirsiniz.
+
+43
+00:02:33,348 --> 00:02:36,320
+Daha sonra, arka plandaki resmi bir sınıf olarak saymaz (olumsuz) dener ve
+ diyelim C1, C2, C3 sınıfı olarak adlandırdığımız üç sınıf tanımlar isek.
+
+44
+00:02:36,320 --> 00:02:40,935
+Daha sonra, arka plandaki resmi bir sınıf olarak saymaz (olumsuz) dener ve
+ diyelim C1, C2, C3 sınıfı olarak adlandırdığımız üç sınıf tanımlar isek.
+
+45
+00:02:40,935 --> 00:02:43,120
+Yani siz yayaların sınıfı, motorların sınıfı ve arka plan resminin sınıfını tanımlamaya çalışırsınız.
+
+46
+00:02:43,120 --> 00:02:45,110
+Yani siz yayaların sınıfı, motorların sınıfı ve arka plan resminin sınıfını tanımlamaya çalışırsınız.
+
+47
+00:02:45,110 --> 00:02:47,720
+O zaman C1 C2 C3 yaya, araba ve motor sınıfları olabilir.
+
+48
+00:02:47,720 --> 00:02:50,570
+O zaman C1 C2 C3 yaya, araba ve motor sınıfları olabilir.
+
+49
+00:02:50,570 --> 00:02:52,505
+Üzerinde 9 adet birim kare hücremiz olan bu resimde,
+
+50
+00:02:52,505 --> 00:02:53,870
+Üzerinde 9 adet (birim kare) hücremiz olan bu resimde,
+
+51
+00:02:53,870 --> 00:02:59,105
+her bir (birim karelik) hücre için bunun gibi bir vektörümüz olur.
+
+52
+00:02:59,105 --> 00:03:02,316
+Şimdi sol üst köşedeki (birim karelik) hücreden başlayalım,
+
+53
+00:03:02,316 --> 00:03:03,955
+tam buradakinden.
+
+54
+00:03:03,955 --> 00:03:06,115
+Bu hücre içinde herhangi bir nesne yok.
+
+55
+00:03:06,115 --> 00:03:11,960
+O zaman, sol üst köşedeki bu (birim karelik) hücrenin Y etiketi vektörleri sıfır olur,
+
+56
+00:03:11,960 --> 00:03:16,655
+ve bu satırdaki diğer değerleri ilk değer sıfır olduğu için (içinde nesne olmadığı içi) dikkate almayız.
+
+57
+00:03:16,655 --> 00:03:20,707
+Bu (birim kare) hücre için Y etiketi çıktısı, bu hücre için de ve bu hücre için de boş olur.
+
+58
+00:03:20,707 --> 00:03:24,640
+Bu (birim kare) hücre için Y etiketi çıktısı, bu hücre için de ve bu hücre için ve diğer tüm hücreler için de boş olur,
+
+59
+00:03:24,640 --> 00:03:27,845
+içlerinde (ilgi çekici) bir nesne olmaması nedeniyle.
+
+60
+00:03:27,845 --> 00:03:32,435
+Peki bu hücre için ne söyleyebiliriz ?
+
+61
+00:03:32,435 --> 00:03:34,385
+Daha fazla detay verebilmek için,
+
+62
+00:03:34,385 --> 00:03:36,355
+bu resmin iki tane nesnesi var.
+
+63
+00:03:36,355 --> 00:03:40,270
+YOLO algoritmasının yaptığı, iki nesnenin ulaşılabilen orta noktasını almak,
+
+64
+00:03:40,270 --> 00:03:45,690
+ve daha sonra orta nokta (verisi) içeren nesneyi hücreye atamaktır. 
+
+65
+00:03:45,690 --> 00:03:49,900
+Böylece, soldaki araba bu hücreye atanmış,
+
+66
+00:03:49,900 --> 00:03:51,445
+ve bu orta noktası olan sağdaki araba,
+
+67
+00:03:51,445 --> 00:03:53,140
+ve bu orta noktası olan sağdaki araba,
+
+68
+00:03:53,140 --> 00:03:57,265
+bu hücreye atanmış olur.
+
+69
+00:03:57,265 --> 00:04:02,510
+Orta hücre her iki arabanın bazı bölümlerini içerse de, 
+
+70
+00:04:02,510 --> 00:04:06,175
+orta hücrenin herhangi ilgi çekici bir nesnesi olmadığını varsayacağız,
+
+71
+00:04:06,175 --> 00:04:11,560
+böylece orta hücrenin Y sınıf etiketi bunun gibi nesnesiz bir vektör olarak görünür,
+
+72
+00:04:11,560 --> 00:04:13,450
+ve böylece PC'nin ilk bileşeni,
+
+73
+00:04:13,450 --> 00:04:15,000
+ve sonra kalanları de dikkate alınmaz (içinde nesne olmadığından)
+
+74
+00:04:15,000 --> 00:04:17,091
+Gelelim bu hücreye,
+
+75
+00:04:17,091 --> 00:04:21,005
+sol tarafta yeşil daireye aldığım bu hücre için,
+
+76
+00:04:21,005 --> 00:04:23,765
+hedeflenen Y etiketi aşağıdaki gibi olurdu.
+
+77
+00:04:23,765 --> 00:04:25,085
+Orada bir nesne var,
+
+78
+00:04:25,085 --> 00:04:26,770
+ve siz bu sınırlayıcı kutunun pozisyonunu tanımlamak için BX, BY, BH, BW değerlerini yazarsınız.
+
+79
+00:04:26,770 --> 00:04:32,830
+ve siz bu sınırlayıcı kutunun pozisyonunu tanımlamak için BX, BY, BH, BW değerlerini yazarsınız.
+
+80
+00:04:32,830 --> 00:04:34,870
+Ve daha sonra siz şunlara sahip olursunuz, birlikte görelim,
+
+81
+00:04:34,870 --> 00:04:38,680
+eğer sınıf 1 yaya olarak tanımlandıysa, o zaman o sıfırdı (yani bu resimde yaya yoktur)
+
+82
+00:04:38,680 --> 00:04:40,420
+sınıf 2 araba olarak tanımlı ise, o bir (yani bu resimde araba var)
+
+83
+00:04:40,420 --> 00:04:43,960
+sınıf 3 motor olarak tanımlandıysa , o zaman sıfırdı (yani bu resimde motor yok).
+
+84
+00:04:43,960 --> 00:04:45,900
+Benzer bir şekilde, sağ taraftaki bu hücre,
+
+85
+00:04:45,900 --> 00:04:48,415
+çünkü içinde bir nesne var,
+
+86
+00:04:48,415 --> 00:04:52,690
+sağdaki hücrenin hedeflenen etiketine benzeyen böyle bir vektöre sahip olur.
+
+87
+00:04:52,690 --> 00:04:58,325
+sağdaki hücrenin hedeflenen etiketine benzeyen böyle bir vektöre sahip olur.
+
+88
+00:04:58,325 --> 00:05:00,715
+Sonunda, siz bu 9 hücreden her biri için,
+
+89
+00:05:00,715 --> 00:05:04,815
+8 boyutlu bir vektör çıktısı elde etmiş olursunuz.
+
+90
+00:05:04,815 --> 00:05:08,415
+Ve siz 3x3 (yani 9) adet hücreye sahip olduğunuzdan, 
+
+91
+00:05:08,415 --> 00:05:09,863
+Ve siz 3x3 (yani 9) adet hücreye sahip olduğunuzdan, 
+
+92
+00:05:09,863 --> 00:05:17,435
+çıktının boyutu (hacmi) 3x3x8 olacaktır.
+
+93
+00:05:17,435 --> 00:05:24,760
+Yani, hedef çıktı 3x3x8 olacaktır, çünkü sizin 3x3 adet hücreniz var.
+
+94
+00:05:24,760 --> 00:05:28,045
+Ve her bir 3x3 adet hücre için,
+
+95
+00:05:28,045 --> 00:05:32,790
+8 boyutlu Y vektörünüz var.
+
+96
+00:05:32,790 --> 00:05:36,250
+Böylece sizin hedeflenen çıktı boyutunuz 3x3x8 olur.
+
+97
+00:05:36,250 --> 00:05:41,245
+Örneğin burada, bu sol üstteki 1x1x8 hacim 
+
+98
+00:05:41,245 --> 00:05:42,970
+9 adet hücrenin sol üstteki hücresinin hedeflenen çıktı vektörüne karşılık gelir.
+
+99
+00:05:42,970 --> 00:05:47,770
+9 adet hücrenin sol üstteki hücresinin hedeflenen çıktı vektörüne karşılık gelir.
+
+100
+00:05:47,770 --> 00:05:50,710
+Ve diğer 3x3 pozisyonun her biri için aynı şekilde
+
+101
+00:05:50,710 --> 00:05:52,345
+bu 9 adet hücrenin her birine karşılık gelen,
+
+102
+00:05:52,345 --> 00:05:58,180
+çıktı olarak elde etmek istediğiniz 8 boyutlu Y vektörü var mıdır?
+
+103
+00:05:58,180 --> 00:05:59,610
+İçlerinde herhangi bir nesne (yok ise) olmayanlar (bunlardan bazıları) dikkate alınmaz.
+
+104
+00:05:59,610 --> 00:06:01,010
+İçlerinde herhangi bir nesne (yok ise) olmayanlar (bunlardan bazıları) dikkate alınmaz.
+
+105
+00:06:01,010 --> 00:06:03,360
+Ve bundan dolayı bu resim için çıktı etiketinin kendisi 
+3x3x8 boyutunda olan toplam hedef çıktısıdır.
+
+106
+00:06:03,360 --> 00:06:08,635
+Ve bundan dolayı bu resim için çıktı etiketinin kendisi
+ 3x3x8 boyutunda olan toplam hedef çıktısıdır.
+
+107
+00:06:08,635 --> 00:06:11,245
+Böylece şimdi, yapay sinir ağınızı eğitmek için, 
+girdi(boyutu) 100x100x3 (dır) olur 
+ ki bu girdi resmidir.
+
+108
+00:06:11,245 --> 00:06:17,475
+Böylece şimdi, yapay sinir ağınızı eğitmek için, 
+girdi(boyutu) 100x100x3 (dır) olur 
+ ki bu girdi resmidir.
+
+109
+00:06:17,475 --> 00:06:19,015
+Böylece şimdi, yapay sinir ağınızı eğitmek için, 
+girdi(boyutu) 100x100x3 (dır) olur 
+ ki bu girdi resmidir.
+
+110
+00:06:19,015 --> 00:06:22,795
+Ve sonra siz, maximum havuz katmanlarının katmanları ve benzerleri ile birlikte bir "convnet" (evrişimli ağ) sahibi olursunuz.
+
+111
+00:06:22,795 --> 00:06:27,690
+Ve sonra siz, maximum havuz katmanlarının katmanları ve benzerleri ile birlikte bir "convnet" (evrişimli ağ) sahibi olursunuz.
+
+112
+00:06:27,690 --> 00:06:28,870
+Böylece sonunda,
+
+113
+00:06:28,870 --> 00:06:34,440
+buna sahip olursunuz, "conv" (evrişim) katmanlarını ve maximum havuz katmanlarını ve diğerlerini seçmelisiniz,
+
+114
+00:06:34,440 --> 00:06:42,320
+ki bu sonunda 3x3x8 çıktı boyutundaki bir hacme ulaştırsın. 
+
+115
+00:06:42,320 --> 00:06:46,470
+Yani sizin yaptığınız, onun gibi resim girdisi olan bir X girdisine sahip olmak, 
+
+116
+00:06:46,470 --> 00:06:50,125
+ve 3x3x8'lik Y hedef etiketine sahip olmak,
+
+117
+00:06:50,125 --> 00:06:54,160
+ve herhangi bir X girdisinden bu tip Y hacmine geçiş için
+ harita yayılımını kullanmaktır.
+
+118
+00:06:54,160 --> 00:06:58,565
+ve siz herhangi bir X girdisinden bu tip Y hacmine geçiş için
+ harita yayılımını kullanmaktır.
+
+119
+00:06:58,565 --> 00:07:01,360
+Yani bu algoritmanın avantajı,
+
+120
+00:07:01,360 --> 00:07:07,228
+yapay sinir ağının aşağıdaki gibi hassas sınırlayıcı kutuları çıktı olarak vermesidir.
+
+121
+00:07:07,228 --> 00:07:08,320
+Dolayısıyla test zamanında,
+
+122
+00:07:08,320 --> 00:07:10,930
+sizi yaptığınız, bu Y çıktısını alıncaya kadar ileri yayılmayı çalıştırmak 
+ve resim X girdisini beslemektir.
+
+123
+00:07:10,930 --> 00:07:14,255
+sizi yaptığınız, bu Y çıktısını alıncaya kadar ileri yayılmayı çalıştırmak 
+ve resim X girdisini beslemektir.
+
+124
+00:07:14,255 --> 00:07:16,735
+Ve sonra, 3x3 posizyonluk 9 çıktının her birinden 1 ve 0'ları okuyabileceksiniz.
+
+125
+00:07:16,735 --> 00:07:19,480
+Ve sonra, 3x3 posizyonluk 9 çıktının her birinden 1 ve 0'ları okuyabileceksiniz.
+
+126
+00:07:19,480 --> 00:07:22,810
+Ve sonra, 3x3 posizyonluk 9 çıktının her birinden 1 ve 0'ları okuyabileceksiniz.
+
+127
+00:07:22,810 --> 00:07:27,153
+Bu 9 pozisyonun herhangi biri ile bağlantısı olan bir nesne var mı?
+
+128
+00:07:27,153 --> 00:07:29,590
+(Ve bir kare ile bağlantılı, o hücrenin içinde) bir nesne varsa, bu nesne nedir,
+
+129
+00:07:29,590 --> 00:07:36,065
+o hücre içindeki nesne için sınırlayıcı kutu nerededir ?
+
+130
+00:07:36,065 --> 00:07:39,118
+(Ve) her bir kare hücrenin içinde birden fazla nesne olmadığı sürece,
+
+131
+00:07:39,118 --> 00:07:41,810
+bu algoritma (sorunsuz) çalışır (malıdır).
+
+132
+00:07:41,810 --> 00:07:43,900
+(Ve) kare hücre içersinde birden fazla nesne bulunması problemini, daha sonra inceleyeceğiz (inceleyeceğimiz bir şeydir.)
+
+133
+00:07:43,900 --> 00:07:46,600
+(Ve) kare hücre içersinde birden fazla nesne bulunması problemini, daha sonra inceleyeceğiz (inceleyeceğimiz bir şeydir.)
+
+134
+00:07:46,600 --> 00:07:51,985
+Burada 3x3 birim karelik göreceli bir kullanıma karşılık,
+
+135
+00:07:51,985 --> 00:07:54,470
+uygulamada, siz 19x19 birim karelik daha iyisini kullanabilirsiniz.
+
+136
+00:07:54,470 --> 00:07:56,160
+uygulamada, siz 19x19 birim karelik daha iyisini kullanabilirsiniz.
+
+137
+00:07:56,160 --> 00:07:58,900
+Bu şekilde 19x19x8'e karar verirseniz,
+
+138
+00:07:58,900 --> 00:08:02,315
+bu sizin birim karelerinizi daha iyi yapar.
+
+139
+00:08:02,315 --> 00:08:07,180
+Bu (detayda bir seçim) aynı kareye birden fazla nesne atanması olasılığını azaltır.
+
+140
+00:08:07,180 --> 00:08:08,800
+Ve bir hatırlatıcı olarak
+
+141
+00:08:08,800 --> 00:08:11,590
+sizin bir nesneyi bir kare hücreye atama yönteminiz,
+
+142
+00:08:11,590 --> 00:08:14,290
+nesnenin orta noktasına bakmak ve sonra
+
+143
+00:08:14,290 --> 00:08:19,930
+hangi kare hücre, nesnenin orta noktasını içeriyorsa, o nesneyi o ilgili kareye atamaktır.
+
+144
+00:08:19,930 --> 00:08:23,926
+Böylece, her bir nesne, birden fazla kare hücreye yayılmış olsa bile,
+
+145
+00:08:23,926 --> 00:08:27,410
+(orta noktası sadece bir kare hücrede bulunabileceğinden dolayı) 9 adetlik birim kareden sadece birine atanır,
+
+146
+00:08:27,410 --> 00:08:29,018
+veya 3x3'lükten sadece birine atanır,
+
+147
+00:08:29,018 --> 00:08:31,565
+veya 19x19 birim karelik hücrelerden sadece birine atanır.
+
+148
+00:08:31,565 --> 00:08:33,584
+19x19 birim karelik bir algoritmada,
+
+149
+00:08:33,584 --> 00:08:36,715
+aynı hücre içinde (görünen) iki adet orta nokta (-yani iki-) nesne (nesnesinin) olma olasılığı biraz daha düşüktür.
+
+150
+00:08:36,715 --> 00:08:41,445
+aynı hücre içinde (görünen) iki adet orta nokta (-yani iki-) nesne (nesnesinin) olma olasılığı biraz daha düşüktür.
+
+151
+00:08:41,445 --> 00:08:44,043
+Böylece iki şeyin farkına varıyoruz, ilki,
+
+152
+00:08:44,043 --> 00:08:46,930
+bu, bizim bu hafta üzerinde konuştuğumuz ilk videodaki resim sınıflandırma ve yerelleştirme algoritması gibi değil.
+
+153
+00:08:46,930 --> 00:08:51,530
+bu, bizim bu hafta üzerinde konuştuğumuz ilk videodaki resim sınıflandırma ve yerelleştirme algoritması gibi değil.
+
+154
+00:08:51,530 --> 00:08:55,380
+İkincisi, (bu algoritma) çıktı olarak sınırlayıcı topların koordinatlarını açıkça verir.
+
+155
+00:08:55,380 --> 00:08:58,235
+(Ve) böylece bu, 
+kayan pencereler sınıflan-dırıcısının çeşitli boyutlarda verdiği koordinatlardan çok daha hassas koordinatları çıktı olarak vermekle birlikte,
+ ağınızın herhangi bir bakış açısı oranına sahip sınırlayıcı kutuları da çıktı olarak verme imkanı tanımaktadır.
+
+156
+00:08:58,235 --> 00:09:02,440
+(Ve) böylece bu, 
+kayan pencereler sınıflan-dırıcısının çeşitli boyutlarda verdiği koordinatlardan çok daha hassas koordinatları çıktı olarak vermekle birlikte,
+ ağınızın herhangi bir bakış açısı oranına sahip sınırlayıcı kutuları da çıktı olarak verme imkanı tanımaktadır.
+
+157
+00:09:02,440 --> 00:09:05,690
+(Ve) böylece bu, 
+kayan pencereler sınıflan-dırıcısının çeşitli boyutlarda verdiği koordinatlardan çok daha hassas koordinatları çıktı olarak vermekle birlikte,
+ ağınızın herhangi bir bakış açısı oranına sahip sınırlayıcı kutuları da çıktı olarak verme imkanı tanımaktadır.
+
+158
+00:09:05,690 --> 00:09:10,530
+(Ve) böylece bu, 
+kayan pencereler sınıflan-dırıcısının çeşitli boyutlarda verdiği koordinatlardan çok daha hassas koordinatları çıktı olarak vermekle birlikte,
+ ağınızın herhangi bir bakış açısı oranına sahip sınırlayıcı kutuları da çıktı olarak verme imkanı tanımaktadır.
+
+159
+00:09:10,530 --> 00:09:12,220
+Ve ikinci olarak, bu bir evrişimli uygulamadır ve
+
+160
+00:09:12,220 --> 00:09:17,320
+bu algoritmayı 3x3 birim karede 9 defa uygulamazsınız veya
+
+161
+00:09:17,320 --> 00:09:25,540
+19x19 birim karede 19'un karesi yani 361 defa uygulamazsınız.
+
+162
+00:09:25,540 --> 00:09:31,090
+Yani, siz aynı algoritmayı 361 defa veya 19'un karesi kadar çalıştırmazsınız.
+
+163
+00:09:31,090 --> 00:09:34,285
+Onun yerine, bu,
+ içinde 3x3'lük veya 19x19'luk hücrelerde ihtiyaç duyduğunuz hesaplamalar için
+ ortaklaşa kullandığınız (tek bir uyumlu hesaplama olan) evrişimli bir uygulamadır.
+
+164
+00:09:34,285 --> 00:09:39,610
+Onun yerine, bu,
+ içinde 3x3'lük veya 19x19'luk hücrelerde ihtiyaç duyduğunuz hesaplamalar için
+ ortaklaşa kullandığınız (tek bir uyumlu hesaplama olan) evrişimli bir uygulamadır.
+
+165
+00:09:39,610 --> 00:09:46,780
+Onun yerine, bu,
+ içinde 3x3'lük veya 19x19'luk hücrelerde ihtiyaç duyduğunuz hesaplamalar için
+ ortaklaşa kullandığınız (tek bir uyumlu hesaplama olan) evrişimli bir uygulamadır.
+
+166
+00:09:46,780 --> 00:09:49,135
+Yani, bu çok verimli bir algoritmadır.
+
+167
+00:09:49,135 --> 00:09:52,720
+Ve aslında, YOLO algoritmasının güzel bir tarafı da,
+
+168
+00:09:52,720 --> 00:09:57,445
+çok hızlı çalışan evrişimli bir uygulama olmasından dolayı
+ azalmayan rağbetinin (popülerliğinin) olmasıdır.
+
+169
+00:09:57,445 --> 00:09:58,930
+çok hızlı çalışan evrişimli bir uygulama olmasından dolayı
+azalmayan rağbetinin (popülerliğinin) olmasıdır.
+
+170
+00:09:58,930 --> 00:10:02,530
+Yani bu, gerçek zamanlı nesne algılama için bile çalışır.
+
+171
+00:10:02,530 --> 00:10:03,915
+Şimdi, toparlamadan önce,
+
+172
+00:10:03,915 --> 00:10:06,610
+sizinle paylaşacağım bir tane daha detay var, 
+
+173
+00:10:06,610 --> 00:10:12,495
+ki bu, sizin bx by, BH, BH sınırlayıcı kutularını nasıl kodlayacağınızdır. 
+
+174
+00:10:12,495 --> 00:10:16,135
+Bunu bir sonraki sunuda tartışalım. 
+
+175
+00:10:16,135 --> 00:10:18,610
+Şimdi, iki araba olduğunu,
+
+176
+00:10:18,610 --> 00:10:21,465
+ve hatırlayın 3x3 birim karemiz olduğunu düşünelim.
+
+177
+00:10:21,465 --> 00:10:25,120
+Sağ taraftaki arabayı örnek olarak alalım.
+
+178
+00:10:25,120 --> 00:10:32,220
+Bu hücrede bir nesne var ve bu nesnenin y hedef etiketi 1, 
+
+179
+00:10:32,220 --> 00:10:34,270
+bu PC'nin 1'e eşit olması demekti.
+
+180
+00:10:34,270 --> 00:10:37,060
+Ve sonra bx, by
+
+181
+00:10:37,060 --> 00:10:40,970
+BH, BW ve sonra 0 1 0.
+
+182
+00:10:40,970 --> 00:10:43,790
+Şimdi sınırlayıcı kutuyu nasıl tanımlarsınız ?
+
+183
+00:10:43,790 --> 00:10:48,310
+YOLO algoritmasında, bu kareye göre,
+
+184
+00:10:48,310 --> 00:10:51,545
+sol üst köşede 0 0 olan ve sağ altta 1 1 olan yapıyı aldığımda.
+
+185
+00:10:51,545 --> 00:10:56,180
+sol üst köşede 0 0 olan ve sağ altta 1 1 olan yapıyı aldığımda.
+
+186
+00:10:56,180 --> 00:10:59,155
+Yani o pozisyonun orta noktasını tanımlamak için, 
+
+187
+00:10:59,155 --> 00:11:02,715
+o turuncu nokta, bx olabilir,
+
+188
+00:11:02,715 --> 00:11:05,980
+diyelim x aşağı yukarı 0.4 görünüyor.
+
+189
+00:11:05,980 --> 00:11:09,760
+Belki sağındakine göre aşağı yukarı 0.4'tür.
+
+190
+00:11:09,760 --> 00:11:15,945
+Ve sonra y, belki tahminime göre 0.3 gibi görünüyor.
+
+191
+00:11:15,945 --> 00:11:19,380
+Ve sonra sınırlayıcı kutunun yüksekliği,
+
+192
+00:11:19,380 --> 00:11:24,090
+kutunun toplam genişliğinin bir parçası olarak tanımlanmıştır.
+
+193
+00:11:24,090 --> 00:11:30,931
+Yani, bu kırmızı kutunun genişliği belki şu mavi çizginin %90'ıdır.
+
+194
+00:11:30,931 --> 00:11:35,030
+Ve yani, BH 0.9'dur ve bunun yüksekliği
+
+195
+00:11:35,030 --> 00:11:42,075
+birim kare hücrelerin toplam yüksekliğinin yarısıdır.
+
+196
+00:11:42,075 --> 00:11:46,670
+Yani bu durumda, BW 0.5 olurdu.
+
+197
+00:11:46,670 --> 00:11:49,455
+Yani, diğer bir deyişle, bu bx, by, BH,
+
+198
+00:11:49,455 --> 00:11:53,690
+BW birim kare hücreye bağlı olarak tanımlanmıştır.
+
+199
+00:11:53,690 --> 00:11:55,505
+Ve böylece, bx ve by,
+
+200
+00:11:55,505 --> 00:11:58,455
+(bu) 0 ile 1 arasında olmalıdır, doğru mu ?
+
+201
+00:11:58,455 --> 00:12:01,055
+Çünkü, o hücrenin sınırları içinde olan turuncu nokta, tanım gereği atanmıştır.
+
+202
+00:12:01,055 --> 00:12:04,340
+Çünkü, o hücrenin sınırları içinde olan turuncu nokta, tanım gereği atanmıştır.
+
+203
+00:12:04,340 --> 00:12:08,509
+Eğer o (turuncu nokta) 0 ile 1 arasında olmasaydı ve karenin dışında olsaydı,
+
+204
+00:12:08,509 --> 00:12:11,680
+o zaman biz başka bir birim kare hücreye atayacaktık.
+
+205
+00:12:11,680 --> 00:12:14,495
+Ancak bunlar 1'den de büyük olabilirdi.
+
+206
+00:12:14,495 --> 00:12:18,785
+Özellikle, arabanın içinde olduğu sınırlayıcı kutunun yüksekliği ve genişliği kutudan büyük olsaydı 
+
+207
+00:12:18,785 --> 00:12:21,045
+Özellikle, arabanın içinde olduğu sınırlayıcı kutunun yüksekliği ve genişliği kutudan büyük olsaydı,
+
+208
+00:12:21,045 --> 00:12:23,440
+bu 1'den büyük olabilirdi.
+
+209
+00:12:23,440 --> 00:12:27,007
+Yani, sınırlayıcı kutuların tanımlanmasının çok yolu var,
+
+210
+00:12:27,007 --> 00:12:30,710
+ama bu oldukça makul bir yöntemdir (olabilir). 
+
+211
+00:12:30,710 --> 00:12:33,710
+Gerçi, YOLO araştırma makalelerini okuduysanız,
+
+212
+00:12:33,710 --> 00:12:35,970
+diğer parametreleştirmelerin olduğu YOLO araştırma çizgileri
+biraz daha iyi çalışmaktadır.
+
+213
+00:12:35,970 --> 00:12:39,040
+diğer parametreleştirmelerin olduğu YOLO araştırma çizgileri
+biraz daha iyi çalışmaktadır,
+
+214
+00:12:39,040 --> 00:12:44,925
+ancak inanıyorum bu, iyi çalışan makul bir şart (durum) tanımaktadır.
+
+215
+00:12:44,925 --> 00:12:47,690
+Gerçi, 0 ile 1 arasındaki bir değeri garantilemek için
+ sigmoid fonksiyonlarını içeren daha karmaşık parametreleştirme yöntemleri (de) var.
+
+216
+00:12:47,690 --> 00:12:51,980
+Gerçi, 0 ile 1 arasındaki bir değeri garantilemek için
+ sigmoid fonksiyonlarını içeren daha karmaşık parametreleştirme yöntemleri (de) var.
+
+217
+00:12:51,980 --> 00:12:57,185
+Açıklama parametreleştirmesinin negatif olmadığından emin olmak için
+ 0.9 ve 0.5 değerleri sıfırdan büyük değerler olarak (veya sıfıra eşit değerler) alınmıştır.
+
+218
+00:12:57,185 --> 00:13:01,245
+Açıklama parametreleştirmesinin negatif olmadığından emin olmak için
+ 0.9 ve 0.5 değerleri sıfırdan büyük değerler olarak (veya sıfıra eşit değerler) alınmıştır.
+
+219
+00:13:01,245 --> 00:13:03,915
+Üzerinde nesnelerin biraz daha iyi çalıştığı 
+daha geliştirilmiş başka parametreleştirmeler de var 
+ancak sizin gördüğünüz bu örnek de iyi çalışmaktadır (çalışmalıdır).
+
+220
+00:13:03,915 --> 00:13:05,457
+Üzerinde nesnelerin biraz daha iyi çalıştığı 
+daha geliştirilmiş başka parametreleştirmeler de var 
+ancak sizin gördüğünüz bu örnek de iyi çalışmaktadır (çalışmalıdır).
+
+221
+00:13:05,457 --> 00:13:09,635
+Üzerinde nesnelerin biraz daha iyi çalıştığı 
+daha geliştirilmiş başka parametreleştirmeler de var 
+ancak sizin gördüğünüz bu örnek de iyi çalışmaktadır (çalışmalıdır).
+
+222
+00:13:09,635 --> 00:13:14,775
+Yani, YOLO veya Tek Bakış(ta) algoritması bu kadardır.
+
+223
+00:13:14,775 --> 00:13:17,115
+(Ve) size, sonraki birkaç videoda, bu algoritmayı
+ biraz daha iyi hale getirmeye yardımcı olacak diğer birkaç (farklı) yöntem (fikir) göstereceğim.
+
+224
+00:13:17,115 --> 00:13:21,470
+(Ve) size, sonraki birkaç videoda, bu algoritmayı
+ biraz daha iyi hale getirmeye yardımcı olacak diğer birkaç (farklı) yöntem (fikir) göstereceğim.
+
+225
+00:13:21,470 --> 00:13:23,170
+Bu arada, isterseniz,
+
+226
+00:13:23,170 --> 00:13:24,445
+birkaç slaytın alt kısmında geçmiş olan YOLO referans kağıdına (kaynağına, makalesine) bakabilirsiniz.
+
+227
+00:13:24,445 --> 00:13:29,667
+birkaç slaytın alt kısmında geçmiş olan YOLO referans kağıdına (kaynağına, makalesine) bakabilirsiniz.
+
+228
+00:13:29,667 --> 00:13:31,325
+Size sadece bir uyarı, bu kağıtlara (kaynaklara) baktığınızda, 
+YOLO kağıdı (nın) bunların içinden okunması (anlaşılması) en zor olanlarından biri olduğunu görürsünüz (biridir).
+
+229
+00:13:31,325 --> 00:13:33,530
+Size sadece bir uyarı, bu kağıtlara (kaynaklara) baktığınızda, 
+YOLO kağıdı (nın) bunların içinden okunması (anlaşılması) en zor olanlarından biri olduğunu görürsünüz (biridir).
+
+230
+00:13:33,530 --> 00:13:37,425
+Size sadece bir uyarı, bu kağıtlara (kaynaklara) baktığınızda, 
+YOLO kağıdı (nın) bunların içinden okunması (anlaşılması) en zor olanlarından biri olduğunu görürsünüz (biridir).
+
+231
+00:13:37,425 --> 00:13:40,265
+Hatırlıyorum, bu kağıdı ilk defa okuduğumda,
+
+232
+00:13:40,265 --> 00:13:43,325
+ne olup bittiğini anlamakta oldukça zorlanmıştım.
+
+233
+00:13:43,325 --> 00:13:46,356
+Ve benim anlamama yardım etmeleri için
+ çok iyi araştırmacı olan birkaç arkadaşıma danışmak zorunda kalmıştım,
+
+234
+00:13:46,356 --> 00:13:48,950
+Ve benim anlamama yardım etmeleri için
+ çok iyi araştırmacı olan birkaç arkadaşıma danışmak zorunda kalmıştım,
+
+235
+00:13:48,950 --> 00:13:53,125
+ve onlar bile bu kağıdın bazı detaylarını anlamakta zorluk çekmişlerdi.
+
+236
+00:13:53,125 --> 00:13:54,845
+Yani, bu kağıda baktığınızda,
+
+237
+00:13:54,845 --> 00:13:58,195
+anlamakta zorlanıyorsanız bu normaldir.
+
+238
+00:13:58,195 --> 00:14:00,885
+Bu araştırma inceleme kağıtlarının daha yaygın (anlaşılabilir) olmasını isterdim,
+
+239
+00:14:00,885 --> 00:14:02,795
+ama maalesef kıdemli araştırmacılar için bile o kadar yaygın (anlaşılabilir) değil,
+
+240
+00:14:02,795 --> 00:14:05,130
+ama maalesef kıdemli araştırmacılar için bile o kadar yaygın (anlaşılabilir) değil,
+
+241
+00:14:05,130 --> 00:14:08,840
+onlar da detaylarını anlamakta zorluk çekiyorlar.
+
+242
+00:14:08,840 --> 00:14:10,895
+(Ve) açık kaynak koduna bakmak zorunda kalabilirsiniz,
+
+243
+00:14:10,895 --> 00:14:12,005
+veya yazarı ile temas kurmak zorunda kalabilirsiniz,
+
+244
+00:14:12,005 --> 00:14:15,610
+veya bu sonuçların detaylarını anlamak için başka şeyler de yapabilirsiniz.
+
+245
+00:14:15,610 --> 00:14:19,715
+Ama (yine de) isterseniz ben sizi o kağıtlara bakmaktan alıkoymayayım,
+
+246
+00:14:19,715 --> 00:14:21,700
+ama bu zor kağıtlardan biridir.
+
+247
+00:14:21,700 --> 00:14:25,975
+Böylece, öyle de olsa, YOLO algoritmasının temellerini anlarsınız.
+
+248
+00:14:25,975 --> 00:14:31,000
+(Şimdi) Bu algoritmayı daha iyi hale getirecek diğer ek bölümlere geçelim.

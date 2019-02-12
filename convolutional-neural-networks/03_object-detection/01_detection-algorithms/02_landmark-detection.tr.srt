@@ -1,0 +1,414 @@
+1
+00:00:00,000 --> 00:00:01,440
+Bir önceki videoda 
+
+2
+00:00:01,440 --> 00:00:06,410
+bir yapay sinir ağının yerelleştirilmesini istediğiniz bir nesnenin sınırlayıcı kutusunu belirlemesi amacıyla, 
+bir yapay sinir ağından "bx", "by", "bh" ve "bw" den oluşan 4 sayıyı çıktı olarak nasıl elde edebileceğinizi gördünüz.
+
+3
+00:00:06,410 --> 00:00:08,850
+bir yapay sinir ağının yerelleştirilmesini istediğiniz bir nesnenin sınırlayıcı kutusunu belirlemesi amacıyla,
+ bir yapay sinir ağından "bx", "by", "bh" ve "bw" den oluşan 4 sayıyı çıktı olarak nasıl elde edebileceğinizi gördünüz.
+
+4
+00:00:08,850 --> 00:00:12,840
+bir yapay sinir ağının yerelleştirmesini istediğiniz bir nesnenin sınırlayıcı kutusunu belirlemesi amacıyla, 
+bir yapay sinir ağından "bx", "by", "bh" ve "bw" den oluşan 4 sayıyı çıktı olarak nasıl elde edebileceğinizi gördünüz.
+
+5
+00:00:12,840 --> 00:00:14,753
+Daha genel durumlarda,
+
+6
+00:00:14,753 --> 00:00:17,400
+yapay sinir ağı tarafından tanınmasını istediğiniz, 
+bazen işaret olarak da tanımlanan önemli nokta ve resimlerin 
+X ve Y koordinatlarını bir yapay sinir ağıdan çıktı olarak olarak alabilirsiniz.
+
+7
+00:00:17,400 --> 00:00:20,700
+yapay sinir ağı tarafından tanınmasını istediğiniz, 
+bazen işaret olarak da tanımlanan önemli nokta ve resimlerin 
+X ve Y koordinatlarını bir yapay sinir ağıdan çıktı olarak olarak alabilirsiniz.
+
+8
+00:00:20,700 --> 00:00:24,960
+yapay sinir ağı tarafından tanınmasını istediğiniz, 
+bazen işaret olarak da tanımlanan önemli nokta ve resimlerin 
+X ve Y koordinatlarını bir yapay sinir ağıdan çıktı olarak olarak alabilirsiniz.
+
+9
+00:00:24,960 --> 00:00:26,451
+Hadi birkaç örnek verelim.
+
+10
+00:00:26,451 --> 00:00:31,095
+Diyelim ki siz, bir nedenle yüz tanıma uygulaması yapıyorsunuz,
+
+11
+00:00:31,095 --> 00:00:36,835
+siz algoritmanın, bir kişinin gözünün kenarının nerede olduğunu söylemesini istiyorsunuz.
+
+12
+00:00:36,835 --> 00:00:40,530
+Bu şekilde, bir noktanın bir X ve Y koordinatı var,
+
+13
+00:00:40,530 --> 00:00:43,310
+böylece siz, son katmanına sahip olan ve sadece o kişinin göz köşe koordinatlarını söyleyebilmek amacıyla lx ve ly sembollerimiz olarak tanımlayacağımız iki sayı çıktısı daha veren bir yapay sinir ağına sahip olursunuz.
+
+14
+00:00:43,310 --> 00:00:48,235
+böylece siz, son katmanına sahip olan ve sadece o kişinin göz köşe koordinatlarını söyleyebilmek amacıyla lx ve ly sembollerimiz olarak tanımlayacağımız iki sayı çıktısı daha veren bir yapay sinir ağına sahip olursunuz.
+
+15
+00:00:48,235 --> 00:00:51,804
+böylece siz, son katmanına sahip olan ve sadece o kişinin göz köşe koordinatlarını söyleyebilmek amacıyla lx ve ly sembollerimiz olarak tanımlayacağımız iki sayı çıktısı daha veren bir yapay sinir ağına sahip olursunuz.
+
+16
+00:00:51,804 --> 00:00:56,730
+böylece siz, son katmanına sahip olan ve sadece o kişinin göz köşe koordinatlarını söyleyebilmek amacıyla lx ve ly sembollerimiz olarak tanımlayacağımız iki sayı çıktısı daha veren bir yapay sinir ağına sahip olursunuz.
+
+17
+00:00:56,730 --> 00:01:01,680
+Şimdi, ya siz onun (yapay sinir ağının) size gerçekten her iki gözün dört köşesini de söylemesini isterseniz.
+
+18
+00:01:01,680 --> 00:01:03,595
+Şimdi, ya siz onun (yapay sinir ağının) size gerçekten her iki gözün dört köşesini de söylemesini isterseniz.
+
+19
+00:01:03,595 --> 00:01:06,360
+Bu şekilde, biz noktaları soldan sağa birinci, ikinci üçüncü ve dördüncü noktalar olarak tanımlarsak,
+
+20
+00:01:06,360 --> 00:01:08,640
+Bu şekilde, biz noktaları soldan sağa birinci, ikinci üçüncü ve dördüncü noktalar olarak tanımlarsak,
+
+21
+00:01:08,640 --> 00:01:13,585
+sonra siz, yapay sinir ağını; insan yüzünün tüm o 4 noktasının tahmini pozisyonunu vermesi amacıyla, 
+birinci nokta için l1x ve l1y, ikinci nokta için l2x ve l2y değişkenlerini ve
+ diğer noktalar için de benzer değişkenleri üretecek şekilde değiştirebilirsiniz.
+
+22
+00:01:13,585 --> 00:01:17,975
+sonra siz, yapay sinir ağını; insan yüzünün tüm o 4 noktasının tahmini pozisyonunu vermesi amacıyla, 
+birinci nokta için l1x ve l1y, ikinci nokta için l2x ve l2y değişkenlerini ve
+ diğer noktalar için de benzer değişkenleri üretecek şekilde değiştirebilirsiniz.
+
+23
+00:01:17,975 --> 00:01:22,140
+sonra siz, yapay sinir ağını; insan yüzünün tüm o 4 noktasının tahmini pozisyonunu vermesi amacıyla, 
+birinci nokta için l1x ve l1y, ikinci nokta için l2x ve l2y değişkenlerini ve
+ diğer noktalar için de benzer değişkenleri üretecek şekilde değiştirebilirsiniz.
+
+24
+00:01:22,140 --> 00:01:25,015
+sonra siz, yapay sinir ağını; insan yüzünün tüm o 4 noktasının tahmini pozisyonunu vermesi amacıyla, 
+birinci nokta için l1x ve l1y, ikinci nokta için l2x ve l2y değişkenlerini ve
+ diğer noktalar için de benzer değişkenleri üretecek şekilde değiştirebilirsiniz.
+
+25
+00:01:25,015 --> 00:01:29,590
+sonra siz, yapay sinir ağını; insan yüzünün tüm o 4 noktasının tahmini pozisyonunu vermesi amacıyla, 
+birinci nokta için l1x ve l1y, ikinci nokta için l2x ve l2y değişkenlerini ve
+ diğer noktalar için de benzer değişkenleri üretecek şekilde değiştirebilirsiniz.
+
+26
+00:01:29,590 --> 00:01:31,500
+Ama eğer sadece o 4 noktayı istemez de,
+
+27
+00:01:31,500 --> 00:01:33,195
+göz üzerindeki bu nokta, bu nokta, bu nokta ve bu noktanın çıktı olarak bir şey vermesini isterseniz ? 
+
+28
+00:01:33,195 --> 00:01:36,885
+göz üzerindeki bu nokta, bu nokta, bu nokta ve bu noktanın çıktı olarak bir şey vermesini isterseniz ?
+
+29
+00:01:36,885 --> 00:01:39,945
+Belki, ağız üzerine bazı kilit noktalar koyacağım, 
+
+30
+00:01:39,945 --> 00:01:44,205
+böylece siz ağız şeklini çıkartabilecek ve kişinin gülümsediğini veya somurtuğunu söyleyebileceksiniz, 
+
+31
+00:01:44,205 --> 00:01:47,250
+belki burnun köşeleri üzerinde bir kaç kilit nokta oluşturacağım,
+
+32
+00:01:47,250 --> 00:01:50,175
+ama siz bazı sayılar tanımlayabileceksiniz,
+
+33
+00:01:50,175 --> 00:01:57,080
+tartışmak amacıyla 64 nokta veya 64 işaret olduğunu söyleyelim.
+
+34
+00:01:57,080 --> 00:02:02,020
+Belki, yüzün köşelerini, çene hattını tanımlamanıza yardımcı olan bazı noktaları bile, 
+belirli bir sayıda işaretin seçilmesi ve bu işaretleri içeren etiketli eğitim setlerinin oluşturulması sayesinde
+ yapay sinir ağının yüz üzerindeki kilit pozisyonları ve kilit işaretleri size söylemesi ile elde edebileceksiniz.
+
+35
+00:02:02,020 --> 00:02:06,480
+Belki, yüzün köşelerini, çene hattını tanımlamanıza yardımcı olan bazı noktaları bile, 
+belirli bir sayıda işaretin seçilmesi ve bu işaretleri içeren etiketli eğitim setlerinin oluşturulması sayesinde
+ yapay sinir ağının yüz üzerindeki kilit pozisyonları ve kilit işaretleri size söylemesi ile elde edebileceksiniz.
+
+36
+00:02:06,480 --> 00:02:11,415
+Belki, yüzün köşelerini, çene hattını tanımlamanıza yardımcı olan bazı noktaları bile, 
+belirli bir sayıda işaretin seçilmesi ve bu işaretleri içeren etiketli eğitim setlerinin oluşturulması sayesinde
+ yapay sinir ağının yüz üzerindeki kilit pozisyonları ve kilit işaretleri size söylemesi ile elde edebileceksiniz.
+
+37
+00:02:11,415 --> 00:02:14,240
+Belki, yüzün köşelerini, çene hattını tanımlamanıza yardımcı olan bazı noktaları bile, 
+belirli bir sayıda işaretin seçilmesi ve bu işaretleri içeren etiketli eğitim setlerinin oluşturulması sayesinde
+ yapay sinir ağının yüz üzerindeki kilit pozisyonları ve kilit işaretleri size söylemesi ile elde edebileceksiniz.
+
+38
+00:02:14,240 --> 00:02:19,045
+Belki, yüzün köşelerini, çene hattını tanımlamanıza yardımcı olan bazı noktaları bile, 
+belirli bir sayıda işaretin seçilmesi ve bu işaretleri içeren etiketli eğitim setlerinin oluşturulması sayesinde
+ yapay sinir ağının yüz üzerindeki kilit pozisyonları ve kilit işaretleri size söylemesi ile elde edebileceksiniz.
+
+39
+00:02:19,045 --> 00:02:21,305
+Bu durumda sizin yapmanız gereken, bu resmi bir insan yüzü girdisi olarak almak,
+
+40
+00:02:21,305 --> 00:02:23,755
+Bu durumda sizin yapmanız gereken, bu resmi bir insan yüzü girdisi olarak almak,
+
+41
+00:02:23,755 --> 00:02:28,564
+bu resmi bir evrişim ağından (convnet) geçirmek ve evrişim ağının (convnet) 
+
+42
+00:02:28,564 --> 00:02:32,160
+bazı özellik setlerine sahip olmak, 
+
+43
+00:02:32,160 --> 00:02:34,285
+belki bunları 1 ve 0 şeklindeki çıktılar olarak alarak,
+
+44
+00:02:34,285 --> 00:02:40,605
+yüz değişikliği var mı yok mu şeklinde, l1x
+
+45
+00:02:40,605 --> 00:02:48,675
+l1y'den itibaren l64x, l64y'ye kadar değerlendirmektir.
+
+46
+00:02:48,675 --> 00:02:52,065
+Ve burada "l" yi (küçük L harfini) bir işareti belirtmek için kullanıyorum.
+
+47
+00:02:52,065 --> 00:02:59,905
+Böylece bu örnek 129 çıktı birimine sahip olabilirdi,
+
+48
+00:02:59,905 --> 00:03:02,005
+bir tanesi sizin yüzünüz için olabilir veya olmayabilir ?
+
+49
+00:03:02,005 --> 00:03:04,020
+Ve sonra siz 64 işarete sahip olsanız,
+
+50
+00:03:04,020 --> 00:03:05,520
+bu 64x2 eder,
+
+51
+00:03:05,520 --> 00:03:09,600
+ki bu 128 + 1 çıktı birimidir ve
+
+52
+00:03:09,600 --> 00:03:14,450
+bu size ortada biz yüz olup olmadığını söylediği gibi yüzdeki tüm kilit işaretlerin nerede olduğunu da söyleyecektir.
+
+53
+00:03:14,450 --> 00:03:19,225
+Yani bu, yüzlerdeki duyguların tanımlanmasında bir yapı taşıdır ve
+
+54
+00:03:19,225 --> 00:03:25,020
+Snapchat ile veya başka bir eğlence aracı ile oynadıysanız,
+
+55
+00:03:25,020 --> 00:03:28,635
+Ayrıca "Snapchat" fotoğrafları gibi "AR" artırılmış gerçeklik filtreleri de, insan yüzüne süs ve diğer özel efektleri çizebilir.
+
+56
+00:03:28,635 --> 00:03:33,635
+Ayrıca "Snapchat" fotoğrafları gibi "AR" artırılmış gerçeklik filtreleri de, insan yüzüne süs ve diğer özel efektleri çizebilir.
+
+57
+00:03:33,635 --> 00:03:36,565
+Yüz üzerindeki bu işaretleri tespit edebilmenin yanında, 
+
+58
+00:03:36,565 --> 00:03:41,949
+insan yüzünü çarpıtma veya insana süs veya şapka ekleyebilme gibi değişik özel efektlere sahip olan ana yapı taşı bilgisayar grafik efektleri de bulunmaktadır.
+
+59
+00:03:41,949 --> 00:03:48,125
+insan yüzünü çarpıtma veya insana süs veya şapka ekleyebilme gibi değişik özel efektlere sahip olan ana yapı taşı bilgisayar grafik efektleri de bulunmaktadır.
+
+60
+00:03:48,125 --> 00:03:50,600
+Tabii ki, bir ağa bu şekilde davranabilmek için,
+
+61
+00:03:50,600 --> 00:03:52,995
+etiket eğitim setine ihtiyaç duyacaksınız.
+
+62
+00:03:52,995 --> 00:03:57,455
+Elimizde, birilerinin tüm bu işaretlere zahmetli bir şekilde açıklama eklemek zorunda kalacağı Y etiketleri ile birlikte resim setlerimiz var.
+
+63
+00:03:57,455 --> 00:04:00,350
+Elimizde, birilerinin tüm bu işaretlere zahmetli bir şekilde açıklama eklemek zorunda kalacağı Y etiketleri ile birlikte resim setlerimiz var.
+
+64
+00:04:00,350 --> 00:04:04,925
+Elimizde, birilerinin tüm bu işaretlere zahmetli bir şekilde açıklama eklemek zorunda kalacağı Y etiketleri ile birlikte resim setlerimiz var.
+
+65
+00:04:04,925 --> 00:04:11,870
+Son bir örnek, insanlarda poz (duruş) tespit etme ile ilgileniyorsanız, 
+
+66
+00:04:11,870 --> 00:04:17,110
+göğüs bölgesinin orta noktasını, sol omzu, sağ dirseği, bileği ve bunların benzerlerini tanımlamak gibi önemli kilit konumları tanımlayabilirsiniz,
+
+67
+00:04:17,110 --> 00:04:21,807
+göğüs bölgesinin orta noktasını, sol omzu, sağ dirseği, bileği ve bunların benzerlerini tanımlamak gibi önemli kilit konumları tanımlayabilirsiniz,
+
+68
+00:04:21,807 --> 00:04:24,936
+anlattığım tüm bu noktaları açıklayarak, bir yapay sinir ağı çıktısına sahip olmakla birlikte, 
+insan pozunun (duruşunun) kilit noktalarını açıklayan bir yapay sinir ağına da sahip olursunuz,
+
+69
+00:04:24,936 --> 00:04:34,195
+anlattığım tüm bu noktaları açıklayarak, bir yapay sinir ağı çıktısına sahip olmakla birlikte, 
+insan pozunun (duruşunun) kilit noktalarını açıklayan bir yapay sinir ağına da sahip olursunuz,
+
+70
+00:04:34,195 --> 00:04:36,743
+anlattığım tüm bu noktaları açıklayarak, bir yapay sinir ağı çıktısına sahip olmakla birlikte, 
+insan pozunun (duruşunun) kilit noktalarını açıklayan bir yapay sinir ağına da sahip olursunuz,
+
+71
+00:04:36,743 --> 00:04:42,685
+aynı zamanda insan pozuna (duruşuna) yapay sinir ağının bir çıktısı olarak da sahip olabilirsiniz.
+
+72
+00:04:42,685 --> 00:04:47,325
+İnsan duruşunu belirlemek amacıyla, 
+göğüs bölgesinin orta noktası l1x ve l1y'den itibaren l32x, l32y'ye kadar 32 koordinat kullanıyorsanız,
+ tabii ki bunları yapmak için, bu kilit işaretleri tanımlamalısınız.
+
+73
+00:04:47,325 --> 00:04:50,775
+İnsan duruşunu belirlemek amacıyla, 
+göğüs bölgesinin orta noktası l1x ve l1y'den itibaren l32x, l32y'ye kadar 32 koordinat kullanıyorsanız,
+ tabii ki bunları yapmak için, bu kilit işaretleri tanımlamalısınız.
+
+74
+00:04:50,775 --> 00:04:55,395
+İnsan duruşunu belirlemek amacıyla, 
+göğüs bölgesinin orta noktası l1x ve l1y'den itibaren l32x, l32y'ye kadar 32 koordinat kullanıyorsanız,
+ tabii ki bunları yapmak için, bu kilit işaretleri tanımlamalısınız.
+
+75
+00:04:55,395 --> 00:05:01,840
+İnsan duruşunu belirlemek amacıyla, 
+göğüs bölgesinin orta noktası l1x ve l1y'den itibaren l32x, l32y'ye kadar 32 koordinat kullanıyorsanız,
+ tabii ki bunları yapmak için, bu kilit işaretleri tanımlamalısınız.
+
+76
+00:05:01,840 --> 00:05:06,690
+Yani, bu düşünce, tanımak istediğiniz çeşitli işaretlerin X,Y koordinat çıktılarını oluşturmak için
+ bir sürü çıktı birimi eklemek gibi görünebilir.
+
+77
+00:05:06,690 --> 00:05:12,200
+Yani, bu düşünce, tanımak istediğiniz çeşitli işaretlerin X,Y koordinat çıktılarını oluşturmak için
+ bir sürü çıktı birimi eklemek gibi görünebilir.
+
+78
+00:05:12,200 --> 00:05:16,290
+Açık olmak için, farklı farklı resimlerde, birinci nokta hep gözün bu köşesini, 
+ikinci nokta hep gözün bu köşesini, üçüncü nokta gözün hep bu köşesini, dördüncü nokta gözün hep bu köşesini, diğerleri de aynı şekilde
+ hep gözün belirli bir köşesini gösterecek şekilde, birinci işaretin kimliği tutarlı olmalıdır.
+
+79
+00:05:16,290 --> 00:05:18,525
+Açık olmak için, farklı farklı resimlerde, birinci nokta hep gözün bu köşesini, 
+ikinci nokta hep gözün bu köşesini, üçüncü nokta gözün hep bu köşesini, dördüncü nokta gözün hep bu köşesini, diğerleri de aynı şekilde
+ hep gözün belirli bir köşesini gösterecek şekilde, birinci işaretin kimliği tutarlı olmalıdır.
+
+80
+00:05:18,525 --> 00:05:21,368
+Açık olmak için, farklı farklı resimlerde, birinci nokta hep gözün bu köşesini, 
+ikinci nokta hep gözün bu köşesini, üçüncü nokta gözün hep bu köşesini, dördüncü nokta gözün hep bu köşesini, diğerleri de aynı şekilde
+ hep gözün belirli bir köşesini gösterecek şekilde, birinci işaretin kimliği tutarlı olmalıdır.
+
+81
+00:05:21,368 --> 00:05:23,535
+Açık olmak için, farklı farklı resimlerde, birinci nokta hep gözün bu köşesini, 
+ikinci nokta hep gözün bu köşesini, üçüncü nokta gözün hep bu köşesini, dördüncü nokta gözün hep bu köşesini, diğerleri de aynı şekilde
+ hep gözün belirli bir köşesini gösterecek şekilde, birinci işaretin kimliği tutarlı olmalıdır.
+
+82
+00:05:23,535 --> 00:05:25,650
+Açık olmak için, farklı farklı resimlerde, birinci nokta hep gözün bu köşesini, 
+ikinci nokta hep gözün bu köşesini, üçüncü nokta gözün hep bu köşesini, dördüncü nokta gözün hep bu köşesini, diğerleri de aynı şekilde
+ hep gözün belirli bir köşesini gösterecek şekilde, birinci işaretin kimliği tutarlı olmalıdır.
+
+83
+00:05:25,650 --> 00:05:29,475
+Yani, etiketler farklı farklı resimlerde tutarlı olmalıdır.
+
+84
+00:05:29,475 --> 00:05:34,350
+Ancak eğer, yeterince büyük bir data setini, etiketleyicileri veya etiketi bunu yapacak şekilde çalıştırabilirseniz,
+
+85
+00:05:34,350 --> 00:05:38,368
+sonrasında, bir yapay sinir ağı, belki bir kişinin duygularını resminden tanımaya çalışmak gibi
+ insan pozundan (duruşundan) diğer ilgi çekici ifadeleri de çıkarmak için kullanılan işaretleri de çıktı olarak üretebilir.
+
+86
+00:05:38,368 --> 00:05:43,440
+sonrasında, bir yapay sinir ağı, belki bir kişinin duygularını resminden tanımaya çalışmak gibi
+ insan pozundan (duruşundan) diğer ilgi çekici ifadeleri de çıkarmak için kullanılan işaretleri de çıktı olarak üretebilir.
+
+87
+00:05:43,440 --> 00:05:47,935
+sonrasında, bir yapay sinir ağı, belki bir kişinin duygularını resminden tanımaya çalışmak gibi
+ insan pozundan (duruşundan) diğer ilgi çekici ifadeleri de çıkarmak için kullanılan işaretleri de çıktı olarak üretebilir.
+
+88
+00:05:47,935 --> 00:05:50,460
+İşaret tespiti için anlatılacaklar bu kadar.
+
+89
+00:05:50,460 --> 00:05:53,280
+Sonra, bu yapı taşlarını alalım ve
+
+90
+00:05:53,280 --> 00:05:56,280
+nesne algılamayı oluşturmak için kullanmaya başlayalım.

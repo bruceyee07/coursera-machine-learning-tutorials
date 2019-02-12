@@ -1,0 +1,475 @@
+1
+00:00:00,570 --> 00:00:03,330
+Derin ConvNet 'ler gerçekte ne öğreniyor?
+
+2
+00:00:03,330 --> 00:00:07,420
+Bu videoda bir ConvNet 'in derin katmanlarının gerçekte neler yaptığı hakkında
+
+3
+00:00:07,420 --> 00:00:11,900
+sezgilerinizin gelişmesine yardımcı olacak bazı görseller paylaşmak istiyorum.
+
+4
+00:00:11,900 --> 00:00:14,845
+Bu aynı zamanda bir sinir sitil transfer'ini de nasıl uygulayabileceğinizi
+
+5
+00:00:14,845 --> 00:00:17,015
+düşünmemize yardımcı olacak.
+
+6
+00:00:17,015 --> 00:00:18,735
+Bir örnek ile başlayalım.
+
+7
+00:00:18,735 --> 00:00:23,895
+Bir ConvNet'i eğittiğinizi söyleyelim, bu AlexNet benzeri bir ağ,
+
+8
+00:00:23,895 --> 00:00:28,885
+ve siz farklı katmanlardaki gizli birimlerin neler hesapladığını görselleştirmek istiyorsunuz.
+
+9
+00:00:28,885 --> 00:00:30,255
+İşte yapabileceğiniz şey.
+
+10
+00:00:30,255 --> 00:00:33,920
+1.katmandaki bir gizli katman ile başlayalım.
+
+11
+00:00:33,920 --> 00:00:38,790
+Diyelim ki eğitim setinizi tarayabiliyorsunuz ve bu birimlerin aktivasyonları maksimize edecek resimlerin ya da
+
+12
+00:00:38,790 --> 00:00:43,960
+resim parçalarının neler olduğunu bulabiliyorsunuz.
+
+13
+00:00:43,960 --> 00:00:49,260
+Diğer bir deyiş ile, eğitim setinizi sinir ağınıza doğru durdurun ve
+
+14
+00:00:49,260 --> 00:00:55,250
+her bir birimin aktivasyonunu en üst seviyeye taşıyacak görüntünün ne olduğunu bulmaya çalışın.
+
+15
+00:00:55,250 --> 00:00:58,130
+Şimdi, 1.katmandaki bir gizli birime dikkat edin,
+
+16
+00:00:58,130 --> 00:01:02,750
+sinir ağının sadece nispeten küçük bir parçasını göreceksiniz.
+
+17
+00:01:02,750 --> 00:01:08,170
+Eğer bunu görselleştirirseniz, eğer aktivite edilen birimi neyin aktive ettiğini çizerseniz,
+
+18
+00:01:08,170 --> 00:01:11,360
+sadece küçük bir resim parçasının çizilmesi anlamlı olacaktır,
+
+19
+00:01:11,360 --> 00:01:15,190
+çünkü beliri bir birimin gördüğü bütün resim budur.
+
+20
+00:01:15,190 --> 00:01:20,220
+Bu neden ile eğer bir gizli birimi alır ve bu birimin aktivasyonunu maksimize edecek 9 giriş resmini bulursanız,
+
+21
+00:01:20,220 --> 00:01:25,380
+muhtemelen buna benzer dokuz resim parçası elde edeceksiniz.
+
+22
+00:01:25,380 --> 00:01:30,293
+Görünüşe göre bu gizli birimin bir resmin alt bölgesinde gördüğü şey,
+
+23
+00:01:30,293 --> 00:01:34,691
+bu şekilde gözüken bir köşe veya kenar gibi gözüküyor.
+
+24
+00:01:34,691 --> 00:01:39,091
+Dolayısı bu dokuz resim parçası bir gizli birimin aktivasyonunu
+
+25
+00:01:39,091 --> 00:01:41,559
+en üst seviyede etkinleştiren parçalardır.
+
+26
+00:01:41,559 --> 00:01:47,055
+Şimdi, birinci katmanda başka bir gizli birimi alıp aynı şeyi yapabilirsiniz.
+
+27
+00:01:47,055 --> 00:01:51,149
+Bu farklı bir gizli birimdir ve görünüşe göre bu ikinci birim,
+
+28
+00:01:51,149 --> 00:01:54,170
+buradaki 9 resim parçası ile temsil ediliyor
+
+29
+00:01:54,170 --> 00:01:58,679
+Görünüşe bakılırsa bu gizli birim giriş bölgesinin bu bölümünde bir çeşit çizgi arıyor,
+
+30
+00:01:58,679 --> 00:02:02,540
+bunu aynı zamanda alıcı alan olarak adlandıracağız.
+
+31
+00:02:02,540 --> 00:02:07,075
+Eğer bunu diğer gizli birimler için yaparsanız, diğer gizli birimlerin,
+
+32
+00:02:07,075 --> 00:02:11,140
+buna benzer şekilde resim parçaları ile aktifleşmeye yatkın olduklarını bulursunuz.
+
+33
+00:02:11,140 --> 00:02:15,180
+Görünüşe göre bunun tercihi dikey bir ışık bölümü, ama
+
+34
+00:02:15,180 --> 00:02:18,710
+sol tarafı yeşil olması tercihi ile.
+
+35
+00:02:18,710 --> 00:02:23,882
+Bu gerçekten turuncu renkleri tercih ediyor ve bu gerçekten ilginç bir resim parçası.
+
+36
+00:02:23,882 --> 00:02:29,730
+Bu kırmızı ve yeşil bir arada kahverengimsi veya kahverengimsi-turuncumsu bir renk yapıyor.
+
+37
+00:02:29,730 --> 00:02:34,294
+ama bu sinir hücreleri yine de bunu aktifleştirmekten mutlu, ve böyle devam ediyor.
+
+38
+00:02:34,294 --> 00:02:38,399
+Yani bu dokuz farklı temsili sinir hücresi ve
+
+39
+00:02:38,399 --> 00:02:43,369
+her biri için en üst seviyede etkinleştiren dokuzar resim parçasıdır.
+
+40
+00:02:43,369 --> 00:02:48,066
+Bu size birimlerin, birinci katmandaki gizli birimlerin eğitimlerine dair bir fikir verecektir,
+
+41
+00:02:48,066 --> 00:02:49,868
+genellikle onların aradıkları şey
+
+42
+00:02:49,868 --> 00:02:55,010
+daha basit özellikler, bir kenar ya da belirli bir renk tonu gibi.
+
+43
+00:02:55,010 --> 00:02:57,920
+Bu videoda kullandığım tüm örnekler
+
+44
+00:02:57,920 --> 00:03:01,160
+Mathew Zeiler ve Rob Fergus ait olan
+
+45
+00:03:01,160 --> 00:03:06,440
+"Visualizing and Understanding Convolutional Networks" başlıklı yayınlarından alınmıştır.
+
+46
+00:03:06,440 --> 00:03:10,689
+Ben bir sinir ağındaki bir gizli birimin ne hesapladığını görselleştirmek için
+
+47
+00:03:10,689 --> 00:03:14,680
+en basit yöntemlerden birisini kullanacağım.
+
+48
+00:03:14,680 --> 00:03:18,706
+Eğer onların yayını okursanız, bir ConvNet 'nin ne öğrendiği ile ilgili
+
+49
+00:03:18,706 --> 00:03:21,480
+görselleştirme için daha karmaşık yöntemlerinin de olduğunu göreceksiniz
+
+50
+00:03:22,520 --> 00:03:26,064
+Fakat şimdi 1.katmandaki dokuz gizli birim için bu işlemi
+
+51
+00:03:26,064 --> 00:03:28,380
+birkaç kez tekrar etmeniz gerekli.
+
+52
+00:03:28,380 --> 00:03:29,900
+Peki ya bu işlemi
+
+53
+00:03:29,900 --> 00:03:33,790
+sinir ağının daha derin katmanlarındaki bazı gizli birimler için yaparsanız ne olur?
+
+54
+00:03:33,790 --> 00:03:37,950
+Ve bunun sonrasında derin bir katmanda sinir ağı ne öğreniyor olur?
+
+55
+00:03:37,950 --> 00:03:43,120
+Daha derin katmanlarda, bir gizli birim daha geniş bir resim bölümü görecektir.
+
+56
+00:03:43,120 --> 00:03:46,540
+Bu en uç noktadaki her bir piksel varsayımsal olarak
+
+57
+00:03:46,540 --> 00:03:51,560
+sinir ağında sondaki katmanların çıktılarını etkileyecektir.
+
+58
+00:03:51,560 --> 00:03:55,040
+Sonlardaki birimler aslında daha büyük resim parçaları görürler,
+
+59
+00:03:55,040 --> 00:03:59,580
+Ben yine de resim parçalarının büyüklüklerini bu slaytlardaki diğer resim parçaları ile aynı büyüklükte çizeceğim.
+
+60
+00:03:59,580 --> 00:04:04,370
+Ama eğer bu işlemi tekrarlarsak, bu daha önce 1.katmanda elde ettiğiniz şeydi,
+
+61
+00:04:04,370 --> 00:04:09,610
+ve bu da 2.katmanda yer alan dokuz farklı gizli birimi neyin en üst seviyede
+
+62
+00:04:09,610 --> 00:04:12,320
+etkinleştirdiğinin görselidir.
+
+63
+00:04:12,320 --> 00:04:15,416
+Bu görselleştirmenin ne olduğu konusunda net olmak istiyorum.
+
+64
+00:04:15,416 --> 00:04:20,864
+Bunlar, bir gizli birimin yüksek oranda aktive olmasına neden olan dokuz parçadır.
+
+65
+00:04:20,864 --> 00:04:25,471
+Ve her bir gruplandırma için, bu 9 parçadan oluşan ve
+
+66
+00:04:25,471 --> 00:04:27,940
+bir gizli birimin aktive olmasına neden olan farklı bir settir.
+
+67
+00:04:27,940 --> 00:04:32,630
+Dolayısı ile bu görselleştirme 2.katmandaki dokuz gizli birimi gösterir, ve
+
+68
+00:04:32,630 --> 00:04:36,700
+her biri için gizli birimin çok büyük bir çıkışa, çok büyük bir aktivasyona sahip olmasına neden olan
+
+69
+00:04:36,700 --> 00:04:39,890
+dokuz resim parçası gösterir.
+
+70
+00:04:39,890 --> 00:04:44,120
+Ve siz bunu daha derin katmanlar içi de tekrarlayabilirsiniz.
+
+71
+00:04:44,120 --> 00:04:46,980
+Bu slayt üzerindeki bu küçük resim parçalarını görmenin zor olduğunu biliyorum
+
+72
+00:04:46,980 --> 00:04:49,188
+bu neden ile bazılarına yakından bakmak istiyorum.
+
+73
+00:04:49,188 --> 00:04:52,170
+Bu 1.katmanda gördüğünüz şeydi.
+
+74
+00:04:52,170 --> 00:04:58,270
+Örneğin, bu birimin yüksek oranda aktive edilen ilk birim olduğunu gördük,
+
+75
+00:04:58,270 --> 00:05:03,840
+giriş görüntüsünün bulunduğu bölgede bir kenar olduğunu görebilirsiniz, belki bu açıdan.
+
+76
+00:05:03,840 --> 00:05:08,350
+Şimdi benzer şekilde 2.katman için de bu görselleştirmeye yakından bakalım.
+
+77
+00:05:08,350 --> 00:05:09,750
+Bu ilginç,
+
+78
+00:05:09,750 --> 00:05:14,030
+2.katman daha karmaşık şekiller ve desenler tespit ediyor gibi.
+
+79
+00:05:14,030 --> 00:05:17,300
+Örneğin, bu gizli birim sanki birçok dikey çizgi içeren
+
+80
+00:05:17,300 --> 00:05:21,110
+dikey desenlere bakıyor gibi.
+
+81
+00:05:21,110 --> 00:05:24,150
+Bu gizli birim resim parçasının sol tarafında yuvarlak bir şekil olunca
+
+82
+00:05:24,150 --> 00:05:27,730
+yüksek oranda aktifleşiyor gibi.
+
+83
+00:05:27,730 --> 00:05:33,690
+Buradaki ise çok ince dikey çizgilere bakıyor gibi, ve böyle devam ediyor.
+
+84
+00:05:33,690 --> 00:05:38,810
+Ve böylece ikinci katmanın tespit ettiği özellikler daha da karmaşıklaşıyor.
+
+85
+00:05:38,810 --> 00:05:39,980
+Peki 3.katman nasıl?
+
+86
+00:05:39,980 --> 00:05:43,476
+Şimdi buna yakından bakalım, bu sefer daha çok yakınlaşacağım, böylece
+
+87
+00:05:43,476 --> 00:05:48,156
+daha iyi görebilirsiniz, bunlar 3.katmanı en üst seviyede aktive eden şeyler.
+
+88
+00:05:48,156 --> 00:05:52,806
+Şimdi daha yakından bakalım, bu da çok ilginç.
+
+89
+00:05:52,806 --> 00:05:57,139
+Burada bir gizli birim var gibi, ve görüşüne göre
+
+90
+00:05:57,139 --> 00:06:01,981
+resmin sol alt tarafındaki yuvarlak şekle yüksek tepki veriyor gibi
+
+91
+00:06:01,981 --> 00:06:06,523
+Böylece bir çok arabayı tespit etti ve
+
+92
+00:06:06,523 --> 00:06:10,735
+harika gözüküyor, insanları bile tespit etmeye başlıyor.
+
+93
+00:06:10,735 --> 00:06:15,593
+Ve görüşüne göre bu petek deseni yada kare deseni gibi
+
+94
+00:06:15,593 --> 00:06:18,358
+belirli şekilleri arıyor.
+
+95
+00:06:18,358 --> 00:06:22,356
+Bunların bazılarına bakarak neyi tespit ettiklerini bulmak zor,
+
+96
+00:06:22,356 --> 00:06:26,900
+ama daha karmaşık şekilleri tespit etmeye başladıkları açık.
+
+97
+00:06:26,900 --> 00:06:27,880
+Bir sonraki katman nasıl?
+
+98
+00:06:27,880 --> 00:06:30,903
+Bu 4.katman ve burada daha da karmaşık özelliklerin yada
+
+99
+00:06:30,903 --> 00:06:33,508
+şekillerin tespit edildiğini görebilirsiniz.
+
+100
+00:06:33,508 --> 00:06:37,410
+Görünüşe göre bu neredeyse bir köpek dedektörü gibi öğreniyor, fakat
+
+101
+00:06:37,410 --> 00:06:39,250
+bütün bu köpekler benzer gözüküyor, değil mi?
+
+102
+00:06:39,250 --> 00:06:42,770
+Bunun hangi köpek türü ya da köpek soyu olduğunu bilmiyorum.
+
+103
+00:06:42,770 --> 00:06:47,700
+Bunların hepsi köpek, ama birbirlerine benzeyen köpekler.
+
+104
+00:06:47,700 --> 00:06:51,680
+Bu gizli birim su tespit ediyor gibi.
+
+105
+00:06:53,130 --> 00:06:58,440
+Bu aslında bir kuşun bacaklarını tespit ediyor gibi, ve böylece devam ediyor.
+
+106
+00:06:58,440 --> 00:07:02,740
+Ve 5.katman daha kompleks şeyleri tespit ediyor.
+
+107
+00:07:02,740 --> 00:07:07,396
+Burada da köpek dedektörü gibi çalışan bir nöron olduğunu fark edeceksiniz,
+
+108
+00:07:07,396 --> 00:07:12,450
+fakat burada tespit edilen köpek grubu daha çeşitli gibi.
+
+109
+00:07:12,450 --> 00:07:17,610
+Ve bu klavyeleri ve klavyeye benzer şekilleri tespit ediyor gibi,
+
+110
+00:07:17,610 --> 00:07:22,360
+belki bir zemin üzerindeki birçok nokta olabilir.
+
+111
+00:07:22,360 --> 00:07:27,950
+Bu sinir hücresinin metinleri tespit edebileceğini düşünüyorum, emin olmak her zaman zordur.
+
+112
+00:07:27,950 --> 00:07:31,520
+Ve buradaki, çiçekleri tespit ediyor.
+
+113
+00:07:31,520 --> 00:07:35,430
+Böylelikle, görece olarak basit şekilleri tespit etmekten,
+
+114
+00:07:35,430 --> 00:07:38,135
+1.katmandaki kenarlardan 2.katmandaki şekillere geçiş gibi,
+
+115
+00:07:38,135 --> 00:07:43,780
+daha derin katmanlardaki çok komplike objelerin tespitine kadar uzun bir yol katettik.
+
+116
+00:07:43,780 --> 00:07:48,420
+Umarım bu size bir sinir ağında sığ katmanların ve derin katmanların
+
+117
+00:07:48,420 --> 00:07:52,120
+ne hesapladığı hakkında daha iyi sezgiler verir.
+
+118
+00:07:52,120 --> 00:07:56,763
+Bundan sonra, bu sezgileri kullanarak bir sinirsel stil transfer algoritmasını oluşturmaya
+
+119
+00:07:56,763 --> 00:07:57,530
+başlayalım.

@@ -1,0 +1,235 @@
+1
+00:00:00,000 --> 00:00:03,500
+Sinirsel stil transfer algoritmasının maliyet fonksiyonun
+
+2
+00:00:03,500 --> 00:00:07,975
+bir içerik maliyet bileşeni bir de stil maliyet bileşeni bulunur.
+
+3
+00:00:07,975 --> 00:00:11,455
+İçerik maliyet bileşenini tanımlayarak başlayalım.
+
+4
+00:00:11,455 --> 00:00:17,595
+Bunun sinirsel stil transfer algoritmasının maliyet fonksiyonunun tamamı olduğunu hatırlayalım.
+
+5
+00:00:17,595 --> 00:00:21,660
+Öyleyse, içerik maliyeti fonksiyonunun ne olması gerektiğine bakalım.
+
+6
+00:00:21,660 --> 00:00:26,380
+İçerik maliyetini hesaplamak için gizli katman l 'yi kullandığınızı düşünelim.
+
+7
+00:00:26,380 --> 00:00:30,920
+Eğer l çok küçük bir sayı ise, eğer birinci gizli katmanı kullanıyorsanız,
+
+8
+00:00:30,920 --> 00:00:34,440
+bu durum oluşturulan resminizi
+
+9
+00:00:34,440 --> 00:00:37,875
+içerik resminize çok benzer piksel değerlerine zorlar.
+
+10
+00:00:37,875 --> 00:00:39,735
+Buna karşılık, eğer çok derin bir katman kullanırsanız,
+
+11
+00:00:39,735 --> 00:00:41,260
+bu durumda
+
+12
+00:00:41,260 --> 00:00:43,040
+eğer içerik resminde bir köpek var ise,
+
+13
+00:00:43,040 --> 00:00:46,150
+o zaman sadece oluşturulan resimde bir yerlerde köpek olduğundan emin olmanızı sorgulayacaktır.
+
+14
+00:00:46,150 --> 00:00:50,310
+Pratikte l katmanı ikisi arasında bir yerlerde seçilir.
+
+15
+00:00:50,310 --> 00:00:53,015
+Sinir ağında ne çok sığ ne de çok derinde değildir.
+
+16
+00:00:53,015 --> 00:00:55,780
+Ve bunu kendiniz planladığınız için,
+
+17
+00:00:55,780 --> 00:00:58,765
+Bu hafta sonunda yaptığınız problem alıştırmasında
+
+18
+00:00:58,765 --> 00:01:01,260
+somut alıştırmalar ile bazı sezgiler kazanmanız için
+
+19
+00:01:01,260 --> 00:01:04,475
+sizi serbest bırakacağım.
+
+20
+00:01:04,475 --> 00:01:06,810
+Fakat genellikle l sinir ağının
+
+21
+00:01:06,810 --> 00:01:09,080
+ortalarında bir yerlerde seçilir,
+
+22
+00:01:09,080 --> 00:01:12,170
+ne çok sığ, ne de çok derin.
+
+23
+00:01:12,170 --> 00:01:15,285
+Daha sonrasında önceden eğitilmiş bir ConvNet kullanabilirsiniz,
+
+24
+00:01:15,285 --> 00:01:17,317
+belki bir VGG ağı
+
+25
+00:01:17,317 --> 00:01:20,020
+ya da başka bir sinir ağı da olabilir.
+
+26
+00:01:20,020 --> 00:01:22,050
+Ve şimdi ölçmek istediğiniz şey,
+
+27
+00:01:22,050 --> 00:01:26,160
+verilen bir içerik resmi ve verilen bir oluşturulmuş resim ile,
+
+28
+00:01:26,160 --> 00:01:29,688
+bunların içerik olarak ne kadar benzer olduklarını bulmak.
+
+29
+00:01:29,688 --> 00:01:31,540
+Öyleyse
+
+30
+00:01:31,540 --> 00:01:39,900
+a_üstü_[l](c) ve bunun bu iki resim üzerindeki l katmanının aktivasyonları olmasına izin verelim,
+
+31
+00:01:39,900 --> 00:01:42,814
+resim C ve G üzerindeki. Böylelikle,
+
+32
+00:01:42,814 --> 00:01:47,020
+eğer bu iki aktivasyon benzer ise
+
+33
+00:01:47,020 --> 00:01:52,602
+bu her iki görüntünün benzer içeriğe sahip olduğuna işaret eder.
+
+34
+00:01:52,602 --> 00:01:54,855
+Bu durumda yapacağımız şey
+
+35
+00:01:54,855 --> 00:02:01,510
+J_content (C,G) 'yi
+
+36
+00:02:01,510 --> 00:02:05,345
+bu iki aktivasyon fonksiyonunun ne kadar yakın ya da ne kadar farklı olduğu olarak tanımlamaktır.
+
+37
+00:02:05,345 --> 00:02:08,320
+Yapacağımız şey l katmanı üzerindeki gizli aktivasyon birimlerini
+
+38
+00:02:08,320 --> 00:02:12,200
+eleman bazında farkını almak,
+
+39
+00:02:12,200 --> 00:02:14,710
+içerik resmine geçtiğinize kıyasla ile
+
+40
+00:02:14,710 --> 00:02:17,736
+oluşturulmuş resme geçtiğiniz arasındaki
+
+41
+00:02:17,736 --> 00:02:19,955
+ve bunun karesini alacağız.
+
+42
+00:02:19,955 --> 00:02:23,760
+Önünde bir normalleştirme sabitiniz olabilir veya olmayabilir,
+
+43
+00:02:23,760 --> 00:02:25,535
+belki 1/2 ya da başka bir şey.
+
+44
+00:02:25,535 --> 00:02:31,935
+Bu hiper parametre alfa tarafından da ayarlanabileceğinden dolayı çok önemli değil.
+
+45
+00:02:31,935 --> 00:02:37,070
+Buradaki formülün kullanımının
+
+46
+00:02:37,070 --> 00:02:42,635
+bunların her ikisinin vektörlere doğru açılmasındaki kullanımında net olması için,
+
+47
+00:02:42,635 --> 00:02:47,975
+Bu kısım bunun ile bunun arasındaki l_2 norm 'un karekökü haline gelir,
+
+48
+00:02:47,975 --> 00:02:51,680
+her ikisini de vektörlere açtığınız zaman.
+
+49
+00:02:51,680 --> 00:02:54,492
+Burada gerçekten sadece bu iki aktivasyon fonksiyonunu arasındaki
+
+50
+00:02:54,492 --> 00:02:59,480
+farkların karesinin eleman bazlı toplamı var.
+
+51
+00:02:59,480 --> 00:03:03,000
+Ama bu gerçekten sadece resim C ve G arasındaki
+
+52
+00:03:03,000 --> 00:03:06,150
+l katmanındaki aktivasyonlar arasındaki farkların karalerinin
+
+53
+00:03:06,150 --> 00:03:11,850
+eleman bazlı toplamıdır. Ve böylece,
+
+54
+00:03:11,850 --> 00:03:17,100
+daha sonra G 'nin bir değerini bulmak için J(G) 'de dereceli alçalma yaptığınızda,
+
+55
+00:03:17,100 --> 00:03:19,740
+maliyet düşük olacak,
+
+56
+00:03:19,740 --> 00:03:23,120
+bu da algoritmayı bir G resmi bulmak için teşvik eder,
+
+57
+00:03:23,120 --> 00:03:29,203
+böylece buradaki gizli katman aktivasyonları içerik resminden elde ettikleriniz ile benzer olur.
+
+58
+00:03:29,203 --> 00:03:33,985
+Sinirsel stil transfer için içerik fonksiyonunu nasıl tanımlayabileceğinizi gördük.
+
+59
+00:03:33,985 --> 00:03:37,000
+Bir sonraki adımda stil maliyet fonksiyonuna geçelim.

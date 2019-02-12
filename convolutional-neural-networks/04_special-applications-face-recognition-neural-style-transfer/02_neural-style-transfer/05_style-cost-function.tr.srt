@@ -1,0 +1,784 @@
+1
+00:00:00,000 --> 00:00:02,400
+Son videoda, nasıl tanımlanacağını gördüğümüz
+
+2
+00:00:02,400 --> 00:00:04,980
+sinirsel stil aktarımı için içerik maliyet fonksiyonudur.
+
+3
+00:00:04,980 --> 00:00:09,317
+Bundan sonra, hadi stil maliyet fonksiyonuna bakalım.
+
+4
+00:00:09,317 --> 00:00:12,373
+yani, görselin tipi (stili) ne demektir?
+
+5
+00:00:12,373 --> 00:00:14,633
+Hadi bu fotoğrafı girdi olarak alalım.
+
+6
+00:00:14,633 --> 00:00:16,750
+Bunun gibi bir convnet (CNN) görüyorlardı,
+
+7
+00:00:16,750 --> 00:00:20,091
+Farklı katmanların olduğu özellikleri hesaplamak.
+
+8
+00:00:20,091 --> 00:00:22,692
+ve L katmanını seçtiğiniz diyelim,
+
+9
+00:00:22,692 --> 00:00:29,020
+Belki bu katman görselin stilinin ölçüsünü belirlemek olabilir.
+
+10
+00:00:29,020 --> 00:00:34,095
+Yapmamız gereken stili belirlemek, korelasyon:
+
+11
+00:00:34,095 --> 00:00:40,635
+Bu katman L aktivasyonundaki farklı kanallar arasındaki aktivasyonlar olabilir.
+
+12
+00:00:40,635 --> 00:00:42,190
+Yani bununla kastettiğim şey budur.
+
+13
+00:00:42,190 --> 00:00:44,480
+Bu katmanı L aktivasyonunu ele aldığınızı varsayalım.
+
+14
+00:00:44,480 --> 00:00:50,936
+Yani bu aktivasyonun nc bloğu tarafından nw'den nh olacak.
+
+15
+00:00:50,936 --> 00:00:55,995
+ve farklı kanallardaki aktivasyonların nasıl korelasyon olduğunu soracağız.
+
+16
+00:00:55,995 --> 00:00:59,966
+Yani bununla ne demek istediğimi açıklamak için biraz şifreli ifade olabilir.
+
+17
+00:00:59,966 --> 00:01:02,850
+Hadi bu aktivasyon bloğunu ele alalım.
+
+18
+00:01:02,850 --> 00:01:06,575
+ve farklı kanalları farklı renklerle gölgelememe izin verin.
+
+19
+00:01:06,575 --> 00:01:08,295
+Yani bu aşağıdaki örnekte,
+
+20
+00:01:08,295 --> 00:01:14,286
+Beş kanal dedik ve bu yüzden burada beş renk tonum var.
+
+21
+00:01:14,286 --> 00:01:15,375
+Örnekte, elbette,
+
+22
+00:01:15,375 --> 00:01:18,514
+Nöral Ağda genellikle beşten fazla kanala sahip oluruz.
+
+23
+00:01:18,514 --> 00:01:22,056
+ama sadece beşini kullanmak çizim yapmayı kolaylaştırır.
+
+24
+00:01:22,056 --> 00:01:24,765
+Fakat bir resmin stilini yakalamak için,
+
+25
+00:01:24,765 --> 00:01:26,850
+Sonrakinde ne yapacaksın?
+
+26
+00:01:26,850 --> 00:01:28,910
+Hadi ilk iki kanala bir göz atalım.
+
+27
+00:01:28,910 --> 00:01:32,970
+Kırmızı kanal ve sarı kanalı bakalım ve
+
+28
+00:01:32,970 --> 00:01:37,450
+İlk iki kanalda aktivasyonlar ne kadar korelasyonlu söyleyelim.
+
+29
+00:01:37,450 --> 00:01:40,575
+Yani, örneğin, sağ alt köşede,
+
+30
+00:01:40,575 --> 00:01:45,820
+İlk kanalda bazı aktivasyonunuz ve ikinci kanalda bazı aktivasyonunuz var.
+
+31
+00:01:45,820 --> 00:01:47,655
+Böylece size sayı çifti verir.
+
+32
+00:01:47,655 --> 00:01:51,510
+Ve yaptığınız şey farklı pozisyonlara
+
+33
+00:01:51,510 --> 00:01:55,435
+bu aktivasyon bloğu boyunca bakmaktır ve sayı çiftlerine bakmaktır.
+
+34
+00:01:55,435 --> 00:01:57,232
+İlk kanalda bir, kırmızı kanal,
+
+35
+00:01:57,232 --> 00:02:00,000
+sarı kanalda bir, ikinci kanal.
+
+36
+00:02:00,000 --> 00:02:02,370
+Ve sadece bu iki çift sayıya bakarsınız ve
+
+37
+00:02:02,370 --> 00:02:04,816
+Tüm bu pozisyonlara genel baktığınız zaman görürsünüz,
+
+38
+00:02:04,816 --> 00:02:07,320
+tüm bu nh (nw pozisyonlarından),
+
+39
+00:02:07,320 --> 00:02:10,205
+Bu iki sayı ne kadar ilişkilidir.
+
+40
+00:02:10,205 --> 00:02:12,550
+Peki, neden bu yakalama stili?
+
+41
+00:02:12,550 --> 00:02:14,405
+Hadi başka örnek yapalım.
+
+42
+00:02:14,405 --> 00:02:17,844
+İşte önceki videodan görselleştirmelerden biri.
+
+43
+00:02:17,844 --> 00:02:20,280
+Bu daha önceden referans aldığım
+
+44
+00:02:20,280 --> 00:02:23,350
+Matthew Zeiler ve Rob Fergus dan geliyor.
+
+45
+00:02:23,350 --> 00:02:25,360
+ve argümanlar uğruna diyelim ki,
+
+46
+00:02:25,360 --> 00:02:28,300
+kırmızı nöron tekabül eder ki,
+
+47
+00:02:28,300 --> 00:02:30,170
+ve argümanlar uğruna diyelim ki,
+
+48
+00:02:30,170 --> 00:02:36,600
+Kırmızı kanalın bu nöronlara karşılık gelmesi için, eğer var mı diye anlamaya çalışıyoruz
+
+49
+00:02:36,600 --> 00:02:40,320
+bu nh deki belirli pozisyonda
+
+50
+00:02:40,320 --> 00:02:46,185
+küçük dikey doku ve bunun ikinci kanal olduğunu söyleyelim.
+
+51
+00:02:46,185 --> 00:02:51,795
+bu sarı ikinci kanal nörona karşılık gelir.
+
+52
+00:02:51,795 --> 00:02:56,515
+Belirsiz şekilde turuncu boyanmış parçalara bakan.
+
+53
+00:02:56,515 --> 00:03:01,104
+Bu iki kanalın yüksek korelasyon göstermesi ne anlama geliyor?
+
+54
+00:03:01,104 --> 00:03:04,560
+eğer yüksek derecede ilişkiliyse, bunun anlamı ne olursa olsun,
+
+55
+00:03:04,560 --> 00:03:08,430
+görüntünün bir kısmı bu tür ince dikey dokuya sahip,
+
+56
+00:03:08,430 --> 00:03:12,980
+Görüntünün o kısmı muhtemelen bu turuncu-msu renk tonuna sahip olacaktır.
+
+57
+00:03:12,980 --> 00:03:15,755
+Ve onların korelasyon göstermemesi ne anlama geliyor?
+
+58
+00:03:15,755 --> 00:03:19,635
+Yani, bu dikey doku olduğunda,
+
+59
+00:03:19,635 --> 00:03:22,625
+Muhtemelen bu kadar turuncu-msu renkte olmayacaktır.
+
+60
+00:03:22,625 --> 00:03:25,710
+ve yani korelasyondan anlayacağımız
+
+61
+00:03:25,710 --> 00:03:31,020
+Bu yüksek seviyeli doku bileşenlerinden hangisinin oluşması veya oluşmaması eğilimi
+
+62
+00:03:31,020 --> 00:03:35,550
+Bir resmin bir parçası ve size verilen korelasyon derecesidir.
+
+63
+00:03:35,550 --> 00:03:40,455
+Bu farklı yüksek seviyeli özelliklerin ne sıklıkla ölçüldüğünü ölçmenin bir yolu,
+
+64
+00:03:40,455 --> 00:03:45,441
+dikey doku veya bu turuncu renk tonu veya başka şeyler gibi,
+
+65
+00:03:45,441 --> 00:03:48,180
+Ne sıklıkla oluşurlar ve ne sıklıkla oluşurlar?
+
+66
+00:03:48,180 --> 00:03:51,740
+birlikte ve görüntünün farklı bölümlerinde birlikte oluşmaz.
+
+67
+00:03:51,740 --> 00:03:57,180
+Ve böylece, stilin ölçüsü olarak kanallar arasındaki korelasyon derecesini kullanırsak,
+
+68
+00:03:57,180 --> 00:04:02,670
+sonra yapabileceğiniz şey, oluşturulan görüntünüzdeki dereceyi ölçmektir.
+
+69
+00:04:02,670 --> 00:04:06,810
+Bu ilk kanal ile ikinci kanalın birbiriyle korelasyonlu veya korelasyonsuz
+
+70
+00:04:06,810 --> 00:04:12,090
+ve bu size oluşturulan görüntüde ne sıklıkta olduğunu söyleyecektir
+
+71
+00:04:12,090 --> 00:04:14,820
+bu dikey doku oluşur veya olmaz
+
+72
+00:04:14,820 --> 00:04:18,450
+Bu turuncu-msu renk tonuyla oluşur ve bu size
+
+73
+00:04:18,450 --> 00:04:25,675
+oluşturulan görüntünün stilinin giriş stili görüntüsünün stiline ne kadar benzediğinin bir ölçüsünü verir.
+
+74
+00:04:25,675 --> 00:04:28,600
+Şimdi bu sezgiyi formalize edelim.
+
+75
+00:04:28,600 --> 00:04:34,620
+Yani yapmanız gereken şey, bir görüntü matrisi olarak adlandırılan bir görüntüyü hesaplamak,
+
+76
+00:04:34,620 --> 00:04:38,960
+Son slaytta konuştuğumuz tüm korelasyonları ölçeceğiz.
+
+77
+00:04:38,960 --> 00:04:44,280
+Daha resmi olarak, üst indis olarak l, alt indis i,
+
+78
+00:04:44,280 --> 00:04:47,868
+j,k pozisyondaki aktivasyonu belirtmek i,j,k
+
+79
+00:04:47,868 --> 00:04:53,610
+gizlenmiş katman l. Yani i yüksekliği indeks eder (gösterir),
+
+80
+00:04:53,610 --> 00:04:54,850
+j genişliği gösterir,
+
+81
+00:04:54,850 --> 00:04:58,050
+ve k karşılıklı değişik kanalları gösterir.
+
+82
+00:04:58,050 --> 00:05:00,045
+Yani, önceki slaytta
+
+83
+00:05:00,045 --> 00:05:05,165
+Bu beş kanalda k bu beş kanalı gösterecek.
+
+84
+00:05:05,165 --> 00:05:09,635
+Yani stil matrisinin yapacağı şey, bir matris cümleleri hesaplamak olacak
+
+85
+00:05:09,635 --> 00:05:17,390
+G üst simge köşeli ayraçlı l. Bu nc boyutlu matris tarafından nc olacak,
+
+86
+00:05:17,390 --> 00:05:18,755
+bu yüzden kare matris olur.
+
+87
+00:05:18,755 --> 00:05:23,390
+Hatırlayın ki kanallarınız var ve böylece
+
+88
+00:05:23,390 --> 00:05:29,490
+her bir çiftin ne kadar korelasyonlu olduğunu ölçmek için nc boyutlu bir matrisiniz var.
+
+89
+00:05:29,490 --> 00:05:32,585
+Yani berilli G,l,k
+
+90
+00:05:32,585 --> 00:05:36,954
+k birincil kanaldaki aktivasyonların nasıl korelasyonlu olduğunu ölçecek
+
+91
+00:05:36,954 --> 00:05:41,755
+k kanalı, k birincil kanalındaki aktivasyonları karşılaştırır
+
+92
+00:05:41,755 --> 00:05:46,250
+k ve k prime 1'den nc'ye kadar değişecek.
+
+93
+00:05:46,250 --> 00:05:49,630
+Bu katmandaki tüm kanalların sayısı.
+
+94
+00:05:49,630 --> 00:05:55,820
+Yani daha resmi olarak, hesaplama yolu G,
+
+95
+00:05:55,820 --> 00:06:00,840
+l ve Bir elemanın hesabı için formülü yazacağım.
+
+96
+00:06:00,840 --> 00:06:03,283
+Yani k, k birincil bunun elemanı
+
+97
+00:06:03,283 --> 00:06:06,210
+Bu i nin toplamı olacak,
+
+98
+00:06:06,210 --> 00:06:08,987
+j nin toplamı,
+
+99
+00:06:08,987 --> 00:06:13,979
+deaktivasyon ve bu katman i, j,
+
+100
+00:06:13,979 --> 00:06:22,078
+k kere i,j,k birincilde aktivasyon.
+
+101
+00:06:22,078 --> 00:06:27,989
+Yani, burda, hatırlayın ki i ve j indeksi bloktaki değişik pozisyonların karşısındadır.
+
+102
+00:06:27,989 --> 00:06:30,453
+yükseklik ve büyüklükteki üzerine indeksler.
+
+103
+00:06:30,453 --> 00:06:39,755
+i, 1'den nh'ye olanların toplamına eşittir.
+j, 1'den nw'ye olanların toplamına eşittir.
+
+104
+00:06:39,755 --> 00:06:45,200
+ve k burada ve k birincil indeksi kanalın ötesinde
+
+105
+00:06:45,200 --> 00:06:47,870
+k ve k birincil,
+
+106
+00:06:47,870 --> 00:06:51,913
+sinir ağının bu katmanındaki bir kanalın toplam kanal sayısına kadar değişir.
+
+107
+00:06:51,913 --> 00:06:55,967
+Yani tüm bunların yaptığı
+
+108
+00:06:55,967 --> 00:07:00,225
+görüntüyü yükseklik ve genişlik üzerinde farklı konumlarda toplamak.
+
+109
+00:07:00,225 --> 00:07:03,640
+ve kanaların (k ve k birincil) birlikte aktivasyonlarını çarpmak
+
+110
+00:07:03,640 --> 00:07:08,853
+ve bu G,k,k birincil in dönüşümleridir.
+
+111
+00:07:08,853 --> 00:07:14,450
+Ve bunu, bu matris G'yi hesaplamak için k ve k prime'nin her değeri için yaparsınız.
+
+112
+00:07:14,450 --> 00:07:17,585
+ayrıca stil matrisi olarak adlandırılabilir.
+
+113
+00:07:17,585 --> 00:07:23,435
+Ve dikkat edin ki, eğer bu aktivasyonların her ikisi de birbirine yapışırsa,
+
+114
+00:07:23,435 --> 00:07:26,325
+sonra G,k,k birincil büyük olacaktır.
+
+115
+00:07:26,325 --> 00:07:28,510
+eğer korelasyon olmazsa bu durumda g,k,k birincil
+
+116
+00:07:28,510 --> 00:07:30,305
+küçük olmalıdır.
+
+117
+00:07:30,305 --> 00:07:32,060
+teknik olarak, ben kullanıyordum...
+
+118
+00:07:32,060 --> 00:07:36,170
+korelasyon terimini sezgiyi iletmek için kullanıyordum fakat aslında
+
+119
+00:07:36,170 --> 00:07:40,130
+Bu aslında alanların anormalleşmiş kesişimidir çünkü ortalamayı çıkarmıyoruz
+
+120
+00:07:40,130 --> 00:07:46,130
+ve bu sadece bu elemanlar tarafından doğrudan çarpılıyor.
+
+121
+00:07:46,130 --> 00:07:50,370
+Bu sizin görsel stilini hesaplamanızdır.
+
+122
+00:07:50,370 --> 00:07:54,030
+Ve bunu, hem stil görüntüsü (s,n) için
+
+123
+00:07:54,030 --> 00:08:01,020
+hem oluşturulan görüntü (G) için yapardın. Yani Stil görseli olduğunu ayırt etmek,
+
+124
+00:08:01,020 --> 00:08:07,630
+belki parantez içinde S eklersem,
+
+125
+00:08:07,630 --> 00:08:10,105
+sadece bu resmin stil görseli olduğunu belirtmek için
+
+126
+00:08:10,105 --> 00:08:12,715
+S ve onlar stil görseldeki aktivasyonlardır.
+
+127
+00:08:12,715 --> 00:08:21,085
+ve daha sonra yapmanız gereken aynı şeyi oluşturulan görsel (G) için yapmak.
+
+128
+00:08:21,085 --> 00:08:28,581
+Yani gerçekten aynı şey toplandı ( j, a, i'nin toplamı)
+
+129
+00:08:28,581 --> 00:08:32,670
+j, k, l, a,
+
+130
+00:08:32,670 --> 00:08:36,678
+i, j, k, l ve toplama indisleri aynıdır.
+
+131
+00:08:36,678 --> 00:08:46,130
+Bunu takip edelim ve bunun sadece oluşturulan görüntü için olduğunu göstermek istediğinizde,
+
+132
+00:08:46,130 --> 00:08:51,710
+Buraya parantez içinde G koyacağım.
+
+133
+00:08:51,710 --> 00:08:55,540
+Yani, şimdi, görselin stilini elde etmek için iki matrisimiz var
+
+134
+00:08:55,540 --> 00:08:59,770
+görsel S ve görsel G'nin stili nedir. Ve,
+
+135
+00:08:59,770 --> 00:09:05,260
+Bu arada, Büyük G harfini bu matrisleri göstermek için kullanmıştım.
+
+136
+00:09:05,260 --> 00:09:09,445
+Lineer Cebir'de, büyük matris olarak da adlandırılır.
+
+137
+00:09:09,445 --> 00:09:14,030
+Bunların büyük matrisi denilen büyük matrisler ama bu videoda,
+
+138
+00:09:14,030 --> 00:09:17,680
+terim olarak stil matrisini kullanacağım. Çünkü bu terim büyük matris
+
+139
+00:09:17,680 --> 00:09:23,630
+bunların çoğunluğu büyük G harfini bu matrisleri göstermek için kullanıyorlar.
+
+140
+00:09:23,630 --> 00:09:26,035
+son olarak, maliyet fonksiyonu,
+
+141
+00:09:26,035 --> 00:09:28,875
+stil maliyet fonksiyonu.
+
+142
+00:09:28,875 --> 00:09:34,570
+Eğer bunları l katmanındaki s ve G arasında yapıyorsanız,
+
+143
+00:09:34,570 --> 00:09:37,050
+artık bu matrisler arasındaki değişikliği
+
+144
+00:09:37,050 --> 00:09:44,610
+değişikliği
+
+145
+00:09:44,610 --> 00:09:48,675
+belirleyebilirsiniz
+
+146
+00:09:48,675 --> 00:09:54,265
+G l, G karesi ve bunlar matrislerdir.
+
+147
+00:09:54,265 --> 00:09:55,754
+hadi bunu öncekinden alalım.
+
+148
+00:09:55,754 --> 00:10:00,660
+Bu sadece elemanın kareler toplamı arasındaki farklılıklar
+
+149
+00:10:00,660 --> 00:10:07,065
+Bu iki matris ve bunu bölersek, bu, k'nin toplamı olacak.
+
+150
+00:10:07,065 --> 00:10:12,964
+s, k, bu farklılıkların k birincil üzerinde toplamı,
+
+151
+00:10:12,964 --> 00:10:17,450
+k birincil eksi G l,
+
+152
+00:10:17,450 --> 00:10:24,530
+G, k, k birincil ve sonrasında elemanların kareleri toplamı
+
+153
+00:10:24,530 --> 00:10:32,715
+Yazarlar genellikle bu normalleştirme sabitini kullanırlar 2 çarpı nh,
+
+154
+00:10:32,715 --> 00:10:34,890
+nw, bu katmanda
+
+155
+00:10:34,890 --> 00:10:40,015
+katmandaki nc ve bunun karesini alacağım. Bunu da buraya koyabilirsiniz.
+
+156
+00:10:40,015 --> 00:10:43,600
+Ama normalleştirme sabiti çok sorun değil çünkü
+
+157
+00:10:43,600 --> 00:10:47,485
+nedense bazı hiper parametre b ile çarpılır.
+
+158
+00:10:47,485 --> 00:10:48,910
+Yani sadece bitirmek için,
+
+159
+00:10:48,910 --> 00:10:51,970
+bu stil maliyet fonksiyonu katman l
+
+160
+00:10:51,970 --> 00:10:55,645
+kullanılarak belirlendi ve önceki slaytta gördüğünüz gibi
+
+161
+00:10:55,645 --> 00:11:02,440
+Bu temelde hesaplanan iki yıldız matris arasındaki Frobenius normu
+
+162
+00:11:02,440 --> 00:11:05,953
+görsel s ve görsel G'nin üstünde
+
+163
+00:11:05,953 --> 00:11:10,810
+Frobenius kare üzerinde ve önemli olmayan düşük
+
+164
+00:11:10,810 --> 00:11:13,255
+normalleşme sabitleriyle asla,
+
+165
+00:11:13,255 --> 00:11:18,400
+ve, son olarak, eğer daha görsel açıdan hoş sonuçlar alırsanız
+
+166
+00:11:18,400 --> 00:11:23,443
+çoklu değişik katmanlarından stil maliyet fonksiyon kullanabilirsiniz.
+
+167
+00:11:23,443 --> 00:11:27,095
+Yani, tüm stil maliyet fonksiyonu,
+
+168
+00:11:27,095 --> 00:11:31,305
+Siz bu katman için
+
+169
+00:11:31,305 --> 00:11:37,640
+stil maliyet fonksiyonunun tüm farklı katmanları üzerinden toplam olarak belirleyebilirsiniz.
+
+170
+00:11:37,640 --> 00:11:41,820
+Kitabı bir dizi parametreye göre tanımlamalıyız.
+
+171
+00:11:41,820 --> 00:11:44,160
+bazı ek hiper metreler seti tarafından,
+
+172
+00:11:44,160 --> 00:11:46,895
+burda benim lambda ile belirlediğim
+
+173
+00:11:46,895 --> 00:11:51,595
+Yani ne yapar, sinir ağında farklı katmanları kullanmanıza izin verir.
+
+174
+00:11:51,595 --> 00:11:52,815
+öncekilere göre,
+
+175
+00:11:52,815 --> 00:11:55,800
+nispeten daha basit düşük seviye özelliklerini ölçen
+
+176
+00:11:55,800 --> 00:11:59,050
+kenarları ve daha sonraki bazı katmanları
+
+177
+00:11:59,050 --> 00:12:03,000
+Yüksek seviye özellikleri ölçen ve sinir ağının alınmasına neden olan
+
+178
+00:12:03,000 --> 00:12:08,475
+hesap stili hesaplanırken hem düşük hem de yüksek düzeyde korelasyonlar hesaba katılır.
+
+179
+00:12:08,475 --> 00:12:10,845
+ve, sonraki örnekte,
+
+180
+00:12:10,845 --> 00:12:13,980
+olması gereken daha fazla sezgi elde edeceksiniz
+
+181
+00:12:13,980 --> 00:12:19,080
+Bu tür bir parametre lambda için de makul seçimler.
+
+182
+00:12:19,080 --> 00:12:20,790
+ve hadi bunu alalım,
+
+183
+00:12:20,790 --> 00:12:24,660
+şimdi tüm maliyet fonksiyonunu belirleyebilirsiniz.
+
+184
+00:12:24,660 --> 00:12:30,720
+alfa kere başlık c ve G arasındaki değer
+
+185
+00:12:30,720 --> 00:12:37,515
+beta kere stil maliyet s ve G ve sonra anlam üretmek
+
+186
+00:12:37,515 --> 00:12:40,785
+ya da isterseniz daha sofistike bir optimizasyon algoritması
+
+187
+00:12:40,785 --> 00:12:44,696
+normalize eden bir G görüntüsünü bulmak için
+
+188
+00:12:44,696 --> 00:12:49,590
+Bu, G.'nin bu maliyet fonksiyonunu en aza indirmeye çalışır. Ve eğer bunu yaparsanız,
+
+189
+00:12:49,590 --> 00:12:53,730
+oldukça iyi görünümlü nöral artistik oluşturabilirsiniz
+
+190
+00:12:53,730 --> 00:12:59,220
+ve eğer bunu yaparsanız, oldukça güzel bir roman yapıtı üretebileceksiniz.
+
+191
+00:12:59,220 --> 00:13:02,010
+Yani bu nöral stil transferi için ve umarım sizde
+
+192
+00:13:02,010 --> 00:13:05,235
+bu haftaki baskı alıştırmasında bunu hayata geçirirsiniz.
+
+193
+00:13:05,235 --> 00:13:06,625
+Bu hafta sona ermeden önce,
+
+194
+00:13:06,625 --> 00:13:08,575
+Seninle paylaşmak istediğim son bir şey var.
+
+195
+00:13:08,575 --> 00:13:11,100
+kıvrımların nasıl yapıldığı
+
+196
+00:13:11,100 --> 00:13:17,000
+Sadece 2D görüntüler yerine 1D veya 3D veriler. Son videoya gidelim.

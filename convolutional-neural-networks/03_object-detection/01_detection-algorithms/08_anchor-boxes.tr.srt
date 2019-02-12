@@ -1,0 +1,635 @@
+1
+00:00:00,000 --> 00:00:04,790
+Şimdiye kadar gördüğümüz nesne algılama ile ilgili sorunlardan biri
+
+2
+00:00:04,790 --> 00:00:08,870
+her sistem hücresinin sadece bir nesneyi algılayabilmesi.
+
+3
+00:00:08,870 --> 00:00:12,500
+Peki ya bir grid hücre birden çok nesneyi algılamak istiyorsa?
+
+4
+00:00:12,500 --> 00:00:14,050
+İşte yapabileceğiniz şey.
+
+5
+00:00:14,050 --> 00:00:16,700
+Çapa kutuları fikrini kullanabilirsiniz.
+
+6
+00:00:16,700 --> 00:00:17,920
+Bir örnek ile başlayalım.
+
+7
+00:00:17,920 --> 00:00:20,990
+Diyelim ki böyle bir görüntü var
+
+8
+00:00:20,990 --> 00:00:22,460
+ve bu örnekte,
+
+9
+00:00:22,460 --> 00:00:26,160
+3 e 3 lük bir grid kullanmaya devam edeceğim.
+
+10
+00:00:26,160 --> 00:00:31,190
+Yayanın ve arabanın orta noktalarının
+
+11
+00:00:31,190 --> 00:00:37,340
+hemen hemen aynı yerde olduğuna ve her ikisinin de aynı grid hücresine girdiğine dikkat edin.
+
+12
+00:00:37,340 --> 00:00:38,590
+Yani, bu grid hücresi için,
+
+13
+00:00:38,590 --> 00:00:44,559
+eğer Y bu vektörü 3 sebep tespit ettiğiniz bir yere çıkartıyorsa,
+
+14
+00:00:44,559 --> 00:00:48,105
+yayalar, arabalar ve motorsikletler,
+
+15
+00:00:48,105 --> 00:00:51,530
+2 tespit çıktı vermesi mümkün olmayacaktır.
+
+16
+00:00:51,530 --> 00:00:55,545
+Yani, çıktı için 2 tespitten birini seçmem gerekecek.
+
+17
+00:00:55,545 --> 00:00:57,297
+Çapa kutusu fikri ile,
+
+18
+00:00:57,297 --> 00:00:59,170
+yapacağınız,
+
+19
+00:00:59,170 --> 00:01:03,129
+çapa kutular veya çapa kutu şekilleri adını verdiğiniz iki farklı şekili önceden tanımlamaktır.
+
+20
+00:01:03,129 --> 00:01:08,015
+Ve şimdi yapacağınız ise,
+
+21
+00:01:08,015 --> 00:01:13,085
+iki öngörüyü iki çapa kutusu ile ilişkilendirebilmektir.
+
+22
+00:01:13,085 --> 00:01:15,585
+Ve genel olarak, daha fazla çapa kutusu kullanabilirsiniz,
+
+23
+00:01:15,585 --> 00:01:17,660
+belki 5 veya hatta daha fazla.
+
+24
+00:01:17,660 --> 00:01:20,060
+Fakat bu video için, ben
+
+25
+00:01:20,060 --> 00:01:23,660
+tanımlamayı daha kolay yapabilmek için iki çapa kutusu kullanacağım.
+
+26
+00:01:23,660 --> 00:01:27,680
+İşte yapacağınız, çapraz etiketi,
+
+27
+00:01:27,680 --> 00:01:30,190
+soldaki bu vektör yerine tanımlıyorsunuz,
+
+28
+00:01:30,190 --> 00:01:33,170
+bunu iki kere tekrarlıyorsunuz.
+
+29
+00:01:33,170 --> 00:01:35,120
+Yani, PC, PX, PY
+
+30
+00:01:35,120 --> 00:01:39,610
+PH, PW, C1, C2, C3 oluyor,
+
+31
+00:01:39,610 --> 00:01:46,047
+ve bunlar çapa kutusu 1 ile ilişkilendirilmiş sekiz çıktı olmuş oluyor.
+
+32
+00:01:46,047 --> 00:01:50,355
+Ve sonra PC'yi tekrar ediyorsunuz
+
+33
+00:01:50,355 --> 00:01:51,905
+PX ve en aşağıda C1'e kadar,
+
+34
+00:01:51,905 --> 00:01:59,490
+C2, C3 ve çağa kutusu 2 ile ilişkilendirilmiş diğer sekiz çıktıyı.
+
+35
+00:01:59,490 --> 00:02:01,820
+Yani, şeklinden ötürü
+
+36
+00:02:01,820 --> 00:02:06,012
+yaya çapa kutusu 1'in ve çapa kutusu 2'nin şekline daha yakın,
+
+37
+00:02:06,012 --> 00:02:13,730
+PC'yi bir olarak kodlamak için bu sekiz sayıyı kullanabilirsiniz.
+
+38
+00:02:13,730 --> 00:02:15,020
+Evet burada bir yaya var.
+
+39
+00:02:15,020 --> 00:02:20,739
+Bunu yayanın çevresinde bir sınırlayıcı kutu kodlamak için kullanın,
+
+40
+00:02:20,739 --> 00:02:26,300
+ve sonra bunu nesnenin bir yaya olduğunu kodlamak için kullanın.
+
+41
+00:02:26,300 --> 00:02:29,240
+Ve sonra arabanın çevresindeki kutu
+
+42
+00:02:29,240 --> 00:02:32,516
+çapa kutusu 1'e kıyasla çapa kutusu 2'nin şekline daha yakın olduğu için,
+
+43
+00:02:32,516 --> 00:02:40,021
+sonra bunu buradaki ikinci nesnenin araba olduğunu kodlamak için kullanabilirsiniz,
+
+44
+00:02:40,021 --> 00:02:42,830
+ve sınırlayıcı kutunuz olabilir ve
+
+45
+00:02:42,830 --> 00:02:45,984
+tüm parametreler tanımlanmış araba ile ilişkilendirilebilir.
+
+46
+00:02:45,984 --> 00:02:50,459
+Yani, özetlemek gerekirse,
+
+47
+00:02:50,459 --> 00:02:51,693
+çapa kutularını kullanmadan önce,
+
+48
+00:02:51,693 --> 00:02:53,505
+şunu yaptınız,
+
+49
+00:02:53,505 --> 00:02:57,665
+eğitim setindeki tüm nesneler ve eğitim seti görseli için,
+
+50
+00:02:57,665 --> 00:03:03,580
+o nesnenin orta noktasına denk gelen grid hücresine tanımlanmıştı.
+
+51
+00:03:03,580 --> 00:03:11,298
+Ve Y çıktısı 3e 3e 8 di çünkü 3e 3lük bir grid var.
+
+52
+00:03:11,298 --> 00:03:13,400
+Ve her bir grid pozisyonu için,
+
+53
+00:03:13,400 --> 00:03:17,080
+PC olan çıktı vektörümüz ve sınırlayıcı kutumuz C1, C2, C3 ümüz var.
+
+54
+00:03:17,080 --> 00:03:18,892
+Çapa kutusu ile,
+
+55
+00:03:18,892 --> 00:03:21,877
+şimdi şunu yapıyoruz.
+
+56
+00:03:21,877 --> 00:03:27,553
+Şimdi, her bir nesne daha önce olduğunun aynı grid hücresine atanıyor,
+
+57
+00:03:27,553 --> 00:03:29,860
+nesnenin orta noktasını içeren grid hücresine atanıyor,
+
+58
+00:03:29,860 --> 00:03:33,488
+ama bir grid hücresine atanıyor ve
+
+59
+00:03:33,488 --> 00:03:41,020
+nesnenin şekli ile en yüksek IoU'ya sahip çapa kutusuna.
+
+60
+00:03:41,020 --> 00:03:43,070
+Yani, iki çapa kutunuz var,
+
+61
+00:03:43,070 --> 00:03:45,845
+Bir nesne alacak ve bakacaksınız.
+
+62
+00:03:45,845 --> 00:03:50,060
+Yani, bu şekilde bir nesneniz varsa,
+
+63
+00:03:50,060 --> 00:03:53,270
+yapacağınız iki çapa kutunuzu almaktır.
+
+64
+00:03:53,270 --> 00:03:55,286
+Belki bir çapa kutusu, çapa kutusu 1, bu şekildir
+
+65
+00:03:55,286 --> 00:03:58,325
+belki çapa kutusu 2 bu şekildir,
+
+66
+00:03:58,325 --> 00:04:01,940
+ve sonra bu iki çapa kutunuzdan hangisinin daha yüksek IoU'ya sahip olduğuna bakacaksınız,
+
+67
+00:04:01,940 --> 00:04:04,500
+sınırlayıcı kutu kanalıyla çizilecek.
+
+68
+00:04:04,500 --> 00:04:05,810
+Ve hangisi olursa,
+
+69
+00:04:05,810 --> 00:04:11,055
+o nesne daha sonra sadece bir grid hücresine değil bir çifte atanmış oluyor.
+
+70
+00:04:11,055 --> 00:04:18,905
+Bir grid hücresi virgül bir çapa kutusu çiftine atanmış oluyor.
+
+71
+00:04:18,905 --> 00:04:22,985
+Ve bu, bu nesnenin hedef etikete nasıl kodlandığıdır.
+
+72
+00:04:22,985 --> 00:04:31,505
+Ve şimdi, Y çıktısı 3e 3e 16 olmuş olacak.
+
+73
+00:04:31,505 --> 00:04:34,120
+Çünkü önceki slaytta gördüğünüz gibi,
+
+74
+00:04:34,120 --> 00:04:36,610
+Y şimdi 16 boyutlu.
+
+75
+00:04:36,610 --> 00:04:37,788
+Veya isterseniz,
+
+76
+00:04:37,788 --> 00:04:42,565
+bunu 3e 3e 2ye 8 olarak da görebilirsiniz
+
+77
+00:04:42,565 --> 00:04:48,675
+çünkü şimdi iki çapa kutusu var ve Y sekiz boyutlu.
+
+78
+00:04:48,675 --> 00:04:54,516
+Ve Y'nin boyutunun sekiz olması üç nesnemiz olması sebebiyledir
+
+79
+00:04:54,516 --> 00:05:01,070
+daha fazla nesnemiz lsa Y'nin boyutu daha da yüksek olacaktır.
+
+80
+00:05:01,070 --> 00:05:04,890
+Şimdi, bütün bir örnek üzerinden gidelim.
+
+81
+00:05:04,890 --> 00:05:09,040
+Bu grid hücresi için,
+
+82
+00:05:09,040 --> 00:05:12,070
+şimdi Y'nin ne olduğunu tanımlayalım.
+
+83
+00:05:12,070 --> 00:05:21,075
+Yaya çapa kutusu 1'in şekline daha yakın.
+
+84
+00:05:21,075 --> 00:05:22,280
+Yani yaya için,
+
+85
+00:05:22,280 --> 00:05:25,620
+bu vektörün üst yarısına atayacağız.
+
+86
+00:05:25,620 --> 00:05:27,235
+Yani evet, burada bir nesne var,
+
+87
+00:05:27,235 --> 00:05:31,150
+bu yaya ile ilişkili bir sınırlayıcı kutu olacak.
+
+88
+00:05:31,150 --> 00:05:33,734
+Ve tahmin ediyorum ki, eğer yaya cos bir olacaksa,
+
+89
+00:05:33,734 --> 00:05:36,665
+biri bir olarak göreceğiz ve sonra sıfır, sıfır.
+
+90
+00:05:36,665 --> 00:05:41,420
+Ve sonra arabanın şekli çapa kutusu 2ye daha yakın
+
+91
+00:05:41,420 --> 00:05:43,430
+Ve yani bu vektörün kalanı
+
+92
+00:05:43,430 --> 00:05:47,960
+bir olack ve sonra araba ile ilişkili sınırlayıcı kutu,
+
+93
+00:05:47,960 --> 00:05:51,330
+ve sonra araba C2
+
+94
+00:05:51,330 --> 00:05:53,170
+yani burada sıfır, bir, sıfır.
+
+95
+00:05:53,170 --> 00:05:56,715
+Ve işte bu da
+
+96
+00:05:56,715 --> 00:06:02,685
+bu okun işaret ettiği aşağı orta grid hücresi için Y etiketi.
+
+97
+00:06:02,685 --> 00:06:09,760
+Şimdi, ya bu grid hücresinde sadece bir araba olsaydı ve hiç yaya olmasaydı?
+
+98
+00:06:09,760 --> 00:06:11,410
+Eğer sadece bir araba olsaydı,
+
+99
+00:06:11,410 --> 00:06:14,300
+Çevresindeki sınırlayıcı kutunun şeklinden hareketle,
+
+100
+00:06:14,300 --> 00:06:18,460
+arabanın şeklinin yine de çapa kutusu ikiye daha yakın olduğunu söyleyebilirdir.
+
+101
+00:06:18,460 --> 00:06:20,410
+ve sonra hedef etiket Y,
+
+102
+00:06:20,410 --> 00:06:24,325
+eğer orada sadece araba olsaydı ve yaya gitmiş olsaydı,
+
+103
+00:06:24,325 --> 00:06:30,271
+yine de çapa kutusu 2 bileşeni için aynı olacaktı.
+
+104
+00:06:30,271 --> 00:06:37,530
+Hatırlayın k, bu çapa kutusu 2'ye karşılık gelen vektörün bir parçası.
+
+105
+00:06:37,530 --> 00:06:42,590
+Ve çapa kutusu 1e karşılık gelen vektörün parçası için,
+
+106
+00:06:42,590 --> 00:06:46,017
+sadece orada bir nesne olmadığını söylüyorsunuz.
+
+107
+00:06:46,017 --> 00:06:47,912
+Yani PC sıfır,
+
+108
+00:06:47,912 --> 00:06:52,900
+ve sonra bu kalanlar önemsenmeyenler oluyor.
+
+109
+00:06:52,900 --> 00:06:55,155
+Şimdi, sadece birkaç ilave detay.
+
+110
+00:06:55,155 --> 00:06:59,730
+Ya iki çapa kutunuz ve aynı grid hücresi içinde üç objeniz varsa?
+
+111
+00:06:59,730 --> 00:07:04,000
+Bu, bu algoritmanın iyi ele alamadığı durumlardan biridir.
+
+112
+00:07:04,000 --> 00:07:06,705
+Umalım ki bu olmasın.
+
+113
+00:07:06,705 --> 00:07:11,440
+Ama eğer olursa, bu algoritmanın bununla baş etmek için iyi bir yolu yok.
+
+114
+00:07:11,440 --> 00:07:15,025
+Bu durumda sadece önceden tanımlı bir eşitlik bozucuyu tetikleyecektir.
+
+115
+00:07:15,025 --> 00:07:17,160
+Veya, ya aynı grid hücresi ile ilişkili iki nesneniz varsa,
+
+116
+00:07:17,160 --> 00:07:21,316
+ama her ikisi de aynı çapa kutu şekline sahipse?
+
+117
+00:07:21,316 --> 00:07:24,335
+Yine bu, bu algoritmanın iyi ele alamadığı durumlardan biridir.
+
+118
+00:07:24,335 --> 00:07:28,855
+Eğer bu olduğunda önceden tanımlanmış bir eşitlik bozucuyu tetiklerseniz,
+
+119
+00:07:28,855 --> 00:07:31,101
+umarız ki veri setinizde bu olmaz,
+
+120
+00:07:31,101 --> 00:07:32,740
+çok olmayacaktır.
+
+121
+00:07:32,740 --> 00:07:35,834
+Ve böylece, performansı çok etkilemeyecektir.
+
+122
+00:07:35,834 --> 00:07:38,575
+İşte, çapa kutuları için anlatacaklarımız bu kadar.
+
+123
+00:07:38,575 --> 00:07:42,370
+Ve her ne kadar çapa kutularını nesneler aynı grid hücresinde
+
+124
+00:07:42,370 --> 00:07:46,880
+olduğunda ne yapılacağı konusunda bir yol olarak özendirmiş olsam da,
+
+125
+00:07:46,880 --> 00:07:49,345
+pratikte bu oldukça nadiren olur,
+
+126
+00:07:49,345 --> 00:07:54,335
+özellikle eğer 3e 3ten se 19a 19luk bir grid kullanıyorsanız.
+
+127
+00:07:54,335 --> 00:07:59,065
+bu 361 hücrede iki nesnenin aynı orta noktaya sahip olmaları,
+
+128
+00:07:59,065 --> 00:08:02,340
+bu olabilir, ama çok sık olmaz.
+
+129
+00:08:02,340 --> 00:08:06,810
+Belki çapa kutularının size verebileceği daha iyi bir motivasyon
+
+130
+00:08:06,810 --> 00:08:12,325
+veya daha iyi sonuçlar öğrenme algoritmanızın daha iyi özelleşmesine izin vermesidir.
+
+131
+00:08:12,325 --> 00:08:15,400
+Özellikle, eğer veri setinizde yayalar
+
+132
+00:08:15,400 --> 00:08:17,380
+gibi uzun ve ince nesneler varsa,
+
+133
+00:08:17,380 --> 00:08:20,245
+ve arabalar gibi bazı beyaz objeler varsa,
+
+134
+00:08:20,245 --> 00:08:23,590
+bu öğrenme algoritmanızın özelleşmesine izin veriyor
+
+135
+00:08:23,590 --> 00:08:27,115
+ve böylece bazı çıktılar beyazı tanımlamada özelleşiyor,
+
+136
+00:08:27,115 --> 00:08:28,750
+arabalar gibi tombul nesneleri,
+
+137
+00:08:28,750 --> 00:08:32,243
+ve bazı çıktı üniteleri yayalar gibi uzun,
+
+138
+00:08:32,243 --> 00:08:34,830
+ince objeleri tanımlamada özelleşiyor.
+
+139
+00:08:34,830 --> 00:08:38,005
+Son olarak, bu çapa kutuları nasıl seçiyorsunuz?
+
+140
+00:08:38,005 --> 00:08:43,435
+Ve insan oları sadece elle seçiyordu ve tanımlıyormuşsunuz gibi görünen
+
+141
+00:08:43,435 --> 00:08:46,270
+nesne tiplerini kapsarmış gibi görünen çeşitli şekil aralığındaki
+
+142
+00:08:46,270 --> 00:08:49,510
+beş veya 10 çapa kutusu.
+
+143
+00:08:49,510 --> 00:08:51,505
+Çok daha gelişmiş bir sürümde,
+
+144
+00:08:51,505 --> 00:08:55,890
+önden makina öğrenmesi bilgisi olanlar için,
+
+145
+00:08:55,890 --> 00:09:00,385
+daha sonraki YOLO araştırma makalelerinden birinde, bunun çok daha iyi bir yol,
+
+146
+00:09:00,385 --> 00:09:02,430
+Elinizde olma eğiliminde olan iki nesne şeklini
+
+147
+00:09:02,430 --> 00:09:05,795
+bir araya gruplamak için K merkezli algoritma kullanmaktır.
+
+148
+00:09:05,795 --> 00:09:09,150
+Ve sonra bunu saptamaya çalıştığınız belki birden çok belki düzinelerce
+
+149
+00:09:09,150 --> 00:09:13,140
+nesne sebebini en basmakalıp şekilde temsil edecek
+
+150
+00:09:13,140 --> 00:09:16,330
+çapa kutusu setlerini seçmek için kullanmaktır.
+
+151
+00:09:16,330 --> 00:09:20,915
+Fakat çapa kutularını otomatik olarak seçmek için daha gelişmiş bir yol var.
+
+152
+00:09:20,915 --> 00:09:24,160
+Ve eğer elle, nesne seçillerini mantıklı bir şekilde
+
+153
+00:09:24,160 --> 00:09:27,580
+büyüten çeşitli şekiller seçerseniz,
+
+154
+00:09:27,580 --> 00:09:29,260
+bazı uzun, ince olanları
+
+155
+00:09:29,260 --> 00:09:31,270
+bazı tombul beyaz olanları tespit etmeyi umabilirsiniz.
+
+156
+00:09:31,270 --> 00:09:33,535
+Bunlarla da çalışmalıdır.
+
+157
+00:09:33,535 --> 00:09:34,760
+Çapa kutular için anlatacaklarımız bu kadar.
+
+158
+00:09:34,760 --> 00:09:37,120
+Bir sonraki videoda,
+
+159
+00:09:37,120 --> 00:09:42,000
+gördüğümüz herşeyi alalım ve YOLO algoritmasına bağlayalım.

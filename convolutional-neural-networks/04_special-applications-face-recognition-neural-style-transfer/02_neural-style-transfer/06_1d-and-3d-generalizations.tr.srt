@@ -1,0 +1,487 @@
+1
+00:00:00,270 --> 00:00:04,351
+ConvNets hakkında çok şey öğrendiniz,
+
+2
+00:00:04,351 --> 00:00:08,888
+ConvNet'in mimarisini görüntü tanıma için nasıl kullanacağı,
+
+3
+00:00:08,888 --> 00:00:13,590
+Nesne Algılama, Yüz Tanıma ve Nöral Tip transfer etme.
+
+4
+00:00:13,590 --> 00:00:17,626
+Ve konunun çoğu görüntülere odaklanmış olsa da,
+
+5
+00:00:17,626 --> 00:00:21,205
+2D(2 Boyutlu) veri türünde, görüntüleri çok yaygın olduğu için.
+
+6
+00:00:21,205 --> 00:00:26,135
+Hakkında öğrendiğiniz fikirlerin çoğunun da geçerli olduğu ortaya çıkıyor.
+
+7
+00:00:26,135 --> 00:00:30,640
+sadece 2D (2 Boyutlu) görüntülere değil, aynı zamanda 1D(1 Boyutlu) verilerine ve 3D(3Boyutlu) verilere de.
+
+8
+00:00:30,640 --> 00:00:33,048
+Hadi inceleyelim.
+
+9
+00:00:33,048 --> 00:00:38,506
+Bu dersin ilk haftasında, 2D (2 Boyutlu) convolution(Evrişim) hakkında bilgi sahibi oldunuz.
+
+10
+00:00:38,506 --> 00:00:44,340
+14 x 14 görüntüyü girebileceğiniz ve 5 x 5 filtreli bir hale getirebiceğiniz yer.
+
+11
+00:00:44,340 --> 00:00:49,097
+Ve 14 x 14'ün 5 x 5 ile nasıl örtüştüğünü gördünüz.
+
+12
+00:00:49,097 --> 00:00:52,590
+Bu size 10 x 10 çıkış verir.
+
+13
+00:00:52,590 --> 00:00:58,662
+Ve birden fazla kanalınız varsa, belki 14 x 14 x 3
+
+14
+00:00:58,662 --> 00:01:03,170
+o zaman aynı 3 ile eşleşen 5 x 5 olur.
+
+15
+00:01:03,170 --> 00:01:08,460
+Ve eğer birden fazla filtreniz varsa, 16 filtreyi varsa 10 x 10 x 16 ile bitirin.
+
+16
+00:01:08,460 --> 00:01:14,430
+Benzer bir fikir, 1D verilerine de uygulanabilir.
+
+17
+00:01:14,430 --> 00:01:21,328
+Örneğin, solda elektrokardiyogram olarak da adlandırılan bir EKG sinyali bulunur.
+
+18
+00:01:21,328 --> 00:01:25,577
+Temel olarak göğsünüze bir elektrot yerleştirirseniz, bu ölçümler
+
+19
+00:01:25,577 --> 00:01:29,910
+Kalp atışlarınızın sonucuna göre göğsünüzde değişen küçük voltajlardır.
+
+20
+00:01:29,910 --> 00:01:34,562
+Çünkü kalp atışlarınızın küçük elektrik dalgaları olabilir.
+
+21
+00:01:34,562 --> 00:01:36,823
+bir çift elektrot ile ölçülür.
+
+22
+00:01:36,823 --> 00:01:40,490
+Ve bu, birinin kalp atışının EKG'sidir.
+
+23
+00:01:40,490 --> 00:01:45,930
+Ve böylece bu tepe noktalarının her biri bir kalp atışına tekabül eder.
+
+24
+00:01:45,930 --> 00:01:49,970
+Yani, tıbbi teşhis yapmak için EKG sinyallerini kullanmak istiyorsanız,
+
+25
+00:01:49,970 --> 00:01:55,062
+Örnek, daha sonra EKG verisi ne olduğu için 1D(1 Boyutlu) veriye sahip olursunuz,
+
+26
+00:01:55,062 --> 00:02:01,610
+Zaman içinde her andaki gerilimi gösteren bir zaman serisidir.
+
+27
+00:02:01,610 --> 00:02:04,500
+Yani 14 x 14 boyutlu bir (Veri) girişinden ziyade,
+
+28
+00:02:04,500 --> 00:02:08,160
+belki sadece 14 boyutlu bir (Veri) girişiniz var.
+
+29
+00:02:08,160 --> 00:02:11,770
+Ve bu durumda, bunu 1 boyutlu bir filtreyle karıştırmak isteyebilirsiniz.
+
+30
+00:02:11,770 --> 00:02:16,420
+Yani 5 x 5 (Boyut) yerine sadece 5 boyutlu filtreniz var.
+
+31
+00:02:16,420 --> 00:02:21,481
+Yani 2D (2 Boyutlu) veri ile bir convolution (Evrişim) yapmanıza izin vermesi aynı 5 x 5'i almaktı.
+
+32
+00:02:21,481 --> 00:02:26,950
+özellik detektörü ve görüntü boyunca farklı pozisyonlarda uygular.
+
+33
+00:02:26,950 --> 00:02:31,110
+10 x 10 çıktınız bu şekilde.
+
+34
+00:02:31,110 --> 00:02:36,258
+1D(1 Boyutlu) filtrenin yapmanıza izin verdiği şey 5 boyutlu filtrelerinizi almak ve
+
+35
+00:02:36,258 --> 00:02:42,860
+Benzer şekilde, bu 1D(1 Boyut) sinyali boyunca birçok farklı pozisyonda geçerlidir.
+
+36
+00:02:42,860 --> 00:02:45,510
+Ve eğer bu convolution(Evrişim-i) uygularsanız,
+
+37
+00:02:45,510 --> 00:02:50,270
+Bulduğun şey, 14 boyutlu bir şeyin
+
+38
+00:02:50,270 --> 00:02:55,370
+Bu 5 boyutlu şey, bu size 10 boyutlu bir çıkış verecektir.
+
+39
+00:02:55,370 --> 00:03:00,496
+Ve yine, birden çok kanalınız varsa, bu durumda sizde olabilir
+
+40
+00:03:00,496 --> 00:03:06,381
+EKG için 1 kurşun veya 1 elektrot varsa, sadece 1 kanal kullanabilirsiniz, bu nedenle 5 x 1 kez.
+
+41
+00:03:06,381 --> 00:03:12,468
+Ve eğer 16 filtreniz varsa, belki de 10 x 16 ile bitebilir,
+
+42
+00:03:12,468 --> 00:03:16,300
+ve bu, ConvNet'inizin bir katmanı olabilir.
+
+43
+00:03:16,300 --> 00:03:20,257
+Ve sonra ConvNet'in sonraki katmanı için 10 x 16 girerseniz
+
+44
+00:03:20,257 --> 00:03:25,560
+boyutsal girdi ve bunu 5 boyutlu bir filtreyle tekrar canlandırabilirsiniz.
+
+45
+00:03:25,560 --> 00:03:29,583
+Sonra bu 16 kanal var, bu yüzden bir eşleşme var.
+
+46
+00:03:29,583 --> 00:03:34,585
+Ve 32 filtreniz var, sonra başka bir tabakanın çıktısı var
+
+47
+00:03:34,585 --> 00:03:39,190
+32 filtreniz varsa 6 x 32 olur, değil mi?
+
+48
+00:03:39,190 --> 00:03:42,268
+Ve 2D verilere benzetme,
+
+49
+00:03:42,268 --> 00:03:46,779
+Bu 10 x 10 x 16 veriye benzer ve
+
+50
+00:03:46,779 --> 00:03:51,860
+5 x 5 x 16 ile karıştırın ve bu eşleşmelidir.
+
+51
+00:03:51,860 --> 00:03:54,568
+Bu size 6 x 6 boyutlu bir çıkış verecek
+
+52
+00:03:54,568 --> 00:03:58,080
+ve 32 filtreniz var, buradan 32 gelir.
+
+53
+00:03:58,080 --> 00:04:03,567
+Bu nedenle, tüm bu fikirler aynı zamanda sahip olabileceğiniz 1D (1 Boyutlu) verilerine de uygulanır.
+
+54
+00:04:03,567 --> 00:04:08,884
+Bunun gibi özellik detektörü, çeşitli konumlara uygulanır.
+
+55
+00:04:08,884 --> 00:04:13,430
+Örneğin, bir EKG sinyalindeki farklı kalp atımlarını tespit etmek için.
+
+56
+00:04:13,430 --> 00:04:18,505
+Ancak kalp atışlarını farklı bir şekilde algılamak için aynı özellik setini kullanmak
+
+57
+00:04:18,505 --> 00:04:23,836
+Bu zaman dizileri boyunca konumlar, ve böylece ConvNet 1D(1 Boyutlu) verilerinde bile kullanılabilir.
+
+58
+00:04:23,836 --> 00:04:28,501
+1D(1 Boyutlu) veri uygulamalarıyla birlikte, aslında tekrarlayan sinir ağını kullanıyorsunuz.
+
+59
+00:04:28,501 --> 00:04:30,790
+Bir sonraki derste öğreneceğiniz
+
+60
+00:04:30,790 --> 00:04:36,520
+Ancak bazı insanlar bu problemlerde ConvNets'i kullanmayı deneyebilirler.
+
+61
+00:04:36,520 --> 00:04:39,990
+Ve sıradaki modeller, hakkında konuşacağımız
+
+62
+00:04:39,990 --> 00:04:43,310
+tekrarlayan sinir ağları ve LCM(Latent Convolutional Model- Saklı Evrişim Modeli) ve bunun gibi diğer modeller.
+
+63
+00:04:43,310 --> 00:04:47,545
+Bunlardan bazılarına karşı 1D(1 Boyutlu) ConvNets kullanmanın artıları ve eksileri hakkında konuşacağız
+
+64
+00:04:47,545 --> 00:04:51,070
+Verileri sıralamak için açıkça tasarlanmış diğer modeller.
+
+65
+00:04:51,070 --> 00:04:54,290
+Yani bu 2D'den 1D'ye genelleme.
+
+66
+00:04:54,290 --> 00:04:56,510
+3D(3 Boyutlu) veriye ne dersin?
+
+67
+00:04:56,510 --> 00:04:58,900
+Peki, üç boyutlu veri nedir?
+
+68
+00:04:58,900 --> 00:05:04,720
+1D(1 Boyutlu) lık bir sayı listesi veya 2D(2 Boyutlu) matris sayıları dizisi yerine,
+
+69
+00:05:04,720 --> 00:05:11,060
+Artık 3 boyutlu bir blok, sayıların üç boyutlu giriş hacmine sahipsiniz.
+
+70
+00:05:11,060 --> 00:05:15,123
+İşte burada bir CT(Bilgisayarlı Tomografi) taraması yaparsanız, bunun örneği.
+
+71
+00:05:15,123 --> 00:05:20,510
+Bu, vücudunuzun üç boyutlu bir modelini veren bir X-ışını taramasıdır.
+
+72
+00:05:20,510 --> 00:05:24,746
+Ama bir CT(Bilgisayarlı Tomografi) taramasının yaptığı, vücudunuzda farklı dilimler almasıdır.
+
+73
+00:05:24,746 --> 00:05:28,465
+Burada yaptığım CT(Bilgisayarlı Tomografi) taramasını taradığınızda,
+
+74
+00:05:28,465 --> 00:05:33,507
+Nasıl baktıklarını görmek için insan vücudunun farklı dilimlerine bakabilirsiniz.
+
+75
+00:05:33,507 --> 00:05:37,090
+bu nedenle bu veriler temel olarak üç boyutludur.
+
+76
+00:05:37,090 --> 00:05:43,039
+Ve bu verileri düşünmenin bir yolu, verilerinizin şu an bir yüksekliğe sahip olmasından kaynaklanıyor.
+
+77
+00:05:43,039 --> 00:05:46,558
+bazı genişlik, ve ayrıca bazı derinlik.
+
+78
+00:05:46,558 --> 00:05:50,359
+Bu hacimdeki farklı dilimler olduğunda,
+
+79
+00:05:50,359 --> 00:05:53,840
+gövde boyunca farklı dilimlerdir.
+
+80
+00:05:53,840 --> 00:05:57,660
+Bu özellikteki özellikleri algılamak için bir ConvNet uygulamak istiyorsanız
+
+81
+00:05:57,660 --> 00:06:02,470
+üç boyutlu CAT[Computerizing Axial Tomography (Bilgisayar Bağlantılı Eksenel Tomografi)] taraması veya CT(Bilgisayarlı Tomografi) taraması, daha sonra fikirleri genelleştirebilirsiniz
+
+82
+00:06:02,470 --> 00:06:07,020
+Üç boyutlu convolutions(Evrişim) da ilk slayt.
+
+83
+00:06:07,020 --> 00:06:10,356
+Yani, 3D(3 Boyutlu) bir sesiniz varsa ve
+
+84
+00:06:10,356 --> 00:06:15,764
+sadelik uğruna diyelim ki 14 x 14 x 14 ve
+
+85
+00:06:15,764 --> 00:06:21,770
+Bu, giriş CT(Bilgisayarlı Tomografi) taramasının yüksekliği, genişliği ve derinliğidir.
+
+86
+00:06:21,770 --> 00:06:25,735
+Ve yine, tıpkı resimler gibi hepsinin kare olması gerekiyor.
+
+87
+00:06:25,735 --> 00:06:29,450
+Bir 3D(3 Boyutlu) sesin de mükemmel bir küp olması gerekmez.
+
+88
+00:06:29,450 --> 00:06:32,210
+Yani bir görüntünün yüksekliği ve genişliği farklı olabilir ve
+
+89
+00:06:32,210 --> 00:06:36,118
+aynı şekilde bir CT(Bilgisayarlı Tomografi) taramasının yüksekliği ve genişliği ve derinliği farklı olabilir.
+
+90
+00:06:36,118 --> 00:06:40,560
+Ama konuyu basitleştirmek için sadece 14 x 14 x 14 kullanıyorum.
+
+91
+00:06:40,560 --> 00:06:45,849
+Ve eğer bunu şimdi 5 x 5 x 5 filtreyle birleştirirseniz,
+
+92
+00:06:45,849 --> 00:06:50,788
+Yani artık filtreler de üç boyutlu
+
+93
+00:06:50,788 --> 00:06:55,863
+Bu size 10 x 10 x 10 hacim verir.
+
+94
+00:06:55,863 --> 00:07:01,366
+Ve teknik olarak, eğer kanal sayısıysa, 1'e de sahip olabilirsiniz.
+
+95
+00:07:01,366 --> 00:07:06,715
+Yani bu sadece 3D(3 Boyutlu) bir hacimdir, ancak verileriniz de farklı olabilir
+
+96
+00:07:06,715 --> 00:07:11,489
+Kanalların sayısı, daha sonra bu kez 1 kez olurdu.
+
+97
+00:07:11,489 --> 00:07:17,472
+Çünkü burada kanal sayısı ve buradaki kanal sayısı eşleşmelidir.
+
+98
+00:07:17,472 --> 00:07:22,371
+Ve sonra eğer 16 filtreniz varsa 5 x 5 x 5 x 1 sonra bir sonraki çıktı
+
+99
+00:07:22,371 --> 00:07:24,790
+10 x 10 x 10 x 16 olacaktır.
+
+100
+00:07:24,790 --> 00:07:30,129
+Yani bu, 3D(3 Boyutlu) veri üzerinde ConvNet'inizin bir katmanı olabilir ve eğer bir sonraki
+
+101
+00:07:30,129 --> 00:07:36,660
+ConvNet'in tabakası, 5 x 5 x 5 x 16 boyutlu bir filtreyle bunu tekrar şekillendirir.
+
+102
+00:07:36,660 --> 00:07:40,666
+Dolayısıyla, bu kanal sayısı verileri her zamanki gibi eşleştirmeli ve
+
+103
+00:07:40,666 --> 00:07:46,190
+32 filtreniz varsa, gördüklerinize benzeyen resimlerin ConvNet'iydi.
+
+104
+00:07:46,190 --> 00:07:54,350
+Şimdi 32 kanal boyunca 6 x 6 x 6 hacim olacak.
+
+105
+00:07:54,350 --> 00:07:57,992
+3D(3 Boyutlu) veriler de öğrenilebilir,
+
+106
+00:07:57,992 --> 00:08:02,020
+üç boyutlu ConvNet kullanarak doğrudan.
+
+107
+00:08:02,020 --> 00:08:07,500
+Ve bu filtrelerin yaptığı şey, 3D(3 Boyutlu) verilerinizdeki özellikleri gerçekten tespit eder,
+
+108
+00:08:08,730 --> 00:08:13,180
+CAT[Computerizing Axial Tomography (Bilgisayar Bağlantılı Eksenel Tomografi)] tarar, 3 boyutlu ciltlerin bir örneği olarak tıbbi taramalar.
+
+109
+00:08:13,180 --> 00:08:18,450
+Ama başka bir veri örneği, 3D bir ses olarak ele alındığında film verisi olurdu,
+
+110
+00:08:18,450 --> 00:08:23,410
+Farklı dilimler, bir film boyunca zaman içinde farklı dilimler olabilir.
+
+111
+00:08:23,410 --> 00:08:28,171
+Ve bunu hareket veya filmlerde harekete geçen insanları tespit etmek için kullanabilirsiniz.
+
+112
+00:08:28,171 --> 00:08:31,868
+Yani bu ConvNets'in genelleştirilmesi
+
+113
+00:08:31,868 --> 00:08:35,520
+2D(2 Boyutlu) verilere ek olarak 3D(3 Boyutlu) veri de.
+
+114
+00:08:35,520 --> 00:08:40,395
+Görüntü verileri o kadar yaygındır ki, ConvNets'in büyük çoğunluğu 2D verilerdedir.
+
+115
+00:08:40,395 --> 00:08:45,420
+görüntü verisinde, ancak bu diğer modellerin de size yardımcı olacağını umuyorum.
+
+116
+00:08:45,420 --> 00:08:48,588
+Yani bu, bu hafta bu son video ve
+
+117
+00:08:48,588 --> 00:08:51,570
+ConvNets bu dersin son videosu.
+
+118
+00:08:51,570 --> 00:08:53,810
+ConvNets hakkında çok şey öğrendiniz ve
+
+119
+00:08:53,810 --> 00:08:58,380
+Umarım bu fikirlerin çoğunu gelecekteki çalışmanız için yararlı bulursunuz.
+
+120
+00:08:58,380 --> 00:09:01,600
+Bu videoları bitirdiğiniz için tebrikler.
+
+121
+00:09:01,600 --> 00:09:04,150
+Umarım bu haftanın egzersizinden keyif aldınız ve
+
+122
+00:09:04,150 --> 00:09:07,850
+Sıralı modellerde bir sonraki derste de seni görmeyi dört gözle bekliyorum.

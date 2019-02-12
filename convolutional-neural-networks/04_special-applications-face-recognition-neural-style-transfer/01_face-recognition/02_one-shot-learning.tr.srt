@@ -1,0 +1,343 @@
+1
+00:00:00,590 --> 00:00:05,387
+Yüz tanımanın zorluklarından biri olan
+tek seferde öğrenme problemini
+
+2
+00:00:05,387 --> 00:00:07,010
+çözmemiz gerekiyor.
+
+3
+00:00:07,010 --> 00:00:10,380
+Bu, yüz tanıma uygulamalarının çoğu için
+şu anlama geliyor;
+
+4
+00:00:10,380 --> 00:00:14,695
+sadece bir resmi verilen bir kişiyi tanıyabilmeli
+veya
+
+5
+00:00:14,695 --> 00:00:17,640
+yüzünün sadece bir örneği verilen bir kişiyi
+tanıyabilmemiz gerekiyor.
+
+6
+00:00:17,640 --> 00:00:18,922
+Ve tarihsel olarak,
+
+7
+00:00:18,922 --> 00:00:23,580
+derin öğrenme algoritmaları, eğer
+sadece bir eğitme örneğiniz varsa çok iyi çalışmaz.
+
+8
+00:00:23,580 --> 00:00:26,163
+Hadi bunun ne anlama geldiği hakkında
+bir örneğe bakalım ve
+
+9
+00:00:26,163 --> 00:00:29,270
+bu problemin nasıl ele alınacağı hakkında konuşalım.
+
+10
+00:00:29,270 --> 00:00:33,270
+Diyelim ki kurumunuzda,
+çalışanların dört resmi olan
+
+11
+00:00:33,270 --> 00:00:34,310
+bir veritabanınız var.
+
+12
+00:00:34,310 --> 00:00:38,680
+Bunlar aslında benim Deeplearning.AI'dan
+meslektaşlarım, Khan, Danielle,
+
+13
+00:00:38,680 --> 00:00:40,350
+Younes ve Thian.
+
+14
+00:00:40,350 --> 00:00:43,340
+Şimdi diyelim ki birileri
+ofise geldi ve
+
+15
+00:00:43,340 --> 00:00:46,880
+turnikeden geçiş izni verilmesini istiyorlar.
+
+16
+00:00:46,880 --> 00:00:52,710
+Sistemin yapması gereken, şimdiye kadar Danielle'in
+sadece bir resminin görülmesine rağmen
+
+17
+00:00:52,710 --> 00:00:56,170
+bunun gerçekten aynı kişi olduğunu tanımasıdır.
+
+18
+00:00:56,170 --> 00:00:59,640
+Ve, tersine, eğer sistem veritabanında
+olmayan birini görürse,
+
+19
+00:00:59,640 --> 00:01:04,810
+o zaman bunun veritabanındaki dört kişiden
+hiçbiri olmadığını anlamalı.
+
+20
+00:01:04,810 --> 00:01:06,560
+Böylece tek seferde öğrenme probleminde,
+
+21
+00:01:06,560 --> 00:01:11,860
+kişiyi tekrar tanımak için sadece bir örnekten
+öğrenmek zorundayız.
+
+22
+00:01:11,860 --> 00:01:12,780
+Ve buna
+
+23
+00:01:12,780 --> 00:01:17,520
+yüz tanıma sistemlerinin çoğunda
+ihtiyacımız var; çünkü çalışanların
+
+24
+00:01:17,520 --> 00:01:22,450
+her birinin veya çalışan veritabanındaki
+takım üyelerinin sadece birer resmi olabilir.
+
+25
+00:01:22,450 --> 00:01:27,990
+Dolayısıyla deneyebileceğimiz bir yaklaşım da
+kişinin resmini girip,
+
+26
+00:01:27,990 --> 00:01:30,000
+ConvNet'i beslemek.
+
+27
+00:01:30,000 --> 00:01:36,560
+Ve bir çıktı etiketi alalım, y, yukarıdaki
+dört kişinin her birine veya hiçbirine karşılık gelen
+
+28
+00:01:36,560 --> 00:01:41,600
+dört çıktılı veya belki beş çıktılı
+eşiksiz en büyük işlev birimini(softmax) kullanan.
+
+29
+00:01:41,600 --> 00:01:44,530
+Dolayısıyla bu, eşiksiz
+en büyük işlev fonksiyonundaki 5 çıktı olabilirdi.
+
+30
+00:01:44,530 --> 00:01:46,140
+Ama bu gerçekte iyi çalışmaz.
+
+31
+00:01:46,140 --> 00:01:50,410
+Çünkü eğer böyle küçük bir eğitim kümemiz
+varsa, bu görev için
+
+32
+00:01:50,410 --> 00:01:54,400
+gürbüz bir sinir ağını
+eğitmeye gerçekten yeterli değildir.
+
+33
+00:01:54,400 --> 00:01:57,660
+Ve eğer takımımıza yeni biri katılırsa ne olacak?
+
+34
+00:01:57,660 --> 00:02:01,040
+Dolayısıyla şimdi tanımamız
+gereken 5 kişi var, yani
+
+35
+00:02:01,040 --> 00:02:03,520
+şimdi altı çıktımız olmalı.
+
+36
+00:02:03,520 --> 00:02:06,070
+ConvNet'i her defasında
+yeniden eğitmek zorunda mıyız?
+
+37
+00:02:06,070 --> 00:02:08,110
+Bu hiç iyi bir yaklaşım gibi görünmüyor.
+
+38
+00:02:08,110 --> 00:02:12,480
+Dolayısıyla yüz tanımayı uygulamak için,
+tek seferde öğrenmeyi uygulamak için.
+
+39
+00:02:12,480 --> 00:02:14,390
+Bunun yerine, bu işi yapmak için,
+
+40
+00:02:14,390 --> 00:02:18,350
+bunun yerine kullanacağımız şey,
+benzerlik fonksiyonunu öğrenmek.
+
+41
+00:02:18,350 --> 00:02:22,190
+Özellikle, bir sinir ağının öyle bir
+fonksiyonu öğrenmesini isteriz ki
+
+42
+00:02:22,190 --> 00:02:26,930
+işareti 'd' olacak, iki resmi girdi alsın ve
+
+43
+00:02:26,930 --> 00:02:30,780
+iki resim arasındaki farkın
+derecesini çıktı alsın.
+
+44
+00:02:30,780 --> 00:02:34,780
+Yani eğer iki resim de aynı kişiye aitse,
+
+45
+00:02:34,780 --> 00:02:37,660
+bundan, küçük bir sayıyı çıktı vermesini isteriz.
+
+46
+00:02:37,660 --> 00:02:42,550
+Ve eğer iki resim çok farklı kişilere aitse
+o zaman büyük bir sayıyı
+
+47
+00:02:42,550 --> 00:02:43,610
+çıktı vermesini isteriz.
+
+48
+00:02:43,610 --> 00:02:48,710
+Dolayısıyla tanıma süresi sırasında, eğer bunlar
+arasındaki farkın derecesi,
+
+49
+00:02:48,710 --> 00:02:54,560
+bir üstün parametre(hyperparameter)
+olan tau eşiğinden az ise,
+
+50
+00:02:54,560 --> 00:02:59,290
+o zaman bu iki resmin aynı kişiye
+ait olduğunu öngörebilirsiniz.
+
+51
+00:02:59,290 --> 00:03:05,000
+Ve eğer bu, tau'dan büyük ise, bu iki resmin
+farklı kişilere ait olduğunu öngörebilirsiniz.
+
+52
+00:03:06,580 --> 00:03:12,510
+Ve yüz doğrulama problemini
+işte bu şekilde ele alırız.
+
+53
+00:03:12,510 --> 00:03:17,370
+Bunu tanıma görevinde kullanmak için,
+yapmamız gereken,
+
+54
+00:03:17,370 --> 00:03:23,200
+bu yeni resim verildiğinde, 'd' fonksiyonunu,
+bu iki resmi kıyaslamak için kullanacağız.
+
+55
+00:03:23,200 --> 00:03:28,450
+Ve belki çok büyük bir sayıyı çıktı alacağız,
+hadi bu örnek için 10 diyelim.
+
+56
+00:03:28,450 --> 00:03:32,500
+Ve sonra bunu veritabanındaki ikinci resimle kıyaslarız.
+
+57
+00:03:32,500 --> 00:03:37,580
+Ve bu ikisi aynı kişi olduğu için,
+çok küçük bir sayıyı çıktı almayı umarız.
+
+58
+00:03:37,580 --> 00:03:42,110
+Bunu veritabanımızdaki diğer
+resimler için de yaparız, vesaire.
+
+59
+00:03:43,140 --> 00:03:48,630
+Ve buna istinaden, bunun gerçekte
+o kişi olduğunu buluruz,
+
+60
+00:03:48,630 --> 00:03:50,130
+Danielle olduğunu.
+
+61
+00:03:50,130 --> 00:03:53,634
+Ve buna karşın, eğer veritabanınızda
+olmayan birileri çıkagelirse,
+
+62
+00:03:53,634 --> 00:03:57,629
+tüm o ikili karşılaştırmaları yaparken
+'d' fonksiyonunu kullanıyor olduğumuz için,
+
+63
+00:03:57,629 --> 00:04:03,050
+'d'nin, dört ikili karşılaştırmanın hepsi için
+çok büyük bir sayıyı çıktı vermesini umarız.
+
+64
+00:04:03,050 --> 00:04:07,610
+Ve bunun veritabanındaki dört kişiden
+hiçbirinin olmadığını söyleriz.
+
+65
+00:04:07,610 --> 00:04:11,860
+Bunun, tek seferde öğrenme problemini
+çözmemiz için bize nasıl imkan verdiğine dikkat edelim.
+
+66
+00:04:11,860 --> 00:04:16,970
+Bu, iki çift resmi girdi aldıktan sonra,
+aslında, ikisinin aynı kişi mi yoksa farklı kişiler mi
+
+67
+00:04:16,970 --> 00:04:20,600
+olduğunu söyleyen 'd' fonksiyonunu
+öğrendiğimiz sürece,
+
+68
+00:04:20,600 --> 00:04:23,790
+o halde,
+eğer takımınıza yeni birisi katılırsa,
+
+69
+00:04:23,790 --> 00:04:28,850
+veritabanımıza beşinci kişiyi ekleyebiliriz,
+ve bu iyi çalışır.
+
+70
+00:04:30,320 --> 00:04:34,452
+Böylece, iki resmi girdi alan,
+tek seferde öğrenme problemini
+
+71
+00:04:34,452 --> 00:04:38,110
+ele almamıza imkan veren 'd' fonksiyonunun
+nasıl öğrendiğini görmüş olduk.
+
+72
+00:04:38,110 --> 00:04:41,720
+Hadi sonraki videoda sinir ağını,
+bu 'd' fonksiyonunu
+
+73
+00:04:41,720 --> 00:04:44,550
+öğrenmesi için aslında nasıl
+eğittiğimize bir bakış atalım.

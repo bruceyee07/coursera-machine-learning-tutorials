@@ -1,0 +1,439 @@
+1
+00:00:00,000 --> 00:00:03,235
+nesne tespit literatürüne bakıldığında
+
+2
+00:00:03,235 --> 00:00:06,790
+bölge önerileri olarak adlandırılan, bilgisayarlı görü alanında da etkili olmuş
+
+3
+00:00:06,790 --> 00:00:10,995
+birtakım fikirlerle karşılaşıyoruz.
+
+4
+00:00:10,995 --> 00:00:14,460
+bu videoyu seçmeli yapmayı tercih ettim
+
+5
+00:00:14,460 --> 00:00:19,275
+çünkü bölge öneri algoritmalarını sıklıkla kullanmıyorum,
+
+6
+00:00:19,275 --> 00:00:22,170
+ama yine de etkili çalışmaların yapıldığı bir alan
+
+7
+00:00:22,170 --> 00:00:25,675
+ve kendi çalışmalarınızda karşınıza çıkabilecek fikirler barındırıyor.
+
+8
+00:00:25,675 --> 00:00:29,640
+pencere kaydırma fikrimizi hatırlayacak olursanız,
+
+9
+00:00:29,640 --> 00:00:33,225
+eğitilmiş bir sınıflandırıcıyı alıp,
+
+10
+00:00:33,225 --> 00:00:37,695
+tüm farklı pencerelerde çalıştırıp;araba,
+
+11
+00:00:37,695 --> 00:00:40,190
+yaya, ya da motorsiklet olup olmadığını tespit etmeye çalışıyorduk.
+
+12
+00:00:40,190 --> 00:00:42,515
+algoritmayı evrişimsel olarak çalıştırabilirsiniz fakat
+
+13
+00:00:42,515 --> 00:00:45,570
+aşağı tarafta algoritma açıkça hiç obje olmayan bölgeleri
+
+14
+00:00:45,570 --> 00:00:49,410
+sınıflandırmaya çalışıyor.
+
+15
+00:00:49,410 --> 00:00:52,569
+bu aşağıdaki dikdörtgen neredeyse bomboş
+
+16
+00:00:52,569 --> 00:00:55,658
+açıkça görüyoruz ki sınıflandırmaya değer bir şey yok
+
+17
+00:00:55,658 --> 00:00:58,610
+ve belki aynı zamanda algortima şu dikdörtgende de çalışıyor
+
+18
+00:00:58,610 --> 00:01:01,365
+ki yine kayda değer bir obje yok.
+
+19
+00:01:01,365 --> 00:01:04,275
+Russ Girshik,Jeff Donahue,Trevor Darrell
+
+20
+00:01:04,275 --> 00:01:06,548
+ve Jitendra Malik' in aşağıda kaynak gösterilen makalede önerdiği fikir,
+
+21
+00:01:06,548 --> 00:01:07,905
+ve Jitendra Malik' in aşağıda kaynak gösterilen makalede önerdiği fikir,
+
+22
+00:01:07,905 --> 00:01:10,470
+R-CNN diye adlandırdığımız "bölgelesel-evrişimsel yapay sinir ağı" na karşılık gelen algoritma,
+
+23
+00:01:10,470 --> 00:01:15,915
+R-CNN diye adlandırdığımız "bölgelesel-evrişimsel yapay sinir ağı" na karşılık gelen algoritma,
+
+24
+00:01:15,915 --> 00:01:18,330
+ve yapmaya çalıştığı şey de
+
+25
+00:01:18,330 --> 00:01:22,925
+convNet(evrişimsel YSA) sınıflandırıcısını eğitmek için uygun bölgeleri seçmek.
+
+26
+00:01:22,925 --> 00:01:27,505
+Yani, kayan pencereler ile her bölgeyi taramak yerine
+
+27
+00:01:27,505 --> 00:01:30,330
+sadece bir kaç bölge seçiyorsunuz ve sınıflandırıcınızı o bölgelerde çalıştırıyorsunuz.
+
+28
+00:01:30,330 --> 00:01:33,570
+sadece bir kaç bölge seçiyorsunuz ve sınıflandırıcınızı o bölgelerde çalıştırıyorsunuz.
+
+29
+00:01:33,570 --> 00:01:35,205
+bölgesel önerilerin uygulanış şekli,
+
+30
+00:01:35,205 --> 00:01:40,425
+bölütleme algoritmasını verdiğimiz
+
+31
+00:01:40,425 --> 00:01:42,915
+-sağda da çıktısını görüyorsunuz-
+
+32
+00:01:42,915 --> 00:01:46,170
+algoritmaları kullanarak neler obje olabilir onu tespit etmek.
+
+33
+00:01:46,170 --> 00:01:50,306
+Misal,bölütleme algortimamız burada bir leke buluyor.
+
+34
+00:01:50,306 --> 00:01:53,625
+Siz de bu sınırları belli dörtgeni alıp
+
+35
+00:01:53,625 --> 00:01:55,680
+"sınıflandırıcıyı bu bölgede çalıştıralım" diyebilirsiniz.
+
+36
+00:01:55,680 --> 00:01:58,730
+Şu yeşil kısım da bi leke görüntüsü veriyor
+
+37
+00:01:58,730 --> 00:02:00,960
+bu bölgede de sınıflandırıcımızı
+
+38
+00:02:00,960 --> 00:02:04,650
+kayda değer bi obje olup olmadığını görmek için çalıştırabiliriz
+
+39
+00:02:04,650 --> 00:02:06,000
+Ve bu durumda
+
+40
+00:02:06,000 --> 00:02:08,830
+bu mavi leke, eğer sınıflandırıcıyı çalıştırırsanız,
+
+41
+00:02:08,830 --> 00:02:10,793
+bir yaya tespit edeceksiniz
+
+42
+00:02:10,793 --> 00:02:13,575
+veya şu açık mavi kısımda çalıştırırsanız,
+
+43
+00:02:13,575 --> 00:02:16,120
+belki bi araba tespit edebilirsiniz,emin değilim.
+
+44
+00:02:16,120 --> 00:02:17,535
+detaylara inecek olursak,
+
+45
+00:02:17,535 --> 00:02:20,080
+bunu bölütleme algoritması olarak adlandırıyoruz
+
+46
+00:02:20,080 --> 00:02:25,410
+ve yaptığı şey sizin için yaklaşık ikibin leke bulup,
+
+47
+00:02:25,410 --> 00:02:31,544
+bu lekeleri sınırlayan dörtgenler çizmek ve sınıflandırıcıyı sadece bu iki bin dörtgenin üstünde çalıştırmak,
+
+48
+00:02:31,544 --> 00:02:34,380
+tüm resim boyunca çalıştırmanız gereken convNet sınıflandırıcınızın üzerinde çalışacağı alan sayısı bu sayede çok daha az olabilir.
+
+49
+00:02:34,380 --> 00:02:37,529
+tüm resim boyunca çalıştırmanız gereken convNet sınıflandırıcınızın üzerinde çalışacağı alan sayısı bu sayede çok daha az olabilir.
+
+50
+00:02:37,529 --> 00:02:40,935
+tüm resim boyunca çalıştırmanız gereken convNet sınıflandırıcınızın üzerinde çalışacağı alan sayısı bu sayede çok daha az olabilir.
+
+51
+00:02:40,935 --> 00:02:44,172
+Özellikle de convNet'inizi sadece kare şeklindeki bölgelerde değil de
+
+52
+00:02:44,172 --> 00:02:48,055
+yaya tespit etmek için ince uzun dörtgenler üzerinde ya da 
+
+53
+00:02:48,055 --> 00:02:51,870
+araba tespit etmek için ksıa kalın bölgeler üzerinde
+
+54
+00:02:51,870 --> 00:02:57,915
+ve diğer bir çok ölçekte çalıştırıyorsanız.
+
+55
+00:02:57,915 --> 00:03:02,170
+R-CNN ya da bölgesel CNN böyle bir şey.
+
+56
+00:03:02,170 --> 00:03:04,380
+R-CNN ya da bölgesel CNN böyle bir şey.
+
+57
+00:03:04,380 --> 00:03:08,305
+Görüldü ki R-CNN algoritması bu şekliyle bir hayli yavaş,
+
+58
+00:03:08,305 --> 00:03:13,320
+bunun üzerine nasıl hızlandırılabileceği üzerine bir takım çalışmalar yapıldı.
+
+59
+00:03:13,320 --> 00:03:16,920
+Temel bir RCNN algoritması bölgeler önerir ve ardından o bölgeleri birer birer sınıflandırır.
+
+60
+00:03:16,920 --> 00:03:20,933
+Temel bir RCNN algoritması bölgeler önerir ve ardından o bölgeleri birer birer sınıflandırır.
+
+61
+00:03:20,933 --> 00:03:22,380
+ve her bölge için bir çıktı verir.
+
+62
+00:03:22,380 --> 00:03:23,844
+ve her bölge için bir çıktı verir.
+
+63
+00:03:23,844 --> 00:03:25,960
+araba var mı, yaya var mı?
+
+64
+00:03:25,960 --> 00:03:27,580
+ordaki bir motorsiklet mi?
+
+65
+00:03:27,580 --> 00:03:30,090
+ve aynı zamanda çıktı olarak bir de sınırlayıcı bir dörtgen veriyor.
+
+66
+00:03:30,090 --> 00:03:36,510
+bu şekilde daha doğru leke sınırlayıcı dörtgenler elde ediyoruz,
+
+67
+00:03:36,510 --> 00:03:37,645
+daha da net ifade edecek olursak
+
+68
+00:03:37,645 --> 00:03:42,075
+R-CNN algoritması verilen sınırlayıcı dörtgene hemen güvenmiyor,
+
+69
+00:03:42,075 --> 00:03:44,540
+aynı zamanda bi sınırlayıcı dörtgen sonucu da veriyor,
+
+70
+00:03:44,540 --> 00:03:46,620
+-B X B Y B H B W-
+
+71
+00:03:46,620 --> 00:03:51,045
+daha doğru sınırlayıcı dörtgenler
+
+72
+00:03:51,045 --> 00:03:56,070
+ve bölütleme algoritmasının verdiği lekeyi sınırlayan bi şekil elde etmek için.
+
+73
+00:03:56,070 --> 00:03:58,705
+dolayısıyla gayet doğru sınırlayıcı dörtgenler elde edebiliyoruz.
+
+74
+00:03:58,705 --> 00:04:03,425
+R-CNN algortitmasının bir dezavantajı oldukça yavaş olmasıydı,
+
+75
+00:04:03,425 --> 00:04:04,470
+geçen süre zarfında
+
+76
+00:04:04,470 --> 00:04:08,295
+R-CNN algoritmasında bir kaç ilerleme kaydedildi
+
+77
+00:04:08,295 --> 00:04:12,180
+Russ Gieshik "hızlı R-CNN" algoritmasını öne attı,
+
+78
+00:04:12,180 --> 00:04:15,150
+bu temelde,pencere kaydırma fikrinin evrişimsel olarak uygulandığı bir RCNN algoritmasıydı.
+
+79
+00:04:15,150 --> 00:04:18,290
+bu temelde,pencere kaydırma fikrinin evrişimsel olarak uygulandığı bir RCNN algoritmasıydı.
+
+80
+00:04:18,290 --> 00:04:23,745
+asıl uygulamada birim zamanda bir bölge sınıflandırılıyordu.
+
+81
+00:04:23,745 --> 00:04:28,955
+Yani Hızlı R-CNN algoritmasında  kayan pencerelerin evrişimsel uygulamasını kullanılıyor.
+
+82
+00:04:28,955 --> 00:04:35,550
+ve bu da kabaca bu haftanın dördüncü videosunda gördüğümüz fikre benzer.
+
+83
+00:04:35,550 --> 00:04:39,850
+ve bu R-CNN imizi biraz da olsa hızlandırıyor.
+
+84
+00:04:40,390 --> 00:04:46,680
+"Hızlı RCNN" ile ilgili bir problem vardı ki o da
+
+85
+00:04:46,680 --> 00:04:53,270
+bölge önermek için yapılan kümeleme adımı hala yavaştı ve farklı bi grup,
+
+86
+00:04:53,270 --> 00:04:56,025
+Shaoqing Ren, Kaiming He, Ross Girshick ve Jian Son,
+
+87
+00:04:56,025 --> 00:04:59,043
+"daha hızlı RCNN" algoritmasını öne sürdüler.
+
+88
+00:04:59,043 --> 00:05:02,520
+Bölgelerdeki lekeyi tespit etmek için geleneksel bölütleme yöntemleri yerine
+
+89
+00:05:02,520 --> 00:05:07,550
+evrişimsel yapay sinir ağlarını kullanıyorlardı.
+
+90
+00:05:07,550 --> 00:05:12,487
+bu algoritmanın biraz daha hızlı hale gelmesine sebep oldu,
+
+91
+00:05:12,487 --> 00:05:15,810
+çoğu uygulaması genellikle YOLO'dan daha yavaş olsa da.
+
+92
+00:05:15,810 --> 00:05:21,730
+çoğu uygulaması genellikle YOLO'dan daha yavaş olsa da.
+
+93
+00:05:21,730 --> 00:05:27,090
+bölgesel öneri fikri ,şimdiye kadar kadar bilgisayarlı görü alanında ciddi bir etki yarattı.
+
+94
+00:05:27,090 --> 00:05:32,995
+ve benim bu fikirleri öğretmek istememin sebebi, hala bu yöntemlerin uygulandığını görecek olmanız.
+
+95
+00:05:32,995 --> 00:05:35,595
+kendi adıma konuşacak olursam,şahsi fikrim,
+
+96
+00:05:35,595 --> 00:05:38,893
+,bilgisayarlı görü alanında araştırma yapan insanlarının tamamının fikrini yansıtmayacaktır,
+
+97
+00:05:38,893 --> 00:05:44,100
+bence bölgesel öneri ilginç bir fikir fakat iki adımdan oluşmayan
+
+98
+00:05:44,100 --> 00:05:45,630
+-ilk önce bölgeyi bul sonra da sınıflandır-
+
+99
+00:05:45,630 --> 00:05:49,800
+daha fazlasını aynı anda yapabilecek fikir
+
+100
+00:05:49,800 --> 00:05:53,085
+YOLO'ya benzer bir şekilde
+
+101
+00:05:53,085 --> 00:05:56,885
+bu bana uzun vadede daha umut verici bir doğrultu gibi gözüküyor
+
+102
+00:05:56,885 --> 00:05:58,995
+fakat dediğim gibi bu benim kişisel fikrim,
+
+103
+00:05:58,995 --> 00:06:01,865
+bilgisayarlı görü alanındaki araştırmacıların tamamını kapsamıyor,şüpheyle yaklaşmakta özgürsünüz.
+
+104
+00:06:01,865 --> 00:06:04,868
+bilgisayarlı görü alanındaki araştırmacıların tamamını kapsamıyor,şüpheyle yaklaşmakta özgürsünüz.
+
+105
+00:06:04,868 --> 00:06:07,550
+ama bence RCNN fikrini kullanan insanlara rastlayabilirsiniz.
+
+106
+00:06:07,550 --> 00:06:10,438
+ama bence RCNN fikrini kullanan insanlara rastlayabilirsiniz.
+
+107
+00:06:10,438 --> 00:06:14,460
+Öğrenmeye değerdi,bu şekilde başka algoritmaları daha iyi anlayabilirsiniz.
+
+108
+00:06:14,460 --> 00:06:21,565
+Şu an nesne tespitinde bu haftanın materyalini bitirmiş olduk
+
+109
+00:06:21,565 --> 00:06:25,133
+umarım bu haftanın sorularında uğraşırken keyif almışsınızdır.
+
+110
+00:06:25,133 --> 00:06:27,000
+bir sonraki haftayı iple çekiyorum.

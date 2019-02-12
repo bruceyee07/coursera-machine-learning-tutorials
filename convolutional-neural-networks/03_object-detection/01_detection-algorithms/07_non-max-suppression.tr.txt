@@ -1,0 +1,43 @@
+Nesne tespitindeki problemlerden biri de 
+sizin de daha önce öğrendiğiniz üzere Algoritmanız bir nesneyi birden fazla kez tespit edebilir. Nesneyi sadece bir kere testip etmek yerine Birden fazla kez tespit edebilir. Maksimum olmayanları bastırma ise her objeyi sadece bir kere tespit etmeyi sağlar. Bir örnek üzerinden inceleyelim. Diyelim ki, yayaları, arabaları ve motosikletleri tespit etmek istiyorsunuz. Resmin üstüne ızgara yerleştirebiliriz Bu ızgara 19'a 19 olsun. Şimdi, teknik olarak bu araba sadece 
+bir orta noktaya sahip ise, ızgaradaki sadece bir hücreye atanması gerekir. Ayrıca soldaki araba da sadece bir orta noktaya sahip. Yani teknik olarak sadece bir ızgara hücresi
+ orada araba olduğunu tahmin etmeli. Uygulamada nesne sınıflandırma ve yer bulma 
+algoritmalarını her hücre için çalıştırırız. Oldukça mümkündür ki, Bu hücre kendisinin arabanın 
+orta noktası olduğunu düşünebilir ve tabi ki bu da ve bu da, soldaki araba için de Belki sadece bu kutu değil Bu daha önce gördüğünüz bir test fotoğrafı ise, belki sadece o kutu araba olduğunu düşünmeyecek. Belki bu kutu ve bu kutu ve belki diğerleri de arabayı bulduklarını düşünecekler Hadi maksimum olmayanları bastırma
+nasıl çalışır bir örnekle başlayalım. Nesne sınıflandırma ve yer bulma 
+algoritmalarını her hücre için çalıştırdığınız için Nesne sınıflandırma ve yer bulma 
+algoritmalarını her hücre için çalıştırdığınız için bütün 361 hücrede. Birden fazla hücre el kaldırıp "Benim 'Pc' değerim, yani bir nesneye
+ sahip olma şansım fazla" diyebilir. Sadece iki hücre dışında, 19'un karesi yani 361 tanesi nesne bulduklarını düşünebilir. Yani, algoritmanız çalıştırdığınızda Her bir nesnenin birden çok kez
+ tespit edilmesi ile sonuçlanabilir. Maksimum olmayanları bastırma şunu yapar ki, Bu tespitleri temizler. Yani araç başına sadece bir tespit yaparsınız. Araç başına birden fazla tespit yerine. Yani aslında yaptığı iş, İlk olarak her tespitin olasılıklarına bakar. Kısmen Pc değerleri, bazı detayları bu haftaki programlama
+ alıştırmasında öğreneceksiniz. Aslında Pc çarpı C1 veya C2 veya C3. Ama şimdi, hadi Pc bir tespit olasılığı olsun, ve algoritma en büyük olanı alır. Bu durumda bu değer 0.9 ve algoritma der ki "Bu benim en çok güvendiğim tespit, o halde sadece onu vurgulayalım ve
+ burada araba bulunduğunu söyleyelim." Maksimum olmayanları bastırma işlemini yaptıktan sonra Geriye kalan dikdörtgenler ve 
+yüksek oranda çakışan dikdörtgenler yüksek IOU'ya sahip, bu çıktısını aldığımız dikdörtgen bastırılacak. Bu iki dikdörtgen 0.6 ve 0,7 olan İkisi de açık mavi olan dikdörtgen
+ ile büyük oranda çakışıyor Yani bu ikisi bastırılacak. Bastırıldıklarını anlamak için 
+onları biraz daha koyu renkle gösterelim. Sonra ise geriye kalan dikdörtgenlerin üzerinden geçelim, ve en yüksek olasılığa sahip olanı bulalım. En yüksek Pc değerli olanı 
+yani bu durumda değeri 0.8 olanı Bunun için diyebiliriz ki "Oh, burada bir araba tespit ettik." Ve sonra, maksimum olmayanları bastırma işlemi ile diğer yüksek IOU değerine sahip olanlardan kurtulmuş olunur. Yani şimdi bütün dikdörtgenler
+ vurgulanmış ya da karartılmış olur. Ve eğer sadece karartılmış dikdörtgenlerden kurtulursanız. Sadece vurgulanmış olanlar kalır. Bu ikisi son tahminlerimiz olur. İşte bu maksimum olmayanları bastırma, Maksimum olmayanlar demek ise sadece maksimum sınıflandırma olasılıklarını göstermek, ama ona yakın olup maksimum olmayanları bastırmak. Bu nedenle adı, maksimum olmayanları bastırma. Hadi algoritma ayrıntılarına inelim. İlk olarak, bu 19'a 19 ızgara üzerinde Çıktı olarak 19x19x8 bir çıktı değeri alacaksınız. Bu örnek için, Basite indirgemek için sadece
+ araba tespit yaptığımızı söyleyelim. Yani, C1, C2, C3'den kurtulalım. Varsayalım ki bu satırın, Her çıktısı 19'a 19 Öyle ki her satır 361 Yani 19'un karesi Her 361 hücre için Tahmin çıktıları alacaksınız. Bu da orada bir nesne olma şansı olacaktır, ve çevreleyen kutu da. Eğer sadece bir nesneniz varsa C1, C2, C3 olmayacaktır. Ne olduğunun ayrıntıları ise Birden çok nesnenin olduğu durumu Programlama egzersizine bırakacağım, Bu hafta sonrasında yapacaksınız. Şimdi maksimum olmayanları bastırma 
+algoritmasını uygulamak için Yapılabilecek ilk iş Pc değerleri 
+belli bir değerden küçük veya eşit olan bütün tahmin kutularını görmezden gelmek, bu değere 0.6 diyebiliriz. bütün tahmin kutularını görmezden gelmek, bu değere 0.6 diyebiliriz. Yani biz şunu diyeceğiz ki eğer Orada nesne olma şansı 0.6
+ bile olmayanlardan kurtulalım. Böylece bu bütün düşük olasılıklı kutuları görmezden geliriz. Bunu şöyle düşünebiliriz, her 361 hücre için olasılığı iyi olan bir kutu
+ çıktılıyoruz ve bu kutu ile birlikte o kutunun olasılığını çıktılıyoruz. Biz ise düşük olasılıklı olan bütün
+ çevreleyen kutuları görmezden geleceğiz. Biz ise düşük olasılıklı olan bütün
+ çevreleyen kutuları görmezden geleceğiz. Sırada ise eğer hala Görmezden gelinmemiş çevreleyen kutu kalmış ise En yüksek olasılıklı çevreleyen
+ kutuyu tekrar tekrar seçeceğiz. En yüksek Pc değerine sahip olan. Ve onu tahmin olarak çıktılayacağız. Bu işlem bir önceki slaytta yaptığımız işlem 
+olan çevreleyen kutuları daha açık renk yapmamız. Bu işlem bir önceki slaytta yaptığımız işlem 
+olan çevreleyen kutuları daha açık renk yapmamız. Böylece orada araba olduğuna dair bir tahminde bulunuruz. Sonra, geriye kalan bütün kutuları görmezden gelebiliriz. Daha önce görmezden gelinmemiş, ve çıktı olarak vermediğimiz bütün kutuları. Yani yüksek oranda çakışan 
+bütün kutuları görmezden gelelim, yüksek IOU'ya sahip Bir önceki adımda çıktı olarak aldığımız kutu. 'While' Döngüsündeki bu ikinci adım, 
+bir önceki slaytta olan açık renkte gösterdiğimiz çevreleyen kutular ile 
+yüksek oranda çakışan çevreleyen kutuların koyu renklendirilmesi, açık renkte gösterdiğimiz çevreleyen kutular ile 
+yüksek oranda çakışan çevreleyen kutuların koyu renklendirilmesi, Daha önce açık renkle vurguladığımız. Ve bunu yapmaya işlenmemiş
+bütün kutular işlenene kadar devam edeceğiz. Ve bunu yapmaya işlenmemiş
+bütün kutular işlenene kadar devam edeceğiz. Her kutunun teker teker işlenip
+ tahmin olarak çıktı alınması veya yüksek çakışma oranına
+ sahip olup görmezden gelinmesi veya çok yüksek IOU'ya sahip Tahmin ettiğiniz kutuyu, konumunu ve
+tespit edilen nesneyi çıktı olarak veririz. Tahmin ettiğiniz kutuyu, konumunu ve
+tespit edilen nesneyi çıktı olarak veririz. Bu slayt üzerinde algoritmayı tek bir nesne kullanarak tarif ettik. Eğer üç nesne tespit etmeyi denerseniz
+mesela yayalar, arabalar ve motosikleter o zaman
+çıktı vektörünüzde üç ek eleman olacaktır. Görünüşe göre yapılması gereken doğru şey, Maksimum olmayanları bastırma algoritmasını
+bağımsız olarak üç kere gerçekleştirmek. Her çıktı sınıfı için bir defa. Fakat bunun ayrıntılarını bu haftanın programlama egzersizine bırakacağım
+Kendiniz uygulayarak öğreneceksiniz. Maksimum olmayanları bastırma algoritmasını
+birden fazla sınıf için uygulayacaksınız. Maksimum olmayanları bastırma için bu kadar. Eğer açıkladığımız nesne tespit algoritmasını uygularsanız aslında oldukça tatmin edici sonuçlar elde edeceksiniz. YOLO algoritması konusunu bitirmeden önce Sizinle paylaşmak istediğim son bir düşünce var. Algoritmanızın çok daha iyi çalışmasını sağlayacak. Çapa kutuları düşüncesi. Haydi bir sonraki videoya geçelim.

@@ -1,0 +1,235 @@
+1
+00:00:00,000 --> 00:00:02,400
+Bir Sinirsel Stil Transfer sistemi oluşturmak için,
+
+2
+00:00:02,400 --> 00:00:05,730
+oluşturulan resim için bir maliyet fonksiyonu tanımlayalım.
+
+3
+00:00:05,730 --> 00:00:09,953
+Bu maliyet fonksiyonunu minimize ederek sonrasında
+
+4
+00:00:09,953 --> 00:00:12,270
+istediğiniz resimi oluşturabileceksiniz.
+
+5
+00:00:12,270 --> 00:00:15,231
+Problem formülünün ne olduğunu hatırlayın.
+
+6
+00:00:15,231 --> 00:00:17,400
+Size C içerik resmi,
+
+7
+00:00:17,400 --> 00:00:21,510
+S stil resmi verilmişti ve amacınız yeni bir G resmi oluşturmaktı.
+
+8
+00:00:21,510 --> 00:00:26,180
+Sinirsel stil transfer uygulaması için
+
+9
+00:00:26,180 --> 00:00:34,080
+yapacağınız şey G'nin J transfer fonksiyonunu tanımlamak. Böylelikle
+
+10
+00:00:34,080 --> 00:00:37,920
+oluşturulmuş belirli bir resmin ne kadar iyi olduğunu ölçebileceksiniz ve biz bu resmi oluşturmak için
+
+11
+00:00:37,920 --> 00:00:42,425
+G'ye ait J'yi dereceli alçalma ile minimize edeceğiz.
+
+12
+00:00:42,425 --> 00:00:44,490
+Belirli bir resim ne kadar iyi?
+
+13
+00:00:44,490 --> 00:00:48,460
+Bu maliyet fonksiyonunun iki parçasını tanımlayacağız.
+
+14
+00:00:48,460 --> 00:00:52,190
+İlk parça içerik maliyeti olarak adlandırılır.
+
+15
+00:00:52,190 --> 00:00:56,480
+Bu fonksiyon içerik resmi ile oluşturulan resmin bir fonksiyonudur ve
+
+16
+00:00:56,480 --> 00:01:00,960
+yaptığı şey oluşturulan resmin içeriği ile
+
+17
+00:01:00,960 --> 00:01:05,495
+içerik resmi C'nin içeriği arasındaki benzerliği ölçmektir. Ve daha sonra
+
+18
+00:01:05,495 --> 00:01:10,345
+buna S , G 'nin bir fonksiyonu olan stil maliyet fonksiyonu ekleyeceğiz
+
+19
+00:01:10,345 --> 00:01:14,720
+böylelikle resim G ile resim S 'nin stillerinin
+
+20
+00:01:14,720 --> 00:01:20,547
+ne kadar benzer olduğunu ölçeceğiz. Son olarak,
+
+21
+00:01:20,547 --> 00:01:24,180
+bu iki alpha ve beta hiper parametrelerini ağırlıklandırarak
+
+22
+00:01:24,180 --> 00:01:29,610
+stil maliyeti ve içerik maliyeti arasındaki göreceli ağırlığı belirleyeceğiz.
+
+23
+00:01:29,610 --> 00:01:33,405
+Ağırlıklandırmanın göreli maliyetini belirtmek için iki farklı hiper parametre kullanmak
+
+24
+00:01:33,405 --> 00:01:44,370
+gereksiz gözüküyor.
+
+25
+00:01:44,370 --> 00:01:47,070
+Bir parametre yeterli gözükebilir ama
+
+26
+00:01:47,070 --> 00:01:50,230
+Sinirsel Stil Transfer Algoritmaları 'nın orijinal yazarları
+
+27
+00:01:50,230 --> 00:01:52,410
+iki farklı hiper parametre kullanırlar.
+
+28
+00:01:52,410 --> 00:01:55,278
+Ben burada onların yaklaşımını takip edeceğim.
+
+29
+00:01:55,278 --> 00:01:57,925
+Önümüzdeki birkaç videoda göstereceğim
+
+30
+00:01:57,925 --> 00:02:00,810
+Sinirsel Stil Transfer Algoritmasi Leon Gatys, Alexander Ecker ve
+
+31
+00:02:00,810 --> 00:02:04,200
+Matthias'a aittir.
+
+32
+00:02:04,200 --> 00:02:09,630
+Makaleleri okumak için çok zor değildir bu neden ile bu birkaç videoyu izledikten sonra eğer isterseniz,
+
+33
+00:02:09,630 --> 00:02:14,550
+özellikle makalelerine bakmanızı tavsiye ederim.
+
+34
+00:02:14,550 --> 00:02:17,910
+Algoritmanın çalışma şekil şöyledir,
+
+35
+00:02:17,910 --> 00:02:21,300
+gerçekte yeni bir görüntü oluşturmak için
+
+36
+00:02:21,300 --> 00:02:25,030
+maliyet fonksiyonunu bulmak zorundadır, yaptığınız şey şöyledir.
+
+37
+00:02:25,030 --> 00:02:29,035
+Oluşturulan resim G 'yi rastgele başlatırsınız
+
+38
+00:02:29,035 --> 00:02:30,720
+böylelikle resim 100x100x3 veya 500x500x3
+
+39
+00:02:30,720 --> 00:02:37,200
+veya istediğiniz herhangi bir boyutta olabilir.
+
+40
+00:02:37,200 --> 00:02:41,885
+Daha sonra bir önceki slayttaki G 'nin J maliyet fonksiyonunu hesaplarız.
+
+41
+00:02:41,885 --> 00:02:47,805
+Bunu minimize etmek için dereceli alçalmayı kullanabilirsiniz böylelikle G 'yi
+
+42
+00:02:47,805 --> 00:02:54,300
+G eksi G 'nin maliyet fonksiyonu J 'nin türevine göre güncelleyebilirsiniz. Bu işlemde,
+
+43
+00:02:54,300 --> 00:02:58,770
+aslında 100x100x3 belki rgb kanal resmi olan G 'nin
+
+44
+00:02:58,770 --> 00:03:04,175
+piksel değerlerini güncelliyoruz.
+
+45
+00:03:04,175 --> 00:03:10,215
+İşte bir örnek, diyelim ki bu içerik resmi ve bu stil resmi ile başladınız.
+
+46
+00:03:10,215 --> 00:03:13,365
+Bu muhtemelen başka bir Picasso resmi.
+
+47
+00:03:13,365 --> 00:03:15,855
+G 'yi rastsal olarak başlattığınızda
+
+48
+00:03:15,855 --> 00:03:18,535
+başlangıçta oluşturulan rastsal resminiz
+
+49
+00:03:18,535 --> 00:03:24,110
+her piksel değerinin rastsal olarak seçildiği bu beyaz gürültü resmi olacaktır.
+
+50
+00:03:24,110 --> 00:03:25,905
+Dereceli alçaltmayı kullandıkça,
+
+51
+00:03:25,905 --> 00:03:32,325
+G 'nin maliyet fonksiyonu J 'yi pixel değerlerine göre yavaşça minimize edeceksiniz ve böylelikle
+
+52
+00:03:32,325 --> 00:03:36,030
+stil resminizin stiline göre işlenmiş ve gittikçe daha fazla içerik resminize benzeyen
+
+53
+00:03:36,030 --> 00:03:40,755
+bir resmi yavaşça elde edeceksiniz.
+
+54
+00:03:40,755 --> 00:03:44,690
+Bu videoda oluşturulan G resmi için bir maliyet fonksiyonu
+
+55
+00:03:44,690 --> 00:03:47,530
+tanımladığınız ve minimize ettiğiniz
+
+56
+00:03:47,530 --> 00:03:51,420
+Sinirsel Stil Algoritması 'nın genel hatlarını gördünüz.
+
+57
+00:03:51,420 --> 00:03:53,420
+Bir sonraki videoda içerik maliyet fonksiyonunun ve
+
+58
+00:03:53,420 --> 00:03:57,210
+stil maliyet fonksiyonunun nasıl tanımlandığını göreceğiz.
+
+59
+00:03:57,210 --> 00:03:59,530
+Bir sonraki videodan başlayarak buan bir göz atalım.

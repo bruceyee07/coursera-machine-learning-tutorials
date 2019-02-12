@@ -1,0 +1,259 @@
+1
+00:00:00,000 --> 00:00:05,040
+Nesne algılama algoritmanızın iyi çalıştığından nasıl emin olursunuz?
+
+2
+00:00:05,040 --> 00:00:10,234
+Bu videoda, Birleşimin Kesişimi fonksiyonunu öğreneceksiniz.
+
+3
+00:00:10,234 --> 00:00:14,115
+Bu fonksiyonu nesne belirleme algoritmanızı değerlendirirken kullanacağımız gibi,
+
+4
+00:00:14,115 --> 00:00:16,485
+bir sonraki videoda da
+
+5
+00:00:16,485 --> 00:00:20,625
+nesne belirleme algoritmanıza yeni bir bileşen eklemek için kullanacağız.
+
+6
+00:00:20,625 --> 00:00:22,610
+Algoritmanızın daha da iyi çalışması için.
+
+7
+00:00:22,610 --> 00:00:25,495
+Haydi başlayalım. Nesne belirleme üzerine çalışırken
+
+8
+00:00:25,495 --> 00:00:28,920
+Nesnenin yerini saptamanız da beklenir.
+
+9
+00:00:28,920 --> 00:00:31,870
+Eğer bu bir kesin referanslı karakter kutusu ise,
+
+10
+00:00:31,870 --> 00:00:35,890
+ve eğer algoritmanızın çıktısı bu mor karakter kutusu ise,
+
+11
+00:00:35,890 --> 00:00:38,900
+Bu iyi bir çıktı mıdır, yoksa kötü mü?
+
+12
+00:00:38,900 --> 00:00:44,610
+Birleşimin kesişimi fonksiyonunun yaptığı şey,
+
+13
+00:00:44,610 --> 00:00:53,650
+ya da IoU'nun (Intersection over Union) yaptığı şey, bu iki karakter kutusunun kesişimini hesaplamak.
+
+14
+00:00:53,650 --> 00:00:59,195
+Yani, bu iki karakter kutusunun birleşimini oluşturan bu bölge
+
+15
+00:00:59,195 --> 00:01:06,090
+her iki karakter kutusunu da kapsar.
+
+16
+00:01:06,090 --> 00:01:11,580
+Kesişim kümesi de buradaki daha küçük olan alandır.
+
+17
+00:01:11,580 --> 00:01:18,850
+Birleşimin Kesişimi, bu kesişim kümesinin büyüklüğünü hesaplar.
+
+18
+00:01:18,850 --> 00:01:22,598
+Şu turuncuyla taranmış kesişim alanının
+
+19
+00:01:22,598 --> 00:01:27,520
+birleşimin alanına bölümü
+
+20
+00:01:27,520 --> 00:01:30,430
+şu yeşil taralı alan.
+
+21
+00:01:30,430 --> 00:01:34,195
+Kurala göre, bu hesaplamanın sonucunda
+
+22
+00:01:34,195 --> 00:01:39,355
+eğer IoU 0.5'e eşit veya daha büyükse tahminin "Doğru" olduğuna karar verilir.
+
+23
+00:01:39,355 --> 00:01:45,310
+Eğer tahmini ve kesin referanslı karakter kutuları tam olarak üst üste gelmişse
+
+24
+00:01:45,310 --> 00:01:47,054
+birleşimin kesişimi (IoU) 1'e eşit olur.
+
+25
+00:01:47,054 --> 00:01:50,105
+Çünkü bu durumda kesişim birleşime eşit olacaktır.
+
+26
+00:01:50,105 --> 00:01:55,195
+Ama genellikle, IoU 0.5'e eşit ve daha büyük olduğu sürece
+
+27
+00:01:55,195 --> 00:01:59,685
+Çıktılar "Doğru" sonucu gösterecektir.
+
+28
+00:01:59,685 --> 00:02:03,880
+Tahmin edilen karakter kutusunun doğru olup olmadığına karar verirken
+
+29
+00:02:03,880 --> 00:02:10,130
+eşik olarak sıkça 0.5 kullanılır.
+
+30
+00:02:10,130 --> 00:02:11,650
+Bu bir kuraldır.
+
+31
+00:02:11,650 --> 00:02:12,975
+Ama eğer sonuçlarınızın daha kesin olmasını istiyorsanız
+
+32
+00:02:12,975 --> 00:02:14,790
+tahmininizi "Doğru" kabul etmek için
+
+33
+00:02:14,790 --> 00:02:19,845
+IoU 0.6'ya eşit veya büyük olarak da alabilirsiniz.
+
+34
+00:02:19,845 --> 00:02:21,570
+IoU ne kadar yüksekse,
+
+35
+00:02:21,570 --> 00:02:24,425
+Karakter kutusu da o kadar isabetli olacaktır.
+
+36
+00:02:24,425 --> 00:02:27,625
+Bu, aynı zamanda haritada yer saptamanın bir yoludur.
+
+37
+00:02:27,625 --> 00:02:32,560
+Tahminin isabetli olduğunu görmek için algoritmanın "doğru" olarak
+
+38
+00:02:32,560 --> 00:02:37,815
+belirleyip yerini saptadığı bir nesnede bu tip bir hesaplamayı
+
+39
+00:02:37,815 --> 00:02:42,410
+nesnenin doğru bir şekilde belirlendiğine karar vermek için kullanabilirsiniz.
+
+40
+00:02:42,410 --> 00:02:46,515
+Tekrar ediyorum, 0.5 göz kararı seçilmiş kural.
+
+41
+00:02:46,515 --> 00:02:49,535
+Arkasında bir teorik sebep yok.
+
+42
+00:02:49,535 --> 00:02:54,640
+Daha isabetli olmak istediğinizde eşik olarak 0.6 da seçebilirsiniz.
+
+43
+00:02:54,640 --> 00:03:00,070
+Bazen eşiği 0.6 veya 0.7 seçen kişiler görüyorum.
+
+44
+00:03:00,070 --> 00:03:04,100
+0.5'ten daha düşük bir eşik seçenler çok nadir.
+
+45
+00:03:04,100 --> 00:03:08,065
+Şimdi, IoU temelde
+
+46
+00:03:08,065 --> 00:03:10,540
+nesne yerleştirme algoritmanızın isabetli olup olmadığını
+
+47
+00:03:10,540 --> 00:03:14,080
+değerlendirmenin bir yoludur.
+
+48
+00:03:14,080 --> 00:03:20,340
+Ama daha genel olarak, IoU, iki karakter kutusunun örtüşümünü hesaplar.
+
+49
+00:03:20,340 --> 00:03:22,430
+İki kümeniz varsa
+
+50
+00:03:22,430 --> 00:03:23,980
+bunların kesişimini hesaplayabilirsiniz
+
+51
+00:03:23,980 --> 00:03:29,040
+birleşimini de hesaplayıp bu iki alanın birbirine oranını alabilirsiniz.
+
+52
+00:03:29,040 --> 00:03:34,985
+Aslında bu aynı zamanda, bu iki karakter kümesinin ne kadar benzer olduğunu ölçmeye de olanak verir.
+
+53
+00:03:34,985 --> 00:03:37,535
+Şimdi bu kullanımı bir de diğer videoda
+
+54
+00:03:37,535 --> 00:03:40,225
+Maksimum olmayan kesmeler hakkında konuşurken göreceğiz.
+
+55
+00:03:40,225 --> 00:03:46,170
+IoU ya da birleşimin kesişimi konusu bu kadar
+
+56
+00:03:46,170 --> 00:03:50,720
+Teminat mektubu konseptindeki IoU ile karıştırılmamalısınız
+
+57
+00:03:50,720 --> 00:03:53,610
+Diyelim ki birine borç para verdiniz, o kişi bir kağıda
+
+58
+00:03:53,610 --> 00:03:55,940
+"sana bu kadar borçluyum" yazarsa, buna da IoU denir.
+
+59
+00:03:55,940 --> 00:03:58,110
+Tamamen farklı durumlar
+
+60
+00:03:58,110 --> 00:04:03,111
+ama bu iki durumun da isminin aynı olması çok ilgi çekici.
+
+61
+00:04:03,111 --> 00:04:07,730
+Şu ana kadar birleşimin kesişmesinin bu tanımını konuştuk.
+
+62
+00:04:07,730 --> 00:04:09,055
+Bir sonraki videoda,
+
+63
+00:04:09,055 --> 00:04:12,045
+maksimum olmayan kesmelerden bahsetmek istiyorum.
+
+64
+00:04:12,045 --> 00:04:16,770
+Bu, YOLO çıktılarının daha iyi çalışmasını sağlayabilecek bir araç 
+
+65
+00:04:16,770 --> 00:04:18,470
+Haydi bir sonraki videoya geçelim.

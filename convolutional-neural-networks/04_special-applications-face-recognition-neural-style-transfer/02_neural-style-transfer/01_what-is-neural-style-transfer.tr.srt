@@ -1,0 +1,128 @@
+1
+00:00:00,000 --> 00:00:03,180
+ConvNet'in son zamanlardaki en eğlenceli ve heyecan verici
+
+2
+00:00:03,180 --> 00:00:06,600
+uygulamalarından birisi Sinirsel Stil Transferi oldu.
+
+3
+00:00:06,600 --> 00:00:12,560
+Problem alıştırmalarında bunu kendiniz uygulayıp kendi sanatınızı oluşturacaksınız.
+
+4
+00:00:12,560 --> 00:00:14,725
+Peki Sinirsel Stil Transferi Nedir?
+
+5
+00:00:14,725 --> 00:00:16,710
+bulan bir bilmece. 
+Böylece, Fold It, size gerçek hayattan
+
+6
+00:00:16,710 --> 00:00:18,310
+Bu resmi ele aldığınızı düşünelim
+
+7
+00:00:18,310 --> 00:00:22,140
+- aslında bu resim Stanford Üniversitesi'nde benim ofisime
+
+8
+00:00:22,140 --> 00:00:25,360
+çok da uzak olmayan bir yerden alındı - ve bu resmi
+
+9
+00:00:25,360 --> 00:00:29,940
+sağdaki resmin stilinde tekrar oluşturmak istediğinizi düşünelim.
+
+10
+00:00:29,940 --> 00:00:33,435
+Bu aslında Van Gogh'un Yıldızlı Gece (Staryy Night) tablosu.
+
+11
+00:00:33,435 --> 00:00:36,930
+Sinirsel Stil Transfer'inin yapmanıza olanak sağladığı şey
+
+12
+00:00:36,930 --> 00:00:40,620
+aşağıdaki gibi yeni bir resim yaratmanızdır. Bu resim
+
+13
+00:00:40,620 --> 00:00:43,890
+Stanford Üniversitesi Kampüsü'ndeki tablo gibidir
+
+14
+00:00:43,890 --> 00:00:48,580
+ama sağdaki resim stilinde çizilmiştir.
+
+15
+00:00:48,580 --> 00:00:53,145
+Bunu sizin kendinizin nasıl tanımlayabileceğini göstermek için,
+
+16
+00:00:53,145 --> 00:00:56,644
+içerik resmini belirtmek için C,
+
+17
+00:00:56,644 --> 00:00:59,545
+stil resmini belirtmek için S (style)
+
+18
+00:00:59,545 --> 00:01:02,990
+ve oluşturacağınız resim için G 'yi kullanacağım.
+
+19
+00:01:02,990 --> 00:01:07,890
+Başka bir örnek daha, bunun sizin içerik resminiz olduğunu düşünelim ve bakalım
+
+20
+00:01:07,890 --> 00:01:13,800
+bu San Francisco 'daki Golden Gate köprüsü ve bu da stil resminiz olsun,
+
+21
+00:01:13,800 --> 00:01:16,740
+Bu aslında bir Pablo Picasso resmi.
+
+22
+00:01:16,740 --> 00:01:21,120
+Artık bunları bir araya getirerek bu G resmini oluşturabilirsiniz
+
+23
+00:01:21,120 --> 00:01:26,720
+bu sağ tarafta gösterilen Picasso resminin stilinde Golden Gate tablosudur.
+
+24
+00:01:26,720 --> 00:01:31,140
+Bu slaytta gösterilen örnekler Justin Johnson tarafından oluşturuldu.
+
+25
+00:01:31,140 --> 00:01:37,520
+Bundan sonraki birkaç videoda bu resimlerin kendinizin nasıl oluşturabileceğinizi öğreneceksiniz.
+
+26
+00:01:37,520 --> 00:01:40,050
+Sinirsel Stil Transfer 'ini uygulayabilmek için,
+
+27
+00:01:40,050 --> 00:01:44,970
+ConvNet tarafından farklı katmanlardan çıkarılan özelliklere bakmanız gerekli,
+
+28
+00:01:44,970 --> 00:01:47,875
+bir ConvNet'in yüzeysel ve derin katmanlarına
+
+29
+00:01:47,875 --> 00:01:51,865
+Bir Sinirsel Stil Transfer 'ini nasıl uygulayabileceğinizin detayına inmeden önce
+
+30
+00:01:51,865 --> 00:01:54,485
+bir sonraki video da yapmak istediğim şey size
+
+31
+00:01:54,485 --> 00:01:59,905
+bir ConvNet'in tüm bu katmanlarının gerçekten hesaplama yapıp yapmadığı ile ilgili daha iyi bir sezgi verebilmek.
+
+32
+00:01:59,905 --> 00:02:02,210
+Buna bir sonraki videoda bakalım.

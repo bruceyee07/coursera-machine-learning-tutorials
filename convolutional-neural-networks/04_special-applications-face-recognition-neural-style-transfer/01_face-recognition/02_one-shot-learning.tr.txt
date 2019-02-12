@@ -1,0 +1,53 @@
+Yüz tanımanın zorluklarından biri olan
+tek seferde öğrenme problemini çözmemiz gerekiyor. Bu, yüz tanıma uygulamalarının çoğu için
+şu anlama geliyor; sadece bir resmi verilen bir kişiyi tanıyabilmeli
+veya yüzünün sadece bir örneği verilen bir kişiyi
+tanıyabilmemiz gerekiyor. Ve tarihsel olarak, derin öğrenme algoritmaları, eğer
+sadece bir eğitme örneğiniz varsa çok iyi çalışmaz. Hadi bunun ne anlama geldiği hakkında
+bir örneğe bakalım ve bu problemin nasıl ele alınacağı hakkında konuşalım. Diyelim ki kurumunuzda,
+çalışanların dört resmi olan bir veritabanınız var. Bunlar aslında benim Deeplearning.AI'dan
+meslektaşlarım, Khan, Danielle, Younes ve Thian. Şimdi diyelim ki birileri
+ofise geldi ve turnikeden geçiş izni verilmesini istiyorlar. Sistemin yapması gereken, şimdiye kadar Danielle'in
+sadece bir resminin görülmesine rağmen bunun gerçekten aynı kişi olduğunu tanımasıdır. Ve, tersine, eğer sistem veritabanında
+olmayan birini görürse, o zaman bunun veritabanındaki dört kişiden
+hiçbiri olmadığını anlamalı. Böylece tek seferde öğrenme probleminde, kişiyi tekrar tanımak için sadece bir örnekten
+öğrenmek zorundayız. Ve buna yüz tanıma sistemlerinin çoğunda
+ihtiyacımız var; çünkü çalışanların her birinin veya çalışan veritabanındaki
+takım üyelerinin sadece birer resmi olabilir. Dolayısıyla deneyebileceğimiz bir yaklaşım da
+kişinin resmini girip, ConvNet'i beslemek. Ve bir çıktı etiketi alalım, y, yukarıdaki
+dört kişinin her birine veya hiçbirine karşılık gelen dört çıktılı veya belki beş çıktılı
+eşiksiz en büyük işlev birimini(softmax) kullanan. Dolayısıyla bu, eşiksiz
+en büyük işlev fonksiyonundaki 5 çıktı olabilirdi. Ama bu gerçekte iyi çalışmaz. Çünkü eğer böyle küçük bir eğitim kümemiz
+varsa, bu görev için gürbüz bir sinir ağını
+eğitmeye gerçekten yeterli değildir. Ve eğer takımımıza yeni biri katılırsa ne olacak? Dolayısıyla şimdi tanımamız
+gereken 5 kişi var, yani şimdi altı çıktımız olmalı. ConvNet'i her defasında
+yeniden eğitmek zorunda mıyız? Bu hiç iyi bir yaklaşım gibi görünmüyor. Dolayısıyla yüz tanımayı uygulamak için,
+tek seferde öğrenmeyi uygulamak için. Bunun yerine, bu işi yapmak için, bunun yerine kullanacağımız şey,
+benzerlik fonksiyonunu öğrenmek. Özellikle, bir sinir ağının öyle bir
+fonksiyonu öğrenmesini isteriz ki işareti 'd' olacak, iki resmi girdi alsın ve iki resim arasındaki farkın
+derecesini çıktı alsın. Yani eğer iki resim de aynı kişiye aitse, bundan, küçük bir sayıyı çıktı vermesini isteriz. Ve eğer iki resim çok farklı kişilere aitse
+o zaman büyük bir sayıyı çıktı vermesini isteriz. Dolayısıyla tanıma süresi sırasında, eğer bunlar
+arasındaki farkın derecesi, bir üstün parametre(hyperparameter)
+olan tau eşiğinden az ise, o zaman bu iki resmin aynı kişiye
+ait olduğunu öngörebilirsiniz. Ve eğer bu, tau'dan büyük ise, bu iki resmin
+farklı kişilere ait olduğunu öngörebilirsiniz. Ve yüz doğrulama problemini
+işte bu şekilde ele alırız. Bunu tanıma görevinde kullanmak için,
+yapmamız gereken, bu yeni resim verildiğinde, 'd' fonksiyonunu,
+bu iki resmi kıyaslamak için kullanacağız. Ve belki çok büyük bir sayıyı çıktı alacağız,
+hadi bu örnek için 10 diyelim. Ve sonra bunu veritabanındaki ikinci resimle kıyaslarız. Ve bu ikisi aynı kişi olduğu için,
+çok küçük bir sayıyı çıktı almayı umarız. Bunu veritabanımızdaki diğer
+resimler için de yaparız, vesaire. Ve buna istinaden, bunun gerçekte
+o kişi olduğunu buluruz, Danielle olduğunu. Ve buna karşın, eğer veritabanınızda
+olmayan birileri çıkagelirse, tüm o ikili karşılaştırmaları yaparken
+'d' fonksiyonunu kullanıyor olduğumuz için, 'd'nin, dört ikili karşılaştırmanın hepsi için
+çok büyük bir sayıyı çıktı vermesini umarız. Ve bunun veritabanındaki dört kişiden
+hiçbirinin olmadığını söyleriz. Bunun, tek seferde öğrenme problemini
+çözmemiz için bize nasıl imkan verdiğine dikkat edelim. Bu, iki çift resmi girdi aldıktan sonra,
+aslında, ikisinin aynı kişi mi yoksa farklı kişiler mi olduğunu söyleyen 'd' fonksiyonunu
+öğrendiğimiz sürece, o halde,
+eğer takımınıza yeni birisi katılırsa, veritabanımıza beşinci kişiyi ekleyebiliriz,
+ve bu iyi çalışır. Böylece, iki resmi girdi alan,
+tek seferde öğrenme problemini ele almamıza imkan veren 'd' fonksiyonunun
+nasıl öğrendiğini görmüş olduk. Hadi sonraki videoda sinir ağını,
+bu 'd' fonksiyonunu öğrenmesi için aslında nasıl
+eğittiğimize bir bakış atalım.
